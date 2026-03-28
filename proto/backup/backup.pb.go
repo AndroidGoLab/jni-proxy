@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,4110 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type GetQuotaRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetQuotaRequest) Reset() {
+	*x = GetQuotaRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetQuotaRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetQuotaRequest) ProtoMessage() {}
+
+func (x *GetQuotaRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetQuotaRequest.ProtoReflect.Descriptor instead.
+func (*GetQuotaRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{0}
+}
+
+type GetQuotaResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetQuotaResponse) Reset() {
+	*x = GetQuotaResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetQuotaResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetQuotaResponse) ProtoMessage() {}
+
+func (x *GetQuotaResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetQuotaResponse.ProtoReflect.Descriptor instead.
+func (*GetQuotaResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetQuotaResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTransportFlagsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTransportFlagsRequest) Reset() {
+	*x = GetTransportFlagsRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTransportFlagsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTransportFlagsRequest) ProtoMessage() {}
+
+func (x *GetTransportFlagsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTransportFlagsRequest.ProtoReflect.Descriptor instead.
+func (*GetTransportFlagsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{2}
+}
+
+type GetTransportFlagsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTransportFlagsResponse) Reset() {
+	*x = GetTransportFlagsResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTransportFlagsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTransportFlagsResponse) ProtoMessage() {}
+
+func (x *GetTransportFlagsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTransportFlagsResponse.ProtoReflect.Descriptor instead.
+func (*GetTransportFlagsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetTransportFlagsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WriteEntityDataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteEntityDataRequest) Reset() {
+	*x = WriteEntityDataRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteEntityDataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteEntityDataRequest) ProtoMessage() {}
+
+func (x *WriteEntityDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteEntityDataRequest.ProtoReflect.Descriptor instead.
+func (*WriteEntityDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *WriteEntityDataRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteEntityDataRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteEntityDataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteEntityDataResponse) Reset() {
+	*x = WriteEntityDataResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteEntityDataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteEntityDataResponse) ProtoMessage() {}
+
+func (x *WriteEntityDataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteEntityDataResponse.ProtoReflect.Descriptor instead.
+func (*WriteEntityDataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *WriteEntityDataResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WriteEntityHeaderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteEntityHeaderRequest) Reset() {
+	*x = WriteEntityHeaderRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteEntityHeaderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteEntityHeaderRequest) ProtoMessage() {}
+
+func (x *WriteEntityHeaderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteEntityHeaderRequest.ProtoReflect.Descriptor instead.
+func (*WriteEntityHeaderRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *WriteEntityHeaderRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *WriteEntityHeaderRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteEntityHeaderResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteEntityHeaderResponse) Reset() {
+	*x = WriteEntityHeaderResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteEntityHeaderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteEntityHeaderResponse) ProtoMessage() {}
+
+func (x *WriteEntityHeaderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteEntityHeaderResponse.ProtoReflect.Descriptor instead.
+func (*WriteEntityHeaderResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *WriteEntityHeaderResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDataSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataSizeRequest) Reset() {
+	*x = GetDataSizeRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDataSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDataSizeRequest) ProtoMessage() {}
+
+func (x *GetDataSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDataSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetDataSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{8}
+}
+
+type GetDataSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataSizeResponse) Reset() {
+	*x = GetDataSizeResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDataSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDataSizeResponse) ProtoMessage() {}
+
+func (x *GetDataSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDataSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetDataSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetDataSizeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetKeyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeyRequest) Reset() {
+	*x = GetKeyRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeyRequest) ProtoMessage() {}
+
+func (x *GetKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeyRequest.ProtoReflect.Descriptor instead.
+func (*GetKeyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{10}
+}
+
+type GetKeyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeyResponse) Reset() {
+	*x = GetKeyResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeyResponse) ProtoMessage() {}
+
+func (x *GetKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeyResponse.ProtoReflect.Descriptor instead.
+func (*GetKeyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetKeyResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type ReadEntityDataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadEntityDataRequest) Reset() {
+	*x = ReadEntityDataRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadEntityDataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadEntityDataRequest) ProtoMessage() {}
+
+func (x *ReadEntityDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadEntityDataRequest.ProtoReflect.Descriptor instead.
+func (*ReadEntityDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *ReadEntityDataRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ReadEntityDataRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *ReadEntityDataRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type ReadEntityDataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadEntityDataResponse) Reset() {
+	*x = ReadEntityDataResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadEntityDataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadEntityDataResponse) ProtoMessage() {}
+
+func (x *ReadEntityDataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadEntityDataResponse.ProtoReflect.Descriptor instead.
+func (*ReadEntityDataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *ReadEntityDataResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ReadNextHeaderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadNextHeaderRequest) Reset() {
+	*x = ReadNextHeaderRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadNextHeaderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadNextHeaderRequest) ProtoMessage() {}
+
+func (x *ReadNextHeaderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadNextHeaderRequest.ProtoReflect.Descriptor instead.
+func (*ReadNextHeaderRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{14}
+}
+
+type ReadNextHeaderResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadNextHeaderResponse) Reset() {
+	*x = ReadNextHeaderResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadNextHeaderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadNextHeaderResponse) ProtoMessage() {}
+
+func (x *ReadNextHeaderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadNextHeaderResponse.ProtoReflect.Descriptor instead.
+func (*ReadNextHeaderResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *ReadNextHeaderResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SkipEntityDataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SkipEntityDataRequest) Reset() {
+	*x = SkipEntityDataRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SkipEntityDataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SkipEntityDataRequest) ProtoMessage() {}
+
+func (x *SkipEntityDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SkipEntityDataRequest.ProtoReflect.Descriptor instead.
+func (*SkipEntityDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{16}
+}
+
+type SkipEntityDataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SkipEntityDataResponse) Reset() {
+	*x = SkipEntityDataResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SkipEntityDataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SkipEntityDataResponse) ProtoMessage() {}
+
+func (x *SkipEntityDataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SkipEntityDataResponse.ProtoReflect.Descriptor instead.
+func (*SkipEntityDataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{17}
+}
+
+type Read0Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Read0Request) Reset() {
+	*x = Read0Request{}
+	mi := &file_proto_backup_backup_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Read0Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Read0Request) ProtoMessage() {}
+
+func (x *Read0Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Read0Request.ProtoReflect.Descriptor instead.
+func (*Read0Request) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{18}
+}
+
+type Read0Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Read0Response) Reset() {
+	*x = Read0Response{}
+	mi := &file_proto_backup_backup_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Read0Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Read0Response) ProtoMessage() {}
+
+func (x *Read0Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Read0Response.ProtoReflect.Descriptor instead.
+func (*Read0Response) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *Read0Response) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Read1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Read1_1Request) Reset() {
+	*x = Read1_1Request{}
+	mi := &file_proto_backup_backup_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Read1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Read1_1Request) ProtoMessage() {}
+
+func (x *Read1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Read1_1Request.ProtoReflect.Descriptor instead.
+func (*Read1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *Read1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Read1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Read1_1Response) Reset() {
+	*x = Read1_1Response{}
+	mi := &file_proto_backup_backup_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Read1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Read1_1Response) ProtoMessage() {}
+
+func (x *Read1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Read1_1Response.ProtoReflect.Descriptor instead.
+func (*Read1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *Read1_1Response) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Read3_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Read3_2Request) Reset() {
+	*x = Read3_2Request{}
+	mi := &file_proto_backup_backup_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Read3_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Read3_2Request) ProtoMessage() {}
+
+func (x *Read3_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Read3_2Request.ProtoReflect.Descriptor instead.
+func (*Read3_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *Read3_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *Read3_2Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *Read3_2Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type Read3_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Read3_2Response) Reset() {
+	*x = Read3_2Response{}
+	mi := &file_proto_backup_backup_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Read3_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Read3_2Response) ProtoMessage() {}
+
+func (x *Read3_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Read3_2Response.ProtoReflect.Descriptor instead.
+func (*Read3_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *Read3_2Response) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SizeRequest) Reset() {
+	*x = SizeRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SizeRequest) ProtoMessage() {}
+
+func (x *SizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SizeRequest.ProtoReflect.Descriptor instead.
+func (*SizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{24}
+}
+
+type SizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SizeResponse) Reset() {
+	*x = SizeResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SizeResponse) ProtoMessage() {}
+
+func (x *SizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SizeResponse.ProtoReflect.Descriptor instead.
+func (*SizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *SizeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewManagerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewManagerRequest) Reset() {
+	*x = NewManagerRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewManagerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewManagerRequest) ProtoMessage() {}
+
+func (x *NewManagerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewManagerRequest.ProtoReflect.Descriptor instead.
+func (*NewManagerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *NewManagerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewManagerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewManagerResponse) Reset() {
+	*x = NewManagerResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewManagerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewManagerResponse) ProtoMessage() {}
+
+func (x *NewManagerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewManagerResponse.ProtoReflect.Descriptor instead.
+func (*NewManagerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *NewManagerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DataChanged0Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DataChanged0Request) Reset() {
+	*x = DataChanged0Request{}
+	mi := &file_proto_backup_backup_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DataChanged0Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DataChanged0Request) ProtoMessage() {}
+
+func (x *DataChanged0Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DataChanged0Request.ProtoReflect.Descriptor instead.
+func (*DataChanged0Request) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *DataChanged0Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type DataChanged0Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DataChanged0Response) Reset() {
+	*x = DataChanged0Response{}
+	mi := &file_proto_backup_backup_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DataChanged0Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DataChanged0Response) ProtoMessage() {}
+
+func (x *DataChanged0Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DataChanged0Response.ProtoReflect.Descriptor instead.
+func (*DataChanged0Response) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{29}
+}
+
+type GetUserForAncestralSerialNumberRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserForAncestralSerialNumberRequest) Reset() {
+	*x = GetUserForAncestralSerialNumberRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserForAncestralSerialNumberRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserForAncestralSerialNumberRequest) ProtoMessage() {}
+
+func (x *GetUserForAncestralSerialNumberRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserForAncestralSerialNumberRequest.ProtoReflect.Descriptor instead.
+func (*GetUserForAncestralSerialNumberRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *GetUserForAncestralSerialNumberRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetUserForAncestralSerialNumberRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetUserForAncestralSerialNumberResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserForAncestralSerialNumberResponse) Reset() {
+	*x = GetUserForAncestralSerialNumberResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserForAncestralSerialNumberResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserForAncestralSerialNumberResponse) ProtoMessage() {}
+
+func (x *GetUserForAncestralSerialNumberResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserForAncestralSerialNumberResponse.ProtoReflect.Descriptor instead.
+func (*GetUserForAncestralSerialNumberResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetUserForAncestralSerialNumberResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RequestRestoreRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RequestRestoreRequest) Reset() {
+	*x = RequestRestoreRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RequestRestoreRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RequestRestoreRequest) ProtoMessage() {}
+
+func (x *RequestRestoreRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RequestRestoreRequest.ProtoReflect.Descriptor instead.
+func (*RequestRestoreRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *RequestRestoreRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RequestRestoreRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RequestRestoreResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RequestRestoreResponse) Reset() {
+	*x = RequestRestoreResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RequestRestoreResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RequestRestoreResponse) ProtoMessage() {}
+
+func (x *RequestRestoreResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RequestRestoreResponse.ProtoReflect.Descriptor instead.
+func (*RequestRestoreResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *RequestRestoreResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DataChanged1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DataChanged1_1Request) Reset() {
+	*x = DataChanged1_1Request{}
+	mi := &file_proto_backup_backup_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DataChanged1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DataChanged1_1Request) ProtoMessage() {}
+
+func (x *DataChanged1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DataChanged1_1Request.ProtoReflect.Descriptor instead.
+func (*DataChanged1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *DataChanged1_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DataChanged1_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type DataChanged1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DataChanged1_1Response) Reset() {
+	*x = DataChanged1_1Response{}
+	mi := &file_proto_backup_backup_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DataChanged1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DataChanged1_1Response) ProtoMessage() {}
+
+func (x *DataChanged1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DataChanged1_1Response.ProtoReflect.Descriptor instead.
+func (*DataChanged1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{35}
+}
+
+type NewFileBackupHelperRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewFileBackupHelperRequest) Reset() {
+	*x = NewFileBackupHelperRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewFileBackupHelperRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewFileBackupHelperRequest) ProtoMessage() {}
+
+func (x *NewFileBackupHelperRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewFileBackupHelperRequest.ProtoReflect.Descriptor instead.
+func (*NewFileBackupHelperRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *NewFileBackupHelperRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewFileBackupHelperRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewFileBackupHelperResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewFileBackupHelperResponse) Reset() {
+	*x = NewFileBackupHelperResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewFileBackupHelperResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewFileBackupHelperResponse) ProtoMessage() {}
+
+func (x *NewFileBackupHelperResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewFileBackupHelperResponse.ProtoReflect.Descriptor instead.
+func (*NewFileBackupHelperResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *NewFileBackupHelperResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type PerformBackupRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PerformBackupRequest) Reset() {
+	*x = PerformBackupRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PerformBackupRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PerformBackupRequest) ProtoMessage() {}
+
+func (x *PerformBackupRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PerformBackupRequest.ProtoReflect.Descriptor instead.
+func (*PerformBackupRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *PerformBackupRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *PerformBackupRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *PerformBackupRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *PerformBackupRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type PerformBackupResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PerformBackupResponse) Reset() {
+	*x = PerformBackupResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PerformBackupResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PerformBackupResponse) ProtoMessage() {}
+
+func (x *PerformBackupResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PerformBackupResponse.ProtoReflect.Descriptor instead.
+func (*PerformBackupResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{39}
+}
+
+type RestoreEntityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RestoreEntityRequest) Reset() {
+	*x = RestoreEntityRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RestoreEntityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RestoreEntityRequest) ProtoMessage() {}
+
+func (x *RestoreEntityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RestoreEntityRequest.ProtoReflect.Descriptor instead.
+func (*RestoreEntityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *RestoreEntityRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RestoreEntityRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RestoreEntityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RestoreEntityResponse) Reset() {
+	*x = RestoreEntityResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RestoreEntityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RestoreEntityResponse) ProtoMessage() {}
+
+func (x *RestoreEntityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RestoreEntityResponse.ProtoReflect.Descriptor instead.
+func (*RestoreEntityResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{41}
+}
+
+type WriteNewStateDescriptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteNewStateDescriptionRequest) Reset() {
+	*x = WriteNewStateDescriptionRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteNewStateDescriptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteNewStateDescriptionRequest) ProtoMessage() {}
+
+func (x *WriteNewStateDescriptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteNewStateDescriptionRequest.ProtoReflect.Descriptor instead.
+func (*WriteNewStateDescriptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *WriteNewStateDescriptionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *WriteNewStateDescriptionRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type WriteNewStateDescriptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteNewStateDescriptionResponse) Reset() {
+	*x = WriteNewStateDescriptionResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteNewStateDescriptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteNewStateDescriptionResponse) ProtoMessage() {}
+
+func (x *WriteNewStateDescriptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteNewStateDescriptionResponse.ProtoReflect.Descriptor instead.
+func (*WriteNewStateDescriptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{43}
+}
+
+type FullBackupFileRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FullBackupFileRequest) Reset() {
+	*x = FullBackupFileRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FullBackupFileRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FullBackupFileRequest) ProtoMessage() {}
+
+func (x *FullBackupFileRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FullBackupFileRequest.ProtoReflect.Descriptor instead.
+func (*FullBackupFileRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *FullBackupFileRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *FullBackupFileRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type FullBackupFileResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FullBackupFileResponse) Reset() {
+	*x = FullBackupFileResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FullBackupFileResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FullBackupFileResponse) ProtoMessage() {}
+
+func (x *FullBackupFileResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FullBackupFileResponse.ProtoReflect.Descriptor instead.
+func (*FullBackupFileResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{45}
+}
+
+type OnBackupRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBackupRequest) Reset() {
+	*x = OnBackupRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBackupRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBackupRequest) ProtoMessage() {}
+
+func (x *OnBackupRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBackupRequest.ProtoReflect.Descriptor instead.
+func (*OnBackupRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *OnBackupRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnBackupRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnBackupRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnBackupResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBackupResponse) Reset() {
+	*x = OnBackupResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBackupResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBackupResponse) ProtoMessage() {}
+
+func (x *OnBackupResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBackupResponse.ProtoReflect.Descriptor instead.
+func (*OnBackupResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{47}
+}
+
+type OnCreateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCreateRequest) Reset() {
+	*x = OnCreateRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCreateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCreateRequest) ProtoMessage() {}
+
+func (x *OnCreateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCreateRequest.ProtoReflect.Descriptor instead.
+func (*OnCreateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{48}
+}
+
+type OnCreateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCreateResponse) Reset() {
+	*x = OnCreateResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCreateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCreateResponse) ProtoMessage() {}
+
+func (x *OnCreateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCreateResponse.ProtoReflect.Descriptor instead.
+func (*OnCreateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{49}
+}
+
+type OnDestroyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDestroyRequest) Reset() {
+	*x = OnDestroyRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDestroyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDestroyRequest) ProtoMessage() {}
+
+func (x *OnDestroyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDestroyRequest.ProtoReflect.Descriptor instead.
+func (*OnDestroyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{50}
+}
+
+type OnDestroyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDestroyResponse) Reset() {
+	*x = OnDestroyResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDestroyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDestroyResponse) ProtoMessage() {}
+
+func (x *OnDestroyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDestroyResponse.ProtoReflect.Descriptor instead.
+func (*OnDestroyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{51}
+}
+
+type OnFullBackupRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnFullBackupRequest) Reset() {
+	*x = OnFullBackupRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnFullBackupRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnFullBackupRequest) ProtoMessage() {}
+
+func (x *OnFullBackupRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnFullBackupRequest.ProtoReflect.Descriptor instead.
+func (*OnFullBackupRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *OnFullBackupRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnFullBackupResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnFullBackupResponse) Reset() {
+	*x = OnFullBackupResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnFullBackupResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnFullBackupResponse) ProtoMessage() {}
+
+func (x *OnFullBackupResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnFullBackupResponse.ProtoReflect.Descriptor instead.
+func (*OnFullBackupResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{53}
+}
+
+type OnQuotaExceededRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnQuotaExceededRequest) Reset() {
+	*x = OnQuotaExceededRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnQuotaExceededRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnQuotaExceededRequest) ProtoMessage() {}
+
+func (x *OnQuotaExceededRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnQuotaExceededRequest.ProtoReflect.Descriptor instead.
+func (*OnQuotaExceededRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *OnQuotaExceededRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnQuotaExceededRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnQuotaExceededResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnQuotaExceededResponse) Reset() {
+	*x = OnQuotaExceededResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnQuotaExceededResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnQuotaExceededResponse) ProtoMessage() {}
+
+func (x *OnQuotaExceededResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnQuotaExceededResponse.ProtoReflect.Descriptor instead.
+func (*OnQuotaExceededResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{55}
+}
+
+type OnRestore3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRestore3Request) Reset() {
+	*x = OnRestore3Request{}
+	mi := &file_proto_backup_backup_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRestore3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRestore3Request) ProtoMessage() {}
+
+func (x *OnRestore3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRestore3Request.ProtoReflect.Descriptor instead.
+func (*OnRestore3Request) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *OnRestore3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnRestore3Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnRestore3Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnRestore3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRestore3Response) Reset() {
+	*x = OnRestore3Response{}
+	mi := &file_proto_backup_backup_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRestore3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRestore3Response) ProtoMessage() {}
+
+func (x *OnRestore3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRestore3Response.ProtoReflect.Descriptor instead.
+func (*OnRestore3Response) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{57}
+}
+
+type OnRestore3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRestore3_1Request) Reset() {
+	*x = OnRestore3_1Request{}
+	mi := &file_proto_backup_backup_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRestore3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRestore3_1Request) ProtoMessage() {}
+
+func (x *OnRestore3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRestore3_1Request.ProtoReflect.Descriptor instead.
+func (*OnRestore3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *OnRestore3_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnRestore3_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnRestore3_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnRestore3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRestore3_1Response) Reset() {
+	*x = OnRestore3_1Response{}
+	mi := &file_proto_backup_backup_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRestore3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRestore3_1Response) ProtoMessage() {}
+
+func (x *OnRestore3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRestore3_1Response.ProtoReflect.Descriptor instead.
+func (*OnRestore3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{59}
+}
+
+type OnRestoreFileRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int64                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg5          int64                  `protobuf:"varint,6,opt,name=arg5,proto3" json:"arg5,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRestoreFileRequest) Reset() {
+	*x = OnRestoreFileRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRestoreFileRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRestoreFileRequest) ProtoMessage() {}
+
+func (x *OnRestoreFileRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRestoreFileRequest.ProtoReflect.Descriptor instead.
+func (*OnRestoreFileRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *OnRestoreFileRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnRestoreFileRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnRestoreFileRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *OnRestoreFileRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *OnRestoreFileRequest) GetArg4() int64 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+func (x *OnRestoreFileRequest) GetArg5() int64 {
+	if x != nil {
+		return x.Arg5
+	}
+	return 0
+}
+
+type OnRestoreFileResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRestoreFileResponse) Reset() {
+	*x = OnRestoreFileResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRestoreFileResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRestoreFileResponse) ProtoMessage() {}
+
+func (x *OnRestoreFileResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRestoreFileResponse.ProtoReflect.Descriptor instead.
+func (*OnRestoreFileResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{61}
+}
+
+type OnRestoreFinishedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRestoreFinishedRequest) Reset() {
+	*x = OnRestoreFinishedRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRestoreFinishedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRestoreFinishedRequest) ProtoMessage() {}
+
+func (x *OnRestoreFinishedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRestoreFinishedRequest.ProtoReflect.Descriptor instead.
+func (*OnRestoreFinishedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{62}
+}
+
+type OnRestoreFinishedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRestoreFinishedResponse) Reset() {
+	*x = OnRestoreFinishedResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRestoreFinishedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRestoreFinishedResponse) ProtoMessage() {}
+
+func (x *OnRestoreFinishedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRestoreFinishedResponse.ProtoReflect.Descriptor instead.
+func (*OnRestoreFinishedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{63}
+}
+
+type HelperPerformBackupRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HelperPerformBackupRequest) Reset() {
+	*x = HelperPerformBackupRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HelperPerformBackupRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HelperPerformBackupRequest) ProtoMessage() {}
+
+func (x *HelperPerformBackupRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HelperPerformBackupRequest.ProtoReflect.Descriptor instead.
+func (*HelperPerformBackupRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *HelperPerformBackupRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *HelperPerformBackupRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *HelperPerformBackupRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type HelperRestoreEntityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HelperRestoreEntityRequest) Reset() {
+	*x = HelperRestoreEntityRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HelperRestoreEntityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HelperRestoreEntityRequest) ProtoMessage() {}
+
+func (x *HelperRestoreEntityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HelperRestoreEntityRequest.ProtoReflect.Descriptor instead.
+func (*HelperRestoreEntityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *HelperRestoreEntityRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type HelperWriteNewStateDescriptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HelperWriteNewStateDescriptionRequest) Reset() {
+	*x = HelperWriteNewStateDescriptionRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HelperWriteNewStateDescriptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HelperWriteNewStateDescriptionRequest) ProtoMessage() {}
+
+func (x *HelperWriteNewStateDescriptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HelperWriteNewStateDescriptionRequest.ProtoReflect.Descriptor instead.
+func (*HelperWriteNewStateDescriptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *HelperWriteNewStateDescriptionRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewSharedPreferencesBackupHelperRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSharedPreferencesBackupHelperRequest) Reset() {
+	*x = NewSharedPreferencesBackupHelperRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSharedPreferencesBackupHelperRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSharedPreferencesBackupHelperRequest) ProtoMessage() {}
+
+func (x *NewSharedPreferencesBackupHelperRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSharedPreferencesBackupHelperRequest.ProtoReflect.Descriptor instead.
+func (*NewSharedPreferencesBackupHelperRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *NewSharedPreferencesBackupHelperRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewSharedPreferencesBackupHelperRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewSharedPreferencesBackupHelperResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSharedPreferencesBackupHelperResponse) Reset() {
+	*x = NewSharedPreferencesBackupHelperResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSharedPreferencesBackupHelperResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSharedPreferencesBackupHelperResponse) ProtoMessage() {}
+
+func (x *NewSharedPreferencesBackupHelperResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSharedPreferencesBackupHelperResponse.ProtoReflect.Descriptor instead.
+func (*NewSharedPreferencesBackupHelperResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *NewSharedPreferencesBackupHelperResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnUpdateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnUpdateRequest) Reset() {
+	*x = OnUpdateRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnUpdateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnUpdateRequest) ProtoMessage() {}
+
+func (x *OnUpdateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnUpdateRequest.ProtoReflect.Descriptor instead.
+func (*OnUpdateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *OnUpdateRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnUpdateRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type OnUpdateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnUpdateResponse) Reset() {
+	*x = OnUpdateResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnUpdateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnUpdateResponse) ProtoMessage() {}
+
+func (x *OnUpdateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnUpdateResponse.ProtoReflect.Descriptor instead.
+func (*OnUpdateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{70}
+}
+
+type RestoreFinishedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RestoreFinishedRequest) Reset() {
+	*x = RestoreFinishedRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RestoreFinishedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RestoreFinishedRequest) ProtoMessage() {}
+
+func (x *RestoreFinishedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RestoreFinishedRequest.ProtoReflect.Descriptor instead.
+func (*RestoreFinishedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *RestoreFinishedRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RestoreFinishedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RestoreFinishedResponse) Reset() {
+	*x = RestoreFinishedResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RestoreFinishedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RestoreFinishedResponse) ProtoMessage() {}
+
+func (x *RestoreFinishedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RestoreFinishedResponse.ProtoReflect.Descriptor instead.
+func (*RestoreFinishedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{72}
+}
+
+type RestoreStartingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RestoreStartingRequest) Reset() {
+	*x = RestoreStartingRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RestoreStartingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RestoreStartingRequest) ProtoMessage() {}
+
+func (x *RestoreStartingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RestoreStartingRequest.ProtoReflect.Descriptor instead.
+func (*RestoreStartingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *RestoreStartingRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RestoreStartingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RestoreStartingResponse) Reset() {
+	*x = RestoreStartingResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RestoreStartingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RestoreStartingResponse) ProtoMessage() {}
+
+func (x *RestoreStartingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RestoreStartingResponse.ProtoReflect.Descriptor instead.
+func (*RestoreStartingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{74}
+}
+
+type NewAgentHelperRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAgentHelperRequest) Reset() {
+	*x = NewAgentHelperRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAgentHelperRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAgentHelperRequest) ProtoMessage() {}
+
+func (x *NewAgentHelperRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAgentHelperRequest.ProtoReflect.Descriptor instead.
+func (*NewAgentHelperRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{75}
+}
+
+type NewAgentHelperResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAgentHelperResponse) Reset() {
+	*x = NewAgentHelperResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAgentHelperResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAgentHelperResponse) ProtoMessage() {}
+
+func (x *NewAgentHelperResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAgentHelperResponse.ProtoReflect.Descriptor instead.
+func (*NewAgentHelperResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *NewAgentHelperResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddHelperRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddHelperRequest) Reset() {
+	*x = AddHelperRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddHelperRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddHelperRequest) ProtoMessage() {}
+
+func (x *AddHelperRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddHelperRequest.ProtoReflect.Descriptor instead.
+func (*AddHelperRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *AddHelperRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AddHelperRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *AddHelperRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AddHelperResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddHelperResponse) Reset() {
+	*x = AddHelperResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddHelperResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddHelperResponse) ProtoMessage() {}
+
+func (x *AddHelperResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddHelperResponse.ProtoReflect.Descriptor instead.
+func (*AddHelperResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{78}
+}
+
+type AgentHelperOnBackupRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AgentHelperOnBackupRequest) Reset() {
+	*x = AgentHelperOnBackupRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AgentHelperOnBackupRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AgentHelperOnBackupRequest) ProtoMessage() {}
+
+func (x *AgentHelperOnBackupRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AgentHelperOnBackupRequest.ProtoReflect.Descriptor instead.
+func (*AgentHelperOnBackupRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *AgentHelperOnBackupRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AgentHelperOnBackupRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AgentHelperOnBackupRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *AgentHelperOnBackupRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnRestoreRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRestoreRequest) Reset() {
+	*x = OnRestoreRequest{}
+	mi := &file_proto_backup_backup_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRestoreRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRestoreRequest) ProtoMessage() {}
+
+func (x *OnRestoreRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRestoreRequest.ProtoReflect.Descriptor instead.
+func (*OnRestoreRequest) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *OnRestoreRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnRestoreRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnRestoreRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnRestoreRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnRestoreResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRestoreResponse) Reset() {
+	*x = OnRestoreResponse{}
+	mi := &file_proto_backup_backup_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRestoreResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRestoreResponse) ProtoMessage() {}
+
+func (x *OnRestoreResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_backup_backup_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRestoreResponse.ProtoReflect.Descriptor instead.
+func (*OnRestoreResponse) Descriptor() ([]byte, []int) {
+	return file_proto_backup_backup_proto_rawDescGZIP(), []int{81}
+}
+
 var File_proto_backup_backup_proto protoreflect.FileDescriptor
 
 const file_proto_backup_backup_proto_rawDesc = "" +
 	"\n" +
-	"\x19proto/backup/backup.proto\x12\x06backupB0Z.github.com/AndroidGoLab/jni-proxy/proto/backupb\x06proto3"
+	"\x19proto/backup/backup.proto\x12\x06backup\"\x11\n" +
+	"\x0fGetQuotaRequest\"*\n" +
+	"\x10GetQuotaResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
+	"\x18GetTransportFlagsRequest\"3\n" +
+	"\x19GetTransportFlagsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"@\n" +
+	"\x16WriteEntityDataRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"1\n" +
+	"\x17WriteEntityDataResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"B\n" +
+	"\x18WriteEntityHeaderRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"3\n" +
+	"\x19WriteEntityHeaderResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x14\n" +
+	"\x12GetDataSizeRequest\"-\n" +
+	"\x13GetDataSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0f\n" +
+	"\rGetKeyRequest\"(\n" +
+	"\x0eGetKeyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"S\n" +
+	"\x15ReadEntityDataRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"0\n" +
+	"\x16ReadEntityDataResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
+	"\x15ReadNextHeaderRequest\"0\n" +
+	"\x16ReadNextHeaderResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x17\n" +
+	"\x15SkipEntityDataRequest\"\x18\n" +
+	"\x16SkipEntityDataResponse\"\x0e\n" +
+	"\fRead0Request\"'\n" +
+	"\rRead0Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"$\n" +
+	"\x0eRead1_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\")\n" +
+	"\x0fRead1_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"L\n" +
+	"\x0eRead3_2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\")\n" +
+	"\x0fRead3_2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\r\n" +
+	"\vSizeRequest\"&\n" +
+	"\fSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"'\n" +
+	"\x11NewManagerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\",\n" +
+	"\x12NewManagerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x13DataChanged0Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x16\n" +
+	"\x14DataChanged0Response\"T\n" +
+	"&GetUserForAncestralSerialNumberRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"A\n" +
+	"'GetUserForAncestralSerialNumberResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	"\x15RequestRestoreRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"0\n" +
+	"\x16RequestRestoreResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"C\n" +
+	"\x15DataChanged1_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x18\n" +
+	"\x16DataChanged1_1Response\"D\n" +
+	"\x1aNewFileBackupHelperRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"5\n" +
+	"\x1bNewFileBackupHelperResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"j\n" +
+	"\x14PerformBackupRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"\x17\n" +
+	"\x15PerformBackupResponse\"B\n" +
+	"\x14RestoreEntityRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x17\n" +
+	"\x15RestoreEntityResponse\"M\n" +
+	"\x1fWriteNewStateDescriptionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\"\n" +
+	" WriteNewStateDescriptionResponse\"?\n" +
+	"\x15FullBackupFileRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x18\n" +
+	"\x16FullBackupFileResponse\"M\n" +
+	"\x0fOnBackupRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x12\n" +
+	"\x10OnBackupResponse\"\x11\n" +
+	"\x0fOnCreateRequest\"\x12\n" +
+	"\x10OnCreateResponse\"\x12\n" +
+	"\x10OnDestroyRequest\"\x13\n" +
+	"\x11OnDestroyResponse\")\n" +
+	"\x13OnFullBackupRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x16\n" +
+	"\x14OnFullBackupResponse\"@\n" +
+	"\x16OnQuotaExceededRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x19\n" +
+	"\x17OnQuotaExceededResponse\"O\n" +
+	"\x11OnRestore3Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x14\n" +
+	"\x12OnRestore3Response\"Q\n" +
+	"\x13OnRestore3_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x16\n" +
+	"\x14OnRestore3_1Response\"\x8e\x01\n" +
+	"\x14OnRestoreFileRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x03R\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\x06 \x01(\x03R\x04arg5\"\x17\n" +
+	"\x15OnRestoreFileResponse\"\x1a\n" +
+	"\x18OnRestoreFinishedRequest\"\x1b\n" +
+	"\x19OnRestoreFinishedResponse\"X\n" +
+	"\x1aHelperPerformBackupRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"0\n" +
+	"\x1aHelperRestoreEntityRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\";\n" +
+	"%HelperWriteNewStateDescriptionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"Q\n" +
+	"'NewSharedPreferencesBackupHelperRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"B\n" +
+	"(NewSharedPreferencesBackupHelperResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"9\n" +
+	"\x0fOnUpdateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"\x12\n" +
+	"\x10OnUpdateResponse\",\n" +
+	"\x16RestoreFinishedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x19\n" +
+	"\x17RestoreFinishedResponse\",\n" +
+	"\x16RestoreStartingRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x19\n" +
+	"\x17RestoreStartingResponse\"\x17\n" +
+	"\x15NewAgentHelperRequest\"0\n" +
+	"\x16NewAgentHelperResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"R\n" +
+	"\x10AddHelperRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x13\n" +
+	"\x11AddHelperResponse\"p\n" +
+	"\x1aAgentHelperOnBackupRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"f\n" +
+	"\x10OnRestoreRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"\x13\n" +
+	"\x11OnRestoreResponse2\xda\x02\n" +
+	"\x11DataOutputService\x12=\n" +
+	"\bGetQuota\x12\x17.backup.GetQuotaRequest\x1a\x18.backup.GetQuotaResponse\x12X\n" +
+	"\x11GetTransportFlags\x12 .backup.GetTransportFlagsRequest\x1a!.backup.GetTransportFlagsResponse\x12R\n" +
+	"\x0fWriteEntityData\x12\x1e.backup.WriteEntityDataRequest\x1a\x1f.backup.WriteEntityDataResponse\x12X\n" +
+	"\x11WriteEntityHeader\x12 .backup.WriteEntityHeaderRequest\x1a!.backup.WriteEntityHeaderResponse2\x86\x03\n" +
+	"\x10DataInputService\x12F\n" +
+	"\vGetDataSize\x12\x1a.backup.GetDataSizeRequest\x1a\x1b.backup.GetDataSizeResponse\x127\n" +
+	"\x06GetKey\x12\x15.backup.GetKeyRequest\x1a\x16.backup.GetKeyResponse\x12O\n" +
+	"\x0eReadEntityData\x12\x1d.backup.ReadEntityDataRequest\x1a\x1e.backup.ReadEntityDataResponse\x12O\n" +
+	"\x0eReadNextHeader\x12\x1d.backup.ReadNextHeaderRequest\x1a\x1e.backup.ReadNextHeaderResponse\x12O\n" +
+	"\x0eSkipEntityData\x12\x1d.backup.SkipEntityDataRequest\x1a\x1e.backup.SkipEntityDataResponse2\xb2\x02\n" +
+	"\x16DataInputStreamService\x127\n" +
+	"\x06GetKey\x12\x15.backup.GetKeyRequest\x1a\x16.backup.GetKeyResponse\x124\n" +
+	"\x05Read0\x12\x14.backup.Read0Request\x1a\x15.backup.Read0Response\x12:\n" +
+	"\aRead1_1\x12\x16.backup.Read1_1Request\x1a\x17.backup.Read1_1Response\x12:\n" +
+	"\aRead3_2\x12\x16.backup.Read3_2Request\x1a\x17.backup.Read3_2Response\x121\n" +
+	"\x04Size\x12\x13.backup.SizeRequest\x1a\x14.backup.SizeResponse2\xc7\x03\n" +
+	"\x0eManagerService\x12C\n" +
+	"\n" +
+	"NewManager\x12\x19.backup.NewManagerRequest\x1a\x1a.backup.NewManagerResponse\x12I\n" +
+	"\fDataChanged0\x12\x1b.backup.DataChanged0Request\x1a\x1c.backup.DataChanged0Response\x12\x82\x01\n" +
+	"\x1fGetUserForAncestralSerialNumber\x12..backup.GetUserForAncestralSerialNumberRequest\x1a/.backup.GetUserForAncestralSerialNumberResponse\x12O\n" +
+	"\x0eRequestRestore\x12\x1d.backup.RequestRestoreRequest\x1a\x1e.backup.RequestRestoreResponse\x12O\n" +
+	"\x0eDataChanged1_1\x12\x1d.backup.DataChanged1_1Request\x1a\x1e.backup.DataChanged1_1Response2\x84\x03\n" +
+	"\x17FileBackupHelperService\x12^\n" +
+	"\x13NewFileBackupHelper\x12\".backup.NewFileBackupHelperRequest\x1a#.backup.NewFileBackupHelperResponse\x12L\n" +
+	"\rPerformBackup\x12\x1c.backup.PerformBackupRequest\x1a\x1d.backup.PerformBackupResponse\x12L\n" +
+	"\rRestoreEntity\x12\x1c.backup.RestoreEntityRequest\x1a\x1d.backup.RestoreEntityResponse\x12m\n" +
+	"\x18WriteNewStateDescription\x12'.backup.WriteNewStateDescriptionRequest\x1a(.backup.WriteNewStateDescriptionResponse2\xf6\x05\n" +
+	"\fAgentService\x12O\n" +
+	"\x0eFullBackupFile\x12\x1d.backup.FullBackupFileRequest\x1a\x1e.backup.FullBackupFileResponse\x12=\n" +
+	"\bOnBackup\x12\x17.backup.OnBackupRequest\x1a\x18.backup.OnBackupResponse\x12=\n" +
+	"\bOnCreate\x12\x17.backup.OnCreateRequest\x1a\x18.backup.OnCreateResponse\x12@\n" +
+	"\tOnDestroy\x12\x18.backup.OnDestroyRequest\x1a\x19.backup.OnDestroyResponse\x12I\n" +
+	"\fOnFullBackup\x12\x1b.backup.OnFullBackupRequest\x1a\x1c.backup.OnFullBackupResponse\x12R\n" +
+	"\x0fOnQuotaExceeded\x12\x1e.backup.OnQuotaExceededRequest\x1a\x1f.backup.OnQuotaExceededResponse\x12C\n" +
+	"\n" +
+	"OnRestore3\x12\x19.backup.OnRestore3Request\x1a\x1a.backup.OnRestore3Response\x12I\n" +
+	"\fOnRestore3_1\x12\x1b.backup.OnRestore3_1Request\x1a\x1c.backup.OnRestore3_1Response\x12L\n" +
+	"\rOnRestoreFile\x12\x1c.backup.OnRestoreFileRequest\x1a\x1d.backup.OnRestoreFileResponse\x12X\n" +
+	"\x11OnRestoreFinished\x12 .backup.OnRestoreFinishedRequest\x1a!.backup.OnRestoreFinishedResponse2\xb6\x01\n" +
+	"\x1bFullBackupDataOutputService\x12=\n" +
+	"\bGetQuota\x12\x17.backup.GetQuotaRequest\x1a\x18.backup.GetQuotaResponse\x12X\n" +
+	"\x11GetTransportFlags\x12 .backup.GetTransportFlagsRequest\x1a!.backup.GetTransportFlagsResponse2\xac\x02\n" +
+	"\rHelperService\x12R\n" +
+	"\rPerformBackup\x12\".backup.HelperPerformBackupRequest\x1a\x1d.backup.PerformBackupResponse\x12R\n" +
+	"\rRestoreEntity\x12\".backup.HelperRestoreEntityRequest\x1a\x1d.backup.RestoreEntityResponse\x12s\n" +
+	"\x18WriteNewStateDescription\x12-.backup.HelperWriteNewStateDescriptionRequest\x1a(.backup.WriteNewStateDescriptionResponse2\xb9\x03\n" +
+	"$SharedPreferencesBackupHelperService\x12\x85\x01\n" +
+	" NewSharedPreferencesBackupHelper\x12/.backup.NewSharedPreferencesBackupHelperRequest\x1a0.backup.NewSharedPreferencesBackupHelperResponse\x12L\n" +
+	"\rPerformBackup\x12\x1c.backup.PerformBackupRequest\x1a\x1d.backup.PerformBackupResponse\x12L\n" +
+	"\rRestoreEntity\x12\x1c.backup.RestoreEntityRequest\x1a\x1d.backup.RestoreEntityResponse\x12m\n" +
+	"\x18WriteNewStateDescription\x12'.backup.WriteNewStateDescriptionRequest\x1a(.backup.WriteNewStateDescriptionResponse2\xff\x01\n" +
+	"\x16RestoreObserverService\x12=\n" +
+	"\bOnUpdate\x12\x17.backup.OnUpdateRequest\x1a\x18.backup.OnUpdateResponse\x12R\n" +
+	"\x0fRestoreFinished\x12\x1e.backup.RestoreFinishedRequest\x1a\x1f.backup.RestoreFinishedResponse\x12R\n" +
+	"\x0fRestoreStarting\x12\x1e.backup.RestoreStartingRequest\x1a\x1f.backup.RestoreStartingResponse2\xb3\x02\n" +
+	"\x12AgentHelperService\x12O\n" +
+	"\x0eNewAgentHelper\x12\x1d.backup.NewAgentHelperRequest\x1a\x1e.backup.NewAgentHelperResponse\x12@\n" +
+	"\tAddHelper\x12\x18.backup.AddHelperRequest\x1a\x19.backup.AddHelperResponse\x12H\n" +
+	"\bOnBackup\x12\".backup.AgentHelperOnBackupRequest\x1a\x18.backup.OnBackupResponse\x12@\n" +
+	"\tOnRestore\x12\x18.backup.OnRestoreRequest\x1a\x19.backup.OnRestoreResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/backupb\x06proto3"
 
-var file_proto_backup_backup_proto_goTypes = []any{}
+var (
+	file_proto_backup_backup_proto_rawDescOnce sync.Once
+	file_proto_backup_backup_proto_rawDescData []byte
+)
+
+func file_proto_backup_backup_proto_rawDescGZIP() []byte {
+	file_proto_backup_backup_proto_rawDescOnce.Do(func() {
+		file_proto_backup_backup_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_backup_backup_proto_rawDesc), len(file_proto_backup_backup_proto_rawDesc)))
+	})
+	return file_proto_backup_backup_proto_rawDescData
+}
+
+var file_proto_backup_backup_proto_msgTypes = make([]protoimpl.MessageInfo, 82)
+var file_proto_backup_backup_proto_goTypes = []any{
+	(*GetQuotaRequest)(nil),                          // 0: backup.GetQuotaRequest
+	(*GetQuotaResponse)(nil),                         // 1: backup.GetQuotaResponse
+	(*GetTransportFlagsRequest)(nil),                 // 2: backup.GetTransportFlagsRequest
+	(*GetTransportFlagsResponse)(nil),                // 3: backup.GetTransportFlagsResponse
+	(*WriteEntityDataRequest)(nil),                   // 4: backup.WriteEntityDataRequest
+	(*WriteEntityDataResponse)(nil),                  // 5: backup.WriteEntityDataResponse
+	(*WriteEntityHeaderRequest)(nil),                 // 6: backup.WriteEntityHeaderRequest
+	(*WriteEntityHeaderResponse)(nil),                // 7: backup.WriteEntityHeaderResponse
+	(*GetDataSizeRequest)(nil),                       // 8: backup.GetDataSizeRequest
+	(*GetDataSizeResponse)(nil),                      // 9: backup.GetDataSizeResponse
+	(*GetKeyRequest)(nil),                            // 10: backup.GetKeyRequest
+	(*GetKeyResponse)(nil),                           // 11: backup.GetKeyResponse
+	(*ReadEntityDataRequest)(nil),                    // 12: backup.ReadEntityDataRequest
+	(*ReadEntityDataResponse)(nil),                   // 13: backup.ReadEntityDataResponse
+	(*ReadNextHeaderRequest)(nil),                    // 14: backup.ReadNextHeaderRequest
+	(*ReadNextHeaderResponse)(nil),                   // 15: backup.ReadNextHeaderResponse
+	(*SkipEntityDataRequest)(nil),                    // 16: backup.SkipEntityDataRequest
+	(*SkipEntityDataResponse)(nil),                   // 17: backup.SkipEntityDataResponse
+	(*Read0Request)(nil),                             // 18: backup.Read0Request
+	(*Read0Response)(nil),                            // 19: backup.Read0Response
+	(*Read1_1Request)(nil),                           // 20: backup.Read1_1Request
+	(*Read1_1Response)(nil),                          // 21: backup.Read1_1Response
+	(*Read3_2Request)(nil),                           // 22: backup.Read3_2Request
+	(*Read3_2Response)(nil),                          // 23: backup.Read3_2Response
+	(*SizeRequest)(nil),                              // 24: backup.SizeRequest
+	(*SizeResponse)(nil),                             // 25: backup.SizeResponse
+	(*NewManagerRequest)(nil),                        // 26: backup.NewManagerRequest
+	(*NewManagerResponse)(nil),                       // 27: backup.NewManagerResponse
+	(*DataChanged0Request)(nil),                      // 28: backup.DataChanged0Request
+	(*DataChanged0Response)(nil),                     // 29: backup.DataChanged0Response
+	(*GetUserForAncestralSerialNumberRequest)(nil),   // 30: backup.GetUserForAncestralSerialNumberRequest
+	(*GetUserForAncestralSerialNumberResponse)(nil),  // 31: backup.GetUserForAncestralSerialNumberResponse
+	(*RequestRestoreRequest)(nil),                    // 32: backup.RequestRestoreRequest
+	(*RequestRestoreResponse)(nil),                   // 33: backup.RequestRestoreResponse
+	(*DataChanged1_1Request)(nil),                    // 34: backup.DataChanged1_1Request
+	(*DataChanged1_1Response)(nil),                   // 35: backup.DataChanged1_1Response
+	(*NewFileBackupHelperRequest)(nil),               // 36: backup.NewFileBackupHelperRequest
+	(*NewFileBackupHelperResponse)(nil),              // 37: backup.NewFileBackupHelperResponse
+	(*PerformBackupRequest)(nil),                     // 38: backup.PerformBackupRequest
+	(*PerformBackupResponse)(nil),                    // 39: backup.PerformBackupResponse
+	(*RestoreEntityRequest)(nil),                     // 40: backup.RestoreEntityRequest
+	(*RestoreEntityResponse)(nil),                    // 41: backup.RestoreEntityResponse
+	(*WriteNewStateDescriptionRequest)(nil),          // 42: backup.WriteNewStateDescriptionRequest
+	(*WriteNewStateDescriptionResponse)(nil),         // 43: backup.WriteNewStateDescriptionResponse
+	(*FullBackupFileRequest)(nil),                    // 44: backup.FullBackupFileRequest
+	(*FullBackupFileResponse)(nil),                   // 45: backup.FullBackupFileResponse
+	(*OnBackupRequest)(nil),                          // 46: backup.OnBackupRequest
+	(*OnBackupResponse)(nil),                         // 47: backup.OnBackupResponse
+	(*OnCreateRequest)(nil),                          // 48: backup.OnCreateRequest
+	(*OnCreateResponse)(nil),                         // 49: backup.OnCreateResponse
+	(*OnDestroyRequest)(nil),                         // 50: backup.OnDestroyRequest
+	(*OnDestroyResponse)(nil),                        // 51: backup.OnDestroyResponse
+	(*OnFullBackupRequest)(nil),                      // 52: backup.OnFullBackupRequest
+	(*OnFullBackupResponse)(nil),                     // 53: backup.OnFullBackupResponse
+	(*OnQuotaExceededRequest)(nil),                   // 54: backup.OnQuotaExceededRequest
+	(*OnQuotaExceededResponse)(nil),                  // 55: backup.OnQuotaExceededResponse
+	(*OnRestore3Request)(nil),                        // 56: backup.OnRestore3Request
+	(*OnRestore3Response)(nil),                       // 57: backup.OnRestore3Response
+	(*OnRestore3_1Request)(nil),                      // 58: backup.OnRestore3_1Request
+	(*OnRestore3_1Response)(nil),                     // 59: backup.OnRestore3_1Response
+	(*OnRestoreFileRequest)(nil),                     // 60: backup.OnRestoreFileRequest
+	(*OnRestoreFileResponse)(nil),                    // 61: backup.OnRestoreFileResponse
+	(*OnRestoreFinishedRequest)(nil),                 // 62: backup.OnRestoreFinishedRequest
+	(*OnRestoreFinishedResponse)(nil),                // 63: backup.OnRestoreFinishedResponse
+	(*HelperPerformBackupRequest)(nil),               // 64: backup.HelperPerformBackupRequest
+	(*HelperRestoreEntityRequest)(nil),               // 65: backup.HelperRestoreEntityRequest
+	(*HelperWriteNewStateDescriptionRequest)(nil),    // 66: backup.HelperWriteNewStateDescriptionRequest
+	(*NewSharedPreferencesBackupHelperRequest)(nil),  // 67: backup.NewSharedPreferencesBackupHelperRequest
+	(*NewSharedPreferencesBackupHelperResponse)(nil), // 68: backup.NewSharedPreferencesBackupHelperResponse
+	(*OnUpdateRequest)(nil),                          // 69: backup.OnUpdateRequest
+	(*OnUpdateResponse)(nil),                         // 70: backup.OnUpdateResponse
+	(*RestoreFinishedRequest)(nil),                   // 71: backup.RestoreFinishedRequest
+	(*RestoreFinishedResponse)(nil),                  // 72: backup.RestoreFinishedResponse
+	(*RestoreStartingRequest)(nil),                   // 73: backup.RestoreStartingRequest
+	(*RestoreStartingResponse)(nil),                  // 74: backup.RestoreStartingResponse
+	(*NewAgentHelperRequest)(nil),                    // 75: backup.NewAgentHelperRequest
+	(*NewAgentHelperResponse)(nil),                   // 76: backup.NewAgentHelperResponse
+	(*AddHelperRequest)(nil),                         // 77: backup.AddHelperRequest
+	(*AddHelperResponse)(nil),                        // 78: backup.AddHelperResponse
+	(*AgentHelperOnBackupRequest)(nil),               // 79: backup.AgentHelperOnBackupRequest
+	(*OnRestoreRequest)(nil),                         // 80: backup.OnRestoreRequest
+	(*OnRestoreResponse)(nil),                        // 81: backup.OnRestoreResponse
+}
 var file_proto_backup_backup_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: backup.DataOutputService.GetQuota:input_type -> backup.GetQuotaRequest
+	2,  // 1: backup.DataOutputService.GetTransportFlags:input_type -> backup.GetTransportFlagsRequest
+	4,  // 2: backup.DataOutputService.WriteEntityData:input_type -> backup.WriteEntityDataRequest
+	6,  // 3: backup.DataOutputService.WriteEntityHeader:input_type -> backup.WriteEntityHeaderRequest
+	8,  // 4: backup.DataInputService.GetDataSize:input_type -> backup.GetDataSizeRequest
+	10, // 5: backup.DataInputService.GetKey:input_type -> backup.GetKeyRequest
+	12, // 6: backup.DataInputService.ReadEntityData:input_type -> backup.ReadEntityDataRequest
+	14, // 7: backup.DataInputService.ReadNextHeader:input_type -> backup.ReadNextHeaderRequest
+	16, // 8: backup.DataInputService.SkipEntityData:input_type -> backup.SkipEntityDataRequest
+	10, // 9: backup.DataInputStreamService.GetKey:input_type -> backup.GetKeyRequest
+	18, // 10: backup.DataInputStreamService.Read0:input_type -> backup.Read0Request
+	20, // 11: backup.DataInputStreamService.Read1_1:input_type -> backup.Read1_1Request
+	22, // 12: backup.DataInputStreamService.Read3_2:input_type -> backup.Read3_2Request
+	24, // 13: backup.DataInputStreamService.Size:input_type -> backup.SizeRequest
+	26, // 14: backup.ManagerService.NewManager:input_type -> backup.NewManagerRequest
+	28, // 15: backup.ManagerService.DataChanged0:input_type -> backup.DataChanged0Request
+	30, // 16: backup.ManagerService.GetUserForAncestralSerialNumber:input_type -> backup.GetUserForAncestralSerialNumberRequest
+	32, // 17: backup.ManagerService.RequestRestore:input_type -> backup.RequestRestoreRequest
+	34, // 18: backup.ManagerService.DataChanged1_1:input_type -> backup.DataChanged1_1Request
+	36, // 19: backup.FileBackupHelperService.NewFileBackupHelper:input_type -> backup.NewFileBackupHelperRequest
+	38, // 20: backup.FileBackupHelperService.PerformBackup:input_type -> backup.PerformBackupRequest
+	40, // 21: backup.FileBackupHelperService.RestoreEntity:input_type -> backup.RestoreEntityRequest
+	42, // 22: backup.FileBackupHelperService.WriteNewStateDescription:input_type -> backup.WriteNewStateDescriptionRequest
+	44, // 23: backup.AgentService.FullBackupFile:input_type -> backup.FullBackupFileRequest
+	46, // 24: backup.AgentService.OnBackup:input_type -> backup.OnBackupRequest
+	48, // 25: backup.AgentService.OnCreate:input_type -> backup.OnCreateRequest
+	50, // 26: backup.AgentService.OnDestroy:input_type -> backup.OnDestroyRequest
+	52, // 27: backup.AgentService.OnFullBackup:input_type -> backup.OnFullBackupRequest
+	54, // 28: backup.AgentService.OnQuotaExceeded:input_type -> backup.OnQuotaExceededRequest
+	56, // 29: backup.AgentService.OnRestore3:input_type -> backup.OnRestore3Request
+	58, // 30: backup.AgentService.OnRestore3_1:input_type -> backup.OnRestore3_1Request
+	60, // 31: backup.AgentService.OnRestoreFile:input_type -> backup.OnRestoreFileRequest
+	62, // 32: backup.AgentService.OnRestoreFinished:input_type -> backup.OnRestoreFinishedRequest
+	0,  // 33: backup.FullBackupDataOutputService.GetQuota:input_type -> backup.GetQuotaRequest
+	2,  // 34: backup.FullBackupDataOutputService.GetTransportFlags:input_type -> backup.GetTransportFlagsRequest
+	64, // 35: backup.HelperService.PerformBackup:input_type -> backup.HelperPerformBackupRequest
+	65, // 36: backup.HelperService.RestoreEntity:input_type -> backup.HelperRestoreEntityRequest
+	66, // 37: backup.HelperService.WriteNewStateDescription:input_type -> backup.HelperWriteNewStateDescriptionRequest
+	67, // 38: backup.SharedPreferencesBackupHelperService.NewSharedPreferencesBackupHelper:input_type -> backup.NewSharedPreferencesBackupHelperRequest
+	38, // 39: backup.SharedPreferencesBackupHelperService.PerformBackup:input_type -> backup.PerformBackupRequest
+	40, // 40: backup.SharedPreferencesBackupHelperService.RestoreEntity:input_type -> backup.RestoreEntityRequest
+	42, // 41: backup.SharedPreferencesBackupHelperService.WriteNewStateDescription:input_type -> backup.WriteNewStateDescriptionRequest
+	69, // 42: backup.RestoreObserverService.OnUpdate:input_type -> backup.OnUpdateRequest
+	71, // 43: backup.RestoreObserverService.RestoreFinished:input_type -> backup.RestoreFinishedRequest
+	73, // 44: backup.RestoreObserverService.RestoreStarting:input_type -> backup.RestoreStartingRequest
+	75, // 45: backup.AgentHelperService.NewAgentHelper:input_type -> backup.NewAgentHelperRequest
+	77, // 46: backup.AgentHelperService.AddHelper:input_type -> backup.AddHelperRequest
+	79, // 47: backup.AgentHelperService.OnBackup:input_type -> backup.AgentHelperOnBackupRequest
+	80, // 48: backup.AgentHelperService.OnRestore:input_type -> backup.OnRestoreRequest
+	1,  // 49: backup.DataOutputService.GetQuota:output_type -> backup.GetQuotaResponse
+	3,  // 50: backup.DataOutputService.GetTransportFlags:output_type -> backup.GetTransportFlagsResponse
+	5,  // 51: backup.DataOutputService.WriteEntityData:output_type -> backup.WriteEntityDataResponse
+	7,  // 52: backup.DataOutputService.WriteEntityHeader:output_type -> backup.WriteEntityHeaderResponse
+	9,  // 53: backup.DataInputService.GetDataSize:output_type -> backup.GetDataSizeResponse
+	11, // 54: backup.DataInputService.GetKey:output_type -> backup.GetKeyResponse
+	13, // 55: backup.DataInputService.ReadEntityData:output_type -> backup.ReadEntityDataResponse
+	15, // 56: backup.DataInputService.ReadNextHeader:output_type -> backup.ReadNextHeaderResponse
+	17, // 57: backup.DataInputService.SkipEntityData:output_type -> backup.SkipEntityDataResponse
+	11, // 58: backup.DataInputStreamService.GetKey:output_type -> backup.GetKeyResponse
+	19, // 59: backup.DataInputStreamService.Read0:output_type -> backup.Read0Response
+	21, // 60: backup.DataInputStreamService.Read1_1:output_type -> backup.Read1_1Response
+	23, // 61: backup.DataInputStreamService.Read3_2:output_type -> backup.Read3_2Response
+	25, // 62: backup.DataInputStreamService.Size:output_type -> backup.SizeResponse
+	27, // 63: backup.ManagerService.NewManager:output_type -> backup.NewManagerResponse
+	29, // 64: backup.ManagerService.DataChanged0:output_type -> backup.DataChanged0Response
+	31, // 65: backup.ManagerService.GetUserForAncestralSerialNumber:output_type -> backup.GetUserForAncestralSerialNumberResponse
+	33, // 66: backup.ManagerService.RequestRestore:output_type -> backup.RequestRestoreResponse
+	35, // 67: backup.ManagerService.DataChanged1_1:output_type -> backup.DataChanged1_1Response
+	37, // 68: backup.FileBackupHelperService.NewFileBackupHelper:output_type -> backup.NewFileBackupHelperResponse
+	39, // 69: backup.FileBackupHelperService.PerformBackup:output_type -> backup.PerformBackupResponse
+	41, // 70: backup.FileBackupHelperService.RestoreEntity:output_type -> backup.RestoreEntityResponse
+	43, // 71: backup.FileBackupHelperService.WriteNewStateDescription:output_type -> backup.WriteNewStateDescriptionResponse
+	45, // 72: backup.AgentService.FullBackupFile:output_type -> backup.FullBackupFileResponse
+	47, // 73: backup.AgentService.OnBackup:output_type -> backup.OnBackupResponse
+	49, // 74: backup.AgentService.OnCreate:output_type -> backup.OnCreateResponse
+	51, // 75: backup.AgentService.OnDestroy:output_type -> backup.OnDestroyResponse
+	53, // 76: backup.AgentService.OnFullBackup:output_type -> backup.OnFullBackupResponse
+	55, // 77: backup.AgentService.OnQuotaExceeded:output_type -> backup.OnQuotaExceededResponse
+	57, // 78: backup.AgentService.OnRestore3:output_type -> backup.OnRestore3Response
+	59, // 79: backup.AgentService.OnRestore3_1:output_type -> backup.OnRestore3_1Response
+	61, // 80: backup.AgentService.OnRestoreFile:output_type -> backup.OnRestoreFileResponse
+	63, // 81: backup.AgentService.OnRestoreFinished:output_type -> backup.OnRestoreFinishedResponse
+	1,  // 82: backup.FullBackupDataOutputService.GetQuota:output_type -> backup.GetQuotaResponse
+	3,  // 83: backup.FullBackupDataOutputService.GetTransportFlags:output_type -> backup.GetTransportFlagsResponse
+	39, // 84: backup.HelperService.PerformBackup:output_type -> backup.PerformBackupResponse
+	41, // 85: backup.HelperService.RestoreEntity:output_type -> backup.RestoreEntityResponse
+	43, // 86: backup.HelperService.WriteNewStateDescription:output_type -> backup.WriteNewStateDescriptionResponse
+	68, // 87: backup.SharedPreferencesBackupHelperService.NewSharedPreferencesBackupHelper:output_type -> backup.NewSharedPreferencesBackupHelperResponse
+	39, // 88: backup.SharedPreferencesBackupHelperService.PerformBackup:output_type -> backup.PerformBackupResponse
+	41, // 89: backup.SharedPreferencesBackupHelperService.RestoreEntity:output_type -> backup.RestoreEntityResponse
+	43, // 90: backup.SharedPreferencesBackupHelperService.WriteNewStateDescription:output_type -> backup.WriteNewStateDescriptionResponse
+	70, // 91: backup.RestoreObserverService.OnUpdate:output_type -> backup.OnUpdateResponse
+	72, // 92: backup.RestoreObserverService.RestoreFinished:output_type -> backup.RestoreFinishedResponse
+	74, // 93: backup.RestoreObserverService.RestoreStarting:output_type -> backup.RestoreStartingResponse
+	76, // 94: backup.AgentHelperService.NewAgentHelper:output_type -> backup.NewAgentHelperResponse
+	78, // 95: backup.AgentHelperService.AddHelper:output_type -> backup.AddHelperResponse
+	47, // 96: backup.AgentHelperService.OnBackup:output_type -> backup.OnBackupResponse
+	81, // 97: backup.AgentHelperService.OnRestore:output_type -> backup.OnRestoreResponse
+	49, // [49:98] is the sub-list for method output_type
+	0,  // [0:49] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_backup_backup_proto_init() }
@@ -48,12 +4140,13 @@ func file_proto_backup_backup_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_backup_backup_proto_rawDesc), len(file_proto_backup_backup_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   82,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   11,
 		},
 		GoTypes:           file_proto_backup_backup_proto_goTypes,
 		DependencyIndexes: file_proto_backup_backup_proto_depIdxs,
+		MessageInfos:      file_proto_backup_backup_proto_msgTypes,
 	}.Build()
 	File_proto_backup_backup_proto = out.File
 	file_proto_backup_backup_proto_goTypes = nil

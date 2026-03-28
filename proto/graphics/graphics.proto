@@ -5,3 +5,7513 @@ syntax = "proto3";
 package graphics;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/graphics";
+
+message ValuesRequest {
+}
+
+message ValuesResponse {
+  int64 result = 1;
+}
+
+message ValueOfRequest {
+  string arg0 = 1;
+}
+
+message ValueOfResponse {
+  int64 result = 1;
+}
+
+message NewMatrix44Request {
+}
+
+message NewMatrix44Response {
+  int64 result = 1;
+}
+
+message ConcatRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ConcatResponse {
+  int64 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetResponse {
+  float result = 1;
+}
+
+message GetValuesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetValuesResponse {
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message InvertRequest {
+  int64 handle = 1;
+}
+
+message InvertResponse {
+  bool result = 1;
+}
+
+message IsIdentityRequest {
+  int64 handle = 1;
+}
+
+message IsIdentityResponse {
+  bool result = 1;
+}
+
+message Map4Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message Map4Response {
+  int64 result = 1;
+}
+
+message Map5_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+  int64 arg4 = 6;
+}
+
+message Map5_1Response {
+}
+
+message ResetRequest {
+  int64 handle = 1;
+}
+
+message ResetResponse {
+}
+
+message RotateRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message RotateResponse {
+  int64 result = 1;
+}
+
+message ScaleRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message ScaleResponse {
+  int64 result = 1;
+}
+
+message SetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  float arg2 = 4;
+}
+
+message SetResponse {
+}
+
+message SetValuesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetValuesResponse {
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message TranslateRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message TranslateResponse {
+  int64 result = 1;
+}
+
+message HasNextRequest {
+}
+
+message HasNextResponse {
+  bool result = 1;
+}
+
+message Next0Request {
+}
+
+message Next0Response {
+  int64 result = 1;
+}
+
+message Next2_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message Next2_1Response {
+  int32 result = 1;
+}
+
+message PeekRequest {
+}
+
+message PeekResponse {
+  int32 result = 1;
+}
+
+message Next0_2Request {
+}
+
+message Next0_2Response {
+  int64 result = 1;
+}
+
+message GetConicWeightRequest {
+}
+
+message GetConicWeightResponse {
+  float result = 1;
+}
+
+message GetPointsRequest {
+}
+
+message GetPointsResponse {
+  int64 result = 1;
+}
+
+message GetVerbRequest {
+}
+
+message GetVerbResponse {
+  int32 result = 1;
+}
+
+message NewBlendModeColorFilterRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewBlendModeColorFilterResponse {
+  int64 result = 1;
+}
+
+message GetColorRequest {
+  int64 handle = 1;
+}
+
+message GetColorResponse {
+  int32 result = 1;
+}
+
+message GetModeRequest {
+  int64 handle = 1;
+}
+
+message GetModeResponse {
+  int64 result = 1;
+}
+
+message NewMatrixRequest {
+}
+
+message NewMatrixResponse {
+  int64 result = 1;
+}
+
+message DumpRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DumpResponse {
+}
+
+message MatrixInvertRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsAffineRequest {
+  int64 handle = 1;
+}
+
+message IsAffineResponse {
+  bool result = 1;
+}
+
+message MapPoints1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message MapPoints1Response {
+}
+
+message MapPoints2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message MapPoints2_1Response {
+}
+
+message MapPoints5_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+}
+
+message MapPoints5_2Response {
+}
+
+message MapRadiusRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message MapRadiusResponse {
+  float result = 1;
+}
+
+message MapRect1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message MapRect1Response {
+  bool result = 1;
+}
+
+message MapRect2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message MapRect2_1Response {
+  bool result = 1;
+}
+
+message MapVectors1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message MapVectors1Response {
+}
+
+message MapVectors2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message MapVectors2_1Response {
+}
+
+message MapVectors5_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+}
+
+message MapVectors5_2Response {
+}
+
+message PostConcatRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message PostConcatResponse {
+  bool result = 1;
+}
+
+message PostRotate1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message PostRotate1Response {
+  bool result = 1;
+}
+
+message PostRotate3_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message PostRotate3_1Response {
+  bool result = 1;
+}
+
+message PostScale2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message PostScale2Response {
+  bool result = 1;
+}
+
+message PostScale4_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message PostScale4_1Response {
+  bool result = 1;
+}
+
+message PostSkew2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message PostSkew2Response {
+  bool result = 1;
+}
+
+message PostSkew4_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message PostSkew4_1Response {
+  bool result = 1;
+}
+
+message PostTranslateRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message PostTranslateResponse {
+  bool result = 1;
+}
+
+message PreConcatRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message PreConcatResponse {
+  bool result = 1;
+}
+
+message PreRotate1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message PreRotate1Response {
+  bool result = 1;
+}
+
+message PreRotate3_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message PreRotate3_1Response {
+  bool result = 1;
+}
+
+message PreScale2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message PreScale2Response {
+  bool result = 1;
+}
+
+message PreScale4_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message PreScale4_1Response {
+  bool result = 1;
+}
+
+message PreSkew2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message PreSkew2Response {
+  bool result = 1;
+}
+
+message PreSkew4_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message PreSkew4_1Response {
+  bool result = 1;
+}
+
+message PreTranslateRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message PreTranslateResponse {
+  bool result = 1;
+}
+
+message RectStaysRectRequest {
+  int64 handle = 1;
+}
+
+message RectStaysRectResponse {
+  bool result = 1;
+}
+
+message MatrixSetRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetConcatRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetConcatResponse {
+  bool result = 1;
+}
+
+message SetPolyToPolyRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+}
+
+message SetPolyToPolyResponse {
+  bool result = 1;
+}
+
+message SetRectToRectRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message SetRectToRectResponse {
+  bool result = 1;
+}
+
+message SetRotate1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetRotate1Response {
+}
+
+message SetRotate3_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message SetRotate3_1Response {
+}
+
+message SetScale2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message SetScale2Response {
+}
+
+message SetScale4_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message SetScale4_1Response {
+}
+
+message SetSinCos2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message SetSinCos2Response {
+}
+
+message SetSinCos4_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message SetSinCos4_1Response {
+}
+
+message SetSkew2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message SetSkew2Response {
+}
+
+message SetSkew4_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message SetSkew4_1Response {
+}
+
+message SetTranslateRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message SetTranslateResponse {
+}
+
+message ToShortStringRequest {
+  int64 handle = 1;
+}
+
+message ToShortStringResponse {
+  string result = 1;
+}
+
+message NewPathRequest {
+}
+
+message NewPathResponse {
+  int64 result = 1;
+}
+
+message AddArc3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message AddArc3Response {
+}
+
+message AddArc6_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+  float arg4 = 6;
+  float arg5 = 7;
+}
+
+message AddArc6_1Response {
+}
+
+message AddCircleRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message AddCircleResponse {
+}
+
+message AddOval2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message AddOval2Response {
+}
+
+message AddOval5_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+  int64 arg4 = 6;
+}
+
+message AddOval5_1Response {
+}
+
+message AddPath1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddPath1Response {
+}
+
+message AddPath2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message AddPath2_1Response {
+}
+
+message AddPath3_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message AddPath3_2Response {
+}
+
+message AddRect2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message AddRect2Response {
+}
+
+message AddRect5_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+  int64 arg4 = 6;
+}
+
+message AddRect5_1Response {
+}
+
+message AddRoundRect4Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message AddRoundRect4Response {
+}
+
+message AddRoundRect3_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message AddRoundRect3_1Response {
+}
+
+message AddRoundRect7_2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+  float arg4 = 6;
+  float arg5 = 7;
+  int64 arg6 = 8;
+}
+
+message AddRoundRect7_2Response {
+}
+
+message AddRoundRect6_3Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+  int64 arg4 = 6;
+  int64 arg5 = 7;
+}
+
+message AddRoundRect6_3Response {
+}
+
+message ApproximateRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message ApproximateResponse {
+  int64 result = 1;
+}
+
+message ArcTo3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message ArcTo3Response {
+}
+
+message ArcTo4_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  bool arg3 = 5;
+}
+
+message ArcTo4_1Response {
+}
+
+message ArcTo7_2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+  float arg4 = 6;
+  float arg5 = 7;
+  bool arg6 = 8;
+}
+
+message ArcTo7_2Response {
+}
+
+message CloseRequest {
+  int64 handle = 1;
+}
+
+message CloseResponse {
+}
+
+message ComputeBounds1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ComputeBounds1Response {
+}
+
+message ComputeBounds2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message ComputeBounds2_1Response {
+}
+
+message ConicToRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+  float arg4 = 6;
+}
+
+message ConicToResponse {
+}
+
+message CubicToRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+  float arg4 = 6;
+  float arg5 = 7;
+}
+
+message CubicToResponse {
+}
+
+message GetFillTypeRequest {
+  int64 handle = 1;
+}
+
+message GetFillTypeResponse {
+  int64 result = 1;
+}
+
+message GetGenerationIdRequest {
+  int64 handle = 1;
+}
+
+message GetGenerationIdResponse {
+  int32 result = 1;
+}
+
+message GetPathIteratorRequest {
+  int64 handle = 1;
+}
+
+message GetPathIteratorResponse {
+  int64 result = 1;
+}
+
+message IncReserveRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message IncReserveResponse {
+}
+
+message InterpolateRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  float arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message InterpolateResponse {
+  bool result = 1;
+}
+
+message IsConvexRequest {
+  int64 handle = 1;
+}
+
+message IsConvexResponse {
+  bool result = 1;
+}
+
+message IsEmptyRequest {
+  int64 handle = 1;
+}
+
+message IsEmptyResponse {
+  bool result = 1;
+}
+
+message IsInterpolatableRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsInterpolatableResponse {
+  bool result = 1;
+}
+
+message IsInverseFillTypeRequest {
+  int64 handle = 1;
+}
+
+message IsInverseFillTypeResponse {
+  bool result = 1;
+}
+
+message IsRectRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsRectResponse {
+  bool result = 1;
+}
+
+message LineToRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message LineToResponse {
+}
+
+message MoveToRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message MoveToResponse {
+}
+
+message Offset2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message Offset2Response {
+}
+
+message Offset3_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message Offset3_1Response {
+}
+
+message Op3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message Op3Response {
+  bool result = 1;
+}
+
+message Op2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Op2_1Response {
+  bool result = 1;
+}
+
+message QuadToRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message QuadToResponse {
+}
+
+message RConicToRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+  float arg4 = 6;
+}
+
+message RConicToResponse {
+}
+
+message RCubicToRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+  float arg4 = 6;
+  float arg5 = 7;
+}
+
+message RCubicToResponse {
+}
+
+message RLineToRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message RLineToResponse {
+}
+
+message RMoveToRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message RMoveToResponse {
+}
+
+message RQuadToRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message RQuadToResponse {
+}
+
+message RewindRequest {
+  int64 handle = 1;
+}
+
+message RewindResponse {
+}
+
+message PathSetRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetFillTypeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetFillTypeResponse {
+}
+
+message SetLastPointRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message SetLastPointResponse {
+}
+
+message ToggleInverseFillTypeRequest {
+  int64 handle = 1;
+}
+
+message ToggleInverseFillTypeResponse {
+}
+
+message Transform1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Transform1Response {
+}
+
+message Transform2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Transform2_1Response {
+}
+
+message NewMeshRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message NewMeshResponse {
+  int64 result = 1;
+}
+
+message SetColorUniform2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetColorUniform2Response {
+}
+
+message SetColorUniform2_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetColorUniform2_1Response {
+}
+
+message SetColorUniform2_2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetColorUniform2_2Response {
+}
+
+message SetFloatUniform2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  float arg1 = 3;
+}
+
+message SetFloatUniform2Response {
+}
+
+message SetFloatUniform3_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message SetFloatUniform3_1Response {
+}
+
+message SetFloatUniform4_2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message SetFloatUniform4_2Response {
+}
+
+message SetFloatUniform5_3Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+  float arg4 = 6;
+}
+
+message SetFloatUniform5_3Response {
+}
+
+message SetFloatUniform2_4Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetFloatUniform2_4Response {
+}
+
+message SetIntUniform2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetIntUniform2Response {
+}
+
+message SetIntUniform3_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message SetIntUniform3_1Response {
+}
+
+message SetIntUniform4_2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message SetIntUniform4_2Response {
+}
+
+message SetIntUniform5_3Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+}
+
+message SetIntUniform5_3Response {
+}
+
+message SetIntUniform2_4Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetIntUniform2_4Response {
+}
+
+message NewRectFRequest {
+}
+
+message NewRectFResponse {
+  int64 result = 1;
+}
+
+message CenterXRequest {
+  int64 handle = 1;
+}
+
+message CenterXResponse {
+  float result = 1;
+}
+
+message CenterYRequest {
+  int64 handle = 1;
+}
+
+message CenterYResponse {
+  float result = 1;
+}
+
+message Contains1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Contains1Response {
+  bool result = 1;
+}
+
+message Contains2_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message Contains2_1Response {
+  bool result = 1;
+}
+
+message Contains4_2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message Contains4_2Response {
+  bool result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message HeightRequest {
+  int64 handle = 1;
+}
+
+message HeightResponse {
+  float result = 1;
+}
+
+message InsetRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message InsetResponse {
+}
+
+message Intersect1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Intersect1Response {
+  bool result = 1;
+}
+
+message Intersect4_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message Intersect4_1Response {
+  bool result = 1;
+}
+
+message Intersects4_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message Intersects4_1Response {
+  bool result = 1;
+}
+
+message OffsetRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message OffsetResponse {
+}
+
+message OffsetToRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message OffsetToResponse {
+}
+
+message ReadFromParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ReadFromParcelResponse {
+}
+
+message RoundRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RoundResponse {
+}
+
+message RoundOutRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RoundOutResponse {
+}
+
+message Set1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Set1Response {
+}
+
+message Set1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Set1_1Response {
+}
+
+message Set4_2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message Set4_2Response {
+}
+
+message SetEmptyRequest {
+  int64 handle = 1;
+}
+
+message SetEmptyResponse {
+}
+
+message SetIntersectRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetIntersectResponse {
+  bool result = 1;
+}
+
+message SortRequest {
+  int64 handle = 1;
+}
+
+message SortResponse {
+}
+
+message Union1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Union1Response {
+}
+
+message Union2_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message Union2_1Response {
+}
+
+message Union4_2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message Union4_2Response {
+}
+
+message WidthRequest {
+  int64 handle = 1;
+}
+
+message WidthResponse {
+  float result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message Intersects2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Intersects2Response {
+  bool result = 1;
+}
+
+message NewPixelFormatRequest {
+}
+
+message NewPixelFormatResponse {
+  int64 result = 1;
+}
+
+message FormatHasAlphaRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message FormatHasAlphaResponse {
+  bool result = 1;
+}
+
+message GetPixelFormatInfoRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message GetPixelFormatInfoResponse {
+}
+
+message NewGainmapRequest {
+  int64 arg0 = 1;
+}
+
+message NewGainmapResponse {
+  int64 result = 1;
+}
+
+message GetAlternativeImagePrimariesRequest {
+  int64 handle = 1;
+}
+
+message GetAlternativeImagePrimariesResponse {
+  int64 result = 1;
+}
+
+message GetDisplayRatioForFullHdrRequest {
+  int64 handle = 1;
+}
+
+message GetDisplayRatioForFullHdrResponse {
+  float result = 1;
+}
+
+message GetEpsilonHdrRequest {
+  int64 handle = 1;
+}
+
+message GetEpsilonHdrResponse {
+  int64 result = 1;
+}
+
+message GetEpsilonSdrRequest {
+  int64 handle = 1;
+}
+
+message GetEpsilonSdrResponse {
+  int64 result = 1;
+}
+
+message GetGainmapContentsRequest {
+  int64 handle = 1;
+}
+
+message GetGainmapContentsResponse {
+  int64 result = 1;
+}
+
+message GetGainmapDirectionRequest {
+  int64 handle = 1;
+}
+
+message GetGainmapDirectionResponse {
+  int32 result = 1;
+}
+
+message GetGammaRequest {
+  int64 handle = 1;
+}
+
+message GetGammaResponse {
+  int64 result = 1;
+}
+
+message GetMinDisplayRatioForHdrTransitionRequest {
+  int64 handle = 1;
+}
+
+message GetMinDisplayRatioForHdrTransitionResponse {
+  float result = 1;
+}
+
+message GetRatioMaxRequest {
+  int64 handle = 1;
+}
+
+message GetRatioMaxResponse {
+  int64 result = 1;
+}
+
+message GetRatioMinRequest {
+  int64 handle = 1;
+}
+
+message GetRatioMinResponse {
+  int64 result = 1;
+}
+
+message SetAlternativeImagePrimariesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetAlternativeImagePrimariesResponse {
+}
+
+message SetDisplayRatioForFullHdrRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetDisplayRatioForFullHdrResponse {
+}
+
+message SetEpsilonHdrRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message SetEpsilonHdrResponse {
+}
+
+message SetEpsilonSdrRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message SetEpsilonSdrResponse {
+}
+
+message SetGainmapContentsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetGainmapContentsResponse {
+}
+
+message SetGainmapDirectionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetGainmapDirectionResponse {
+}
+
+message SetGammaRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message SetGammaResponse {
+}
+
+message SetMinDisplayRatioForHdrTransitionRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetMinDisplayRatioForHdrTransitionResponse {
+}
+
+message SetRatioMaxRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message SetRatioMaxResponse {
+}
+
+message SetRatioMinRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message SetRatioMinResponse {
+}
+
+message NewRuntimeXfermodeRequest {
+  string arg0 = 1;
+}
+
+message NewRuntimeXfermodeResponse {
+  int64 result = 1;
+}
+
+message SetInputColorFilterRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetInputColorFilterResponse {
+}
+
+message SetInputShaderRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetInputShaderResponse {
+}
+
+message SetInputXfermodeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetInputXfermodeResponse {
+}
+
+message NewPorterDuffColorFilterRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewPorterDuffColorFilterResponse {
+  int64 result = 1;
+}
+
+message NewParcelableColorSpaceRequest {
+  int64 arg0 = 1;
+}
+
+message NewParcelableColorSpaceResponse {
+  int64 result = 1;
+}
+
+message GetColorSpaceRequest {
+  int64 handle = 1;
+}
+
+message GetColorSpaceResponse {
+  int64 result = 1;
+}
+
+message IsParcelableRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsParcelableResponse {
+  bool result = 1;
+}
+
+message NewImageFormatRequest {
+}
+
+message NewImageFormatResponse {
+  int64 result = 1;
+}
+
+message GetBitsPerPixelRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetBitsPerPixelResponse {
+  int32 result = 1;
+}
+
+message OnPostProcessRequest {
+  int64 arg0 = 1;
+}
+
+message OnPostProcessResponse {
+  int32 result = 1;
+}
+
+message NewSurfaceTextureRequest {
+  bool arg0 = 1;
+}
+
+message NewSurfaceTextureResponse {
+  int64 result = 1;
+}
+
+message AttachToGLContextRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message AttachToGLContextResponse {
+}
+
+message DetachFromGLContextRequest {
+  int64 handle = 1;
+}
+
+message DetachFromGLContextResponse {
+}
+
+message GetDataSpaceRequest {
+  int64 handle = 1;
+}
+
+message GetDataSpaceResponse {
+  int32 result = 1;
+}
+
+message GetTimestampRequest {
+  int64 handle = 1;
+}
+
+message GetTimestampResponse {
+  int64 result = 1;
+}
+
+message GetTransformMatrixRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetTransformMatrixResponse {
+}
+
+message IsReleasedRequest {
+  int64 handle = 1;
+}
+
+message IsReleasedResponse {
+  bool result = 1;
+}
+
+message ReleaseRequest {
+  int64 handle = 1;
+}
+
+message ReleaseResponse {
+}
+
+message ReleaseTexImageRequest {
+  int64 handle = 1;
+}
+
+message ReleaseTexImageResponse {
+}
+
+message SetDefaultBufferSizeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetDefaultBufferSizeResponse {
+}
+
+message SetOnFrameAvailableListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetOnFrameAvailableListenerResponse {
+}
+
+message UpdateTexImageRequest {
+  int64 handle = 1;
+}
+
+message UpdateTexImageResponse {
+}
+
+message OnFrameAvailableRequest {
+  int64 arg0 = 1;
+}
+
+message OnFrameAvailableResponse {
+}
+
+message Make5Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  string arg3 = 4;
+  string arg4 = 5;
+}
+
+message Make5Response {
+  int64 result = 1;
+}
+
+message Make6_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  string arg3 = 4;
+  string arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message Make6_1Response {
+  int64 result = 1;
+}
+
+message Make7_2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  string arg3 = 4;
+  string arg4 = 5;
+  int64 arg5 = 6;
+  int32 arg6 = 7;
+}
+
+message Make7_2Response {
+  int64 result = 1;
+}
+
+message GetNameRequest {
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message GetOffsetRequest {
+}
+
+message GetOffsetResponse {
+  int32 result = 1;
+}
+
+message GetTypeRequest {
+}
+
+message GetTypeResponse {
+  int32 result = 1;
+}
+
+message MeshSpecificationAttributeToStringRequest {
+}
+
+message MeshSpecificationVaryingToStringRequest {
+}
+
+message NewBitmapFactoryRequest {
+}
+
+message NewBitmapFactoryResponse {
+  int64 result = 1;
+}
+
+message DecodeByteArray3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message DecodeByteArray3Response {
+  int64 result = 1;
+}
+
+message DecodeByteArray4_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message DecodeByteArray4_1Response {
+  int64 result = 1;
+}
+
+message DecodeFile1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message DecodeFile1Response {
+  int64 result = 1;
+}
+
+message DecodeFile2_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message DecodeFile2_1Response {
+  int64 result = 1;
+}
+
+message DecodeFileDescriptor1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DecodeFileDescriptor1Response {
+  int64 result = 1;
+}
+
+message DecodeFileDescriptor3_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message DecodeFileDescriptor3_1Response {
+  int64 result = 1;
+}
+
+message DecodeResource2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message DecodeResource2Response {
+  int64 result = 1;
+}
+
+message DecodeResource3_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message DecodeResource3_1Response {
+  int64 result = 1;
+}
+
+message DecodeResourceStreamRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+  int64 arg4 = 6;
+}
+
+message DecodeResourceStreamResponse {
+  int64 result = 1;
+}
+
+message DecodeStream1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DecodeStream1Response {
+  int64 result = 1;
+}
+
+message DecodeStream3_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message DecodeStream3_1Response {
+  int64 result = 1;
+}
+
+message RequestCancelDecodeRequest {
+}
+
+message RequestCancelDecodeResponse {
+}
+
+message NewRenderNodeRequest {
+  string arg0 = 1;
+}
+
+message NewRenderNodeResponse {
+  int64 result = 1;
+}
+
+message BeginRecording0Request {
+  int64 handle = 1;
+}
+
+message BeginRecording0Response {
+  int64 result = 1;
+}
+
+message BeginRecording2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message BeginRecording2_1Response {
+  int64 result = 1;
+}
+
+message ComputeApproximateMemoryUsageRequest {
+  int64 handle = 1;
+}
+
+message ComputeApproximateMemoryUsageResponse {
+  int64 result = 1;
+}
+
+message DiscardDisplayListRequest {
+  int64 handle = 1;
+}
+
+message DiscardDisplayListResponse {
+}
+
+message EndRecordingRequest {
+  int64 handle = 1;
+}
+
+message EndRecordingResponse {
+}
+
+message GetAlphaRequest {
+  int64 handle = 1;
+}
+
+message GetAlphaResponse {
+  float result = 1;
+}
+
+message GetAmbientShadowColorRequest {
+  int64 handle = 1;
+}
+
+message GetAmbientShadowColorResponse {
+  int32 result = 1;
+}
+
+message GetBottomRequest {
+  int64 handle = 1;
+}
+
+message GetBottomResponse {
+  int32 result = 1;
+}
+
+message GetCameraDistanceRequest {
+  int64 handle = 1;
+}
+
+message GetCameraDistanceResponse {
+  float result = 1;
+}
+
+message GetClipToBoundsRequest {
+  int64 handle = 1;
+}
+
+message GetClipToBoundsResponse {
+  bool result = 1;
+}
+
+message GetClipToOutlineRequest {
+  int64 handle = 1;
+}
+
+message GetClipToOutlineResponse {
+  bool result = 1;
+}
+
+message GetElevationRequest {
+  int64 handle = 1;
+}
+
+message GetElevationResponse {
+  float result = 1;
+}
+
+message GetHeightRequest {
+  int64 handle = 1;
+}
+
+message GetHeightResponse {
+  int32 result = 1;
+}
+
+message GetInverseMatrixRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetInverseMatrixResponse {
+}
+
+message GetLeftRequest {
+  int64 handle = 1;
+}
+
+message GetLeftResponse {
+  int32 result = 1;
+}
+
+message GetMatrixRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetMatrixResponse {
+}
+
+message GetPivotXRequest {
+  int64 handle = 1;
+}
+
+message GetPivotXResponse {
+  float result = 1;
+}
+
+message GetPivotYRequest {
+  int64 handle = 1;
+}
+
+message GetPivotYResponse {
+  float result = 1;
+}
+
+message GetRightRequest {
+  int64 handle = 1;
+}
+
+message GetRightResponse {
+  int32 result = 1;
+}
+
+message GetRotationXRequest {
+  int64 handle = 1;
+}
+
+message GetRotationXResponse {
+  float result = 1;
+}
+
+message GetRotationYRequest {
+  int64 handle = 1;
+}
+
+message GetRotationYResponse {
+  float result = 1;
+}
+
+message GetRotationZRequest {
+  int64 handle = 1;
+}
+
+message GetRotationZResponse {
+  float result = 1;
+}
+
+message GetScaleXRequest {
+  int64 handle = 1;
+}
+
+message GetScaleXResponse {
+  float result = 1;
+}
+
+message GetScaleYRequest {
+  int64 handle = 1;
+}
+
+message GetScaleYResponse {
+  float result = 1;
+}
+
+message GetSpotShadowColorRequest {
+  int64 handle = 1;
+}
+
+message GetSpotShadowColorResponse {
+  int32 result = 1;
+}
+
+message GetTopRequest {
+  int64 handle = 1;
+}
+
+message GetTopResponse {
+  int32 result = 1;
+}
+
+message GetTranslationXRequest {
+  int64 handle = 1;
+}
+
+message GetTranslationXResponse {
+  float result = 1;
+}
+
+message GetTranslationYRequest {
+  int64 handle = 1;
+}
+
+message GetTranslationYResponse {
+  float result = 1;
+}
+
+message GetTranslationZRequest {
+  int64 handle = 1;
+}
+
+message GetTranslationZResponse {
+  float result = 1;
+}
+
+message GetUniqueIdRequest {
+  int64 handle = 1;
+}
+
+message GetUniqueIdResponse {
+  int64 result = 1;
+}
+
+message GetUseCompositingLayerRequest {
+  int64 handle = 1;
+}
+
+message GetUseCompositingLayerResponse {
+  bool result = 1;
+}
+
+message GetWidthRequest {
+  int64 handle = 1;
+}
+
+message GetWidthResponse {
+  int32 result = 1;
+}
+
+message HasDisplayListRequest {
+  int64 handle = 1;
+}
+
+message HasDisplayListResponse {
+  bool result = 1;
+}
+
+message HasIdentityMatrixRequest {
+  int64 handle = 1;
+}
+
+message HasIdentityMatrixResponse {
+  bool result = 1;
+}
+
+message HasOverlappingRenderingRequest {
+  int64 handle = 1;
+}
+
+message HasOverlappingRenderingResponse {
+  bool result = 1;
+}
+
+message HasShadowRequest {
+  int64 handle = 1;
+}
+
+message HasShadowResponse {
+  bool result = 1;
+}
+
+message IsForceDarkAllowedRequest {
+  int64 handle = 1;
+}
+
+message IsForceDarkAllowedResponse {
+  bool result = 1;
+}
+
+message IsPivotExplicitlySetRequest {
+  int64 handle = 1;
+}
+
+message IsPivotExplicitlySetResponse {
+  bool result = 1;
+}
+
+message OffsetLeftAndRightRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message OffsetLeftAndRightResponse {
+  bool result = 1;
+}
+
+message OffsetTopAndBottomRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message OffsetTopAndBottomResponse {
+  bool result = 1;
+}
+
+message ResetPivotRequest {
+  int64 handle = 1;
+}
+
+message ResetPivotResponse {
+  bool result = 1;
+}
+
+message SetAlphaRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetAlphaResponse {
+  bool result = 1;
+}
+
+message SetAmbientShadowColorRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetAmbientShadowColorResponse {
+  bool result = 1;
+}
+
+message SetCameraDistanceRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetCameraDistanceResponse {
+  bool result = 1;
+}
+
+message SetClipRectRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetClipRectResponse {
+  bool result = 1;
+}
+
+message SetClipToBoundsRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetClipToBoundsResponse {
+  bool result = 1;
+}
+
+message SetClipToOutlineRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetClipToOutlineResponse {
+  bool result = 1;
+}
+
+message SetElevationRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetElevationResponse {
+  bool result = 1;
+}
+
+message SetForceDarkAllowedRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetForceDarkAllowedResponse {
+  bool result = 1;
+}
+
+message SetHasOverlappingRenderingRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetHasOverlappingRenderingResponse {
+  bool result = 1;
+}
+
+message SetOutlineRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetOutlineResponse {
+  bool result = 1;
+}
+
+message SetPivotXRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetPivotXResponse {
+  bool result = 1;
+}
+
+message SetPivotYRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetPivotYResponse {
+  bool result = 1;
+}
+
+message SetPosition1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPosition1Response {
+  bool result = 1;
+}
+
+message SetPosition4_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message SetPosition4_1Response {
+  bool result = 1;
+}
+
+message SetProjectBackwardsRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetProjectBackwardsResponse {
+  bool result = 1;
+}
+
+message SetProjectionReceiverRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetProjectionReceiverResponse {
+  bool result = 1;
+}
+
+message SetRenderEffectRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetRenderEffectResponse {
+  bool result = 1;
+}
+
+message SetRotationXRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetRotationXResponse {
+  bool result = 1;
+}
+
+message SetRotationYRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetRotationYResponse {
+  bool result = 1;
+}
+
+message SetRotationZRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetRotationZResponse {
+  bool result = 1;
+}
+
+message SetScaleXRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetScaleXResponse {
+  bool result = 1;
+}
+
+message SetScaleYRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetScaleYResponse {
+  bool result = 1;
+}
+
+message SetSpotShadowColorRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetSpotShadowColorResponse {
+  bool result = 1;
+}
+
+message SetTranslationXRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetTranslationXResponse {
+  bool result = 1;
+}
+
+message SetTranslationYRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetTranslationYResponse {
+  bool result = 1;
+}
+
+message SetTranslationZRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetTranslationZResponse {
+  bool result = 1;
+}
+
+message SetUseCompositingLayerRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetUseCompositingLayerResponse {
+  bool result = 1;
+}
+
+message InsetsDescribeContentsRequest {
+}
+
+message InsetsEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message InsetsHashCodeRequest {
+}
+
+message InsetsToStringRequest {
+}
+
+message InsetsWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message AddRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AddResponse {
+  int64 result = 1;
+}
+
+message MaxRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message MaxResponse {
+  int64 result = 1;
+}
+
+message MinRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message MinResponse {
+  int64 result = 1;
+}
+
+message Of1Request {
+  int64 arg0 = 1;
+}
+
+message Of1Response {
+  int64 result = 1;
+}
+
+message Of4_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message Of4_1Response {
+  int64 result = 1;
+}
+
+message SubtractRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SubtractResponse {
+  int64 result = 1;
+}
+
+message NewHardwareBufferRendererRequest {
+  int64 arg0 = 1;
+}
+
+message NewHardwareBufferRendererResponse {
+  int64 result = 1;
+}
+
+message IsClosedRequest {
+  int64 handle = 1;
+}
+
+message IsClosedResponse {
+  bool result = 1;
+}
+
+message ObtainRenderRequestRequest {
+  int64 handle = 1;
+}
+
+message ObtainRenderRequestResponse {
+  int64 result = 1;
+}
+
+message SetContentRootRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetContentRootResponse {
+}
+
+message SetLightSourceAlphaRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message SetLightSourceAlphaResponse {
+}
+
+message SetLightSourceGeometryRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message SetLightSourceGeometryResponse {
+}
+
+message SetBufferTransformRequest {
+  int32 arg0 = 1;
+}
+
+message SetBufferTransformResponse {
+  int64 result = 1;
+}
+
+message SetColorSpaceRequest {
+  int64 arg0 = 1;
+}
+
+message SetColorSpaceResponse {
+  int64 result = 1;
+}
+
+message GetFenceRequest {
+}
+
+message GetFenceResponse {
+  int64 result = 1;
+}
+
+message GetStatusRequest {
+}
+
+message GetStatusResponse {
+  int32 result = 1;
+}
+
+message NewColorRequest {
+}
+
+message NewColorResponse {
+  int64 result = 1;
+}
+
+message Alpha0Request {
+  int64 handle = 1;
+}
+
+message Alpha0Response {
+  float result = 1;
+}
+
+message Blue0Request {
+  int64 handle = 1;
+}
+
+message Blue0Response {
+  float result = 1;
+}
+
+message Convert1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Convert1Response {
+  int64 result = 1;
+}
+
+message GetComponentRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetComponentResponse {
+  float result = 1;
+}
+
+message GetComponentCountRequest {
+  int64 handle = 1;
+}
+
+message GetComponentCountResponse {
+  int32 result = 1;
+}
+
+message GetComponents0Request {
+  int64 handle = 1;
+}
+
+message GetComponents0Response {
+  int64 result = 1;
+}
+
+message GetComponents1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetComponents1_1Response {
+  int64 result = 1;
+}
+
+message GetModelRequest {
+  int64 handle = 1;
+}
+
+message GetModelResponse {
+  int64 result = 1;
+}
+
+message Green0Request {
+  int64 handle = 1;
+}
+
+message Green0Response {
+  float result = 1;
+}
+
+message IsSrgb0Request {
+  int64 handle = 1;
+}
+
+message IsSrgb0Response {
+  bool result = 1;
+}
+
+message IsWideGamut0Request {
+  int64 handle = 1;
+}
+
+message IsWideGamut0Response {
+  bool result = 1;
+}
+
+message Luminance0Request {
+  int64 handle = 1;
+}
+
+message Luminance0Response {
+  float result = 1;
+}
+
+message Pack0Request {
+  int64 handle = 1;
+}
+
+message Pack0Response {
+  int64 result = 1;
+}
+
+message Red0Request {
+  int64 handle = 1;
+}
+
+message Red0Response {
+  float result = 1;
+}
+
+message ToArgb0Request {
+  int64 handle = 1;
+}
+
+message ToArgb0Response {
+  int32 result = 1;
+}
+
+message HSVToColor1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message HSVToColor1Response {
+  int32 result = 1;
+}
+
+message HSVToColor2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message HSVToColor2_1Response {
+  int32 result = 1;
+}
+
+message RGBToHSVRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message RGBToHSVResponse {
+}
+
+message Alpha1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message Alpha1_1Response {
+  int32 result = 1;
+}
+
+message Alpha1_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Alpha1_2Response {
+  float result = 1;
+}
+
+message Argb4Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message Argb4Response {
+  int32 result = 1;
+}
+
+message Argb4_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message Argb4_1Response {
+  int32 result = 1;
+}
+
+message Blue1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message Blue1_1Response {
+  int32 result = 1;
+}
+
+message Blue1_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Blue1_2Response {
+  float result = 1;
+}
+
+message ColorSpaceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ColorSpaceResponse {
+  int64 result = 1;
+}
+
+message ColorToHSVRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message ColorToHSVResponse {
+}
+
+message Convert6_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+  int64 arg4 = 6;
+  int64 arg5 = 7;
+}
+
+message Convert6_1Response {
+  int64 result = 1;
+}
+
+message Convert5_2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+  int64 arg4 = 6;
+}
+
+message Convert5_2Response {
+  int64 result = 1;
+}
+
+message Convert2_3Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Convert2_3Response {
+  int64 result = 1;
+}
+
+message Convert2_4Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Convert2_4Response {
+  int64 result = 1;
+}
+
+message Convert2_5Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Convert2_5Response {
+  int64 result = 1;
+}
+
+message Green1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message Green1_1Response {
+  int32 result = 1;
+}
+
+message Green1_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Green1_2Response {
+  float result = 1;
+}
+
+message IsInColorSpaceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message IsInColorSpaceResponse {
+  bool result = 1;
+}
+
+message IsSrgb1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsSrgb1_1Response {
+  bool result = 1;
+}
+
+message IsWideGamut1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsWideGamut1_1Response {
+  bool result = 1;
+}
+
+message Luminance1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message Luminance1_1Response {
+  float result = 1;
+}
+
+message Luminance1_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Luminance1_2Response {
+  float result = 1;
+}
+
+message Pack3_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message Pack3_1Response {
+  int64 result = 1;
+}
+
+message Pack4_2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message Pack4_2Response {
+  int64 result = 1;
+}
+
+message Pack5_3Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+  int64 arg4 = 6;
+}
+
+message Pack5_3Response {
+  int64 result = 1;
+}
+
+message Pack1_4Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message Pack1_4Response {
+  int64 result = 1;
+}
+
+message ParseColorRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message ParseColorResponse {
+  int32 result = 1;
+}
+
+message Red1_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message Red1_1Response {
+  int32 result = 1;
+}
+
+message Red1_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Red1_2Response {
+  float result = 1;
+}
+
+message Rgb3Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message Rgb3Response {
+  int32 result = 1;
+}
+
+message Rgb3_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message Rgb3_1Response {
+  int32 result = 1;
+}
+
+message ToArgb1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ToArgb1_1Response {
+  int32 result = 1;
+}
+
+message ValueOf3Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message ValueOf3Response {
+  int64 result = 1;
+}
+
+message ValueOf4_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message ValueOf4_1Response {
+  int64 result = 1;
+}
+
+message ValueOf5_2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+  int64 arg4 = 6;
+}
+
+message ValueOf5_2Response {
+  int64 result = 1;
+}
+
+message ValueOf2_3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message ValueOf2_3Response {
+  int64 result = 1;
+}
+
+message ValueOf1_4Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message ValueOf1_4Response {
+  int64 result = 1;
+}
+
+message ValueOf1_5Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ValueOf1_5Response {
+  int64 result = 1;
+}
+
+message NewCameraRequest {
+}
+
+message NewCameraResponse {
+  int64 result = 1;
+}
+
+message ApplyToCanvasRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ApplyToCanvasResponse {
+}
+
+message DotWithNormalRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message DotWithNormalResponse {
+  float result = 1;
+}
+
+message GetLocationXRequest {
+  int64 handle = 1;
+}
+
+message GetLocationXResponse {
+  float result = 1;
+}
+
+message GetLocationYRequest {
+  int64 handle = 1;
+}
+
+message GetLocationYResponse {
+  float result = 1;
+}
+
+message GetLocationZRequest {
+  int64 handle = 1;
+}
+
+message GetLocationZResponse {
+  float result = 1;
+}
+
+message RestoreRequest {
+  int64 handle = 1;
+}
+
+message RestoreResponse {
+}
+
+message CameraRotateRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message CameraRotateResponse {
+}
+
+message RotateXRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message RotateXResponse {
+}
+
+message RotateYRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message RotateYResponse {
+}
+
+message RotateZRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message RotateZResponse {
+}
+
+message SaveRequest {
+  int64 handle = 1;
+}
+
+message SaveResponse {
+}
+
+message SetLocationRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+}
+
+message SetLocationResponse {
+}
+
+message CameraTranslateResponse {
+}
+
+message NewRuntimeShaderRequest {
+  string arg0 = 1;
+}
+
+message NewRuntimeShaderResponse {
+  int64 result = 1;
+}
+
+message SetInputBufferRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetInputBufferResponse {
+}
+
+message NewPathMeasureRequest {
+}
+
+message NewPathMeasureResponse {
+  int64 result = 1;
+}
+
+message GetLengthRequest {
+  int64 handle = 1;
+}
+
+message GetLengthResponse {
+  float result = 1;
+}
+
+message PathMeasureGetMatrixRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message PathMeasureGetMatrixResponse {
+  bool result = 1;
+}
+
+message GetPosTanRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message GetPosTanResponse {
+  bool result = 1;
+}
+
+message GetSegmentRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  int64 arg2 = 4;
+  bool arg3 = 5;
+}
+
+message GetSegmentResponse {
+  bool result = 1;
+}
+
+message NextContourRequest {
+  int64 handle = 1;
+}
+
+message NextContourResponse {
+  bool result = 1;
+}
+
+message SetPathRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  bool arg1 = 3;
+}
+
+message SetPathResponse {
+}
+
+message NewOutlineRequest {
+}
+
+message NewOutlineResponse {
+  int64 result = 1;
+}
+
+message CanClipRequest {
+  int64 handle = 1;
+}
+
+message CanClipResponse {
+  bool result = 1;
+}
+
+message GetRadiusRequest {
+  int64 handle = 1;
+}
+
+message GetRadiusResponse {
+  float result = 1;
+}
+
+message GetRectRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetRectResponse {
+  bool result = 1;
+}
+
+message OutlineOffsetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OutlineSetRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OutlineSetAlphaResponse {
+}
+
+message SetConvexPathRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetConvexPathResponse {
+}
+
+message SetOval1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetOval1Response {
+}
+
+message SetOval4_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message SetOval4_1Response {
+}
+
+message OutlineSetPathRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetRect1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetRect1Response {
+}
+
+message SetRect4_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message SetRect4_1Response {
+}
+
+message SetRoundRect2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  float arg1 = 3;
+}
+
+message SetRoundRect2Response {
+}
+
+message SetRoundRect5_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  float arg4 = 6;
+}
+
+message SetRoundRect5_1Response {
+}
+
+message CreateBitmapEffect1Request {
+  int64 arg0 = 1;
+}
+
+message CreateBitmapEffect1Response {
+  int64 result = 1;
+}
+
+message CreateBitmapEffect3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message CreateBitmapEffect3_1Response {
+  int64 result = 1;
+}
+
+message CreateBlendModeEffectRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message CreateBlendModeEffectResponse {
+  int64 result = 1;
+}
+
+message CreateBlurEffect4Request {
+  float arg0 = 1;
+  float arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message CreateBlurEffect4Response {
+  int64 result = 1;
+}
+
+message CreateBlurEffect3_1Request {
+  float arg0 = 1;
+  float arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message CreateBlurEffect3_1Response {
+  int64 result = 1;
+}
+
+message CreateChainEffectRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateChainEffectResponse {
+  int64 result = 1;
+}
+
+message CreateColorFilterEffect1Request {
+  int64 arg0 = 1;
+}
+
+message CreateColorFilterEffect1Response {
+  int64 result = 1;
+}
+
+message CreateColorFilterEffect2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateColorFilterEffect2_1Response {
+  int64 result = 1;
+}
+
+message CreateOffsetEffect2Request {
+  float arg0 = 1;
+  float arg1 = 2;
+}
+
+message CreateOffsetEffect2Response {
+  int64 result = 1;
+}
+
+message CreateOffsetEffect3_1Request {
+  float arg0 = 1;
+  float arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message CreateOffsetEffect3_1Response {
+  int64 result = 1;
+}
+
+message CreateRuntimeShaderEffectRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message CreateRuntimeShaderEffectResponse {
+  int64 result = 1;
+}
+
+message CreateShaderEffectRequest {
+  int64 arg0 = 1;
+}
+
+message CreateShaderEffectResponse {
+  int64 result = 1;
+}
+
+message NewLightingColorFilterRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewLightingColorFilterResponse {
+  int64 result = 1;
+}
+
+message GetColorAddRequest {
+  int64 handle = 1;
+}
+
+message GetColorAddResponse {
+  int32 result = 1;
+}
+
+message GetColorMultiplyRequest {
+  int64 handle = 1;
+}
+
+message GetColorMultiplyResponse {
+  int32 result = 1;
+}
+
+message NewYuvImageRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message NewYuvImageResponse {
+  int64 result = 1;
+}
+
+message CompressToJpegRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message CompressToJpegResponse {
+  bool result = 1;
+}
+
+message CompressToJpegRRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message CompressToJpegRResponse {
+  bool result = 1;
+}
+
+message GetStridesRequest {
+  int64 handle = 1;
+}
+
+message GetStridesResponse {
+  int64 result = 1;
+}
+
+message GetYuvDataRequest {
+  int64 handle = 1;
+}
+
+message GetYuvDataResponse {
+  int64 result = 1;
+}
+
+message GetYuvFormatRequest {
+  int64 handle = 1;
+}
+
+message GetYuvFormatResponse {
+  int32 result = 1;
+}
+
+message Draw3Request {
+  int64 arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+}
+
+message Draw3Response {
+}
+
+message Draw4_1Request {
+  int64 arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message Draw4_1Response {
+}
+
+message DurationRequest {
+}
+
+message DurationResponse {
+  int32 result = 1;
+}
+
+message MovieHeightRequest {
+}
+
+message MovieHeightResponse {
+  int32 result = 1;
+}
+
+message IsOpaqueRequest {
+}
+
+message IsOpaqueResponse {
+  bool result = 1;
+}
+
+message SetTimeRequest {
+  int32 arg0 = 1;
+}
+
+message SetTimeResponse {
+  bool result = 1;
+}
+
+message MovieWidthRequest {
+}
+
+message MovieWidthResponse {
+  int32 result = 1;
+}
+
+message DecodeByteArrayRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message DecodeByteArrayResponse {
+  int64 result = 1;
+}
+
+message DecodeFileRequest {
+  string arg0 = 1;
+}
+
+message DecodeFileResponse {
+  int64 result = 1;
+}
+
+message DecodeStreamRequest {
+  int64 arg0 = 1;
+}
+
+message DecodeStreamResponse {
+  int64 result = 1;
+}
+
+message NewRuntimeColorFilterRequest {
+  string arg0 = 1;
+}
+
+message NewRuntimeColorFilterResponse {
+  int64 result = 1;
+}
+
+message ImageDecoderCloseRequest {
+}
+
+message GetAllocatorRequest {
+}
+
+message GetAllocatorResponse {
+  int32 result = 1;
+}
+
+message GetCropRequest {
+}
+
+message GetCropResponse {
+  int64 result = 1;
+}
+
+message GetMemorySizePolicyRequest {
+}
+
+message GetMemorySizePolicyResponse {
+  int32 result = 1;
+}
+
+message GetOnPartialImageListenerRequest {
+}
+
+message GetOnPartialImageListenerResponse {
+  int64 result = 1;
+}
+
+message GetPostProcessorRequest {
+}
+
+message GetPostProcessorResponse {
+  int64 result = 1;
+}
+
+message IsDecodeAsAlphaMaskEnabledRequest {
+}
+
+message IsDecodeAsAlphaMaskEnabledResponse {
+  bool result = 1;
+}
+
+message IsMutableRequiredRequest {
+}
+
+message IsMutableRequiredResponse {
+  bool result = 1;
+}
+
+message IsUnpremultipliedRequiredRequest {
+}
+
+message IsUnpremultipliedRequiredResponse {
+  bool result = 1;
+}
+
+message SetAllocatorRequest {
+  int32 arg0 = 1;
+}
+
+message SetAllocatorResponse {
+}
+
+message SetCropRequest {
+  int64 arg0 = 1;
+}
+
+message SetCropResponse {
+}
+
+message SetDecodeAsAlphaMaskEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetDecodeAsAlphaMaskEnabledResponse {
+}
+
+message SetMemorySizePolicyRequest {
+  int32 arg0 = 1;
+}
+
+message SetMemorySizePolicyResponse {
+}
+
+message SetMutableRequiredRequest {
+  bool arg0 = 1;
+}
+
+message SetMutableRequiredResponse {
+}
+
+message SetOnPartialImageListenerRequest {
+  int64 arg0 = 1;
+}
+
+message SetOnPartialImageListenerResponse {
+}
+
+message SetPostProcessorRequest {
+  int64 arg0 = 1;
+}
+
+message SetPostProcessorResponse {
+}
+
+message SetTargetColorSpaceRequest {
+  int64 arg0 = 1;
+}
+
+message SetTargetColorSpaceResponse {
+}
+
+message SetTargetSampleSizeRequest {
+  int32 arg0 = 1;
+}
+
+message SetTargetSampleSizeResponse {
+}
+
+message SetTargetSizeRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetTargetSizeResponse {
+}
+
+message SetUnpremultipliedRequiredRequest {
+  bool arg0 = 1;
+}
+
+message SetUnpremultipliedRequiredResponse {
+}
+
+message CreateSource2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CreateSource2Response {
+  int64 result = 1;
+}
+
+message CreateSource2_1Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message CreateSource2_1Response {
+  int64 result = 1;
+}
+
+message CreateSource2_2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message CreateSource2_2Response {
+  int64 result = 1;
+}
+
+message CreateSource1_3Request {
+  int64 arg0 = 1;
+}
+
+message CreateSource1_3Response {
+  int64 result = 1;
+}
+
+message CreateSource3_4Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message CreateSource3_4Response {
+  int64 result = 1;
+}
+
+message CreateSource1_5Request {
+  int64 arg0 = 1;
+}
+
+message CreateSource1_5Response {
+  int64 result = 1;
+}
+
+message DecodeBitmap1Request {
+  int64 arg0 = 1;
+}
+
+message DecodeBitmap1Response {
+  int64 result = 1;
+}
+
+message DecodeBitmap2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DecodeBitmap2_1Response {
+  int64 result = 1;
+}
+
+message DecodeDrawable1Request {
+  int64 arg0 = 1;
+}
+
+message DecodeDrawable1Response {
+  int64 result = 1;
+}
+
+message DecodeDrawable2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DecodeDrawable2_1Response {
+  int64 result = 1;
+}
+
+message IsMimeTypeSupportedRequest {
+  string arg0 = 1;
+}
+
+message IsMimeTypeSupportedResponse {
+  bool result = 1;
+}
+
+message GetErrorRequest {
+}
+
+message GetErrorResponse {
+  int32 result = 1;
+}
+
+message GetSourceRequest {
+}
+
+message GetSourceResponse {
+  int64 result = 1;
+}
+
+message ImageDecoderImageInfoGetColorSpaceRequest {
+}
+
+message GetMimeTypeRequest {
+}
+
+message GetMimeTypeResponse {
+  string result = 1;
+}
+
+message GetSizeRequest {
+}
+
+message GetSizeResponse {
+  int64 result = 1;
+}
+
+message IsAnimatedRequest {
+}
+
+message IsAnimatedResponse {
+  bool result = 1;
+}
+
+message OnHeaderDecodedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnHeaderDecodedResponse {
+}
+
+message OnPartialImageRequest {
+  int64 arg0 = 1;
+}
+
+message OnPartialImageResponse {
+  bool result = 1;
+}
+
+message DecodeRegionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DecodeRegionResponse {
+  int64 result = 1;
+}
+
+message BitmapRegionDecoderGetHeightRequest {
+}
+
+message BitmapRegionDecoderGetWidthRequest {
+}
+
+message IsRecycledRequest {
+}
+
+message IsRecycledResponse {
+  bool result = 1;
+}
+
+message RecycleRequest {
+}
+
+message RecycleResponse {
+}
+
+message NewInstance1Request {
+  int64 arg0 = 1;
+}
+
+message NewInstance1Response {
+  int64 result = 1;
+}
+
+message NewInstance3_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message NewInstance3_1Response {
+  int64 result = 1;
+}
+
+message NewInstance4_2Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  bool arg3 = 4;
+}
+
+message NewInstance4_2Response {
+  int64 result = 1;
+}
+
+message NewInstance2_3Request {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message NewInstance2_3Response {
+  int64 result = 1;
+}
+
+message NewInstance1_4Request {
+  int64 arg0 = 1;
+}
+
+message NewInstance1_4Response {
+  int64 result = 1;
+}
+
+message NewInstance2_5Request {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message NewInstance2_5Response {
+  int64 result = 1;
+}
+
+message NewInstance1_6Request {
+  string arg0 = 1;
+}
+
+message NewInstance1_6Response {
+  int64 result = 1;
+}
+
+message NewInstance2_7Request {
+  string arg0 = 1;
+  bool arg1 = 2;
+}
+
+message NewInstance2_7Response {
+  int64 result = 1;
+}
+
+message NewPictureRequest {
+}
+
+message NewPictureResponse {
+  int64 result = 1;
+}
+
+message BeginRecordingRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message BeginRecordingResponse {
+  int64 result = 1;
+}
+
+message DrawRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DrawResponse {
+}
+
+message RequiresHardwareAccelerationRequest {
+  int64 handle = 1;
+}
+
+message RequiresHardwareAccelerationResponse {
+  bool result = 1;
+}
+
+message NewColorMatrixRequest {
+}
+
+message NewColorMatrixResponse {
+  int64 result = 1;
+}
+
+message GetArrayRequest {
+  int64 handle = 1;
+}
+
+message GetArrayResponse {
+  int64 result = 1;
+}
+
+message ColorMatrixPostConcatResponse {
+}
+
+message ColorMatrixPreConcatResponse {
+}
+
+message ColorMatrixSetConcatResponse {
+}
+
+message SetRGB2YUVRequest {
+  int64 handle = 1;
+}
+
+message SetRGB2YUVResponse {
+}
+
+message SetRotateRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  float arg1 = 3;
+}
+
+message SetRotateResponse {
+}
+
+message SetSaturationRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+}
+
+message SetSaturationResponse {
+}
+
+message SetScaleRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+  float arg2 = 4;
+  float arg3 = 5;
+}
+
+message SetScaleResponse {
+}
+
+message SetYUV2RGBRequest {
+  int64 handle = 1;
+}
+
+message SetYUV2RGBResponse {
+}
+
+message NewRegionIteratorRequest {
+  int64 arg0 = 1;
+}
+
+message NewRegionIteratorResponse {
+  int64 result = 1;
+}
+
+message NextRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message NextResponse {
+  bool result = 1;
+}
+
+message NewHardwareRendererRequest {
+}
+
+message NewHardwareRendererResponse {
+  int64 result = 1;
+}
+
+message ClearContentRequest {
+  int64 handle = 1;
+}
+
+message ClearContentResponse {
+}
+
+message CreateRenderRequestRequest {
+  int64 handle = 1;
+}
+
+message CreateRenderRequestResponse {
+  int64 result = 1;
+}
+
+message DestroyRequest {
+  int64 handle = 1;
+}
+
+message DestroyResponse {
+}
+
+message HardwareRendererIsOpaqueRequest {
+  int64 handle = 1;
+}
+
+message NotifyFramePendingRequest {
+  int64 handle = 1;
+}
+
+message NotifyFramePendingResponse {
+}
+
+message SetNameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetNameResponse {
+}
+
+message SetOpaqueRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetOpaqueResponse {
+}
+
+message SetSurfaceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetSurfaceResponse {
+}
+
+message StartRequest {
+  int64 handle = 1;
+}
+
+message StartResponse {
+}
+
+message StopRequest {
+  int64 handle = 1;
+}
+
+message StopResponse {
+}
+
+message IsDrawingEnabledRequest {
+  int64 handle = 1;
+}
+
+message IsDrawingEnabledResponse {
+  bool result = 1;
+}
+
+message SetDrawingEnabledRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetDrawingEnabledResponse {
+}
+
+message SetFrameCommitCallbackRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetFrameCommitCallbackResponse {
+  int64 result = 1;
+}
+
+message SetVsyncTimeRequest {
+  int64 arg0 = 1;
+}
+
+message SetVsyncTimeResponse {
+  int64 result = 1;
+}
+
+message SetWaitForPresentRequest {
+  bool arg0 = 1;
+}
+
+message SetWaitForPresentResponse {
+  int64 result = 1;
+}
+
+message SyncAndDrawRequest {
+}
+
+message SyncAndDrawResponse {
+  int32 result = 1;
+}
+
+message NewRectRequest {
+}
+
+message NewRectResponse {
+  int64 result = 1;
+}
+
+message RectCenterXResponse {
+  int32 result = 1;
+}
+
+message RectCenterYResponse {
+  int32 result = 1;
+}
+
+message RectContains2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message RectContains4_2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message ExactCenterXRequest {
+  int64 handle = 1;
+}
+
+message ExactCenterXResponse {
+  float result = 1;
+}
+
+message ExactCenterYRequest {
+  int64 handle = 1;
+}
+
+message ExactCenterYResponse {
+  float result = 1;
+}
+
+message FlattenToStringRequest {
+  int64 handle = 1;
+}
+
+message FlattenToStringResponse {
+  string result = 1;
+}
+
+message RectHeightResponse {
+  int32 result = 1;
+}
+
+message Inset1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Inset1Response {
+}
+
+message Inset2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message Inset2_1Response {
+}
+
+message Inset4_2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message Inset4_2Response {
+}
+
+message RectIntersect4_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message RectIntersects4_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message RectOffsetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message RectOffsetToRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message Set4_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message Set4_1Response {
+}
+
+message RectUnion2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message RectUnion4_2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message RectWidthResponse {
+  int32 result = 1;
+}
+
+message UnflattenFromStringRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message UnflattenFromStringResponse {
+  int64 result = 1;
+}
+
+message NewInterpolatorRequest {
+  int32 arg0 = 1;
+}
+
+message NewInterpolatorResponse {
+  int64 result = 1;
+}
+
+message GetKeyFrameCountRequest {
+  int64 handle = 1;
+}
+
+message GetKeyFrameCountResponse {
+  int32 result = 1;
+}
+
+message GetValueCountRequest {
+  int64 handle = 1;
+}
+
+message GetValueCountResponse {
+  int32 result = 1;
+}
+
+message Reset1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message Reset1Response {
+}
+
+message Reset2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message Reset2_1Response {
+}
+
+message SetKeyFrame3Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message SetKeyFrame3Response {
+}
+
+message SetKeyFrame4_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message SetKeyFrame4_1Response {
+}
+
+message SetRepeatMirrorRequest {
+  int64 handle = 1;
+  float arg0 = 2;
+  bool arg1 = 3;
+}
+
+message SetRepeatMirrorResponse {
+}
+
+message TimeToValues1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message TimeToValues1Response {
+  int64 result = 1;
+}
+
+message TimeToValues2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message TimeToValues2_1Response {
+  int64 result = 1;
+}
+
+message NewRegionRequest {
+}
+
+message NewRegionResponse {
+  int64 result = 1;
+}
+
+message ContainsRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message ContainsResponse {
+  bool result = 1;
+}
+
+message GetBoundaryPath0Request {
+  int64 handle = 1;
+}
+
+message GetBoundaryPath0Response {
+  int64 result = 1;
+}
+
+message GetBoundaryPath1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetBoundaryPath1_1Response {
+  bool result = 1;
+}
+
+message GetBounds0Request {
+  int64 handle = 1;
+}
+
+message GetBounds0Response {
+  int64 result = 1;
+}
+
+message GetBounds1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetBounds1_1Response {
+  bool result = 1;
+}
+
+message IsComplexRequest {
+  int64 handle = 1;
+}
+
+message IsComplexResponse {
+  bool result = 1;
+}
+
+message RegionIsRectRequest {
+  int64 handle = 1;
+}
+
+message Op3_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message Op3_2Response {
+  bool result = 1;
+}
+
+message Op2_3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Op2_3Response {
+  bool result = 1;
+}
+
+message Op5_4Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int64 arg4 = 6;
+}
+
+message Op5_4Response {
+  bool result = 1;
+}
+
+message QuickContains1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message QuickContains1Response {
+  bool result = 1;
+}
+
+message QuickContains4_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message QuickContains4_1Response {
+  bool result = 1;
+}
+
+message QuickReject1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message QuickReject1Response {
+  bool result = 1;
+}
+
+message QuickReject1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message QuickReject1_1Response {
+  bool result = 1;
+}
+
+message QuickReject4_2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message QuickReject4_2Response {
+  bool result = 1;
+}
+
+message RegionSet1Response {
+  bool result = 1;
+}
+
+message RegionSet1_1Response {
+  bool result = 1;
+}
+
+message RegionSet4_2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message RegionSet4_2Response {
+  bool result = 1;
+}
+
+message RegionSetPathRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message RegionSetPathResponse {
+  bool result = 1;
+}
+
+message Translate2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message Translate2Response {
+}
+
+message Translate3_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message Translate3_1Response {
+}
+
+message UnionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UnionResponse {
+  bool result = 1;
+}
+
+message DisableZRequest {
+}
+
+message DisableZResponse {
+}
+
+message DrawARGBRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message DrawARGBResponse {
+}
+
+message DrawArc5Request {
+  int64 arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  bool arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message DrawArc5Response {
+}
+
+message DrawArc8_1Request {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  float arg3 = 4;
+  float arg4 = 5;
+  float arg5 = 6;
+  bool arg6 = 7;
+  int64 arg7 = 8;
+}
+
+message DrawArc8_1Response {
+}
+
+message DrawBitmap3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message DrawBitmap3Response {
+}
+
+message DrawBitmap4_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message DrawBitmap4_1Response {
+}
+
+message DrawBitmap4_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message DrawBitmap4_2Response {
+}
+
+message DrawBitmap4_3Request {
+  int64 arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message DrawBitmap4_3Response {
+}
+
+message DrawBitmap9_4Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  float arg3 = 4;
+  float arg4 = 5;
+  int32 arg5 = 6;
+  int32 arg6 = 7;
+  bool arg7 = 8;
+  int64 arg8 = 9;
+}
+
+message DrawBitmap9_4Response {
+}
+
+message DrawBitmap9_5Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int32 arg5 = 6;
+  int32 arg6 = 7;
+  bool arg7 = 8;
+  int64 arg8 = 9;
+}
+
+message DrawBitmap9_5Response {
+}
+
+message DrawBitmapMeshRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+  int32 arg6 = 7;
+  int64 arg7 = 8;
+}
+
+message DrawBitmapMeshResponse {
+}
+
+message DrawCircleRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message DrawCircleResponse {
+}
+
+message DrawColor1Request {
+  int32 arg0 = 1;
+}
+
+message DrawColor1Response {
+}
+
+message DrawColor2_1Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DrawColor2_1Response {
+}
+
+message DrawColor2_2Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DrawColor2_2Response {
+}
+
+message DrawColor2_3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DrawColor2_3Response {
+}
+
+message DrawDoubleRoundRect7Request {
+  int64 arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  int64 arg3 = 4;
+  float arg4 = 5;
+  float arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message DrawDoubleRoundRect7Response {
+}
+
+message DrawDoubleRoundRect5_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message DrawDoubleRoundRect5_1Response {
+}
+
+message DrawGlyphsRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message DrawGlyphsResponse {
+}
+
+message DrawLineRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  float arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message DrawLineResponse {
+}
+
+message DrawLines2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DrawLines2Response {
+}
+
+message DrawLines4_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message DrawLines4_1Response {
+}
+
+message DrawMeshRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message DrawMeshResponse {
+}
+
+message DrawOval2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DrawOval2Response {
+}
+
+message DrawOval5_1Request {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  float arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message DrawOval5_1Response {
+}
+
+message DrawPaintRequest {
+  int64 arg0 = 1;
+}
+
+message DrawPaintResponse {
+}
+
+message DrawPatch3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message DrawPatch3Response {
+}
+
+message DrawPatch3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message DrawPatch3_1Response {
+}
+
+message DrawPathRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DrawPathResponse {
+}
+
+message DrawPicture1Request {
+  int64 arg0 = 1;
+}
+
+message DrawPicture1Response {
+}
+
+message DrawPicture2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DrawPicture2_1Response {
+}
+
+message DrawPicture2_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DrawPicture2_2Response {
+}
+
+message DrawPointRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message DrawPointResponse {
+}
+
+message DrawPoints2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DrawPoints2Response {
+}
+
+message DrawPoints4_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message DrawPoints4_1Response {
+}
+
+message DrawPosText5Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message DrawPosText5Response {
+}
+
+message DrawPosText3_1Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message DrawPosText3_1Response {
+}
+
+message DrawRGBRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message DrawRGBResponse {
+}
+
+message DrawRect2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DrawRect2Response {
+}
+
+message DrawRect2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DrawRect2_1Response {
+}
+
+message DrawRect5_2Request {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  float arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message DrawRect5_2Response {
+}
+
+message DrawRegionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message DrawRegionResponse {
+}
+
+message DrawRenderNodeRequest {
+  int64 arg0 = 1;
+}
+
+message DrawRenderNodeResponse {
+}
+
+message DrawRoundRect4Request {
+  int64 arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message DrawRoundRect4Response {
+}
+
+message DrawRoundRect7_1Request {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  float arg3 = 4;
+  float arg4 = 5;
+  float arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message DrawRoundRect7_1Response {
+}
+
+message DrawText6Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  float arg3 = 4;
+  float arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message DrawText6Response {
+}
+
+message DrawText6_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  float arg3 = 4;
+  float arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message DrawText6_1Response {
+}
+
+message DrawText4_2Request {
+  string arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message DrawText4_2Response {
+}
+
+message DrawText6_3Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  float arg3 = 4;
+  float arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message DrawText6_3Response {
+}
+
+message DrawTextOnPath7Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+  float arg4 = 5;
+  float arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message DrawTextOnPath7Response {
+}
+
+message DrawTextOnPath5_1Request {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  float arg2 = 3;
+  float arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message DrawTextOnPath5_1Response {
+}
+
+message DrawTextRun9Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  float arg5 = 6;
+  float arg6 = 7;
+  bool arg7 = 8;
+  int64 arg8 = 9;
+}
+
+message DrawTextRun9Response {
+}
+
+message DrawTextRun9_1Request {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  float arg5 = 6;
+  float arg6 = 7;
+  bool arg7 = 8;
+  int64 arg8 = 9;
+}
+
+message DrawTextRun9_1Response {
+}
+
+message DrawTextRun9_2Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  float arg5 = 6;
+  float arg6 = 7;
+  bool arg7 = 8;
+  int64 arg8 = 9;
+}
+
+message DrawTextRun9_2Response {
+}
+
+message DrawVerticesRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+  int32 arg5 = 6;
+  int64 arg6 = 7;
+  int32 arg7 = 8;
+  int64 arg8 = 9;
+  int32 arg9 = 10;
+  int32 arg10 = 11;
+  int64 arg11 = 12;
+}
+
+message DrawVerticesResponse {
+}
+
+message EnableZRequest {
+}
+
+message EnableZResponse {
+}
+
+message RecordingCanvasGetHeightRequest {
+}
+
+message GetMaximumBitmapHeightRequest {
+}
+
+message GetMaximumBitmapHeightResponse {
+  int32 result = 1;
+}
+
+message GetMaximumBitmapWidthRequest {
+}
+
+message GetMaximumBitmapWidthResponse {
+  int32 result = 1;
+}
+
+message RecordingCanvasGetWidthRequest {
+}
+
+message IsHardwareAcceleratedRequest {
+}
+
+message IsHardwareAcceleratedResponse {
+  bool result = 1;
+}
+
+message SetBitmapRequest {
+  int64 arg0 = 1;
+}
+
+message SetBitmapResponse {
+}
+
+message SetDensityRequest {
+  int32 arg0 = 1;
+}
+
+message SetDensityResponse {
+}
+
+message NewBitmapShaderRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewBitmapShaderResponse {
+  int64 result = 1;
+}
+
+message GetFilterModeRequest {
+  int64 handle = 1;
+}
+
+message GetFilterModeResponse {
+  int32 result = 1;
+}
+
+message GetMaxAnisotropyRequest {
+  int64 handle = 1;
+}
+
+message GetMaxAnisotropyResponse {
+  int32 result = 1;
+}
+
+message SetFilterModeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetFilterModeResponse {
+}
+
+message SetMaxAnisotropyRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetMaxAnisotropyResponse {
+}
+
+message SetOverrideGainmapRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetOverrideGainmapResponse {
+}
+
+message ColorSpaceEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message FromXyz3Request {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+}
+
+message FromXyz3Response {
+  int64 result = 1;
+}
+
+message FromXyz1_1Request {
+  int64 arg0 = 1;
+}
+
+message FromXyz1_1Response {
+  int64 result = 1;
+}
+
+message ColorSpaceGetComponentCountRequest {
+}
+
+message ColorSpaceGetDataSpaceRequest {
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  int32 result = 1;
+}
+
+message GetMaxValueRequest {
+  int32 arg0 = 1;
+}
+
+message GetMaxValueResponse {
+  float result = 1;
+}
+
+message GetMinValueRequest {
+  int32 arg0 = 1;
+}
+
+message GetMinValueResponse {
+  float result = 1;
+}
+
+message ColorSpaceGetModelRequest {
+}
+
+message ColorSpaceHashCodeRequest {
+}
+
+message IsSrgbRequest {
+}
+
+message IsSrgbResponse {
+  bool result = 1;
+}
+
+message IsWideGamutRequest {
+}
+
+message IsWideGamutResponse {
+  bool result = 1;
+}
+
+message ColorSpaceToStringRequest {
+}
+
+message ToXyz3Request {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+}
+
+message ToXyz3Response {
+  int64 result = 1;
+}
+
+message ToXyz1_1Request {
+  int64 arg0 = 1;
+}
+
+message ToXyz1_1Response {
+  int64 result = 1;
+}
+
+message Adapt2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Adapt2Response {
+  int64 result = 1;
+}
+
+message Adapt3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Adapt3_1Response {
+  int64 result = 1;
+}
+
+message CctToXyzRequest {
+  int32 arg0 = 1;
+}
+
+message CctToXyzResponse {
+  int64 result = 1;
+}
+
+message ChromaticAdaptationRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message ChromaticAdaptationResponse {
+  int64 result = 1;
+}
+
+message Connect1Request {
+  int64 arg0 = 1;
+}
+
+message Connect1Response {
+  int64 result = 1;
+}
+
+message Connect2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Connect2_1Response {
+  int64 result = 1;
+}
+
+message Connect3_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Connect3_2Response {
+  int64 result = 1;
+}
+
+message Connect2_3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Connect2_3Response {
+  int64 result = 1;
+}
+
+message ColorSpaceGetRequest {
+  int64 arg0 = 1;
+}
+
+message ColorSpaceGetResponse {
+  int64 result = 1;
+}
+
+message GetFromDataSpaceRequest {
+  int32 arg0 = 1;
+}
+
+message GetFromDataSpaceResponse {
+  int64 result = 1;
+}
+
+message MatchRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message MatchResponse {
+  int64 result = 1;
+}
+
+message GetDestinationRequest {
+}
+
+message GetDestinationResponse {
+  int64 result = 1;
+}
+
+message GetRenderIntentRequest {
+}
+
+message GetRenderIntentResponse {
+  int64 result = 1;
+}
+
+message Transform3Request {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+}
+
+message Transform3Response {
+  int64 result = 1;
+}
+
+message Transform1_1Request {
+  int64 arg0 = 1;
+}
+
+message Transform1_1Response {
+  int64 result = 1;
+}
+
+message ColorSpaceModelGetComponentCountRequest {
+}
+
+message ColorSpaceRgbEqualsRequest {
+  int64 arg0 = 1;
+}
+
+message FromLinear3Request {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+}
+
+message FromLinear3Response {
+  int64 result = 1;
+}
+
+message FromLinear1_1Request {
+  int64 arg0 = 1;
+}
+
+message FromLinear1_1Response {
+  int64 result = 1;
+}
+
+message FromXyzRequest {
+  int64 arg0 = 1;
+}
+
+message FromXyzResponse {
+  int64 result = 1;
+}
+
+message GetEotfRequest {
+}
+
+message GetEotfResponse {
+  int64 result = 1;
+}
+
+message GetInverseTransform0Request {
+}
+
+message GetInverseTransform0Response {
+  int64 result = 1;
+}
+
+message GetInverseTransform1_1Request {
+  int64 arg0 = 1;
+}
+
+message GetInverseTransform1_1Response {
+  int64 result = 1;
+}
+
+message GetOetfRequest {
+}
+
+message GetOetfResponse {
+  int64 result = 1;
+}
+
+message GetPrimaries0Request {
+}
+
+message GetPrimaries0Response {
+  int64 result = 1;
+}
+
+message GetPrimaries1_1Request {
+  int64 arg0 = 1;
+}
+
+message GetPrimaries1_1Response {
+  int64 result = 1;
+}
+
+message GetTransferParametersRequest {
+}
+
+message GetTransferParametersResponse {
+  int64 result = 1;
+}
+
+message GetTransform0Request {
+}
+
+message GetTransform0Response {
+  int64 result = 1;
+}
+
+message GetTransform1_1Request {
+  int64 arg0 = 1;
+}
+
+message GetTransform1_1Response {
+  int64 result = 1;
+}
+
+message GetWhitePoint0Request {
+}
+
+message GetWhitePoint0Response {
+  int64 result = 1;
+}
+
+message GetWhitePoint1_1Request {
+  int64 arg0 = 1;
+}
+
+message GetWhitePoint1_1Response {
+  int64 result = 1;
+}
+
+message ColorSpaceRgbHashCodeRequest {
+}
+
+message ToLinear3Request {
+  float arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+}
+
+message ToLinear3Response {
+  int64 result = 1;
+}
+
+message ToLinear1_1Request {
+  int64 arg0 = 1;
+}
+
+message ToLinear1_1Response {
+  int64 result = 1;
+}
+
+message ToXyzRequest {
+  int64 arg0 = 1;
+}
+
+message ToXyzResponse {
+  int64 result = 1;
+}
+
+message NewPointFRequest {
+}
+
+message NewPointFResponse {
+  int64 result = 1;
+}
+
+message Equals2Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message Equals2Response {
+  bool result = 1;
+}
+
+message Equals1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message Equals1_1Response {
+  bool result = 1;
+}
+
+message Length0Request {
+  int64 handle = 1;
+}
+
+message Length0Response {
+  float result = 1;
+}
+
+message NegateRequest {
+  int64 handle = 1;
+}
+
+message NegateResponse {
+}
+
+message Set2_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message Set2_1Response {
+}
+
+message Length2_1Request {
+  int64 handle = 1;
+  float arg0 = 2;
+  float arg1 = 3;
+}
+
+message Length2_1Response {
+  float result = 1;
+}
+
+message NewColorMatrixColorFilterRequest {
+  int64 arg0 = 1;
+}
+
+message NewColorMatrixColorFilterResponse {
+  int64 result = 1;
+}
+
+message GetColorMatrixRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetColorMatrixResponse {
+}
+
+message NewShaderRequest {
+}
+
+message NewShaderResponse {
+  int64 result = 1;
+}
+
+message GetLocalMatrixRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetLocalMatrixResponse {
+  bool result = 1;
+}
+
+message SetLocalMatrixRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetLocalMatrixResponse {
+}
+
+message NewNinePatchRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewNinePatchResponse {
+  int64 result = 1;
+}
+
+message Draw2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Draw2Response {
+}
+
+message Draw3_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message Draw3_1Response {
+}
+
+message Draw2_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Draw2_2Response {
+}
+
+message GetBitmapRequest {
+  int64 handle = 1;
+}
+
+message GetBitmapResponse {
+  int64 result = 1;
+}
+
+message GetDensityRequest {
+  int64 handle = 1;
+}
+
+message GetDensityResponse {
+  int32 result = 1;
+}
+
+message NinePatchGetNameRequest {
+  int64 handle = 1;
+}
+
+message GetPaintRequest {
+  int64 handle = 1;
+}
+
+message GetPaintResponse {
+  int64 result = 1;
+}
+
+message GetTransparentRegionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetTransparentRegionResponse {
+  int64 result = 1;
+}
+
+message HasAlphaRequest {
+  int64 handle = 1;
+}
+
+message HasAlphaResponse {
+  bool result = 1;
+}
+
+message SetPaintRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetPaintResponse {
+}
+
+message IsNinePatchChunkRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message IsNinePatchChunkResponse {
+  bool result = 1;
+}
+
+message NewPointRequest {
+}
+
+message NewPointResponse {
+  int64 result = 1;
+}
+
+message PointEquals2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message PointOffsetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message PointSetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+service BlurMaskFilterBlurService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service Matrix44Service {
+  rpc NewMatrix44 (NewMatrix44Request) returns (NewMatrix44Response);
+  rpc Concat (ConcatRequest) returns (ConcatResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+  rpc GetValues (GetValuesRequest) returns (GetValuesResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc Invert (InvertRequest) returns (InvertResponse);
+  rpc IsIdentity (IsIdentityRequest) returns (IsIdentityResponse);
+  rpc Map4 (Map4Request) returns (Map4Response);
+  rpc Map5_1 (Map5_1Request) returns (Map5_1Response);
+  rpc Reset (ResetRequest) returns (ResetResponse);
+  rpc Rotate (RotateRequest) returns (RotateResponse);
+  rpc Scale (ScaleRequest) returns (ScaleResponse);
+  rpc Set (SetRequest) returns (SetResponse);
+  rpc SetValues (SetValuesRequest) returns (SetValuesResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc Translate (TranslateRequest) returns (TranslateResponse);
+}
+
+service PathIteratorService {
+  rpc HasNext (HasNextRequest) returns (HasNextResponse);
+  rpc Next0 (Next0Request) returns (Next0Response);
+  rpc Next2_1 (Next2_1Request) returns (Next2_1Response);
+  rpc Peek (PeekRequest) returns (PeekResponse);
+  rpc Next0_2 (Next0_2Request) returns (Next0_2Response);
+}
+
+service PathIteratorSegmentService {
+  rpc GetConicWeight (GetConicWeightRequest) returns (GetConicWeightResponse);
+  rpc GetPoints (GetPointsRequest) returns (GetPointsResponse);
+  rpc GetVerb (GetVerbRequest) returns (GetVerbResponse);
+}
+
+service BlendModeColorFilterService {
+  rpc NewBlendModeColorFilter (NewBlendModeColorFilterRequest) returns (NewBlendModeColorFilterResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetColor (GetColorRequest) returns (GetColorResponse);
+  rpc GetMode (GetModeRequest) returns (GetModeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service MatrixService {
+  rpc NewMatrix (NewMatrixRequest) returns (NewMatrixResponse);
+  rpc Dump (DumpRequest) returns (DumpResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetValues (GetValuesRequest) returns (GetValuesResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc Invert (MatrixInvertRequest) returns (InvertResponse);
+  rpc IsAffine (IsAffineRequest) returns (IsAffineResponse);
+  rpc IsIdentity (IsIdentityRequest) returns (IsIdentityResponse);
+  rpc MapPoints1 (MapPoints1Request) returns (MapPoints1Response);
+  rpc MapPoints2_1 (MapPoints2_1Request) returns (MapPoints2_1Response);
+  rpc MapPoints5_2 (MapPoints5_2Request) returns (MapPoints5_2Response);
+  rpc MapRadius (MapRadiusRequest) returns (MapRadiusResponse);
+  rpc MapRect1 (MapRect1Request) returns (MapRect1Response);
+  rpc MapRect2_1 (MapRect2_1Request) returns (MapRect2_1Response);
+  rpc MapVectors1 (MapVectors1Request) returns (MapVectors1Response);
+  rpc MapVectors2_1 (MapVectors2_1Request) returns (MapVectors2_1Response);
+  rpc MapVectors5_2 (MapVectors5_2Request) returns (MapVectors5_2Response);
+  rpc PostConcat (PostConcatRequest) returns (PostConcatResponse);
+  rpc PostRotate1 (PostRotate1Request) returns (PostRotate1Response);
+  rpc PostRotate3_1 (PostRotate3_1Request) returns (PostRotate3_1Response);
+  rpc PostScale2 (PostScale2Request) returns (PostScale2Response);
+  rpc PostScale4_1 (PostScale4_1Request) returns (PostScale4_1Response);
+  rpc PostSkew2 (PostSkew2Request) returns (PostSkew2Response);
+  rpc PostSkew4_1 (PostSkew4_1Request) returns (PostSkew4_1Response);
+  rpc PostTranslate (PostTranslateRequest) returns (PostTranslateResponse);
+  rpc PreConcat (PreConcatRequest) returns (PreConcatResponse);
+  rpc PreRotate1 (PreRotate1Request) returns (PreRotate1Response);
+  rpc PreRotate3_1 (PreRotate3_1Request) returns (PreRotate3_1Response);
+  rpc PreScale2 (PreScale2Request) returns (PreScale2Response);
+  rpc PreScale4_1 (PreScale4_1Request) returns (PreScale4_1Response);
+  rpc PreSkew2 (PreSkew2Request) returns (PreSkew2Response);
+  rpc PreSkew4_1 (PreSkew4_1Request) returns (PreSkew4_1Response);
+  rpc PreTranslate (PreTranslateRequest) returns (PreTranslateResponse);
+  rpc RectStaysRect (RectStaysRectRequest) returns (RectStaysRectResponse);
+  rpc Reset (ResetRequest) returns (ResetResponse);
+  rpc Set (MatrixSetRequest) returns (SetResponse);
+  rpc SetConcat (SetConcatRequest) returns (SetConcatResponse);
+  rpc SetPolyToPoly (SetPolyToPolyRequest) returns (SetPolyToPolyResponse);
+  rpc SetRectToRect (SetRectToRectRequest) returns (SetRectToRectResponse);
+  rpc SetRotate1 (SetRotate1Request) returns (SetRotate1Response);
+  rpc SetRotate3_1 (SetRotate3_1Request) returns (SetRotate3_1Response);
+  rpc SetScale2 (SetScale2Request) returns (SetScale2Response);
+  rpc SetScale4_1 (SetScale4_1Request) returns (SetScale4_1Response);
+  rpc SetSinCos2 (SetSinCos2Request) returns (SetSinCos2Response);
+  rpc SetSinCos4_1 (SetSinCos4_1Request) returns (SetSinCos4_1Response);
+  rpc SetSkew2 (SetSkew2Request) returns (SetSkew2Response);
+  rpc SetSkew4_1 (SetSkew4_1Request) returns (SetSkew4_1Response);
+  rpc SetTranslate (SetTranslateRequest) returns (SetTranslateResponse);
+  rpc SetValues (SetValuesRequest) returns (SetValuesResponse);
+  rpc ToShortString (ToShortStringRequest) returns (ToShortStringResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service MatrixScaleToFitService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service PathService {
+  rpc NewPath (NewPathRequest) returns (NewPathResponse);
+  rpc AddArc3 (AddArc3Request) returns (AddArc3Response);
+  rpc AddArc6_1 (AddArc6_1Request) returns (AddArc6_1Response);
+  rpc AddCircle (AddCircleRequest) returns (AddCircleResponse);
+  rpc AddOval2 (AddOval2Request) returns (AddOval2Response);
+  rpc AddOval5_1 (AddOval5_1Request) returns (AddOval5_1Response);
+  rpc AddPath1 (AddPath1Request) returns (AddPath1Response);
+  rpc AddPath2_1 (AddPath2_1Request) returns (AddPath2_1Response);
+  rpc AddPath3_2 (AddPath3_2Request) returns (AddPath3_2Response);
+  rpc AddRect2 (AddRect2Request) returns (AddRect2Response);
+  rpc AddRect5_1 (AddRect5_1Request) returns (AddRect5_1Response);
+  rpc AddRoundRect4 (AddRoundRect4Request) returns (AddRoundRect4Response);
+  rpc AddRoundRect3_1 (AddRoundRect3_1Request) returns (AddRoundRect3_1Response);
+  rpc AddRoundRect7_2 (AddRoundRect7_2Request) returns (AddRoundRect7_2Response);
+  rpc AddRoundRect6_3 (AddRoundRect6_3Request) returns (AddRoundRect6_3Response);
+  rpc Approximate (ApproximateRequest) returns (ApproximateResponse);
+  rpc ArcTo3 (ArcTo3Request) returns (ArcTo3Response);
+  rpc ArcTo4_1 (ArcTo4_1Request) returns (ArcTo4_1Response);
+  rpc ArcTo7_2 (ArcTo7_2Request) returns (ArcTo7_2Response);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc ComputeBounds1 (ComputeBounds1Request) returns (ComputeBounds1Response);
+  rpc ComputeBounds2_1 (ComputeBounds2_1Request) returns (ComputeBounds2_1Response);
+  rpc ConicTo (ConicToRequest) returns (ConicToResponse);
+  rpc CubicTo (CubicToRequest) returns (CubicToResponse);
+  rpc GetFillType (GetFillTypeRequest) returns (GetFillTypeResponse);
+  rpc GetGenerationId (GetGenerationIdRequest) returns (GetGenerationIdResponse);
+  rpc GetPathIterator (GetPathIteratorRequest) returns (GetPathIteratorResponse);
+  rpc IncReserve (IncReserveRequest) returns (IncReserveResponse);
+  rpc Interpolate (InterpolateRequest) returns (InterpolateResponse);
+  rpc IsConvex (IsConvexRequest) returns (IsConvexResponse);
+  rpc IsEmpty (IsEmptyRequest) returns (IsEmptyResponse);
+  rpc IsInterpolatable (IsInterpolatableRequest) returns (IsInterpolatableResponse);
+  rpc IsInverseFillType (IsInverseFillTypeRequest) returns (IsInverseFillTypeResponse);
+  rpc IsRect (IsRectRequest) returns (IsRectResponse);
+  rpc LineTo (LineToRequest) returns (LineToResponse);
+  rpc MoveTo (MoveToRequest) returns (MoveToResponse);
+  rpc Offset2 (Offset2Request) returns (Offset2Response);
+  rpc Offset3_1 (Offset3_1Request) returns (Offset3_1Response);
+  rpc Op3 (Op3Request) returns (Op3Response);
+  rpc Op2_1 (Op2_1Request) returns (Op2_1Response);
+  rpc QuadTo (QuadToRequest) returns (QuadToResponse);
+  rpc RConicTo (RConicToRequest) returns (RConicToResponse);
+  rpc RCubicTo (RCubicToRequest) returns (RCubicToResponse);
+  rpc RLineTo (RLineToRequest) returns (RLineToResponse);
+  rpc RMoveTo (RMoveToRequest) returns (RMoveToResponse);
+  rpc RQuadTo (RQuadToRequest) returns (RQuadToResponse);
+  rpc Reset (ResetRequest) returns (ResetResponse);
+  rpc Rewind (RewindRequest) returns (RewindResponse);
+  rpc Set (PathSetRequest) returns (SetResponse);
+  rpc SetFillType (SetFillTypeRequest) returns (SetFillTypeResponse);
+  rpc SetLastPoint (SetLastPointRequest) returns (SetLastPointResponse);
+  rpc ToggleInverseFillType (ToggleInverseFillTypeRequest) returns (ToggleInverseFillTypeResponse);
+  rpc Transform1 (Transform1Request) returns (Transform1Response);
+  rpc Transform2_1 (Transform2_1Request) returns (Transform2_1Response);
+}
+
+service PathDirectionService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service PathFillTypeService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service PathOpService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service MeshService {
+  rpc NewMesh (NewMeshRequest) returns (NewMeshResponse);
+  rpc SetColorUniform2 (SetColorUniform2Request) returns (SetColorUniform2Response);
+  rpc SetColorUniform2_1 (SetColorUniform2_1Request) returns (SetColorUniform2_1Response);
+  rpc SetColorUniform2_2 (SetColorUniform2_2Request) returns (SetColorUniform2_2Response);
+  rpc SetFloatUniform2 (SetFloatUniform2Request) returns (SetFloatUniform2Response);
+  rpc SetFloatUniform3_1 (SetFloatUniform3_1Request) returns (SetFloatUniform3_1Response);
+  rpc SetFloatUniform4_2 (SetFloatUniform4_2Request) returns (SetFloatUniform4_2Response);
+  rpc SetFloatUniform5_3 (SetFloatUniform5_3Request) returns (SetFloatUniform5_3Response);
+  rpc SetFloatUniform2_4 (SetFloatUniform2_4Request) returns (SetFloatUniform2_4Response);
+  rpc SetIntUniform2 (SetIntUniform2Request) returns (SetIntUniform2Response);
+  rpc SetIntUniform3_1 (SetIntUniform3_1Request) returns (SetIntUniform3_1Response);
+  rpc SetIntUniform4_2 (SetIntUniform4_2Request) returns (SetIntUniform4_2Response);
+  rpc SetIntUniform5_3 (SetIntUniform5_3Request) returns (SetIntUniform5_3Response);
+  rpc SetIntUniform2_4 (SetIntUniform2_4Request) returns (SetIntUniform2_4Response);
+}
+
+service RectFService {
+  rpc NewRectF (NewRectFRequest) returns (NewRectFResponse);
+  rpc CenterX (CenterXRequest) returns (CenterXResponse);
+  rpc CenterY (CenterYRequest) returns (CenterYResponse);
+  rpc Contains1 (Contains1Request) returns (Contains1Response);
+  rpc Contains2_1 (Contains2_1Request) returns (Contains2_1Response);
+  rpc Contains4_2 (Contains4_2Request) returns (Contains4_2Response);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc Height (HeightRequest) returns (HeightResponse);
+  rpc Inset (InsetRequest) returns (InsetResponse);
+  rpc Intersect1 (Intersect1Request) returns (Intersect1Response);
+  rpc Intersect4_1 (Intersect4_1Request) returns (Intersect4_1Response);
+  rpc Intersects4_1 (Intersects4_1Request) returns (Intersects4_1Response);
+  rpc IsEmpty (IsEmptyRequest) returns (IsEmptyResponse);
+  rpc Offset (OffsetRequest) returns (OffsetResponse);
+  rpc OffsetTo (OffsetToRequest) returns (OffsetToResponse);
+  rpc ReadFromParcel (ReadFromParcelRequest) returns (ReadFromParcelResponse);
+  rpc Round (RoundRequest) returns (RoundResponse);
+  rpc RoundOut (RoundOutRequest) returns (RoundOutResponse);
+  rpc Set1 (Set1Request) returns (Set1Response);
+  rpc Set1_1 (Set1_1Request) returns (Set1_1Response);
+  rpc Set4_2 (Set4_2Request) returns (Set4_2Response);
+  rpc SetEmpty (SetEmptyRequest) returns (SetEmptyResponse);
+  rpc SetIntersect (SetIntersectRequest) returns (SetIntersectResponse);
+  rpc Sort (SortRequest) returns (SortResponse);
+  rpc ToShortString (ToShortStringRequest) returns (ToShortStringResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc Union1 (Union1Request) returns (Union1Response);
+  rpc Union2_1 (Union2_1Request) returns (Union2_1Response);
+  rpc Union4_2 (Union4_2Request) returns (Union4_2Response);
+  rpc Width (WidthRequest) returns (WidthResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc Intersects2 (Intersects2Request) returns (Intersects2Response);
+}
+
+service PixelFormatService {
+  rpc NewPixelFormat (NewPixelFormatRequest) returns (NewPixelFormatResponse);
+  rpc FormatHasAlpha (FormatHasAlphaRequest) returns (FormatHasAlphaResponse);
+  rpc GetPixelFormatInfo (GetPixelFormatInfoRequest) returns (GetPixelFormatInfoResponse);
+}
+
+service GainmapService {
+  rpc NewGainmap (NewGainmapRequest) returns (NewGainmapResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAlternativeImagePrimaries (GetAlternativeImagePrimariesRequest) returns (GetAlternativeImagePrimariesResponse);
+  rpc GetDisplayRatioForFullHdr (GetDisplayRatioForFullHdrRequest) returns (GetDisplayRatioForFullHdrResponse);
+  rpc GetEpsilonHdr (GetEpsilonHdrRequest) returns (GetEpsilonHdrResponse);
+  rpc GetEpsilonSdr (GetEpsilonSdrRequest) returns (GetEpsilonSdrResponse);
+  rpc GetGainmapContents (GetGainmapContentsRequest) returns (GetGainmapContentsResponse);
+  rpc GetGainmapDirection (GetGainmapDirectionRequest) returns (GetGainmapDirectionResponse);
+  rpc GetGamma (GetGammaRequest) returns (GetGammaResponse);
+  rpc GetMinDisplayRatioForHdrTransition (GetMinDisplayRatioForHdrTransitionRequest) returns (GetMinDisplayRatioForHdrTransitionResponse);
+  rpc GetRatioMax (GetRatioMaxRequest) returns (GetRatioMaxResponse);
+  rpc GetRatioMin (GetRatioMinRequest) returns (GetRatioMinResponse);
+  rpc SetAlternativeImagePrimaries (SetAlternativeImagePrimariesRequest) returns (SetAlternativeImagePrimariesResponse);
+  rpc SetDisplayRatioForFullHdr (SetDisplayRatioForFullHdrRequest) returns (SetDisplayRatioForFullHdrResponse);
+  rpc SetEpsilonHdr (SetEpsilonHdrRequest) returns (SetEpsilonHdrResponse);
+  rpc SetEpsilonSdr (SetEpsilonSdrRequest) returns (SetEpsilonSdrResponse);
+  rpc SetGainmapContents (SetGainmapContentsRequest) returns (SetGainmapContentsResponse);
+  rpc SetGainmapDirection (SetGainmapDirectionRequest) returns (SetGainmapDirectionResponse);
+  rpc SetGamma (SetGammaRequest) returns (SetGammaResponse);
+  rpc SetMinDisplayRatioForHdrTransition (SetMinDisplayRatioForHdrTransitionRequest) returns (SetMinDisplayRatioForHdrTransitionResponse);
+  rpc SetRatioMax (SetRatioMaxRequest) returns (SetRatioMaxResponse);
+  rpc SetRatioMin (SetRatioMinRequest) returns (SetRatioMinResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service RuntimeXfermodeService {
+  rpc NewRuntimeXfermode (NewRuntimeXfermodeRequest) returns (NewRuntimeXfermodeResponse);
+  rpc SetColorUniform2 (SetColorUniform2Request) returns (SetColorUniform2Response);
+  rpc SetColorUniform2_1 (SetColorUniform2_1Request) returns (SetColorUniform2_1Response);
+  rpc SetColorUniform2_2 (SetColorUniform2_2Request) returns (SetColorUniform2_2Response);
+  rpc SetFloatUniform2 (SetFloatUniform2Request) returns (SetFloatUniform2Response);
+  rpc SetFloatUniform3_1 (SetFloatUniform3_1Request) returns (SetFloatUniform3_1Response);
+  rpc SetFloatUniform4_2 (SetFloatUniform4_2Request) returns (SetFloatUniform4_2Response);
+  rpc SetFloatUniform5_3 (SetFloatUniform5_3Request) returns (SetFloatUniform5_3Response);
+  rpc SetFloatUniform2_4 (SetFloatUniform2_4Request) returns (SetFloatUniform2_4Response);
+  rpc SetInputColorFilter (SetInputColorFilterRequest) returns (SetInputColorFilterResponse);
+  rpc SetInputShader (SetInputShaderRequest) returns (SetInputShaderResponse);
+  rpc SetInputXfermode (SetInputXfermodeRequest) returns (SetInputXfermodeResponse);
+  rpc SetIntUniform2 (SetIntUniform2Request) returns (SetIntUniform2Response);
+  rpc SetIntUniform3_1 (SetIntUniform3_1Request) returns (SetIntUniform3_1Response);
+  rpc SetIntUniform4_2 (SetIntUniform4_2Request) returns (SetIntUniform4_2Response);
+  rpc SetIntUniform5_3 (SetIntUniform5_3Request) returns (SetIntUniform5_3Response);
+  rpc SetIntUniform2_4 (SetIntUniform2_4Request) returns (SetIntUniform2_4Response);
+}
+
+service PorterDuffColorFilterService {
+  rpc NewPorterDuffColorFilter (NewPorterDuffColorFilterRequest) returns (NewPorterDuffColorFilterResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+}
+
+service ParcelableColorSpaceService {
+  rpc NewParcelableColorSpace (NewParcelableColorSpaceRequest) returns (NewParcelableColorSpaceResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetColorSpace (GetColorSpaceRequest) returns (GetColorSpaceResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc IsParcelable (IsParcelableRequest) returns (IsParcelableResponse);
+}
+
+service ImageFormatService {
+  rpc NewImageFormat (NewImageFormatRequest) returns (NewImageFormatResponse);
+  rpc GetBitsPerPixel (GetBitsPerPixelRequest) returns (GetBitsPerPixelResponse);
+}
+
+service PostProcessorService {
+  rpc OnPostProcess (OnPostProcessRequest) returns (OnPostProcessResponse);
+}
+
+service SurfaceTextureService {
+  rpc NewSurfaceTexture (NewSurfaceTextureRequest) returns (NewSurfaceTextureResponse);
+  rpc AttachToGLContext (AttachToGLContextRequest) returns (AttachToGLContextResponse);
+  rpc DetachFromGLContext (DetachFromGLContextRequest) returns (DetachFromGLContextResponse);
+  rpc GetDataSpace (GetDataSpaceRequest) returns (GetDataSpaceResponse);
+  rpc GetTimestamp (GetTimestampRequest) returns (GetTimestampResponse);
+  rpc GetTransformMatrix (GetTransformMatrixRequest) returns (GetTransformMatrixResponse);
+  rpc IsReleased (IsReleasedRequest) returns (IsReleasedResponse);
+  rpc Release (ReleaseRequest) returns (ReleaseResponse);
+  rpc ReleaseTexImage (ReleaseTexImageRequest) returns (ReleaseTexImageResponse);
+  rpc SetDefaultBufferSize (SetDefaultBufferSizeRequest) returns (SetDefaultBufferSizeResponse);
+  rpc SetOnFrameAvailableListener (SetOnFrameAvailableListenerRequest) returns (SetOnFrameAvailableListenerResponse);
+  rpc UpdateTexImage (UpdateTexImageRequest) returns (UpdateTexImageResponse);
+}
+
+service SurfaceTextureOnFrameAvailableListenerService {
+  rpc OnFrameAvailable (OnFrameAvailableRequest) returns (OnFrameAvailableResponse);
+}
+
+service MeshSpecificationService {
+  rpc Make5 (Make5Request) returns (Make5Response);
+  rpc Make6_1 (Make6_1Request) returns (Make6_1Response);
+  rpc Make7_2 (Make7_2Request) returns (Make7_2Response);
+}
+
+service MeshSpecificationAttributeService {
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetOffset (GetOffsetRequest) returns (GetOffsetResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc ToString (MeshSpecificationAttributeToStringRequest) returns (ToStringResponse);
+}
+
+service MeshSpecificationVaryingService {
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc ToString (MeshSpecificationVaryingToStringRequest) returns (ToStringResponse);
+}
+
+service BitmapFactoryService {
+  rpc NewBitmapFactory (NewBitmapFactoryRequest) returns (NewBitmapFactoryResponse);
+  rpc DecodeByteArray3 (DecodeByteArray3Request) returns (DecodeByteArray3Response);
+  rpc DecodeByteArray4_1 (DecodeByteArray4_1Request) returns (DecodeByteArray4_1Response);
+  rpc DecodeFile1 (DecodeFile1Request) returns (DecodeFile1Response);
+  rpc DecodeFile2_1 (DecodeFile2_1Request) returns (DecodeFile2_1Response);
+  rpc DecodeFileDescriptor1 (DecodeFileDescriptor1Request) returns (DecodeFileDescriptor1Response);
+  rpc DecodeFileDescriptor3_1 (DecodeFileDescriptor3_1Request) returns (DecodeFileDescriptor3_1Response);
+  rpc DecodeResource2 (DecodeResource2Request) returns (DecodeResource2Response);
+  rpc DecodeResource3_1 (DecodeResource3_1Request) returns (DecodeResource3_1Response);
+  rpc DecodeResourceStream (DecodeResourceStreamRequest) returns (DecodeResourceStreamResponse);
+  rpc DecodeStream1 (DecodeStream1Request) returns (DecodeStream1Response);
+  rpc DecodeStream3_1 (DecodeStream3_1Request) returns (DecodeStream3_1Response);
+}
+
+service BitmapFactoryOptionsService {
+  rpc RequestCancelDecode (RequestCancelDecodeRequest) returns (RequestCancelDecodeResponse);
+}
+
+service RenderNodeService {
+  rpc NewRenderNode (NewRenderNodeRequest) returns (NewRenderNodeResponse);
+  rpc BeginRecording0 (BeginRecording0Request) returns (BeginRecording0Response);
+  rpc BeginRecording2_1 (BeginRecording2_1Request) returns (BeginRecording2_1Response);
+  rpc ComputeApproximateMemoryUsage (ComputeApproximateMemoryUsageRequest) returns (ComputeApproximateMemoryUsageResponse);
+  rpc DiscardDisplayList (DiscardDisplayListRequest) returns (DiscardDisplayListResponse);
+  rpc EndRecording (EndRecordingRequest) returns (EndRecordingResponse);
+  rpc GetAlpha (GetAlphaRequest) returns (GetAlphaResponse);
+  rpc GetAmbientShadowColor (GetAmbientShadowColorRequest) returns (GetAmbientShadowColorResponse);
+  rpc GetBottom (GetBottomRequest) returns (GetBottomResponse);
+  rpc GetCameraDistance (GetCameraDistanceRequest) returns (GetCameraDistanceResponse);
+  rpc GetClipToBounds (GetClipToBoundsRequest) returns (GetClipToBoundsResponse);
+  rpc GetClipToOutline (GetClipToOutlineRequest) returns (GetClipToOutlineResponse);
+  rpc GetElevation (GetElevationRequest) returns (GetElevationResponse);
+  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
+  rpc GetInverseMatrix (GetInverseMatrixRequest) returns (GetInverseMatrixResponse);
+  rpc GetLeft (GetLeftRequest) returns (GetLeftResponse);
+  rpc GetMatrix (GetMatrixRequest) returns (GetMatrixResponse);
+  rpc GetPivotX (GetPivotXRequest) returns (GetPivotXResponse);
+  rpc GetPivotY (GetPivotYRequest) returns (GetPivotYResponse);
+  rpc GetRight (GetRightRequest) returns (GetRightResponse);
+  rpc GetRotationX (GetRotationXRequest) returns (GetRotationXResponse);
+  rpc GetRotationY (GetRotationYRequest) returns (GetRotationYResponse);
+  rpc GetRotationZ (GetRotationZRequest) returns (GetRotationZResponse);
+  rpc GetScaleX (GetScaleXRequest) returns (GetScaleXResponse);
+  rpc GetScaleY (GetScaleYRequest) returns (GetScaleYResponse);
+  rpc GetSpotShadowColor (GetSpotShadowColorRequest) returns (GetSpotShadowColorResponse);
+  rpc GetTop (GetTopRequest) returns (GetTopResponse);
+  rpc GetTranslationX (GetTranslationXRequest) returns (GetTranslationXResponse);
+  rpc GetTranslationY (GetTranslationYRequest) returns (GetTranslationYResponse);
+  rpc GetTranslationZ (GetTranslationZRequest) returns (GetTranslationZResponse);
+  rpc GetUniqueId (GetUniqueIdRequest) returns (GetUniqueIdResponse);
+  rpc GetUseCompositingLayer (GetUseCompositingLayerRequest) returns (GetUseCompositingLayerResponse);
+  rpc GetWidth (GetWidthRequest) returns (GetWidthResponse);
+  rpc HasDisplayList (HasDisplayListRequest) returns (HasDisplayListResponse);
+  rpc HasIdentityMatrix (HasIdentityMatrixRequest) returns (HasIdentityMatrixResponse);
+  rpc HasOverlappingRendering (HasOverlappingRenderingRequest) returns (HasOverlappingRenderingResponse);
+  rpc HasShadow (HasShadowRequest) returns (HasShadowResponse);
+  rpc IsForceDarkAllowed (IsForceDarkAllowedRequest) returns (IsForceDarkAllowedResponse);
+  rpc IsPivotExplicitlySet (IsPivotExplicitlySetRequest) returns (IsPivotExplicitlySetResponse);
+  rpc OffsetLeftAndRight (OffsetLeftAndRightRequest) returns (OffsetLeftAndRightResponse);
+  rpc OffsetTopAndBottom (OffsetTopAndBottomRequest) returns (OffsetTopAndBottomResponse);
+  rpc ResetPivot (ResetPivotRequest) returns (ResetPivotResponse);
+  rpc SetAlpha (SetAlphaRequest) returns (SetAlphaResponse);
+  rpc SetAmbientShadowColor (SetAmbientShadowColorRequest) returns (SetAmbientShadowColorResponse);
+  rpc SetCameraDistance (SetCameraDistanceRequest) returns (SetCameraDistanceResponse);
+  rpc SetClipRect (SetClipRectRequest) returns (SetClipRectResponse);
+  rpc SetClipToBounds (SetClipToBoundsRequest) returns (SetClipToBoundsResponse);
+  rpc SetClipToOutline (SetClipToOutlineRequest) returns (SetClipToOutlineResponse);
+  rpc SetElevation (SetElevationRequest) returns (SetElevationResponse);
+  rpc SetForceDarkAllowed (SetForceDarkAllowedRequest) returns (SetForceDarkAllowedResponse);
+  rpc SetHasOverlappingRendering (SetHasOverlappingRenderingRequest) returns (SetHasOverlappingRenderingResponse);
+  rpc SetOutline (SetOutlineRequest) returns (SetOutlineResponse);
+  rpc SetPivotX (SetPivotXRequest) returns (SetPivotXResponse);
+  rpc SetPivotY (SetPivotYRequest) returns (SetPivotYResponse);
+  rpc SetPosition1 (SetPosition1Request) returns (SetPosition1Response);
+  rpc SetPosition4_1 (SetPosition4_1Request) returns (SetPosition4_1Response);
+  rpc SetProjectBackwards (SetProjectBackwardsRequest) returns (SetProjectBackwardsResponse);
+  rpc SetProjectionReceiver (SetProjectionReceiverRequest) returns (SetProjectionReceiverResponse);
+  rpc SetRenderEffect (SetRenderEffectRequest) returns (SetRenderEffectResponse);
+  rpc SetRotationX (SetRotationXRequest) returns (SetRotationXResponse);
+  rpc SetRotationY (SetRotationYRequest) returns (SetRotationYResponse);
+  rpc SetRotationZ (SetRotationZRequest) returns (SetRotationZResponse);
+  rpc SetScaleX (SetScaleXRequest) returns (SetScaleXResponse);
+  rpc SetScaleY (SetScaleYRequest) returns (SetScaleYResponse);
+  rpc SetSpotShadowColor (SetSpotShadowColorRequest) returns (SetSpotShadowColorResponse);
+  rpc SetTranslationX (SetTranslationXRequest) returns (SetTranslationXResponse);
+  rpc SetTranslationY (SetTranslationYRequest) returns (SetTranslationYResponse);
+  rpc SetTranslationZ (SetTranslationZRequest) returns (SetTranslationZResponse);
+  rpc SetUseCompositingLayer (SetUseCompositingLayerRequest) returns (SetUseCompositingLayerResponse);
+}
+
+service InsetsService {
+  rpc DescribeContents (InsetsDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (InsetsEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (InsetsHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (InsetsToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (InsetsWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc Add (AddRequest) returns (AddResponse);
+  rpc Max (MaxRequest) returns (MaxResponse);
+  rpc Min (MinRequest) returns (MinResponse);
+  rpc Of1 (Of1Request) returns (Of1Response);
+  rpc Of4_1 (Of4_1Request) returns (Of4_1Response);
+  rpc Subtract (SubtractRequest) returns (SubtractResponse);
+}
+
+service HardwareBufferRendererService {
+  rpc NewHardwareBufferRenderer (NewHardwareBufferRendererRequest) returns (NewHardwareBufferRendererResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc IsClosed (IsClosedRequest) returns (IsClosedResponse);
+  rpc ObtainRenderRequest (ObtainRenderRequestRequest) returns (ObtainRenderRequestResponse);
+  rpc SetContentRoot (SetContentRootRequest) returns (SetContentRootResponse);
+  rpc SetLightSourceAlpha (SetLightSourceAlphaRequest) returns (SetLightSourceAlphaResponse);
+  rpc SetLightSourceGeometry (SetLightSourceGeometryRequest) returns (SetLightSourceGeometryResponse);
+}
+
+service HardwareBufferRendererRenderRequestService {
+  rpc SetBufferTransform (SetBufferTransformRequest) returns (SetBufferTransformResponse);
+  rpc SetColorSpace (SetColorSpaceRequest) returns (SetColorSpaceResponse);
+}
+
+service HardwareBufferRendererRenderResultService {
+  rpc GetFence (GetFenceRequest) returns (GetFenceResponse);
+  rpc GetStatus (GetStatusRequest) returns (GetStatusResponse);
+}
+
+service ColorService {
+  rpc NewColor (NewColorRequest) returns (NewColorResponse);
+  rpc Alpha0 (Alpha0Request) returns (Alpha0Response);
+  rpc Blue0 (Blue0Request) returns (Blue0Response);
+  rpc Convert1 (Convert1Request) returns (Convert1Response);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetColorSpace (GetColorSpaceRequest) returns (GetColorSpaceResponse);
+  rpc GetComponent (GetComponentRequest) returns (GetComponentResponse);
+  rpc GetComponentCount (GetComponentCountRequest) returns (GetComponentCountResponse);
+  rpc GetComponents0 (GetComponents0Request) returns (GetComponents0Response);
+  rpc GetComponents1_1 (GetComponents1_1Request) returns (GetComponents1_1Response);
+  rpc GetModel (GetModelRequest) returns (GetModelResponse);
+  rpc Green0 (Green0Request) returns (Green0Response);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsSrgb0 (IsSrgb0Request) returns (IsSrgb0Response);
+  rpc IsWideGamut0 (IsWideGamut0Request) returns (IsWideGamut0Response);
+  rpc Luminance0 (Luminance0Request) returns (Luminance0Response);
+  rpc Pack0 (Pack0Request) returns (Pack0Response);
+  rpc Red0 (Red0Request) returns (Red0Response);
+  rpc ToArgb0 (ToArgb0Request) returns (ToArgb0Response);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc HSVToColor1 (HSVToColor1Request) returns (HSVToColor1Response);
+  rpc HSVToColor2_1 (HSVToColor2_1Request) returns (HSVToColor2_1Response);
+  rpc RGBToHSV (RGBToHSVRequest) returns (RGBToHSVResponse);
+  rpc Alpha1_1 (Alpha1_1Request) returns (Alpha1_1Response);
+  rpc Alpha1_2 (Alpha1_2Request) returns (Alpha1_2Response);
+  rpc Argb4 (Argb4Request) returns (Argb4Response);
+  rpc Argb4_1 (Argb4_1Request) returns (Argb4_1Response);
+  rpc Blue1_1 (Blue1_1Request) returns (Blue1_1Response);
+  rpc Blue1_2 (Blue1_2Request) returns (Blue1_2Response);
+  rpc ColorSpace (ColorSpaceRequest) returns (ColorSpaceResponse);
+  rpc ColorToHSV (ColorToHSVRequest) returns (ColorToHSVResponse);
+  rpc Convert6_1 (Convert6_1Request) returns (Convert6_1Response);
+  rpc Convert5_2 (Convert5_2Request) returns (Convert5_2Response);
+  rpc Convert2_3 (Convert2_3Request) returns (Convert2_3Response);
+  rpc Convert2_4 (Convert2_4Request) returns (Convert2_4Response);
+  rpc Convert2_5 (Convert2_5Request) returns (Convert2_5Response);
+  rpc Green1_1 (Green1_1Request) returns (Green1_1Response);
+  rpc Green1_2 (Green1_2Request) returns (Green1_2Response);
+  rpc IsInColorSpace (IsInColorSpaceRequest) returns (IsInColorSpaceResponse);
+  rpc IsSrgb1_1 (IsSrgb1_1Request) returns (IsSrgb1_1Response);
+  rpc IsWideGamut1_1 (IsWideGamut1_1Request) returns (IsWideGamut1_1Response);
+  rpc Luminance1_1 (Luminance1_1Request) returns (Luminance1_1Response);
+  rpc Luminance1_2 (Luminance1_2Request) returns (Luminance1_2Response);
+  rpc Pack3_1 (Pack3_1Request) returns (Pack3_1Response);
+  rpc Pack4_2 (Pack4_2Request) returns (Pack4_2Response);
+  rpc Pack5_3 (Pack5_3Request) returns (Pack5_3Response);
+  rpc Pack1_4 (Pack1_4Request) returns (Pack1_4Response);
+  rpc ParseColor (ParseColorRequest) returns (ParseColorResponse);
+  rpc Red1_1 (Red1_1Request) returns (Red1_1Response);
+  rpc Red1_2 (Red1_2Request) returns (Red1_2Response);
+  rpc Rgb3 (Rgb3Request) returns (Rgb3Response);
+  rpc Rgb3_1 (Rgb3_1Request) returns (Rgb3_1Response);
+  rpc ToArgb1_1 (ToArgb1_1Request) returns (ToArgb1_1Response);
+  rpc ValueOf3 (ValueOf3Request) returns (ValueOf3Response);
+  rpc ValueOf4_1 (ValueOf4_1Request) returns (ValueOf4_1Response);
+  rpc ValueOf5_2 (ValueOf5_2Request) returns (ValueOf5_2Response);
+  rpc ValueOf2_3 (ValueOf2_3Request) returns (ValueOf2_3Response);
+  rpc ValueOf1_4 (ValueOf1_4Request) returns (ValueOf1_4Response);
+  rpc ValueOf1_5 (ValueOf1_5Request) returns (ValueOf1_5Response);
+}
+
+service CameraService {
+  rpc NewCamera (NewCameraRequest) returns (NewCameraResponse);
+  rpc ApplyToCanvas (ApplyToCanvasRequest) returns (ApplyToCanvasResponse);
+  rpc DotWithNormal (DotWithNormalRequest) returns (DotWithNormalResponse);
+  rpc GetLocationX (GetLocationXRequest) returns (GetLocationXResponse);
+  rpc GetLocationY (GetLocationYRequest) returns (GetLocationYResponse);
+  rpc GetLocationZ (GetLocationZRequest) returns (GetLocationZResponse);
+  rpc GetMatrix (GetMatrixRequest) returns (GetMatrixResponse);
+  rpc Restore (RestoreRequest) returns (RestoreResponse);
+  rpc Rotate (CameraRotateRequest) returns (CameraRotateResponse);
+  rpc RotateX (RotateXRequest) returns (RotateXResponse);
+  rpc RotateY (RotateYRequest) returns (RotateYResponse);
+  rpc RotateZ (RotateZRequest) returns (RotateZResponse);
+  rpc Save (SaveRequest) returns (SaveResponse);
+  rpc SetLocation (SetLocationRequest) returns (SetLocationResponse);
+  rpc Translate (TranslateRequest) returns (CameraTranslateResponse);
+}
+
+service RuntimeShaderService {
+  rpc NewRuntimeShader (NewRuntimeShaderRequest) returns (NewRuntimeShaderResponse);
+  rpc SetColorUniform2 (SetColorUniform2Request) returns (SetColorUniform2Response);
+  rpc SetColorUniform2_1 (SetColorUniform2_1Request) returns (SetColorUniform2_1Response);
+  rpc SetColorUniform2_2 (SetColorUniform2_2Request) returns (SetColorUniform2_2Response);
+  rpc SetFloatUniform2 (SetFloatUniform2Request) returns (SetFloatUniform2Response);
+  rpc SetFloatUniform3_1 (SetFloatUniform3_1Request) returns (SetFloatUniform3_1Response);
+  rpc SetFloatUniform4_2 (SetFloatUniform4_2Request) returns (SetFloatUniform4_2Response);
+  rpc SetFloatUniform5_3 (SetFloatUniform5_3Request) returns (SetFloatUniform5_3Response);
+  rpc SetFloatUniform2_4 (SetFloatUniform2_4Request) returns (SetFloatUniform2_4Response);
+  rpc SetInputBuffer (SetInputBufferRequest) returns (SetInputBufferResponse);
+  rpc SetInputColorFilter (SetInputColorFilterRequest) returns (SetInputColorFilterResponse);
+  rpc SetInputShader (SetInputShaderRequest) returns (SetInputShaderResponse);
+  rpc SetInputXfermode (SetInputXfermodeRequest) returns (SetInputXfermodeResponse);
+  rpc SetIntUniform2 (SetIntUniform2Request) returns (SetIntUniform2Response);
+  rpc SetIntUniform3_1 (SetIntUniform3_1Request) returns (SetIntUniform3_1Response);
+  rpc SetIntUniform4_2 (SetIntUniform4_2Request) returns (SetIntUniform4_2Response);
+  rpc SetIntUniform5_3 (SetIntUniform5_3Request) returns (SetIntUniform5_3Response);
+  rpc SetIntUniform2_4 (SetIntUniform2_4Request) returns (SetIntUniform2_4Response);
+}
+
+service PathMeasureService {
+  rpc NewPathMeasure (NewPathMeasureRequest) returns (NewPathMeasureResponse);
+  rpc GetLength (GetLengthRequest) returns (GetLengthResponse);
+  rpc GetMatrix (PathMeasureGetMatrixRequest) returns (PathMeasureGetMatrixResponse);
+  rpc GetPosTan (GetPosTanRequest) returns (GetPosTanResponse);
+  rpc GetSegment (GetSegmentRequest) returns (GetSegmentResponse);
+  rpc IsClosed (IsClosedRequest) returns (IsClosedResponse);
+  rpc NextContour (NextContourRequest) returns (NextContourResponse);
+  rpc SetPath (SetPathRequest) returns (SetPathResponse);
+}
+
+service OutlineService {
+  rpc NewOutline (NewOutlineRequest) returns (NewOutlineResponse);
+  rpc CanClip (CanClipRequest) returns (CanClipResponse);
+  rpc GetAlpha (GetAlphaRequest) returns (GetAlphaResponse);
+  rpc GetRadius (GetRadiusRequest) returns (GetRadiusResponse);
+  rpc GetRect (GetRectRequest) returns (GetRectResponse);
+  rpc IsEmpty (IsEmptyRequest) returns (IsEmptyResponse);
+  rpc Offset (OutlineOffsetRequest) returns (OffsetResponse);
+  rpc Set (OutlineSetRequest) returns (SetResponse);
+  rpc SetAlpha (SetAlphaRequest) returns (OutlineSetAlphaResponse);
+  rpc SetConvexPath (SetConvexPathRequest) returns (SetConvexPathResponse);
+  rpc SetEmpty (SetEmptyRequest) returns (SetEmptyResponse);
+  rpc SetOval1 (SetOval1Request) returns (SetOval1Response);
+  rpc SetOval4_1 (SetOval4_1Request) returns (SetOval4_1Response);
+  rpc SetPath (OutlineSetPathRequest) returns (SetPathResponse);
+  rpc SetRect1 (SetRect1Request) returns (SetRect1Response);
+  rpc SetRect4_1 (SetRect4_1Request) returns (SetRect4_1Response);
+  rpc SetRoundRect2 (SetRoundRect2Request) returns (SetRoundRect2Response);
+  rpc SetRoundRect5_1 (SetRoundRect5_1Request) returns (SetRoundRect5_1Response);
+}
+
+service RenderEffectService {
+  rpc CreateBitmapEffect1 (CreateBitmapEffect1Request) returns (CreateBitmapEffect1Response);
+  rpc CreateBitmapEffect3_1 (CreateBitmapEffect3_1Request) returns (CreateBitmapEffect3_1Response);
+  rpc CreateBlendModeEffect (CreateBlendModeEffectRequest) returns (CreateBlendModeEffectResponse);
+  rpc CreateBlurEffect4 (CreateBlurEffect4Request) returns (CreateBlurEffect4Response);
+  rpc CreateBlurEffect3_1 (CreateBlurEffect3_1Request) returns (CreateBlurEffect3_1Response);
+  rpc CreateChainEffect (CreateChainEffectRequest) returns (CreateChainEffectResponse);
+  rpc CreateColorFilterEffect1 (CreateColorFilterEffect1Request) returns (CreateColorFilterEffect1Response);
+  rpc CreateColorFilterEffect2_1 (CreateColorFilterEffect2_1Request) returns (CreateColorFilterEffect2_1Response);
+  rpc CreateOffsetEffect2 (CreateOffsetEffect2Request) returns (CreateOffsetEffect2Response);
+  rpc CreateOffsetEffect3_1 (CreateOffsetEffect3_1Request) returns (CreateOffsetEffect3_1Response);
+  rpc CreateRuntimeShaderEffect (CreateRuntimeShaderEffectRequest) returns (CreateRuntimeShaderEffectResponse);
+  rpc CreateShaderEffect (CreateShaderEffectRequest) returns (CreateShaderEffectResponse);
+}
+
+service LightingColorFilterService {
+  rpc NewLightingColorFilter (NewLightingColorFilterRequest) returns (NewLightingColorFilterResponse);
+  rpc GetColorAdd (GetColorAddRequest) returns (GetColorAddResponse);
+  rpc GetColorMultiply (GetColorMultiplyRequest) returns (GetColorMultiplyResponse);
+}
+
+service YuvImageService {
+  rpc NewYuvImage (NewYuvImageRequest) returns (NewYuvImageResponse);
+  rpc CompressToJpeg (CompressToJpegRequest) returns (CompressToJpegResponse);
+  rpc CompressToJpegR (CompressToJpegRRequest) returns (CompressToJpegRResponse);
+  rpc GetColorSpace (GetColorSpaceRequest) returns (GetColorSpaceResponse);
+  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
+  rpc GetStrides (GetStridesRequest) returns (GetStridesResponse);
+  rpc GetWidth (GetWidthRequest) returns (GetWidthResponse);
+  rpc GetYuvData (GetYuvDataRequest) returns (GetYuvDataResponse);
+  rpc GetYuvFormat (GetYuvFormatRequest) returns (GetYuvFormatResponse);
+}
+
+service MovieService {
+  rpc Draw3 (Draw3Request) returns (Draw3Response);
+  rpc Draw4_1 (Draw4_1Request) returns (Draw4_1Response);
+  rpc Duration (DurationRequest) returns (DurationResponse);
+  rpc Height (MovieHeightRequest) returns (MovieHeightResponse);
+  rpc IsOpaque (IsOpaqueRequest) returns (IsOpaqueResponse);
+  rpc SetTime (SetTimeRequest) returns (SetTimeResponse);
+  rpc Width (MovieWidthRequest) returns (MovieWidthResponse);
+  rpc DecodeByteArray (DecodeByteArrayRequest) returns (DecodeByteArrayResponse);
+  rpc DecodeFile (DecodeFileRequest) returns (DecodeFileResponse);
+  rpc DecodeStream (DecodeStreamRequest) returns (DecodeStreamResponse);
+}
+
+service PathDashPathEffectStyleService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service RuntimeColorFilterService {
+  rpc NewRuntimeColorFilter (NewRuntimeColorFilterRequest) returns (NewRuntimeColorFilterResponse);
+  rpc SetColorUniform2 (SetColorUniform2Request) returns (SetColorUniform2Response);
+  rpc SetColorUniform2_1 (SetColorUniform2_1Request) returns (SetColorUniform2_1Response);
+  rpc SetColorUniform2_2 (SetColorUniform2_2Request) returns (SetColorUniform2_2Response);
+  rpc SetFloatUniform2 (SetFloatUniform2Request) returns (SetFloatUniform2Response);
+  rpc SetFloatUniform3_1 (SetFloatUniform3_1Request) returns (SetFloatUniform3_1Response);
+  rpc SetFloatUniform4_2 (SetFloatUniform4_2Request) returns (SetFloatUniform4_2Response);
+  rpc SetFloatUniform5_3 (SetFloatUniform5_3Request) returns (SetFloatUniform5_3Response);
+  rpc SetFloatUniform2_4 (SetFloatUniform2_4Request) returns (SetFloatUniform2_4Response);
+  rpc SetInputColorFilter (SetInputColorFilterRequest) returns (SetInputColorFilterResponse);
+  rpc SetInputShader (SetInputShaderRequest) returns (SetInputShaderResponse);
+  rpc SetInputXfermode (SetInputXfermodeRequest) returns (SetInputXfermodeResponse);
+  rpc SetIntUniform2 (SetIntUniform2Request) returns (SetIntUniform2Response);
+  rpc SetIntUniform3_1 (SetIntUniform3_1Request) returns (SetIntUniform3_1Response);
+  rpc SetIntUniform4_2 (SetIntUniform4_2Request) returns (SetIntUniform4_2Response);
+  rpc SetIntUniform5_3 (SetIntUniform5_3Request) returns (SetIntUniform5_3Response);
+  rpc SetIntUniform2_4 (SetIntUniform2_4Request) returns (SetIntUniform2_4Response);
+}
+
+service ImageDecoderService {
+  rpc Close (ImageDecoderCloseRequest) returns (CloseResponse);
+  rpc GetAllocator (GetAllocatorRequest) returns (GetAllocatorResponse);
+  rpc GetCrop (GetCropRequest) returns (GetCropResponse);
+  rpc GetMemorySizePolicy (GetMemorySizePolicyRequest) returns (GetMemorySizePolicyResponse);
+  rpc GetOnPartialImageListener (GetOnPartialImageListenerRequest) returns (GetOnPartialImageListenerResponse);
+  rpc GetPostProcessor (GetPostProcessorRequest) returns (GetPostProcessorResponse);
+  rpc IsDecodeAsAlphaMaskEnabled (IsDecodeAsAlphaMaskEnabledRequest) returns (IsDecodeAsAlphaMaskEnabledResponse);
+  rpc IsMutableRequired (IsMutableRequiredRequest) returns (IsMutableRequiredResponse);
+  rpc IsUnpremultipliedRequired (IsUnpremultipliedRequiredRequest) returns (IsUnpremultipliedRequiredResponse);
+  rpc SetAllocator (SetAllocatorRequest) returns (SetAllocatorResponse);
+  rpc SetCrop (SetCropRequest) returns (SetCropResponse);
+  rpc SetDecodeAsAlphaMaskEnabled (SetDecodeAsAlphaMaskEnabledRequest) returns (SetDecodeAsAlphaMaskEnabledResponse);
+  rpc SetMemorySizePolicy (SetMemorySizePolicyRequest) returns (SetMemorySizePolicyResponse);
+  rpc SetMutableRequired (SetMutableRequiredRequest) returns (SetMutableRequiredResponse);
+  rpc SetOnPartialImageListener (SetOnPartialImageListenerRequest) returns (SetOnPartialImageListenerResponse);
+  rpc SetPostProcessor (SetPostProcessorRequest) returns (SetPostProcessorResponse);
+  rpc SetTargetColorSpace (SetTargetColorSpaceRequest) returns (SetTargetColorSpaceResponse);
+  rpc SetTargetSampleSize (SetTargetSampleSizeRequest) returns (SetTargetSampleSizeResponse);
+  rpc SetTargetSize (SetTargetSizeRequest) returns (SetTargetSizeResponse);
+  rpc SetUnpremultipliedRequired (SetUnpremultipliedRequiredRequest) returns (SetUnpremultipliedRequiredResponse);
+  rpc CreateSource2 (CreateSource2Request) returns (CreateSource2Response);
+  rpc CreateSource2_1 (CreateSource2_1Request) returns (CreateSource2_1Response);
+  rpc CreateSource2_2 (CreateSource2_2Request) returns (CreateSource2_2Response);
+  rpc CreateSource1_3 (CreateSource1_3Request) returns (CreateSource1_3Response);
+  rpc CreateSource3_4 (CreateSource3_4Request) returns (CreateSource3_4Response);
+  rpc CreateSource1_5 (CreateSource1_5Request) returns (CreateSource1_5Response);
+  rpc DecodeBitmap1 (DecodeBitmap1Request) returns (DecodeBitmap1Response);
+  rpc DecodeBitmap2_1 (DecodeBitmap2_1Request) returns (DecodeBitmap2_1Response);
+  rpc DecodeDrawable1 (DecodeDrawable1Request) returns (DecodeDrawable1Response);
+  rpc DecodeDrawable2_1 (DecodeDrawable2_1Request) returns (DecodeDrawable2_1Response);
+  rpc IsMimeTypeSupported (IsMimeTypeSupportedRequest) returns (IsMimeTypeSupportedResponse);
+}
+
+service ImageDecoderDecodeExceptionService {
+  rpc GetError (GetErrorRequest) returns (GetErrorResponse);
+  rpc GetSource (GetSourceRequest) returns (GetSourceResponse);
+}
+
+service ImageDecoderImageInfoService {
+  rpc GetColorSpace (ImageDecoderImageInfoGetColorSpaceRequest) returns (GetColorSpaceResponse);
+  rpc GetMimeType (GetMimeTypeRequest) returns (GetMimeTypeResponse);
+  rpc GetSize (GetSizeRequest) returns (GetSizeResponse);
+  rpc IsAnimated (IsAnimatedRequest) returns (IsAnimatedResponse);
+}
+
+service ImageDecoderOnHeaderDecodedListenerService {
+  rpc OnHeaderDecoded (OnHeaderDecodedRequest) returns (OnHeaderDecodedResponse);
+}
+
+service ImageDecoderOnPartialImageListenerService {
+  rpc OnPartialImage (OnPartialImageRequest) returns (OnPartialImageResponse);
+}
+
+service BitmapRegionDecoderService {
+  rpc DecodeRegion (DecodeRegionRequest) returns (DecodeRegionResponse);
+  rpc GetHeight (BitmapRegionDecoderGetHeightRequest) returns (GetHeightResponse);
+  rpc GetWidth (BitmapRegionDecoderGetWidthRequest) returns (GetWidthResponse);
+  rpc IsRecycled (IsRecycledRequest) returns (IsRecycledResponse);
+  rpc Recycle (RecycleRequest) returns (RecycleResponse);
+  rpc NewInstance1 (NewInstance1Request) returns (NewInstance1Response);
+  rpc NewInstance3_1 (NewInstance3_1Request) returns (NewInstance3_1Response);
+  rpc NewInstance4_2 (NewInstance4_2Request) returns (NewInstance4_2Response);
+  rpc NewInstance2_3 (NewInstance2_3Request) returns (NewInstance2_3Response);
+  rpc NewInstance1_4 (NewInstance1_4Request) returns (NewInstance1_4Response);
+  rpc NewInstance2_5 (NewInstance2_5Request) returns (NewInstance2_5Response);
+  rpc NewInstance1_6 (NewInstance1_6Request) returns (NewInstance1_6Response);
+  rpc NewInstance2_7 (NewInstance2_7Request) returns (NewInstance2_7Response);
+}
+
+service PictureService {
+  rpc NewPicture (NewPictureRequest) returns (NewPictureResponse);
+  rpc BeginRecording (BeginRecordingRequest) returns (BeginRecordingResponse);
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc EndRecording (EndRecordingRequest) returns (EndRecordingResponse);
+  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
+  rpc GetWidth (GetWidthRequest) returns (GetWidthResponse);
+  rpc RequiresHardwareAcceleration (RequiresHardwareAccelerationRequest) returns (RequiresHardwareAccelerationResponse);
+}
+
+service ColorMatrixService {
+  rpc NewColorMatrix (NewColorMatrixRequest) returns (NewColorMatrixResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetArray (GetArrayRequest) returns (GetArrayResponse);
+  rpc PostConcat (PostConcatRequest) returns (ColorMatrixPostConcatResponse);
+  rpc PreConcat (PreConcatRequest) returns (ColorMatrixPreConcatResponse);
+  rpc Reset (ResetRequest) returns (ResetResponse);
+  rpc Set1 (Set1Request) returns (Set1Response);
+  rpc Set1_1 (Set1_1Request) returns (Set1_1Response);
+  rpc SetConcat (SetConcatRequest) returns (ColorMatrixSetConcatResponse);
+  rpc SetRGB2YUV (SetRGB2YUVRequest) returns (SetRGB2YUVResponse);
+  rpc SetRotate (SetRotateRequest) returns (SetRotateResponse);
+  rpc SetSaturation (SetSaturationRequest) returns (SetSaturationResponse);
+  rpc SetScale (SetScaleRequest) returns (SetScaleResponse);
+  rpc SetYUV2RGB (SetYUV2RGBRequest) returns (SetYUV2RGBResponse);
+}
+
+service RegionIteratorService {
+  rpc NewRegionIterator (NewRegionIteratorRequest) returns (NewRegionIteratorResponse);
+  rpc Next (NextRequest) returns (NextResponse);
+}
+
+service HardwareRendererService {
+  rpc NewHardwareRenderer (NewHardwareRendererRequest) returns (NewHardwareRendererResponse);
+  rpc ClearContent (ClearContentRequest) returns (ClearContentResponse);
+  rpc CreateRenderRequest (CreateRenderRequestRequest) returns (CreateRenderRequestResponse);
+  rpc Destroy (DestroyRequest) returns (DestroyResponse);
+  rpc IsOpaque (HardwareRendererIsOpaqueRequest) returns (IsOpaqueResponse);
+  rpc NotifyFramePending (NotifyFramePendingRequest) returns (NotifyFramePendingResponse);
+  rpc SetContentRoot (SetContentRootRequest) returns (SetContentRootResponse);
+  rpc SetLightSourceAlpha (SetLightSourceAlphaRequest) returns (SetLightSourceAlphaResponse);
+  rpc SetLightSourceGeometry (SetLightSourceGeometryRequest) returns (SetLightSourceGeometryResponse);
+  rpc SetName (SetNameRequest) returns (SetNameResponse);
+  rpc SetOpaque (SetOpaqueRequest) returns (SetOpaqueResponse);
+  rpc SetSurface (SetSurfaceRequest) returns (SetSurfaceResponse);
+  rpc Start (StartRequest) returns (StartResponse);
+  rpc Stop (StopRequest) returns (StopResponse);
+  rpc IsDrawingEnabled (IsDrawingEnabledRequest) returns (IsDrawingEnabledResponse);
+  rpc SetDrawingEnabled (SetDrawingEnabledRequest) returns (SetDrawingEnabledResponse);
+}
+
+service HardwareRendererFrameRenderRequestService {
+  rpc SetFrameCommitCallback (SetFrameCommitCallbackRequest) returns (SetFrameCommitCallbackResponse);
+  rpc SetVsyncTime (SetVsyncTimeRequest) returns (SetVsyncTimeResponse);
+  rpc SetWaitForPresent (SetWaitForPresentRequest) returns (SetWaitForPresentResponse);
+  rpc SyncAndDraw (SyncAndDrawRequest) returns (SyncAndDrawResponse);
+}
+
+service PorterDuffModeService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service RectService {
+  rpc NewRect (NewRectRequest) returns (NewRectResponse);
+  rpc CenterX (CenterXRequest) returns (RectCenterXResponse);
+  rpc CenterY (CenterYRequest) returns (RectCenterYResponse);
+  rpc Contains1 (Contains1Request) returns (Contains1Response);
+  rpc Contains2_1 (RectContains2_1Request) returns (Contains2_1Response);
+  rpc Contains4_2 (RectContains4_2Request) returns (Contains4_2Response);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc ExactCenterX (ExactCenterXRequest) returns (ExactCenterXResponse);
+  rpc ExactCenterY (ExactCenterYRequest) returns (ExactCenterYResponse);
+  rpc FlattenToString (FlattenToStringRequest) returns (FlattenToStringResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc Height (HeightRequest) returns (RectHeightResponse);
+  rpc Inset1 (Inset1Request) returns (Inset1Response);
+  rpc Inset2_1 (Inset2_1Request) returns (Inset2_1Response);
+  rpc Inset4_2 (Inset4_2Request) returns (Inset4_2Response);
+  rpc Intersect1 (Intersect1Request) returns (Intersect1Response);
+  rpc Intersect4_1 (RectIntersect4_1Request) returns (Intersect4_1Response);
+  rpc Intersects4_1 (RectIntersects4_1Request) returns (Intersects4_1Response);
+  rpc IsEmpty (IsEmptyRequest) returns (IsEmptyResponse);
+  rpc Offset (RectOffsetRequest) returns (OffsetResponse);
+  rpc OffsetTo (RectOffsetToRequest) returns (OffsetToResponse);
+  rpc ReadFromParcel (ReadFromParcelRequest) returns (ReadFromParcelResponse);
+  rpc Set1 (Set1Request) returns (Set1Response);
+  rpc Set4_1 (Set4_1Request) returns (Set4_1Response);
+  rpc SetEmpty (SetEmptyRequest) returns (SetEmptyResponse);
+  rpc SetIntersect (SetIntersectRequest) returns (SetIntersectResponse);
+  rpc Sort (SortRequest) returns (SortResponse);
+  rpc ToShortString (ToShortStringRequest) returns (ToShortStringResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc Union1 (Union1Request) returns (Union1Response);
+  rpc Union2_1 (RectUnion2_1Request) returns (Union2_1Response);
+  rpc Union4_2 (RectUnion4_2Request) returns (Union4_2Response);
+  rpc Width (WidthRequest) returns (RectWidthResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc Intersects2 (Intersects2Request) returns (Intersects2Response);
+  rpc UnflattenFromString (UnflattenFromStringRequest) returns (UnflattenFromStringResponse);
+}
+
+service InterpolatorService {
+  rpc NewInterpolator (NewInterpolatorRequest) returns (NewInterpolatorResponse);
+  rpc GetKeyFrameCount (GetKeyFrameCountRequest) returns (GetKeyFrameCountResponse);
+  rpc GetValueCount (GetValueCountRequest) returns (GetValueCountResponse);
+  rpc Reset1 (Reset1Request) returns (Reset1Response);
+  rpc Reset2_1 (Reset2_1Request) returns (Reset2_1Response);
+  rpc SetKeyFrame3 (SetKeyFrame3Request) returns (SetKeyFrame3Response);
+  rpc SetKeyFrame4_1 (SetKeyFrame4_1Request) returns (SetKeyFrame4_1Response);
+  rpc SetRepeatMirror (SetRepeatMirrorRequest) returns (SetRepeatMirrorResponse);
+  rpc TimeToValues1 (TimeToValues1Request) returns (TimeToValues1Response);
+  rpc TimeToValues2_1 (TimeToValues2_1Request) returns (TimeToValues2_1Response);
+}
+
+service InterpolatorResultService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service RegionService {
+  rpc NewRegion (NewRegionRequest) returns (NewRegionResponse);
+  rpc Contains (ContainsRequest) returns (ContainsResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetBoundaryPath0 (GetBoundaryPath0Request) returns (GetBoundaryPath0Response);
+  rpc GetBoundaryPath1_1 (GetBoundaryPath1_1Request) returns (GetBoundaryPath1_1Response);
+  rpc GetBounds0 (GetBounds0Request) returns (GetBounds0Response);
+  rpc GetBounds1_1 (GetBounds1_1Request) returns (GetBounds1_1Response);
+  rpc IsComplex (IsComplexRequest) returns (IsComplexResponse);
+  rpc IsEmpty (IsEmptyRequest) returns (IsEmptyResponse);
+  rpc IsRect (RegionIsRectRequest) returns (IsRectResponse);
+  rpc Op3 (Op3Request) returns (Op3Response);
+  rpc Op2_1 (Op2_1Request) returns (Op2_1Response);
+  rpc Op3_2 (Op3_2Request) returns (Op3_2Response);
+  rpc Op2_3 (Op2_3Request) returns (Op2_3Response);
+  rpc Op5_4 (Op5_4Request) returns (Op5_4Response);
+  rpc QuickContains1 (QuickContains1Request) returns (QuickContains1Response);
+  rpc QuickContains4_1 (QuickContains4_1Request) returns (QuickContains4_1Response);
+  rpc QuickReject1 (QuickReject1Request) returns (QuickReject1Response);
+  rpc QuickReject1_1 (QuickReject1_1Request) returns (QuickReject1_1Response);
+  rpc QuickReject4_2 (QuickReject4_2Request) returns (QuickReject4_2Response);
+  rpc Set1 (Set1Request) returns (RegionSet1Response);
+  rpc Set1_1 (Set1_1Request) returns (RegionSet1_1Response);
+  rpc Set4_2 (RegionSet4_2Request) returns (RegionSet4_2Response);
+  rpc SetEmpty (SetEmptyRequest) returns (SetEmptyResponse);
+  rpc SetPath (RegionSetPathRequest) returns (RegionSetPathResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc Translate2 (Translate2Request) returns (Translate2Response);
+  rpc Translate3_1 (Translate3_1Request) returns (Translate3_1Response);
+  rpc Union (UnionRequest) returns (UnionResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service RegionOpService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service BlendModeService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service RecordingCanvasService {
+  rpc DisableZ (DisableZRequest) returns (DisableZResponse);
+  rpc DrawARGB (DrawARGBRequest) returns (DrawARGBResponse);
+  rpc DrawArc5 (DrawArc5Request) returns (DrawArc5Response);
+  rpc DrawArc8_1 (DrawArc8_1Request) returns (DrawArc8_1Response);
+  rpc DrawBitmap3 (DrawBitmap3Request) returns (DrawBitmap3Response);
+  rpc DrawBitmap4_1 (DrawBitmap4_1Request) returns (DrawBitmap4_1Response);
+  rpc DrawBitmap4_2 (DrawBitmap4_2Request) returns (DrawBitmap4_2Response);
+  rpc DrawBitmap4_3 (DrawBitmap4_3Request) returns (DrawBitmap4_3Response);
+  rpc DrawBitmap9_4 (DrawBitmap9_4Request) returns (DrawBitmap9_4Response);
+  rpc DrawBitmap9_5 (DrawBitmap9_5Request) returns (DrawBitmap9_5Response);
+  rpc DrawBitmapMesh (DrawBitmapMeshRequest) returns (DrawBitmapMeshResponse);
+  rpc DrawCircle (DrawCircleRequest) returns (DrawCircleResponse);
+  rpc DrawColor1 (DrawColor1Request) returns (DrawColor1Response);
+  rpc DrawColor2_1 (DrawColor2_1Request) returns (DrawColor2_1Response);
+  rpc DrawColor2_2 (DrawColor2_2Request) returns (DrawColor2_2Response);
+  rpc DrawColor2_3 (DrawColor2_3Request) returns (DrawColor2_3Response);
+  rpc DrawDoubleRoundRect7 (DrawDoubleRoundRect7Request) returns (DrawDoubleRoundRect7Response);
+  rpc DrawDoubleRoundRect5_1 (DrawDoubleRoundRect5_1Request) returns (DrawDoubleRoundRect5_1Response);
+  rpc DrawGlyphs (DrawGlyphsRequest) returns (DrawGlyphsResponse);
+  rpc DrawLine (DrawLineRequest) returns (DrawLineResponse);
+  rpc DrawLines2 (DrawLines2Request) returns (DrawLines2Response);
+  rpc DrawLines4_1 (DrawLines4_1Request) returns (DrawLines4_1Response);
+  rpc DrawMesh (DrawMeshRequest) returns (DrawMeshResponse);
+  rpc DrawOval2 (DrawOval2Request) returns (DrawOval2Response);
+  rpc DrawOval5_1 (DrawOval5_1Request) returns (DrawOval5_1Response);
+  rpc DrawPaint (DrawPaintRequest) returns (DrawPaintResponse);
+  rpc DrawPatch3 (DrawPatch3Request) returns (DrawPatch3Response);
+  rpc DrawPatch3_1 (DrawPatch3_1Request) returns (DrawPatch3_1Response);
+  rpc DrawPath (DrawPathRequest) returns (DrawPathResponse);
+  rpc DrawPicture1 (DrawPicture1Request) returns (DrawPicture1Response);
+  rpc DrawPicture2_1 (DrawPicture2_1Request) returns (DrawPicture2_1Response);
+  rpc DrawPicture2_2 (DrawPicture2_2Request) returns (DrawPicture2_2Response);
+  rpc DrawPoint (DrawPointRequest) returns (DrawPointResponse);
+  rpc DrawPoints2 (DrawPoints2Request) returns (DrawPoints2Response);
+  rpc DrawPoints4_1 (DrawPoints4_1Request) returns (DrawPoints4_1Response);
+  rpc DrawPosText5 (DrawPosText5Request) returns (DrawPosText5Response);
+  rpc DrawPosText3_1 (DrawPosText3_1Request) returns (DrawPosText3_1Response);
+  rpc DrawRGB (DrawRGBRequest) returns (DrawRGBResponse);
+  rpc DrawRect2 (DrawRect2Request) returns (DrawRect2Response);
+  rpc DrawRect2_1 (DrawRect2_1Request) returns (DrawRect2_1Response);
+  rpc DrawRect5_2 (DrawRect5_2Request) returns (DrawRect5_2Response);
+  rpc DrawRegion (DrawRegionRequest) returns (DrawRegionResponse);
+  rpc DrawRenderNode (DrawRenderNodeRequest) returns (DrawRenderNodeResponse);
+  rpc DrawRoundRect4 (DrawRoundRect4Request) returns (DrawRoundRect4Response);
+  rpc DrawRoundRect7_1 (DrawRoundRect7_1Request) returns (DrawRoundRect7_1Response);
+  rpc DrawText6 (DrawText6Request) returns (DrawText6Response);
+  rpc DrawText6_1 (DrawText6_1Request) returns (DrawText6_1Response);
+  rpc DrawText4_2 (DrawText4_2Request) returns (DrawText4_2Response);
+  rpc DrawText6_3 (DrawText6_3Request) returns (DrawText6_3Response);
+  rpc DrawTextOnPath7 (DrawTextOnPath7Request) returns (DrawTextOnPath7Response);
+  rpc DrawTextOnPath5_1 (DrawTextOnPath5_1Request) returns (DrawTextOnPath5_1Response);
+  rpc DrawTextRun9 (DrawTextRun9Request) returns (DrawTextRun9Response);
+  rpc DrawTextRun9_1 (DrawTextRun9_1Request) returns (DrawTextRun9_1Response);
+  rpc DrawTextRun9_2 (DrawTextRun9_2Request) returns (DrawTextRun9_2Response);
+  rpc DrawVertices (DrawVerticesRequest) returns (DrawVerticesResponse);
+  rpc EnableZ (EnableZRequest) returns (EnableZResponse);
+  rpc GetHeight (RecordingCanvasGetHeightRequest) returns (GetHeightResponse);
+  rpc GetMaximumBitmapHeight (GetMaximumBitmapHeightRequest) returns (GetMaximumBitmapHeightResponse);
+  rpc GetMaximumBitmapWidth (GetMaximumBitmapWidthRequest) returns (GetMaximumBitmapWidthResponse);
+  rpc GetWidth (RecordingCanvasGetWidthRequest) returns (GetWidthResponse);
+  rpc IsHardwareAccelerated (IsHardwareAcceleratedRequest) returns (IsHardwareAcceleratedResponse);
+  rpc IsOpaque (IsOpaqueRequest) returns (IsOpaqueResponse);
+  rpc SetBitmap (SetBitmapRequest) returns (SetBitmapResponse);
+  rpc SetDensity (SetDensityRequest) returns (SetDensityResponse);
+}
+
+service BitmapShaderService {
+  rpc NewBitmapShader (NewBitmapShaderRequest) returns (NewBitmapShaderResponse);
+  rpc GetFilterMode (GetFilterModeRequest) returns (GetFilterModeResponse);
+  rpc GetMaxAnisotropy (GetMaxAnisotropyRequest) returns (GetMaxAnisotropyResponse);
+  rpc SetFilterMode (SetFilterModeRequest) returns (SetFilterModeResponse);
+  rpc SetMaxAnisotropy (SetMaxAnisotropyRequest) returns (SetMaxAnisotropyResponse);
+  rpc SetOverrideGainmap (SetOverrideGainmapRequest) returns (SetOverrideGainmapResponse);
+}
+
+service ColorSpaceService {
+  rpc Equals (ColorSpaceEqualsRequest) returns (EqualsResponse);
+  rpc FromXyz3 (FromXyz3Request) returns (FromXyz3Response);
+  rpc FromXyz1_1 (FromXyz1_1Request) returns (FromXyz1_1Response);
+  rpc GetComponentCount (ColorSpaceGetComponentCountRequest) returns (GetComponentCountResponse);
+  rpc GetDataSpace (ColorSpaceGetDataSpaceRequest) returns (GetDataSpaceResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetMaxValue (GetMaxValueRequest) returns (GetMaxValueResponse);
+  rpc GetMinValue (GetMinValueRequest) returns (GetMinValueResponse);
+  rpc GetModel (ColorSpaceGetModelRequest) returns (GetModelResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc HashCode (ColorSpaceHashCodeRequest) returns (HashCodeResponse);
+  rpc IsSrgb (IsSrgbRequest) returns (IsSrgbResponse);
+  rpc IsWideGamut (IsWideGamutRequest) returns (IsWideGamutResponse);
+  rpc ToString (ColorSpaceToStringRequest) returns (ToStringResponse);
+  rpc ToXyz3 (ToXyz3Request) returns (ToXyz3Response);
+  rpc ToXyz1_1 (ToXyz1_1Request) returns (ToXyz1_1Response);
+  rpc Adapt2 (Adapt2Request) returns (Adapt2Response);
+  rpc Adapt3_1 (Adapt3_1Request) returns (Adapt3_1Response);
+  rpc CctToXyz (CctToXyzRequest) returns (CctToXyzResponse);
+  rpc ChromaticAdaptation (ChromaticAdaptationRequest) returns (ChromaticAdaptationResponse);
+  rpc Connect1 (Connect1Request) returns (Connect1Response);
+  rpc Connect2_1 (Connect2_1Request) returns (Connect2_1Response);
+  rpc Connect3_2 (Connect3_2Request) returns (Connect3_2Response);
+  rpc Connect2_3 (Connect2_3Request) returns (Connect2_3Response);
+  rpc Get (ColorSpaceGetRequest) returns (ColorSpaceGetResponse);
+  rpc GetFromDataSpace (GetFromDataSpaceRequest) returns (GetFromDataSpaceResponse);
+  rpc Match (MatchRequest) returns (MatchResponse);
+}
+
+service ColorSpaceAdaptationService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service ColorSpaceConnectorService {
+  rpc GetDestination (GetDestinationRequest) returns (GetDestinationResponse);
+  rpc GetRenderIntent (GetRenderIntentRequest) returns (GetRenderIntentResponse);
+  rpc GetSource (GetSourceRequest) returns (GetSourceResponse);
+  rpc Transform3 (Transform3Request) returns (Transform3Response);
+  rpc Transform1_1 (Transform1_1Request) returns (Transform1_1Response);
+}
+
+service ColorSpaceModelService {
+  rpc GetComponentCount (ColorSpaceModelGetComponentCountRequest) returns (GetComponentCountResponse);
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service ColorSpaceNamedService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service ColorSpaceRenderIntentService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service ColorSpaceRgbService {
+  rpc Equals (ColorSpaceRgbEqualsRequest) returns (EqualsResponse);
+  rpc FromLinear3 (FromLinear3Request) returns (FromLinear3Response);
+  rpc FromLinear1_1 (FromLinear1_1Request) returns (FromLinear1_1Response);
+  rpc FromXyz (FromXyzRequest) returns (FromXyzResponse);
+  rpc GetEotf (GetEotfRequest) returns (GetEotfResponse);
+  rpc GetInverseTransform0 (GetInverseTransform0Request) returns (GetInverseTransform0Response);
+  rpc GetInverseTransform1_1 (GetInverseTransform1_1Request) returns (GetInverseTransform1_1Response);
+  rpc GetMaxValue (GetMaxValueRequest) returns (GetMaxValueResponse);
+  rpc GetMinValue (GetMinValueRequest) returns (GetMinValueResponse);
+  rpc GetOetf (GetOetfRequest) returns (GetOetfResponse);
+  rpc GetPrimaries0 (GetPrimaries0Request) returns (GetPrimaries0Response);
+  rpc GetPrimaries1_1 (GetPrimaries1_1Request) returns (GetPrimaries1_1Response);
+  rpc GetTransferParameters (GetTransferParametersRequest) returns (GetTransferParametersResponse);
+  rpc GetTransform0 (GetTransform0Request) returns (GetTransform0Response);
+  rpc GetTransform1_1 (GetTransform1_1Request) returns (GetTransform1_1Response);
+  rpc GetWhitePoint0 (GetWhitePoint0Request) returns (GetWhitePoint0Response);
+  rpc GetWhitePoint1_1 (GetWhitePoint1_1Request) returns (GetWhitePoint1_1Response);
+  rpc HashCode (ColorSpaceRgbHashCodeRequest) returns (HashCodeResponse);
+  rpc IsSrgb (IsSrgbRequest) returns (IsSrgbResponse);
+  rpc IsWideGamut (IsWideGamutRequest) returns (IsWideGamutResponse);
+  rpc ToLinear3 (ToLinear3Request) returns (ToLinear3Response);
+  rpc ToLinear1_1 (ToLinear1_1Request) returns (ToLinear1_1Response);
+  rpc ToXyz (ToXyzRequest) returns (ToXyzResponse);
+}
+
+service PointFService {
+  rpc NewPointF (NewPointFRequest) returns (NewPointFResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals2 (Equals2Request) returns (Equals2Response);
+  rpc Equals1_1 (Equals1_1Request) returns (Equals1_1Response);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc Length0 (Length0Request) returns (Length0Response);
+  rpc Negate (NegateRequest) returns (NegateResponse);
+  rpc Offset (OffsetRequest) returns (OffsetResponse);
+  rpc ReadFromParcel (ReadFromParcelRequest) returns (ReadFromParcelResponse);
+  rpc Set1 (Set1Request) returns (Set1Response);
+  rpc Set2_1 (Set2_1Request) returns (Set2_1Response);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc Length2_1 (Length2_1Request) returns (Length2_1Response);
+}
+
+service ColorMatrixColorFilterService {
+  rpc NewColorMatrixColorFilter (NewColorMatrixColorFilterRequest) returns (NewColorMatrixColorFilterResponse);
+  rpc GetColorMatrix (GetColorMatrixRequest) returns (GetColorMatrixResponse);
+}
+
+service ShaderService {
+  rpc NewShader (NewShaderRequest) returns (NewShaderResponse);
+  rpc GetLocalMatrix (GetLocalMatrixRequest) returns (GetLocalMatrixResponse);
+  rpc SetLocalMatrix (SetLocalMatrixRequest) returns (SetLocalMatrixResponse);
+}
+
+service ShaderTileModeService {
+  rpc Values (ValuesRequest) returns (ValuesResponse);
+  rpc ValueOf (ValueOfRequest) returns (ValueOfResponse);
+}
+
+service NinePatchService {
+  rpc NewNinePatch (NewNinePatchRequest) returns (NewNinePatchResponse);
+  rpc Draw2 (Draw2Request) returns (Draw2Response);
+  rpc Draw3_1 (Draw3_1Request) returns (Draw3_1Response);
+  rpc Draw2_2 (Draw2_2Request) returns (Draw2_2Response);
+  rpc GetBitmap (GetBitmapRequest) returns (GetBitmapResponse);
+  rpc GetDensity (GetDensityRequest) returns (GetDensityResponse);
+  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
+  rpc GetName (NinePatchGetNameRequest) returns (GetNameResponse);
+  rpc GetPaint (GetPaintRequest) returns (GetPaintResponse);
+  rpc GetTransparentRegion (GetTransparentRegionRequest) returns (GetTransparentRegionResponse);
+  rpc GetWidth (GetWidthRequest) returns (GetWidthResponse);
+  rpc HasAlpha (HasAlphaRequest) returns (HasAlphaResponse);
+  rpc SetPaint (SetPaintRequest) returns (SetPaintResponse);
+  rpc IsNinePatchChunk (IsNinePatchChunkRequest) returns (IsNinePatchChunkResponse);
+}
+
+service PointService {
+  rpc NewPoint (NewPointRequest) returns (NewPointResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals2 (PointEquals2Request) returns (Equals2Response);
+  rpc Equals1_1 (Equals1_1Request) returns (Equals1_1Response);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc Negate (NegateRequest) returns (NegateResponse);
+  rpc Offset (PointOffsetRequest) returns (OffsetResponse);
+  rpc ReadFromParcel (ReadFromParcelRequest) returns (ReadFromParcelResponse);
+  rpc Set (PointSetRequest) returns (SetResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}

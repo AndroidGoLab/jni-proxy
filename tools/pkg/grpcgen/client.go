@@ -59,6 +59,31 @@ func BuildClientFromSpec(specPath, overlayPath, goModule, protoDir string) (*Cli
 	return data, nil
 }
 
+// BuildClientFromMergedProto builds client data using pre-merged ProtoData.
+// This ensures message collision renames are reflected in the RPC lookup.
+func BuildClientFromMergedProto(specPath, overlayPath, goModule string, mergedProto *protogen.ProtoData, goNames protoscan.GoNames) (*ClientData, error) {
+	spec, err := javagen.LoadSpec(specPath)
+	if err != nil {
+		return nil, fmt.Errorf("load spec: %w", err)
+	}
+
+	overlay, err := javagen.LoadOverlay(overlayPath)
+	if err != nil {
+		return nil, fmt.Errorf("load overlay: %w", err)
+	}
+
+	merged, err := javagen.Merge(spec, overlay)
+	if err != nil {
+		return nil, fmt.Errorf("merge: %w", err)
+	}
+
+	data := buildClientData(merged, goModule, mergedProto, goNames)
+	if len(data.Services) == 0 {
+		return nil, nil
+	}
+	return data, nil
+}
+
 // MergeClientData combines two ClientData for the same package. Services
 // and data classes from src are appended to dst, deduplicating by name.
 func MergeClientData(dst, src *ClientData) {
@@ -177,11 +202,28 @@ func buildClientData(
 			ServiceName: serviceName,
 		}
 
+		isConstructorClass := cls.Obtain == "constructor"
+
+		seenMethod := make(map[string]bool)
 		for _, m := range cls.Methods {
 			if !isExported(m.GoName) {
 				continue
 			}
 			cm := buildClientMethod(m, javaClassToDataClass, dcFieldMap, protoRPCLookup, protoServiceName, goNames)
+			if seenMethod[cm.GoName] {
+				continue
+			}
+			seenMethod[cm.GoName] = true
+			// Constructor class instance methods need a handle parameter
+			// so the server can look up the object.
+			if isConstructorClass {
+				handleParam := ClientParam{
+					GoName:    "handle",
+					ProtoName: "Handle",
+					GoType:    "int64",
+				}
+				cm.Params = append([]ClientParam{handleParam}, cm.Params...)
+			}
 			svc.Methods = append(svc.Methods, cm)
 		}
 
@@ -284,8 +326,12 @@ func clientPrimitiveResultExpr(goType string) string {
 	switch goType {
 	case "int32", "int64", "float32", "float64", "bool", "string":
 		return "resp.GetResult()"
+	case "int8":
+		return "int8(resp.GetResult())"
 	case "int16":
 		return "int16(resp.GetResult())"
+	case "int":
+		return "int(resp.GetResult())"
 	case "uint16":
 		return "uint16(resp.GetResult())"
 	case "byte":
@@ -299,11 +345,15 @@ func clientPrimitiveResultExpr(goType string) string {
 // to a proto request field.
 func buildClientParamAssign(p ClientParam) string {
 	switch p.GoType {
+	case "int8":
+		return fmt.Sprintf("int64(%s)", p.GoName)
 	case "int16":
 		return fmt.Sprintf("int32(%s)", p.GoName)
 	case "uint16":
-		return fmt.Sprintf("int32(%s)", p.GoName)
+		return fmt.Sprintf("uint32(%s)", p.GoName)
 	case "byte":
+		return fmt.Sprintf("uint32(%s)", p.GoName)
+	case "int":
 		return fmt.Sprintf("int32(%s)", p.GoName)
 	default:
 		return p.GoName

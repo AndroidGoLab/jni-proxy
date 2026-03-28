@@ -12,6 +12,197 @@ var companionCmd = &cobra.Command{
 	Short: "companion service operations",
 }
 
+var companionDevicePresenceEventCmd = &cobra.Command{
+	Use:   "device-presence-event",
+	Short: "DevicePresenceEventService operations",
+}
+
+var companionDevicePresenceEventNewDevicePresenceEventCmd = &cobra.Command{
+	Use:   "new-device-presence-event",
+	Short: "NewDevicePresenceEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDevicePresenceEventServiceClient(grpcConn)
+		req := &pb.NewDevicePresenceEventRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewDevicePresenceEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDevicePresenceEventDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDevicePresenceEventServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDevicePresenceEventEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDevicePresenceEventServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDevicePresenceEventGetAssociationIdCmd = &cobra.Command{
+	Use:   "get-association-id",
+	Short: "GetAssociationId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDevicePresenceEventServiceClient(grpcConn)
+		req := &pb.GetAssociationIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAssociationId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDevicePresenceEventGetEventCmd = &cobra.Command{
+	Use:   "get-event",
+	Short: "GetEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDevicePresenceEventServiceClient(grpcConn)
+		req := &pb.GetEventRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDevicePresenceEventGetUuidCmd = &cobra.Command{
+	Use:   "get-uuid",
+	Short: "GetUuid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDevicePresenceEventServiceClient(grpcConn)
+		req := &pb.GetUuidRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetUuid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDevicePresenceEventHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDevicePresenceEventServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDevicePresenceEventToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDevicePresenceEventServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDevicePresenceEventWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDevicePresenceEventServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var companionDeviceManagerCmd = &cobra.Command{
 	Use:   "device-manager",
 	Short: "DeviceManagerService operations",
@@ -377,7 +568,1902 @@ var companionDeviceManagerStopObservingDevicePresence1_1Cmd = &cobra.Command{
 	},
 }
 
+var companionDeviceManagerCallbackCmd = &cobra.Command{
+	Use:   "device-manager-callback",
+	Short: "DeviceManagerCallbackService operations",
+}
+
+var companionDeviceManagerCallbackOnAssociationCreatedCmd = &cobra.Command{
+	Use:   "on-association-created",
+	Short: "OnAssociationCreated RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceManagerCallbackServiceClient(grpcConn)
+		req := &pb.OnAssociationCreatedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAssociationCreated(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceManagerCallbackOnAssociationPendingCmd = &cobra.Command{
+	Use:   "on-association-pending",
+	Short: "OnAssociationPending RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceManagerCallbackServiceClient(grpcConn)
+		req := &pb.OnAssociationPendingRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnAssociationPending(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceManagerCallbackOnDeviceFoundCmd = &cobra.Command{
+	Use:   "on-device-found",
+	Short: "OnDeviceFound RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceManagerCallbackServiceClient(grpcConn)
+		req := &pb.OnDeviceFoundRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDeviceFound(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceManagerCallbackOnFailure2Cmd = &cobra.Command{
+	Use:   "on-failure2",
+	Short: "OnFailure2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceManagerCallbackServiceClient(grpcConn)
+		req := &pb.OnFailure2Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnFailure2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceManagerCallbackOnFailure1_1Cmd = &cobra.Command{
+	Use:   "on-failure1_1",
+	Short: "OnFailure1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceManagerCallbackServiceClient(grpcConn)
+		req := &pb.OnFailure1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnFailure1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociatedDeviceCmd = &cobra.Command{
+	Use:   "associated-device",
+	Short: "AssociatedDeviceService operations",
+}
+
+var companionAssociatedDeviceDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociatedDeviceServiceClient(grpcConn)
+		req := &pb.AssociatedDeviceDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociatedDeviceEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociatedDeviceServiceClient(grpcConn)
+		req := &pb.AssociatedDeviceEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociatedDeviceGetBleDeviceCmd = &cobra.Command{
+	Use:   "get-ble-device",
+	Short: "GetBleDevice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociatedDeviceServiceClient(grpcConn)
+		req := &pb.GetBleDeviceRequest{}
+		resp, err := client.GetBleDevice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociatedDeviceGetBluetoothDeviceCmd = &cobra.Command{
+	Use:   "get-bluetooth-device",
+	Short: "GetBluetoothDevice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociatedDeviceServiceClient(grpcConn)
+		req := &pb.GetBluetoothDeviceRequest{}
+		resp, err := client.GetBluetoothDevice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociatedDeviceGetWifiDeviceCmd = &cobra.Command{
+	Use:   "get-wifi-device",
+	Short: "GetWifiDevice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociatedDeviceServiceClient(grpcConn)
+		req := &pb.GetWifiDeviceRequest{}
+		resp, err := client.GetWifiDevice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociatedDeviceHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociatedDeviceServiceClient(grpcConn)
+		req := &pb.AssociatedDeviceHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociatedDeviceToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociatedDeviceServiceClient(grpcConn)
+		req := &pb.AssociatedDeviceToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociatedDeviceWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociatedDeviceServiceClient(grpcConn)
+		req := &pb.AssociatedDeviceWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothDeviceFilterCmd = &cobra.Command{
+	Use:   "bluetooth-device-filter",
+	Short: "BluetoothDeviceFilterService operations",
+}
+
+var companionBluetoothDeviceFilterDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothDeviceFilterServiceClient(grpcConn)
+		req := &pb.BluetoothDeviceFilterDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothDeviceFilterEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothDeviceFilterServiceClient(grpcConn)
+		req := &pb.BluetoothDeviceFilterEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothDeviceFilterHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothDeviceFilterServiceClient(grpcConn)
+		req := &pb.BluetoothDeviceFilterHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothDeviceFilterToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothDeviceFilterServiceClient(grpcConn)
+		req := &pb.BluetoothDeviceFilterToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothDeviceFilterWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothDeviceFilterServiceClient(grpcConn)
+		req := &pb.BluetoothDeviceFilterWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothDeviceFilterBuilderCmd = &cobra.Command{
+	Use:   "bluetooth-device-filter-builder",
+	Short: "BluetoothDeviceFilterBuilderService operations",
+}
+
+var companionBluetoothDeviceFilterBuilderAddServiceUuidCmd = &cobra.Command{
+	Use:   "add-service-uuid",
+	Short: "AddServiceUuid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothDeviceFilterBuilderServiceClient(grpcConn)
+		req := &pb.AddServiceUuidRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddServiceUuid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothDeviceFilterBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothDeviceFilterBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothDeviceFilterBuilderSetAddressCmd = &cobra.Command{
+	Use:   "set-address",
+	Short: "SetAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothDeviceFilterBuilderServiceClient(grpcConn)
+		req := &pb.SetAddressRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothDeviceFilterBuilderSetNamePatternCmd = &cobra.Command{
+	Use:   "set-name-pattern",
+	Short: "SetNamePattern RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothDeviceFilterBuilderServiceClient(grpcConn)
+		req := &pb.SetNamePatternRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNamePattern(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceServiceCmd = &cobra.Command{
+	Use:   "device-service",
+	Short: "DeviceServiceService operations",
+}
+
+var companionDeviceServiceAttachSystemDataTransportCmd = &cobra.Command{
+	Use:   "attach-system-data-transport",
+	Short: "AttachSystemDataTransport RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceServiceClient(grpcConn)
+		req := &pb.AttachSystemDataTransportRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.AttachSystemDataTransport(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceServiceDetachSystemDataTransportCmd = &cobra.Command{
+	Use:   "detach-system-data-transport",
+	Short: "DetachSystemDataTransport RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceServiceClient(grpcConn)
+		req := &pb.DetachSystemDataTransportRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DetachSystemDataTransport(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceServiceOnDeviceAppeared1Cmd = &cobra.Command{
+	Use:   "on-device-appeared1",
+	Short: "OnDeviceAppeared1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceServiceClient(grpcConn)
+		req := &pb.OnDeviceAppeared1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDeviceAppeared1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceServiceOnDeviceAppeared1_1Cmd = &cobra.Command{
+	Use:   "on-device-appeared1_1",
+	Short: "OnDeviceAppeared1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceServiceClient(grpcConn)
+		req := &pb.OnDeviceAppeared1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDeviceAppeared1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceServiceOnDeviceDisappeared1Cmd = &cobra.Command{
+	Use:   "on-device-disappeared1",
+	Short: "OnDeviceDisappeared1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceServiceClient(grpcConn)
+		req := &pb.OnDeviceDisappeared1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDeviceDisappeared1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceServiceOnDeviceDisappeared1_1Cmd = &cobra.Command{
+	Use:   "on-device-disappeared1_1",
+	Short: "OnDeviceDisappeared1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceServiceClient(grpcConn)
+		req := &pb.OnDeviceDisappeared1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDeviceDisappeared1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceServiceOnDevicePresenceEventCmd = &cobra.Command{
+	Use:   "on-device-presence-event",
+	Short: "OnDevicePresenceEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceServiceClient(grpcConn)
+		req := &pb.OnDevicePresenceEventRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDevicePresenceEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionObservingDevicePresenceRequestCmd = &cobra.Command{
+	Use:   "observing-device-presence-request",
+	Short: "ObservingDevicePresenceRequestService operations",
+}
+
+var companionObservingDevicePresenceRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewObservingDevicePresenceRequestServiceClient(grpcConn)
+		req := &pb.ObservingDevicePresenceRequestDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionObservingDevicePresenceRequestEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewObservingDevicePresenceRequestServiceClient(grpcConn)
+		req := &pb.ObservingDevicePresenceRequestEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionObservingDevicePresenceRequestGetAssociationIdCmd = &cobra.Command{
+	Use:   "get-association-id",
+	Short: "GetAssociationId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewObservingDevicePresenceRequestServiceClient(grpcConn)
+		req := &pb.ObservingDevicePresenceRequestGetAssociationIdRequest{}
+		resp, err := client.GetAssociationId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionObservingDevicePresenceRequestGetUuidCmd = &cobra.Command{
+	Use:   "get-uuid",
+	Short: "GetUuid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewObservingDevicePresenceRequestServiceClient(grpcConn)
+		req := &pb.ObservingDevicePresenceRequestGetUuidRequest{}
+		resp, err := client.GetUuid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionObservingDevicePresenceRequestHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewObservingDevicePresenceRequestServiceClient(grpcConn)
+		req := &pb.ObservingDevicePresenceRequestHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionObservingDevicePresenceRequestToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewObservingDevicePresenceRequestServiceClient(grpcConn)
+		req := &pb.ObservingDevicePresenceRequestToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionObservingDevicePresenceRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewObservingDevicePresenceRequestServiceClient(grpcConn)
+		req := &pb.ObservingDevicePresenceRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionObservingDevicePresenceRequestBuilderCmd = &cobra.Command{
+	Use:   "observing-device-presence-request-builder",
+	Short: "ObservingDevicePresenceRequestBuilderService operations",
+}
+
+var companionObservingDevicePresenceRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewObservingDevicePresenceRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionObservingDevicePresenceRequestBuilderSetAssociationIdCmd = &cobra.Command{
+	Use:   "set-association-id",
+	Short: "SetAssociationId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewObservingDevicePresenceRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetAssociationIdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAssociationId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionObservingDevicePresenceRequestBuilderSetUuidCmd = &cobra.Command{
+	Use:   "set-uuid",
+	Short: "SetUuid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewObservingDevicePresenceRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetUuidRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetUuid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationRequestCmd = &cobra.Command{
+	Use:   "association-request",
+	Short: "AssociationRequestService operations",
+}
+
+var companionAssociationRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationRequestServiceClient(grpcConn)
+		req := &pb.AssociationRequestDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationRequestEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationRequestServiceClient(grpcConn)
+		req := &pb.AssociationRequestEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationRequestGetDeviceProfileCmd = &cobra.Command{
+	Use:   "get-device-profile",
+	Short: "GetDeviceProfile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationRequestServiceClient(grpcConn)
+		req := &pb.GetDeviceProfileRequest{}
+		resp, err := client.GetDeviceProfile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationRequestGetDisplayNameCmd = &cobra.Command{
+	Use:   "get-display-name",
+	Short: "GetDisplayName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationRequestServiceClient(grpcConn)
+		req := &pb.GetDisplayNameRequest{}
+		resp, err := client.GetDisplayName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationRequestHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationRequestServiceClient(grpcConn)
+		req := &pb.AssociationRequestHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationRequestIsForceConfirmationCmd = &cobra.Command{
+	Use:   "is-force-confirmation",
+	Short: "IsForceConfirmation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationRequestServiceClient(grpcConn)
+		req := &pb.IsForceConfirmationRequest{}
+		resp, err := client.IsForceConfirmation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationRequestIsSelfManagedCmd = &cobra.Command{
+	Use:   "is-self-managed",
+	Short: "IsSelfManaged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationRequestServiceClient(grpcConn)
+		req := &pb.IsSelfManagedRequest{}
+		resp, err := client.IsSelfManaged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationRequestIsSingleDeviceCmd = &cobra.Command{
+	Use:   "is-single-device",
+	Short: "IsSingleDevice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationRequestServiceClient(grpcConn)
+		req := &pb.IsSingleDeviceRequest{}
+		resp, err := client.IsSingleDevice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationRequestToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationRequestServiceClient(grpcConn)
+		req := &pb.AssociationRequestToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationRequestServiceClient(grpcConn)
+		req := &pb.AssociationRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationRequestBuilderCmd = &cobra.Command{
+	Use:   "association-request-builder",
+	Short: "AssociationRequestBuilderService operations",
+}
+
+var companionAssociationRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationRequestBuilderSetDeviceProfileCmd = &cobra.Command{
+	Use:   "set-device-profile",
+	Short: "SetDeviceProfile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetDeviceProfileRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDeviceProfile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationRequestBuilderSetDisplayNameCmd = &cobra.Command{
+	Use:   "set-display-name",
+	Short: "SetDisplayName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetDisplayNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDisplayName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationRequestBuilderSetForceConfirmationCmd = &cobra.Command{
+	Use:   "set-force-confirmation",
+	Short: "SetForceConfirmation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetForceConfirmationRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetForceConfirmation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationRequestBuilderSetSelfManagedCmd = &cobra.Command{
+	Use:   "set-self-managed",
+	Short: "SetSelfManaged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetSelfManagedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSelfManaged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationRequestBuilderSetSingleDeviceCmd = &cobra.Command{
+	Use:   "set-single-device",
+	Short: "SetSingleDevice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetSingleDeviceRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSingleDevice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionWifiDeviceFilterCmd = &cobra.Command{
+	Use:   "wifi-device-filter",
+	Short: "WifiDeviceFilterService operations",
+}
+
+var companionWifiDeviceFilterDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiDeviceFilterServiceClient(grpcConn)
+		req := &pb.WifiDeviceFilterDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionWifiDeviceFilterEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiDeviceFilterServiceClient(grpcConn)
+		req := &pb.WifiDeviceFilterEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionWifiDeviceFilterHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiDeviceFilterServiceClient(grpcConn)
+		req := &pb.WifiDeviceFilterHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionWifiDeviceFilterWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiDeviceFilterServiceClient(grpcConn)
+		req := &pb.WifiDeviceFilterWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionWifiDeviceFilterBuilderCmd = &cobra.Command{
+	Use:   "wifi-device-filter-builder",
+	Short: "WifiDeviceFilterBuilderService operations",
+}
+
+var companionWifiDeviceFilterBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiDeviceFilterBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionWifiDeviceFilterBuilderSetBssidCmd = &cobra.Command{
+	Use:   "set-bssid",
+	Short: "SetBssid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiDeviceFilterBuilderServiceClient(grpcConn)
+		req := &pb.SetBssidRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBssid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionWifiDeviceFilterBuilderSetBssidMaskCmd = &cobra.Command{
+	Use:   "set-bssid-mask",
+	Short: "SetBssidMask RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiDeviceFilterBuilderServiceClient(grpcConn)
+		req := &pb.SetBssidMaskRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBssidMask(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionWifiDeviceFilterBuilderSetNamePatternCmd = &cobra.Command{
+	Use:   "set-name-pattern",
+	Short: "SetNamePattern RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiDeviceFilterBuilderServiceClient(grpcConn)
+		req := &pb.SetNamePatternRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNamePattern(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceIdCmd = &cobra.Command{
+	Use:   "device-id",
+	Short: "DeviceIdService operations",
+}
+
+var companionDeviceIdDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceIdServiceClient(grpcConn)
+		req := &pb.DeviceIdDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceIdEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceIdServiceClient(grpcConn)
+		req := &pb.DeviceIdEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceIdGetCustomIdCmd = &cobra.Command{
+	Use:   "get-custom-id",
+	Short: "GetCustomId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceIdServiceClient(grpcConn)
+		req := &pb.GetCustomIdRequest{}
+		resp, err := client.GetCustomId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceIdGetMacAddressCmd = &cobra.Command{
+	Use:   "get-mac-address",
+	Short: "GetMacAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceIdServiceClient(grpcConn)
+		req := &pb.GetMacAddressRequest{}
+		resp, err := client.GetMacAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceIdHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceIdServiceClient(grpcConn)
+		req := &pb.DeviceIdHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceIdToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceIdServiceClient(grpcConn)
+		req := &pb.DeviceIdToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceIdWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceIdServiceClient(grpcConn)
+		req := &pb.DeviceIdWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceIdBuilderCmd = &cobra.Command{
+	Use:   "device-id-builder",
+	Short: "DeviceIdBuilderService operations",
+}
+
+var companionDeviceIdBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceIdBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceIdBuilderSetCustomIdCmd = &cobra.Command{
+	Use:   "set-custom-id",
+	Short: "SetCustomId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceIdBuilderServiceClient(grpcConn)
+		req := &pb.SetCustomIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCustomId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionDeviceIdBuilderSetMacAddressCmd = &cobra.Command{
+	Use:   "set-mac-address",
+	Short: "SetMacAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceIdBuilderServiceClient(grpcConn)
+		req := &pb.SetMacAddressRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMacAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationInfoCmd = &cobra.Command{
+	Use:   "association-info",
+	Short: "AssociationInfoService operations",
+}
+
+var companionAssociationInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationInfoServiceClient(grpcConn)
+		req := &pb.AssociationInfoDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationInfoServiceClient(grpcConn)
+		req := &pb.AssociationInfoEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationInfoGetAssociatedDeviceCmd = &cobra.Command{
+	Use:   "get-associated-device",
+	Short: "GetAssociatedDevice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationInfoServiceClient(grpcConn)
+		req := &pb.GetAssociatedDeviceRequest{}
+		resp, err := client.GetAssociatedDevice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationInfoGetDeviceIdCmd = &cobra.Command{
+	Use:   "get-device-id",
+	Short: "GetDeviceId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationInfoServiceClient(grpcConn)
+		req := &pb.GetDeviceIdRequest{}
+		resp, err := client.GetDeviceId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationInfoGetDeviceMacAddressCmd = &cobra.Command{
+	Use:   "get-device-mac-address",
+	Short: "GetDeviceMacAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationInfoServiceClient(grpcConn)
+		req := &pb.GetDeviceMacAddressRequest{}
+		resp, err := client.GetDeviceMacAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationInfoGetDeviceProfileCmd = &cobra.Command{
+	Use:   "get-device-profile",
+	Short: "GetDeviceProfile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationInfoServiceClient(grpcConn)
+		req := &pb.GetDeviceProfileRequest{}
+		resp, err := client.GetDeviceProfile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationInfoGetDisplayNameCmd = &cobra.Command{
+	Use:   "get-display-name",
+	Short: "GetDisplayName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationInfoServiceClient(grpcConn)
+		req := &pb.GetDisplayNameRequest{}
+		resp, err := client.GetDisplayName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationInfoGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationInfoServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationInfoGetSystemDataSyncFlagsCmd = &cobra.Command{
+	Use:   "get-system-data-sync-flags",
+	Short: "GetSystemDataSyncFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationInfoServiceClient(grpcConn)
+		req := &pb.GetSystemDataSyncFlagsRequest{}
+		resp, err := client.GetSystemDataSyncFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationInfoServiceClient(grpcConn)
+		req := &pb.AssociationInfoHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationInfoIsSelfManagedCmd = &cobra.Command{
+	Use:   "is-self-managed",
+	Short: "IsSelfManaged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationInfoServiceClient(grpcConn)
+		req := &pb.IsSelfManagedRequest{}
+		resp, err := client.IsSelfManaged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationInfoServiceClient(grpcConn)
+		req := &pb.AssociationInfoToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionAssociationInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssociationInfoServiceClient(grpcConn)
+		req := &pb.AssociationInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothLeDeviceFilterCmd = &cobra.Command{
+	Use:   "bluetooth-le-device-filter",
+	Short: "BluetoothLeDeviceFilterService operations",
+}
+
+var companionBluetoothLeDeviceFilterDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeDeviceFilterServiceClient(grpcConn)
+		req := &pb.BluetoothLeDeviceFilterDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothLeDeviceFilterEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeDeviceFilterServiceClient(grpcConn)
+		req := &pb.BluetoothLeDeviceFilterEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothLeDeviceFilterHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeDeviceFilterServiceClient(grpcConn)
+		req := &pb.BluetoothLeDeviceFilterHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothLeDeviceFilterToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeDeviceFilterServiceClient(grpcConn)
+		req := &pb.BluetoothLeDeviceFilterToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothLeDeviceFilterWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeDeviceFilterServiceClient(grpcConn)
+		req := &pb.BluetoothLeDeviceFilterWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothLeDeviceFilterGetRenamePrefixLengthLimitCmd = &cobra.Command{
+	Use:   "get-rename-prefix-length-limit",
+	Short: "GetRenamePrefixLengthLimit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeDeviceFilterServiceClient(grpcConn)
+		req := &pb.GetRenamePrefixLengthLimitRequest{}
+		resp, err := client.GetRenamePrefixLengthLimit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothLeDeviceFilterBuilderCmd = &cobra.Command{
+	Use:   "bluetooth-le-device-filter-builder",
+	Short: "BluetoothLeDeviceFilterBuilderService operations",
+}
+
+var companionBluetoothLeDeviceFilterBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeDeviceFilterBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothLeDeviceFilterBuilderSetNamePatternCmd = &cobra.Command{
+	Use:   "set-name-pattern",
+	Short: "SetNamePattern RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeDeviceFilterBuilderServiceClient(grpcConn)
+		req := &pb.SetNamePatternRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNamePattern(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothLeDeviceFilterBuilderSetRawDataFilterCmd = &cobra.Command{
+	Use:   "set-raw-data-filter",
+	Short: "SetRawDataFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeDeviceFilterBuilderServiceClient(grpcConn)
+		req := &pb.SetRawDataFilterRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetRawDataFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothLeDeviceFilterBuilderSetRenameFromBytesCmd = &cobra.Command{
+	Use:   "set-rename-from-bytes",
+	Short: "SetRenameFromBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeDeviceFilterBuilderServiceClient(grpcConn)
+		req := &pb.SetRenameFromBytesRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.SetRenameFromBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothLeDeviceFilterBuilderSetRenameFromNameCmd = &cobra.Command{
+	Use:   "set-rename-from-name",
+	Short: "SetRenameFromName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeDeviceFilterBuilderServiceClient(grpcConn)
+		req := &pb.SetRenameFromNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.SetRenameFromName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var companionBluetoothLeDeviceFilterBuilderSetScanFilterCmd = &cobra.Command{
+	Use:   "set-scan-filter",
+	Short: "SetScanFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeDeviceFilterBuilderServiceClient(grpcConn)
+		req := &pb.SetScanFilterRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetScanFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	companionDevicePresenceEventNewDevicePresenceEventCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	companionDevicePresenceEventNewDevicePresenceEventCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	companionDevicePresenceEventNewDevicePresenceEventCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	companionDevicePresenceEventCmd.AddCommand(companionDevicePresenceEventNewDevicePresenceEventCmd)
+	companionDevicePresenceEventDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	companionDevicePresenceEventCmd.AddCommand(companionDevicePresenceEventDescribeContentsCmd)
+	companionDevicePresenceEventEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	companionDevicePresenceEventEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionDevicePresenceEventCmd.AddCommand(companionDevicePresenceEventEqualsCmd)
+	companionDevicePresenceEventGetAssociationIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	companionDevicePresenceEventCmd.AddCommand(companionDevicePresenceEventGetAssociationIdCmd)
+	companionDevicePresenceEventGetEventCmd.Flags().Int64("handle", 0, "handle (int64)")
+	companionDevicePresenceEventCmd.AddCommand(companionDevicePresenceEventGetEventCmd)
+	companionDevicePresenceEventGetUuidCmd.Flags().Int64("handle", 0, "handle (int64)")
+	companionDevicePresenceEventCmd.AddCommand(companionDevicePresenceEventGetUuidCmd)
+	companionDevicePresenceEventHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	companionDevicePresenceEventCmd.AddCommand(companionDevicePresenceEventHashCodeCmd)
+	companionDevicePresenceEventToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	companionDevicePresenceEventCmd.AddCommand(companionDevicePresenceEventToStringCmd)
+	companionDevicePresenceEventWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	companionDevicePresenceEventWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionDevicePresenceEventWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	companionDevicePresenceEventCmd.AddCommand(companionDevicePresenceEventWriteToParcelCmd)
+	companionCmd.AddCommand(companionDevicePresenceEventCmd)
 	companionDeviceManagerAssociateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	companionDeviceManagerAssociateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	companionDeviceManagerAssociateCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
@@ -421,5 +2507,189 @@ func init() {
 	companionDeviceManagerStopObservingDevicePresence1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
 	companionDeviceManagerCmd.AddCommand(companionDeviceManagerStopObservingDevicePresence1_1Cmd)
 	companionCmd.AddCommand(companionDeviceManagerCmd)
+	companionDeviceManagerCallbackOnAssociationCreatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionDeviceManagerCallbackCmd.AddCommand(companionDeviceManagerCallbackOnAssociationCreatedCmd)
+	companionDeviceManagerCallbackOnAssociationPendingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionDeviceManagerCallbackCmd.AddCommand(companionDeviceManagerCallbackOnAssociationPendingCmd)
+	companionDeviceManagerCallbackOnDeviceFoundCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionDeviceManagerCallbackCmd.AddCommand(companionDeviceManagerCallbackOnDeviceFoundCmd)
+	companionDeviceManagerCallbackOnFailure2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	companionDeviceManagerCallbackOnFailure2Cmd.Flags().String("arg1", "", "arg1 (string)")
+	companionDeviceManagerCallbackCmd.AddCommand(companionDeviceManagerCallbackOnFailure2Cmd)
+	companionDeviceManagerCallbackOnFailure1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	companionDeviceManagerCallbackCmd.AddCommand(companionDeviceManagerCallbackOnFailure1_1Cmd)
+	companionCmd.AddCommand(companionDeviceManagerCallbackCmd)
+	companionAssociatedDeviceCmd.AddCommand(companionAssociatedDeviceDescribeContentsCmd)
+	companionAssociatedDeviceEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionAssociatedDeviceCmd.AddCommand(companionAssociatedDeviceEqualsCmd)
+	companionAssociatedDeviceCmd.AddCommand(companionAssociatedDeviceGetBleDeviceCmd)
+	companionAssociatedDeviceCmd.AddCommand(companionAssociatedDeviceGetBluetoothDeviceCmd)
+	companionAssociatedDeviceCmd.AddCommand(companionAssociatedDeviceGetWifiDeviceCmd)
+	companionAssociatedDeviceCmd.AddCommand(companionAssociatedDeviceHashCodeCmd)
+	companionAssociatedDeviceCmd.AddCommand(companionAssociatedDeviceToStringCmd)
+	companionAssociatedDeviceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionAssociatedDeviceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	companionAssociatedDeviceCmd.AddCommand(companionAssociatedDeviceWriteToParcelCmd)
+	companionCmd.AddCommand(companionAssociatedDeviceCmd)
+	companionBluetoothDeviceFilterCmd.AddCommand(companionBluetoothDeviceFilterDescribeContentsCmd)
+	companionBluetoothDeviceFilterEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionBluetoothDeviceFilterCmd.AddCommand(companionBluetoothDeviceFilterEqualsCmd)
+	companionBluetoothDeviceFilterCmd.AddCommand(companionBluetoothDeviceFilterHashCodeCmd)
+	companionBluetoothDeviceFilterCmd.AddCommand(companionBluetoothDeviceFilterToStringCmd)
+	companionBluetoothDeviceFilterWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionBluetoothDeviceFilterWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	companionBluetoothDeviceFilterCmd.AddCommand(companionBluetoothDeviceFilterWriteToParcelCmd)
+	companionCmd.AddCommand(companionBluetoothDeviceFilterCmd)
+	companionBluetoothDeviceFilterBuilderAddServiceUuidCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionBluetoothDeviceFilterBuilderAddServiceUuidCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	companionBluetoothDeviceFilterBuilderCmd.AddCommand(companionBluetoothDeviceFilterBuilderAddServiceUuidCmd)
+	companionBluetoothDeviceFilterBuilderCmd.AddCommand(companionBluetoothDeviceFilterBuilderBuildCmd)
+	companionBluetoothDeviceFilterBuilderSetAddressCmd.Flags().String("arg0", "", "arg0 (string)")
+	companionBluetoothDeviceFilterBuilderCmd.AddCommand(companionBluetoothDeviceFilterBuilderSetAddressCmd)
+	companionBluetoothDeviceFilterBuilderSetNamePatternCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionBluetoothDeviceFilterBuilderCmd.AddCommand(companionBluetoothDeviceFilterBuilderSetNamePatternCmd)
+	companionCmd.AddCommand(companionBluetoothDeviceFilterBuilderCmd)
+	companionDeviceServiceAttachSystemDataTransportCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	companionDeviceServiceAttachSystemDataTransportCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	companionDeviceServiceAttachSystemDataTransportCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	companionDeviceServiceCmd.AddCommand(companionDeviceServiceAttachSystemDataTransportCmd)
+	companionDeviceServiceDetachSystemDataTransportCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	companionDeviceServiceCmd.AddCommand(companionDeviceServiceDetachSystemDataTransportCmd)
+	companionDeviceServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionDeviceServiceCmd.AddCommand(companionDeviceServiceOnBindCmd)
+	companionDeviceServiceOnDeviceAppeared1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionDeviceServiceCmd.AddCommand(companionDeviceServiceOnDeviceAppeared1Cmd)
+	companionDeviceServiceOnDeviceAppeared1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	companionDeviceServiceCmd.AddCommand(companionDeviceServiceOnDeviceAppeared1_1Cmd)
+	companionDeviceServiceOnDeviceDisappeared1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionDeviceServiceCmd.AddCommand(companionDeviceServiceOnDeviceDisappeared1Cmd)
+	companionDeviceServiceOnDeviceDisappeared1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	companionDeviceServiceCmd.AddCommand(companionDeviceServiceOnDeviceDisappeared1_1Cmd)
+	companionDeviceServiceOnDevicePresenceEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionDeviceServiceCmd.AddCommand(companionDeviceServiceOnDevicePresenceEventCmd)
+	companionCmd.AddCommand(companionDeviceServiceCmd)
+	companionObservingDevicePresenceRequestCmd.AddCommand(companionObservingDevicePresenceRequestDescribeContentsCmd)
+	companionObservingDevicePresenceRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionObservingDevicePresenceRequestCmd.AddCommand(companionObservingDevicePresenceRequestEqualsCmd)
+	companionObservingDevicePresenceRequestCmd.AddCommand(companionObservingDevicePresenceRequestGetAssociationIdCmd)
+	companionObservingDevicePresenceRequestCmd.AddCommand(companionObservingDevicePresenceRequestGetUuidCmd)
+	companionObservingDevicePresenceRequestCmd.AddCommand(companionObservingDevicePresenceRequestHashCodeCmd)
+	companionObservingDevicePresenceRequestCmd.AddCommand(companionObservingDevicePresenceRequestToStringCmd)
+	companionObservingDevicePresenceRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionObservingDevicePresenceRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	companionObservingDevicePresenceRequestCmd.AddCommand(companionObservingDevicePresenceRequestWriteToParcelCmd)
+	companionCmd.AddCommand(companionObservingDevicePresenceRequestCmd)
+	companionObservingDevicePresenceRequestBuilderCmd.AddCommand(companionObservingDevicePresenceRequestBuilderBuildCmd)
+	companionObservingDevicePresenceRequestBuilderSetAssociationIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	companionObservingDevicePresenceRequestBuilderCmd.AddCommand(companionObservingDevicePresenceRequestBuilderSetAssociationIdCmd)
+	companionObservingDevicePresenceRequestBuilderSetUuidCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionObservingDevicePresenceRequestBuilderCmd.AddCommand(companionObservingDevicePresenceRequestBuilderSetUuidCmd)
+	companionCmd.AddCommand(companionObservingDevicePresenceRequestBuilderCmd)
+	companionAssociationRequestCmd.AddCommand(companionAssociationRequestDescribeContentsCmd)
+	companionAssociationRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionAssociationRequestCmd.AddCommand(companionAssociationRequestEqualsCmd)
+	companionAssociationRequestCmd.AddCommand(companionAssociationRequestGetDeviceProfileCmd)
+	companionAssociationRequestCmd.AddCommand(companionAssociationRequestGetDisplayNameCmd)
+	companionAssociationRequestCmd.AddCommand(companionAssociationRequestHashCodeCmd)
+	companionAssociationRequestCmd.AddCommand(companionAssociationRequestIsForceConfirmationCmd)
+	companionAssociationRequestCmd.AddCommand(companionAssociationRequestIsSelfManagedCmd)
+	companionAssociationRequestCmd.AddCommand(companionAssociationRequestIsSingleDeviceCmd)
+	companionAssociationRequestCmd.AddCommand(companionAssociationRequestToStringCmd)
+	companionAssociationRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionAssociationRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	companionAssociationRequestCmd.AddCommand(companionAssociationRequestWriteToParcelCmd)
+	companionCmd.AddCommand(companionAssociationRequestCmd)
+	companionAssociationRequestBuilderCmd.AddCommand(companionAssociationRequestBuilderBuildCmd)
+	companionAssociationRequestBuilderSetDeviceProfileCmd.Flags().String("arg0", "", "arg0 (string)")
+	companionAssociationRequestBuilderCmd.AddCommand(companionAssociationRequestBuilderSetDeviceProfileCmd)
+	companionAssociationRequestBuilderSetDisplayNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	companionAssociationRequestBuilderCmd.AddCommand(companionAssociationRequestBuilderSetDisplayNameCmd)
+	companionAssociationRequestBuilderSetForceConfirmationCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	companionAssociationRequestBuilderCmd.AddCommand(companionAssociationRequestBuilderSetForceConfirmationCmd)
+	companionAssociationRequestBuilderSetSelfManagedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	companionAssociationRequestBuilderCmd.AddCommand(companionAssociationRequestBuilderSetSelfManagedCmd)
+	companionAssociationRequestBuilderSetSingleDeviceCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	companionAssociationRequestBuilderCmd.AddCommand(companionAssociationRequestBuilderSetSingleDeviceCmd)
+	companionCmd.AddCommand(companionAssociationRequestBuilderCmd)
+	companionWifiDeviceFilterCmd.AddCommand(companionWifiDeviceFilterDescribeContentsCmd)
+	companionWifiDeviceFilterEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionWifiDeviceFilterCmd.AddCommand(companionWifiDeviceFilterEqualsCmd)
+	companionWifiDeviceFilterCmd.AddCommand(companionWifiDeviceFilterHashCodeCmd)
+	companionWifiDeviceFilterWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionWifiDeviceFilterWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	companionWifiDeviceFilterCmd.AddCommand(companionWifiDeviceFilterWriteToParcelCmd)
+	companionCmd.AddCommand(companionWifiDeviceFilterCmd)
+	companionWifiDeviceFilterBuilderCmd.AddCommand(companionWifiDeviceFilterBuilderBuildCmd)
+	companionWifiDeviceFilterBuilderSetBssidCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionWifiDeviceFilterBuilderCmd.AddCommand(companionWifiDeviceFilterBuilderSetBssidCmd)
+	companionWifiDeviceFilterBuilderSetBssidMaskCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionWifiDeviceFilterBuilderCmd.AddCommand(companionWifiDeviceFilterBuilderSetBssidMaskCmd)
+	companionWifiDeviceFilterBuilderSetNamePatternCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionWifiDeviceFilterBuilderCmd.AddCommand(companionWifiDeviceFilterBuilderSetNamePatternCmd)
+	companionCmd.AddCommand(companionWifiDeviceFilterBuilderCmd)
+	companionDeviceIdCmd.AddCommand(companionDeviceIdDescribeContentsCmd)
+	companionDeviceIdEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionDeviceIdCmd.AddCommand(companionDeviceIdEqualsCmd)
+	companionDeviceIdCmd.AddCommand(companionDeviceIdGetCustomIdCmd)
+	companionDeviceIdCmd.AddCommand(companionDeviceIdGetMacAddressCmd)
+	companionDeviceIdCmd.AddCommand(companionDeviceIdHashCodeCmd)
+	companionDeviceIdCmd.AddCommand(companionDeviceIdToStringCmd)
+	companionDeviceIdWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionDeviceIdWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	companionDeviceIdCmd.AddCommand(companionDeviceIdWriteToParcelCmd)
+	companionCmd.AddCommand(companionDeviceIdCmd)
+	companionDeviceIdBuilderCmd.AddCommand(companionDeviceIdBuilderBuildCmd)
+	companionDeviceIdBuilderSetCustomIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	companionDeviceIdBuilderCmd.AddCommand(companionDeviceIdBuilderSetCustomIdCmd)
+	companionDeviceIdBuilderSetMacAddressCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionDeviceIdBuilderCmd.AddCommand(companionDeviceIdBuilderSetMacAddressCmd)
+	companionCmd.AddCommand(companionDeviceIdBuilderCmd)
+	companionAssociationInfoCmd.AddCommand(companionAssociationInfoDescribeContentsCmd)
+	companionAssociationInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionAssociationInfoCmd.AddCommand(companionAssociationInfoEqualsCmd)
+	companionAssociationInfoCmd.AddCommand(companionAssociationInfoGetAssociatedDeviceCmd)
+	companionAssociationInfoCmd.AddCommand(companionAssociationInfoGetDeviceIdCmd)
+	companionAssociationInfoCmd.AddCommand(companionAssociationInfoGetDeviceMacAddressCmd)
+	companionAssociationInfoCmd.AddCommand(companionAssociationInfoGetDeviceProfileCmd)
+	companionAssociationInfoCmd.AddCommand(companionAssociationInfoGetDisplayNameCmd)
+	companionAssociationInfoCmd.AddCommand(companionAssociationInfoGetIdCmd)
+	companionAssociationInfoCmd.AddCommand(companionAssociationInfoGetSystemDataSyncFlagsCmd)
+	companionAssociationInfoCmd.AddCommand(companionAssociationInfoHashCodeCmd)
+	companionAssociationInfoCmd.AddCommand(companionAssociationInfoIsSelfManagedCmd)
+	companionAssociationInfoCmd.AddCommand(companionAssociationInfoToStringCmd)
+	companionAssociationInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionAssociationInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	companionAssociationInfoCmd.AddCommand(companionAssociationInfoWriteToParcelCmd)
+	companionCmd.AddCommand(companionAssociationInfoCmd)
+	companionBluetoothLeDeviceFilterCmd.AddCommand(companionBluetoothLeDeviceFilterDescribeContentsCmd)
+	companionBluetoothLeDeviceFilterEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionBluetoothLeDeviceFilterCmd.AddCommand(companionBluetoothLeDeviceFilterEqualsCmd)
+	companionBluetoothLeDeviceFilterCmd.AddCommand(companionBluetoothLeDeviceFilterHashCodeCmd)
+	companionBluetoothLeDeviceFilterCmd.AddCommand(companionBluetoothLeDeviceFilterToStringCmd)
+	companionBluetoothLeDeviceFilterWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionBluetoothLeDeviceFilterWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	companionBluetoothLeDeviceFilterCmd.AddCommand(companionBluetoothLeDeviceFilterWriteToParcelCmd)
+	companionBluetoothLeDeviceFilterCmd.AddCommand(companionBluetoothLeDeviceFilterGetRenamePrefixLengthLimitCmd)
+	companionCmd.AddCommand(companionBluetoothLeDeviceFilterCmd)
+	companionBluetoothLeDeviceFilterBuilderCmd.AddCommand(companionBluetoothLeDeviceFilterBuilderBuildCmd)
+	companionBluetoothLeDeviceFilterBuilderSetNamePatternCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionBluetoothLeDeviceFilterBuilderCmd.AddCommand(companionBluetoothLeDeviceFilterBuilderSetNamePatternCmd)
+	companionBluetoothLeDeviceFilterBuilderSetRawDataFilterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionBluetoothLeDeviceFilterBuilderSetRawDataFilterCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	companionBluetoothLeDeviceFilterBuilderCmd.AddCommand(companionBluetoothLeDeviceFilterBuilderSetRawDataFilterCmd)
+	companionBluetoothLeDeviceFilterBuilderSetRenameFromBytesCmd.Flags().String("arg0", "", "arg0 (string)")
+	companionBluetoothLeDeviceFilterBuilderSetRenameFromBytesCmd.Flags().String("arg1", "", "arg1 (string)")
+	companionBluetoothLeDeviceFilterBuilderSetRenameFromBytesCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	companionBluetoothLeDeviceFilterBuilderSetRenameFromBytesCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	companionBluetoothLeDeviceFilterBuilderSetRenameFromBytesCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	companionBluetoothLeDeviceFilterBuilderCmd.AddCommand(companionBluetoothLeDeviceFilterBuilderSetRenameFromBytesCmd)
+	companionBluetoothLeDeviceFilterBuilderSetRenameFromNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	companionBluetoothLeDeviceFilterBuilderSetRenameFromNameCmd.Flags().String("arg1", "", "arg1 (string)")
+	companionBluetoothLeDeviceFilterBuilderSetRenameFromNameCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	companionBluetoothLeDeviceFilterBuilderSetRenameFromNameCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	companionBluetoothLeDeviceFilterBuilderCmd.AddCommand(companionBluetoothLeDeviceFilterBuilderSetRenameFromNameCmd)
+	companionBluetoothLeDeviceFilterBuilderSetScanFilterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	companionBluetoothLeDeviceFilterBuilderCmd.AddCommand(companionBluetoothLeDeviceFilterBuilderSetScanFilterCmd)
+	companionCmd.AddCommand(companionBluetoothLeDeviceFilterBuilderCmd)
 	rootCmd.AddCommand(companionCmd)
 }

@@ -5,3 +5,142 @@ syntax = "proto3";
 package sax;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/sax";
+
+message EndRequest {
+}
+
+message EndResponse {
+}
+
+message EndTextElementListenerEndRequest {
+  string arg0 = 1;
+}
+
+message StartRequest {
+  int64 arg0 = 1;
+}
+
+message StartResponse {
+}
+
+message NewRootElementRequest {
+  string arg0 = 1;
+}
+
+message NewRootElementResponse {
+  int64 result = 1;
+}
+
+message GetContentHandlerRequest {
+  int64 handle = 1;
+}
+
+message GetContentHandlerResponse {
+  int64 result = 1;
+}
+
+message GetChild1Request {
+  string arg0 = 1;
+}
+
+message GetChild1Response {
+  int64 result = 1;
+}
+
+message GetChild2_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetChild2_1Response {
+  int64 result = 1;
+}
+
+message RequireChild1Request {
+  string arg0 = 1;
+}
+
+message RequireChild1Response {
+  int64 result = 1;
+}
+
+message RequireChild2_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message RequireChild2_1Response {
+  int64 result = 1;
+}
+
+message SetElementListenerRequest {
+  int64 arg0 = 1;
+}
+
+message SetElementListenerResponse {
+}
+
+message SetEndElementListenerRequest {
+  int64 arg0 = 1;
+}
+
+message SetEndElementListenerResponse {
+}
+
+message SetEndTextElementListenerRequest {
+  int64 arg0 = 1;
+}
+
+message SetEndTextElementListenerResponse {
+}
+
+message SetStartElementListenerRequest {
+  int64 arg0 = 1;
+}
+
+message SetStartElementListenerResponse {
+}
+
+message SetTextElementListenerRequest {
+  int64 arg0 = 1;
+}
+
+message SetTextElementListenerResponse {
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+service EndElementListenerService {
+  rpc End (EndRequest) returns (EndResponse);
+}
+
+service EndTextElementListenerService {
+  rpc End (EndTextElementListenerEndRequest) returns (EndResponse);
+}
+
+service StartElementListenerService {
+  rpc Start (StartRequest) returns (StartResponse);
+}
+
+service RootElementService {
+  rpc NewRootElement (NewRootElementRequest) returns (NewRootElementResponse);
+  rpc GetContentHandler (GetContentHandlerRequest) returns (GetContentHandlerResponse);
+}
+
+service ElementService {
+  rpc GetChild1 (GetChild1Request) returns (GetChild1Response);
+  rpc GetChild2_1 (GetChild2_1Request) returns (GetChild2_1Response);
+  rpc RequireChild1 (RequireChild1Request) returns (RequireChild1Response);
+  rpc RequireChild2_1 (RequireChild2_1Request) returns (RequireChild2_1Response);
+  rpc SetElementListener (SetElementListenerRequest) returns (SetElementListenerResponse);
+  rpc SetEndElementListener (SetEndElementListenerRequest) returns (SetEndElementListenerResponse);
+  rpc SetEndTextElementListener (SetEndTextElementListenerRequest) returns (SetEndTextElementListenerResponse);
+  rpc SetStartElementListener (SetStartElementListenerRequest) returns (SetStartElementListenerResponse);
+  rpc SetTextElementListener (SetTextElementListenerRequest) returns (SetTextElementListenerResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}

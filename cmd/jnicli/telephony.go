@@ -12,6 +12,2664 @@ var telephonyCmd = &cobra.Command{
 	Short: "telephony service operations",
 }
 
+var telephonyVisualVoicemailSmsCmd = &cobra.Command{
+	Use:   "visual-voicemail-sms",
+	Short: "VisualVoicemailSmsService operations",
+}
+
+var telephonyVisualVoicemailSmsDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailSmsServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyVisualVoicemailSmsGetFieldsCmd = &cobra.Command{
+	Use:   "get-fields",
+	Short: "GetFields RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailSmsServiceClient(grpcConn)
+		req := &pb.GetFieldsRequest{}
+		resp, err := client.GetFields(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyVisualVoicemailSmsGetMessageBodyCmd = &cobra.Command{
+	Use:   "get-message-body",
+	Short: "GetMessageBody RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailSmsServiceClient(grpcConn)
+		req := &pb.GetMessageBodyRequest{}
+		resp, err := client.GetMessageBody(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyVisualVoicemailSmsGetPhoneAccountHandleCmd = &cobra.Command{
+	Use:   "get-phone-account-handle",
+	Short: "GetPhoneAccountHandle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailSmsServiceClient(grpcConn)
+		req := &pb.GetPhoneAccountHandleRequest{}
+		resp, err := client.GetPhoneAccountHandle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyVisualVoicemailSmsGetPrefixCmd = &cobra.Command{
+	Use:   "get-prefix",
+	Short: "GetPrefix RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailSmsServiceClient(grpcConn)
+		req := &pb.GetPrefixRequest{}
+		resp, err := client.GetPrefix(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyVisualVoicemailSmsWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailSmsServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthGsmCmd = &cobra.Command{
+	Use:   "cell-signal-strength-gsm",
+	Short: "CellSignalStrengthGsmService operations",
+}
+
+var telephonyCellSignalStrengthGsmDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthGsmServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthGsmEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthGsmServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthGsmGetAsuLevelCmd = &cobra.Command{
+	Use:   "get-asu-level",
+	Short: "GetAsuLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthGsmServiceClient(grpcConn)
+		req := &pb.GetAsuLevelRequest{}
+		resp, err := client.GetAsuLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthGsmGetBitErrorRateCmd = &cobra.Command{
+	Use:   "get-bit-error-rate",
+	Short: "GetBitErrorRate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthGsmServiceClient(grpcConn)
+		req := &pb.GetBitErrorRateRequest{}
+		resp, err := client.GetBitErrorRate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthGsmGetDbmCmd = &cobra.Command{
+	Use:   "get-dbm",
+	Short: "GetDbm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthGsmServiceClient(grpcConn)
+		req := &pb.GetDbmRequest{}
+		resp, err := client.GetDbm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthGsmGetLevelCmd = &cobra.Command{
+	Use:   "get-level",
+	Short: "GetLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthGsmServiceClient(grpcConn)
+		req := &pb.GetLevelRequest{}
+		resp, err := client.GetLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthGsmGetRssiCmd = &cobra.Command{
+	Use:   "get-rssi",
+	Short: "GetRssi RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthGsmServiceClient(grpcConn)
+		req := &pb.GetRssiRequest{}
+		resp, err := client.GetRssi(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthGsmGetTimingAdvanceCmd = &cobra.Command{
+	Use:   "get-timing-advance",
+	Short: "GetTimingAdvance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthGsmServiceClient(grpcConn)
+		req := &pb.GetTimingAdvanceRequest{}
+		resp, err := client.GetTimingAdvance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthGsmHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthGsmServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthGsmToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthGsmServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthGsmWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthGsmServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyVisualVoicemailServiceCmd = &cobra.Command{
+	Use:   "visual-voicemail-service",
+	Short: "VisualVoicemailServiceService operations",
+}
+
+var telephonyVisualVoicemailServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyVisualVoicemailServiceOnCellServiceConnectedCmd = &cobra.Command{
+	Use:   "on-cell-service-connected",
+	Short: "OnCellServiceConnected RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailServiceServiceClient(grpcConn)
+		req := &pb.OnCellServiceConnectedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCellServiceConnected(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyVisualVoicemailServiceOnSimRemovedCmd = &cobra.Command{
+	Use:   "on-sim-removed",
+	Short: "OnSimRemoved RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailServiceServiceClient(grpcConn)
+		req := &pb.OnSimRemovedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnSimRemoved(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyVisualVoicemailServiceOnSmsReceivedCmd = &cobra.Command{
+	Use:   "on-sms-received",
+	Short: "OnSmsReceived RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailServiceServiceClient(grpcConn)
+		req := &pb.OnSmsReceivedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnSmsReceived(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyVisualVoicemailServiceOnStoppedCmd = &cobra.Command{
+	Use:   "on-stopped",
+	Short: "OnStopped RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailServiceServiceClient(grpcConn)
+		req := &pb.OnStoppedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnStopped(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyVisualVoicemailServiceVisualVoicemailTaskCmd = &cobra.Command{
+	Use:   "visual-voicemail-service-visual-voicemail-task",
+	Short: "VisualVoicemailServiceVisualVoicemailTaskService operations",
+}
+
+var telephonyVisualVoicemailServiceVisualVoicemailTaskEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailServiceVisualVoicemailTaskServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyVisualVoicemailServiceVisualVoicemailTaskFinishCmd = &cobra.Command{
+	Use:   "finish",
+	Short: "Finish RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailServiceVisualVoicemailTaskServiceClient(grpcConn)
+		req := &pb.FinishRequest{}
+		resp, err := client.Finish(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyVisualVoicemailServiceVisualVoicemailTaskHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailServiceVisualVoicemailTaskServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthTdscdmaCmd = &cobra.Command{
+	Use:   "cell-signal-strength-tdscdma",
+	Short: "CellSignalStrengthTdscdmaService operations",
+}
+
+var telephonyCellSignalStrengthTdscdmaDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthTdscdmaServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthTdscdmaEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthTdscdmaServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthTdscdmaGetAsuLevelCmd = &cobra.Command{
+	Use:   "get-asu-level",
+	Short: "GetAsuLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthTdscdmaServiceClient(grpcConn)
+		req := &pb.GetAsuLevelRequest{}
+		resp, err := client.GetAsuLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthTdscdmaGetDbmCmd = &cobra.Command{
+	Use:   "get-dbm",
+	Short: "GetDbm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthTdscdmaServiceClient(grpcConn)
+		req := &pb.GetDbmRequest{}
+		resp, err := client.GetDbm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthTdscdmaGetLevelCmd = &cobra.Command{
+	Use:   "get-level",
+	Short: "GetLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthTdscdmaServiceClient(grpcConn)
+		req := &pb.GetLevelRequest{}
+		resp, err := client.GetLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthTdscdmaGetRscpCmd = &cobra.Command{
+	Use:   "get-rscp",
+	Short: "GetRscp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthTdscdmaServiceClient(grpcConn)
+		req := &pb.GetRscpRequest{}
+		resp, err := client.GetRscp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthTdscdmaHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthTdscdmaServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthTdscdmaToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthTdscdmaServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthTdscdmaWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthTdscdmaServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoLteCmd = &cobra.Command{
+	Use:   "cell-info-lte",
+	Short: "CellInfoLteService operations",
+}
+
+var telephonyCellInfoLteDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoLteServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoLteEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoLteServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoLteGetCellIdentity0Cmd = &cobra.Command{
+	Use:   "get-cell-identity0",
+	Short: "GetCellIdentity0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoLteServiceClient(grpcConn)
+		req := &pb.GetCellIdentity0Request{}
+		resp, err := client.GetCellIdentity0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoLteGetCellSignalStrength0Cmd = &cobra.Command{
+	Use:   "get-cell-signal-strength0",
+	Short: "GetCellSignalStrength0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoLteServiceClient(grpcConn)
+		req := &pb.GetCellSignalStrength0Request{}
+		resp, err := client.GetCellSignalStrength0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoLteHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoLteServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoLteToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoLteServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoLteWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoLteServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoLteGetCellSignalStrength0_1Cmd = &cobra.Command{
+	Use:   "get-cell-signal-strength0_1",
+	Short: "GetCellSignalStrength0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoLteServiceClient(grpcConn)
+		req := &pb.GetCellSignalStrength0_1Request{}
+		resp, err := client.GetCellSignalStrength0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoLteGetCellIdentity0_1Cmd = &cobra.Command{
+	Use:   "get-cell-identity0_1",
+	Short: "GetCellIdentity0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoLteServiceClient(grpcConn)
+		req := &pb.GetCellIdentity0_1Request{}
+		resp, err := client.GetCellIdentity0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyScanManagerNetworkScanCallbackCmd = &cobra.Command{
+	Use:   "scan-manager-network-scan-callback",
+	Short: "ScanManagerNetworkScanCallbackService operations",
+}
+
+var telephonyScanManagerNetworkScanCallbackOnCompleteCmd = &cobra.Command{
+	Use:   "on-complete",
+	Short: "OnComplete RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanManagerNetworkScanCallbackServiceClient(grpcConn)
+		req := &pb.OnCompleteRequest{}
+		resp, err := client.OnComplete(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyScanManagerNetworkScanCallbackOnErrorCmd = &cobra.Command{
+	Use:   "on-error",
+	Short: "OnError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanManagerNetworkScanCallbackServiceClient(grpcConn)
+		req := &pb.OnErrorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityTdscdmaCmd = &cobra.Command{
+	Use:   "cell-identity-tdscdma",
+	Short: "CellIdentityTdscdmaService operations",
+}
+
+var telephonyCellIdentityTdscdmaDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityTdscdmaServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityTdscdmaEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityTdscdmaServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityTdscdmaGetCidCmd = &cobra.Command{
+	Use:   "get-cid",
+	Short: "GetCid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityTdscdmaServiceClient(grpcConn)
+		req := &pb.GetCidRequest{}
+		resp, err := client.GetCid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityTdscdmaGetClosedSubscriberGroupInfoCmd = &cobra.Command{
+	Use:   "get-closed-subscriber-group-info",
+	Short: "GetClosedSubscriberGroupInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityTdscdmaServiceClient(grpcConn)
+		req := &pb.GetClosedSubscriberGroupInfoRequest{}
+		resp, err := client.GetClosedSubscriberGroupInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityTdscdmaGetCpidCmd = &cobra.Command{
+	Use:   "get-cpid",
+	Short: "GetCpid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityTdscdmaServiceClient(grpcConn)
+		req := &pb.GetCpidRequest{}
+		resp, err := client.GetCpid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityTdscdmaGetLacCmd = &cobra.Command{
+	Use:   "get-lac",
+	Short: "GetLac RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityTdscdmaServiceClient(grpcConn)
+		req := &pb.GetLacRequest{}
+		resp, err := client.GetLac(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityTdscdmaGetMccStringCmd = &cobra.Command{
+	Use:   "get-mcc-string",
+	Short: "GetMccString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityTdscdmaServiceClient(grpcConn)
+		req := &pb.GetMccStringRequest{}
+		resp, err := client.GetMccString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityTdscdmaGetMncStringCmd = &cobra.Command{
+	Use:   "get-mnc-string",
+	Short: "GetMncString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityTdscdmaServiceClient(grpcConn)
+		req := &pb.GetMncStringRequest{}
+		resp, err := client.GetMncString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityTdscdmaGetMobileNetworkOperatorCmd = &cobra.Command{
+	Use:   "get-mobile-network-operator",
+	Short: "GetMobileNetworkOperator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityTdscdmaServiceClient(grpcConn)
+		req := &pb.GetMobileNetworkOperatorRequest{}
+		resp, err := client.GetMobileNetworkOperator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityTdscdmaGetUarfcnCmd = &cobra.Command{
+	Use:   "get-uarfcn",
+	Short: "GetUarfcn RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityTdscdmaServiceClient(grpcConn)
+		req := &pb.GetUarfcnRequest{}
+		resp, err := client.GetUarfcn(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityTdscdmaHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityTdscdmaServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityTdscdmaToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityTdscdmaServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityTdscdmaWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityTdscdmaServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerCmd = &cobra.Command{
+	Use:   "subscription-manager",
+	Short: "SubscriptionManagerService operations",
+}
+
+var telephonySubscriptionManagerAddOnOpportunisticSubscriptionsChangedListenerCmd = &cobra.Command{
+	Use:   "add-on-opportunistic-subscriptions-changed-listener",
+	Short: "AddOnOpportunisticSubscriptionsChangedListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.AddOnOpportunisticSubscriptionsChangedListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddOnOpportunisticSubscriptionsChangedListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerAddOnSubscriptionsChangedListener1Cmd = &cobra.Command{
+	Use:   "add-on-subscriptions-changed-listener1",
+	Short: "AddOnSubscriptionsChangedListener1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.AddOnSubscriptionsChangedListener1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddOnSubscriptionsChangedListener1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerAddOnSubscriptionsChangedListener2_1Cmd = &cobra.Command{
+	Use:   "add-on-subscriptions-changed-listener2_1",
+	Short: "AddOnSubscriptionsChangedListener2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.AddOnSubscriptionsChangedListener2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddOnSubscriptionsChangedListener2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerCanManageSubscriptionCmd = &cobra.Command{
+	Use:   "can-manage-subscription",
+	Short: "CanManageSubscription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.CanManageSubscriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CanManageSubscription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerGetActiveSubscriptionInfoCmd = &cobra.Command{
+	Use:   "get-active-subscription-info",
+	Short: "GetActiveSubscriptionInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.GetActiveSubscriptionInfoRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetActiveSubscriptionInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerGetActiveSubscriptionInfoCountCmd = &cobra.Command{
+	Use:   "get-active-subscription-info-count",
+	Short: "GetActiveSubscriptionInfoCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.GetActiveSubscriptionInfoCountRequest{}
+		resp, err := client.GetActiveSubscriptionInfoCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerGetActiveSubscriptionInfoCountMaxCmd = &cobra.Command{
+	Use:   "get-active-subscription-info-count-max",
+	Short: "GetActiveSubscriptionInfoCountMax RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.GetActiveSubscriptionInfoCountMaxRequest{}
+		resp, err := client.GetActiveSubscriptionInfoCountMax(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerGetActiveSubscriptionInfoForSimSlotIndexCmd = &cobra.Command{
+	Use:   "get-active-subscription-info-for-sim-slot-index",
+	Short: "GetActiveSubscriptionInfoForSimSlotIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.GetActiveSubscriptionInfoForSimSlotIndexRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetActiveSubscriptionInfoForSimSlotIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerGetDeviceToDeviceStatusSharingPreferenceCmd = &cobra.Command{
+	Use:   "get-device-to-device-status-sharing-preference",
+	Short: "GetDeviceToDeviceStatusSharingPreference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.GetDeviceToDeviceStatusSharingPreferenceRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDeviceToDeviceStatusSharingPreference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerGetPhoneNumber1Cmd = &cobra.Command{
+	Use:   "get-phone-number1",
+	Short: "GetPhoneNumber1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.GetPhoneNumber1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPhoneNumber1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerGetPhoneNumber2_1Cmd = &cobra.Command{
+	Use:   "get-phone-number2_1",
+	Short: "GetPhoneNumber2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.GetPhoneNumber2_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetPhoneNumber2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerGetSubscriptionIdsCmd = &cobra.Command{
+	Use:   "get-subscription-ids",
+	Short: "GetSubscriptionIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.GetSubscriptionIdsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSubscriptionIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerIsActiveSubscriptionIdCmd = &cobra.Command{
+	Use:   "is-active-subscription-id",
+	Short: "IsActiveSubscriptionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.IsActiveSubscriptionIdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsActiveSubscriptionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerIsNetworkRoamingCmd = &cobra.Command{
+	Use:   "is-network-roaming",
+	Short: "IsNetworkRoaming RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.IsNetworkRoamingRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsNetworkRoaming(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerRemoveOnOpportunisticSubscriptionsChangedListenerCmd = &cobra.Command{
+	Use:   "remove-on-opportunistic-subscriptions-changed-listener",
+	Short: "RemoveOnOpportunisticSubscriptionsChangedListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.RemoveOnOpportunisticSubscriptionsChangedListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveOnOpportunisticSubscriptionsChangedListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerRemoveOnSubscriptionsChangedListenerCmd = &cobra.Command{
+	Use:   "remove-on-subscriptions-changed-listener",
+	Short: "RemoveOnSubscriptionsChangedListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.RemoveOnSubscriptionsChangedListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveOnSubscriptionsChangedListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerSetCarrierPhoneNumberCmd = &cobra.Command{
+	Use:   "set-carrier-phone-number",
+	Short: "SetCarrierPhoneNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.SetCarrierPhoneNumberRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetCarrierPhoneNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerSetDeviceToDeviceStatusSharingPreferenceCmd = &cobra.Command{
+	Use:   "set-device-to-device-status-sharing-preference",
+	Short: "SetDeviceToDeviceStatusSharingPreference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.SetDeviceToDeviceStatusSharingPreferenceRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetDeviceToDeviceStatusSharingPreference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerSetOpportunisticCmd = &cobra.Command{
+	Use:   "set-opportunistic",
+	Short: "SetOpportunistic RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.SetOpportunisticRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetOpportunistic(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerSetSubscriptionOverrideCongested4Cmd = &cobra.Command{
+	Use:   "set-subscription-override-congested4",
+	Short: "SetSubscriptionOverrideCongested4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.SetSubscriptionOverrideCongested4Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.SetSubscriptionOverrideCongested4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerSetSubscriptionOverrideCongested3_1Cmd = &cobra.Command{
+	Use:   "set-subscription-override-congested3_1",
+	Short: "SetSubscriptionOverrideCongested3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.SetSubscriptionOverrideCongested3_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetSubscriptionOverrideCongested3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerSetSubscriptionOverrideUnmetered4Cmd = &cobra.Command{
+	Use:   "set-subscription-override-unmetered4",
+	Short: "SetSubscriptionOverrideUnmetered4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.SetSubscriptionOverrideUnmetered4Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.SetSubscriptionOverrideUnmetered4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerSetSubscriptionOverrideUnmetered3_1Cmd = &cobra.Command{
+	Use:   "set-subscription-override-unmetered3_1",
+	Short: "SetSubscriptionOverrideUnmetered3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.SetSubscriptionOverrideUnmetered3_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetSubscriptionOverrideUnmetered3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerSwitchToSubscriptionCmd = &cobra.Command{
+	Use:   "switch-to-subscription",
+	Short: "SwitchToSubscription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.SwitchToSubscriptionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SwitchToSubscription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerFromCmd = &cobra.Command{
+	Use:   "from",
+	Short: "From RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.FromRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.From(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerGetActiveDataSubscriptionIdCmd = &cobra.Command{
+	Use:   "get-active-data-subscription-id",
+	Short: "GetActiveDataSubscriptionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.GetActiveDataSubscriptionIdRequest{}
+		resp, err := client.GetActiveDataSubscriptionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerGetDefaultDataSubscriptionIdCmd = &cobra.Command{
+	Use:   "get-default-data-subscription-id",
+	Short: "GetDefaultDataSubscriptionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.GetDefaultDataSubscriptionIdRequest{}
+		resp, err := client.GetDefaultDataSubscriptionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerGetDefaultSmsSubscriptionIdCmd = &cobra.Command{
+	Use:   "get-default-sms-subscription-id",
+	Short: "GetDefaultSmsSubscriptionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.GetDefaultSmsSubscriptionIdRequest{}
+		resp, err := client.GetDefaultSmsSubscriptionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerGetDefaultSubscriptionIdCmd = &cobra.Command{
+	Use:   "get-default-subscription-id",
+	Short: "GetDefaultSubscriptionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.GetDefaultSubscriptionIdRequest{}
+		resp, err := client.GetDefaultSubscriptionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerGetDefaultVoiceSubscriptionIdCmd = &cobra.Command{
+	Use:   "get-default-voice-subscription-id",
+	Short: "GetDefaultVoiceSubscriptionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.GetDefaultVoiceSubscriptionIdRequest{}
+		resp, err := client.GetDefaultVoiceSubscriptionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerGetSlotIndexCmd = &cobra.Command{
+	Use:   "get-slot-index",
+	Short: "GetSlotIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.GetSlotIndexRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSlotIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerGetSubscriptionIdCmd = &cobra.Command{
+	Use:   "get-subscription-id",
+	Short: "GetSubscriptionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.GetSubscriptionIdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSubscriptionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerIsUsableSubscriptionIdCmd = &cobra.Command{
+	Use:   "is-usable-subscription-id",
+	Short: "IsUsableSubscriptionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.IsUsableSubscriptionIdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsUsableSubscriptionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerIsValidSubscriptionIdCmd = &cobra.Command{
+	Use:   "is-valid-subscription-id",
+	Short: "IsValidSubscriptionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerServiceClient(grpcConn)
+		req := &pb.IsValidSubscriptionIdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsValidSubscriptionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerOnOpportunisticSubscriptionsChangedListenerCmd = &cobra.Command{
+	Use:   "subscription-manager-on-opportunistic-subscriptions-changed-listener",
+	Short: "SubscriptionManagerOnOpportunisticSubscriptionsChangedListenerService operations",
+}
+
+var telephonySubscriptionManagerOnOpportunisticSubscriptionsChangedListenerOnOpportunisticSubscriptionsChangedCmd = &cobra.Command{
+	Use:   "on-opportunistic-subscriptions-changed",
+	Short: "OnOpportunisticSubscriptionsChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerOnOpportunisticSubscriptionsChangedListenerServiceClient(grpcConn)
+		req := &pb.OnOpportunisticSubscriptionsChangedRequest{}
+		resp, err := client.OnOpportunisticSubscriptionsChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionManagerOnSubscriptionsChangedListenerCmd = &cobra.Command{
+	Use:   "subscription-manager-on-subscriptions-changed-listener",
+	Short: "SubscriptionManagerOnSubscriptionsChangedListenerService operations",
+}
+
+var telephonySubscriptionManagerOnSubscriptionsChangedListenerOnSubscriptionsChangedCmd = &cobra.Command{
+	Use:   "on-subscriptions-changed",
+	Short: "OnSubscriptionsChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionManagerOnSubscriptionsChangedListenerServiceClient(grpcConn)
+		req := &pb.OnSubscriptionsChangedRequest{}
+		resp, err := client.OnSubscriptionsChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalThresholdInfoCmd = &cobra.Command{
+	Use:   "signal-threshold-info",
+	Short: "SignalThresholdInfoService operations",
+}
+
+var telephonySignalThresholdInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalThresholdInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalThresholdInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalThresholdInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalThresholdInfoGetHysteresisDbCmd = &cobra.Command{
+	Use:   "get-hysteresis-db",
+	Short: "GetHysteresisDb RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalThresholdInfoServiceClient(grpcConn)
+		req := &pb.GetHysteresisDbRequest{}
+		resp, err := client.GetHysteresisDb(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalThresholdInfoGetRadioAccessNetworkTypeCmd = &cobra.Command{
+	Use:   "get-radio-access-network-type",
+	Short: "GetRadioAccessNetworkType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalThresholdInfoServiceClient(grpcConn)
+		req := &pb.GetRadioAccessNetworkTypeRequest{}
+		resp, err := client.GetRadioAccessNetworkType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalThresholdInfoGetSignalMeasurementTypeCmd = &cobra.Command{
+	Use:   "get-signal-measurement-type",
+	Short: "GetSignalMeasurementType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalThresholdInfoServiceClient(grpcConn)
+		req := &pb.GetSignalMeasurementTypeRequest{}
+		resp, err := client.GetSignalMeasurementType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalThresholdInfoGetThresholdsCmd = &cobra.Command{
+	Use:   "get-thresholds",
+	Short: "GetThresholds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalThresholdInfoServiceClient(grpcConn)
+		req := &pb.GetThresholdsRequest{}
+		resp, err := client.GetThresholds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalThresholdInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalThresholdInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalThresholdInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalThresholdInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalThresholdInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalThresholdInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalThresholdInfoGetMaximumNumberOfThresholdsAllowedCmd = &cobra.Command{
+	Use:   "get-maximum-number-of-thresholds-allowed",
+	Short: "GetMaximumNumberOfThresholdsAllowed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalThresholdInfoServiceClient(grpcConn)
+		req := &pb.GetMaximumNumberOfThresholdsAllowedRequest{}
+		resp, err := client.GetMaximumNumberOfThresholdsAllowed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalThresholdInfoGetMinimumNumberOfThresholdsAllowedCmd = &cobra.Command{
+	Use:   "get-minimum-number-of-thresholds-allowed",
+	Short: "GetMinimumNumberOfThresholdsAllowed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalThresholdInfoServiceClient(grpcConn)
+		req := &pb.GetMinimumNumberOfThresholdsAllowedRequest{}
+		resp, err := client.GetMinimumNumberOfThresholdsAllowed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalThresholdInfoBuilderCmd = &cobra.Command{
+	Use:   "signal-threshold-info-builder",
+	Short: "SignalThresholdInfoBuilderService operations",
+}
+
+var telephonySignalThresholdInfoBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalThresholdInfoBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalThresholdInfoBuilderSetHysteresisDbCmd = &cobra.Command{
+	Use:   "set-hysteresis-db",
+	Short: "SetHysteresisDb RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalThresholdInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetHysteresisDbRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetHysteresisDb(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalThresholdInfoBuilderSetRadioAccessNetworkTypeCmd = &cobra.Command{
+	Use:   "set-radio-access-network-type",
+	Short: "SetRadioAccessNetworkType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalThresholdInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetRadioAccessNetworkTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRadioAccessNetworkType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalThresholdInfoBuilderSetSignalMeasurementTypeCmd = &cobra.Command{
+	Use:   "set-signal-measurement-type",
+	Short: "SetSignalMeasurementType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalThresholdInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetSignalMeasurementTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSignalMeasurementType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalThresholdInfoBuilderSetThresholdsCmd = &cobra.Command{
+	Use:   "set-thresholds",
+	Short: "SetThresholds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalThresholdInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetThresholdsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetThresholds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccPortInfoCmd = &cobra.Command{
+	Use:   "uicc-port-info",
+	Short: "UiccPortInfoService operations",
+}
+
+var telephonyUiccPortInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccPortInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccPortInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccPortInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccPortInfoGetIccIdCmd = &cobra.Command{
+	Use:   "get-icc-id",
+	Short: "GetIccId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccPortInfoServiceClient(grpcConn)
+		req := &pb.GetIccIdRequest{}
+		resp, err := client.GetIccId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccPortInfoGetLogicalSlotIndexCmd = &cobra.Command{
+	Use:   "get-logical-slot-index",
+	Short: "GetLogicalSlotIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccPortInfoServiceClient(grpcConn)
+		req := &pb.GetLogicalSlotIndexRequest{}
+		resp, err := client.GetLogicalSlotIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccPortInfoGetPortIndexCmd = &cobra.Command{
+	Use:   "get-port-index",
+	Short: "GetPortIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccPortInfoServiceClient(grpcConn)
+		req := &pb.GetPortIndexRequest{}
+		resp, err := client.GetPortIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccPortInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccPortInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccPortInfoIsActiveCmd = &cobra.Command{
+	Use:   "is-active",
+	Short: "IsActive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccPortInfoServiceClient(grpcConn)
+		req := &pb.IsActiveRequest{}
+		resp, err := client.IsActive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccPortInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccPortInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccPortInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccPortInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCallbackActiveDataSubscriptionIdListenerCmd = &cobra.Command{
+	Use:   "callback-active-data-subscription-id-listener",
+	Short: "CallbackActiveDataSubscriptionIdListenerService operations",
+}
+
+var telephonyCallbackActiveDataSubscriptionIdListenerOnActiveDataSubscriptionIdChangedCmd = &cobra.Command{
+	Use:   "on-active-data-subscription-id-changed",
+	Short: "OnActiveDataSubscriptionIdChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallbackActiveDataSubscriptionIdListenerServiceClient(grpcConn)
+		req := &pb.OnActiveDataSubscriptionIdChangedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnActiveDataSubscriptionIdChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCallbackBarringInfoListenerCmd = &cobra.Command{
+	Use:   "callback-barring-info-listener",
+	Short: "CallbackBarringInfoListenerService operations",
+}
+
+var telephonyCallbackBarringInfoListenerOnBarringInfoChangedCmd = &cobra.Command{
+	Use:   "on-barring-info-changed",
+	Short: "OnBarringInfoChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallbackBarringInfoListenerServiceClient(grpcConn)
+		req := &pb.OnBarringInfoChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBarringInfoChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCallbackCallDisconnectCauseListenerCmd = &cobra.Command{
+	Use:   "callback-call-disconnect-cause-listener",
+	Short: "CallbackCallDisconnectCauseListenerService operations",
+}
+
+var telephonyCallbackCallDisconnectCauseListenerOnCallDisconnectCauseChangedCmd = &cobra.Command{
+	Use:   "on-call-disconnect-cause-changed",
+	Short: "OnCallDisconnectCauseChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallbackCallDisconnectCauseListenerServiceClient(grpcConn)
+		req := &pb.OnCallDisconnectCauseChangedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCallDisconnectCauseChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCallbackCallForwardingIndicatorListenerCmd = &cobra.Command{
+	Use:   "callback-call-forwarding-indicator-listener",
+	Short: "CallbackCallForwardingIndicatorListenerService operations",
+}
+
+var telephonyCallbackCallForwardingIndicatorListenerOnCallForwardingIndicatorChangedCmd = &cobra.Command{
+	Use:   "on-call-forwarding-indicator-changed",
+	Short: "OnCallForwardingIndicatorChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallbackCallForwardingIndicatorListenerServiceClient(grpcConn)
+		req := &pb.OnCallForwardingIndicatorChangedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCallForwardingIndicatorChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCallbackCallStateListenerCmd = &cobra.Command{
+	Use:   "callback-call-state-listener",
+	Short: "CallbackCallStateListenerService operations",
+}
+
+var telephonyCallbackCallStateListenerOnCallStateChangedCmd = &cobra.Command{
+	Use:   "on-call-state-changed",
+	Short: "OnCallStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallbackCallStateListenerServiceClient(grpcConn)
+		req := &pb.OnCallStateChangedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCallStateChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCallbackCarrierNetworkListenerCmd = &cobra.Command{
+	Use:   "callback-carrier-network-listener",
+	Short: "CallbackCarrierNetworkListenerService operations",
+}
+
+var telephonyCallbackCarrierNetworkListenerOnCarrierNetworkChangeCmd = &cobra.Command{
+	Use:   "on-carrier-network-change",
+	Short: "OnCarrierNetworkChange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallbackCarrierNetworkListenerServiceClient(grpcConn)
+		req := &pb.OnCarrierNetworkChangeRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCarrierNetworkChange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCallbackCellLocationListenerCmd = &cobra.Command{
+	Use:   "callback-cell-location-listener",
+	Short: "CallbackCellLocationListenerService operations",
+}
+
+var telephonyCallbackCellLocationListenerOnCellLocationChangedCmd = &cobra.Command{
+	Use:   "on-cell-location-changed",
+	Short: "OnCellLocationChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallbackCellLocationListenerServiceClient(grpcConn)
+		req := &pb.OnCellLocationChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCellLocationChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCallbackDataActivationStateListenerCmd = &cobra.Command{
+	Use:   "callback-data-activation-state-listener",
+	Short: "CallbackDataActivationStateListenerService operations",
+}
+
+var telephonyCallbackDataActivationStateListenerOnDataActivationStateChangedCmd = &cobra.Command{
+	Use:   "on-data-activation-state-changed",
+	Short: "OnDataActivationStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallbackDataActivationStateListenerServiceClient(grpcConn)
+		req := &pb.OnDataActivationStateChangedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDataActivationStateChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCallbackDataActivityListenerCmd = &cobra.Command{
+	Use:   "callback-data-activity-listener",
+	Short: "CallbackDataActivityListenerService operations",
+}
+
+var telephonyCallbackDataActivityListenerOnDataActivityCmd = &cobra.Command{
+	Use:   "on-data-activity",
+	Short: "OnDataActivity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallbackDataActivityListenerServiceClient(grpcConn)
+		req := &pb.OnDataActivityRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDataActivity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCallbackDataConnectionStateListenerCmd = &cobra.Command{
+	Use:   "callback-data-connection-state-listener",
+	Short: "CallbackDataConnectionStateListenerService operations",
+}
+
+var telephonyCallbackDataConnectionStateListenerOnDataConnectionStateChangedCmd = &cobra.Command{
+	Use:   "on-data-connection-state-changed",
+	Short: "OnDataConnectionStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallbackDataConnectionStateListenerServiceClient(grpcConn)
+		req := &pb.OnDataConnectionStateChangedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnDataConnectionStateChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCallbackDisplayInfoListenerCmd = &cobra.Command{
+	Use:   "callback-display-info-listener",
+	Short: "CallbackDisplayInfoListenerService operations",
+}
+
+var telephonyCallbackDisplayInfoListenerOnDisplayInfoChangedCmd = &cobra.Command{
+	Use:   "on-display-info-changed",
+	Short: "OnDisplayInfoChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallbackDisplayInfoListenerServiceClient(grpcConn)
+		req := &pb.OnDisplayInfoChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDisplayInfoChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCallbackImsCallDisconnectCauseListenerCmd = &cobra.Command{
+	Use:   "callback-ims-call-disconnect-cause-listener",
+	Short: "CallbackImsCallDisconnectCauseListenerService operations",
+}
+
+var telephonyCallbackImsCallDisconnectCauseListenerOnImsCallDisconnectCauseChangedCmd = &cobra.Command{
+	Use:   "on-ims-call-disconnect-cause-changed",
+	Short: "OnImsCallDisconnectCauseChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallbackImsCallDisconnectCauseListenerServiceClient(grpcConn)
+		req := &pb.OnImsCallDisconnectCauseChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnImsCallDisconnectCauseChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCallbackMessageWaitingIndicatorListenerCmd = &cobra.Command{
+	Use:   "callback-message-waiting-indicator-listener",
+	Short: "CallbackMessageWaitingIndicatorListenerService operations",
+}
+
+var telephonyCallbackMessageWaitingIndicatorListenerOnMessageWaitingIndicatorChangedCmd = &cobra.Command{
+	Use:   "on-message-waiting-indicator-changed",
+	Short: "OnMessageWaitingIndicatorChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallbackMessageWaitingIndicatorListenerServiceClient(grpcConn)
+		req := &pb.OnMessageWaitingIndicatorChangedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnMessageWaitingIndicatorChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCallbackPreciseDataConnectionStateListenerCmd = &cobra.Command{
+	Use:   "callback-precise-data-connection-state-listener",
+	Short: "CallbackPreciseDataConnectionStateListenerService operations",
+}
+
+var telephonyCallbackPreciseDataConnectionStateListenerOnPreciseDataConnectionStateChangedCmd = &cobra.Command{
+	Use:   "on-precise-data-connection-state-changed",
+	Short: "OnPreciseDataConnectionStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallbackPreciseDataConnectionStateListenerServiceClient(grpcConn)
+		req := &pb.OnPreciseDataConnectionStateChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnPreciseDataConnectionStateChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCallbackRegistrationFailedListenerCmd = &cobra.Command{
+	Use:   "callback-registration-failed-listener",
+	Short: "CallbackRegistrationFailedListenerService operations",
+}
+
+var telephonyCallbackRegistrationFailedListenerOnRegistrationFailedCmd = &cobra.Command{
+	Use:   "on-registration-failed",
+	Short: "OnRegistrationFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallbackRegistrationFailedListenerServiceClient(grpcConn)
+		req := &pb.OnRegistrationFailedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.OnRegistrationFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCallbackServiceStateListenerCmd = &cobra.Command{
+	Use:   "callback-service-state-listener",
+	Short: "CallbackServiceStateListenerService operations",
+}
+
+var telephonyCallbackServiceStateListenerOnServiceStateChangedCmd = &cobra.Command{
+	Use:   "on-service-state-changed",
+	Short: "OnServiceStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallbackServiceStateListenerServiceClient(grpcConn)
+		req := &pb.OnServiceStateChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnServiceStateChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCallbackSignalStrengthsListenerCmd = &cobra.Command{
+	Use:   "callback-signal-strengths-listener",
+	Short: "CallbackSignalStrengthsListenerService operations",
+}
+
+var telephonyCallbackSignalStrengthsListenerOnSignalStrengthsChangedCmd = &cobra.Command{
+	Use:   "on-signal-strengths-changed",
+	Short: "OnSignalStrengthsChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallbackSignalStrengthsListenerServiceClient(grpcConn)
+		req := &pb.OnSignalStrengthsChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnSignalStrengthsChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCallbackUserMobileDataStateListenerCmd = &cobra.Command{
+	Use:   "callback-user-mobile-data-state-listener",
+	Short: "CallbackUserMobileDataStateListenerService operations",
+}
+
+var telephonyCallbackUserMobileDataStateListenerOnUserMobileDataStateChangedCmd = &cobra.Command{
+	Use:   "on-user-mobile-data-state-changed",
+	Short: "OnUserMobileDataStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCallbackUserMobileDataStateListenerServiceClient(grpcConn)
+		req := &pb.OnUserMobileDataStateChangedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnUserMobileDataStateChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var telephonyCarrierConfigManagerCmd = &cobra.Command{
 	Use:   "carrier-config-manager",
 	Short: "CarrierConfigManagerService operations",
@@ -187,6 +2845,5389 @@ var telephonyCarrierConfigManagerIsConfigForIdentifiedCarrierCmd = &cobra.Comman
 			req.Arg0 = v
 		}
 		resp, err := client.IsConfigForIdentifiedCarrier(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCarrierConfigManagerCarrierConfigChangeListenerCmd = &cobra.Command{
+	Use:   "carrier-config-manager-carrier-config-change-listener",
+	Short: "CarrierConfigManagerCarrierConfigChangeListenerService operations",
+}
+
+var telephonyCarrierConfigManagerCarrierConfigChangeListenerOnCarrierConfigChangedCmd = &cobra.Command{
+	Use:   "on-carrier-config-changed",
+	Short: "OnCarrierConfigChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCarrierConfigManagerCarrierConfigChangeListenerServiceClient(grpcConn)
+		req := &pb.OnCarrierConfigChangedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnCarrierConfigChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsCmd = &cobra.Command{
+	Use:   "phone-number-utils",
+	Short: "PhoneNumberUtilsService operations",
+}
+
+var telephonyPhoneNumberUtilsNewPhoneNumberUtilsCmd = &cobra.Command{
+	Use:   "new-phone-number-utils",
+	Short: "NewPhoneNumberUtils RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.NewPhoneNumberUtilsRequest{}
+		resp, err := client.NewPhoneNumberUtils(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsAddTtsSpanCmd = &cobra.Command{
+	Use:   "add-tts-span",
+	Short: "AddTtsSpan RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.AddTtsSpanRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.AddTtsSpan(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsAreSamePhoneNumberCmd = &cobra.Command{
+	Use:   "are-same-phone-number",
+	Short: "AreSamePhoneNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.AreSamePhoneNumberRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.AreSamePhoneNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsCalledPartyBCDFragmentToString3Cmd = &cobra.Command{
+	Use:   "called-party-bcd-fragment-to-string3",
+	Short: "CalledPartyBCDFragmentToString3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.CalledPartyBCDFragmentToString3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CalledPartyBCDFragmentToString3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsCalledPartyBCDFragmentToString4_1Cmd = &cobra.Command{
+	Use:   "called-party-bcd-fragment-to-string4_1",
+	Short: "CalledPartyBCDFragmentToString4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.CalledPartyBCDFragmentToString4_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.CalledPartyBCDFragmentToString4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsCalledPartyBCDToString3Cmd = &cobra.Command{
+	Use:   "called-party-bcd-to-string3",
+	Short: "CalledPartyBCDToString3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.CalledPartyBCDToString3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CalledPartyBCDToString3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsCalledPartyBCDToString4_1Cmd = &cobra.Command{
+	Use:   "called-party-bcd-to-string4_1",
+	Short: "CalledPartyBCDToString4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.CalledPartyBCDToString4_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.CalledPartyBCDToString4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsCompare3Cmd = &cobra.Command{
+	Use:   "compare3",
+	Short: "Compare3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.Compare3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Compare3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsCompare2_1Cmd = &cobra.Command{
+	Use:   "compare2_1",
+	Short: "Compare2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.Compare2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Compare2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsConvertKeypadLettersToDigitsCmd = &cobra.Command{
+	Use:   "convert-keypad-letters-to-digits",
+	Short: "ConvertKeypadLettersToDigits RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.ConvertKeypadLettersToDigitsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ConvertKeypadLettersToDigits(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsCreateTtsSpanCmd = &cobra.Command{
+	Use:   "create-tts-span",
+	Short: "CreateTtsSpan RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.CreateTtsSpanRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateTtsSpan(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsCreateTtsSpannableCmd = &cobra.Command{
+	Use:   "create-tts-spannable",
+	Short: "CreateTtsSpannable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.CreateTtsSpannableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateTtsSpannable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsExtractNetworkPortionCmd = &cobra.Command{
+	Use:   "extract-network-portion",
+	Short: "ExtractNetworkPortion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.ExtractNetworkPortionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ExtractNetworkPortion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsExtractPostDialPortionCmd = &cobra.Command{
+	Use:   "extract-post-dial-portion",
+	Short: "ExtractPostDialPortion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.ExtractPostDialPortionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ExtractPostDialPortion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsFormatJapaneseNumberCmd = &cobra.Command{
+	Use:   "format-japanese-number",
+	Short: "FormatJapaneseNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.FormatJapaneseNumberRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FormatJapaneseNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsFormatNanpNumberCmd = &cobra.Command{
+	Use:   "format-nanp-number",
+	Short: "FormatNanpNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.FormatNanpNumberRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FormatNanpNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsFormatNumber2Cmd = &cobra.Command{
+	Use:   "format-number2",
+	Short: "FormatNumber2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.FormatNumber2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.FormatNumber2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsFormatNumber1_1Cmd = &cobra.Command{
+	Use:   "format-number1_1",
+	Short: "FormatNumber1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.FormatNumber1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FormatNumber1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsFormatNumber2_2Cmd = &cobra.Command{
+	Use:   "format-number2_2",
+	Short: "FormatNumber2_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.FormatNumber2_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.FormatNumber2_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsFormatNumber3_3Cmd = &cobra.Command{
+	Use:   "format-number3_3",
+	Short: "FormatNumber3_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.FormatNumber3_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.FormatNumber3_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsFormatNumberToE164Cmd = &cobra.Command{
+	Use:   "format-number-to-e164",
+	Short: "FormatNumberToE164 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.FormatNumberToE164Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.FormatNumberToE164(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsFormatNumberToRFC3966Cmd = &cobra.Command{
+	Use:   "format-number-to-rfc3966",
+	Short: "FormatNumberToRFC3966 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.FormatNumberToRFC3966Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.FormatNumberToRFC3966(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsGetFormatTypeForLocaleCmd = &cobra.Command{
+	Use:   "get-format-type-for-locale",
+	Short: "GetFormatTypeForLocale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.GetFormatTypeForLocaleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetFormatTypeForLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsGetNumberFromIntentCmd = &cobra.Command{
+	Use:   "get-number-from-intent",
+	Short: "GetNumberFromIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.GetNumberFromIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetNumberFromIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsGetStrippedReversedCmd = &cobra.Command{
+	Use:   "get-stripped-reversed",
+	Short: "GetStrippedReversed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.GetStrippedReversedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetStrippedReversed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsIs12KeyCmd = &cobra.Command{
+	Use:   "is12key",
+	Short: "Is12Key RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.Is12KeyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetUint32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Is12Key(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsIsDialableCmd = &cobra.Command{
+	Use:   "is-dialable",
+	Short: "IsDialable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.IsDialableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetUint32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsDialable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsIsEmergencyNumberCmd = &cobra.Command{
+	Use:   "is-emergency-number",
+	Short: "IsEmergencyNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.IsEmergencyNumberRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsEmergencyNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsIsGlobalPhoneNumberCmd = &cobra.Command{
+	Use:   "is-global-phone-number",
+	Short: "IsGlobalPhoneNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.IsGlobalPhoneNumberRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsGlobalPhoneNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsIsISODigitCmd = &cobra.Command{
+	Use:   "is-iso-digit",
+	Short: "IsISODigit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.IsISODigitRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetUint32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsISODigit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsIsLocalEmergencyNumberCmd = &cobra.Command{
+	Use:   "is-local-emergency-number",
+	Short: "IsLocalEmergencyNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.IsLocalEmergencyNumberRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.IsLocalEmergencyNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsIsNonSeparatorCmd = &cobra.Command{
+	Use:   "is-non-separator",
+	Short: "IsNonSeparator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.IsNonSeparatorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetUint32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsNonSeparator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsIsReallyDialableCmd = &cobra.Command{
+	Use:   "is-really-dialable",
+	Short: "IsReallyDialable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.IsReallyDialableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetUint32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsReallyDialable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsIsStartsPostDialCmd = &cobra.Command{
+	Use:   "is-starts-post-dial",
+	Short: "IsStartsPostDial RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.IsStartsPostDialRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetUint32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsStartsPostDial(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsIsVoiceMailNumberCmd = &cobra.Command{
+	Use:   "is-voice-mail-number",
+	Short: "IsVoiceMailNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.IsVoiceMailNumberRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsVoiceMailNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsIsWellFormedSmsAddressCmd = &cobra.Command{
+	Use:   "is-well-formed-sms-address",
+	Short: "IsWellFormedSmsAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.IsWellFormedSmsAddressRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsWellFormedSmsAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsIsWpsCallNumberCmd = &cobra.Command{
+	Use:   "is-wps-call-number",
+	Short: "IsWpsCallNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.IsWpsCallNumberRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsWpsCallNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsNetworkPortionToCalledPartyBCDCmd = &cobra.Command{
+	Use:   "network-portion-to-called-party-bcd",
+	Short: "NetworkPortionToCalledPartyBCD RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.NetworkPortionToCalledPartyBCDRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NetworkPortionToCalledPartyBCD(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsNetworkPortionToCalledPartyBCDWithLengthCmd = &cobra.Command{
+	Use:   "network-portion-to-called-party-bcd-with-length",
+	Short: "NetworkPortionToCalledPartyBCDWithLength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.NetworkPortionToCalledPartyBCDWithLengthRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NetworkPortionToCalledPartyBCDWithLength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsNormalizeNumberCmd = &cobra.Command{
+	Use:   "normalize-number",
+	Short: "NormalizeNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.NormalizeNumberRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NormalizeNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsNumberToCalledPartyBCD1Cmd = &cobra.Command{
+	Use:   "number-to-called-party-bcd1",
+	Short: "NumberToCalledPartyBCD1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.NumberToCalledPartyBCD1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NumberToCalledPartyBCD1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsNumberToCalledPartyBCD2_1Cmd = &cobra.Command{
+	Use:   "number-to-called-party-bcd2_1",
+	Short: "NumberToCalledPartyBCD2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.NumberToCalledPartyBCD2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NumberToCalledPartyBCD2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsReplaceUnicodeDigitsCmd = &cobra.Command{
+	Use:   "replace-unicode-digits",
+	Short: "ReplaceUnicodeDigits RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.ReplaceUnicodeDigitsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ReplaceUnicodeDigits(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsStringFromStringAndTOACmd = &cobra.Command{
+	Use:   "string-from-string-and-toa",
+	Short: "StringFromStringAndTOA RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.StringFromStringAndTOARequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.StringFromStringAndTOA(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsStripSeparatorsCmd = &cobra.Command{
+	Use:   "strip-separators",
+	Short: "StripSeparators RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.StripSeparatorsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.StripSeparators(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsToCallerIDMinMatchCmd = &cobra.Command{
+	Use:   "to-caller-id-min-match",
+	Short: "ToCallerIDMinMatch RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.ToCallerIDMinMatchRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ToCallerIDMinMatch(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberUtilsToaFromStringCmd = &cobra.Command{
+	Use:   "toa-from-string",
+	Short: "ToaFromString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberUtilsServiceClient(grpcConn)
+		req := &pb.ToaFromStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ToaFromString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthWcdmaCmd = &cobra.Command{
+	Use:   "cell-signal-strength-wcdma",
+	Short: "CellSignalStrengthWcdmaService operations",
+}
+
+var telephonyCellSignalStrengthWcdmaDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthWcdmaServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthWcdmaEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthWcdmaServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthWcdmaGetAsuLevelCmd = &cobra.Command{
+	Use:   "get-asu-level",
+	Short: "GetAsuLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthWcdmaServiceClient(grpcConn)
+		req := &pb.GetAsuLevelRequest{}
+		resp, err := client.GetAsuLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthWcdmaGetDbmCmd = &cobra.Command{
+	Use:   "get-dbm",
+	Short: "GetDbm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthWcdmaServiceClient(grpcConn)
+		req := &pb.GetDbmRequest{}
+		resp, err := client.GetDbm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthWcdmaGetEcNoCmd = &cobra.Command{
+	Use:   "get-ec-no",
+	Short: "GetEcNo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthWcdmaServiceClient(grpcConn)
+		req := &pb.GetEcNoRequest{}
+		resp, err := client.GetEcNo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthWcdmaGetLevelCmd = &cobra.Command{
+	Use:   "get-level",
+	Short: "GetLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthWcdmaServiceClient(grpcConn)
+		req := &pb.GetLevelRequest{}
+		resp, err := client.GetLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthWcdmaHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthWcdmaServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthWcdmaToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthWcdmaServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthWcdmaWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthWcdmaServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsGroupCallSessionCmd = &cobra.Command{
+	Use:   "mbms-group-call-session",
+	Short: "MbmsGroupCallSessionService operations",
+}
+
+var telephonyMbmsGroupCallSessionCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsGroupCallSessionServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsGroupCallSessionCreate4Cmd = &cobra.Command{
+	Use:   "create4",
+	Short: "Create4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsGroupCallSessionServiceClient(grpcConn)
+		req := &pb.Create4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Create4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsGroupCallSessionCreate3_1Cmd = &cobra.Command{
+	Use:   "create3_1",
+	Short: "Create3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsGroupCallSessionServiceClient(grpcConn)
+		req := &pb.Create3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Create3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoCmd = &cobra.Command{
+	Use:   "subscription-info",
+	Short: "SubscriptionInfoService operations",
+}
+
+var telephonySubscriptionInfoCreateIconBitmapCmd = &cobra.Command{
+	Use:   "create-icon-bitmap",
+	Short: "CreateIconBitmap RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.CreateIconBitmapRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateIconBitmap(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoGetCardIdCmd = &cobra.Command{
+	Use:   "get-card-id",
+	Short: "GetCardId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.GetCardIdRequest{}
+		resp, err := client.GetCardId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoGetCarrierIdCmd = &cobra.Command{
+	Use:   "get-carrier-id",
+	Short: "GetCarrierId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.GetCarrierIdRequest{}
+		resp, err := client.GetCarrierId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoGetCarrierNameCmd = &cobra.Command{
+	Use:   "get-carrier-name",
+	Short: "GetCarrierName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.GetCarrierNameRequest{}
+		resp, err := client.GetCarrierName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoGetCountryIsoCmd = &cobra.Command{
+	Use:   "get-country-iso",
+	Short: "GetCountryIso RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.GetCountryIsoRequest{}
+		resp, err := client.GetCountryIso(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoGetDataRoamingCmd = &cobra.Command{
+	Use:   "get-data-roaming",
+	Short: "GetDataRoaming RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.GetDataRoamingRequest{}
+		resp, err := client.GetDataRoaming(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoGetDisplayNameCmd = &cobra.Command{
+	Use:   "get-display-name",
+	Short: "GetDisplayName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.GetDisplayNameRequest{}
+		resp, err := client.GetDisplayName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoGetGroupUuidCmd = &cobra.Command{
+	Use:   "get-group-uuid",
+	Short: "GetGroupUuid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.GetGroupUuidRequest{}
+		resp, err := client.GetGroupUuid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoGetIccIdCmd = &cobra.Command{
+	Use:   "get-icc-id",
+	Short: "GetIccId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.GetIccIdRequest{}
+		resp, err := client.GetIccId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoGetIconTintCmd = &cobra.Command{
+	Use:   "get-icon-tint",
+	Short: "GetIconTint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.GetIconTintRequest{}
+		resp, err := client.GetIconTint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoGetMccCmd = &cobra.Command{
+	Use:   "get-mcc",
+	Short: "GetMcc RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.GetMccRequest{}
+		resp, err := client.GetMcc(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoGetMccStringCmd = &cobra.Command{
+	Use:   "get-mcc-string",
+	Short: "GetMccString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.GetMccStringRequest{}
+		resp, err := client.GetMccString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoGetMncCmd = &cobra.Command{
+	Use:   "get-mnc",
+	Short: "GetMnc RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.GetMncRequest{}
+		resp, err := client.GetMnc(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoGetMncStringCmd = &cobra.Command{
+	Use:   "get-mnc-string",
+	Short: "GetMncString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.GetMncStringRequest{}
+		resp, err := client.GetMncString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoGetNumberCmd = &cobra.Command{
+	Use:   "get-number",
+	Short: "GetNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.GetNumberRequest{}
+		resp, err := client.GetNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoGetPortIndexCmd = &cobra.Command{
+	Use:   "get-port-index",
+	Short: "GetPortIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.GetPortIndexRequest{}
+		resp, err := client.GetPortIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoGetSimSlotIndexCmd = &cobra.Command{
+	Use:   "get-sim-slot-index",
+	Short: "GetSimSlotIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.GetSimSlotIndexRequest{}
+		resp, err := client.GetSimSlotIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoGetSubscriptionIdCmd = &cobra.Command{
+	Use:   "get-subscription-id",
+	Short: "GetSubscriptionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.SubscriptionInfoGetSubscriptionIdRequest{}
+		resp, err := client.GetSubscriptionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoGetSubscriptionTypeCmd = &cobra.Command{
+	Use:   "get-subscription-type",
+	Short: "GetSubscriptionType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.GetSubscriptionTypeRequest{}
+		resp, err := client.GetSubscriptionType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoGetUsageSettingCmd = &cobra.Command{
+	Use:   "get-usage-setting",
+	Short: "GetUsageSetting RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.GetUsageSettingRequest{}
+		resp, err := client.GetUsageSetting(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoIsEmbeddedCmd = &cobra.Command{
+	Use:   "is-embedded",
+	Short: "IsEmbedded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.IsEmbeddedRequest{}
+		resp, err := client.IsEmbedded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoIsOnlyNonTerrestrialNetworkCmd = &cobra.Command{
+	Use:   "is-only-non-terrestrial-network",
+	Short: "IsOnlyNonTerrestrialNetwork RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.IsOnlyNonTerrestrialNetworkRequest{}
+		resp, err := client.IsOnlyNonTerrestrialNetwork(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoIsOpportunisticCmd = &cobra.Command{
+	Use:   "is-opportunistic",
+	Short: "IsOpportunistic RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.IsOpportunisticRequest{}
+		resp, err := client.IsOpportunistic(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateCmd = &cobra.Command{
+	Use:   "service-state",
+	Short: "ServiceStateService operations",
+}
+
+var telephonyServiceStateNewServiceStateCmd = &cobra.Command{
+	Use:   "new-service-state",
+	Short: "NewServiceState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.NewServiceStateRequest{}
+		resp, err := client.NewServiceState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.ServiceStateDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.ServiceStateEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateGetCdmaNetworkIdCmd = &cobra.Command{
+	Use:   "get-cdma-network-id",
+	Short: "GetCdmaNetworkId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.GetCdmaNetworkIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCdmaNetworkId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateGetCdmaSystemIdCmd = &cobra.Command{
+	Use:   "get-cdma-system-id",
+	Short: "GetCdmaSystemId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.GetCdmaSystemIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCdmaSystemId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateGetCellBandwidthsCmd = &cobra.Command{
+	Use:   "get-cell-bandwidths",
+	Short: "GetCellBandwidths RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.GetCellBandwidthsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCellBandwidths(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateGetChannelNumberCmd = &cobra.Command{
+	Use:   "get-channel-number",
+	Short: "GetChannelNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.GetChannelNumberRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetChannelNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateGetDuplexModeCmd = &cobra.Command{
+	Use:   "get-duplex-mode",
+	Short: "GetDuplexMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.GetDuplexModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDuplexMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateGetIsManualSelectionCmd = &cobra.Command{
+	Use:   "get-is-manual-selection",
+	Short: "GetIsManualSelection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.GetIsManualSelectionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetIsManualSelection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateGetOperatorAlphaLongCmd = &cobra.Command{
+	Use:   "get-operator-alpha-long",
+	Short: "GetOperatorAlphaLong RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.GetOperatorAlphaLongRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOperatorAlphaLong(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateGetOperatorAlphaShortCmd = &cobra.Command{
+	Use:   "get-operator-alpha-short",
+	Short: "GetOperatorAlphaShort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.GetOperatorAlphaShortRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOperatorAlphaShort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateGetOperatorNumericCmd = &cobra.Command{
+	Use:   "get-operator-numeric",
+	Short: "GetOperatorNumeric RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.GetOperatorNumericRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetOperatorNumeric(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateGetRoamingCmd = &cobra.Command{
+	Use:   "get-roaming",
+	Short: "GetRoaming RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.GetRoamingRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRoaming(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateGetStateCmd = &cobra.Command{
+	Use:   "get-state",
+	Short: "GetState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.GetStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.ServiceStateHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateIsSearchingCmd = &cobra.Command{
+	Use:   "is-searching",
+	Short: "IsSearching RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.IsSearchingRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsSearching(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateIsUsingNonTerrestrialNetworkCmd = &cobra.Command{
+	Use:   "is-using-non-terrestrial-network",
+	Short: "IsUsingNonTerrestrialNetwork RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.IsUsingNonTerrestrialNetworkRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsUsingNonTerrestrialNetwork(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateSetIsManualSelectionCmd = &cobra.Command{
+	Use:   "set-is-manual-selection",
+	Short: "SetIsManualSelection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.SetIsManualSelectionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIsManualSelection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateSetOperatorNameCmd = &cobra.Command{
+	Use:   "set-operator-name",
+	Short: "SetOperatorName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.SetOperatorNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetOperatorName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateSetRoamingCmd = &cobra.Command{
+	Use:   "set-roaming",
+	Short: "SetRoaming RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.SetRoamingRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRoaming(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateSetStateCmd = &cobra.Command{
+	Use:   "set-state",
+	Short: "SetState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.SetStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateSetStateOffCmd = &cobra.Command{
+	Use:   "set-state-off",
+	Short: "SetStateOff RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.SetStateOffRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SetStateOff(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateSetStateOutOfServiceCmd = &cobra.Command{
+	Use:   "set-state-out-of-service",
+	Short: "SetStateOutOfService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.SetStateOutOfServiceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.SetStateOutOfService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.ServiceStateToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyServiceStateWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceStateServiceClient(grpcConn)
+		req := &pb.ServiceStateWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkScanCmd = &cobra.Command{
+	Use:   "network-scan",
+	Short: "NetworkScanService operations",
+}
+
+var telephonyNetworkScanStopScanCmd = &cobra.Command{
+	Use:   "stop-scan",
+	Short: "StopScan RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkScanServiceClient(grpcConn)
+		req := &pb.StopScanRequest{}
+		resp, err := client.StopScan(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityLteCmd = &cobra.Command{
+	Use:   "cell-identity-lte",
+	Short: "CellIdentityLteService operations",
+}
+
+var telephonyCellIdentityLteEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityLteServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityLteGetBandsCmd = &cobra.Command{
+	Use:   "get-bands",
+	Short: "GetBands RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityLteServiceClient(grpcConn)
+		req := &pb.GetBandsRequest{}
+		resp, err := client.GetBands(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityLteGetBandwidthCmd = &cobra.Command{
+	Use:   "get-bandwidth",
+	Short: "GetBandwidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityLteServiceClient(grpcConn)
+		req := &pb.GetBandwidthRequest{}
+		resp, err := client.GetBandwidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityLteGetCiCmd = &cobra.Command{
+	Use:   "get-ci",
+	Short: "GetCi RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityLteServiceClient(grpcConn)
+		req := &pb.GetCiRequest{}
+		resp, err := client.GetCi(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityLteGetClosedSubscriberGroupInfoCmd = &cobra.Command{
+	Use:   "get-closed-subscriber-group-info",
+	Short: "GetClosedSubscriberGroupInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityLteServiceClient(grpcConn)
+		req := &pb.GetClosedSubscriberGroupInfoRequest{}
+		resp, err := client.GetClosedSubscriberGroupInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityLteGetEarfcnCmd = &cobra.Command{
+	Use:   "get-earfcn",
+	Short: "GetEarfcn RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityLteServiceClient(grpcConn)
+		req := &pb.GetEarfcnRequest{}
+		resp, err := client.GetEarfcn(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityLteGetMccCmd = &cobra.Command{
+	Use:   "get-mcc",
+	Short: "GetMcc RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityLteServiceClient(grpcConn)
+		req := &pb.GetMccRequest{}
+		resp, err := client.GetMcc(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityLteGetMccStringCmd = &cobra.Command{
+	Use:   "get-mcc-string",
+	Short: "GetMccString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityLteServiceClient(grpcConn)
+		req := &pb.GetMccStringRequest{}
+		resp, err := client.GetMccString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityLteGetMncCmd = &cobra.Command{
+	Use:   "get-mnc",
+	Short: "GetMnc RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityLteServiceClient(grpcConn)
+		req := &pb.GetMncRequest{}
+		resp, err := client.GetMnc(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityLteGetMncStringCmd = &cobra.Command{
+	Use:   "get-mnc-string",
+	Short: "GetMncString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityLteServiceClient(grpcConn)
+		req := &pb.GetMncStringRequest{}
+		resp, err := client.GetMncString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityLteGetMobileNetworkOperatorCmd = &cobra.Command{
+	Use:   "get-mobile-network-operator",
+	Short: "GetMobileNetworkOperator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityLteServiceClient(grpcConn)
+		req := &pb.GetMobileNetworkOperatorRequest{}
+		resp, err := client.GetMobileNetworkOperator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityLteGetPciCmd = &cobra.Command{
+	Use:   "get-pci",
+	Short: "GetPci RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityLteServiceClient(grpcConn)
+		req := &pb.GetPciRequest{}
+		resp, err := client.GetPci(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityLteGetTacCmd = &cobra.Command{
+	Use:   "get-tac",
+	Short: "GetTac RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityLteServiceClient(grpcConn)
+		req := &pb.GetTacRequest{}
+		resp, err := client.GetTac(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityLteHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityLteServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityLteToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityLteServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityLteWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityLteServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyBarringInfoCmd = &cobra.Command{
+	Use:   "barring-info",
+	Short: "BarringInfoService operations",
+}
+
+var telephonyBarringInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBarringInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyBarringInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBarringInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyBarringInfoGetBarringServiceInfoCmd = &cobra.Command{
+	Use:   "get-barring-service-info",
+	Short: "GetBarringServiceInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBarringInfoServiceClient(grpcConn)
+		req := &pb.GetBarringServiceInfoRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetBarringServiceInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyBarringInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBarringInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyBarringInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBarringInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyBarringInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBarringInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyBarringInfoBarringServiceInfoCmd = &cobra.Command{
+	Use:   "barring-info-barring-service-info",
+	Short: "BarringInfoBarringServiceInfoService operations",
+}
+
+var telephonyBarringInfoBarringServiceInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBarringInfoBarringServiceInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyBarringInfoBarringServiceInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBarringInfoBarringServiceInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyBarringInfoBarringServiceInfoGetBarringTypeCmd = &cobra.Command{
+	Use:   "get-barring-type",
+	Short: "GetBarringType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBarringInfoBarringServiceInfoServiceClient(grpcConn)
+		req := &pb.GetBarringTypeRequest{}
+		resp, err := client.GetBarringType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyBarringInfoBarringServiceInfoGetConditionalBarringFactorCmd = &cobra.Command{
+	Use:   "get-conditional-barring-factor",
+	Short: "GetConditionalBarringFactor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBarringInfoBarringServiceInfoServiceClient(grpcConn)
+		req := &pb.GetConditionalBarringFactorRequest{}
+		resp, err := client.GetConditionalBarringFactor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyBarringInfoBarringServiceInfoGetConditionalBarringTimeSecondsCmd = &cobra.Command{
+	Use:   "get-conditional-barring-time-seconds",
+	Short: "GetConditionalBarringTimeSeconds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBarringInfoBarringServiceInfoServiceClient(grpcConn)
+		req := &pb.GetConditionalBarringTimeSecondsRequest{}
+		resp, err := client.GetConditionalBarringTimeSeconds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyBarringInfoBarringServiceInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBarringInfoBarringServiceInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyBarringInfoBarringServiceInfoIsBarredCmd = &cobra.Command{
+	Use:   "is-barred",
+	Short: "IsBarred RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBarringInfoBarringServiceInfoServiceClient(grpcConn)
+		req := &pb.IsBarredRequest{}
+		resp, err := client.IsBarred(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyBarringInfoBarringServiceInfoIsConditionallyBarredCmd = &cobra.Command{
+	Use:   "is-conditionally-barred",
+	Short: "IsConditionallyBarred RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBarringInfoBarringServiceInfoServiceClient(grpcConn)
+		req := &pb.IsConditionallyBarredRequest{}
+		resp, err := client.IsConditionallyBarred(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyBarringInfoBarringServiceInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBarringInfoBarringServiceInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyBarringInfoBarringServiceInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBarringInfoBarringServiceInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageCmd = &cobra.Command{
+	Use:   "sms-message",
+	Short: "SmsMessageService operations",
+}
+
+var telephonySmsMessageGetDisplayMessageBodyCmd = &cobra.Command{
+	Use:   "get-display-message-body",
+	Short: "GetDisplayMessageBody RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetDisplayMessageBodyRequest{}
+		resp, err := client.GetDisplayMessageBody(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetDisplayOriginatingAddressCmd = &cobra.Command{
+	Use:   "get-display-originating-address",
+	Short: "GetDisplayOriginatingAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetDisplayOriginatingAddressRequest{}
+		resp, err := client.GetDisplayOriginatingAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetEmailBodyCmd = &cobra.Command{
+	Use:   "get-email-body",
+	Short: "GetEmailBody RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetEmailBodyRequest{}
+		resp, err := client.GetEmailBody(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetEmailFromCmd = &cobra.Command{
+	Use:   "get-email-from",
+	Short: "GetEmailFrom RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetEmailFromRequest{}
+		resp, err := client.GetEmailFrom(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetIndexOnIccCmd = &cobra.Command{
+	Use:   "get-index-on-icc",
+	Short: "GetIndexOnIcc RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetIndexOnIccRequest{}
+		resp, err := client.GetIndexOnIcc(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetIndexOnSimCmd = &cobra.Command{
+	Use:   "get-index-on-sim",
+	Short: "GetIndexOnSim RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetIndexOnSimRequest{}
+		resp, err := client.GetIndexOnSim(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetMessageBodyCmd = &cobra.Command{
+	Use:   "get-message-body",
+	Short: "GetMessageBody RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetMessageBodyRequest{}
+		resp, err := client.GetMessageBody(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetMessageClassCmd = &cobra.Command{
+	Use:   "get-message-class",
+	Short: "GetMessageClass RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetMessageClassRequest{}
+		resp, err := client.GetMessageClass(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetOriginatingAddressCmd = &cobra.Command{
+	Use:   "get-originating-address",
+	Short: "GetOriginatingAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetOriginatingAddressRequest{}
+		resp, err := client.GetOriginatingAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetPduCmd = &cobra.Command{
+	Use:   "get-pdu",
+	Short: "GetPdu RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetPduRequest{}
+		resp, err := client.GetPdu(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetProtocolIdentifierCmd = &cobra.Command{
+	Use:   "get-protocol-identifier",
+	Short: "GetProtocolIdentifier RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetProtocolIdentifierRequest{}
+		resp, err := client.GetProtocolIdentifier(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetPseudoSubjectCmd = &cobra.Command{
+	Use:   "get-pseudo-subject",
+	Short: "GetPseudoSubject RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetPseudoSubjectRequest{}
+		resp, err := client.GetPseudoSubject(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetRecipientAddressCmd = &cobra.Command{
+	Use:   "get-recipient-address",
+	Short: "GetRecipientAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetRecipientAddressRequest{}
+		resp, err := client.GetRecipientAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetServiceCenterAddressCmd = &cobra.Command{
+	Use:   "get-service-center-address",
+	Short: "GetServiceCenterAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetServiceCenterAddressRequest{}
+		resp, err := client.GetServiceCenterAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetStatusCmd = &cobra.Command{
+	Use:   "get-status",
+	Short: "GetStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetStatusRequest{}
+		resp, err := client.GetStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetStatusOnIccCmd = &cobra.Command{
+	Use:   "get-status-on-icc",
+	Short: "GetStatusOnIcc RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetStatusOnIccRequest{}
+		resp, err := client.GetStatusOnIcc(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetStatusOnSimCmd = &cobra.Command{
+	Use:   "get-status-on-sim",
+	Short: "GetStatusOnSim RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetStatusOnSimRequest{}
+		resp, err := client.GetStatusOnSim(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetTimestampMillisCmd = &cobra.Command{
+	Use:   "get-timestamp-millis",
+	Short: "GetTimestampMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetTimestampMillisRequest{}
+		resp, err := client.GetTimestampMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetUserDataCmd = &cobra.Command{
+	Use:   "get-user-data",
+	Short: "GetUserData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetUserDataRequest{}
+		resp, err := client.GetUserData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageIsCphsMwiMessageCmd = &cobra.Command{
+	Use:   "is-cphs-mwi-message",
+	Short: "IsCphsMwiMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.IsCphsMwiMessageRequest{}
+		resp, err := client.IsCphsMwiMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageIsEmailCmd = &cobra.Command{
+	Use:   "is-email",
+	Short: "IsEmail RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.IsEmailRequest{}
+		resp, err := client.IsEmail(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageIsMWIClearMessageCmd = &cobra.Command{
+	Use:   "is-mwi-clear-message",
+	Short: "IsMWIClearMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.IsMWIClearMessageRequest{}
+		resp, err := client.IsMWIClearMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageIsMWISetMessageCmd = &cobra.Command{
+	Use:   "is-mwi-set-message",
+	Short: "IsMWISetMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.IsMWISetMessageRequest{}
+		resp, err := client.IsMWISetMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageIsMwiDontStoreCmd = &cobra.Command{
+	Use:   "is-mwi-dont-store",
+	Short: "IsMwiDontStore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.IsMwiDontStoreRequest{}
+		resp, err := client.IsMwiDontStore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageIsReplaceCmd = &cobra.Command{
+	Use:   "is-replace",
+	Short: "IsReplace RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.IsReplaceRequest{}
+		resp, err := client.IsReplace(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageIsReplyPathPresentCmd = &cobra.Command{
+	Use:   "is-reply-path-present",
+	Short: "IsReplyPathPresent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.IsReplyPathPresentRequest{}
+		resp, err := client.IsReplyPathPresent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageIsStatusReportMessageCmd = &cobra.Command{
+	Use:   "is-status-report-message",
+	Short: "IsStatusReportMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.IsStatusReportMessageRequest{}
+		resp, err := client.IsStatusReportMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageCalculateLength2Cmd = &cobra.Command{
+	Use:   "calculate-length2",
+	Short: "CalculateLength2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.CalculateLength2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CalculateLength2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageCalculateLength2_1Cmd = &cobra.Command{
+	Use:   "calculate-length2_1",
+	Short: "CalculateLength2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.CalculateLength2_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CalculateLength2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageCreateFromPdu1Cmd = &cobra.Command{
+	Use:   "create-from-pdu1",
+	Short: "CreateFromPdu1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.CreateFromPdu1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateFromPdu1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageCreateFromPdu2_1Cmd = &cobra.Command{
+	Use:   "create-from-pdu2_1",
+	Short: "CreateFromPdu2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.CreateFromPdu2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateFromPdu2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetSubmitPdu4Cmd = &cobra.Command{
+	Use:   "get-submit-pdu4",
+	Short: "GetSubmitPdu4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetSubmitPdu4Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.GetSubmitPdu4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetSubmitPdu5_1Cmd = &cobra.Command{
+	Use:   "get-submit-pdu5_1",
+	Short: "GetSubmitPdu5_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetSubmitPdu5_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.GetSubmitPdu5_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageGetTPLayerLengthForPDUCmd = &cobra.Command{
+	Use:   "get-tp-layer-length-for-pdu",
+	Short: "GetTPLayerLengthForPDU RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageServiceClient(grpcConn)
+		req := &pb.GetTPLayerLengthForPDURequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetTPLayerLengthForPDU(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageMessageClassCmd = &cobra.Command{
+	Use:   "sms-message-message-class",
+	Short: "SmsMessageMessageClassService operations",
+}
+
+var telephonySmsMessageMessageClassValuesCmd = &cobra.Command{
+	Use:   "values",
+	Short: "Values RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageMessageClassServiceClient(grpcConn)
+		req := &pb.ValuesRequest{}
+		resp, err := client.Values(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageMessageClassValueOfCmd = &cobra.Command{
+	Use:   "value-of",
+	Short: "ValueOf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageMessageClassServiceClient(grpcConn)
+		req := &pb.ValueOfRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ValueOf(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsMessageSubmitPduCmd = &cobra.Command{
+	Use:   "sms-message-submit-pdu",
+	Short: "SmsMessageSubmitPduService operations",
+}
+
+var telephonySmsMessageSubmitPduToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsMessageSubmitPduServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityCdmaCmd = &cobra.Command{
+	Use:   "cell-identity-cdma",
+	Short: "CellIdentityCdmaService operations",
+}
+
+var telephonyCellIdentityCdmaEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityCdmaServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityCdmaGetBasestationIdCmd = &cobra.Command{
+	Use:   "get-basestation-id",
+	Short: "GetBasestationId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityCdmaServiceClient(grpcConn)
+		req := &pb.GetBasestationIdRequest{}
+		resp, err := client.GetBasestationId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityCdmaGetLatitudeCmd = &cobra.Command{
+	Use:   "get-latitude",
+	Short: "GetLatitude RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityCdmaServiceClient(grpcConn)
+		req := &pb.GetLatitudeRequest{}
+		resp, err := client.GetLatitude(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityCdmaGetLongitudeCmd = &cobra.Command{
+	Use:   "get-longitude",
+	Short: "GetLongitude RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityCdmaServiceClient(grpcConn)
+		req := &pb.GetLongitudeRequest{}
+		resp, err := client.GetLongitude(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityCdmaGetNetworkIdCmd = &cobra.Command{
+	Use:   "get-network-id",
+	Short: "GetNetworkId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityCdmaServiceClient(grpcConn)
+		req := &pb.GetNetworkIdRequest{}
+		resp, err := client.GetNetworkId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityCdmaGetSystemIdCmd = &cobra.Command{
+	Use:   "get-system-id",
+	Short: "GetSystemId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityCdmaServiceClient(grpcConn)
+		req := &pb.GetSystemIdRequest{}
+		resp, err := client.GetSystemId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityCdmaHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityCdmaServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityCdmaToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityCdmaServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityCdmaWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityCdmaServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccCardInfoCmd = &cobra.Command{
+	Use:   "uicc-card-info",
+	Short: "UiccCardInfoService operations",
+}
+
+var telephonyUiccCardInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccCardInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccCardInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccCardInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccCardInfoGetCardIdCmd = &cobra.Command{
+	Use:   "get-card-id",
+	Short: "GetCardId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccCardInfoServiceClient(grpcConn)
+		req := &pb.GetCardIdRequest{}
+		resp, err := client.GetCardId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccCardInfoGetEidCmd = &cobra.Command{
+	Use:   "get-eid",
+	Short: "GetEid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccCardInfoServiceClient(grpcConn)
+		req := &pb.GetEidRequest{}
+		resp, err := client.GetEid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccCardInfoGetIccIdCmd = &cobra.Command{
+	Use:   "get-icc-id",
+	Short: "GetIccId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccCardInfoServiceClient(grpcConn)
+		req := &pb.GetIccIdRequest{}
+		resp, err := client.GetIccId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccCardInfoGetPhysicalSlotIndexCmd = &cobra.Command{
+	Use:   "get-physical-slot-index",
+	Short: "GetPhysicalSlotIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccCardInfoServiceClient(grpcConn)
+		req := &pb.GetPhysicalSlotIndexRequest{}
+		resp, err := client.GetPhysicalSlotIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccCardInfoGetSlotIndexCmd = &cobra.Command{
+	Use:   "get-slot-index",
+	Short: "GetSlotIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccCardInfoServiceClient(grpcConn)
+		req := &pb.UiccCardInfoGetSlotIndexRequest{}
+		resp, err := client.GetSlotIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccCardInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccCardInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccCardInfoIsEuiccCmd = &cobra.Command{
+	Use:   "is-euicc",
+	Short: "IsEuicc RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccCardInfoServiceClient(grpcConn)
+		req := &pb.IsEuiccRequest{}
+		resp, err := client.IsEuicc(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccCardInfoIsMultipleEnabledProfilesSupportedCmd = &cobra.Command{
+	Use:   "is-multiple-enabled-profiles-supported",
+	Short: "IsMultipleEnabledProfilesSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccCardInfoServiceClient(grpcConn)
+		req := &pb.IsMultipleEnabledProfilesSupportedRequest{}
+		resp, err := client.IsMultipleEnabledProfilesSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccCardInfoIsRemovableCmd = &cobra.Command{
+	Use:   "is-removable",
+	Short: "IsRemovable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccCardInfoServiceClient(grpcConn)
+		req := &pb.IsRemovableRequest{}
+		resp, err := client.IsRemovable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccCardInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccCardInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyUiccCardInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiccCardInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyClosedSubscriberGroupInfoCmd = &cobra.Command{
+	Use:   "closed-subscriber-group-info",
+	Short: "ClosedSubscriberGroupInfoService operations",
+}
+
+var telephonyClosedSubscriberGroupInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClosedSubscriberGroupInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyClosedSubscriberGroupInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClosedSubscriberGroupInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyClosedSubscriberGroupInfoGetCsgIdentityCmd = &cobra.Command{
+	Use:   "get-csg-identity",
+	Short: "GetCsgIdentity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClosedSubscriberGroupInfoServiceClient(grpcConn)
+		req := &pb.GetCsgIdentityRequest{}
+		resp, err := client.GetCsgIdentity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyClosedSubscriberGroupInfoGetCsgIndicatorCmd = &cobra.Command{
+	Use:   "get-csg-indicator",
+	Short: "GetCsgIndicator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClosedSubscriberGroupInfoServiceClient(grpcConn)
+		req := &pb.GetCsgIndicatorRequest{}
+		resp, err := client.GetCsgIndicator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyClosedSubscriberGroupInfoGetHomeNodebNameCmd = &cobra.Command{
+	Use:   "get-home-nodeb-name",
+	Short: "GetHomeNodebName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClosedSubscriberGroupInfoServiceClient(grpcConn)
+		req := &pb.GetHomeNodebNameRequest{}
+		resp, err := client.GetHomeNodebName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyClosedSubscriberGroupInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClosedSubscriberGroupInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyClosedSubscriberGroupInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClosedSubscriberGroupInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyClosedSubscriberGroupInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewClosedSubscriberGroupInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkRegistrationInfoCmd = &cobra.Command{
+	Use:   "network-registration-info",
+	Short: "NetworkRegistrationInfoService operations",
+}
+
+var telephonyNetworkRegistrationInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkRegistrationInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkRegistrationInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkRegistrationInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkRegistrationInfoGetAccessNetworkTechnologyCmd = &cobra.Command{
+	Use:   "get-access-network-technology",
+	Short: "GetAccessNetworkTechnology RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkRegistrationInfoServiceClient(grpcConn)
+		req := &pb.GetAccessNetworkTechnologyRequest{}
+		resp, err := client.GetAccessNetworkTechnology(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkRegistrationInfoGetCellIdentityCmd = &cobra.Command{
+	Use:   "get-cell-identity",
+	Short: "GetCellIdentity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkRegistrationInfoServiceClient(grpcConn)
+		req := &pb.GetCellIdentityRequest{}
+		resp, err := client.GetCellIdentity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkRegistrationInfoGetDomainCmd = &cobra.Command{
+	Use:   "get-domain",
+	Short: "GetDomain RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkRegistrationInfoServiceClient(grpcConn)
+		req := &pb.GetDomainRequest{}
+		resp, err := client.GetDomain(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkRegistrationInfoGetRegisteredPlmnCmd = &cobra.Command{
+	Use:   "get-registered-plmn",
+	Short: "GetRegisteredPlmn RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkRegistrationInfoServiceClient(grpcConn)
+		req := &pb.GetRegisteredPlmnRequest{}
+		resp, err := client.GetRegisteredPlmn(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkRegistrationInfoGetRejectCauseCmd = &cobra.Command{
+	Use:   "get-reject-cause",
+	Short: "GetRejectCause RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkRegistrationInfoServiceClient(grpcConn)
+		req := &pb.GetRejectCauseRequest{}
+		resp, err := client.GetRejectCause(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkRegistrationInfoGetTransportTypeCmd = &cobra.Command{
+	Use:   "get-transport-type",
+	Short: "GetTransportType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkRegistrationInfoServiceClient(grpcConn)
+		req := &pb.GetTransportTypeRequest{}
+		resp, err := client.GetTransportType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkRegistrationInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkRegistrationInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkRegistrationInfoIsNetworkRegisteredCmd = &cobra.Command{
+	Use:   "is-network-registered",
+	Short: "IsNetworkRegistered RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkRegistrationInfoServiceClient(grpcConn)
+		req := &pb.IsNetworkRegisteredRequest{}
+		resp, err := client.IsNetworkRegistered(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkRegistrationInfoIsNetworkRoamingCmd = &cobra.Command{
+	Use:   "is-network-roaming",
+	Short: "IsNetworkRoaming RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkRegistrationInfoServiceClient(grpcConn)
+		req := &pb.NetworkRegistrationInfoIsNetworkRoamingRequest{}
+		resp, err := client.IsNetworkRoaming(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkRegistrationInfoIsNetworkSearchingCmd = &cobra.Command{
+	Use:   "is-network-searching",
+	Short: "IsNetworkSearching RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkRegistrationInfoServiceClient(grpcConn)
+		req := &pb.IsNetworkSearchingRequest{}
+		resp, err := client.IsNetworkSearching(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkRegistrationInfoIsNonTerrestrialNetworkCmd = &cobra.Command{
+	Use:   "is-non-terrestrial-network",
+	Short: "IsNonTerrestrialNetwork RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkRegistrationInfoServiceClient(grpcConn)
+		req := &pb.IsNonTerrestrialNetworkRequest{}
+		resp, err := client.IsNonTerrestrialNetwork(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkRegistrationInfoIsRegisteredCmd = &cobra.Command{
+	Use:   "is-registered",
+	Short: "IsRegistered RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkRegistrationInfoServiceClient(grpcConn)
+		req := &pb.IsRegisteredRequest{}
+		resp, err := client.IsRegistered(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkRegistrationInfoIsRoamingCmd = &cobra.Command{
+	Use:   "is-roaming",
+	Short: "IsRoaming RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkRegistrationInfoServiceClient(grpcConn)
+		req := &pb.IsRoamingRequest{}
+		resp, err := client.IsRoaming(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkRegistrationInfoIsSearchingCmd = &cobra.Command{
+	Use:   "is-searching",
+	Short: "IsSearching RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkRegistrationInfoServiceClient(grpcConn)
+		req := &pb.NetworkRegistrationInfoIsSearchingRequest{}
+		resp, err := client.IsSearching(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkRegistrationInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkRegistrationInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkRegistrationInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkRegistrationInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanCmd = &cobra.Command{
+	Use:   "subscription-plan",
+	Short: "SubscriptionPlanService operations",
+}
+
+var telephonySubscriptionPlanDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanGetDataLimitBehaviorCmd = &cobra.Command{
+	Use:   "get-data-limit-behavior",
+	Short: "GetDataLimitBehavior RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanServiceClient(grpcConn)
+		req := &pb.GetDataLimitBehaviorRequest{}
+		resp, err := client.GetDataLimitBehavior(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanGetDataLimitBytesCmd = &cobra.Command{
+	Use:   "get-data-limit-bytes",
+	Short: "GetDataLimitBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanServiceClient(grpcConn)
+		req := &pb.GetDataLimitBytesRequest{}
+		resp, err := client.GetDataLimitBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanGetDataUsageBytesCmd = &cobra.Command{
+	Use:   "get-data-usage-bytes",
+	Short: "GetDataUsageBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanServiceClient(grpcConn)
+		req := &pb.GetDataUsageBytesRequest{}
+		resp, err := client.GetDataUsageBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanGetDataUsageTimeCmd = &cobra.Command{
+	Use:   "get-data-usage-time",
+	Short: "GetDataUsageTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanServiceClient(grpcConn)
+		req := &pb.GetDataUsageTimeRequest{}
+		resp, err := client.GetDataUsageTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanGetNetworkTypesCmd = &cobra.Command{
+	Use:   "get-network-types",
+	Short: "GetNetworkTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanServiceClient(grpcConn)
+		req := &pb.GetNetworkTypesRequest{}
+		resp, err := client.GetNetworkTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanGetPlanEndDateCmd = &cobra.Command{
+	Use:   "get-plan-end-date",
+	Short: "GetPlanEndDate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanServiceClient(grpcConn)
+		req := &pb.GetPlanEndDateRequest{}
+		resp, err := client.GetPlanEndDate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanGetSubscriptionStatusCmd = &cobra.Command{
+	Use:   "get-subscription-status",
+	Short: "GetSubscriptionStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanServiceClient(grpcConn)
+		req := &pb.GetSubscriptionStatusRequest{}
+		resp, err := client.GetSubscriptionStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanGetSummaryCmd = &cobra.Command{
+	Use:   "get-summary",
+	Short: "GetSummary RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanServiceClient(grpcConn)
+		req := &pb.GetSummaryRequest{}
+		resp, err := client.GetSummary(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanGetTitleCmd = &cobra.Command{
+	Use:   "get-title",
+	Short: "GetTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanServiceClient(grpcConn)
+		req := &pb.GetTitleRequest{}
+		resp, err := client.GetTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanBuilderCmd = &cobra.Command{
+	Use:   "subscription-plan-builder",
+	Short: "SubscriptionPlanBuilderService operations",
+}
+
+var telephonySubscriptionPlanBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanBuilderResetNetworkTypesCmd = &cobra.Command{
+	Use:   "reset-network-types",
+	Short: "ResetNetworkTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanBuilderServiceClient(grpcConn)
+		req := &pb.ResetNetworkTypesRequest{}
+		resp, err := client.ResetNetworkTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanBuilderSetDataLimitCmd = &cobra.Command{
+	Use:   "set-data-limit",
+	Short: "SetDataLimit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanBuilderServiceClient(grpcConn)
+		req := &pb.SetDataLimitRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetDataLimit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanBuilderSetDataUsageCmd = &cobra.Command{
+	Use:   "set-data-usage",
+	Short: "SetDataUsage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanBuilderServiceClient(grpcConn)
+		req := &pb.SetDataUsageRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetDataUsage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanBuilderSetNetworkTypesCmd = &cobra.Command{
+	Use:   "set-network-types",
+	Short: "SetNetworkTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanBuilderServiceClient(grpcConn)
+		req := &pb.SetNetworkTypesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNetworkTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanBuilderSetSubscriptionStatusCmd = &cobra.Command{
+	Use:   "set-subscription-status",
+	Short: "SetSubscriptionStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanBuilderServiceClient(grpcConn)
+		req := &pb.SetSubscriptionStatusRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSubscriptionStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanBuilderSetSummaryCmd = &cobra.Command{
+	Use:   "set-summary",
+	Short: "SetSummary RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanBuilderServiceClient(grpcConn)
+		req := &pb.SetSummaryRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSummary(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanBuilderSetTitleCmd = &cobra.Command{
+	Use:   "set-title",
+	Short: "SetTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanBuilderServiceClient(grpcConn)
+		req := &pb.SetTitleRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanBuilderCreateNonrecurringCmd = &cobra.Command{
+	Use:   "create-nonrecurring",
+	Short: "CreateNonrecurring RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanBuilderServiceClient(grpcConn)
+		req := &pb.CreateNonrecurringRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateNonrecurring(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySubscriptionPlanBuilderCreateRecurringCmd = &cobra.Command{
+	Use:   "create-recurring",
+	Short: "CreateRecurring RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptionPlanBuilderServiceClient(grpcConn)
+		req := &pb.CreateRecurringRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateRecurring(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerCmd = &cobra.Command{
+	Use:   "sms-manager",
+	Short: "SmsManagerService operations",
+}
+
+var telephonySmsManagerCreateAppSpecificSmsTokenCmd = &cobra.Command{
+	Use:   "create-app-specific-sms-token",
+	Short: "CreateAppSpecificSmsToken RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.CreateAppSpecificSmsTokenRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateAppSpecificSmsToken(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerCreateAppSpecificSmsTokenWithPackageInfoCmd = &cobra.Command{
+	Use:   "create-app-specific-sms-token-with-package-info",
+	Short: "CreateAppSpecificSmsTokenWithPackageInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.CreateAppSpecificSmsTokenWithPackageInfoRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateAppSpecificSmsTokenWithPackageInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerCreateForSubscriptionIdCmd = &cobra.Command{
+	Use:   "create-for-subscription-id",
+	Short: "CreateForSubscriptionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.CreateForSubscriptionIdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateForSubscriptionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerDownloadMultimediaMessage5Cmd = &cobra.Command{
+	Use:   "download-multimedia-message5",
+	Short: "DownloadMultimediaMessage5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.DownloadMultimediaMessage5Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.DownloadMultimediaMessage5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerDownloadMultimediaMessage6_1Cmd = &cobra.Command{
+	Use:   "download-multimedia-message6_1",
+	Short: "DownloadMultimediaMessage6_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.DownloadMultimediaMessage6_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.DownloadMultimediaMessage6_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerGetCarrierConfigValuesCmd = &cobra.Command{
+	Use:   "get-carrier-config-values",
+	Short: "GetCarrierConfigValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.GetCarrierConfigValuesRequest{}
+		resp, err := client.GetCarrierConfigValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerGetSmsCapacityOnIccCmd = &cobra.Command{
+	Use:   "get-sms-capacity-on-icc",
+	Short: "GetSmsCapacityOnIcc RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.GetSmsCapacityOnIccRequest{}
+		resp, err := client.GetSmsCapacityOnIcc(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerGetSmsMessagesForFinancialAppCmd = &cobra.Command{
+	Use:   "get-sms-messages-for-financial-app",
+	Short: "GetSmsMessagesForFinancialApp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.GetSmsMessagesForFinancialAppRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetSmsMessagesForFinancialApp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerGetSmscAddressCmd = &cobra.Command{
+	Use:   "get-smsc-address",
+	Short: "GetSmscAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.GetSmscAddressRequest{}
+		resp, err := client.GetSmscAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerGetSubscriptionIdCmd = &cobra.Command{
+	Use:   "get-subscription-id",
+	Short: "GetSubscriptionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.SmsManagerGetSubscriptionIdRequest{}
+		resp, err := client.GetSubscriptionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerInjectSmsPduCmd = &cobra.Command{
+	Use:   "inject-sms-pdu",
+	Short: "InjectSmsPdu RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.InjectSmsPduRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.InjectSmsPdu(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerSendDataMessageCmd = &cobra.Command{
+	Use:   "send-data-message",
+	Short: "SendDataMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.SendDataMessageRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.SendDataMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerSendMultimediaMessage5Cmd = &cobra.Command{
+	Use:   "send-multimedia-message5",
+	Short: "SendMultimediaMessage5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.SendMultimediaMessage5Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.SendMultimediaMessage5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerSendMultimediaMessage6_1Cmd = &cobra.Command{
+	Use:   "send-multimedia-message6_1",
+	Short: "SendMultimediaMessage6_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.SendMultimediaMessage6_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.SendMultimediaMessage6_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerSendTextMessage5Cmd = &cobra.Command{
+	Use:   "send-text-message5",
+	Short: "SendTextMessage5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.SendTextMessage5Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.SendTextMessage5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerSendTextMessage6_1Cmd = &cobra.Command{
+	Use:   "send-text-message6_1",
+	Short: "SendTextMessage6_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.SendTextMessage6_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.SendTextMessage6_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerSendTextMessageWithoutPersistingCmd = &cobra.Command{
+	Use:   "send-text-message-without-persisting",
+	Short: "SendTextMessageWithoutPersisting RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.SendTextMessageWithoutPersistingRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.SendTextMessageWithoutPersisting(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerSetSmscAddressCmd = &cobra.Command{
+	Use:   "set-smsc-address",
+	Short: "SetSmscAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.SetSmscAddressRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSmscAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerGetDefaultCmd = &cobra.Command{
+	Use:   "get-default",
+	Short: "GetDefault RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.GetDefaultRequest{}
+		resp, err := client.GetDefault(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerGetDefaultSmsSubscriptionIdCmd = &cobra.Command{
+	Use:   "get-default-sms-subscription-id",
+	Short: "GetDefaultSmsSubscriptionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.GetDefaultSmsSubscriptionIdRequest{}
+		resp, err := client.GetDefaultSmsSubscriptionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerGetSmsManagerForSubscriptionIdCmd = &cobra.Command{
+	Use:   "get-sms-manager-for-subscription-id",
+	Short: "GetSmsManagerForSubscriptionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerServiceClient(grpcConn)
+		req := &pb.GetSmsManagerForSubscriptionIdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSmsManagerForSubscriptionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySmsManagerFinancialSmsCallbackCmd = &cobra.Command{
+	Use:   "sms-manager-financial-sms-callback",
+	Short: "SmsManagerFinancialSmsCallbackService operations",
+}
+
+var telephonySmsManagerFinancialSmsCallbackOnFinancialSmsMessagesCmd = &cobra.Command{
+	Use:   "on-financial-sms-messages",
+	Short: "OnFinancialSmsMessages RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSmsManagerFinancialSmsCallbackServiceClient(grpcConn)
+		req := &pb.OnFinancialSmsMessagesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnFinancialSmsMessages(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1721,7 +9762,7 @@ var telephonyManagerIsEmergencyNumberCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.IsEmergencyNumberRequest{}
+		req := &pb.ManagerIsEmergencyNumberRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1807,7 +9848,7 @@ var telephonyManagerIsNetworkRoamingCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.IsNetworkRoamingRequest{}
+		req := &pb.ManagerIsNetworkRoamingRequest{}
 		resp, err := client.IsNetworkRoaming(ctx, req)
 		if err != nil {
 			return err
@@ -2539,7 +10580,6147 @@ var telephonyManagerGetMaximumCallComposerPictureSizeCmd = &cobra.Command{
 	},
 }
 
+var telephonyManagerCallComposerExceptionCmd = &cobra.Command{
+	Use:   "manager-call-composer-exception",
+	Short: "ManagerCallComposerExceptionService operations",
+}
+
+var telephonyManagerCallComposerExceptionGetErrorCodeCmd = &cobra.Command{
+	Use:   "get-error-code",
+	Short: "GetErrorCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerCallComposerExceptionServiceClient(grpcConn)
+		req := &pb.GetErrorCodeRequest{}
+		resp, err := client.GetErrorCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyManagerCallComposerExceptionGetIOExceptionCmd = &cobra.Command{
+	Use:   "get-io-exception",
+	Short: "GetIOException RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerCallComposerExceptionServiceClient(grpcConn)
+		req := &pb.GetIOExceptionRequest{}
+		resp, err := client.GetIOException(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyManagerCellInfoCallbackCmd = &cobra.Command{
+	Use:   "manager-cell-info-callback",
+	Short: "ManagerCellInfoCallbackService operations",
+}
+
+var telephonyManagerCellInfoCallbackOnErrorCmd = &cobra.Command{
+	Use:   "on-error",
+	Short: "OnError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerCellInfoCallbackServiceClient(grpcConn)
+		req := &pb.ManagerCellInfoCallbackOnErrorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyManagerNetworkSlicingExceptionCmd = &cobra.Command{
+	Use:   "manager-network-slicing-exception",
+	Short: "ManagerNetworkSlicingExceptionService operations",
+}
+
+var telephonyManagerNetworkSlicingExceptionToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerNetworkSlicingExceptionServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyManagerUssdResponseCallbackCmd = &cobra.Command{
+	Use:   "manager-ussd-response-callback",
+	Short: "ManagerUssdResponseCallbackService operations",
+}
+
+var telephonyManagerUssdResponseCallbackOnReceiveUssdResponseCmd = &cobra.Command{
+	Use:   "on-receive-ussd-response",
+	Short: "OnReceiveUssdResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerUssdResponseCallbackServiceClient(grpcConn)
+		req := &pb.OnReceiveUssdResponseRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnReceiveUssdResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyManagerUssdResponseCallbackOnReceiveUssdResponseFailedCmd = &cobra.Command{
+	Use:   "on-receive-ussd-response-failed",
+	Short: "OnReceiveUssdResponseFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerUssdResponseCallbackServiceClient(grpcConn)
+		req := &pb.OnReceiveUssdResponseFailedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnReceiveUssdResponseFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityGsmCmd = &cobra.Command{
+	Use:   "cell-identity-gsm",
+	Short: "CellIdentityGsmService operations",
+}
+
+var telephonyCellIdentityGsmEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityGsmServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityGsmGetArfcnCmd = &cobra.Command{
+	Use:   "get-arfcn",
+	Short: "GetArfcn RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityGsmServiceClient(grpcConn)
+		req := &pb.GetArfcnRequest{}
+		resp, err := client.GetArfcn(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityGsmGetBsicCmd = &cobra.Command{
+	Use:   "get-bsic",
+	Short: "GetBsic RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityGsmServiceClient(grpcConn)
+		req := &pb.GetBsicRequest{}
+		resp, err := client.GetBsic(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityGsmGetCidCmd = &cobra.Command{
+	Use:   "get-cid",
+	Short: "GetCid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityGsmServiceClient(grpcConn)
+		req := &pb.GetCidRequest{}
+		resp, err := client.GetCid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityGsmGetLacCmd = &cobra.Command{
+	Use:   "get-lac",
+	Short: "GetLac RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityGsmServiceClient(grpcConn)
+		req := &pb.GetLacRequest{}
+		resp, err := client.GetLac(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityGsmGetMccCmd = &cobra.Command{
+	Use:   "get-mcc",
+	Short: "GetMcc RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityGsmServiceClient(grpcConn)
+		req := &pb.GetMccRequest{}
+		resp, err := client.GetMcc(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityGsmGetMccStringCmd = &cobra.Command{
+	Use:   "get-mcc-string",
+	Short: "GetMccString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityGsmServiceClient(grpcConn)
+		req := &pb.GetMccStringRequest{}
+		resp, err := client.GetMccString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityGsmGetMncCmd = &cobra.Command{
+	Use:   "get-mnc",
+	Short: "GetMnc RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityGsmServiceClient(grpcConn)
+		req := &pb.GetMncRequest{}
+		resp, err := client.GetMnc(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityGsmGetMncStringCmd = &cobra.Command{
+	Use:   "get-mnc-string",
+	Short: "GetMncString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityGsmServiceClient(grpcConn)
+		req := &pb.GetMncStringRequest{}
+		resp, err := client.GetMncString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityGsmGetMobileNetworkOperatorCmd = &cobra.Command{
+	Use:   "get-mobile-network-operator",
+	Short: "GetMobileNetworkOperator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityGsmServiceClient(grpcConn)
+		req := &pb.GetMobileNetworkOperatorRequest{}
+		resp, err := client.GetMobileNetworkOperator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityGsmGetPscCmd = &cobra.Command{
+	Use:   "get-psc",
+	Short: "GetPsc RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityGsmServiceClient(grpcConn)
+		req := &pb.GetPscRequest{}
+		resp, err := client.GetPsc(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityGsmHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityGsmServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityGsmToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityGsmServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityGsmWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityGsmServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthUpdateRequestCmd = &cobra.Command{
+	Use:   "signal-strength-update-request",
+	Short: "SignalStrengthUpdateRequestService operations",
+}
+
+var telephonySignalStrengthUpdateRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthUpdateRequestServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthUpdateRequestEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthUpdateRequestServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthUpdateRequestHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthUpdateRequestServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthUpdateRequestIsReportingRequestedWhileIdleCmd = &cobra.Command{
+	Use:   "is-reporting-requested-while-idle",
+	Short: "IsReportingRequestedWhileIdle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthUpdateRequestServiceClient(grpcConn)
+		req := &pb.IsReportingRequestedWhileIdleRequest{}
+		resp, err := client.IsReportingRequestedWhileIdle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthUpdateRequestToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthUpdateRequestServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthUpdateRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthUpdateRequestServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthUpdateRequestBuilderCmd = &cobra.Command{
+	Use:   "signal-strength-update-request-builder",
+	Short: "SignalStrengthUpdateRequestBuilderService operations",
+}
+
+var telephonySignalStrengthUpdateRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthUpdateRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthUpdateRequestBuilderSetReportingRequestedWhileIdleCmd = &cobra.Command{
+	Use:   "set-reporting-requested-while-idle",
+	Short: "SetReportingRequestedWhileIdle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthUpdateRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetReportingRequestedWhileIdleRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetReportingRequestedWhileIdle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNeighboringCellInfoCmd = &cobra.Command{
+	Use:   "neighboring-cell-info",
+	Short: "NeighboringCellInfoService operations",
+}
+
+var telephonyNeighboringCellInfoNewNeighboringCellInfoCmd = &cobra.Command{
+	Use:   "new-neighboring-cell-info",
+	Short: "NewNeighboringCellInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNeighboringCellInfoServiceClient(grpcConn)
+		req := &pb.NewNeighboringCellInfoRequest{}
+		resp, err := client.NewNeighboringCellInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNeighboringCellInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNeighboringCellInfoServiceClient(grpcConn)
+		req := &pb.NeighboringCellInfoDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNeighboringCellInfoGetCidCmd = &cobra.Command{
+	Use:   "get-cid",
+	Short: "GetCid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNeighboringCellInfoServiceClient(grpcConn)
+		req := &pb.NeighboringCellInfoGetCidRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNeighboringCellInfoGetLacCmd = &cobra.Command{
+	Use:   "get-lac",
+	Short: "GetLac RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNeighboringCellInfoServiceClient(grpcConn)
+		req := &pb.NeighboringCellInfoGetLacRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLac(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNeighboringCellInfoGetNetworkTypeCmd = &cobra.Command{
+	Use:   "get-network-type",
+	Short: "GetNetworkType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNeighboringCellInfoServiceClient(grpcConn)
+		req := &pb.NeighboringCellInfoGetNetworkTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetNetworkType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNeighboringCellInfoGetPscCmd = &cobra.Command{
+	Use:   "get-psc",
+	Short: "GetPsc RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNeighboringCellInfoServiceClient(grpcConn)
+		req := &pb.NeighboringCellInfoGetPscRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPsc(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNeighboringCellInfoGetRssiCmd = &cobra.Command{
+	Use:   "get-rssi",
+	Short: "GetRssi RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNeighboringCellInfoServiceClient(grpcConn)
+		req := &pb.NeighboringCellInfoGetRssiRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRssi(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNeighboringCellInfoSetCidCmd = &cobra.Command{
+	Use:   "set-cid",
+	Short: "SetCid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNeighboringCellInfoServiceClient(grpcConn)
+		req := &pb.SetCidRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNeighboringCellInfoSetRssiCmd = &cobra.Command{
+	Use:   "set-rssi",
+	Short: "SetRssi RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNeighboringCellInfoServiceClient(grpcConn)
+		req := &pb.SetRssiRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRssi(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNeighboringCellInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNeighboringCellInfoServiceClient(grpcConn)
+		req := &pb.NeighboringCellInfoToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNeighboringCellInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNeighboringCellInfoServiceClient(grpcConn)
+		req := &pb.NeighboringCellInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoCmd = &cobra.Command{
+	Use:   "cell-info",
+	Short: "CellInfoService operations",
+}
+
+var telephonyCellInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoGetCellConnectionStatusCmd = &cobra.Command{
+	Use:   "get-cell-connection-status",
+	Short: "GetCellConnectionStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoServiceClient(grpcConn)
+		req := &pb.GetCellConnectionStatusRequest{}
+		resp, err := client.GetCellConnectionStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoGetCellIdentityCmd = &cobra.Command{
+	Use:   "get-cell-identity",
+	Short: "GetCellIdentity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoServiceClient(grpcConn)
+		req := &pb.GetCellIdentityRequest{}
+		resp, err := client.GetCellIdentity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoGetCellSignalStrengthCmd = &cobra.Command{
+	Use:   "get-cell-signal-strength",
+	Short: "GetCellSignalStrength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoServiceClient(grpcConn)
+		req := &pb.GetCellSignalStrengthRequest{}
+		resp, err := client.GetCellSignalStrength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoGetTimeStampCmd = &cobra.Command{
+	Use:   "get-time-stamp",
+	Short: "GetTimeStamp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoServiceClient(grpcConn)
+		req := &pb.GetTimeStampRequest{}
+		resp, err := client.GetTimeStamp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoGetTimestampMillisCmd = &cobra.Command{
+	Use:   "get-timestamp-millis",
+	Short: "GetTimestampMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoServiceClient(grpcConn)
+		req := &pb.GetTimestampMillisRequest{}
+		resp, err := client.GetTimestampMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoIsRegisteredCmd = &cobra.Command{
+	Use:   "is-registered",
+	Short: "IsRegistered RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoServiceClient(grpcConn)
+		req := &pb.IsRegisteredRequest{}
+		resp, err := client.IsRegistered(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoWcdmaCmd = &cobra.Command{
+	Use:   "cell-info-wcdma",
+	Short: "CellInfoWcdmaService operations",
+}
+
+var telephonyCellInfoWcdmaDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoWcdmaServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoWcdmaEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoWcdmaServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoWcdmaGetCellIdentity0Cmd = &cobra.Command{
+	Use:   "get-cell-identity0",
+	Short: "GetCellIdentity0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoWcdmaServiceClient(grpcConn)
+		req := &pb.GetCellIdentity0Request{}
+		resp, err := client.GetCellIdentity0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoWcdmaGetCellSignalStrength0Cmd = &cobra.Command{
+	Use:   "get-cell-signal-strength0",
+	Short: "GetCellSignalStrength0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoWcdmaServiceClient(grpcConn)
+		req := &pb.GetCellSignalStrength0Request{}
+		resp, err := client.GetCellSignalStrength0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoWcdmaHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoWcdmaServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoWcdmaToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoWcdmaServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoWcdmaWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoWcdmaServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoWcdmaGetCellSignalStrength0_1Cmd = &cobra.Command{
+	Use:   "get-cell-signal-strength0_1",
+	Short: "GetCellSignalStrength0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoWcdmaServiceClient(grpcConn)
+		req := &pb.GetCellSignalStrength0_1Request{}
+		resp, err := client.GetCellSignalStrength0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoWcdmaGetCellIdentity0_1Cmd = &cobra.Command{
+	Use:   "get-cell-identity0_1",
+	Short: "GetCellIdentity0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoWcdmaServiceClient(grpcConn)
+		req := &pb.GetCellIdentity0_1Request{}
+		resp, err := client.GetCellIdentity0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberFormattingTextWatcherCmd = &cobra.Command{
+	Use:   "phone-number-formatting-text-watcher",
+	Short: "PhoneNumberFormattingTextWatcherService operations",
+}
+
+var telephonyPhoneNumberFormattingTextWatcherNewPhoneNumberFormattingTextWatcherCmd = &cobra.Command{
+	Use:   "new-phone-number-formatting-text-watcher",
+	Short: "NewPhoneNumberFormattingTextWatcher RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberFormattingTextWatcherServiceClient(grpcConn)
+		req := &pb.NewPhoneNumberFormattingTextWatcherRequest{}
+		resp, err := client.NewPhoneNumberFormattingTextWatcher(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberFormattingTextWatcherBeforeTextChangedCmd = &cobra.Command{
+	Use:   "before-text-changed",
+	Short: "BeforeTextChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberFormattingTextWatcherServiceClient(grpcConn)
+		req := &pb.BeforeTextChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.BeforeTextChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneNumberFormattingTextWatcherOnTextChangedCmd = &cobra.Command{
+	Use:   "on-text-changed",
+	Short: "OnTextChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneNumberFormattingTextWatcherServiceClient(grpcConn)
+		req := &pb.OnTextChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnTextChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityCmd = &cobra.Command{
+	Use:   "cell-identity",
+	Short: "CellIdentityService operations",
+}
+
+var telephonyCellIdentityDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityGetOperatorAlphaLongCmd = &cobra.Command{
+	Use:   "get-operator-alpha-long",
+	Short: "GetOperatorAlphaLong RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityServiceClient(grpcConn)
+		req := &pb.CellIdentityGetOperatorAlphaLongRequest{}
+		resp, err := client.GetOperatorAlphaLong(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityGetOperatorAlphaShortCmd = &cobra.Command{
+	Use:   "get-operator-alpha-short",
+	Short: "GetOperatorAlphaShort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityServiceClient(grpcConn)
+		req := &pb.CellIdentityGetOperatorAlphaShortRequest{}
+		resp, err := client.GetOperatorAlphaShort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthNrCmd = &cobra.Command{
+	Use:   "cell-signal-strength-nr",
+	Short: "CellSignalStrengthNrService operations",
+}
+
+var telephonyCellSignalStrengthNrDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthNrServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthNrEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthNrServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthNrGetAsuLevelCmd = &cobra.Command{
+	Use:   "get-asu-level",
+	Short: "GetAsuLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthNrServiceClient(grpcConn)
+		req := &pb.GetAsuLevelRequest{}
+		resp, err := client.GetAsuLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthNrGetCsiCqiTableIndexCmd = &cobra.Command{
+	Use:   "get-csi-cqi-table-index",
+	Short: "GetCsiCqiTableIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthNrServiceClient(grpcConn)
+		req := &pb.GetCsiCqiTableIndexRequest{}
+		resp, err := client.GetCsiCqiTableIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthNrGetCsiRsrpCmd = &cobra.Command{
+	Use:   "get-csi-rsrp",
+	Short: "GetCsiRsrp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthNrServiceClient(grpcConn)
+		req := &pb.GetCsiRsrpRequest{}
+		resp, err := client.GetCsiRsrp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthNrGetCsiRsrqCmd = &cobra.Command{
+	Use:   "get-csi-rsrq",
+	Short: "GetCsiRsrq RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthNrServiceClient(grpcConn)
+		req := &pb.GetCsiRsrqRequest{}
+		resp, err := client.GetCsiRsrq(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthNrGetCsiSinrCmd = &cobra.Command{
+	Use:   "get-csi-sinr",
+	Short: "GetCsiSinr RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthNrServiceClient(grpcConn)
+		req := &pb.GetCsiSinrRequest{}
+		resp, err := client.GetCsiSinr(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthNrGetDbmCmd = &cobra.Command{
+	Use:   "get-dbm",
+	Short: "GetDbm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthNrServiceClient(grpcConn)
+		req := &pb.GetDbmRequest{}
+		resp, err := client.GetDbm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthNrGetLevelCmd = &cobra.Command{
+	Use:   "get-level",
+	Short: "GetLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthNrServiceClient(grpcConn)
+		req := &pb.GetLevelRequest{}
+		resp, err := client.GetLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthNrGetSsRsrpCmd = &cobra.Command{
+	Use:   "get-ss-rsrp",
+	Short: "GetSsRsrp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthNrServiceClient(grpcConn)
+		req := &pb.GetSsRsrpRequest{}
+		resp, err := client.GetSsRsrp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthNrGetSsRsrqCmd = &cobra.Command{
+	Use:   "get-ss-rsrq",
+	Short: "GetSsRsrq RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthNrServiceClient(grpcConn)
+		req := &pb.GetSsRsrqRequest{}
+		resp, err := client.GetSsRsrq(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthNrGetSsSinrCmd = &cobra.Command{
+	Use:   "get-ss-sinr",
+	Short: "GetSsSinr RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthNrServiceClient(grpcConn)
+		req := &pb.GetSsSinrRequest{}
+		resp, err := client.GetSsSinr(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthNrGetTimingAdvanceMicrosCmd = &cobra.Command{
+	Use:   "get-timing-advance-micros",
+	Short: "GetTimingAdvanceMicros RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthNrServiceClient(grpcConn)
+		req := &pb.GetTimingAdvanceMicrosRequest{}
+		resp, err := client.GetTimingAdvanceMicros(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthNrHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthNrServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthNrToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthNrServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthNrWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthNrServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoTdscdmaCmd = &cobra.Command{
+	Use:   "cell-info-tdscdma",
+	Short: "CellInfoTdscdmaService operations",
+}
+
+var telephonyCellInfoTdscdmaDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoTdscdmaServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoTdscdmaEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoTdscdmaServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoTdscdmaGetCellIdentity0Cmd = &cobra.Command{
+	Use:   "get-cell-identity0",
+	Short: "GetCellIdentity0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoTdscdmaServiceClient(grpcConn)
+		req := &pb.GetCellIdentity0Request{}
+		resp, err := client.GetCellIdentity0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoTdscdmaGetCellSignalStrength0Cmd = &cobra.Command{
+	Use:   "get-cell-signal-strength0",
+	Short: "GetCellSignalStrength0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoTdscdmaServiceClient(grpcConn)
+		req := &pb.GetCellSignalStrength0Request{}
+		resp, err := client.GetCellSignalStrength0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoTdscdmaHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoTdscdmaServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoTdscdmaToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoTdscdmaServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoTdscdmaWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoTdscdmaServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoTdscdmaGetCellSignalStrength0_1Cmd = &cobra.Command{
+	Use:   "get-cell-signal-strength0_1",
+	Short: "GetCellSignalStrength0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoTdscdmaServiceClient(grpcConn)
+		req := &pb.GetCellSignalStrength0_1Request{}
+		resp, err := client.GetCellSignalStrength0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoTdscdmaGetCellIdentity0_1Cmd = &cobra.Command{
+	Use:   "get-cell-identity0_1",
+	Short: "GetCellIdentity0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoTdscdmaServiceClient(grpcConn)
+		req := &pb.GetCellIdentity0_1Request{}
+		resp, err := client.GetCellIdentity0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyIccOpenLogicalChannelResponseCmd = &cobra.Command{
+	Use:   "icc-open-logical-channel-response",
+	Short: "IccOpenLogicalChannelResponseService operations",
+}
+
+var telephonyIccOpenLogicalChannelResponseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIccOpenLogicalChannelResponseServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyIccOpenLogicalChannelResponseGetChannelCmd = &cobra.Command{
+	Use:   "get-channel",
+	Short: "GetChannel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIccOpenLogicalChannelResponseServiceClient(grpcConn)
+		req := &pb.GetChannelRequest{}
+		resp, err := client.GetChannel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyIccOpenLogicalChannelResponseGetSelectResponseCmd = &cobra.Command{
+	Use:   "get-select-response",
+	Short: "GetSelectResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIccOpenLogicalChannelResponseServiceClient(grpcConn)
+		req := &pb.GetSelectResponseRequest{}
+		resp, err := client.GetSelectResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyIccOpenLogicalChannelResponseGetStatusCmd = &cobra.Command{
+	Use:   "get-status",
+	Short: "GetStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIccOpenLogicalChannelResponseServiceClient(grpcConn)
+		req := &pb.GetStatusRequest{}
+		resp, err := client.GetStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyIccOpenLogicalChannelResponseToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIccOpenLogicalChannelResponseServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyIccOpenLogicalChannelResponseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIccOpenLogicalChannelResponseServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityWcdmaCmd = &cobra.Command{
+	Use:   "cell-identity-wcdma",
+	Short: "CellIdentityWcdmaService operations",
+}
+
+var telephonyCellIdentityWcdmaEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityWcdmaServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityWcdmaGetCidCmd = &cobra.Command{
+	Use:   "get-cid",
+	Short: "GetCid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityWcdmaServiceClient(grpcConn)
+		req := &pb.GetCidRequest{}
+		resp, err := client.GetCid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityWcdmaGetClosedSubscriberGroupInfoCmd = &cobra.Command{
+	Use:   "get-closed-subscriber-group-info",
+	Short: "GetClosedSubscriberGroupInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityWcdmaServiceClient(grpcConn)
+		req := &pb.GetClosedSubscriberGroupInfoRequest{}
+		resp, err := client.GetClosedSubscriberGroupInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityWcdmaGetLacCmd = &cobra.Command{
+	Use:   "get-lac",
+	Short: "GetLac RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityWcdmaServiceClient(grpcConn)
+		req := &pb.GetLacRequest{}
+		resp, err := client.GetLac(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityWcdmaGetMccCmd = &cobra.Command{
+	Use:   "get-mcc",
+	Short: "GetMcc RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityWcdmaServiceClient(grpcConn)
+		req := &pb.GetMccRequest{}
+		resp, err := client.GetMcc(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityWcdmaGetMccStringCmd = &cobra.Command{
+	Use:   "get-mcc-string",
+	Short: "GetMccString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityWcdmaServiceClient(grpcConn)
+		req := &pb.GetMccStringRequest{}
+		resp, err := client.GetMccString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityWcdmaGetMncCmd = &cobra.Command{
+	Use:   "get-mnc",
+	Short: "GetMnc RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityWcdmaServiceClient(grpcConn)
+		req := &pb.GetMncRequest{}
+		resp, err := client.GetMnc(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityWcdmaGetMncStringCmd = &cobra.Command{
+	Use:   "get-mnc-string",
+	Short: "GetMncString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityWcdmaServiceClient(grpcConn)
+		req := &pb.GetMncStringRequest{}
+		resp, err := client.GetMncString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityWcdmaGetMobileNetworkOperatorCmd = &cobra.Command{
+	Use:   "get-mobile-network-operator",
+	Short: "GetMobileNetworkOperator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityWcdmaServiceClient(grpcConn)
+		req := &pb.GetMobileNetworkOperatorRequest{}
+		resp, err := client.GetMobileNetworkOperator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityWcdmaGetPscCmd = &cobra.Command{
+	Use:   "get-psc",
+	Short: "GetPsc RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityWcdmaServiceClient(grpcConn)
+		req := &pb.GetPscRequest{}
+		resp, err := client.GetPsc(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityWcdmaGetUarfcnCmd = &cobra.Command{
+	Use:   "get-uarfcn",
+	Short: "GetUarfcn RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityWcdmaServiceClient(grpcConn)
+		req := &pb.GetUarfcnRequest{}
+		resp, err := client.GetUarfcn(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityWcdmaHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityWcdmaServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityWcdmaToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityWcdmaServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityWcdmaWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityWcdmaServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyVisualVoicemailSmsFilterSettingsCmd = &cobra.Command{
+	Use:   "visual-voicemail-sms-filter-settings",
+	Short: "VisualVoicemailSmsFilterSettingsService operations",
+}
+
+var telephonyVisualVoicemailSmsFilterSettingsDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailSmsFilterSettingsServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyVisualVoicemailSmsFilterSettingsToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailSmsFilterSettingsServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyVisualVoicemailSmsFilterSettingsWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailSmsFilterSettingsServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyVisualVoicemailSmsFilterSettingsBuilderCmd = &cobra.Command{
+	Use:   "visual-voicemail-sms-filter-settings-builder",
+	Short: "VisualVoicemailSmsFilterSettingsBuilderService operations",
+}
+
+var telephonyVisualVoicemailSmsFilterSettingsBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailSmsFilterSettingsBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyVisualVoicemailSmsFilterSettingsBuilderSetClientPrefixCmd = &cobra.Command{
+	Use:   "set-client-prefix",
+	Short: "SetClientPrefix RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailSmsFilterSettingsBuilderServiceClient(grpcConn)
+		req := &pb.SetClientPrefixRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetClientPrefix(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyVisualVoicemailSmsFilterSettingsBuilderSetDestinationPortCmd = &cobra.Command{
+	Use:   "set-destination-port",
+	Short: "SetDestinationPort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisualVoicemailSmsFilterSettingsBuilderServiceClient(grpcConn)
+		req := &pb.SetDestinationPortRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDestinationPort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyDisplayInfoCmd = &cobra.Command{
+	Use:   "display-info",
+	Short: "DisplayInfoService operations",
+}
+
+var telephonyDisplayInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyDisplayInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyDisplayInfoGetNetworkTypeCmd = &cobra.Command{
+	Use:   "get-network-type",
+	Short: "GetNetworkType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayInfoServiceClient(grpcConn)
+		req := &pb.GetNetworkTypeRequest{}
+		resp, err := client.GetNetworkType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyDisplayInfoGetOverrideNetworkTypeCmd = &cobra.Command{
+	Use:   "get-override-network-type",
+	Short: "GetOverrideNetworkType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayInfoServiceClient(grpcConn)
+		req := &pb.GetOverrideNetworkTypeRequest{}
+		resp, err := client.GetOverrideNetworkType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyDisplayInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyDisplayInfoIsRoamingCmd = &cobra.Command{
+	Use:   "is-roaming",
+	Short: "IsRoaming RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayInfoServiceClient(grpcConn)
+		req := &pb.IsRoamingRequest{}
+		resp, err := client.IsRoaming(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyDisplayInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyDisplayInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoNrCmd = &cobra.Command{
+	Use:   "cell-info-nr",
+	Short: "CellInfoNrService operations",
+}
+
+var telephonyCellInfoNrEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoNrServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoNrGetCellIdentityCmd = &cobra.Command{
+	Use:   "get-cell-identity",
+	Short: "GetCellIdentity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoNrServiceClient(grpcConn)
+		req := &pb.GetCellIdentityRequest{}
+		resp, err := client.GetCellIdentity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoNrGetCellSignalStrengthCmd = &cobra.Command{
+	Use:   "get-cell-signal-strength",
+	Short: "GetCellSignalStrength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoNrServiceClient(grpcConn)
+		req := &pb.GetCellSignalStrengthRequest{}
+		resp, err := client.GetCellSignalStrength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoNrHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoNrServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoNrToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoNrServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoNrWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoNrServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsDownloadSessionCmd = &cobra.Command{
+	Use:   "mbms-download-session",
+	Short: "MbmsDownloadSessionService operations",
+}
+
+var telephonyMbmsDownloadSessionAddProgressListenerCmd = &cobra.Command{
+	Use:   "add-progress-listener",
+	Short: "AddProgressListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsDownloadSessionServiceClient(grpcConn)
+		req := &pb.AddProgressListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.AddProgressListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsDownloadSessionAddServiceAnnouncementCmd = &cobra.Command{
+	Use:   "add-service-announcement",
+	Short: "AddServiceAnnouncement RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsDownloadSessionServiceClient(grpcConn)
+		req := &pb.AddServiceAnnouncementRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddServiceAnnouncement(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsDownloadSessionAddStatusListenerCmd = &cobra.Command{
+	Use:   "add-status-listener",
+	Short: "AddStatusListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsDownloadSessionServiceClient(grpcConn)
+		req := &pb.AddStatusListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.AddStatusListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsDownloadSessionCancelDownloadCmd = &cobra.Command{
+	Use:   "cancel-download",
+	Short: "CancelDownload RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsDownloadSessionServiceClient(grpcConn)
+		req := &pb.CancelDownloadRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CancelDownload(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsDownloadSessionCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsDownloadSessionServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsDownloadSessionDownloadCmd = &cobra.Command{
+	Use:   "download",
+	Short: "Download RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsDownloadSessionServiceClient(grpcConn)
+		req := &pb.DownloadRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Download(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsDownloadSessionGetTempFileRootDirectoryCmd = &cobra.Command{
+	Use:   "get-temp-file-root-directory",
+	Short: "GetTempFileRootDirectory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsDownloadSessionServiceClient(grpcConn)
+		req := &pb.GetTempFileRootDirectoryRequest{}
+		resp, err := client.GetTempFileRootDirectory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsDownloadSessionRemoveProgressListenerCmd = &cobra.Command{
+	Use:   "remove-progress-listener",
+	Short: "RemoveProgressListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsDownloadSessionServiceClient(grpcConn)
+		req := &pb.RemoveProgressListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RemoveProgressListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsDownloadSessionRemoveStatusListenerCmd = &cobra.Command{
+	Use:   "remove-status-listener",
+	Short: "RemoveStatusListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsDownloadSessionServiceClient(grpcConn)
+		req := &pb.RemoveStatusListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RemoveStatusListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsDownloadSessionRequestDownloadStateCmd = &cobra.Command{
+	Use:   "request-download-state",
+	Short: "RequestDownloadState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsDownloadSessionServiceClient(grpcConn)
+		req := &pb.RequestDownloadStateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RequestDownloadState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsDownloadSessionResetDownloadKnowledgeCmd = &cobra.Command{
+	Use:   "reset-download-knowledge",
+	Short: "ResetDownloadKnowledge RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsDownloadSessionServiceClient(grpcConn)
+		req := &pb.ResetDownloadKnowledgeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ResetDownloadKnowledge(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsDownloadSessionSetTempFileRootDirectoryCmd = &cobra.Command{
+	Use:   "set-temp-file-root-directory",
+	Short: "SetTempFileRootDirectory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsDownloadSessionServiceClient(grpcConn)
+		req := &pb.SetTempFileRootDirectoryRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTempFileRootDirectory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsDownloadSessionCreate3Cmd = &cobra.Command{
+	Use:   "create3",
+	Short: "Create3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsDownloadSessionServiceClient(grpcConn)
+		req := &pb.Create3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Create3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsDownloadSessionCreate4_1Cmd = &cobra.Command{
+	Use:   "create4_1",
+	Short: "Create4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsDownloadSessionServiceClient(grpcConn)
+		req := &pb.Create4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Create4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsDownloadSessionGetMaximumServiceAnnouncementSizeCmd = &cobra.Command{
+	Use:   "get-maximum-service-announcement-size",
+	Short: "GetMaximumServiceAnnouncementSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsDownloadSessionServiceClient(grpcConn)
+		req := &pb.GetMaximumServiceAnnouncementSizeRequest{}
+		resp, err := client.GetMaximumServiceAnnouncementSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellLocationCmd = &cobra.Command{
+	Use:   "cell-location",
+	Short: "CellLocationService operations",
+}
+
+var telephonyCellLocationGetEmptyCmd = &cobra.Command{
+	Use:   "get-empty",
+	Short: "GetEmpty RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellLocationServiceClient(grpcConn)
+		req := &pb.GetEmptyRequest{}
+		resp, err := client.GetEmpty(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellLocationRequestLocationUpdateCmd = &cobra.Command{
+	Use:   "request-location-update",
+	Short: "RequestLocationUpdate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellLocationServiceClient(grpcConn)
+		req := &pb.RequestLocationUpdateRequest{}
+		resp, err := client.RequestLocationUpdate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthCdmaCmd = &cobra.Command{
+	Use:   "cell-signal-strength-cdma",
+	Short: "CellSignalStrengthCdmaService operations",
+}
+
+var telephonyCellSignalStrengthCdmaDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthCdmaServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthCdmaEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthCdmaServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthCdmaGetAsuLevelCmd = &cobra.Command{
+	Use:   "get-asu-level",
+	Short: "GetAsuLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthCdmaServiceClient(grpcConn)
+		req := &pb.GetAsuLevelRequest{}
+		resp, err := client.GetAsuLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthCdmaGetCdmaDbmCmd = &cobra.Command{
+	Use:   "get-cdma-dbm",
+	Short: "GetCdmaDbm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthCdmaServiceClient(grpcConn)
+		req := &pb.GetCdmaDbmRequest{}
+		resp, err := client.GetCdmaDbm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthCdmaGetCdmaEcioCmd = &cobra.Command{
+	Use:   "get-cdma-ecio",
+	Short: "GetCdmaEcio RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthCdmaServiceClient(grpcConn)
+		req := &pb.GetCdmaEcioRequest{}
+		resp, err := client.GetCdmaEcio(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthCdmaGetCdmaLevelCmd = &cobra.Command{
+	Use:   "get-cdma-level",
+	Short: "GetCdmaLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthCdmaServiceClient(grpcConn)
+		req := &pb.GetCdmaLevelRequest{}
+		resp, err := client.GetCdmaLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthCdmaGetDbmCmd = &cobra.Command{
+	Use:   "get-dbm",
+	Short: "GetDbm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthCdmaServiceClient(grpcConn)
+		req := &pb.GetDbmRequest{}
+		resp, err := client.GetDbm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthCdmaGetEvdoDbmCmd = &cobra.Command{
+	Use:   "get-evdo-dbm",
+	Short: "GetEvdoDbm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthCdmaServiceClient(grpcConn)
+		req := &pb.GetEvdoDbmRequest{}
+		resp, err := client.GetEvdoDbm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthCdmaGetEvdoEcioCmd = &cobra.Command{
+	Use:   "get-evdo-ecio",
+	Short: "GetEvdoEcio RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthCdmaServiceClient(grpcConn)
+		req := &pb.GetEvdoEcioRequest{}
+		resp, err := client.GetEvdoEcio(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthCdmaGetEvdoLevelCmd = &cobra.Command{
+	Use:   "get-evdo-level",
+	Short: "GetEvdoLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthCdmaServiceClient(grpcConn)
+		req := &pb.GetEvdoLevelRequest{}
+		resp, err := client.GetEvdoLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthCdmaGetEvdoSnrCmd = &cobra.Command{
+	Use:   "get-evdo-snr",
+	Short: "GetEvdoSnr RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthCdmaServiceClient(grpcConn)
+		req := &pb.GetEvdoSnrRequest{}
+		resp, err := client.GetEvdoSnr(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthCdmaGetLevelCmd = &cobra.Command{
+	Use:   "get-level",
+	Short: "GetLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthCdmaServiceClient(grpcConn)
+		req := &pb.GetLevelRequest{}
+		resp, err := client.GetLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthCdmaHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthCdmaServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthCdmaToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthCdmaServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthCdmaWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthCdmaServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyRadioAccessSpecifierCmd = &cobra.Command{
+	Use:   "radio-access-specifier",
+	Short: "RadioAccessSpecifierService operations",
+}
+
+var telephonyRadioAccessSpecifierNewRadioAccessSpecifierCmd = &cobra.Command{
+	Use:   "new-radio-access-specifier",
+	Short: "NewRadioAccessSpecifier RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRadioAccessSpecifierServiceClient(grpcConn)
+		req := &pb.NewRadioAccessSpecifierRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewRadioAccessSpecifier(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyRadioAccessSpecifierDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRadioAccessSpecifierServiceClient(grpcConn)
+		req := &pb.RadioAccessSpecifierDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyRadioAccessSpecifierEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRadioAccessSpecifierServiceClient(grpcConn)
+		req := &pb.RadioAccessSpecifierEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyRadioAccessSpecifierGetBandsCmd = &cobra.Command{
+	Use:   "get-bands",
+	Short: "GetBands RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRadioAccessSpecifierServiceClient(grpcConn)
+		req := &pb.RadioAccessSpecifierGetBandsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetBands(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyRadioAccessSpecifierGetChannelsCmd = &cobra.Command{
+	Use:   "get-channels",
+	Short: "GetChannels RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRadioAccessSpecifierServiceClient(grpcConn)
+		req := &pb.GetChannelsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetChannels(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyRadioAccessSpecifierGetRadioAccessNetworkCmd = &cobra.Command{
+	Use:   "get-radio-access-network",
+	Short: "GetRadioAccessNetwork RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRadioAccessSpecifierServiceClient(grpcConn)
+		req := &pb.GetRadioAccessNetworkRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRadioAccessNetwork(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyRadioAccessSpecifierHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRadioAccessSpecifierServiceClient(grpcConn)
+		req := &pb.RadioAccessSpecifierHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyRadioAccessSpecifierToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRadioAccessSpecifierServiceClient(grpcConn)
+		req := &pb.RadioAccessSpecifierToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyRadioAccessSpecifierWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRadioAccessSpecifierServiceClient(grpcConn)
+		req := &pb.RadioAccessSpecifierWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoCdmaCmd = &cobra.Command{
+	Use:   "cell-info-cdma",
+	Short: "CellInfoCdmaService operations",
+}
+
+var telephonyCellInfoCdmaDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoCdmaServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoCdmaEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoCdmaServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoCdmaGetCellIdentity0Cmd = &cobra.Command{
+	Use:   "get-cell-identity0",
+	Short: "GetCellIdentity0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoCdmaServiceClient(grpcConn)
+		req := &pb.GetCellIdentity0Request{}
+		resp, err := client.GetCellIdentity0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoCdmaGetCellSignalStrength0Cmd = &cobra.Command{
+	Use:   "get-cell-signal-strength0",
+	Short: "GetCellSignalStrength0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoCdmaServiceClient(grpcConn)
+		req := &pb.GetCellSignalStrength0Request{}
+		resp, err := client.GetCellSignalStrength0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoCdmaHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoCdmaServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoCdmaToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoCdmaServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoCdmaWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoCdmaServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoCdmaGetCellSignalStrength0_1Cmd = &cobra.Command{
+	Use:   "get-cell-signal-strength0_1",
+	Short: "GetCellSignalStrength0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoCdmaServiceClient(grpcConn)
+		req := &pb.GetCellSignalStrength0_1Request{}
+		resp, err := client.GetCellSignalStrength0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoCdmaGetCellIdentity0_1Cmd = &cobra.Command{
+	Use:   "get-cell-identity0_1",
+	Short: "GetCellIdentity0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoCdmaServiceClient(grpcConn)
+		req := &pb.GetCellIdentity0_1Request{}
+		resp, err := client.GetCellIdentity0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPreciseDataConnectionStateCmd = &cobra.Command{
+	Use:   "precise-data-connection-state",
+	Short: "PreciseDataConnectionStateService operations",
+}
+
+var telephonyPreciseDataConnectionStateDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreciseDataConnectionStateServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPreciseDataConnectionStateEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreciseDataConnectionStateServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPreciseDataConnectionStateGetApnSettingCmd = &cobra.Command{
+	Use:   "get-apn-setting",
+	Short: "GetApnSetting RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreciseDataConnectionStateServiceClient(grpcConn)
+		req := &pb.GetApnSettingRequest{}
+		resp, err := client.GetApnSetting(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPreciseDataConnectionStateGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreciseDataConnectionStateServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPreciseDataConnectionStateGetLastCauseCodeCmd = &cobra.Command{
+	Use:   "get-last-cause-code",
+	Short: "GetLastCauseCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreciseDataConnectionStateServiceClient(grpcConn)
+		req := &pb.GetLastCauseCodeRequest{}
+		resp, err := client.GetLastCauseCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPreciseDataConnectionStateGetLinkPropertiesCmd = &cobra.Command{
+	Use:   "get-link-properties",
+	Short: "GetLinkProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreciseDataConnectionStateServiceClient(grpcConn)
+		req := &pb.GetLinkPropertiesRequest{}
+		resp, err := client.GetLinkProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPreciseDataConnectionStateGetNetworkTypeCmd = &cobra.Command{
+	Use:   "get-network-type",
+	Short: "GetNetworkType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreciseDataConnectionStateServiceClient(grpcConn)
+		req := &pb.GetNetworkTypeRequest{}
+		resp, err := client.GetNetworkType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPreciseDataConnectionStateGetNetworkValidationStatusCmd = &cobra.Command{
+	Use:   "get-network-validation-status",
+	Short: "GetNetworkValidationStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreciseDataConnectionStateServiceClient(grpcConn)
+		req := &pb.GetNetworkValidationStatusRequest{}
+		resp, err := client.GetNetworkValidationStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPreciseDataConnectionStateGetStateCmd = &cobra.Command{
+	Use:   "get-state",
+	Short: "GetState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreciseDataConnectionStateServiceClient(grpcConn)
+		req := &pb.PreciseDataConnectionStateGetStateRequest{}
+		resp, err := client.GetState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPreciseDataConnectionStateGetTransportTypeCmd = &cobra.Command{
+	Use:   "get-transport-type",
+	Short: "GetTransportType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreciseDataConnectionStateServiceClient(grpcConn)
+		req := &pb.GetTransportTypeRequest{}
+		resp, err := client.GetTransportType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPreciseDataConnectionStateHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreciseDataConnectionStateServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPreciseDataConnectionStateToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreciseDataConnectionStateServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPreciseDataConnectionStateWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPreciseDataConnectionStateServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthLteCmd = &cobra.Command{
+	Use:   "cell-signal-strength-lte",
+	Short: "CellSignalStrengthLteService operations",
+}
+
+var telephonyCellSignalStrengthLteDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthLteServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthLteEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthLteServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthLteGetAsuLevelCmd = &cobra.Command{
+	Use:   "get-asu-level",
+	Short: "GetAsuLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthLteServiceClient(grpcConn)
+		req := &pb.GetAsuLevelRequest{}
+		resp, err := client.GetAsuLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthLteGetCqiCmd = &cobra.Command{
+	Use:   "get-cqi",
+	Short: "GetCqi RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthLteServiceClient(grpcConn)
+		req := &pb.GetCqiRequest{}
+		resp, err := client.GetCqi(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthLteGetCqiTableIndexCmd = &cobra.Command{
+	Use:   "get-cqi-table-index",
+	Short: "GetCqiTableIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthLteServiceClient(grpcConn)
+		req := &pb.GetCqiTableIndexRequest{}
+		resp, err := client.GetCqiTableIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthLteGetDbmCmd = &cobra.Command{
+	Use:   "get-dbm",
+	Short: "GetDbm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthLteServiceClient(grpcConn)
+		req := &pb.GetDbmRequest{}
+		resp, err := client.GetDbm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthLteGetLevelCmd = &cobra.Command{
+	Use:   "get-level",
+	Short: "GetLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthLteServiceClient(grpcConn)
+		req := &pb.GetLevelRequest{}
+		resp, err := client.GetLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthLteGetRsrpCmd = &cobra.Command{
+	Use:   "get-rsrp",
+	Short: "GetRsrp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthLteServiceClient(grpcConn)
+		req := &pb.GetRsrpRequest{}
+		resp, err := client.GetRsrp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthLteGetRsrqCmd = &cobra.Command{
+	Use:   "get-rsrq",
+	Short: "GetRsrq RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthLteServiceClient(grpcConn)
+		req := &pb.GetRsrqRequest{}
+		resp, err := client.GetRsrq(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthLteGetRssiCmd = &cobra.Command{
+	Use:   "get-rssi",
+	Short: "GetRssi RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthLteServiceClient(grpcConn)
+		req := &pb.GetRssiRequest{}
+		resp, err := client.GetRssi(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthLteGetRssnrCmd = &cobra.Command{
+	Use:   "get-rssnr",
+	Short: "GetRssnr RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthLteServiceClient(grpcConn)
+		req := &pb.GetRssnrRequest{}
+		resp, err := client.GetRssnr(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthLteGetTimingAdvanceCmd = &cobra.Command{
+	Use:   "get-timing-advance",
+	Short: "GetTimingAdvance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthLteServiceClient(grpcConn)
+		req := &pb.GetTimingAdvanceRequest{}
+		resp, err := client.GetTimingAdvance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthLteHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthLteServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthLteToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthLteServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthLteWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthLteServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthCmd = &cobra.Command{
+	Use:   "signal-strength",
+	Short: "SignalStrengthService operations",
+}
+
+var telephonySignalStrengthNewSignalStrengthCmd = &cobra.Command{
+	Use:   "new-signal-strength",
+	Short: "NewSignalStrength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthServiceClient(grpcConn)
+		req := &pb.NewSignalStrengthRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewSignalStrength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthServiceClient(grpcConn)
+		req := &pb.SignalStrengthDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthServiceClient(grpcConn)
+		req := &pb.SignalStrengthEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthGetCdmaDbmCmd = &cobra.Command{
+	Use:   "get-cdma-dbm",
+	Short: "GetCdmaDbm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthServiceClient(grpcConn)
+		req := &pb.SignalStrengthGetCdmaDbmRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCdmaDbm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthGetCdmaEcioCmd = &cobra.Command{
+	Use:   "get-cdma-ecio",
+	Short: "GetCdmaEcio RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthServiceClient(grpcConn)
+		req := &pb.SignalStrengthGetCdmaEcioRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCdmaEcio(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthGetEvdoDbmCmd = &cobra.Command{
+	Use:   "get-evdo-dbm",
+	Short: "GetEvdoDbm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthServiceClient(grpcConn)
+		req := &pb.SignalStrengthGetEvdoDbmRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetEvdoDbm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthGetEvdoEcioCmd = &cobra.Command{
+	Use:   "get-evdo-ecio",
+	Short: "GetEvdoEcio RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthServiceClient(grpcConn)
+		req := &pb.SignalStrengthGetEvdoEcioRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetEvdoEcio(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthGetEvdoSnrCmd = &cobra.Command{
+	Use:   "get-evdo-snr",
+	Short: "GetEvdoSnr RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthServiceClient(grpcConn)
+		req := &pb.SignalStrengthGetEvdoSnrRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetEvdoSnr(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthGetGsmBitErrorRateCmd = &cobra.Command{
+	Use:   "get-gsm-bit-error-rate",
+	Short: "GetGsmBitErrorRate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthServiceClient(grpcConn)
+		req := &pb.GetGsmBitErrorRateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetGsmBitErrorRate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthGetGsmSignalStrengthCmd = &cobra.Command{
+	Use:   "get-gsm-signal-strength",
+	Short: "GetGsmSignalStrength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthServiceClient(grpcConn)
+		req := &pb.GetGsmSignalStrengthRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetGsmSignalStrength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthGetLevelCmd = &cobra.Command{
+	Use:   "get-level",
+	Short: "GetLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthServiceClient(grpcConn)
+		req := &pb.SignalStrengthGetLevelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthGetTimestampMillisCmd = &cobra.Command{
+	Use:   "get-timestamp-millis",
+	Short: "GetTimestampMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthServiceClient(grpcConn)
+		req := &pb.SignalStrengthGetTimestampMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTimestampMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthServiceClient(grpcConn)
+		req := &pb.SignalStrengthHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthIsGsmCmd = &cobra.Command{
+	Use:   "is-gsm",
+	Short: "IsGsm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthServiceClient(grpcConn)
+		req := &pb.IsGsmRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsGsm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthServiceClient(grpcConn)
+		req := &pb.SignalStrengthToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonySignalStrengthWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSignalStrengthServiceClient(grpcConn)
+		req := &pb.SignalStrengthWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoGsmCmd = &cobra.Command{
+	Use:   "cell-info-gsm",
+	Short: "CellInfoGsmService operations",
+}
+
+var telephonyCellInfoGsmDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoGsmServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoGsmEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoGsmServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoGsmGetCellIdentity0Cmd = &cobra.Command{
+	Use:   "get-cell-identity0",
+	Short: "GetCellIdentity0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoGsmServiceClient(grpcConn)
+		req := &pb.GetCellIdentity0Request{}
+		resp, err := client.GetCellIdentity0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoGsmGetCellSignalStrength0Cmd = &cobra.Command{
+	Use:   "get-cell-signal-strength0",
+	Short: "GetCellSignalStrength0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoGsmServiceClient(grpcConn)
+		req := &pb.GetCellSignalStrength0Request{}
+		resp, err := client.GetCellSignalStrength0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoGsmHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoGsmServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoGsmToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoGsmServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoGsmWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoGsmServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoGsmGetCellSignalStrength0_1Cmd = &cobra.Command{
+	Use:   "get-cell-signal-strength0_1",
+	Short: "GetCellSignalStrength0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoGsmServiceClient(grpcConn)
+		req := &pb.GetCellSignalStrength0_1Request{}
+		resp, err := client.GetCellSignalStrength0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellInfoGsmGetCellIdentity0_1Cmd = &cobra.Command{
+	Use:   "get-cell-identity0_1",
+	Short: "GetCellIdentity0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellInfoGsmServiceClient(grpcConn)
+		req := &pb.GetCellIdentity0_1Request{}
+		resp, err := client.GetCellIdentity0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyAvailableNetworkInfoCmd = &cobra.Command{
+	Use:   "available-network-info",
+	Short: "AvailableNetworkInfoService operations",
+}
+
+var telephonyAvailableNetworkInfoNewAvailableNetworkInfoCmd = &cobra.Command{
+	Use:   "new-available-network-info",
+	Short: "NewAvailableNetworkInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAvailableNetworkInfoServiceClient(grpcConn)
+		req := &pb.NewAvailableNetworkInfoRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.NewAvailableNetworkInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyAvailableNetworkInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAvailableNetworkInfoServiceClient(grpcConn)
+		req := &pb.AvailableNetworkInfoDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyAvailableNetworkInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAvailableNetworkInfoServiceClient(grpcConn)
+		req := &pb.AvailableNetworkInfoEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyAvailableNetworkInfoGetPriorityCmd = &cobra.Command{
+	Use:   "get-priority",
+	Short: "GetPriority RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAvailableNetworkInfoServiceClient(grpcConn)
+		req := &pb.GetPriorityRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPriority(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyAvailableNetworkInfoGetSubIdCmd = &cobra.Command{
+	Use:   "get-sub-id",
+	Short: "GetSubId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAvailableNetworkInfoServiceClient(grpcConn)
+		req := &pb.GetSubIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSubId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyAvailableNetworkInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAvailableNetworkInfoServiceClient(grpcConn)
+		req := &pb.AvailableNetworkInfoHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyAvailableNetworkInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAvailableNetworkInfoServiceClient(grpcConn)
+		req := &pb.AvailableNetworkInfoToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyAvailableNetworkInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAvailableNetworkInfoServiceClient(grpcConn)
+		req := &pb.AvailableNetworkInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyAvailableNetworkInfoBuilderCmd = &cobra.Command{
+	Use:   "available-network-info-builder",
+	Short: "AvailableNetworkInfoBuilderService operations",
+}
+
+var telephonyAvailableNetworkInfoBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAvailableNetworkInfoBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyAvailableNetworkInfoBuilderSetPriorityCmd = &cobra.Command{
+	Use:   "set-priority",
+	Short: "SetPriority RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAvailableNetworkInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetPriorityRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPriority(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhysicalChannelConfigCmd = &cobra.Command{
+	Use:   "physical-channel-config",
+	Short: "PhysicalChannelConfigService operations",
+}
+
+var telephonyPhysicalChannelConfigDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhysicalChannelConfigServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhysicalChannelConfigEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhysicalChannelConfigServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhysicalChannelConfigGetBandCmd = &cobra.Command{
+	Use:   "get-band",
+	Short: "GetBand RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhysicalChannelConfigServiceClient(grpcConn)
+		req := &pb.GetBandRequest{}
+		resp, err := client.GetBand(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhysicalChannelConfigGetCellBandwidthDownlinkKhzCmd = &cobra.Command{
+	Use:   "get-cell-bandwidth-downlink-khz",
+	Short: "GetCellBandwidthDownlinkKhz RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhysicalChannelConfigServiceClient(grpcConn)
+		req := &pb.GetCellBandwidthDownlinkKhzRequest{}
+		resp, err := client.GetCellBandwidthDownlinkKhz(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhysicalChannelConfigGetCellBandwidthUplinkKhzCmd = &cobra.Command{
+	Use:   "get-cell-bandwidth-uplink-khz",
+	Short: "GetCellBandwidthUplinkKhz RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhysicalChannelConfigServiceClient(grpcConn)
+		req := &pb.GetCellBandwidthUplinkKhzRequest{}
+		resp, err := client.GetCellBandwidthUplinkKhz(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhysicalChannelConfigGetConnectionStatusCmd = &cobra.Command{
+	Use:   "get-connection-status",
+	Short: "GetConnectionStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhysicalChannelConfigServiceClient(grpcConn)
+		req := &pb.GetConnectionStatusRequest{}
+		resp, err := client.GetConnectionStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhysicalChannelConfigGetDownlinkChannelNumberCmd = &cobra.Command{
+	Use:   "get-downlink-channel-number",
+	Short: "GetDownlinkChannelNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhysicalChannelConfigServiceClient(grpcConn)
+		req := &pb.GetDownlinkChannelNumberRequest{}
+		resp, err := client.GetDownlinkChannelNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhysicalChannelConfigGetDownlinkFrequencyKhzCmd = &cobra.Command{
+	Use:   "get-downlink-frequency-khz",
+	Short: "GetDownlinkFrequencyKhz RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhysicalChannelConfigServiceClient(grpcConn)
+		req := &pb.GetDownlinkFrequencyKhzRequest{}
+		resp, err := client.GetDownlinkFrequencyKhz(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhysicalChannelConfigGetNetworkTypeCmd = &cobra.Command{
+	Use:   "get-network-type",
+	Short: "GetNetworkType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhysicalChannelConfigServiceClient(grpcConn)
+		req := &pb.GetNetworkTypeRequest{}
+		resp, err := client.GetNetworkType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhysicalChannelConfigGetPhysicalCellIdCmd = &cobra.Command{
+	Use:   "get-physical-cell-id",
+	Short: "GetPhysicalCellId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhysicalChannelConfigServiceClient(grpcConn)
+		req := &pb.GetPhysicalCellIdRequest{}
+		resp, err := client.GetPhysicalCellId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhysicalChannelConfigGetUplinkChannelNumberCmd = &cobra.Command{
+	Use:   "get-uplink-channel-number",
+	Short: "GetUplinkChannelNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhysicalChannelConfigServiceClient(grpcConn)
+		req := &pb.GetUplinkChannelNumberRequest{}
+		resp, err := client.GetUplinkChannelNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhysicalChannelConfigGetUplinkFrequencyKhzCmd = &cobra.Command{
+	Use:   "get-uplink-frequency-khz",
+	Short: "GetUplinkFrequencyKhz RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhysicalChannelConfigServiceClient(grpcConn)
+		req := &pb.GetUplinkFrequencyKhzRequest{}
+		resp, err := client.GetUplinkFrequencyKhz(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhysicalChannelConfigHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhysicalChannelConfigServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhysicalChannelConfigToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhysicalChannelConfigServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhysicalChannelConfigWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhysicalChannelConfigServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsStreamingSessionCmd = &cobra.Command{
+	Use:   "mbms-streaming-session",
+	Short: "MbmsStreamingSessionService operations",
+}
+
+var telephonyMbmsStreamingSessionCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsStreamingSessionServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsStreamingSessionStartStreamingCmd = &cobra.Command{
+	Use:   "start-streaming",
+	Short: "StartStreaming RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsStreamingSessionServiceClient(grpcConn)
+		req := &pb.StartStreamingRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.StartStreaming(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsStreamingSessionCreate3Cmd = &cobra.Command{
+	Use:   "create3",
+	Short: "Create3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsStreamingSessionServiceClient(grpcConn)
+		req := &pb.Create3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Create3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyMbmsStreamingSessionCreate4_1Cmd = &cobra.Command{
+	Use:   "create4_1",
+	Short: "Create4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMbmsStreamingSessionServiceClient(grpcConn)
+		req := &pb.Create4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Create4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthCmd = &cobra.Command{
+	Use:   "cell-signal-strength",
+	Short: "CellSignalStrengthService operations",
+}
+
+var telephonyCellSignalStrengthEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthGetAsuLevelCmd = &cobra.Command{
+	Use:   "get-asu-level",
+	Short: "GetAsuLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthServiceClient(grpcConn)
+		req := &pb.GetAsuLevelRequest{}
+		resp, err := client.GetAsuLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthGetDbmCmd = &cobra.Command{
+	Use:   "get-dbm",
+	Short: "GetDbm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthServiceClient(grpcConn)
+		req := &pb.GetDbmRequest{}
+		resp, err := client.GetDbm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthGetLevelCmd = &cobra.Command{
+	Use:   "get-level",
+	Short: "GetLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthServiceClient(grpcConn)
+		req := &pb.GetLevelRequest{}
+		resp, err := client.GetLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellSignalStrengthHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellSignalStrengthServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityNrCmd = &cobra.Command{
+	Use:   "cell-identity-nr",
+	Short: "CellIdentityNrService operations",
+}
+
+var telephonyCellIdentityNrEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityNrServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityNrGetBandsCmd = &cobra.Command{
+	Use:   "get-bands",
+	Short: "GetBands RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityNrServiceClient(grpcConn)
+		req := &pb.GetBandsRequest{}
+		resp, err := client.GetBands(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityNrGetMccStringCmd = &cobra.Command{
+	Use:   "get-mcc-string",
+	Short: "GetMccString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityNrServiceClient(grpcConn)
+		req := &pb.GetMccStringRequest{}
+		resp, err := client.GetMccString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityNrGetMncStringCmd = &cobra.Command{
+	Use:   "get-mnc-string",
+	Short: "GetMncString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityNrServiceClient(grpcConn)
+		req := &pb.GetMncStringRequest{}
+		resp, err := client.GetMncString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityNrGetNciCmd = &cobra.Command{
+	Use:   "get-nci",
+	Short: "GetNci RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityNrServiceClient(grpcConn)
+		req := &pb.GetNciRequest{}
+		resp, err := client.GetNci(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityNrGetNrarfcnCmd = &cobra.Command{
+	Use:   "get-nrarfcn",
+	Short: "GetNrarfcn RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityNrServiceClient(grpcConn)
+		req := &pb.GetNrarfcnRequest{}
+		resp, err := client.GetNrarfcn(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityNrGetPciCmd = &cobra.Command{
+	Use:   "get-pci",
+	Short: "GetPci RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityNrServiceClient(grpcConn)
+		req := &pb.GetPciRequest{}
+		resp, err := client.GetPci(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityNrGetTacCmd = &cobra.Command{
+	Use:   "get-tac",
+	Short: "GetTac RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityNrServiceClient(grpcConn)
+		req := &pb.GetTacRequest{}
+		resp, err := client.GetTac(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityNrHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityNrServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityNrToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityNrServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCellIdentityNrWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCellIdentityNrServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkScanRequestCmd = &cobra.Command{
+	Use:   "network-scan-request",
+	Short: "NetworkScanRequestService operations",
+}
+
+var telephonyNetworkScanRequestNewNetworkScanRequestCmd = &cobra.Command{
+	Use:   "new-network-scan-request",
+	Short: "NewNetworkScanRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkScanRequestServiceClient(grpcConn)
+		req := &pb.NewNetworkScanRequestRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.NewNetworkScanRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkScanRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkScanRequestServiceClient(grpcConn)
+		req := &pb.NetworkScanRequestDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkScanRequestEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkScanRequestServiceClient(grpcConn)
+		req := &pb.NetworkScanRequestEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkScanRequestGetIncrementalResultsCmd = &cobra.Command{
+	Use:   "get-incremental-results",
+	Short: "GetIncrementalResults RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkScanRequestServiceClient(grpcConn)
+		req := &pb.GetIncrementalResultsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetIncrementalResults(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkScanRequestGetIncrementalResultsPeriodicityCmd = &cobra.Command{
+	Use:   "get-incremental-results-periodicity",
+	Short: "GetIncrementalResultsPeriodicity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkScanRequestServiceClient(grpcConn)
+		req := &pb.GetIncrementalResultsPeriodicityRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetIncrementalResultsPeriodicity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkScanRequestGetMaxSearchTimeCmd = &cobra.Command{
+	Use:   "get-max-search-time",
+	Short: "GetMaxSearchTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkScanRequestServiceClient(grpcConn)
+		req := &pb.GetMaxSearchTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMaxSearchTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkScanRequestGetScanTypeCmd = &cobra.Command{
+	Use:   "get-scan-type",
+	Short: "GetScanType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkScanRequestServiceClient(grpcConn)
+		req := &pb.GetScanTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetScanType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkScanRequestGetSearchPeriodicityCmd = &cobra.Command{
+	Use:   "get-search-periodicity",
+	Short: "GetSearchPeriodicity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkScanRequestServiceClient(grpcConn)
+		req := &pb.GetSearchPeriodicityRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSearchPeriodicity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkScanRequestGetSpecifiersCmd = &cobra.Command{
+	Use:   "get-specifiers",
+	Short: "GetSpecifiers RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkScanRequestServiceClient(grpcConn)
+		req := &pb.GetSpecifiersRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSpecifiers(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkScanRequestHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkScanRequestServiceClient(grpcConn)
+		req := &pb.NetworkScanRequestHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyNetworkScanRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkScanRequestServiceClient(grpcConn)
+		req := &pb.NetworkScanRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneStateListenerCmd = &cobra.Command{
+	Use:   "phone-state-listener",
+	Short: "PhoneStateListenerService operations",
+}
+
+var telephonyPhoneStateListenerNewPhoneStateListenerCmd = &cobra.Command{
+	Use:   "new-phone-state-listener",
+	Short: "NewPhoneStateListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneStateListenerServiceClient(grpcConn)
+		req := &pb.NewPhoneStateListenerRequest{}
+		resp, err := client.NewPhoneStateListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneStateListenerOnActiveDataSubscriptionIdChangedCmd = &cobra.Command{
+	Use:   "on-active-data-subscription-id-changed",
+	Short: "OnActiveDataSubscriptionIdChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneStateListenerServiceClient(grpcConn)
+		req := &pb.PhoneStateListenerOnActiveDataSubscriptionIdChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnActiveDataSubscriptionIdChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneStateListenerOnBarringInfoChangedCmd = &cobra.Command{
+	Use:   "on-barring-info-changed",
+	Short: "OnBarringInfoChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneStateListenerServiceClient(grpcConn)
+		req := &pb.PhoneStateListenerOnBarringInfoChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBarringInfoChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneStateListenerOnCallDisconnectCauseChangedCmd = &cobra.Command{
+	Use:   "on-call-disconnect-cause-changed",
+	Short: "OnCallDisconnectCauseChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneStateListenerServiceClient(grpcConn)
+		req := &pb.PhoneStateListenerOnCallDisconnectCauseChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCallDisconnectCauseChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneStateListenerOnCallForwardingIndicatorChangedCmd = &cobra.Command{
+	Use:   "on-call-forwarding-indicator-changed",
+	Short: "OnCallForwardingIndicatorChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneStateListenerServiceClient(grpcConn)
+		req := &pb.PhoneStateListenerOnCallForwardingIndicatorChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCallForwardingIndicatorChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneStateListenerOnCallStateChangedCmd = &cobra.Command{
+	Use:   "on-call-state-changed",
+	Short: "OnCallStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneStateListenerServiceClient(grpcConn)
+		req := &pb.PhoneStateListenerOnCallStateChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCallStateChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneStateListenerOnCellLocationChangedCmd = &cobra.Command{
+	Use:   "on-cell-location-changed",
+	Short: "OnCellLocationChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneStateListenerServiceClient(grpcConn)
+		req := &pb.PhoneStateListenerOnCellLocationChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCellLocationChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneStateListenerOnDataActivityCmd = &cobra.Command{
+	Use:   "on-data-activity",
+	Short: "OnDataActivity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneStateListenerServiceClient(grpcConn)
+		req := &pb.PhoneStateListenerOnDataActivityRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDataActivity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneStateListenerOnDataConnectionStateChanged1Cmd = &cobra.Command{
+	Use:   "on-data-connection-state-changed1",
+	Short: "OnDataConnectionStateChanged1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneStateListenerServiceClient(grpcConn)
+		req := &pb.OnDataConnectionStateChanged1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDataConnectionStateChanged1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneStateListenerOnDataConnectionStateChanged2_1Cmd = &cobra.Command{
+	Use:   "on-data-connection-state-changed2_1",
+	Short: "OnDataConnectionStateChanged2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneStateListenerServiceClient(grpcConn)
+		req := &pb.OnDataConnectionStateChanged2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnDataConnectionStateChanged2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneStateListenerOnDisplayInfoChangedCmd = &cobra.Command{
+	Use:   "on-display-info-changed",
+	Short: "OnDisplayInfoChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneStateListenerServiceClient(grpcConn)
+		req := &pb.PhoneStateListenerOnDisplayInfoChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDisplayInfoChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneStateListenerOnImsCallDisconnectCauseChangedCmd = &cobra.Command{
+	Use:   "on-ims-call-disconnect-cause-changed",
+	Short: "OnImsCallDisconnectCauseChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneStateListenerServiceClient(grpcConn)
+		req := &pb.PhoneStateListenerOnImsCallDisconnectCauseChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnImsCallDisconnectCauseChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneStateListenerOnMessageWaitingIndicatorChangedCmd = &cobra.Command{
+	Use:   "on-message-waiting-indicator-changed",
+	Short: "OnMessageWaitingIndicatorChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneStateListenerServiceClient(grpcConn)
+		req := &pb.PhoneStateListenerOnMessageWaitingIndicatorChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnMessageWaitingIndicatorChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneStateListenerOnPreciseDataConnectionStateChangedCmd = &cobra.Command{
+	Use:   "on-precise-data-connection-state-changed",
+	Short: "OnPreciseDataConnectionStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneStateListenerServiceClient(grpcConn)
+		req := &pb.PhoneStateListenerOnPreciseDataConnectionStateChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnPreciseDataConnectionStateChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneStateListenerOnRegistrationFailedCmd = &cobra.Command{
+	Use:   "on-registration-failed",
+	Short: "OnRegistrationFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneStateListenerServiceClient(grpcConn)
+		req := &pb.PhoneStateListenerOnRegistrationFailedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.OnRegistrationFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneStateListenerOnServiceStateChangedCmd = &cobra.Command{
+	Use:   "on-service-state-changed",
+	Short: "OnServiceStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneStateListenerServiceClient(grpcConn)
+		req := &pb.PhoneStateListenerOnServiceStateChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnServiceStateChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneStateListenerOnSignalStrengthChangedCmd = &cobra.Command{
+	Use:   "on-signal-strength-changed",
+	Short: "OnSignalStrengthChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneStateListenerServiceClient(grpcConn)
+		req := &pb.OnSignalStrengthChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnSignalStrengthChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneStateListenerOnSignalStrengthsChangedCmd = &cobra.Command{
+	Use:   "on-signal-strengths-changed",
+	Short: "OnSignalStrengthsChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneStateListenerServiceClient(grpcConn)
+		req := &pb.PhoneStateListenerOnSignalStrengthsChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnSignalStrengthsChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyPhoneStateListenerOnUserMobileDataStateChangedCmd = &cobra.Command{
+	Use:   "on-user-mobile-data-state-changed",
+	Short: "OnUserMobileDataStateChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPhoneStateListenerServiceClient(grpcConn)
+		req := &pb.PhoneStateListenerOnUserMobileDataStateChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnUserMobileDataStateChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	telephonyVisualVoicemailSmsCmd.AddCommand(telephonyVisualVoicemailSmsDescribeContentsCmd)
+	telephonyVisualVoicemailSmsCmd.AddCommand(telephonyVisualVoicemailSmsGetFieldsCmd)
+	telephonyVisualVoicemailSmsCmd.AddCommand(telephonyVisualVoicemailSmsGetMessageBodyCmd)
+	telephonyVisualVoicemailSmsCmd.AddCommand(telephonyVisualVoicemailSmsGetPhoneAccountHandleCmd)
+	telephonyVisualVoicemailSmsCmd.AddCommand(telephonyVisualVoicemailSmsGetPrefixCmd)
+	telephonyVisualVoicemailSmsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyVisualVoicemailSmsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyVisualVoicemailSmsCmd.AddCommand(telephonyVisualVoicemailSmsWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyVisualVoicemailSmsCmd)
+	telephonyCellSignalStrengthGsmCmd.AddCommand(telephonyCellSignalStrengthGsmDescribeContentsCmd)
+	telephonyCellSignalStrengthGsmEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellSignalStrengthGsmCmd.AddCommand(telephonyCellSignalStrengthGsmEqualsCmd)
+	telephonyCellSignalStrengthGsmCmd.AddCommand(telephonyCellSignalStrengthGsmGetAsuLevelCmd)
+	telephonyCellSignalStrengthGsmCmd.AddCommand(telephonyCellSignalStrengthGsmGetBitErrorRateCmd)
+	telephonyCellSignalStrengthGsmCmd.AddCommand(telephonyCellSignalStrengthGsmGetDbmCmd)
+	telephonyCellSignalStrengthGsmCmd.AddCommand(telephonyCellSignalStrengthGsmGetLevelCmd)
+	telephonyCellSignalStrengthGsmCmd.AddCommand(telephonyCellSignalStrengthGsmGetRssiCmd)
+	telephonyCellSignalStrengthGsmCmd.AddCommand(telephonyCellSignalStrengthGsmGetTimingAdvanceCmd)
+	telephonyCellSignalStrengthGsmCmd.AddCommand(telephonyCellSignalStrengthGsmHashCodeCmd)
+	telephonyCellSignalStrengthGsmCmd.AddCommand(telephonyCellSignalStrengthGsmToStringCmd)
+	telephonyCellSignalStrengthGsmWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellSignalStrengthGsmWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellSignalStrengthGsmCmd.AddCommand(telephonyCellSignalStrengthGsmWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyCellSignalStrengthGsmCmd)
+	telephonyVisualVoicemailServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyVisualVoicemailServiceCmd.AddCommand(telephonyVisualVoicemailServiceOnBindCmd)
+	telephonyVisualVoicemailServiceOnCellServiceConnectedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyVisualVoicemailServiceOnCellServiceConnectedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyVisualVoicemailServiceCmd.AddCommand(telephonyVisualVoicemailServiceOnCellServiceConnectedCmd)
+	telephonyVisualVoicemailServiceOnSimRemovedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyVisualVoicemailServiceOnSimRemovedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyVisualVoicemailServiceCmd.AddCommand(telephonyVisualVoicemailServiceOnSimRemovedCmd)
+	telephonyVisualVoicemailServiceOnSmsReceivedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyVisualVoicemailServiceOnSmsReceivedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyVisualVoicemailServiceCmd.AddCommand(telephonyVisualVoicemailServiceOnSmsReceivedCmd)
+	telephonyVisualVoicemailServiceOnStoppedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyVisualVoicemailServiceCmd.AddCommand(telephonyVisualVoicemailServiceOnStoppedCmd)
+	telephonyCmd.AddCommand(telephonyVisualVoicemailServiceCmd)
+	telephonyVisualVoicemailServiceVisualVoicemailTaskEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyVisualVoicemailServiceVisualVoicemailTaskCmd.AddCommand(telephonyVisualVoicemailServiceVisualVoicemailTaskEqualsCmd)
+	telephonyVisualVoicemailServiceVisualVoicemailTaskCmd.AddCommand(telephonyVisualVoicemailServiceVisualVoicemailTaskFinishCmd)
+	telephonyVisualVoicemailServiceVisualVoicemailTaskCmd.AddCommand(telephonyVisualVoicemailServiceVisualVoicemailTaskHashCodeCmd)
+	telephonyCmd.AddCommand(telephonyVisualVoicemailServiceVisualVoicemailTaskCmd)
+	telephonyCellSignalStrengthTdscdmaCmd.AddCommand(telephonyCellSignalStrengthTdscdmaDescribeContentsCmd)
+	telephonyCellSignalStrengthTdscdmaEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellSignalStrengthTdscdmaCmd.AddCommand(telephonyCellSignalStrengthTdscdmaEqualsCmd)
+	telephonyCellSignalStrengthTdscdmaCmd.AddCommand(telephonyCellSignalStrengthTdscdmaGetAsuLevelCmd)
+	telephonyCellSignalStrengthTdscdmaCmd.AddCommand(telephonyCellSignalStrengthTdscdmaGetDbmCmd)
+	telephonyCellSignalStrengthTdscdmaCmd.AddCommand(telephonyCellSignalStrengthTdscdmaGetLevelCmd)
+	telephonyCellSignalStrengthTdscdmaCmd.AddCommand(telephonyCellSignalStrengthTdscdmaGetRscpCmd)
+	telephonyCellSignalStrengthTdscdmaCmd.AddCommand(telephonyCellSignalStrengthTdscdmaHashCodeCmd)
+	telephonyCellSignalStrengthTdscdmaCmd.AddCommand(telephonyCellSignalStrengthTdscdmaToStringCmd)
+	telephonyCellSignalStrengthTdscdmaWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellSignalStrengthTdscdmaWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellSignalStrengthTdscdmaCmd.AddCommand(telephonyCellSignalStrengthTdscdmaWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyCellSignalStrengthTdscdmaCmd)
+	telephonyCellInfoLteCmd.AddCommand(telephonyCellInfoLteDescribeContentsCmd)
+	telephonyCellInfoLteEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellInfoLteCmd.AddCommand(telephonyCellInfoLteEqualsCmd)
+	telephonyCellInfoLteCmd.AddCommand(telephonyCellInfoLteGetCellIdentity0Cmd)
+	telephonyCellInfoLteCmd.AddCommand(telephonyCellInfoLteGetCellSignalStrength0Cmd)
+	telephonyCellInfoLteCmd.AddCommand(telephonyCellInfoLteHashCodeCmd)
+	telephonyCellInfoLteCmd.AddCommand(telephonyCellInfoLteToStringCmd)
+	telephonyCellInfoLteWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellInfoLteWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellInfoLteCmd.AddCommand(telephonyCellInfoLteWriteToParcelCmd)
+	telephonyCellInfoLteCmd.AddCommand(telephonyCellInfoLteGetCellSignalStrength0_1Cmd)
+	telephonyCellInfoLteCmd.AddCommand(telephonyCellInfoLteGetCellIdentity0_1Cmd)
+	telephonyCmd.AddCommand(telephonyCellInfoLteCmd)
+	telephonyScanManagerNetworkScanCallbackCmd.AddCommand(telephonyScanManagerNetworkScanCallbackOnCompleteCmd)
+	telephonyScanManagerNetworkScanCallbackOnErrorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyScanManagerNetworkScanCallbackCmd.AddCommand(telephonyScanManagerNetworkScanCallbackOnErrorCmd)
+	telephonyCmd.AddCommand(telephonyScanManagerNetworkScanCallbackCmd)
+	telephonyCellIdentityTdscdmaCmd.AddCommand(telephonyCellIdentityTdscdmaDescribeContentsCmd)
+	telephonyCellIdentityTdscdmaEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellIdentityTdscdmaCmd.AddCommand(telephonyCellIdentityTdscdmaEqualsCmd)
+	telephonyCellIdentityTdscdmaCmd.AddCommand(telephonyCellIdentityTdscdmaGetCidCmd)
+	telephonyCellIdentityTdscdmaCmd.AddCommand(telephonyCellIdentityTdscdmaGetClosedSubscriberGroupInfoCmd)
+	telephonyCellIdentityTdscdmaCmd.AddCommand(telephonyCellIdentityTdscdmaGetCpidCmd)
+	telephonyCellIdentityTdscdmaCmd.AddCommand(telephonyCellIdentityTdscdmaGetLacCmd)
+	telephonyCellIdentityTdscdmaCmd.AddCommand(telephonyCellIdentityTdscdmaGetMccStringCmd)
+	telephonyCellIdentityTdscdmaCmd.AddCommand(telephonyCellIdentityTdscdmaGetMncStringCmd)
+	telephonyCellIdentityTdscdmaCmd.AddCommand(telephonyCellIdentityTdscdmaGetMobileNetworkOperatorCmd)
+	telephonyCellIdentityTdscdmaCmd.AddCommand(telephonyCellIdentityTdscdmaGetUarfcnCmd)
+	telephonyCellIdentityTdscdmaCmd.AddCommand(telephonyCellIdentityTdscdmaHashCodeCmd)
+	telephonyCellIdentityTdscdmaCmd.AddCommand(telephonyCellIdentityTdscdmaToStringCmd)
+	telephonyCellIdentityTdscdmaWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellIdentityTdscdmaWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellIdentityTdscdmaCmd.AddCommand(telephonyCellIdentityTdscdmaWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyCellIdentityTdscdmaCmd)
+	telephonySubscriptionManagerAddOnOpportunisticSubscriptionsChangedListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySubscriptionManagerAddOnOpportunisticSubscriptionsChangedListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerAddOnOpportunisticSubscriptionsChangedListenerCmd)
+	telephonySubscriptionManagerAddOnSubscriptionsChangedListener1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerAddOnSubscriptionsChangedListener1Cmd)
+	telephonySubscriptionManagerAddOnSubscriptionsChangedListener2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySubscriptionManagerAddOnSubscriptionsChangedListener2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerAddOnSubscriptionsChangedListener2_1Cmd)
+	telephonySubscriptionManagerCanManageSubscriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerCanManageSubscriptionCmd)
+	telephonySubscriptionManagerGetActiveSubscriptionInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerGetActiveSubscriptionInfoCmd)
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerGetActiveSubscriptionInfoCountCmd)
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerGetActiveSubscriptionInfoCountMaxCmd)
+	telephonySubscriptionManagerGetActiveSubscriptionInfoForSimSlotIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerGetActiveSubscriptionInfoForSimSlotIndexCmd)
+	telephonySubscriptionManagerGetDeviceToDeviceStatusSharingPreferenceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerGetDeviceToDeviceStatusSharingPreferenceCmd)
+	telephonySubscriptionManagerGetPhoneNumber1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerGetPhoneNumber1Cmd)
+	telephonySubscriptionManagerGetPhoneNumber2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionManagerGetPhoneNumber2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerGetPhoneNumber2_1Cmd)
+	telephonySubscriptionManagerGetSubscriptionIdsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerGetSubscriptionIdsCmd)
+	telephonySubscriptionManagerIsActiveSubscriptionIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerIsActiveSubscriptionIdCmd)
+	telephonySubscriptionManagerIsNetworkRoamingCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerIsNetworkRoamingCmd)
+	telephonySubscriptionManagerRemoveOnOpportunisticSubscriptionsChangedListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerRemoveOnOpportunisticSubscriptionsChangedListenerCmd)
+	telephonySubscriptionManagerRemoveOnSubscriptionsChangedListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerRemoveOnSubscriptionsChangedListenerCmd)
+	telephonySubscriptionManagerSetCarrierPhoneNumberCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionManagerSetCarrierPhoneNumberCmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerSetCarrierPhoneNumberCmd)
+	telephonySubscriptionManagerSetDeviceToDeviceStatusSharingPreferenceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionManagerSetDeviceToDeviceStatusSharingPreferenceCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerSetDeviceToDeviceStatusSharingPreferenceCmd)
+	telephonySubscriptionManagerSetOpportunisticCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	telephonySubscriptionManagerSetOpportunisticCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerSetOpportunisticCmd)
+	telephonySubscriptionManagerSetSubscriptionOverrideCongested4Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionManagerSetSubscriptionOverrideCongested4Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	telephonySubscriptionManagerSetSubscriptionOverrideCongested4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telephonySubscriptionManagerSetSubscriptionOverrideCongested4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerSetSubscriptionOverrideCongested4Cmd)
+	telephonySubscriptionManagerSetSubscriptionOverrideCongested3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionManagerSetSubscriptionOverrideCongested3_1Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	telephonySubscriptionManagerSetSubscriptionOverrideCongested3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerSetSubscriptionOverrideCongested3_1Cmd)
+	telephonySubscriptionManagerSetSubscriptionOverrideUnmetered4Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionManagerSetSubscriptionOverrideUnmetered4Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	telephonySubscriptionManagerSetSubscriptionOverrideUnmetered4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telephonySubscriptionManagerSetSubscriptionOverrideUnmetered4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerSetSubscriptionOverrideUnmetered4Cmd)
+	telephonySubscriptionManagerSetSubscriptionOverrideUnmetered3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionManagerSetSubscriptionOverrideUnmetered3_1Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	telephonySubscriptionManagerSetSubscriptionOverrideUnmetered3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerSetSubscriptionOverrideUnmetered3_1Cmd)
+	telephonySubscriptionManagerSwitchToSubscriptionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionManagerSwitchToSubscriptionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerSwitchToSubscriptionCmd)
+	telephonySubscriptionManagerFromCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerFromCmd)
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerGetActiveDataSubscriptionIdCmd)
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerGetDefaultDataSubscriptionIdCmd)
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerGetDefaultSmsSubscriptionIdCmd)
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerGetDefaultSubscriptionIdCmd)
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerGetDefaultVoiceSubscriptionIdCmd)
+	telephonySubscriptionManagerGetSlotIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerGetSlotIndexCmd)
+	telephonySubscriptionManagerGetSubscriptionIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerGetSubscriptionIdCmd)
+	telephonySubscriptionManagerIsUsableSubscriptionIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerIsUsableSubscriptionIdCmd)
+	telephonySubscriptionManagerIsValidSubscriptionIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionManagerCmd.AddCommand(telephonySubscriptionManagerIsValidSubscriptionIdCmd)
+	telephonyCmd.AddCommand(telephonySubscriptionManagerCmd)
+	telephonySubscriptionManagerOnOpportunisticSubscriptionsChangedListenerCmd.AddCommand(telephonySubscriptionManagerOnOpportunisticSubscriptionsChangedListenerOnOpportunisticSubscriptionsChangedCmd)
+	telephonyCmd.AddCommand(telephonySubscriptionManagerOnOpportunisticSubscriptionsChangedListenerCmd)
+	telephonySubscriptionManagerOnSubscriptionsChangedListenerCmd.AddCommand(telephonySubscriptionManagerOnSubscriptionsChangedListenerOnSubscriptionsChangedCmd)
+	telephonyCmd.AddCommand(telephonySubscriptionManagerOnSubscriptionsChangedListenerCmd)
+	telephonySignalThresholdInfoCmd.AddCommand(telephonySignalThresholdInfoDescribeContentsCmd)
+	telephonySignalThresholdInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySignalThresholdInfoCmd.AddCommand(telephonySignalThresholdInfoEqualsCmd)
+	telephonySignalThresholdInfoCmd.AddCommand(telephonySignalThresholdInfoGetHysteresisDbCmd)
+	telephonySignalThresholdInfoCmd.AddCommand(telephonySignalThresholdInfoGetRadioAccessNetworkTypeCmd)
+	telephonySignalThresholdInfoCmd.AddCommand(telephonySignalThresholdInfoGetSignalMeasurementTypeCmd)
+	telephonySignalThresholdInfoCmd.AddCommand(telephonySignalThresholdInfoGetThresholdsCmd)
+	telephonySignalThresholdInfoCmd.AddCommand(telephonySignalThresholdInfoHashCodeCmd)
+	telephonySignalThresholdInfoCmd.AddCommand(telephonySignalThresholdInfoToStringCmd)
+	telephonySignalThresholdInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySignalThresholdInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonySignalThresholdInfoCmd.AddCommand(telephonySignalThresholdInfoWriteToParcelCmd)
+	telephonySignalThresholdInfoCmd.AddCommand(telephonySignalThresholdInfoGetMaximumNumberOfThresholdsAllowedCmd)
+	telephonySignalThresholdInfoCmd.AddCommand(telephonySignalThresholdInfoGetMinimumNumberOfThresholdsAllowedCmd)
+	telephonyCmd.AddCommand(telephonySignalThresholdInfoCmd)
+	telephonySignalThresholdInfoBuilderCmd.AddCommand(telephonySignalThresholdInfoBuilderBuildCmd)
+	telephonySignalThresholdInfoBuilderSetHysteresisDbCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySignalThresholdInfoBuilderCmd.AddCommand(telephonySignalThresholdInfoBuilderSetHysteresisDbCmd)
+	telephonySignalThresholdInfoBuilderSetRadioAccessNetworkTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySignalThresholdInfoBuilderCmd.AddCommand(telephonySignalThresholdInfoBuilderSetRadioAccessNetworkTypeCmd)
+	telephonySignalThresholdInfoBuilderSetSignalMeasurementTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySignalThresholdInfoBuilderCmd.AddCommand(telephonySignalThresholdInfoBuilderSetSignalMeasurementTypeCmd)
+	telephonySignalThresholdInfoBuilderSetThresholdsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySignalThresholdInfoBuilderCmd.AddCommand(telephonySignalThresholdInfoBuilderSetThresholdsCmd)
+	telephonyCmd.AddCommand(telephonySignalThresholdInfoBuilderCmd)
+	telephonyUiccPortInfoCmd.AddCommand(telephonyUiccPortInfoDescribeContentsCmd)
+	telephonyUiccPortInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyUiccPortInfoCmd.AddCommand(telephonyUiccPortInfoEqualsCmd)
+	telephonyUiccPortInfoCmd.AddCommand(telephonyUiccPortInfoGetIccIdCmd)
+	telephonyUiccPortInfoCmd.AddCommand(telephonyUiccPortInfoGetLogicalSlotIndexCmd)
+	telephonyUiccPortInfoCmd.AddCommand(telephonyUiccPortInfoGetPortIndexCmd)
+	telephonyUiccPortInfoCmd.AddCommand(telephonyUiccPortInfoHashCodeCmd)
+	telephonyUiccPortInfoCmd.AddCommand(telephonyUiccPortInfoIsActiveCmd)
+	telephonyUiccPortInfoCmd.AddCommand(telephonyUiccPortInfoToStringCmd)
+	telephonyUiccPortInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyUiccPortInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyUiccPortInfoCmd.AddCommand(telephonyUiccPortInfoWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyUiccPortInfoCmd)
+	telephonyCallbackActiveDataSubscriptionIdListenerOnActiveDataSubscriptionIdChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyCallbackActiveDataSubscriptionIdListenerCmd.AddCommand(telephonyCallbackActiveDataSubscriptionIdListenerOnActiveDataSubscriptionIdChangedCmd)
+	telephonyCmd.AddCommand(telephonyCallbackActiveDataSubscriptionIdListenerCmd)
+	telephonyCallbackBarringInfoListenerOnBarringInfoChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCallbackBarringInfoListenerCmd.AddCommand(telephonyCallbackBarringInfoListenerOnBarringInfoChangedCmd)
+	telephonyCmd.AddCommand(telephonyCallbackBarringInfoListenerCmd)
+	telephonyCallbackCallDisconnectCauseListenerOnCallDisconnectCauseChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyCallbackCallDisconnectCauseListenerOnCallDisconnectCauseChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCallbackCallDisconnectCauseListenerCmd.AddCommand(telephonyCallbackCallDisconnectCauseListenerOnCallDisconnectCauseChangedCmd)
+	telephonyCmd.AddCommand(telephonyCallbackCallDisconnectCauseListenerCmd)
+	telephonyCallbackCallForwardingIndicatorListenerOnCallForwardingIndicatorChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	telephonyCallbackCallForwardingIndicatorListenerCmd.AddCommand(telephonyCallbackCallForwardingIndicatorListenerOnCallForwardingIndicatorChangedCmd)
+	telephonyCmd.AddCommand(telephonyCallbackCallForwardingIndicatorListenerCmd)
+	telephonyCallbackCallStateListenerOnCallStateChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyCallbackCallStateListenerCmd.AddCommand(telephonyCallbackCallStateListenerOnCallStateChangedCmd)
+	telephonyCmd.AddCommand(telephonyCallbackCallStateListenerCmd)
+	telephonyCallbackCarrierNetworkListenerOnCarrierNetworkChangeCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	telephonyCallbackCarrierNetworkListenerCmd.AddCommand(telephonyCallbackCarrierNetworkListenerOnCarrierNetworkChangeCmd)
+	telephonyCmd.AddCommand(telephonyCallbackCarrierNetworkListenerCmd)
+	telephonyCallbackCellLocationListenerOnCellLocationChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCallbackCellLocationListenerCmd.AddCommand(telephonyCallbackCellLocationListenerOnCellLocationChangedCmd)
+	telephonyCmd.AddCommand(telephonyCallbackCellLocationListenerCmd)
+	telephonyCallbackDataActivationStateListenerOnDataActivationStateChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyCallbackDataActivationStateListenerCmd.AddCommand(telephonyCallbackDataActivationStateListenerOnDataActivationStateChangedCmd)
+	telephonyCmd.AddCommand(telephonyCallbackDataActivationStateListenerCmd)
+	telephonyCallbackDataActivityListenerOnDataActivityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyCallbackDataActivityListenerCmd.AddCommand(telephonyCallbackDataActivityListenerOnDataActivityCmd)
+	telephonyCmd.AddCommand(telephonyCallbackDataActivityListenerCmd)
+	telephonyCallbackDataConnectionStateListenerOnDataConnectionStateChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyCallbackDataConnectionStateListenerOnDataConnectionStateChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCallbackDataConnectionStateListenerCmd.AddCommand(telephonyCallbackDataConnectionStateListenerOnDataConnectionStateChangedCmd)
+	telephonyCmd.AddCommand(telephonyCallbackDataConnectionStateListenerCmd)
+	telephonyCallbackDisplayInfoListenerOnDisplayInfoChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCallbackDisplayInfoListenerCmd.AddCommand(telephonyCallbackDisplayInfoListenerOnDisplayInfoChangedCmd)
+	telephonyCmd.AddCommand(telephonyCallbackDisplayInfoListenerCmd)
+	telephonyCallbackImsCallDisconnectCauseListenerOnImsCallDisconnectCauseChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCallbackImsCallDisconnectCauseListenerCmd.AddCommand(telephonyCallbackImsCallDisconnectCauseListenerOnImsCallDisconnectCauseChangedCmd)
+	telephonyCmd.AddCommand(telephonyCallbackImsCallDisconnectCauseListenerCmd)
+	telephonyCallbackMessageWaitingIndicatorListenerOnMessageWaitingIndicatorChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	telephonyCallbackMessageWaitingIndicatorListenerCmd.AddCommand(telephonyCallbackMessageWaitingIndicatorListenerOnMessageWaitingIndicatorChangedCmd)
+	telephonyCmd.AddCommand(telephonyCallbackMessageWaitingIndicatorListenerCmd)
+	telephonyCallbackPreciseDataConnectionStateListenerOnPreciseDataConnectionStateChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCallbackPreciseDataConnectionStateListenerCmd.AddCommand(telephonyCallbackPreciseDataConnectionStateListenerOnPreciseDataConnectionStateChangedCmd)
+	telephonyCmd.AddCommand(telephonyCallbackPreciseDataConnectionStateListenerCmd)
+	telephonyCallbackRegistrationFailedListenerOnRegistrationFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCallbackRegistrationFailedListenerOnRegistrationFailedCmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonyCallbackRegistrationFailedListenerOnRegistrationFailedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	telephonyCallbackRegistrationFailedListenerOnRegistrationFailedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	telephonyCallbackRegistrationFailedListenerOnRegistrationFailedCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	telephonyCallbackRegistrationFailedListenerCmd.AddCommand(telephonyCallbackRegistrationFailedListenerOnRegistrationFailedCmd)
+	telephonyCmd.AddCommand(telephonyCallbackRegistrationFailedListenerCmd)
+	telephonyCallbackServiceStateListenerOnServiceStateChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCallbackServiceStateListenerCmd.AddCommand(telephonyCallbackServiceStateListenerOnServiceStateChangedCmd)
+	telephonyCmd.AddCommand(telephonyCallbackServiceStateListenerCmd)
+	telephonyCallbackSignalStrengthsListenerOnSignalStrengthsChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCallbackSignalStrengthsListenerCmd.AddCommand(telephonyCallbackSignalStrengthsListenerOnSignalStrengthsChangedCmd)
+	telephonyCmd.AddCommand(telephonyCallbackSignalStrengthsListenerCmd)
+	telephonyCallbackUserMobileDataStateListenerOnUserMobileDataStateChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	telephonyCallbackUserMobileDataStateListenerCmd.AddCommand(telephonyCallbackUserMobileDataStateListenerOnUserMobileDataStateChangedCmd)
+	telephonyCmd.AddCommand(telephonyCallbackUserMobileDataStateListenerCmd)
 	telephonyCarrierConfigManagerCmd.AddCommand(telephonyCarrierConfigManagerGetConfig0Cmd)
 	telephonyCarrierConfigManagerGetConfig1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	telephonyCarrierConfigManagerCmd.AddCommand(telephonyCarrierConfigManagerGetConfig1_1Cmd)
@@ -2561,6 +16742,586 @@ func init() {
 	telephonyCarrierConfigManagerIsConfigForIdentifiedCarrierCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	telephonyCarrierConfigManagerCmd.AddCommand(telephonyCarrierConfigManagerIsConfigForIdentifiedCarrierCmd)
 	telephonyCmd.AddCommand(telephonyCarrierConfigManagerCmd)
+	telephonyCarrierConfigManagerCarrierConfigChangeListenerOnCarrierConfigChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyCarrierConfigManagerCarrierConfigChangeListenerOnCarrierConfigChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCarrierConfigManagerCarrierConfigChangeListenerOnCarrierConfigChangedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	telephonyCarrierConfigManagerCarrierConfigChangeListenerOnCarrierConfigChangedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	telephonyCarrierConfigManagerCarrierConfigChangeListenerCmd.AddCommand(telephonyCarrierConfigManagerCarrierConfigChangeListenerOnCarrierConfigChangedCmd)
+	telephonyCmd.AddCommand(telephonyCarrierConfigManagerCarrierConfigChangeListenerCmd)
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsNewPhoneNumberUtilsCmd)
+	telephonyPhoneNumberUtilsAddTtsSpanCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsAddTtsSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneNumberUtilsAddTtsSpanCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyPhoneNumberUtilsAddTtsSpanCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsAddTtsSpanCmd)
+	telephonyPhoneNumberUtilsAreSamePhoneNumberCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsAreSamePhoneNumberCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsAreSamePhoneNumberCmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonyPhoneNumberUtilsAreSamePhoneNumberCmd.Flags().String("arg2", "", "arg2 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsAreSamePhoneNumberCmd)
+	telephonyPhoneNumberUtilsCalledPartyBCDFragmentToString3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsCalledPartyBCDFragmentToString3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneNumberUtilsCalledPartyBCDFragmentToString3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyPhoneNumberUtilsCalledPartyBCDFragmentToString3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsCalledPartyBCDFragmentToString3Cmd)
+	telephonyPhoneNumberUtilsCalledPartyBCDFragmentToString4_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsCalledPartyBCDFragmentToString4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneNumberUtilsCalledPartyBCDFragmentToString4_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyPhoneNumberUtilsCalledPartyBCDFragmentToString4_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	telephonyPhoneNumberUtilsCalledPartyBCDFragmentToString4_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsCalledPartyBCDFragmentToString4_1Cmd)
+	telephonyPhoneNumberUtilsCalledPartyBCDToString3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsCalledPartyBCDToString3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneNumberUtilsCalledPartyBCDToString3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyPhoneNumberUtilsCalledPartyBCDToString3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsCalledPartyBCDToString3Cmd)
+	telephonyPhoneNumberUtilsCalledPartyBCDToString4_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsCalledPartyBCDToString4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneNumberUtilsCalledPartyBCDToString4_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyPhoneNumberUtilsCalledPartyBCDToString4_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	telephonyPhoneNumberUtilsCalledPartyBCDToString4_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsCalledPartyBCDToString4_1Cmd)
+	telephonyPhoneNumberUtilsCompare3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsCompare3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneNumberUtilsCompare3Cmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonyPhoneNumberUtilsCompare3Cmd.Flags().String("arg2", "", "arg2 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsCompare3Cmd)
+	telephonyPhoneNumberUtilsCompare2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsCompare2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCompare2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsCompare2_1Cmd)
+	telephonyPhoneNumberUtilsConvertKeypadLettersToDigitsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsConvertKeypadLettersToDigitsCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsConvertKeypadLettersToDigitsCmd)
+	telephonyPhoneNumberUtilsCreateTtsSpanCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsCreateTtsSpanCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsCreateTtsSpanCmd)
+	telephonyPhoneNumberUtilsCreateTtsSpannableCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsCreateTtsSpannableCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsCreateTtsSpannableCmd)
+	telephonyPhoneNumberUtilsExtractNetworkPortionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsExtractNetworkPortionCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsExtractNetworkPortionCmd)
+	telephonyPhoneNumberUtilsExtractPostDialPortionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsExtractPostDialPortionCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsExtractPostDialPortionCmd)
+	telephonyPhoneNumberUtilsFormatJapaneseNumberCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsFormatJapaneseNumberCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsFormatJapaneseNumberCmd)
+	telephonyPhoneNumberUtilsFormatNanpNumberCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsFormatNanpNumberCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsFormatNanpNumberCmd)
+	telephonyPhoneNumberUtilsFormatNumber2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsFormatNumber2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneNumberUtilsFormatNumber2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsFormatNumber2Cmd)
+	telephonyPhoneNumberUtilsFormatNumber1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsFormatNumber1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsFormatNumber1_1Cmd)
+	telephonyPhoneNumberUtilsFormatNumber2_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsFormatNumber2_2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsFormatNumber2_2Cmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsFormatNumber2_2Cmd)
+	telephonyPhoneNumberUtilsFormatNumber3_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsFormatNumber3_3Cmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsFormatNumber3_3Cmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonyPhoneNumberUtilsFormatNumber3_3Cmd.Flags().String("arg2", "", "arg2 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsFormatNumber3_3Cmd)
+	telephonyPhoneNumberUtilsFormatNumberToE164Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsFormatNumberToE164Cmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsFormatNumberToE164Cmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsFormatNumberToE164Cmd)
+	telephonyPhoneNumberUtilsFormatNumberToRFC3966Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsFormatNumberToRFC3966Cmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsFormatNumberToRFC3966Cmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsFormatNumberToRFC3966Cmd)
+	telephonyPhoneNumberUtilsGetFormatTypeForLocaleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsGetFormatTypeForLocaleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsGetFormatTypeForLocaleCmd)
+	telephonyPhoneNumberUtilsGetNumberFromIntentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsGetNumberFromIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneNumberUtilsGetNumberFromIntentCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsGetNumberFromIntentCmd)
+	telephonyPhoneNumberUtilsGetStrippedReversedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsGetStrippedReversedCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsGetStrippedReversedCmd)
+	telephonyPhoneNumberUtilsIs12KeyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsIs12KeyCmd.Flags().Uint32("arg0", 0, "arg0 (uint32)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsIs12KeyCmd)
+	telephonyPhoneNumberUtilsIsDialableCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsIsDialableCmd.Flags().Uint32("arg0", 0, "arg0 (uint32)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsIsDialableCmd)
+	telephonyPhoneNumberUtilsIsEmergencyNumberCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsIsEmergencyNumberCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsIsEmergencyNumberCmd)
+	telephonyPhoneNumberUtilsIsGlobalPhoneNumberCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsIsGlobalPhoneNumberCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsIsGlobalPhoneNumberCmd)
+	telephonyPhoneNumberUtilsIsISODigitCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsIsISODigitCmd.Flags().Uint32("arg0", 0, "arg0 (uint32)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsIsISODigitCmd)
+	telephonyPhoneNumberUtilsIsLocalEmergencyNumberCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsIsLocalEmergencyNumberCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneNumberUtilsIsLocalEmergencyNumberCmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsIsLocalEmergencyNumberCmd)
+	telephonyPhoneNumberUtilsIsNonSeparatorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsIsNonSeparatorCmd.Flags().Uint32("arg0", 0, "arg0 (uint32)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsIsNonSeparatorCmd)
+	telephonyPhoneNumberUtilsIsReallyDialableCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsIsReallyDialableCmd.Flags().Uint32("arg0", 0, "arg0 (uint32)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsIsReallyDialableCmd)
+	telephonyPhoneNumberUtilsIsStartsPostDialCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsIsStartsPostDialCmd.Flags().Uint32("arg0", 0, "arg0 (uint32)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsIsStartsPostDialCmd)
+	telephonyPhoneNumberUtilsIsVoiceMailNumberCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsIsVoiceMailNumberCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsIsVoiceMailNumberCmd)
+	telephonyPhoneNumberUtilsIsWellFormedSmsAddressCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsIsWellFormedSmsAddressCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsIsWellFormedSmsAddressCmd)
+	telephonyPhoneNumberUtilsIsWpsCallNumberCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsIsWpsCallNumberCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsIsWpsCallNumberCmd)
+	telephonyPhoneNumberUtilsNetworkPortionToCalledPartyBCDCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsNetworkPortionToCalledPartyBCDCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsNetworkPortionToCalledPartyBCDCmd)
+	telephonyPhoneNumberUtilsNetworkPortionToCalledPartyBCDWithLengthCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsNetworkPortionToCalledPartyBCDWithLengthCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsNetworkPortionToCalledPartyBCDWithLengthCmd)
+	telephonyPhoneNumberUtilsNormalizeNumberCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsNormalizeNumberCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsNormalizeNumberCmd)
+	telephonyPhoneNumberUtilsNumberToCalledPartyBCD1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsNumberToCalledPartyBCD1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsNumberToCalledPartyBCD1Cmd)
+	telephonyPhoneNumberUtilsNumberToCalledPartyBCD2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsNumberToCalledPartyBCD2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsNumberToCalledPartyBCD2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsNumberToCalledPartyBCD2_1Cmd)
+	telephonyPhoneNumberUtilsReplaceUnicodeDigitsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsReplaceUnicodeDigitsCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsReplaceUnicodeDigitsCmd)
+	telephonyPhoneNumberUtilsStringFromStringAndTOACmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsStringFromStringAndTOACmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsStringFromStringAndTOACmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsStringFromStringAndTOACmd)
+	telephonyPhoneNumberUtilsStripSeparatorsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsStripSeparatorsCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsStripSeparatorsCmd)
+	telephonyPhoneNumberUtilsToCallerIDMinMatchCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsToCallerIDMinMatchCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsToCallerIDMinMatchCmd)
+	telephonyPhoneNumberUtilsToaFromStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberUtilsToaFromStringCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberUtilsCmd.AddCommand(telephonyPhoneNumberUtilsToaFromStringCmd)
+	telephonyCmd.AddCommand(telephonyPhoneNumberUtilsCmd)
+	telephonyCellSignalStrengthWcdmaCmd.AddCommand(telephonyCellSignalStrengthWcdmaDescribeContentsCmd)
+	telephonyCellSignalStrengthWcdmaEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellSignalStrengthWcdmaCmd.AddCommand(telephonyCellSignalStrengthWcdmaEqualsCmd)
+	telephonyCellSignalStrengthWcdmaCmd.AddCommand(telephonyCellSignalStrengthWcdmaGetAsuLevelCmd)
+	telephonyCellSignalStrengthWcdmaCmd.AddCommand(telephonyCellSignalStrengthWcdmaGetDbmCmd)
+	telephonyCellSignalStrengthWcdmaCmd.AddCommand(telephonyCellSignalStrengthWcdmaGetEcNoCmd)
+	telephonyCellSignalStrengthWcdmaCmd.AddCommand(telephonyCellSignalStrengthWcdmaGetLevelCmd)
+	telephonyCellSignalStrengthWcdmaCmd.AddCommand(telephonyCellSignalStrengthWcdmaHashCodeCmd)
+	telephonyCellSignalStrengthWcdmaCmd.AddCommand(telephonyCellSignalStrengthWcdmaToStringCmd)
+	telephonyCellSignalStrengthWcdmaWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellSignalStrengthWcdmaWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellSignalStrengthWcdmaCmd.AddCommand(telephonyCellSignalStrengthWcdmaWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyCellSignalStrengthWcdmaCmd)
+	telephonyMbmsGroupCallSessionCmd.AddCommand(telephonyMbmsGroupCallSessionCloseCmd)
+	telephonyMbmsGroupCallSessionCreate4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyMbmsGroupCallSessionCreate4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyMbmsGroupCallSessionCreate4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telephonyMbmsGroupCallSessionCreate4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	telephonyMbmsGroupCallSessionCmd.AddCommand(telephonyMbmsGroupCallSessionCreate4Cmd)
+	telephonyMbmsGroupCallSessionCreate3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyMbmsGroupCallSessionCreate3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyMbmsGroupCallSessionCreate3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telephonyMbmsGroupCallSessionCmd.AddCommand(telephonyMbmsGroupCallSessionCreate3_1Cmd)
+	telephonyCmd.AddCommand(telephonyMbmsGroupCallSessionCmd)
+	telephonySubscriptionInfoCreateIconBitmapCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoCreateIconBitmapCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoDescribeContentsCmd)
+	telephonySubscriptionInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoEqualsCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoGetCardIdCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoGetCarrierIdCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoGetCarrierNameCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoGetCountryIsoCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoGetDataRoamingCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoGetDisplayNameCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoGetGroupUuidCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoGetIccIdCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoGetIconTintCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoGetMccCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoGetMccStringCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoGetMncCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoGetMncStringCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoGetNumberCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoGetPortIndexCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoGetSimSlotIndexCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoGetSubscriptionIdCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoGetSubscriptionTypeCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoGetUsageSettingCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoHashCodeCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoIsEmbeddedCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoIsOnlyNonTerrestrialNetworkCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoIsOpportunisticCmd)
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoToStringCmd)
+	telephonySubscriptionInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySubscriptionInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonySubscriptionInfoCmd.AddCommand(telephonySubscriptionInfoWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonySubscriptionInfoCmd)
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateNewServiceStateCmd)
+	telephonyServiceStateDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateDescribeContentsCmd)
+	telephonyServiceStateEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateEqualsCmd)
+	telephonyServiceStateGetCdmaNetworkIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateGetCdmaNetworkIdCmd)
+	telephonyServiceStateGetCdmaSystemIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateGetCdmaSystemIdCmd)
+	telephonyServiceStateGetCellBandwidthsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateGetCellBandwidthsCmd)
+	telephonyServiceStateGetChannelNumberCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateGetChannelNumberCmd)
+	telephonyServiceStateGetDuplexModeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateGetDuplexModeCmd)
+	telephonyServiceStateGetIsManualSelectionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateGetIsManualSelectionCmd)
+	telephonyServiceStateGetOperatorAlphaLongCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateGetOperatorAlphaLongCmd)
+	telephonyServiceStateGetOperatorAlphaShortCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateGetOperatorAlphaShortCmd)
+	telephonyServiceStateGetOperatorNumericCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateGetOperatorNumericCmd)
+	telephonyServiceStateGetRoamingCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateGetRoamingCmd)
+	telephonyServiceStateGetStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateGetStateCmd)
+	telephonyServiceStateHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateHashCodeCmd)
+	telephonyServiceStateIsSearchingCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateIsSearchingCmd)
+	telephonyServiceStateIsUsingNonTerrestrialNetworkCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateIsUsingNonTerrestrialNetworkCmd)
+	telephonyServiceStateSetIsManualSelectionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateSetIsManualSelectionCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateSetIsManualSelectionCmd)
+	telephonyServiceStateSetOperatorNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateSetOperatorNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyServiceStateSetOperatorNameCmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonyServiceStateSetOperatorNameCmd.Flags().String("arg2", "", "arg2 (string)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateSetOperatorNameCmd)
+	telephonyServiceStateSetRoamingCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateSetRoamingCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateSetRoamingCmd)
+	telephonyServiceStateSetStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateSetStateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateSetStateCmd)
+	telephonyServiceStateSetStateOffCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateSetStateOffCmd)
+	telephonyServiceStateSetStateOutOfServiceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateSetStateOutOfServiceCmd)
+	telephonyServiceStateToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateToStringCmd)
+	telephonyServiceStateWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyServiceStateWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyServiceStateWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyServiceStateCmd.AddCommand(telephonyServiceStateWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyServiceStateCmd)
+	telephonyNetworkScanCmd.AddCommand(telephonyNetworkScanStopScanCmd)
+	telephonyCmd.AddCommand(telephonyNetworkScanCmd)
+	telephonyCellIdentityLteEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellIdentityLteCmd.AddCommand(telephonyCellIdentityLteEqualsCmd)
+	telephonyCellIdentityLteCmd.AddCommand(telephonyCellIdentityLteGetBandsCmd)
+	telephonyCellIdentityLteCmd.AddCommand(telephonyCellIdentityLteGetBandwidthCmd)
+	telephonyCellIdentityLteCmd.AddCommand(telephonyCellIdentityLteGetCiCmd)
+	telephonyCellIdentityLteCmd.AddCommand(telephonyCellIdentityLteGetClosedSubscriberGroupInfoCmd)
+	telephonyCellIdentityLteCmd.AddCommand(telephonyCellIdentityLteGetEarfcnCmd)
+	telephonyCellIdentityLteCmd.AddCommand(telephonyCellIdentityLteGetMccCmd)
+	telephonyCellIdentityLteCmd.AddCommand(telephonyCellIdentityLteGetMccStringCmd)
+	telephonyCellIdentityLteCmd.AddCommand(telephonyCellIdentityLteGetMncCmd)
+	telephonyCellIdentityLteCmd.AddCommand(telephonyCellIdentityLteGetMncStringCmd)
+	telephonyCellIdentityLteCmd.AddCommand(telephonyCellIdentityLteGetMobileNetworkOperatorCmd)
+	telephonyCellIdentityLteCmd.AddCommand(telephonyCellIdentityLteGetPciCmd)
+	telephonyCellIdentityLteCmd.AddCommand(telephonyCellIdentityLteGetTacCmd)
+	telephonyCellIdentityLteCmd.AddCommand(telephonyCellIdentityLteHashCodeCmd)
+	telephonyCellIdentityLteCmd.AddCommand(telephonyCellIdentityLteToStringCmd)
+	telephonyCellIdentityLteWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellIdentityLteWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellIdentityLteCmd.AddCommand(telephonyCellIdentityLteWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyCellIdentityLteCmd)
+	telephonyBarringInfoCmd.AddCommand(telephonyBarringInfoDescribeContentsCmd)
+	telephonyBarringInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyBarringInfoCmd.AddCommand(telephonyBarringInfoEqualsCmd)
+	telephonyBarringInfoGetBarringServiceInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyBarringInfoCmd.AddCommand(telephonyBarringInfoGetBarringServiceInfoCmd)
+	telephonyBarringInfoCmd.AddCommand(telephonyBarringInfoHashCodeCmd)
+	telephonyBarringInfoCmd.AddCommand(telephonyBarringInfoToStringCmd)
+	telephonyBarringInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyBarringInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyBarringInfoCmd.AddCommand(telephonyBarringInfoWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyBarringInfoCmd)
+	telephonyBarringInfoBarringServiceInfoCmd.AddCommand(telephonyBarringInfoBarringServiceInfoDescribeContentsCmd)
+	telephonyBarringInfoBarringServiceInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyBarringInfoBarringServiceInfoCmd.AddCommand(telephonyBarringInfoBarringServiceInfoEqualsCmd)
+	telephonyBarringInfoBarringServiceInfoCmd.AddCommand(telephonyBarringInfoBarringServiceInfoGetBarringTypeCmd)
+	telephonyBarringInfoBarringServiceInfoCmd.AddCommand(telephonyBarringInfoBarringServiceInfoGetConditionalBarringFactorCmd)
+	telephonyBarringInfoBarringServiceInfoCmd.AddCommand(telephonyBarringInfoBarringServiceInfoGetConditionalBarringTimeSecondsCmd)
+	telephonyBarringInfoBarringServiceInfoCmd.AddCommand(telephonyBarringInfoBarringServiceInfoHashCodeCmd)
+	telephonyBarringInfoBarringServiceInfoCmd.AddCommand(telephonyBarringInfoBarringServiceInfoIsBarredCmd)
+	telephonyBarringInfoBarringServiceInfoCmd.AddCommand(telephonyBarringInfoBarringServiceInfoIsConditionallyBarredCmd)
+	telephonyBarringInfoBarringServiceInfoCmd.AddCommand(telephonyBarringInfoBarringServiceInfoToStringCmd)
+	telephonyBarringInfoBarringServiceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyBarringInfoBarringServiceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyBarringInfoBarringServiceInfoCmd.AddCommand(telephonyBarringInfoBarringServiceInfoWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyBarringInfoBarringServiceInfoCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetDisplayMessageBodyCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetDisplayOriginatingAddressCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetEmailBodyCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetEmailFromCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetIndexOnIccCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetIndexOnSimCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetMessageBodyCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetMessageClassCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetOriginatingAddressCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetPduCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetProtocolIdentifierCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetPseudoSubjectCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetRecipientAddressCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetServiceCenterAddressCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetStatusCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetStatusOnIccCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetStatusOnSimCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetTimestampMillisCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetUserDataCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageIsCphsMwiMessageCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageIsEmailCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageIsMWIClearMessageCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageIsMWISetMessageCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageIsMwiDontStoreCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageIsReplaceCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageIsReplyPathPresentCmd)
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageIsStatusReportMessageCmd)
+	telephonySmsMessageCalculateLength2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonySmsMessageCalculateLength2Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageCalculateLength2Cmd)
+	telephonySmsMessageCalculateLength2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonySmsMessageCalculateLength2_1Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageCalculateLength2_1Cmd)
+	telephonySmsMessageCreateFromPdu1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageCreateFromPdu1Cmd)
+	telephonySmsMessageCreateFromPdu2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySmsMessageCreateFromPdu2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageCreateFromPdu2_1Cmd)
+	telephonySmsMessageGetSubmitPdu4Cmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonySmsMessageGetSubmitPdu4Cmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonySmsMessageGetSubmitPdu4Cmd.Flags().String("arg2", "", "arg2 (string)")
+	telephonySmsMessageGetSubmitPdu4Cmd.Flags().Bool("arg3", false, "arg3 (bool)")
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetSubmitPdu4Cmd)
+	telephonySmsMessageGetSubmitPdu5_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonySmsMessageGetSubmitPdu5_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonySmsMessageGetSubmitPdu5_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	telephonySmsMessageGetSubmitPdu5_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	telephonySmsMessageGetSubmitPdu5_1Cmd.Flags().Bool("arg4", false, "arg4 (bool)")
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetSubmitPdu5_1Cmd)
+	telephonySmsMessageGetTPLayerLengthForPDUCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonySmsMessageCmd.AddCommand(telephonySmsMessageGetTPLayerLengthForPDUCmd)
+	telephonyCmd.AddCommand(telephonySmsMessageCmd)
+	telephonySmsMessageMessageClassCmd.AddCommand(telephonySmsMessageMessageClassValuesCmd)
+	telephonySmsMessageMessageClassValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonySmsMessageMessageClassCmd.AddCommand(telephonySmsMessageMessageClassValueOfCmd)
+	telephonyCmd.AddCommand(telephonySmsMessageMessageClassCmd)
+	telephonySmsMessageSubmitPduCmd.AddCommand(telephonySmsMessageSubmitPduToStringCmd)
+	telephonyCmd.AddCommand(telephonySmsMessageSubmitPduCmd)
+	telephonyCellIdentityCdmaEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellIdentityCdmaCmd.AddCommand(telephonyCellIdentityCdmaEqualsCmd)
+	telephonyCellIdentityCdmaCmd.AddCommand(telephonyCellIdentityCdmaGetBasestationIdCmd)
+	telephonyCellIdentityCdmaCmd.AddCommand(telephonyCellIdentityCdmaGetLatitudeCmd)
+	telephonyCellIdentityCdmaCmd.AddCommand(telephonyCellIdentityCdmaGetLongitudeCmd)
+	telephonyCellIdentityCdmaCmd.AddCommand(telephonyCellIdentityCdmaGetNetworkIdCmd)
+	telephonyCellIdentityCdmaCmd.AddCommand(telephonyCellIdentityCdmaGetSystemIdCmd)
+	telephonyCellIdentityCdmaCmd.AddCommand(telephonyCellIdentityCdmaHashCodeCmd)
+	telephonyCellIdentityCdmaCmd.AddCommand(telephonyCellIdentityCdmaToStringCmd)
+	telephonyCellIdentityCdmaWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellIdentityCdmaWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellIdentityCdmaCmd.AddCommand(telephonyCellIdentityCdmaWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyCellIdentityCdmaCmd)
+	telephonyUiccCardInfoCmd.AddCommand(telephonyUiccCardInfoDescribeContentsCmd)
+	telephonyUiccCardInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyUiccCardInfoCmd.AddCommand(telephonyUiccCardInfoEqualsCmd)
+	telephonyUiccCardInfoCmd.AddCommand(telephonyUiccCardInfoGetCardIdCmd)
+	telephonyUiccCardInfoCmd.AddCommand(telephonyUiccCardInfoGetEidCmd)
+	telephonyUiccCardInfoCmd.AddCommand(telephonyUiccCardInfoGetIccIdCmd)
+	telephonyUiccCardInfoCmd.AddCommand(telephonyUiccCardInfoGetPhysicalSlotIndexCmd)
+	telephonyUiccCardInfoCmd.AddCommand(telephonyUiccCardInfoGetSlotIndexCmd)
+	telephonyUiccCardInfoCmd.AddCommand(telephonyUiccCardInfoHashCodeCmd)
+	telephonyUiccCardInfoCmd.AddCommand(telephonyUiccCardInfoIsEuiccCmd)
+	telephonyUiccCardInfoCmd.AddCommand(telephonyUiccCardInfoIsMultipleEnabledProfilesSupportedCmd)
+	telephonyUiccCardInfoCmd.AddCommand(telephonyUiccCardInfoIsRemovableCmd)
+	telephonyUiccCardInfoCmd.AddCommand(telephonyUiccCardInfoToStringCmd)
+	telephonyUiccCardInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyUiccCardInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyUiccCardInfoCmd.AddCommand(telephonyUiccCardInfoWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyUiccCardInfoCmd)
+	telephonyClosedSubscriberGroupInfoCmd.AddCommand(telephonyClosedSubscriberGroupInfoDescribeContentsCmd)
+	telephonyClosedSubscriberGroupInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyClosedSubscriberGroupInfoCmd.AddCommand(telephonyClosedSubscriberGroupInfoEqualsCmd)
+	telephonyClosedSubscriberGroupInfoCmd.AddCommand(telephonyClosedSubscriberGroupInfoGetCsgIdentityCmd)
+	telephonyClosedSubscriberGroupInfoCmd.AddCommand(telephonyClosedSubscriberGroupInfoGetCsgIndicatorCmd)
+	telephonyClosedSubscriberGroupInfoCmd.AddCommand(telephonyClosedSubscriberGroupInfoGetHomeNodebNameCmd)
+	telephonyClosedSubscriberGroupInfoCmd.AddCommand(telephonyClosedSubscriberGroupInfoHashCodeCmd)
+	telephonyClosedSubscriberGroupInfoCmd.AddCommand(telephonyClosedSubscriberGroupInfoToStringCmd)
+	telephonyClosedSubscriberGroupInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyClosedSubscriberGroupInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyClosedSubscriberGroupInfoCmd.AddCommand(telephonyClosedSubscriberGroupInfoWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyClosedSubscriberGroupInfoCmd)
+	telephonyNetworkRegistrationInfoCmd.AddCommand(telephonyNetworkRegistrationInfoDescribeContentsCmd)
+	telephonyNetworkRegistrationInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyNetworkRegistrationInfoCmd.AddCommand(telephonyNetworkRegistrationInfoEqualsCmd)
+	telephonyNetworkRegistrationInfoCmd.AddCommand(telephonyNetworkRegistrationInfoGetAccessNetworkTechnologyCmd)
+	telephonyNetworkRegistrationInfoCmd.AddCommand(telephonyNetworkRegistrationInfoGetCellIdentityCmd)
+	telephonyNetworkRegistrationInfoCmd.AddCommand(telephonyNetworkRegistrationInfoGetDomainCmd)
+	telephonyNetworkRegistrationInfoCmd.AddCommand(telephonyNetworkRegistrationInfoGetRegisteredPlmnCmd)
+	telephonyNetworkRegistrationInfoCmd.AddCommand(telephonyNetworkRegistrationInfoGetRejectCauseCmd)
+	telephonyNetworkRegistrationInfoCmd.AddCommand(telephonyNetworkRegistrationInfoGetTransportTypeCmd)
+	telephonyNetworkRegistrationInfoCmd.AddCommand(telephonyNetworkRegistrationInfoHashCodeCmd)
+	telephonyNetworkRegistrationInfoCmd.AddCommand(telephonyNetworkRegistrationInfoIsNetworkRegisteredCmd)
+	telephonyNetworkRegistrationInfoCmd.AddCommand(telephonyNetworkRegistrationInfoIsNetworkRoamingCmd)
+	telephonyNetworkRegistrationInfoCmd.AddCommand(telephonyNetworkRegistrationInfoIsNetworkSearchingCmd)
+	telephonyNetworkRegistrationInfoCmd.AddCommand(telephonyNetworkRegistrationInfoIsNonTerrestrialNetworkCmd)
+	telephonyNetworkRegistrationInfoCmd.AddCommand(telephonyNetworkRegistrationInfoIsRegisteredCmd)
+	telephonyNetworkRegistrationInfoCmd.AddCommand(telephonyNetworkRegistrationInfoIsRoamingCmd)
+	telephonyNetworkRegistrationInfoCmd.AddCommand(telephonyNetworkRegistrationInfoIsSearchingCmd)
+	telephonyNetworkRegistrationInfoCmd.AddCommand(telephonyNetworkRegistrationInfoToStringCmd)
+	telephonyNetworkRegistrationInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyNetworkRegistrationInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyNetworkRegistrationInfoCmd.AddCommand(telephonyNetworkRegistrationInfoWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyNetworkRegistrationInfoCmd)
+	telephonySubscriptionPlanCmd.AddCommand(telephonySubscriptionPlanDescribeContentsCmd)
+	telephonySubscriptionPlanEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySubscriptionPlanCmd.AddCommand(telephonySubscriptionPlanEqualsCmd)
+	telephonySubscriptionPlanCmd.AddCommand(telephonySubscriptionPlanGetDataLimitBehaviorCmd)
+	telephonySubscriptionPlanCmd.AddCommand(telephonySubscriptionPlanGetDataLimitBytesCmd)
+	telephonySubscriptionPlanCmd.AddCommand(telephonySubscriptionPlanGetDataUsageBytesCmd)
+	telephonySubscriptionPlanCmd.AddCommand(telephonySubscriptionPlanGetDataUsageTimeCmd)
+	telephonySubscriptionPlanCmd.AddCommand(telephonySubscriptionPlanGetNetworkTypesCmd)
+	telephonySubscriptionPlanCmd.AddCommand(telephonySubscriptionPlanGetPlanEndDateCmd)
+	telephonySubscriptionPlanCmd.AddCommand(telephonySubscriptionPlanGetSubscriptionStatusCmd)
+	telephonySubscriptionPlanCmd.AddCommand(telephonySubscriptionPlanGetSummaryCmd)
+	telephonySubscriptionPlanCmd.AddCommand(telephonySubscriptionPlanGetTitleCmd)
+	telephonySubscriptionPlanCmd.AddCommand(telephonySubscriptionPlanHashCodeCmd)
+	telephonySubscriptionPlanCmd.AddCommand(telephonySubscriptionPlanToStringCmd)
+	telephonySubscriptionPlanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySubscriptionPlanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonySubscriptionPlanCmd.AddCommand(telephonySubscriptionPlanWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonySubscriptionPlanCmd)
+	telephonySubscriptionPlanBuilderCmd.AddCommand(telephonySubscriptionPlanBuilderBuildCmd)
+	telephonySubscriptionPlanBuilderCmd.AddCommand(telephonySubscriptionPlanBuilderResetNetworkTypesCmd)
+	telephonySubscriptionPlanBuilderSetDataLimitCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySubscriptionPlanBuilderSetDataLimitCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonySubscriptionPlanBuilderCmd.AddCommand(telephonySubscriptionPlanBuilderSetDataLimitCmd)
+	telephonySubscriptionPlanBuilderSetDataUsageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySubscriptionPlanBuilderSetDataUsageCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonySubscriptionPlanBuilderCmd.AddCommand(telephonySubscriptionPlanBuilderSetDataUsageCmd)
+	telephonySubscriptionPlanBuilderSetNetworkTypesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySubscriptionPlanBuilderCmd.AddCommand(telephonySubscriptionPlanBuilderSetNetworkTypesCmd)
+	telephonySubscriptionPlanBuilderSetSubscriptionStatusCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySubscriptionPlanBuilderCmd.AddCommand(telephonySubscriptionPlanBuilderSetSubscriptionStatusCmd)
+	telephonySubscriptionPlanBuilderSetSummaryCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonySubscriptionPlanBuilderCmd.AddCommand(telephonySubscriptionPlanBuilderSetSummaryCmd)
+	telephonySubscriptionPlanBuilderSetTitleCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonySubscriptionPlanBuilderCmd.AddCommand(telephonySubscriptionPlanBuilderSetTitleCmd)
+	telephonySubscriptionPlanBuilderCreateNonrecurringCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySubscriptionPlanBuilderCreateNonrecurringCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonySubscriptionPlanBuilderCmd.AddCommand(telephonySubscriptionPlanBuilderCreateNonrecurringCmd)
+	telephonySubscriptionPlanBuilderCreateRecurringCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySubscriptionPlanBuilderCreateRecurringCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonySubscriptionPlanBuilderCmd.AddCommand(telephonySubscriptionPlanBuilderCreateRecurringCmd)
+	telephonyCmd.AddCommand(telephonySubscriptionPlanBuilderCmd)
+	telephonySmsManagerCreateAppSpecificSmsTokenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerCreateAppSpecificSmsTokenCmd)
+	telephonySmsManagerCreateAppSpecificSmsTokenWithPackageInfoCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonySmsManagerCreateAppSpecificSmsTokenWithPackageInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerCreateAppSpecificSmsTokenWithPackageInfoCmd)
+	telephonySmsManagerCreateForSubscriptionIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerCreateForSubscriptionIdCmd)
+	telephonySmsManagerDownloadMultimediaMessage5Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySmsManagerDownloadMultimediaMessage5Cmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonySmsManagerDownloadMultimediaMessage5Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telephonySmsManagerDownloadMultimediaMessage5Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	telephonySmsManagerDownloadMultimediaMessage5Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerDownloadMultimediaMessage5Cmd)
+	telephonySmsManagerDownloadMultimediaMessage6_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySmsManagerDownloadMultimediaMessage6_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonySmsManagerDownloadMultimediaMessage6_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telephonySmsManagerDownloadMultimediaMessage6_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	telephonySmsManagerDownloadMultimediaMessage6_1Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	telephonySmsManagerDownloadMultimediaMessage6_1Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerDownloadMultimediaMessage6_1Cmd)
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerGetCarrierConfigValuesCmd)
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerGetSmsCapacityOnIccCmd)
+	telephonySmsManagerGetSmsMessagesForFinancialAppCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySmsManagerGetSmsMessagesForFinancialAppCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonySmsManagerGetSmsMessagesForFinancialAppCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerGetSmsMessagesForFinancialAppCmd)
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerGetSmscAddressCmd)
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerGetSubscriptionIdCmd)
+	telephonySmsManagerInjectSmsPduCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySmsManagerInjectSmsPduCmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonySmsManagerInjectSmsPduCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerInjectSmsPduCmd)
+	telephonySmsManagerSendDataMessageCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonySmsManagerSendDataMessageCmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonySmsManagerSendDataMessageCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	telephonySmsManagerSendDataMessageCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	telephonySmsManagerSendDataMessageCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	telephonySmsManagerSendDataMessageCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerSendDataMessageCmd)
+	telephonySmsManagerSendMultimediaMessage5Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySmsManagerSendMultimediaMessage5Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonySmsManagerSendMultimediaMessage5Cmd.Flags().String("arg2", "", "arg2 (string)")
+	telephonySmsManagerSendMultimediaMessage5Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	telephonySmsManagerSendMultimediaMessage5Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerSendMultimediaMessage5Cmd)
+	telephonySmsManagerSendMultimediaMessage6_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySmsManagerSendMultimediaMessage6_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonySmsManagerSendMultimediaMessage6_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	telephonySmsManagerSendMultimediaMessage6_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	telephonySmsManagerSendMultimediaMessage6_1Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	telephonySmsManagerSendMultimediaMessage6_1Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerSendMultimediaMessage6_1Cmd)
+	telephonySmsManagerSendTextMessage5Cmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonySmsManagerSendTextMessage5Cmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonySmsManagerSendTextMessage5Cmd.Flags().String("arg2", "", "arg2 (string)")
+	telephonySmsManagerSendTextMessage5Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	telephonySmsManagerSendTextMessage5Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerSendTextMessage5Cmd)
+	telephonySmsManagerSendTextMessage6_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonySmsManagerSendTextMessage6_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonySmsManagerSendTextMessage6_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	telephonySmsManagerSendTextMessage6_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	telephonySmsManagerSendTextMessage6_1Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	telephonySmsManagerSendTextMessage6_1Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerSendTextMessage6_1Cmd)
+	telephonySmsManagerSendTextMessageWithoutPersistingCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonySmsManagerSendTextMessageWithoutPersistingCmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonySmsManagerSendTextMessageWithoutPersistingCmd.Flags().String("arg2", "", "arg2 (string)")
+	telephonySmsManagerSendTextMessageWithoutPersistingCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	telephonySmsManagerSendTextMessageWithoutPersistingCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerSendTextMessageWithoutPersistingCmd)
+	telephonySmsManagerSetSmscAddressCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerSetSmscAddressCmd)
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerGetDefaultCmd)
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerGetDefaultSmsSubscriptionIdCmd)
+	telephonySmsManagerGetSmsManagerForSubscriptionIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonySmsManagerCmd.AddCommand(telephonySmsManagerGetSmsManagerForSubscriptionIdCmd)
+	telephonyCmd.AddCommand(telephonySmsManagerCmd)
+	telephonySmsManagerFinancialSmsCallbackOnFinancialSmsMessagesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySmsManagerFinancialSmsCallbackCmd.AddCommand(telephonySmsManagerFinancialSmsCallbackOnFinancialSmsMessagesCmd)
+	telephonyCmd.AddCommand(telephonySmsManagerFinancialSmsCallbackCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerCanChangeDtmfToneLengthCmd)
 	telephonyManagerClearSignalStrengthUpdateRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	telephonyManagerCmd.AddCommand(telephonyManagerClearSignalStrengthUpdateRequestCmd)
@@ -2783,5 +17544,589 @@ func init() {
 	telephonyManagerCmd.AddCommand(telephonyManagerUnregisterTelephonyCallbackCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetMaximumCallComposerPictureSizeCmd)
 	telephonyCmd.AddCommand(telephonyManagerCmd)
+	telephonyManagerCallComposerExceptionCmd.AddCommand(telephonyManagerCallComposerExceptionGetErrorCodeCmd)
+	telephonyManagerCallComposerExceptionCmd.AddCommand(telephonyManagerCallComposerExceptionGetIOExceptionCmd)
+	telephonyCmd.AddCommand(telephonyManagerCallComposerExceptionCmd)
+	telephonyManagerCellInfoCallbackOnErrorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyManagerCellInfoCallbackOnErrorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyManagerCellInfoCallbackCmd.AddCommand(telephonyManagerCellInfoCallbackOnErrorCmd)
+	telephonyCmd.AddCommand(telephonyManagerCellInfoCallbackCmd)
+	telephonyManagerNetworkSlicingExceptionCmd.AddCommand(telephonyManagerNetworkSlicingExceptionToStringCmd)
+	telephonyCmd.AddCommand(telephonyManagerNetworkSlicingExceptionCmd)
+	telephonyManagerUssdResponseCallbackOnReceiveUssdResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyManagerUssdResponseCallbackOnReceiveUssdResponseCmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonyManagerUssdResponseCallbackOnReceiveUssdResponseCmd.Flags().String("arg2", "", "arg2 (string)")
+	telephonyManagerUssdResponseCallbackCmd.AddCommand(telephonyManagerUssdResponseCallbackOnReceiveUssdResponseCmd)
+	telephonyManagerUssdResponseCallbackOnReceiveUssdResponseFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyManagerUssdResponseCallbackOnReceiveUssdResponseFailedCmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonyManagerUssdResponseCallbackOnReceiveUssdResponseFailedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	telephonyManagerUssdResponseCallbackCmd.AddCommand(telephonyManagerUssdResponseCallbackOnReceiveUssdResponseFailedCmd)
+	telephonyCmd.AddCommand(telephonyManagerUssdResponseCallbackCmd)
+	telephonyCellIdentityGsmEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellIdentityGsmCmd.AddCommand(telephonyCellIdentityGsmEqualsCmd)
+	telephonyCellIdentityGsmCmd.AddCommand(telephonyCellIdentityGsmGetArfcnCmd)
+	telephonyCellIdentityGsmCmd.AddCommand(telephonyCellIdentityGsmGetBsicCmd)
+	telephonyCellIdentityGsmCmd.AddCommand(telephonyCellIdentityGsmGetCidCmd)
+	telephonyCellIdentityGsmCmd.AddCommand(telephonyCellIdentityGsmGetLacCmd)
+	telephonyCellIdentityGsmCmd.AddCommand(telephonyCellIdentityGsmGetMccCmd)
+	telephonyCellIdentityGsmCmd.AddCommand(telephonyCellIdentityGsmGetMccStringCmd)
+	telephonyCellIdentityGsmCmd.AddCommand(telephonyCellIdentityGsmGetMncCmd)
+	telephonyCellIdentityGsmCmd.AddCommand(telephonyCellIdentityGsmGetMncStringCmd)
+	telephonyCellIdentityGsmCmd.AddCommand(telephonyCellIdentityGsmGetMobileNetworkOperatorCmd)
+	telephonyCellIdentityGsmCmd.AddCommand(telephonyCellIdentityGsmGetPscCmd)
+	telephonyCellIdentityGsmCmd.AddCommand(telephonyCellIdentityGsmHashCodeCmd)
+	telephonyCellIdentityGsmCmd.AddCommand(telephonyCellIdentityGsmToStringCmd)
+	telephonyCellIdentityGsmWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellIdentityGsmWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellIdentityGsmCmd.AddCommand(telephonyCellIdentityGsmWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyCellIdentityGsmCmd)
+	telephonySignalStrengthUpdateRequestCmd.AddCommand(telephonySignalStrengthUpdateRequestDescribeContentsCmd)
+	telephonySignalStrengthUpdateRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySignalStrengthUpdateRequestCmd.AddCommand(telephonySignalStrengthUpdateRequestEqualsCmd)
+	telephonySignalStrengthUpdateRequestCmd.AddCommand(telephonySignalStrengthUpdateRequestHashCodeCmd)
+	telephonySignalStrengthUpdateRequestCmd.AddCommand(telephonySignalStrengthUpdateRequestIsReportingRequestedWhileIdleCmd)
+	telephonySignalStrengthUpdateRequestCmd.AddCommand(telephonySignalStrengthUpdateRequestToStringCmd)
+	telephonySignalStrengthUpdateRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySignalStrengthUpdateRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonySignalStrengthUpdateRequestCmd.AddCommand(telephonySignalStrengthUpdateRequestWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonySignalStrengthUpdateRequestCmd)
+	telephonySignalStrengthUpdateRequestBuilderCmd.AddCommand(telephonySignalStrengthUpdateRequestBuilderBuildCmd)
+	telephonySignalStrengthUpdateRequestBuilderSetReportingRequestedWhileIdleCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	telephonySignalStrengthUpdateRequestBuilderCmd.AddCommand(telephonySignalStrengthUpdateRequestBuilderSetReportingRequestedWhileIdleCmd)
+	telephonyCmd.AddCommand(telephonySignalStrengthUpdateRequestBuilderCmd)
+	telephonyNeighboringCellInfoCmd.AddCommand(telephonyNeighboringCellInfoNewNeighboringCellInfoCmd)
+	telephonyNeighboringCellInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNeighboringCellInfoCmd.AddCommand(telephonyNeighboringCellInfoDescribeContentsCmd)
+	telephonyNeighboringCellInfoGetCidCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNeighboringCellInfoCmd.AddCommand(telephonyNeighboringCellInfoGetCidCmd)
+	telephonyNeighboringCellInfoGetLacCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNeighboringCellInfoCmd.AddCommand(telephonyNeighboringCellInfoGetLacCmd)
+	telephonyNeighboringCellInfoGetNetworkTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNeighboringCellInfoCmd.AddCommand(telephonyNeighboringCellInfoGetNetworkTypeCmd)
+	telephonyNeighboringCellInfoGetPscCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNeighboringCellInfoCmd.AddCommand(telephonyNeighboringCellInfoGetPscCmd)
+	telephonyNeighboringCellInfoGetRssiCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNeighboringCellInfoCmd.AddCommand(telephonyNeighboringCellInfoGetRssiCmd)
+	telephonyNeighboringCellInfoSetCidCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNeighboringCellInfoSetCidCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyNeighboringCellInfoCmd.AddCommand(telephonyNeighboringCellInfoSetCidCmd)
+	telephonyNeighboringCellInfoSetRssiCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNeighboringCellInfoSetRssiCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyNeighboringCellInfoCmd.AddCommand(telephonyNeighboringCellInfoSetRssiCmd)
+	telephonyNeighboringCellInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNeighboringCellInfoCmd.AddCommand(telephonyNeighboringCellInfoToStringCmd)
+	telephonyNeighboringCellInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNeighboringCellInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyNeighboringCellInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyNeighboringCellInfoCmd.AddCommand(telephonyNeighboringCellInfoWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyNeighboringCellInfoCmd)
+	telephonyCellInfoCmd.AddCommand(telephonyCellInfoDescribeContentsCmd)
+	telephonyCellInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellInfoCmd.AddCommand(telephonyCellInfoEqualsCmd)
+	telephonyCellInfoCmd.AddCommand(telephonyCellInfoGetCellConnectionStatusCmd)
+	telephonyCellInfoCmd.AddCommand(telephonyCellInfoGetCellIdentityCmd)
+	telephonyCellInfoCmd.AddCommand(telephonyCellInfoGetCellSignalStrengthCmd)
+	telephonyCellInfoCmd.AddCommand(telephonyCellInfoGetTimeStampCmd)
+	telephonyCellInfoCmd.AddCommand(telephonyCellInfoGetTimestampMillisCmd)
+	telephonyCellInfoCmd.AddCommand(telephonyCellInfoHashCodeCmd)
+	telephonyCellInfoCmd.AddCommand(telephonyCellInfoIsRegisteredCmd)
+	telephonyCellInfoCmd.AddCommand(telephonyCellInfoToStringCmd)
+	telephonyCellInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellInfoCmd.AddCommand(telephonyCellInfoWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyCellInfoCmd)
+	telephonyCellInfoWcdmaCmd.AddCommand(telephonyCellInfoWcdmaDescribeContentsCmd)
+	telephonyCellInfoWcdmaEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellInfoWcdmaCmd.AddCommand(telephonyCellInfoWcdmaEqualsCmd)
+	telephonyCellInfoWcdmaCmd.AddCommand(telephonyCellInfoWcdmaGetCellIdentity0Cmd)
+	telephonyCellInfoWcdmaCmd.AddCommand(telephonyCellInfoWcdmaGetCellSignalStrength0Cmd)
+	telephonyCellInfoWcdmaCmd.AddCommand(telephonyCellInfoWcdmaHashCodeCmd)
+	telephonyCellInfoWcdmaCmd.AddCommand(telephonyCellInfoWcdmaToStringCmd)
+	telephonyCellInfoWcdmaWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellInfoWcdmaWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellInfoWcdmaCmd.AddCommand(telephonyCellInfoWcdmaWriteToParcelCmd)
+	telephonyCellInfoWcdmaCmd.AddCommand(telephonyCellInfoWcdmaGetCellSignalStrength0_1Cmd)
+	telephonyCellInfoWcdmaCmd.AddCommand(telephonyCellInfoWcdmaGetCellIdentity0_1Cmd)
+	telephonyCmd.AddCommand(telephonyCellInfoWcdmaCmd)
+	telephonyPhoneNumberFormattingTextWatcherCmd.AddCommand(telephonyPhoneNumberFormattingTextWatcherNewPhoneNumberFormattingTextWatcherCmd)
+	telephonyPhoneNumberFormattingTextWatcherBeforeTextChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberFormattingTextWatcherBeforeTextChangedCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberFormattingTextWatcherBeforeTextChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyPhoneNumberFormattingTextWatcherBeforeTextChangedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	telephonyPhoneNumberFormattingTextWatcherBeforeTextChangedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	telephonyPhoneNumberFormattingTextWatcherCmd.AddCommand(telephonyPhoneNumberFormattingTextWatcherBeforeTextChangedCmd)
+	telephonyPhoneNumberFormattingTextWatcherOnTextChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneNumberFormattingTextWatcherOnTextChangedCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyPhoneNumberFormattingTextWatcherOnTextChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyPhoneNumberFormattingTextWatcherOnTextChangedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	telephonyPhoneNumberFormattingTextWatcherOnTextChangedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	telephonyPhoneNumberFormattingTextWatcherCmd.AddCommand(telephonyPhoneNumberFormattingTextWatcherOnTextChangedCmd)
+	telephonyCmd.AddCommand(telephonyPhoneNumberFormattingTextWatcherCmd)
+	telephonyCellIdentityCmd.AddCommand(telephonyCellIdentityDescribeContentsCmd)
+	telephonyCellIdentityEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellIdentityCmd.AddCommand(telephonyCellIdentityEqualsCmd)
+	telephonyCellIdentityCmd.AddCommand(telephonyCellIdentityGetOperatorAlphaLongCmd)
+	telephonyCellIdentityCmd.AddCommand(telephonyCellIdentityGetOperatorAlphaShortCmd)
+	telephonyCellIdentityCmd.AddCommand(telephonyCellIdentityHashCodeCmd)
+	telephonyCellIdentityWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellIdentityWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellIdentityCmd.AddCommand(telephonyCellIdentityWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyCellIdentityCmd)
+	telephonyCellSignalStrengthNrCmd.AddCommand(telephonyCellSignalStrengthNrDescribeContentsCmd)
+	telephonyCellSignalStrengthNrEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellSignalStrengthNrCmd.AddCommand(telephonyCellSignalStrengthNrEqualsCmd)
+	telephonyCellSignalStrengthNrCmd.AddCommand(telephonyCellSignalStrengthNrGetAsuLevelCmd)
+	telephonyCellSignalStrengthNrCmd.AddCommand(telephonyCellSignalStrengthNrGetCsiCqiTableIndexCmd)
+	telephonyCellSignalStrengthNrCmd.AddCommand(telephonyCellSignalStrengthNrGetCsiRsrpCmd)
+	telephonyCellSignalStrengthNrCmd.AddCommand(telephonyCellSignalStrengthNrGetCsiRsrqCmd)
+	telephonyCellSignalStrengthNrCmd.AddCommand(telephonyCellSignalStrengthNrGetCsiSinrCmd)
+	telephonyCellSignalStrengthNrCmd.AddCommand(telephonyCellSignalStrengthNrGetDbmCmd)
+	telephonyCellSignalStrengthNrCmd.AddCommand(telephonyCellSignalStrengthNrGetLevelCmd)
+	telephonyCellSignalStrengthNrCmd.AddCommand(telephonyCellSignalStrengthNrGetSsRsrpCmd)
+	telephonyCellSignalStrengthNrCmd.AddCommand(telephonyCellSignalStrengthNrGetSsRsrqCmd)
+	telephonyCellSignalStrengthNrCmd.AddCommand(telephonyCellSignalStrengthNrGetSsSinrCmd)
+	telephonyCellSignalStrengthNrCmd.AddCommand(telephonyCellSignalStrengthNrGetTimingAdvanceMicrosCmd)
+	telephonyCellSignalStrengthNrCmd.AddCommand(telephonyCellSignalStrengthNrHashCodeCmd)
+	telephonyCellSignalStrengthNrCmd.AddCommand(telephonyCellSignalStrengthNrToStringCmd)
+	telephonyCellSignalStrengthNrWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellSignalStrengthNrWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellSignalStrengthNrCmd.AddCommand(telephonyCellSignalStrengthNrWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyCellSignalStrengthNrCmd)
+	telephonyCellInfoTdscdmaCmd.AddCommand(telephonyCellInfoTdscdmaDescribeContentsCmd)
+	telephonyCellInfoTdscdmaEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellInfoTdscdmaCmd.AddCommand(telephonyCellInfoTdscdmaEqualsCmd)
+	telephonyCellInfoTdscdmaCmd.AddCommand(telephonyCellInfoTdscdmaGetCellIdentity0Cmd)
+	telephonyCellInfoTdscdmaCmd.AddCommand(telephonyCellInfoTdscdmaGetCellSignalStrength0Cmd)
+	telephonyCellInfoTdscdmaCmd.AddCommand(telephonyCellInfoTdscdmaHashCodeCmd)
+	telephonyCellInfoTdscdmaCmd.AddCommand(telephonyCellInfoTdscdmaToStringCmd)
+	telephonyCellInfoTdscdmaWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellInfoTdscdmaWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellInfoTdscdmaCmd.AddCommand(telephonyCellInfoTdscdmaWriteToParcelCmd)
+	telephonyCellInfoTdscdmaCmd.AddCommand(telephonyCellInfoTdscdmaGetCellSignalStrength0_1Cmd)
+	telephonyCellInfoTdscdmaCmd.AddCommand(telephonyCellInfoTdscdmaGetCellIdentity0_1Cmd)
+	telephonyCmd.AddCommand(telephonyCellInfoTdscdmaCmd)
+	telephonyIccOpenLogicalChannelResponseCmd.AddCommand(telephonyIccOpenLogicalChannelResponseDescribeContentsCmd)
+	telephonyIccOpenLogicalChannelResponseCmd.AddCommand(telephonyIccOpenLogicalChannelResponseGetChannelCmd)
+	telephonyIccOpenLogicalChannelResponseCmd.AddCommand(telephonyIccOpenLogicalChannelResponseGetSelectResponseCmd)
+	telephonyIccOpenLogicalChannelResponseCmd.AddCommand(telephonyIccOpenLogicalChannelResponseGetStatusCmd)
+	telephonyIccOpenLogicalChannelResponseCmd.AddCommand(telephonyIccOpenLogicalChannelResponseToStringCmd)
+	telephonyIccOpenLogicalChannelResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyIccOpenLogicalChannelResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyIccOpenLogicalChannelResponseCmd.AddCommand(telephonyIccOpenLogicalChannelResponseWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyIccOpenLogicalChannelResponseCmd)
+	telephonyCellIdentityWcdmaEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellIdentityWcdmaCmd.AddCommand(telephonyCellIdentityWcdmaEqualsCmd)
+	telephonyCellIdentityWcdmaCmd.AddCommand(telephonyCellIdentityWcdmaGetCidCmd)
+	telephonyCellIdentityWcdmaCmd.AddCommand(telephonyCellIdentityWcdmaGetClosedSubscriberGroupInfoCmd)
+	telephonyCellIdentityWcdmaCmd.AddCommand(telephonyCellIdentityWcdmaGetLacCmd)
+	telephonyCellIdentityWcdmaCmd.AddCommand(telephonyCellIdentityWcdmaGetMccCmd)
+	telephonyCellIdentityWcdmaCmd.AddCommand(telephonyCellIdentityWcdmaGetMccStringCmd)
+	telephonyCellIdentityWcdmaCmd.AddCommand(telephonyCellIdentityWcdmaGetMncCmd)
+	telephonyCellIdentityWcdmaCmd.AddCommand(telephonyCellIdentityWcdmaGetMncStringCmd)
+	telephonyCellIdentityWcdmaCmd.AddCommand(telephonyCellIdentityWcdmaGetMobileNetworkOperatorCmd)
+	telephonyCellIdentityWcdmaCmd.AddCommand(telephonyCellIdentityWcdmaGetPscCmd)
+	telephonyCellIdentityWcdmaCmd.AddCommand(telephonyCellIdentityWcdmaGetUarfcnCmd)
+	telephonyCellIdentityWcdmaCmd.AddCommand(telephonyCellIdentityWcdmaHashCodeCmd)
+	telephonyCellIdentityWcdmaCmd.AddCommand(telephonyCellIdentityWcdmaToStringCmd)
+	telephonyCellIdentityWcdmaWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellIdentityWcdmaWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellIdentityWcdmaCmd.AddCommand(telephonyCellIdentityWcdmaWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyCellIdentityWcdmaCmd)
+	telephonyVisualVoicemailSmsFilterSettingsCmd.AddCommand(telephonyVisualVoicemailSmsFilterSettingsDescribeContentsCmd)
+	telephonyVisualVoicemailSmsFilterSettingsCmd.AddCommand(telephonyVisualVoicemailSmsFilterSettingsToStringCmd)
+	telephonyVisualVoicemailSmsFilterSettingsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyVisualVoicemailSmsFilterSettingsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyVisualVoicemailSmsFilterSettingsCmd.AddCommand(telephonyVisualVoicemailSmsFilterSettingsWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyVisualVoicemailSmsFilterSettingsCmd)
+	telephonyVisualVoicemailSmsFilterSettingsBuilderCmd.AddCommand(telephonyVisualVoicemailSmsFilterSettingsBuilderBuildCmd)
+	telephonyVisualVoicemailSmsFilterSettingsBuilderSetClientPrefixCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyVisualVoicemailSmsFilterSettingsBuilderCmd.AddCommand(telephonyVisualVoicemailSmsFilterSettingsBuilderSetClientPrefixCmd)
+	telephonyVisualVoicemailSmsFilterSettingsBuilderSetDestinationPortCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyVisualVoicemailSmsFilterSettingsBuilderCmd.AddCommand(telephonyVisualVoicemailSmsFilterSettingsBuilderSetDestinationPortCmd)
+	telephonyCmd.AddCommand(telephonyVisualVoicemailSmsFilterSettingsBuilderCmd)
+	telephonyDisplayInfoCmd.AddCommand(telephonyDisplayInfoDescribeContentsCmd)
+	telephonyDisplayInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyDisplayInfoCmd.AddCommand(telephonyDisplayInfoEqualsCmd)
+	telephonyDisplayInfoCmd.AddCommand(telephonyDisplayInfoGetNetworkTypeCmd)
+	telephonyDisplayInfoCmd.AddCommand(telephonyDisplayInfoGetOverrideNetworkTypeCmd)
+	telephonyDisplayInfoCmd.AddCommand(telephonyDisplayInfoHashCodeCmd)
+	telephonyDisplayInfoCmd.AddCommand(telephonyDisplayInfoIsRoamingCmd)
+	telephonyDisplayInfoCmd.AddCommand(telephonyDisplayInfoToStringCmd)
+	telephonyDisplayInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyDisplayInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyDisplayInfoCmd.AddCommand(telephonyDisplayInfoWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyDisplayInfoCmd)
+	telephonyCellInfoNrEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellInfoNrCmd.AddCommand(telephonyCellInfoNrEqualsCmd)
+	telephonyCellInfoNrCmd.AddCommand(telephonyCellInfoNrGetCellIdentityCmd)
+	telephonyCellInfoNrCmd.AddCommand(telephonyCellInfoNrGetCellSignalStrengthCmd)
+	telephonyCellInfoNrCmd.AddCommand(telephonyCellInfoNrHashCodeCmd)
+	telephonyCellInfoNrCmd.AddCommand(telephonyCellInfoNrToStringCmd)
+	telephonyCellInfoNrWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellInfoNrWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellInfoNrCmd.AddCommand(telephonyCellInfoNrWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyCellInfoNrCmd)
+	telephonyMbmsDownloadSessionAddProgressListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyMbmsDownloadSessionAddProgressListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyMbmsDownloadSessionAddProgressListenerCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telephonyMbmsDownloadSessionCmd.AddCommand(telephonyMbmsDownloadSessionAddProgressListenerCmd)
+	telephonyMbmsDownloadSessionAddServiceAnnouncementCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyMbmsDownloadSessionCmd.AddCommand(telephonyMbmsDownloadSessionAddServiceAnnouncementCmd)
+	telephonyMbmsDownloadSessionAddStatusListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyMbmsDownloadSessionAddStatusListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyMbmsDownloadSessionAddStatusListenerCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telephonyMbmsDownloadSessionCmd.AddCommand(telephonyMbmsDownloadSessionAddStatusListenerCmd)
+	telephonyMbmsDownloadSessionCancelDownloadCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyMbmsDownloadSessionCmd.AddCommand(telephonyMbmsDownloadSessionCancelDownloadCmd)
+	telephonyMbmsDownloadSessionCmd.AddCommand(telephonyMbmsDownloadSessionCloseCmd)
+	telephonyMbmsDownloadSessionDownloadCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyMbmsDownloadSessionCmd.AddCommand(telephonyMbmsDownloadSessionDownloadCmd)
+	telephonyMbmsDownloadSessionCmd.AddCommand(telephonyMbmsDownloadSessionGetTempFileRootDirectoryCmd)
+	telephonyMbmsDownloadSessionRemoveProgressListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyMbmsDownloadSessionRemoveProgressListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyMbmsDownloadSessionCmd.AddCommand(telephonyMbmsDownloadSessionRemoveProgressListenerCmd)
+	telephonyMbmsDownloadSessionRemoveStatusListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyMbmsDownloadSessionRemoveStatusListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyMbmsDownloadSessionCmd.AddCommand(telephonyMbmsDownloadSessionRemoveStatusListenerCmd)
+	telephonyMbmsDownloadSessionRequestDownloadStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyMbmsDownloadSessionRequestDownloadStateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyMbmsDownloadSessionCmd.AddCommand(telephonyMbmsDownloadSessionRequestDownloadStateCmd)
+	telephonyMbmsDownloadSessionResetDownloadKnowledgeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyMbmsDownloadSessionCmd.AddCommand(telephonyMbmsDownloadSessionResetDownloadKnowledgeCmd)
+	telephonyMbmsDownloadSessionSetTempFileRootDirectoryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyMbmsDownloadSessionCmd.AddCommand(telephonyMbmsDownloadSessionSetTempFileRootDirectoryCmd)
+	telephonyMbmsDownloadSessionCreate3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyMbmsDownloadSessionCreate3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyMbmsDownloadSessionCreate3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telephonyMbmsDownloadSessionCmd.AddCommand(telephonyMbmsDownloadSessionCreate3Cmd)
+	telephonyMbmsDownloadSessionCreate4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyMbmsDownloadSessionCreate4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyMbmsDownloadSessionCreate4_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	telephonyMbmsDownloadSessionCreate4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	telephonyMbmsDownloadSessionCmd.AddCommand(telephonyMbmsDownloadSessionCreate4_1Cmd)
+	telephonyMbmsDownloadSessionCmd.AddCommand(telephonyMbmsDownloadSessionGetMaximumServiceAnnouncementSizeCmd)
+	telephonyCmd.AddCommand(telephonyMbmsDownloadSessionCmd)
+	telephonyCellLocationCmd.AddCommand(telephonyCellLocationGetEmptyCmd)
+	telephonyCellLocationCmd.AddCommand(telephonyCellLocationRequestLocationUpdateCmd)
+	telephonyCmd.AddCommand(telephonyCellLocationCmd)
+	telephonyCellSignalStrengthCdmaCmd.AddCommand(telephonyCellSignalStrengthCdmaDescribeContentsCmd)
+	telephonyCellSignalStrengthCdmaEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellSignalStrengthCdmaCmd.AddCommand(telephonyCellSignalStrengthCdmaEqualsCmd)
+	telephonyCellSignalStrengthCdmaCmd.AddCommand(telephonyCellSignalStrengthCdmaGetAsuLevelCmd)
+	telephonyCellSignalStrengthCdmaCmd.AddCommand(telephonyCellSignalStrengthCdmaGetCdmaDbmCmd)
+	telephonyCellSignalStrengthCdmaCmd.AddCommand(telephonyCellSignalStrengthCdmaGetCdmaEcioCmd)
+	telephonyCellSignalStrengthCdmaCmd.AddCommand(telephonyCellSignalStrengthCdmaGetCdmaLevelCmd)
+	telephonyCellSignalStrengthCdmaCmd.AddCommand(telephonyCellSignalStrengthCdmaGetDbmCmd)
+	telephonyCellSignalStrengthCdmaCmd.AddCommand(telephonyCellSignalStrengthCdmaGetEvdoDbmCmd)
+	telephonyCellSignalStrengthCdmaCmd.AddCommand(telephonyCellSignalStrengthCdmaGetEvdoEcioCmd)
+	telephonyCellSignalStrengthCdmaCmd.AddCommand(telephonyCellSignalStrengthCdmaGetEvdoLevelCmd)
+	telephonyCellSignalStrengthCdmaCmd.AddCommand(telephonyCellSignalStrengthCdmaGetEvdoSnrCmd)
+	telephonyCellSignalStrengthCdmaCmd.AddCommand(telephonyCellSignalStrengthCdmaGetLevelCmd)
+	telephonyCellSignalStrengthCdmaCmd.AddCommand(telephonyCellSignalStrengthCdmaHashCodeCmd)
+	telephonyCellSignalStrengthCdmaCmd.AddCommand(telephonyCellSignalStrengthCdmaToStringCmd)
+	telephonyCellSignalStrengthCdmaWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellSignalStrengthCdmaWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellSignalStrengthCdmaCmd.AddCommand(telephonyCellSignalStrengthCdmaWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyCellSignalStrengthCdmaCmd)
+	telephonyRadioAccessSpecifierNewRadioAccessSpecifierCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyRadioAccessSpecifierNewRadioAccessSpecifierCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyRadioAccessSpecifierNewRadioAccessSpecifierCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telephonyRadioAccessSpecifierCmd.AddCommand(telephonyRadioAccessSpecifierNewRadioAccessSpecifierCmd)
+	telephonyRadioAccessSpecifierDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyRadioAccessSpecifierCmd.AddCommand(telephonyRadioAccessSpecifierDescribeContentsCmd)
+	telephonyRadioAccessSpecifierEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyRadioAccessSpecifierEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyRadioAccessSpecifierCmd.AddCommand(telephonyRadioAccessSpecifierEqualsCmd)
+	telephonyRadioAccessSpecifierGetBandsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyRadioAccessSpecifierCmd.AddCommand(telephonyRadioAccessSpecifierGetBandsCmd)
+	telephonyRadioAccessSpecifierGetChannelsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyRadioAccessSpecifierCmd.AddCommand(telephonyRadioAccessSpecifierGetChannelsCmd)
+	telephonyRadioAccessSpecifierGetRadioAccessNetworkCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyRadioAccessSpecifierCmd.AddCommand(telephonyRadioAccessSpecifierGetRadioAccessNetworkCmd)
+	telephonyRadioAccessSpecifierHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyRadioAccessSpecifierCmd.AddCommand(telephonyRadioAccessSpecifierHashCodeCmd)
+	telephonyRadioAccessSpecifierToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyRadioAccessSpecifierCmd.AddCommand(telephonyRadioAccessSpecifierToStringCmd)
+	telephonyRadioAccessSpecifierWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyRadioAccessSpecifierWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyRadioAccessSpecifierWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyRadioAccessSpecifierCmd.AddCommand(telephonyRadioAccessSpecifierWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyRadioAccessSpecifierCmd)
+	telephonyCellInfoCdmaCmd.AddCommand(telephonyCellInfoCdmaDescribeContentsCmd)
+	telephonyCellInfoCdmaEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellInfoCdmaCmd.AddCommand(telephonyCellInfoCdmaEqualsCmd)
+	telephonyCellInfoCdmaCmd.AddCommand(telephonyCellInfoCdmaGetCellIdentity0Cmd)
+	telephonyCellInfoCdmaCmd.AddCommand(telephonyCellInfoCdmaGetCellSignalStrength0Cmd)
+	telephonyCellInfoCdmaCmd.AddCommand(telephonyCellInfoCdmaHashCodeCmd)
+	telephonyCellInfoCdmaCmd.AddCommand(telephonyCellInfoCdmaToStringCmd)
+	telephonyCellInfoCdmaWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellInfoCdmaWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellInfoCdmaCmd.AddCommand(telephonyCellInfoCdmaWriteToParcelCmd)
+	telephonyCellInfoCdmaCmd.AddCommand(telephonyCellInfoCdmaGetCellSignalStrength0_1Cmd)
+	telephonyCellInfoCdmaCmd.AddCommand(telephonyCellInfoCdmaGetCellIdentity0_1Cmd)
+	telephonyCmd.AddCommand(telephonyCellInfoCdmaCmd)
+	telephonyPreciseDataConnectionStateCmd.AddCommand(telephonyPreciseDataConnectionStateDescribeContentsCmd)
+	telephonyPreciseDataConnectionStateEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPreciseDataConnectionStateCmd.AddCommand(telephonyPreciseDataConnectionStateEqualsCmd)
+	telephonyPreciseDataConnectionStateCmd.AddCommand(telephonyPreciseDataConnectionStateGetApnSettingCmd)
+	telephonyPreciseDataConnectionStateCmd.AddCommand(telephonyPreciseDataConnectionStateGetIdCmd)
+	telephonyPreciseDataConnectionStateCmd.AddCommand(telephonyPreciseDataConnectionStateGetLastCauseCodeCmd)
+	telephonyPreciseDataConnectionStateCmd.AddCommand(telephonyPreciseDataConnectionStateGetLinkPropertiesCmd)
+	telephonyPreciseDataConnectionStateCmd.AddCommand(telephonyPreciseDataConnectionStateGetNetworkTypeCmd)
+	telephonyPreciseDataConnectionStateCmd.AddCommand(telephonyPreciseDataConnectionStateGetNetworkValidationStatusCmd)
+	telephonyPreciseDataConnectionStateCmd.AddCommand(telephonyPreciseDataConnectionStateGetStateCmd)
+	telephonyPreciseDataConnectionStateCmd.AddCommand(telephonyPreciseDataConnectionStateGetTransportTypeCmd)
+	telephonyPreciseDataConnectionStateCmd.AddCommand(telephonyPreciseDataConnectionStateHashCodeCmd)
+	telephonyPreciseDataConnectionStateCmd.AddCommand(telephonyPreciseDataConnectionStateToStringCmd)
+	telephonyPreciseDataConnectionStateWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPreciseDataConnectionStateWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyPreciseDataConnectionStateCmd.AddCommand(telephonyPreciseDataConnectionStateWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyPreciseDataConnectionStateCmd)
+	telephonyCellSignalStrengthLteCmd.AddCommand(telephonyCellSignalStrengthLteDescribeContentsCmd)
+	telephonyCellSignalStrengthLteEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellSignalStrengthLteCmd.AddCommand(telephonyCellSignalStrengthLteEqualsCmd)
+	telephonyCellSignalStrengthLteCmd.AddCommand(telephonyCellSignalStrengthLteGetAsuLevelCmd)
+	telephonyCellSignalStrengthLteCmd.AddCommand(telephonyCellSignalStrengthLteGetCqiCmd)
+	telephonyCellSignalStrengthLteCmd.AddCommand(telephonyCellSignalStrengthLteGetCqiTableIndexCmd)
+	telephonyCellSignalStrengthLteCmd.AddCommand(telephonyCellSignalStrengthLteGetDbmCmd)
+	telephonyCellSignalStrengthLteCmd.AddCommand(telephonyCellSignalStrengthLteGetLevelCmd)
+	telephonyCellSignalStrengthLteCmd.AddCommand(telephonyCellSignalStrengthLteGetRsrpCmd)
+	telephonyCellSignalStrengthLteCmd.AddCommand(telephonyCellSignalStrengthLteGetRsrqCmd)
+	telephonyCellSignalStrengthLteCmd.AddCommand(telephonyCellSignalStrengthLteGetRssiCmd)
+	telephonyCellSignalStrengthLteCmd.AddCommand(telephonyCellSignalStrengthLteGetRssnrCmd)
+	telephonyCellSignalStrengthLteCmd.AddCommand(telephonyCellSignalStrengthLteGetTimingAdvanceCmd)
+	telephonyCellSignalStrengthLteCmd.AddCommand(telephonyCellSignalStrengthLteHashCodeCmd)
+	telephonyCellSignalStrengthLteCmd.AddCommand(telephonyCellSignalStrengthLteToStringCmd)
+	telephonyCellSignalStrengthLteWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellSignalStrengthLteWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellSignalStrengthLteCmd.AddCommand(telephonyCellSignalStrengthLteWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyCellSignalStrengthLteCmd)
+	telephonySignalStrengthNewSignalStrengthCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySignalStrengthCmd.AddCommand(telephonySignalStrengthNewSignalStrengthCmd)
+	telephonySignalStrengthDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonySignalStrengthCmd.AddCommand(telephonySignalStrengthDescribeContentsCmd)
+	telephonySignalStrengthEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonySignalStrengthEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySignalStrengthCmd.AddCommand(telephonySignalStrengthEqualsCmd)
+	telephonySignalStrengthGetCdmaDbmCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonySignalStrengthCmd.AddCommand(telephonySignalStrengthGetCdmaDbmCmd)
+	telephonySignalStrengthGetCdmaEcioCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonySignalStrengthCmd.AddCommand(telephonySignalStrengthGetCdmaEcioCmd)
+	telephonySignalStrengthGetEvdoDbmCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonySignalStrengthCmd.AddCommand(telephonySignalStrengthGetEvdoDbmCmd)
+	telephonySignalStrengthGetEvdoEcioCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonySignalStrengthCmd.AddCommand(telephonySignalStrengthGetEvdoEcioCmd)
+	telephonySignalStrengthGetEvdoSnrCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonySignalStrengthCmd.AddCommand(telephonySignalStrengthGetEvdoSnrCmd)
+	telephonySignalStrengthGetGsmBitErrorRateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonySignalStrengthCmd.AddCommand(telephonySignalStrengthGetGsmBitErrorRateCmd)
+	telephonySignalStrengthGetGsmSignalStrengthCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonySignalStrengthCmd.AddCommand(telephonySignalStrengthGetGsmSignalStrengthCmd)
+	telephonySignalStrengthGetLevelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonySignalStrengthCmd.AddCommand(telephonySignalStrengthGetLevelCmd)
+	telephonySignalStrengthGetTimestampMillisCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonySignalStrengthCmd.AddCommand(telephonySignalStrengthGetTimestampMillisCmd)
+	telephonySignalStrengthHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonySignalStrengthCmd.AddCommand(telephonySignalStrengthHashCodeCmd)
+	telephonySignalStrengthIsGsmCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonySignalStrengthCmd.AddCommand(telephonySignalStrengthIsGsmCmd)
+	telephonySignalStrengthToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonySignalStrengthCmd.AddCommand(telephonySignalStrengthToStringCmd)
+	telephonySignalStrengthWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonySignalStrengthWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonySignalStrengthWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonySignalStrengthCmd.AddCommand(telephonySignalStrengthWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonySignalStrengthCmd)
+	telephonyCellInfoGsmCmd.AddCommand(telephonyCellInfoGsmDescribeContentsCmd)
+	telephonyCellInfoGsmEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellInfoGsmCmd.AddCommand(telephonyCellInfoGsmEqualsCmd)
+	telephonyCellInfoGsmCmd.AddCommand(telephonyCellInfoGsmGetCellIdentity0Cmd)
+	telephonyCellInfoGsmCmd.AddCommand(telephonyCellInfoGsmGetCellSignalStrength0Cmd)
+	telephonyCellInfoGsmCmd.AddCommand(telephonyCellInfoGsmHashCodeCmd)
+	telephonyCellInfoGsmCmd.AddCommand(telephonyCellInfoGsmToStringCmd)
+	telephonyCellInfoGsmWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellInfoGsmWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellInfoGsmCmd.AddCommand(telephonyCellInfoGsmWriteToParcelCmd)
+	telephonyCellInfoGsmCmd.AddCommand(telephonyCellInfoGsmGetCellSignalStrength0_1Cmd)
+	telephonyCellInfoGsmCmd.AddCommand(telephonyCellInfoGsmGetCellIdentity0_1Cmd)
+	telephonyCmd.AddCommand(telephonyCellInfoGsmCmd)
+	telephonyAvailableNetworkInfoNewAvailableNetworkInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyAvailableNetworkInfoNewAvailableNetworkInfoCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyAvailableNetworkInfoNewAvailableNetworkInfoCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telephonyAvailableNetworkInfoNewAvailableNetworkInfoCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	telephonyAvailableNetworkInfoCmd.AddCommand(telephonyAvailableNetworkInfoNewAvailableNetworkInfoCmd)
+	telephonyAvailableNetworkInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyAvailableNetworkInfoCmd.AddCommand(telephonyAvailableNetworkInfoDescribeContentsCmd)
+	telephonyAvailableNetworkInfoEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyAvailableNetworkInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyAvailableNetworkInfoCmd.AddCommand(telephonyAvailableNetworkInfoEqualsCmd)
+	telephonyAvailableNetworkInfoGetPriorityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyAvailableNetworkInfoCmd.AddCommand(telephonyAvailableNetworkInfoGetPriorityCmd)
+	telephonyAvailableNetworkInfoGetSubIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyAvailableNetworkInfoCmd.AddCommand(telephonyAvailableNetworkInfoGetSubIdCmd)
+	telephonyAvailableNetworkInfoHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyAvailableNetworkInfoCmd.AddCommand(telephonyAvailableNetworkInfoHashCodeCmd)
+	telephonyAvailableNetworkInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyAvailableNetworkInfoCmd.AddCommand(telephonyAvailableNetworkInfoToStringCmd)
+	telephonyAvailableNetworkInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyAvailableNetworkInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyAvailableNetworkInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyAvailableNetworkInfoCmd.AddCommand(telephonyAvailableNetworkInfoWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyAvailableNetworkInfoCmd)
+	telephonyAvailableNetworkInfoBuilderCmd.AddCommand(telephonyAvailableNetworkInfoBuilderBuildCmd)
+	telephonyAvailableNetworkInfoBuilderSetPriorityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyAvailableNetworkInfoBuilderCmd.AddCommand(telephonyAvailableNetworkInfoBuilderSetPriorityCmd)
+	telephonyCmd.AddCommand(telephonyAvailableNetworkInfoBuilderCmd)
+	telephonyPhysicalChannelConfigCmd.AddCommand(telephonyPhysicalChannelConfigDescribeContentsCmd)
+	telephonyPhysicalChannelConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhysicalChannelConfigCmd.AddCommand(telephonyPhysicalChannelConfigEqualsCmd)
+	telephonyPhysicalChannelConfigCmd.AddCommand(telephonyPhysicalChannelConfigGetBandCmd)
+	telephonyPhysicalChannelConfigCmd.AddCommand(telephonyPhysicalChannelConfigGetCellBandwidthDownlinkKhzCmd)
+	telephonyPhysicalChannelConfigCmd.AddCommand(telephonyPhysicalChannelConfigGetCellBandwidthUplinkKhzCmd)
+	telephonyPhysicalChannelConfigCmd.AddCommand(telephonyPhysicalChannelConfigGetConnectionStatusCmd)
+	telephonyPhysicalChannelConfigCmd.AddCommand(telephonyPhysicalChannelConfigGetDownlinkChannelNumberCmd)
+	telephonyPhysicalChannelConfigCmd.AddCommand(telephonyPhysicalChannelConfigGetDownlinkFrequencyKhzCmd)
+	telephonyPhysicalChannelConfigCmd.AddCommand(telephonyPhysicalChannelConfigGetNetworkTypeCmd)
+	telephonyPhysicalChannelConfigCmd.AddCommand(telephonyPhysicalChannelConfigGetPhysicalCellIdCmd)
+	telephonyPhysicalChannelConfigCmd.AddCommand(telephonyPhysicalChannelConfigGetUplinkChannelNumberCmd)
+	telephonyPhysicalChannelConfigCmd.AddCommand(telephonyPhysicalChannelConfigGetUplinkFrequencyKhzCmd)
+	telephonyPhysicalChannelConfigCmd.AddCommand(telephonyPhysicalChannelConfigHashCodeCmd)
+	telephonyPhysicalChannelConfigCmd.AddCommand(telephonyPhysicalChannelConfigToStringCmd)
+	telephonyPhysicalChannelConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhysicalChannelConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyPhysicalChannelConfigCmd.AddCommand(telephonyPhysicalChannelConfigWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyPhysicalChannelConfigCmd)
+	telephonyMbmsStreamingSessionCmd.AddCommand(telephonyMbmsStreamingSessionCloseCmd)
+	telephonyMbmsStreamingSessionStartStreamingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyMbmsStreamingSessionStartStreamingCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyMbmsStreamingSessionStartStreamingCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telephonyMbmsStreamingSessionCmd.AddCommand(telephonyMbmsStreamingSessionStartStreamingCmd)
+	telephonyMbmsStreamingSessionCreate3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyMbmsStreamingSessionCreate3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyMbmsStreamingSessionCreate3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telephonyMbmsStreamingSessionCmd.AddCommand(telephonyMbmsStreamingSessionCreate3Cmd)
+	telephonyMbmsStreamingSessionCreate4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyMbmsStreamingSessionCreate4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyMbmsStreamingSessionCreate4_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	telephonyMbmsStreamingSessionCreate4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	telephonyMbmsStreamingSessionCmd.AddCommand(telephonyMbmsStreamingSessionCreate4_1Cmd)
+	telephonyCmd.AddCommand(telephonyMbmsStreamingSessionCmd)
+	telephonyCellSignalStrengthEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellSignalStrengthCmd.AddCommand(telephonyCellSignalStrengthEqualsCmd)
+	telephonyCellSignalStrengthCmd.AddCommand(telephonyCellSignalStrengthGetAsuLevelCmd)
+	telephonyCellSignalStrengthCmd.AddCommand(telephonyCellSignalStrengthGetDbmCmd)
+	telephonyCellSignalStrengthCmd.AddCommand(telephonyCellSignalStrengthGetLevelCmd)
+	telephonyCellSignalStrengthCmd.AddCommand(telephonyCellSignalStrengthHashCodeCmd)
+	telephonyCmd.AddCommand(telephonyCellSignalStrengthCmd)
+	telephonyCellIdentityNrEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellIdentityNrCmd.AddCommand(telephonyCellIdentityNrEqualsCmd)
+	telephonyCellIdentityNrCmd.AddCommand(telephonyCellIdentityNrGetBandsCmd)
+	telephonyCellIdentityNrCmd.AddCommand(telephonyCellIdentityNrGetMccStringCmd)
+	telephonyCellIdentityNrCmd.AddCommand(telephonyCellIdentityNrGetMncStringCmd)
+	telephonyCellIdentityNrCmd.AddCommand(telephonyCellIdentityNrGetNciCmd)
+	telephonyCellIdentityNrCmd.AddCommand(telephonyCellIdentityNrGetNrarfcnCmd)
+	telephonyCellIdentityNrCmd.AddCommand(telephonyCellIdentityNrGetPciCmd)
+	telephonyCellIdentityNrCmd.AddCommand(telephonyCellIdentityNrGetTacCmd)
+	telephonyCellIdentityNrCmd.AddCommand(telephonyCellIdentityNrHashCodeCmd)
+	telephonyCellIdentityNrCmd.AddCommand(telephonyCellIdentityNrToStringCmd)
+	telephonyCellIdentityNrWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCellIdentityNrWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCellIdentityNrCmd.AddCommand(telephonyCellIdentityNrWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyCellIdentityNrCmd)
+	telephonyNetworkScanRequestNewNetworkScanRequestCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyNetworkScanRequestNewNetworkScanRequestCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyNetworkScanRequestNewNetworkScanRequestCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	telephonyNetworkScanRequestNewNetworkScanRequestCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	telephonyNetworkScanRequestNewNetworkScanRequestCmd.Flags().Bool("arg4", false, "arg4 (bool)")
+	telephonyNetworkScanRequestNewNetworkScanRequestCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	telephonyNetworkScanRequestNewNetworkScanRequestCmd.Flags().Int64("arg6", 0, "arg6 (int64)")
+	telephonyNetworkScanRequestCmd.AddCommand(telephonyNetworkScanRequestNewNetworkScanRequestCmd)
+	telephonyNetworkScanRequestDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNetworkScanRequestCmd.AddCommand(telephonyNetworkScanRequestDescribeContentsCmd)
+	telephonyNetworkScanRequestEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNetworkScanRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyNetworkScanRequestCmd.AddCommand(telephonyNetworkScanRequestEqualsCmd)
+	telephonyNetworkScanRequestGetIncrementalResultsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNetworkScanRequestCmd.AddCommand(telephonyNetworkScanRequestGetIncrementalResultsCmd)
+	telephonyNetworkScanRequestGetIncrementalResultsPeriodicityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNetworkScanRequestCmd.AddCommand(telephonyNetworkScanRequestGetIncrementalResultsPeriodicityCmd)
+	telephonyNetworkScanRequestGetMaxSearchTimeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNetworkScanRequestCmd.AddCommand(telephonyNetworkScanRequestGetMaxSearchTimeCmd)
+	telephonyNetworkScanRequestGetScanTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNetworkScanRequestCmd.AddCommand(telephonyNetworkScanRequestGetScanTypeCmd)
+	telephonyNetworkScanRequestGetSearchPeriodicityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNetworkScanRequestCmd.AddCommand(telephonyNetworkScanRequestGetSearchPeriodicityCmd)
+	telephonyNetworkScanRequestGetSpecifiersCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNetworkScanRequestCmd.AddCommand(telephonyNetworkScanRequestGetSpecifiersCmd)
+	telephonyNetworkScanRequestHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNetworkScanRequestCmd.AddCommand(telephonyNetworkScanRequestHashCodeCmd)
+	telephonyNetworkScanRequestWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyNetworkScanRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyNetworkScanRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyNetworkScanRequestCmd.AddCommand(telephonyNetworkScanRequestWriteToParcelCmd)
+	telephonyCmd.AddCommand(telephonyNetworkScanRequestCmd)
+	telephonyPhoneStateListenerCmd.AddCommand(telephonyPhoneStateListenerNewPhoneStateListenerCmd)
+	telephonyPhoneStateListenerOnActiveDataSubscriptionIdChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneStateListenerOnActiveDataSubscriptionIdChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyPhoneStateListenerCmd.AddCommand(telephonyPhoneStateListenerOnActiveDataSubscriptionIdChangedCmd)
+	telephonyPhoneStateListenerOnBarringInfoChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneStateListenerOnBarringInfoChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneStateListenerCmd.AddCommand(telephonyPhoneStateListenerOnBarringInfoChangedCmd)
+	telephonyPhoneStateListenerOnCallDisconnectCauseChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneStateListenerOnCallDisconnectCauseChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyPhoneStateListenerOnCallDisconnectCauseChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyPhoneStateListenerCmd.AddCommand(telephonyPhoneStateListenerOnCallDisconnectCauseChangedCmd)
+	telephonyPhoneStateListenerOnCallForwardingIndicatorChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneStateListenerOnCallForwardingIndicatorChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	telephonyPhoneStateListenerCmd.AddCommand(telephonyPhoneStateListenerOnCallForwardingIndicatorChangedCmd)
+	telephonyPhoneStateListenerOnCallStateChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneStateListenerOnCallStateChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyPhoneStateListenerOnCallStateChangedCmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonyPhoneStateListenerCmd.AddCommand(telephonyPhoneStateListenerOnCallStateChangedCmd)
+	telephonyPhoneStateListenerOnCellLocationChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneStateListenerOnCellLocationChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneStateListenerCmd.AddCommand(telephonyPhoneStateListenerOnCellLocationChangedCmd)
+	telephonyPhoneStateListenerOnDataActivityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneStateListenerOnDataActivityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyPhoneStateListenerCmd.AddCommand(telephonyPhoneStateListenerOnDataActivityCmd)
+	telephonyPhoneStateListenerOnDataConnectionStateChanged1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneStateListenerOnDataConnectionStateChanged1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyPhoneStateListenerCmd.AddCommand(telephonyPhoneStateListenerOnDataConnectionStateChanged1Cmd)
+	telephonyPhoneStateListenerOnDataConnectionStateChanged2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneStateListenerOnDataConnectionStateChanged2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyPhoneStateListenerOnDataConnectionStateChanged2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyPhoneStateListenerCmd.AddCommand(telephonyPhoneStateListenerOnDataConnectionStateChanged2_1Cmd)
+	telephonyPhoneStateListenerOnDisplayInfoChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneStateListenerOnDisplayInfoChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneStateListenerCmd.AddCommand(telephonyPhoneStateListenerOnDisplayInfoChangedCmd)
+	telephonyPhoneStateListenerOnImsCallDisconnectCauseChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneStateListenerOnImsCallDisconnectCauseChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneStateListenerCmd.AddCommand(telephonyPhoneStateListenerOnImsCallDisconnectCauseChangedCmd)
+	telephonyPhoneStateListenerOnMessageWaitingIndicatorChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneStateListenerOnMessageWaitingIndicatorChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	telephonyPhoneStateListenerCmd.AddCommand(telephonyPhoneStateListenerOnMessageWaitingIndicatorChangedCmd)
+	telephonyPhoneStateListenerOnPreciseDataConnectionStateChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneStateListenerOnPreciseDataConnectionStateChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneStateListenerCmd.AddCommand(telephonyPhoneStateListenerOnPreciseDataConnectionStateChangedCmd)
+	telephonyPhoneStateListenerOnRegistrationFailedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneStateListenerOnRegistrationFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneStateListenerOnRegistrationFailedCmd.Flags().String("arg1", "", "arg1 (string)")
+	telephonyPhoneStateListenerOnRegistrationFailedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	telephonyPhoneStateListenerOnRegistrationFailedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	telephonyPhoneStateListenerOnRegistrationFailedCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	telephonyPhoneStateListenerCmd.AddCommand(telephonyPhoneStateListenerOnRegistrationFailedCmd)
+	telephonyPhoneStateListenerOnServiceStateChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneStateListenerOnServiceStateChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneStateListenerCmd.AddCommand(telephonyPhoneStateListenerOnServiceStateChangedCmd)
+	telephonyPhoneStateListenerOnSignalStrengthChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneStateListenerOnSignalStrengthChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyPhoneStateListenerCmd.AddCommand(telephonyPhoneStateListenerOnSignalStrengthChangedCmd)
+	telephonyPhoneStateListenerOnSignalStrengthsChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneStateListenerOnSignalStrengthsChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyPhoneStateListenerCmd.AddCommand(telephonyPhoneStateListenerOnSignalStrengthsChangedCmd)
+	telephonyPhoneStateListenerOnUserMobileDataStateChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	telephonyPhoneStateListenerOnUserMobileDataStateChangedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	telephonyPhoneStateListenerCmd.AddCommand(telephonyPhoneStateListenerOnUserMobileDataStateChangedCmd)
+	telephonyCmd.AddCommand(telephonyPhoneStateListenerCmd)
 	rootCmd.AddCommand(telephonyCmd)
 }

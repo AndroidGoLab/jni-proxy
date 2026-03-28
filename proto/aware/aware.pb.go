@@ -23,6 +23,1822 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewIdentityChangedListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewIdentityChangedListenerRequest) Reset() {
+	*x = NewIdentityChangedListenerRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewIdentityChangedListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewIdentityChangedListenerRequest) ProtoMessage() {}
+
+func (x *NewIdentityChangedListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewIdentityChangedListenerRequest.ProtoReflect.Descriptor instead.
+func (*NewIdentityChangedListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{0}
+}
+
+type NewIdentityChangedListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewIdentityChangedListenerResponse) Reset() {
+	*x = NewIdentityChangedListenerResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewIdentityChangedListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewIdentityChangedListenerResponse) ProtoMessage() {}
+
+func (x *NewIdentityChangedListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewIdentityChangedListenerResponse.ProtoReflect.Descriptor instead.
+func (*NewIdentityChangedListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewIdentityChangedListenerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnClusterIdChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnClusterIdChangedRequest) Reset() {
+	*x = OnClusterIdChangedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnClusterIdChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnClusterIdChangedRequest) ProtoMessage() {}
+
+func (x *OnClusterIdChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnClusterIdChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnClusterIdChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *OnClusterIdChangedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnClusterIdChangedRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnClusterIdChangedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnClusterIdChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnClusterIdChangedResponse) Reset() {
+	*x = OnClusterIdChangedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnClusterIdChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnClusterIdChangedResponse) ProtoMessage() {}
+
+func (x *OnClusterIdChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnClusterIdChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnClusterIdChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{3}
+}
+
+type OnIdentityChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnIdentityChangedRequest) Reset() {
+	*x = OnIdentityChangedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnIdentityChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnIdentityChangedRequest) ProtoMessage() {}
+
+func (x *OnIdentityChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnIdentityChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnIdentityChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *OnIdentityChangedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnIdentityChangedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnIdentityChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnIdentityChangedResponse) Reset() {
+	*x = OnIdentityChangedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnIdentityChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnIdentityChangedResponse) ProtoMessage() {}
+
+func (x *OnIdentityChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnIdentityChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnIdentityChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{5}
+}
+
+type NewParcelablePeerHandleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewParcelablePeerHandleRequest) Reset() {
+	*x = NewParcelablePeerHandleRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewParcelablePeerHandleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewParcelablePeerHandleRequest) ProtoMessage() {}
+
+func (x *NewParcelablePeerHandleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewParcelablePeerHandleRequest.ProtoReflect.Descriptor instead.
+func (*NewParcelablePeerHandleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *NewParcelablePeerHandleRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewParcelablePeerHandleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewParcelablePeerHandleResponse) Reset() {
+	*x = NewParcelablePeerHandleResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewParcelablePeerHandleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewParcelablePeerHandleResponse) ProtoMessage() {}
+
+func (x *NewParcelablePeerHandleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewParcelablePeerHandleResponse.ProtoReflect.Descriptor instead.
+func (*NewParcelablePeerHandleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *NewParcelablePeerHandleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *DescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *WriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{11}
+}
+
+type CanBeSatisfiedByRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CanBeSatisfiedByRequest) Reset() {
+	*x = CanBeSatisfiedByRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CanBeSatisfiedByRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CanBeSatisfiedByRequest) ProtoMessage() {}
+
+func (x *CanBeSatisfiedByRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CanBeSatisfiedByRequest.ProtoReflect.Descriptor instead.
+func (*CanBeSatisfiedByRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *CanBeSatisfiedByRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type CanBeSatisfiedByResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CanBeSatisfiedByResponse) Reset() {
+	*x = CanBeSatisfiedByResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CanBeSatisfiedByResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CanBeSatisfiedByResponse) ProtoMessage() {}
+
+func (x *CanBeSatisfiedByResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CanBeSatisfiedByResponse.ProtoReflect.Descriptor instead.
+func (*CanBeSatisfiedByResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *CanBeSatisfiedByResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type WifiAwareNetworkSpecifierDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WifiAwareNetworkSpecifierDescribeContentsRequest) Reset() {
+	*x = WifiAwareNetworkSpecifierDescribeContentsRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WifiAwareNetworkSpecifierDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WifiAwareNetworkSpecifierDescribeContentsRequest) ProtoMessage() {}
+
+func (x *WifiAwareNetworkSpecifierDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WifiAwareNetworkSpecifierDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*WifiAwareNetworkSpecifierDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{14}
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetChannelFrequencyMhzRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelFrequencyMhzRequest) Reset() {
+	*x = GetChannelFrequencyMhzRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelFrequencyMhzRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelFrequencyMhzRequest) ProtoMessage() {}
+
+func (x *GetChannelFrequencyMhzRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelFrequencyMhzRequest.ProtoReflect.Descriptor instead.
+func (*GetChannelFrequencyMhzRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{17}
+}
+
+type GetChannelFrequencyMhzResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelFrequencyMhzResponse) Reset() {
+	*x = GetChannelFrequencyMhzResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelFrequencyMhzResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelFrequencyMhzResponse) ProtoMessage() {}
+
+func (x *GetChannelFrequencyMhzResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelFrequencyMhzResponse.ProtoReflect.Descriptor instead.
+func (*GetChannelFrequencyMhzResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *GetChannelFrequencyMhzResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetWifiAwareDataPathSecurityConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWifiAwareDataPathSecurityConfigRequest) Reset() {
+	*x = GetWifiAwareDataPathSecurityConfigRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWifiAwareDataPathSecurityConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWifiAwareDataPathSecurityConfigRequest) ProtoMessage() {}
+
+func (x *GetWifiAwareDataPathSecurityConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWifiAwareDataPathSecurityConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetWifiAwareDataPathSecurityConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{19}
+}
+
+type GetWifiAwareDataPathSecurityConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWifiAwareDataPathSecurityConfigResponse) Reset() {
+	*x = GetWifiAwareDataPathSecurityConfigResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWifiAwareDataPathSecurityConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWifiAwareDataPathSecurityConfigResponse) ProtoMessage() {}
+
+func (x *GetWifiAwareDataPathSecurityConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWifiAwareDataPathSecurityConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetWifiAwareDataPathSecurityConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *GetWifiAwareDataPathSecurityConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{21}
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsChannelRequiredRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsChannelRequiredRequest) Reset() {
+	*x = IsChannelRequiredRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsChannelRequiredRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsChannelRequiredRequest) ProtoMessage() {}
+
+func (x *IsChannelRequiredRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsChannelRequiredRequest.ProtoReflect.Descriptor instead.
+func (*IsChannelRequiredRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{23}
+}
+
+type IsChannelRequiredResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsChannelRequiredResponse) Reset() {
+	*x = IsChannelRequiredResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsChannelRequiredResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsChannelRequiredResponse) ProtoMessage() {}
+
+func (x *IsChannelRequiredResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsChannelRequiredResponse.ProtoReflect.Descriptor instead.
+func (*IsChannelRequiredResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *IsChannelRequiredResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{25}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WifiAwareNetworkSpecifierWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WifiAwareNetworkSpecifierWriteToParcelRequest) Reset() {
+	*x = WifiAwareNetworkSpecifierWriteToParcelRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WifiAwareNetworkSpecifierWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WifiAwareNetworkSpecifierWriteToParcelRequest) ProtoMessage() {}
+
+func (x *WifiAwareNetworkSpecifierWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WifiAwareNetworkSpecifierWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WifiAwareNetworkSpecifierWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *WifiAwareNetworkSpecifierWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WifiAwareNetworkSpecifierWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{28}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetChannelFrequencyMhzRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetChannelFrequencyMhzRequest) Reset() {
+	*x = SetChannelFrequencyMhzRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetChannelFrequencyMhzRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetChannelFrequencyMhzRequest) ProtoMessage() {}
+
+func (x *SetChannelFrequencyMhzRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetChannelFrequencyMhzRequest.ProtoReflect.Descriptor instead.
+func (*SetChannelFrequencyMhzRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *SetChannelFrequencyMhzRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetChannelFrequencyMhzRequest) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+type SetChannelFrequencyMhzResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetChannelFrequencyMhzResponse) Reset() {
+	*x = SetChannelFrequencyMhzResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetChannelFrequencyMhzResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetChannelFrequencyMhzResponse) ProtoMessage() {}
+
+func (x *SetChannelFrequencyMhzResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetChannelFrequencyMhzResponse.ProtoReflect.Descriptor instead.
+func (*SetChannelFrequencyMhzResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *SetChannelFrequencyMhzResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetDataPathSecurityConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDataPathSecurityConfigRequest) Reset() {
+	*x = SetDataPathSecurityConfigRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDataPathSecurityConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDataPathSecurityConfigRequest) ProtoMessage() {}
+
+func (x *SetDataPathSecurityConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDataPathSecurityConfigRequest.ProtoReflect.Descriptor instead.
+func (*SetDataPathSecurityConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *SetDataPathSecurityConfigRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetDataPathSecurityConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDataPathSecurityConfigResponse) Reset() {
+	*x = SetDataPathSecurityConfigResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDataPathSecurityConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDataPathSecurityConfigResponse) ProtoMessage() {}
+
+func (x *SetDataPathSecurityConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDataPathSecurityConfigResponse.ProtoReflect.Descriptor instead.
+func (*SetDataPathSecurityConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *SetDataPathSecurityConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPmkRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPmkRequest) Reset() {
+	*x = SetPmkRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPmkRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPmkRequest) ProtoMessage() {}
+
+func (x *SetPmkRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPmkRequest.ProtoReflect.Descriptor instead.
+func (*SetPmkRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *SetPmkRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPmkResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPmkResponse) Reset() {
+	*x = SetPmkResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPmkResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPmkResponse) ProtoMessage() {}
+
+func (x *SetPmkResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPmkResponse.ProtoReflect.Descriptor instead.
+func (*SetPmkResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *SetPmkResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPortRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPortRequest) Reset() {
+	*x = SetPortRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPortRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPortRequest) ProtoMessage() {}
+
+func (x *SetPortRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPortRequest.ProtoReflect.Descriptor instead.
+func (*SetPortRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *SetPortRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPortResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPortResponse) Reset() {
+	*x = SetPortResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPortResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPortResponse) ProtoMessage() {}
+
+func (x *SetPortResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPortResponse.ProtoReflect.Descriptor instead.
+func (*SetPortResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *SetPortResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPskPassphraseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPskPassphraseRequest) Reset() {
+	*x = SetPskPassphraseRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPskPassphraseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPskPassphraseRequest) ProtoMessage() {}
+
+func (x *SetPskPassphraseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPskPassphraseRequest.ProtoReflect.Descriptor instead.
+func (*SetPskPassphraseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *SetPskPassphraseRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetPskPassphraseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPskPassphraseResponse) Reset() {
+	*x = SetPskPassphraseResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPskPassphraseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPskPassphraseResponse) ProtoMessage() {}
+
+func (x *SetPskPassphraseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPskPassphraseResponse.ProtoReflect.Descriptor instead.
+func (*SetPskPassphraseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *SetPskPassphraseResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetTransportProtocolRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTransportProtocolRequest) Reset() {
+	*x = SetTransportProtocolRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTransportProtocolRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTransportProtocolRequest) ProtoMessage() {}
+
+func (x *SetTransportProtocolRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTransportProtocolRequest.ProtoReflect.Descriptor instead.
+func (*SetTransportProtocolRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *SetTransportProtocolRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetTransportProtocolResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTransportProtocolResponse) Reset() {
+	*x = SetTransportProtocolResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTransportProtocolResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTransportProtocolResponse) ProtoMessage() {}
+
+func (x *SetTransportProtocolResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTransportProtocolResponse.ProtoReflect.Descriptor instead.
+func (*SetTransportProtocolResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *SetTransportProtocolResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type GetAvailableAwareResourcesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -31,7 +1847,7 @@ type GetAvailableAwareResourcesRequest struct {
 
 func (x *GetAvailableAwareResourcesRequest) Reset() {
 	*x = GetAvailableAwareResourcesRequest{}
-	mi := &file_proto_aware_aware_proto_msgTypes[0]
+	mi := &file_proto_aware_aware_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +1859,7 @@ func (x *GetAvailableAwareResourcesRequest) String() string {
 func (*GetAvailableAwareResourcesRequest) ProtoMessage() {}
 
 func (x *GetAvailableAwareResourcesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_aware_aware_proto_msgTypes[0]
+	mi := &file_proto_aware_aware_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +1872,7 @@ func (x *GetAvailableAwareResourcesRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetAvailableAwareResourcesRequest.ProtoReflect.Descriptor instead.
 func (*GetAvailableAwareResourcesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_aware_aware_proto_rawDescGZIP(), []int{0}
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{42}
 }
 
 type GetAvailableAwareResourcesResponse struct {
@@ -68,7 +1884,7 @@ type GetAvailableAwareResourcesResponse struct {
 
 func (x *GetAvailableAwareResourcesResponse) Reset() {
 	*x = GetAvailableAwareResourcesResponse{}
-	mi := &file_proto_aware_aware_proto_msgTypes[1]
+	mi := &file_proto_aware_aware_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -80,7 +1896,7 @@ func (x *GetAvailableAwareResourcesResponse) String() string {
 func (*GetAvailableAwareResourcesResponse) ProtoMessage() {}
 
 func (x *GetAvailableAwareResourcesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_aware_aware_proto_msgTypes[1]
+	mi := &file_proto_aware_aware_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -93,7 +1909,7 @@ func (x *GetAvailableAwareResourcesResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use GetAvailableAwareResourcesResponse.ProtoReflect.Descriptor instead.
 func (*GetAvailableAwareResourcesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_aware_aware_proto_rawDescGZIP(), []int{1}
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *GetAvailableAwareResourcesResponse) GetResult() int64 {
@@ -111,7 +1927,7 @@ type GetCharacteristicsRequest struct {
 
 func (x *GetCharacteristicsRequest) Reset() {
 	*x = GetCharacteristicsRequest{}
-	mi := &file_proto_aware_aware_proto_msgTypes[2]
+	mi := &file_proto_aware_aware_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -123,7 +1939,7 @@ func (x *GetCharacteristicsRequest) String() string {
 func (*GetCharacteristicsRequest) ProtoMessage() {}
 
 func (x *GetCharacteristicsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_aware_aware_proto_msgTypes[2]
+	mi := &file_proto_aware_aware_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -136,7 +1952,7 @@ func (x *GetCharacteristicsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCharacteristicsRequest.ProtoReflect.Descriptor instead.
 func (*GetCharacteristicsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_aware_aware_proto_rawDescGZIP(), []int{2}
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{44}
 }
 
 type GetCharacteristicsResponse struct {
@@ -148,7 +1964,7 @@ type GetCharacteristicsResponse struct {
 
 func (x *GetCharacteristicsResponse) Reset() {
 	*x = GetCharacteristicsResponse{}
-	mi := &file_proto_aware_aware_proto_msgTypes[3]
+	mi := &file_proto_aware_aware_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -160,7 +1976,7 @@ func (x *GetCharacteristicsResponse) String() string {
 func (*GetCharacteristicsResponse) ProtoMessage() {}
 
 func (x *GetCharacteristicsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_aware_aware_proto_msgTypes[3]
+	mi := &file_proto_aware_aware_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -173,7 +1989,7 @@ func (x *GetCharacteristicsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCharacteristicsResponse.ProtoReflect.Descriptor instead.
 func (*GetCharacteristicsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_aware_aware_proto_rawDescGZIP(), []int{3}
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *GetCharacteristicsResponse) GetResult() int64 {
@@ -191,7 +2007,7 @@ type IsAvailableRequest struct {
 
 func (x *IsAvailableRequest) Reset() {
 	*x = IsAvailableRequest{}
-	mi := &file_proto_aware_aware_proto_msgTypes[4]
+	mi := &file_proto_aware_aware_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -203,7 +2019,7 @@ func (x *IsAvailableRequest) String() string {
 func (*IsAvailableRequest) ProtoMessage() {}
 
 func (x *IsAvailableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_aware_aware_proto_msgTypes[4]
+	mi := &file_proto_aware_aware_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -216,7 +2032,7 @@ func (x *IsAvailableRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsAvailableRequest.ProtoReflect.Descriptor instead.
 func (*IsAvailableRequest) Descriptor() ([]byte, []int) {
-	return file_proto_aware_aware_proto_rawDescGZIP(), []int{4}
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{46}
 }
 
 type IsAvailableResponse struct {
@@ -228,7 +2044,7 @@ type IsAvailableResponse struct {
 
 func (x *IsAvailableResponse) Reset() {
 	*x = IsAvailableResponse{}
-	mi := &file_proto_aware_aware_proto_msgTypes[5]
+	mi := &file_proto_aware_aware_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -240,7 +2056,7 @@ func (x *IsAvailableResponse) String() string {
 func (*IsAvailableResponse) ProtoMessage() {}
 
 func (x *IsAvailableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_aware_aware_proto_msgTypes[5]
+	mi := &file_proto_aware_aware_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -253,7 +2069,7 @@ func (x *IsAvailableResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsAvailableResponse.ProtoReflect.Descriptor instead.
 func (*IsAvailableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_aware_aware_proto_rawDescGZIP(), []int{5}
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *IsAvailableResponse) GetResult() bool {
@@ -271,7 +2087,7 @@ type IsDeviceAttachedRequest struct {
 
 func (x *IsDeviceAttachedRequest) Reset() {
 	*x = IsDeviceAttachedRequest{}
-	mi := &file_proto_aware_aware_proto_msgTypes[6]
+	mi := &file_proto_aware_aware_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -283,7 +2099,7 @@ func (x *IsDeviceAttachedRequest) String() string {
 func (*IsDeviceAttachedRequest) ProtoMessage() {}
 
 func (x *IsDeviceAttachedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_aware_aware_proto_msgTypes[6]
+	mi := &file_proto_aware_aware_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -296,7 +2112,7 @@ func (x *IsDeviceAttachedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsDeviceAttachedRequest.ProtoReflect.Descriptor instead.
 func (*IsDeviceAttachedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_aware_aware_proto_rawDescGZIP(), []int{6}
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{48}
 }
 
 type IsDeviceAttachedResponse struct {
@@ -308,7 +2124,7 @@ type IsDeviceAttachedResponse struct {
 
 func (x *IsDeviceAttachedResponse) Reset() {
 	*x = IsDeviceAttachedResponse{}
-	mi := &file_proto_aware_aware_proto_msgTypes[7]
+	mi := &file_proto_aware_aware_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -320,7 +2136,7 @@ func (x *IsDeviceAttachedResponse) String() string {
 func (*IsDeviceAttachedResponse) ProtoMessage() {}
 
 func (x *IsDeviceAttachedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_aware_aware_proto_msgTypes[7]
+	mi := &file_proto_aware_aware_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -333,7 +2149,7 @@ func (x *IsDeviceAttachedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsDeviceAttachedResponse.ProtoReflect.Descriptor instead.
 func (*IsDeviceAttachedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_aware_aware_proto_rawDescGZIP(), []int{7}
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *IsDeviceAttachedResponse) GetResult() bool {
@@ -351,7 +2167,7 @@ type IsInstantCommunicationModeEnabledRequest struct {
 
 func (x *IsInstantCommunicationModeEnabledRequest) Reset() {
 	*x = IsInstantCommunicationModeEnabledRequest{}
-	mi := &file_proto_aware_aware_proto_msgTypes[8]
+	mi := &file_proto_aware_aware_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -363,7 +2179,7 @@ func (x *IsInstantCommunicationModeEnabledRequest) String() string {
 func (*IsInstantCommunicationModeEnabledRequest) ProtoMessage() {}
 
 func (x *IsInstantCommunicationModeEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_aware_aware_proto_msgTypes[8]
+	mi := &file_proto_aware_aware_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -376,7 +2192,7 @@ func (x *IsInstantCommunicationModeEnabledRequest) ProtoReflect() protoreflect.M
 
 // Deprecated: Use IsInstantCommunicationModeEnabledRequest.ProtoReflect.Descriptor instead.
 func (*IsInstantCommunicationModeEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_aware_aware_proto_rawDescGZIP(), []int{8}
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{50}
 }
 
 type IsInstantCommunicationModeEnabledResponse struct {
@@ -388,7 +2204,7 @@ type IsInstantCommunicationModeEnabledResponse struct {
 
 func (x *IsInstantCommunicationModeEnabledResponse) Reset() {
 	*x = IsInstantCommunicationModeEnabledResponse{}
-	mi := &file_proto_aware_aware_proto_msgTypes[9]
+	mi := &file_proto_aware_aware_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -400,7 +2216,7 @@ func (x *IsInstantCommunicationModeEnabledResponse) String() string {
 func (*IsInstantCommunicationModeEnabledResponse) ProtoMessage() {}
 
 func (x *IsInstantCommunicationModeEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_aware_aware_proto_msgTypes[9]
+	mi := &file_proto_aware_aware_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -413,7 +2229,7 @@ func (x *IsInstantCommunicationModeEnabledResponse) ProtoReflect() protoreflect.
 
 // Deprecated: Use IsInstantCommunicationModeEnabledResponse.ProtoReflect.Descriptor instead.
 func (*IsInstantCommunicationModeEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_aware_aware_proto_rawDescGZIP(), []int{9}
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *IsInstantCommunicationModeEnabledResponse) GetResult() bool {
@@ -431,7 +2247,7 @@ type IsSetChannelOnDataPathSupportedRequest struct {
 
 func (x *IsSetChannelOnDataPathSupportedRequest) Reset() {
 	*x = IsSetChannelOnDataPathSupportedRequest{}
-	mi := &file_proto_aware_aware_proto_msgTypes[10]
+	mi := &file_proto_aware_aware_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -443,7 +2259,7 @@ func (x *IsSetChannelOnDataPathSupportedRequest) String() string {
 func (*IsSetChannelOnDataPathSupportedRequest) ProtoMessage() {}
 
 func (x *IsSetChannelOnDataPathSupportedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_aware_aware_proto_msgTypes[10]
+	mi := &file_proto_aware_aware_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -456,7 +2272,7 @@ func (x *IsSetChannelOnDataPathSupportedRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use IsSetChannelOnDataPathSupportedRequest.ProtoReflect.Descriptor instead.
 func (*IsSetChannelOnDataPathSupportedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_aware_aware_proto_rawDescGZIP(), []int{10}
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{52}
 }
 
 type IsSetChannelOnDataPathSupportedResponse struct {
@@ -468,7 +2284,7 @@ type IsSetChannelOnDataPathSupportedResponse struct {
 
 func (x *IsSetChannelOnDataPathSupportedResponse) Reset() {
 	*x = IsSetChannelOnDataPathSupportedResponse{}
-	mi := &file_proto_aware_aware_proto_msgTypes[11]
+	mi := &file_proto_aware_aware_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -480,7 +2296,7 @@ func (x *IsSetChannelOnDataPathSupportedResponse) String() string {
 func (*IsSetChannelOnDataPathSupportedResponse) ProtoMessage() {}
 
 func (x *IsSetChannelOnDataPathSupportedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_aware_aware_proto_msgTypes[11]
+	mi := &file_proto_aware_aware_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -493,7 +2309,7 @@ func (x *IsSetChannelOnDataPathSupportedResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use IsSetChannelOnDataPathSupportedResponse.ProtoReflect.Descriptor instead.
 func (*IsSetChannelOnDataPathSupportedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_aware_aware_proto_rawDescGZIP(), []int{11}
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *IsSetChannelOnDataPathSupportedResponse) GetResult() bool {
@@ -512,7 +2328,7 @@ type RemovePairedDeviceRequest struct {
 
 func (x *RemovePairedDeviceRequest) Reset() {
 	*x = RemovePairedDeviceRequest{}
-	mi := &file_proto_aware_aware_proto_msgTypes[12]
+	mi := &file_proto_aware_aware_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -524,7 +2340,7 @@ func (x *RemovePairedDeviceRequest) String() string {
 func (*RemovePairedDeviceRequest) ProtoMessage() {}
 
 func (x *RemovePairedDeviceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_aware_aware_proto_msgTypes[12]
+	mi := &file_proto_aware_aware_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -537,7 +2353,7 @@ func (x *RemovePairedDeviceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemovePairedDeviceRequest.ProtoReflect.Descriptor instead.
 func (*RemovePairedDeviceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_aware_aware_proto_rawDescGZIP(), []int{12}
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *RemovePairedDeviceRequest) GetArg0() string {
@@ -555,7 +2371,7 @@ type RemovePairedDeviceResponse struct {
 
 func (x *RemovePairedDeviceResponse) Reset() {
 	*x = RemovePairedDeviceResponse{}
-	mi := &file_proto_aware_aware_proto_msgTypes[13]
+	mi := &file_proto_aware_aware_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -567,7 +2383,7 @@ func (x *RemovePairedDeviceResponse) String() string {
 func (*RemovePairedDeviceResponse) ProtoMessage() {}
 
 func (x *RemovePairedDeviceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_aware_aware_proto_msgTypes[13]
+	mi := &file_proto_aware_aware_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -580,7 +2396,7 @@ func (x *RemovePairedDeviceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemovePairedDeviceResponse.ProtoReflect.Descriptor instead.
 func (*RemovePairedDeviceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_aware_aware_proto_rawDescGZIP(), []int{13}
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{55}
 }
 
 type ResetPairedDevicesRequest struct {
@@ -591,7 +2407,7 @@ type ResetPairedDevicesRequest struct {
 
 func (x *ResetPairedDevicesRequest) Reset() {
 	*x = ResetPairedDevicesRequest{}
-	mi := &file_proto_aware_aware_proto_msgTypes[14]
+	mi := &file_proto_aware_aware_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -603,7 +2419,7 @@ func (x *ResetPairedDevicesRequest) String() string {
 func (*ResetPairedDevicesRequest) ProtoMessage() {}
 
 func (x *ResetPairedDevicesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_aware_aware_proto_msgTypes[14]
+	mi := &file_proto_aware_aware_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -616,7 +2432,7 @@ func (x *ResetPairedDevicesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResetPairedDevicesRequest.ProtoReflect.Descriptor instead.
 func (*ResetPairedDevicesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_aware_aware_proto_rawDescGZIP(), []int{14}
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{56}
 }
 
 type ResetPairedDevicesResponse struct {
@@ -627,7 +2443,7 @@ type ResetPairedDevicesResponse struct {
 
 func (x *ResetPairedDevicesResponse) Reset() {
 	*x = ResetPairedDevicesResponse{}
-	mi := &file_proto_aware_aware_proto_msgTypes[15]
+	mi := &file_proto_aware_aware_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -639,7 +2455,7 @@ func (x *ResetPairedDevicesResponse) String() string {
 func (*ResetPairedDevicesResponse) ProtoMessage() {}
 
 func (x *ResetPairedDevicesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_aware_aware_proto_msgTypes[15]
+	mi := &file_proto_aware_aware_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -652,7 +2468,7 @@ func (x *ResetPairedDevicesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResetPairedDevicesResponse.ProtoReflect.Descriptor instead.
 func (*ResetPairedDevicesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_aware_aware_proto_rawDescGZIP(), []int{15}
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{57}
 }
 
 type SetOpportunisticModeEnabledRequest struct {
@@ -664,7 +2480,7 @@ type SetOpportunisticModeEnabledRequest struct {
 
 func (x *SetOpportunisticModeEnabledRequest) Reset() {
 	*x = SetOpportunisticModeEnabledRequest{}
-	mi := &file_proto_aware_aware_proto_msgTypes[16]
+	mi := &file_proto_aware_aware_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -676,7 +2492,7 @@ func (x *SetOpportunisticModeEnabledRequest) String() string {
 func (*SetOpportunisticModeEnabledRequest) ProtoMessage() {}
 
 func (x *SetOpportunisticModeEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_aware_aware_proto_msgTypes[16]
+	mi := &file_proto_aware_aware_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -689,7 +2505,7 @@ func (x *SetOpportunisticModeEnabledRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use SetOpportunisticModeEnabledRequest.ProtoReflect.Descriptor instead.
 func (*SetOpportunisticModeEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_aware_aware_proto_rawDescGZIP(), []int{16}
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *SetOpportunisticModeEnabledRequest) GetArg0() bool {
@@ -707,7 +2523,7 @@ type SetOpportunisticModeEnabledResponse struct {
 
 func (x *SetOpportunisticModeEnabledResponse) Reset() {
 	*x = SetOpportunisticModeEnabledResponse{}
-	mi := &file_proto_aware_aware_proto_msgTypes[17]
+	mi := &file_proto_aware_aware_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -719,7 +2535,7 @@ func (x *SetOpportunisticModeEnabledResponse) String() string {
 func (*SetOpportunisticModeEnabledResponse) ProtoMessage() {}
 
 func (x *SetOpportunisticModeEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_aware_aware_proto_msgTypes[17]
+	mi := &file_proto_aware_aware_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -732,7 +2548,8175 @@ func (x *SetOpportunisticModeEnabledResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use SetOpportunisticModeEnabledResponse.ProtoReflect.Descriptor instead.
 func (*SetOpportunisticModeEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_aware_aware_proto_rawDescGZIP(), []int{17}
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{59}
+}
+
+type WifiAwareNetworkInfoDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WifiAwareNetworkInfoDescribeContentsRequest) Reset() {
+	*x = WifiAwareNetworkInfoDescribeContentsRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WifiAwareNetworkInfoDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WifiAwareNetworkInfoDescribeContentsRequest) ProtoMessage() {}
+
+func (x *WifiAwareNetworkInfoDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WifiAwareNetworkInfoDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*WifiAwareNetworkInfoDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{60}
+}
+
+type GetPeerIpv6AddrRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPeerIpv6AddrRequest) Reset() {
+	*x = GetPeerIpv6AddrRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPeerIpv6AddrRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPeerIpv6AddrRequest) ProtoMessage() {}
+
+func (x *GetPeerIpv6AddrRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPeerIpv6AddrRequest.ProtoReflect.Descriptor instead.
+func (*GetPeerIpv6AddrRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{61}
+}
+
+type GetPeerIpv6AddrResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPeerIpv6AddrResponse) Reset() {
+	*x = GetPeerIpv6AddrResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPeerIpv6AddrResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPeerIpv6AddrResponse) ProtoMessage() {}
+
+func (x *GetPeerIpv6AddrResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPeerIpv6AddrResponse.ProtoReflect.Descriptor instead.
+func (*GetPeerIpv6AddrResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *GetPeerIpv6AddrResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPortRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPortRequest) Reset() {
+	*x = GetPortRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPortRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPortRequest) ProtoMessage() {}
+
+func (x *GetPortRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPortRequest.ProtoReflect.Descriptor instead.
+func (*GetPortRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{63}
+}
+
+type GetPortResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPortResponse) Reset() {
+	*x = GetPortResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPortResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPortResponse) ProtoMessage() {}
+
+func (x *GetPortResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPortResponse.ProtoReflect.Descriptor instead.
+func (*GetPortResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *GetPortResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTransportProtocolRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTransportProtocolRequest) Reset() {
+	*x = GetTransportProtocolRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTransportProtocolRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTransportProtocolRequest) ProtoMessage() {}
+
+func (x *GetTransportProtocolRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTransportProtocolRequest.ProtoReflect.Descriptor instead.
+func (*GetTransportProtocolRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{65}
+}
+
+type GetTransportProtocolResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTransportProtocolResponse) Reset() {
+	*x = GetTransportProtocolResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTransportProtocolResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTransportProtocolResponse) ProtoMessage() {}
+
+func (x *GetTransportProtocolResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTransportProtocolResponse.ProtoReflect.Descriptor instead.
+func (*GetTransportProtocolResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *GetTransportProtocolResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WifiAwareNetworkInfoWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WifiAwareNetworkInfoWriteToParcelRequest) Reset() {
+	*x = WifiAwareNetworkInfoWriteToParcelRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WifiAwareNetworkInfoWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WifiAwareNetworkInfoWriteToParcelRequest) ProtoMessage() {}
+
+func (x *WifiAwareNetworkInfoWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WifiAwareNetworkInfoWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WifiAwareNetworkInfoWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *WifiAwareNetworkInfoWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WifiAwareNetworkInfoWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewAttachCallbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAttachCallbackRequest) Reset() {
+	*x = NewAttachCallbackRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAttachCallbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAttachCallbackRequest) ProtoMessage() {}
+
+func (x *NewAttachCallbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAttachCallbackRequest.ProtoReflect.Descriptor instead.
+func (*NewAttachCallbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{68}
+}
+
+type NewAttachCallbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAttachCallbackResponse) Reset() {
+	*x = NewAttachCallbackResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAttachCallbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAttachCallbackResponse) ProtoMessage() {}
+
+func (x *NewAttachCallbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAttachCallbackResponse.ProtoReflect.Descriptor instead.
+func (*NewAttachCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *NewAttachCallbackResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnAttachFailedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAttachFailedRequest) Reset() {
+	*x = OnAttachFailedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAttachFailedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAttachFailedRequest) ProtoMessage() {}
+
+func (x *OnAttachFailedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAttachFailedRequest.ProtoReflect.Descriptor instead.
+func (*OnAttachFailedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *OnAttachFailedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OnAttachFailedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAttachFailedResponse) Reset() {
+	*x = OnAttachFailedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAttachFailedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAttachFailedResponse) ProtoMessage() {}
+
+func (x *OnAttachFailedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAttachFailedResponse.ProtoReflect.Descriptor instead.
+func (*OnAttachFailedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{71}
+}
+
+type OnAttachedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAttachedRequest) Reset() {
+	*x = OnAttachedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAttachedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAttachedRequest) ProtoMessage() {}
+
+func (x *OnAttachedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAttachedRequest.ProtoReflect.Descriptor instead.
+func (*OnAttachedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *OnAttachedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnAttachedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnAttachedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAttachedResponse) Reset() {
+	*x = OnAttachedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAttachedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAttachedResponse) ProtoMessage() {}
+
+func (x *OnAttachedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAttachedResponse.ProtoReflect.Descriptor instead.
+func (*OnAttachedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{73}
+}
+
+type OnAwareSessionTerminatedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAwareSessionTerminatedRequest) Reset() {
+	*x = OnAwareSessionTerminatedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAwareSessionTerminatedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAwareSessionTerminatedRequest) ProtoMessage() {}
+
+func (x *OnAwareSessionTerminatedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAwareSessionTerminatedRequest.ProtoReflect.Descriptor instead.
+func (*OnAwareSessionTerminatedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *OnAwareSessionTerminatedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OnAwareSessionTerminatedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAwareSessionTerminatedResponse) Reset() {
+	*x = OnAwareSessionTerminatedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAwareSessionTerminatedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAwareSessionTerminatedResponse) ProtoMessage() {}
+
+func (x *OnAwareSessionTerminatedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAwareSessionTerminatedResponse.ProtoReflect.Descriptor instead.
+func (*OnAwareSessionTerminatedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{75}
+}
+
+type NewDiscoverySessionCallbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewDiscoverySessionCallbackRequest) Reset() {
+	*x = NewDiscoverySessionCallbackRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewDiscoverySessionCallbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewDiscoverySessionCallbackRequest) ProtoMessage() {}
+
+func (x *NewDiscoverySessionCallbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewDiscoverySessionCallbackRequest.ProtoReflect.Descriptor instead.
+func (*NewDiscoverySessionCallbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{76}
+}
+
+type NewDiscoverySessionCallbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewDiscoverySessionCallbackResponse) Reset() {
+	*x = NewDiscoverySessionCallbackResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewDiscoverySessionCallbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewDiscoverySessionCallbackResponse) ProtoMessage() {}
+
+func (x *NewDiscoverySessionCallbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewDiscoverySessionCallbackResponse.ProtoReflect.Descriptor instead.
+func (*NewDiscoverySessionCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *NewDiscoverySessionCallbackResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnBootstrappingFailedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBootstrappingFailedRequest) Reset() {
+	*x = OnBootstrappingFailedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBootstrappingFailedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBootstrappingFailedRequest) ProtoMessage() {}
+
+func (x *OnBootstrappingFailedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBootstrappingFailedRequest.ProtoReflect.Descriptor instead.
+func (*OnBootstrappingFailedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *OnBootstrappingFailedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnBootstrappingFailedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnBootstrappingFailedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBootstrappingFailedResponse) Reset() {
+	*x = OnBootstrappingFailedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBootstrappingFailedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBootstrappingFailedResponse) ProtoMessage() {}
+
+func (x *OnBootstrappingFailedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBootstrappingFailedResponse.ProtoReflect.Descriptor instead.
+func (*OnBootstrappingFailedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{79}
+}
+
+type OnBootstrappingSucceededRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBootstrappingSucceededRequest) Reset() {
+	*x = OnBootstrappingSucceededRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBootstrappingSucceededRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBootstrappingSucceededRequest) ProtoMessage() {}
+
+func (x *OnBootstrappingSucceededRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBootstrappingSucceededRequest.ProtoReflect.Descriptor instead.
+func (*OnBootstrappingSucceededRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *OnBootstrappingSucceededRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnBootstrappingSucceededRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnBootstrappingSucceededRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnBootstrappingSucceededResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBootstrappingSucceededResponse) Reset() {
+	*x = OnBootstrappingSucceededResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBootstrappingSucceededResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBootstrappingSucceededResponse) ProtoMessage() {}
+
+func (x *OnBootstrappingSucceededResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBootstrappingSucceededResponse.ProtoReflect.Descriptor instead.
+func (*OnBootstrappingSucceededResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{81}
+}
+
+type OnMessageReceivedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMessageReceivedRequest) Reset() {
+	*x = OnMessageReceivedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMessageReceivedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMessageReceivedRequest) ProtoMessage() {}
+
+func (x *OnMessageReceivedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMessageReceivedRequest.ProtoReflect.Descriptor instead.
+func (*OnMessageReceivedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *OnMessageReceivedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnMessageReceivedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnMessageReceivedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnMessageReceivedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMessageReceivedResponse) Reset() {
+	*x = OnMessageReceivedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMessageReceivedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMessageReceivedResponse) ProtoMessage() {}
+
+func (x *OnMessageReceivedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMessageReceivedResponse.ProtoReflect.Descriptor instead.
+func (*OnMessageReceivedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{83}
+}
+
+type OnMessageSendFailedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMessageSendFailedRequest) Reset() {
+	*x = OnMessageSendFailedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMessageSendFailedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMessageSendFailedRequest) ProtoMessage() {}
+
+func (x *OnMessageSendFailedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMessageSendFailedRequest.ProtoReflect.Descriptor instead.
+func (*OnMessageSendFailedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{84}
+}
+
+func (x *OnMessageSendFailedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnMessageSendFailedRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnMessageSendFailedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMessageSendFailedResponse) Reset() {
+	*x = OnMessageSendFailedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMessageSendFailedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMessageSendFailedResponse) ProtoMessage() {}
+
+func (x *OnMessageSendFailedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMessageSendFailedResponse.ProtoReflect.Descriptor instead.
+func (*OnMessageSendFailedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{85}
+}
+
+type OnMessageSendSucceededRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMessageSendSucceededRequest) Reset() {
+	*x = OnMessageSendSucceededRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMessageSendSucceededRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMessageSendSucceededRequest) ProtoMessage() {}
+
+func (x *OnMessageSendSucceededRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMessageSendSucceededRequest.ProtoReflect.Descriptor instead.
+func (*OnMessageSendSucceededRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{86}
+}
+
+func (x *OnMessageSendSucceededRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnMessageSendSucceededRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnMessageSendSucceededResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMessageSendSucceededResponse) Reset() {
+	*x = OnMessageSendSucceededResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMessageSendSucceededResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMessageSendSucceededResponse) ProtoMessage() {}
+
+func (x *OnMessageSendSucceededResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMessageSendSucceededResponse.ProtoReflect.Descriptor instead.
+func (*OnMessageSendSucceededResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{87}
+}
+
+type OnPairingSetupFailedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPairingSetupFailedRequest) Reset() {
+	*x = OnPairingSetupFailedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPairingSetupFailedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPairingSetupFailedRequest) ProtoMessage() {}
+
+func (x *OnPairingSetupFailedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPairingSetupFailedRequest.ProtoReflect.Descriptor instead.
+func (*OnPairingSetupFailedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *OnPairingSetupFailedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnPairingSetupFailedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnPairingSetupFailedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPairingSetupFailedResponse) Reset() {
+	*x = OnPairingSetupFailedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPairingSetupFailedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPairingSetupFailedResponse) ProtoMessage() {}
+
+func (x *OnPairingSetupFailedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPairingSetupFailedResponse.ProtoReflect.Descriptor instead.
+func (*OnPairingSetupFailedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{89}
+}
+
+type OnPairingSetupRequestReceivedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPairingSetupRequestReceivedRequest) Reset() {
+	*x = OnPairingSetupRequestReceivedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPairingSetupRequestReceivedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPairingSetupRequestReceivedRequest) ProtoMessage() {}
+
+func (x *OnPairingSetupRequestReceivedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPairingSetupRequestReceivedRequest.ProtoReflect.Descriptor instead.
+func (*OnPairingSetupRequestReceivedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *OnPairingSetupRequestReceivedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnPairingSetupRequestReceivedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnPairingSetupRequestReceivedRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnPairingSetupRequestReceivedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPairingSetupRequestReceivedResponse) Reset() {
+	*x = OnPairingSetupRequestReceivedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPairingSetupRequestReceivedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPairingSetupRequestReceivedResponse) ProtoMessage() {}
+
+func (x *OnPairingSetupRequestReceivedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPairingSetupRequestReceivedResponse.ProtoReflect.Descriptor instead.
+func (*OnPairingSetupRequestReceivedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{91}
+}
+
+type OnPairingSetupSucceededRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPairingSetupSucceededRequest) Reset() {
+	*x = OnPairingSetupSucceededRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPairingSetupSucceededRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPairingSetupSucceededRequest) ProtoMessage() {}
+
+func (x *OnPairingSetupSucceededRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPairingSetupSucceededRequest.ProtoReflect.Descriptor instead.
+func (*OnPairingSetupSucceededRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *OnPairingSetupSucceededRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnPairingSetupSucceededRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnPairingSetupSucceededRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type OnPairingSetupSucceededResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPairingSetupSucceededResponse) Reset() {
+	*x = OnPairingSetupSucceededResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPairingSetupSucceededResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPairingSetupSucceededResponse) ProtoMessage() {}
+
+func (x *OnPairingSetupSucceededResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPairingSetupSucceededResponse.ProtoReflect.Descriptor instead.
+func (*OnPairingSetupSucceededResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{93}
+}
+
+type OnPairingVerificationFailedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPairingVerificationFailedRequest) Reset() {
+	*x = OnPairingVerificationFailedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPairingVerificationFailedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPairingVerificationFailedRequest) ProtoMessage() {}
+
+func (x *OnPairingVerificationFailedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPairingVerificationFailedRequest.ProtoReflect.Descriptor instead.
+func (*OnPairingVerificationFailedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *OnPairingVerificationFailedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnPairingVerificationFailedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnPairingVerificationFailedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPairingVerificationFailedResponse) Reset() {
+	*x = OnPairingVerificationFailedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPairingVerificationFailedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPairingVerificationFailedResponse) ProtoMessage() {}
+
+func (x *OnPairingVerificationFailedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPairingVerificationFailedResponse.ProtoReflect.Descriptor instead.
+func (*OnPairingVerificationFailedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{95}
+}
+
+type OnPairingVerificationSucceedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPairingVerificationSucceedRequest) Reset() {
+	*x = OnPairingVerificationSucceedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPairingVerificationSucceedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPairingVerificationSucceedRequest) ProtoMessage() {}
+
+func (x *OnPairingVerificationSucceedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPairingVerificationSucceedRequest.ProtoReflect.Descriptor instead.
+func (*OnPairingVerificationSucceedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *OnPairingVerificationSucceedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnPairingVerificationSucceedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnPairingVerificationSucceedRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type OnPairingVerificationSucceedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPairingVerificationSucceedResponse) Reset() {
+	*x = OnPairingVerificationSucceedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPairingVerificationSucceedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPairingVerificationSucceedResponse) ProtoMessage() {}
+
+func (x *OnPairingVerificationSucceedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPairingVerificationSucceedResponse.ProtoReflect.Descriptor instead.
+func (*OnPairingVerificationSucceedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{97}
+}
+
+type OnPublishStartedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPublishStartedRequest) Reset() {
+	*x = OnPublishStartedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPublishStartedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPublishStartedRequest) ProtoMessage() {}
+
+func (x *OnPublishStartedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPublishStartedRequest.ProtoReflect.Descriptor instead.
+func (*OnPublishStartedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *OnPublishStartedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnPublishStartedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnPublishStartedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPublishStartedResponse) Reset() {
+	*x = OnPublishStartedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPublishStartedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPublishStartedResponse) ProtoMessage() {}
+
+func (x *OnPublishStartedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPublishStartedResponse.ProtoReflect.Descriptor instead.
+func (*OnPublishStartedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{99}
+}
+
+type OnServiceDiscoveredRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnServiceDiscoveredRequest) Reset() {
+	*x = OnServiceDiscoveredRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnServiceDiscoveredRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnServiceDiscoveredRequest) ProtoMessage() {}
+
+func (x *OnServiceDiscoveredRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnServiceDiscoveredRequest.ProtoReflect.Descriptor instead.
+func (*OnServiceDiscoveredRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *OnServiceDiscoveredRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnServiceDiscoveredRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnServiceDiscoveredResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnServiceDiscoveredResponse) Reset() {
+	*x = OnServiceDiscoveredResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnServiceDiscoveredResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnServiceDiscoveredResponse) ProtoMessage() {}
+
+func (x *OnServiceDiscoveredResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnServiceDiscoveredResponse.ProtoReflect.Descriptor instead.
+func (*OnServiceDiscoveredResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{101}
+}
+
+type OnServiceDiscoveredWithinRangeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnServiceDiscoveredWithinRangeRequest) Reset() {
+	*x = OnServiceDiscoveredWithinRangeRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnServiceDiscoveredWithinRangeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnServiceDiscoveredWithinRangeRequest) ProtoMessage() {}
+
+func (x *OnServiceDiscoveredWithinRangeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnServiceDiscoveredWithinRangeRequest.ProtoReflect.Descriptor instead.
+func (*OnServiceDiscoveredWithinRangeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{102}
+}
+
+func (x *OnServiceDiscoveredWithinRangeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnServiceDiscoveredWithinRangeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnServiceDiscoveredWithinRangeRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnServiceDiscoveredWithinRangeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnServiceDiscoveredWithinRangeResponse) Reset() {
+	*x = OnServiceDiscoveredWithinRangeResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnServiceDiscoveredWithinRangeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnServiceDiscoveredWithinRangeResponse) ProtoMessage() {}
+
+func (x *OnServiceDiscoveredWithinRangeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnServiceDiscoveredWithinRangeResponse.ProtoReflect.Descriptor instead.
+func (*OnServiceDiscoveredWithinRangeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{103}
+}
+
+type OnServiceLostRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnServiceLostRequest) Reset() {
+	*x = OnServiceLostRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnServiceLostRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnServiceLostRequest) ProtoMessage() {}
+
+func (x *OnServiceLostRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnServiceLostRequest.ProtoReflect.Descriptor instead.
+func (*OnServiceLostRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{104}
+}
+
+func (x *OnServiceLostRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnServiceLostRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnServiceLostRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnServiceLostResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnServiceLostResponse) Reset() {
+	*x = OnServiceLostResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnServiceLostResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnServiceLostResponse) ProtoMessage() {}
+
+func (x *OnServiceLostResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnServiceLostResponse.ProtoReflect.Descriptor instead.
+func (*OnServiceLostResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{105}
+}
+
+type OnSessionConfigFailedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSessionConfigFailedRequest) Reset() {
+	*x = OnSessionConfigFailedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSessionConfigFailedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSessionConfigFailedRequest) ProtoMessage() {}
+
+func (x *OnSessionConfigFailedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSessionConfigFailedRequest.ProtoReflect.Descriptor instead.
+func (*OnSessionConfigFailedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{106}
+}
+
+func (x *OnSessionConfigFailedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OnSessionConfigFailedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSessionConfigFailedResponse) Reset() {
+	*x = OnSessionConfigFailedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSessionConfigFailedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSessionConfigFailedResponse) ProtoMessage() {}
+
+func (x *OnSessionConfigFailedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSessionConfigFailedResponse.ProtoReflect.Descriptor instead.
+func (*OnSessionConfigFailedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{107}
+}
+
+type OnSessionConfigUpdatedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSessionConfigUpdatedRequest) Reset() {
+	*x = OnSessionConfigUpdatedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSessionConfigUpdatedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSessionConfigUpdatedRequest) ProtoMessage() {}
+
+func (x *OnSessionConfigUpdatedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSessionConfigUpdatedRequest.ProtoReflect.Descriptor instead.
+func (*OnSessionConfigUpdatedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *OnSessionConfigUpdatedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OnSessionConfigUpdatedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSessionConfigUpdatedResponse) Reset() {
+	*x = OnSessionConfigUpdatedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSessionConfigUpdatedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSessionConfigUpdatedResponse) ProtoMessage() {}
+
+func (x *OnSessionConfigUpdatedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSessionConfigUpdatedResponse.ProtoReflect.Descriptor instead.
+func (*OnSessionConfigUpdatedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{109}
+}
+
+type OnSessionTerminatedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSessionTerminatedRequest) Reset() {
+	*x = OnSessionTerminatedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSessionTerminatedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSessionTerminatedRequest) ProtoMessage() {}
+
+func (x *OnSessionTerminatedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSessionTerminatedRequest.ProtoReflect.Descriptor instead.
+func (*OnSessionTerminatedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{110}
+}
+
+func (x *OnSessionTerminatedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OnSessionTerminatedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSessionTerminatedResponse) Reset() {
+	*x = OnSessionTerminatedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSessionTerminatedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSessionTerminatedResponse) ProtoMessage() {}
+
+func (x *OnSessionTerminatedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSessionTerminatedResponse.ProtoReflect.Descriptor instead.
+func (*OnSessionTerminatedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{111}
+}
+
+type OnSubscribeStartedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSubscribeStartedRequest) Reset() {
+	*x = OnSubscribeStartedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSubscribeStartedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSubscribeStartedRequest) ProtoMessage() {}
+
+func (x *OnSubscribeStartedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSubscribeStartedRequest.ProtoReflect.Descriptor instead.
+func (*OnSubscribeStartedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{112}
+}
+
+func (x *OnSubscribeStartedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnSubscribeStartedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnSubscribeStartedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSubscribeStartedResponse) Reset() {
+	*x = OnSubscribeStartedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSubscribeStartedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSubscribeStartedResponse) ProtoMessage() {}
+
+func (x *OnSubscribeStartedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSubscribeStartedResponse.ProtoReflect.Descriptor instead.
+func (*OnSubscribeStartedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{113}
+}
+
+type UpdatePublishRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdatePublishRequest) Reset() {
+	*x = UpdatePublishRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[114]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdatePublishRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdatePublishRequest) ProtoMessage() {}
+
+func (x *UpdatePublishRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[114]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdatePublishRequest.ProtoReflect.Descriptor instead.
+func (*UpdatePublishRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{114}
+}
+
+func (x *UpdatePublishRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type UpdatePublishResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdatePublishResponse) Reset() {
+	*x = UpdatePublishResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[115]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdatePublishResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdatePublishResponse) ProtoMessage() {}
+
+func (x *UpdatePublishResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[115]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdatePublishResponse.ProtoReflect.Descriptor instead.
+func (*UpdatePublishResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{115}
+}
+
+type WifiAwareDataPathSecurityConfigDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WifiAwareDataPathSecurityConfigDescribeContentsRequest) Reset() {
+	*x = WifiAwareDataPathSecurityConfigDescribeContentsRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WifiAwareDataPathSecurityConfigDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WifiAwareDataPathSecurityConfigDescribeContentsRequest) ProtoMessage() {}
+
+func (x *WifiAwareDataPathSecurityConfigDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WifiAwareDataPathSecurityConfigDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*WifiAwareDataPathSecurityConfigDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{116}
+}
+
+type GetCipherSuiteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCipherSuiteRequest) Reset() {
+	*x = GetCipherSuiteRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCipherSuiteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCipherSuiteRequest) ProtoMessage() {}
+
+func (x *GetCipherSuiteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCipherSuiteRequest.ProtoReflect.Descriptor instead.
+func (*GetCipherSuiteRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{117}
+}
+
+type GetCipherSuiteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCipherSuiteResponse) Reset() {
+	*x = GetCipherSuiteResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCipherSuiteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCipherSuiteResponse) ProtoMessage() {}
+
+func (x *GetCipherSuiteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCipherSuiteResponse.ProtoReflect.Descriptor instead.
+func (*GetCipherSuiteResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{118}
+}
+
+func (x *GetCipherSuiteResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPmkRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPmkRequest) Reset() {
+	*x = GetPmkRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPmkRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPmkRequest) ProtoMessage() {}
+
+func (x *GetPmkRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPmkRequest.ProtoReflect.Descriptor instead.
+func (*GetPmkRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{119}
+}
+
+type GetPmkResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPmkResponse) Reset() {
+	*x = GetPmkResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPmkResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPmkResponse) ProtoMessage() {}
+
+func (x *GetPmkResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPmkResponse.ProtoReflect.Descriptor instead.
+func (*GetPmkResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{120}
+}
+
+func (x *GetPmkResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPmkIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPmkIdRequest) Reset() {
+	*x = GetPmkIdRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPmkIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPmkIdRequest) ProtoMessage() {}
+
+func (x *GetPmkIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPmkIdRequest.ProtoReflect.Descriptor instead.
+func (*GetPmkIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{121}
+}
+
+type GetPmkIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPmkIdResponse) Reset() {
+	*x = GetPmkIdResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPmkIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPmkIdResponse) ProtoMessage() {}
+
+func (x *GetPmkIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPmkIdResponse.ProtoReflect.Descriptor instead.
+func (*GetPmkIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{122}
+}
+
+func (x *GetPmkIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPskPassphraseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPskPassphraseRequest) Reset() {
+	*x = GetPskPassphraseRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPskPassphraseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPskPassphraseRequest) ProtoMessage() {}
+
+func (x *GetPskPassphraseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPskPassphraseRequest.ProtoReflect.Descriptor instead.
+func (*GetPskPassphraseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{123}
+}
+
+type GetPskPassphraseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPskPassphraseResponse) Reset() {
+	*x = GetPskPassphraseResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPskPassphraseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPskPassphraseResponse) ProtoMessage() {}
+
+func (x *GetPskPassphraseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPskPassphraseResponse.ProtoReflect.Descriptor instead.
+func (*GetPskPassphraseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{124}
+}
+
+func (x *GetPskPassphraseResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WifiAwareDataPathSecurityConfigWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WifiAwareDataPathSecurityConfigWriteToParcelRequest) Reset() {
+	*x = WifiAwareDataPathSecurityConfigWriteToParcelRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WifiAwareDataPathSecurityConfigWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WifiAwareDataPathSecurityConfigWriteToParcelRequest) ProtoMessage() {}
+
+func (x *WifiAwareDataPathSecurityConfigWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WifiAwareDataPathSecurityConfigWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WifiAwareDataPathSecurityConfigWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{125}
+}
+
+func (x *WifiAwareDataPathSecurityConfigWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WifiAwareDataPathSecurityConfigWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetPmkIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPmkIdRequest) Reset() {
+	*x = SetPmkIdRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPmkIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPmkIdRequest) ProtoMessage() {}
+
+func (x *SetPmkIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPmkIdRequest.ProtoReflect.Descriptor instead.
+func (*SetPmkIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{126}
+}
+
+func (x *SetPmkIdRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPmkIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPmkIdResponse) Reset() {
+	*x = SetPmkIdResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPmkIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPmkIdResponse) ProtoMessage() {}
+
+func (x *SetPmkIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPmkIdResponse.ProtoReflect.Descriptor instead.
+func (*SetPmkIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{127}
+}
+
+func (x *SetPmkIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseRequest) Reset() {
+	*x = CloseRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[128]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseRequest) ProtoMessage() {}
+
+func (x *CloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[128]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
+func (*CloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{128}
+}
+
+type CloseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseResponse) Reset() {
+	*x = CloseResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[129]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseResponse) ProtoMessage() {}
+
+func (x *CloseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[129]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseResponse.ProtoReflect.Descriptor instead.
+func (*CloseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{129}
+}
+
+type CreateNetworkSpecifierOpenRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateNetworkSpecifierOpenRequest) Reset() {
+	*x = CreateNetworkSpecifierOpenRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[130]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateNetworkSpecifierOpenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateNetworkSpecifierOpenRequest) ProtoMessage() {}
+
+func (x *CreateNetworkSpecifierOpenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[130]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateNetworkSpecifierOpenRequest.ProtoReflect.Descriptor instead.
+func (*CreateNetworkSpecifierOpenRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{130}
+}
+
+func (x *CreateNetworkSpecifierOpenRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CreateNetworkSpecifierOpenRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CreateNetworkSpecifierOpenResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateNetworkSpecifierOpenResponse) Reset() {
+	*x = CreateNetworkSpecifierOpenResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateNetworkSpecifierOpenResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateNetworkSpecifierOpenResponse) ProtoMessage() {}
+
+func (x *CreateNetworkSpecifierOpenResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateNetworkSpecifierOpenResponse.ProtoReflect.Descriptor instead.
+func (*CreateNetworkSpecifierOpenResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{131}
+}
+
+func (x *CreateNetworkSpecifierOpenResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CreateNetworkSpecifierPassphraseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateNetworkSpecifierPassphraseRequest) Reset() {
+	*x = CreateNetworkSpecifierPassphraseRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateNetworkSpecifierPassphraseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateNetworkSpecifierPassphraseRequest) ProtoMessage() {}
+
+func (x *CreateNetworkSpecifierPassphraseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateNetworkSpecifierPassphraseRequest.ProtoReflect.Descriptor instead.
+func (*CreateNetworkSpecifierPassphraseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{132}
+}
+
+func (x *CreateNetworkSpecifierPassphraseRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CreateNetworkSpecifierPassphraseRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *CreateNetworkSpecifierPassphraseRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type CreateNetworkSpecifierPassphraseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateNetworkSpecifierPassphraseResponse) Reset() {
+	*x = CreateNetworkSpecifierPassphraseResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateNetworkSpecifierPassphraseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateNetworkSpecifierPassphraseResponse) ProtoMessage() {}
+
+func (x *CreateNetworkSpecifierPassphraseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateNetworkSpecifierPassphraseResponse.ProtoReflect.Descriptor instead.
+func (*CreateNetworkSpecifierPassphraseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{133}
+}
+
+func (x *CreateNetworkSpecifierPassphraseResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewResourcesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewResourcesRequest) Reset() {
+	*x = NewResourcesRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[134]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewResourcesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewResourcesRequest) ProtoMessage() {}
+
+func (x *NewResourcesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[134]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewResourcesRequest.ProtoReflect.Descriptor instead.
+func (*NewResourcesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{134}
+}
+
+func (x *NewResourcesRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewResourcesRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *NewResourcesRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type NewResourcesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewResourcesResponse) Reset() {
+	*x = NewResourcesResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[135]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewResourcesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewResourcesResponse) ProtoMessage() {}
+
+func (x *NewResourcesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[135]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewResourcesResponse.ProtoReflect.Descriptor instead.
+func (*NewResourcesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{135}
+}
+
+func (x *NewResourcesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAvailableDataPathsCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailableDataPathsCountRequest) Reset() {
+	*x = GetAvailableDataPathsCountRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[136]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailableDataPathsCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailableDataPathsCountRequest) ProtoMessage() {}
+
+func (x *GetAvailableDataPathsCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[136]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailableDataPathsCountRequest.ProtoReflect.Descriptor instead.
+func (*GetAvailableDataPathsCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{136}
+}
+
+func (x *GetAvailableDataPathsCountRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetAvailableDataPathsCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailableDataPathsCountResponse) Reset() {
+	*x = GetAvailableDataPathsCountResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[137]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailableDataPathsCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailableDataPathsCountResponse) ProtoMessage() {}
+
+func (x *GetAvailableDataPathsCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[137]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailableDataPathsCountResponse.ProtoReflect.Descriptor instead.
+func (*GetAvailableDataPathsCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{137}
+}
+
+func (x *GetAvailableDataPathsCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAvailablePublishSessionsCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailablePublishSessionsCountRequest) Reset() {
+	*x = GetAvailablePublishSessionsCountRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[138]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailablePublishSessionsCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailablePublishSessionsCountRequest) ProtoMessage() {}
+
+func (x *GetAvailablePublishSessionsCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[138]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailablePublishSessionsCountRequest.ProtoReflect.Descriptor instead.
+func (*GetAvailablePublishSessionsCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{138}
+}
+
+func (x *GetAvailablePublishSessionsCountRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetAvailablePublishSessionsCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailablePublishSessionsCountResponse) Reset() {
+	*x = GetAvailablePublishSessionsCountResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[139]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailablePublishSessionsCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailablePublishSessionsCountResponse) ProtoMessage() {}
+
+func (x *GetAvailablePublishSessionsCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[139]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailablePublishSessionsCountResponse.ProtoReflect.Descriptor instead.
+func (*GetAvailablePublishSessionsCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{139}
+}
+
+func (x *GetAvailablePublishSessionsCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAvailableSubscribeSessionsCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailableSubscribeSessionsCountRequest) Reset() {
+	*x = GetAvailableSubscribeSessionsCountRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[140]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailableSubscribeSessionsCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailableSubscribeSessionsCountRequest) ProtoMessage() {}
+
+func (x *GetAvailableSubscribeSessionsCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[140]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailableSubscribeSessionsCountRequest.ProtoReflect.Descriptor instead.
+func (*GetAvailableSubscribeSessionsCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{140}
+}
+
+func (x *GetAvailableSubscribeSessionsCountRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetAvailableSubscribeSessionsCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailableSubscribeSessionsCountResponse) Reset() {
+	*x = GetAvailableSubscribeSessionsCountResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[141]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailableSubscribeSessionsCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailableSubscribeSessionsCountResponse) ProtoMessage() {}
+
+func (x *GetAvailableSubscribeSessionsCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[141]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailableSubscribeSessionsCountResponse.ProtoReflect.Descriptor instead.
+func (*GetAvailableSubscribeSessionsCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{141}
+}
+
+func (x *GetAvailableSubscribeSessionsCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type PublishConfigDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PublishConfigDescribeContentsRequest) Reset() {
+	*x = PublishConfigDescribeContentsRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[142]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PublishConfigDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PublishConfigDescribeContentsRequest) ProtoMessage() {}
+
+func (x *PublishConfigDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[142]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PublishConfigDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*PublishConfigDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{142}
+}
+
+type GetInstantCommunicationBandRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInstantCommunicationBandRequest) Reset() {
+	*x = GetInstantCommunicationBandRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[143]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInstantCommunicationBandRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInstantCommunicationBandRequest) ProtoMessage() {}
+
+func (x *GetInstantCommunicationBandRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[143]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInstantCommunicationBandRequest.ProtoReflect.Descriptor instead.
+func (*GetInstantCommunicationBandRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{143}
+}
+
+type GetInstantCommunicationBandResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInstantCommunicationBandResponse) Reset() {
+	*x = GetInstantCommunicationBandResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[144]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInstantCommunicationBandResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInstantCommunicationBandResponse) ProtoMessage() {}
+
+func (x *GetInstantCommunicationBandResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[144]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInstantCommunicationBandResponse.ProtoReflect.Descriptor instead.
+func (*GetInstantCommunicationBandResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{144}
+}
+
+func (x *GetInstantCommunicationBandResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPairingConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPairingConfigRequest) Reset() {
+	*x = GetPairingConfigRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[145]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPairingConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPairingConfigRequest) ProtoMessage() {}
+
+func (x *GetPairingConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[145]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPairingConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetPairingConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{145}
+}
+
+type GetPairingConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPairingConfigResponse) Reset() {
+	*x = GetPairingConfigResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[146]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPairingConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPairingConfigResponse) ProtoMessage() {}
+
+func (x *GetPairingConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[146]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPairingConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetPairingConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{146}
+}
+
+func (x *GetPairingConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSecurityConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSecurityConfigRequest) Reset() {
+	*x = GetSecurityConfigRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[147]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSecurityConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSecurityConfigRequest) ProtoMessage() {}
+
+func (x *GetSecurityConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[147]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSecurityConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetSecurityConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{147}
+}
+
+type GetSecurityConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSecurityConfigResponse) Reset() {
+	*x = GetSecurityConfigResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[148]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSecurityConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSecurityConfigResponse) ProtoMessage() {}
+
+func (x *GetSecurityConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[148]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSecurityConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetSecurityConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{148}
+}
+
+func (x *GetSecurityConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type PublishConfigWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PublishConfigWriteToParcelRequest) Reset() {
+	*x = PublishConfigWriteToParcelRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[149]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PublishConfigWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PublishConfigWriteToParcelRequest) ProtoMessage() {}
+
+func (x *PublishConfigWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[149]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PublishConfigWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*PublishConfigWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{149}
+}
+
+func (x *PublishConfigWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *PublishConfigWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetInstantCommunicationModeEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetInstantCommunicationModeEnabledRequest) Reset() {
+	*x = SetInstantCommunicationModeEnabledRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[150]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetInstantCommunicationModeEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetInstantCommunicationModeEnabledRequest) ProtoMessage() {}
+
+func (x *SetInstantCommunicationModeEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[150]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetInstantCommunicationModeEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetInstantCommunicationModeEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{150}
+}
+
+func (x *SetInstantCommunicationModeEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+func (x *SetInstantCommunicationModeEnabledRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetInstantCommunicationModeEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetInstantCommunicationModeEnabledResponse) Reset() {
+	*x = SetInstantCommunicationModeEnabledResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[151]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetInstantCommunicationModeEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetInstantCommunicationModeEnabledResponse) ProtoMessage() {}
+
+func (x *SetInstantCommunicationModeEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[151]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetInstantCommunicationModeEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetInstantCommunicationModeEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{151}
+}
+
+func (x *SetInstantCommunicationModeEnabledResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPairingConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPairingConfigRequest) Reset() {
+	*x = SetPairingConfigRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[152]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPairingConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPairingConfigRequest) ProtoMessage() {}
+
+func (x *SetPairingConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[152]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPairingConfigRequest.ProtoReflect.Descriptor instead.
+func (*SetPairingConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{152}
+}
+
+func (x *SetPairingConfigRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPairingConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPairingConfigResponse) Reset() {
+	*x = SetPairingConfigResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[153]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPairingConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPairingConfigResponse) ProtoMessage() {}
+
+func (x *SetPairingConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[153]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPairingConfigResponse.ProtoReflect.Descriptor instead.
+func (*SetPairingConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{153}
+}
+
+func (x *SetPairingConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPublishTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPublishTypeRequest) Reset() {
+	*x = SetPublishTypeRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[154]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPublishTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPublishTypeRequest) ProtoMessage() {}
+
+func (x *SetPublishTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[154]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPublishTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetPublishTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{154}
+}
+
+func (x *SetPublishTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPublishTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPublishTypeResponse) Reset() {
+	*x = SetPublishTypeResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[155]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPublishTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPublishTypeResponse) ProtoMessage() {}
+
+func (x *SetPublishTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[155]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPublishTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetPublishTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{155}
+}
+
+func (x *SetPublishTypeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRangingEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRangingEnabledRequest) Reset() {
+	*x = SetRangingEnabledRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[156]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRangingEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRangingEnabledRequest) ProtoMessage() {}
+
+func (x *SetRangingEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[156]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRangingEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetRangingEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{156}
+}
+
+func (x *SetRangingEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetRangingEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRangingEnabledResponse) Reset() {
+	*x = SetRangingEnabledResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[157]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRangingEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRangingEnabledResponse) ProtoMessage() {}
+
+func (x *SetRangingEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[157]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRangingEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetRangingEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{157}
+}
+
+func (x *SetRangingEnabledResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetServiceNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetServiceNameRequest) Reset() {
+	*x = SetServiceNameRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[158]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetServiceNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetServiceNameRequest) ProtoMessage() {}
+
+func (x *SetServiceNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[158]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetServiceNameRequest.ProtoReflect.Descriptor instead.
+func (*SetServiceNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{158}
+}
+
+func (x *SetServiceNameRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetServiceNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetServiceNameResponse) Reset() {
+	*x = SetServiceNameResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[159]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetServiceNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetServiceNameResponse) ProtoMessage() {}
+
+func (x *SetServiceNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[159]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetServiceNameResponse.ProtoReflect.Descriptor instead.
+func (*SetServiceNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{159}
+}
+
+func (x *SetServiceNameResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetServiceSpecificInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetServiceSpecificInfoRequest) Reset() {
+	*x = SetServiceSpecificInfoRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[160]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetServiceSpecificInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetServiceSpecificInfoRequest) ProtoMessage() {}
+
+func (x *SetServiceSpecificInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[160]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetServiceSpecificInfoRequest.ProtoReflect.Descriptor instead.
+func (*SetServiceSpecificInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{160}
+}
+
+func (x *SetServiceSpecificInfoRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetServiceSpecificInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetServiceSpecificInfoResponse) Reset() {
+	*x = SetServiceSpecificInfoResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[161]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetServiceSpecificInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetServiceSpecificInfoResponse) ProtoMessage() {}
+
+func (x *SetServiceSpecificInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[161]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetServiceSpecificInfoResponse.ProtoReflect.Descriptor instead.
+func (*SetServiceSpecificInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{161}
+}
+
+func (x *SetServiceSpecificInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetTerminateNotificationEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTerminateNotificationEnabledRequest) Reset() {
+	*x = SetTerminateNotificationEnabledRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[162]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTerminateNotificationEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTerminateNotificationEnabledRequest) ProtoMessage() {}
+
+func (x *SetTerminateNotificationEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[162]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTerminateNotificationEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetTerminateNotificationEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{162}
+}
+
+func (x *SetTerminateNotificationEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetTerminateNotificationEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTerminateNotificationEnabledResponse) Reset() {
+	*x = SetTerminateNotificationEnabledResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[163]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTerminateNotificationEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTerminateNotificationEnabledResponse) ProtoMessage() {}
+
+func (x *SetTerminateNotificationEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[163]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTerminateNotificationEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetTerminateNotificationEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{163}
+}
+
+func (x *SetTerminateNotificationEnabledResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetTtlSecRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTtlSecRequest) Reset() {
+	*x = SetTtlSecRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[164]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTtlSecRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTtlSecRequest) ProtoMessage() {}
+
+func (x *SetTtlSecRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[164]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTtlSecRequest.ProtoReflect.Descriptor instead.
+func (*SetTtlSecRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{164}
+}
+
+func (x *SetTtlSecRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetTtlSecResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTtlSecResponse) Reset() {
+	*x = SetTtlSecResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[165]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTtlSecResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTtlSecResponse) ProtoMessage() {}
+
+func (x *SetTtlSecResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[165]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTtlSecResponse.ProtoReflect.Descriptor instead.
+func (*SetTtlSecResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{165}
+}
+
+func (x *SetTtlSecResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPairedAliasRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPairedAliasRequest) Reset() {
+	*x = GetPairedAliasRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[166]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPairedAliasRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPairedAliasRequest) ProtoMessage() {}
+
+func (x *GetPairedAliasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[166]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPairedAliasRequest.ProtoReflect.Descriptor instead.
+func (*GetPairedAliasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{166}
+}
+
+type GetPairedAliasResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPairedAliasResponse) Reset() {
+	*x = GetPairedAliasResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[167]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPairedAliasResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPairedAliasResponse) ProtoMessage() {}
+
+func (x *GetPairedAliasResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[167]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPairedAliasResponse.ProtoReflect.Descriptor instead.
+func (*GetPairedAliasResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{167}
+}
+
+func (x *GetPairedAliasResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetPeerCipherSuiteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPeerCipherSuiteRequest) Reset() {
+	*x = GetPeerCipherSuiteRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[168]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPeerCipherSuiteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPeerCipherSuiteRequest) ProtoMessage() {}
+
+func (x *GetPeerCipherSuiteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[168]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPeerCipherSuiteRequest.ProtoReflect.Descriptor instead.
+func (*GetPeerCipherSuiteRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{168}
+}
+
+type GetPeerCipherSuiteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPeerCipherSuiteResponse) Reset() {
+	*x = GetPeerCipherSuiteResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[169]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPeerCipherSuiteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPeerCipherSuiteResponse) ProtoMessage() {}
+
+func (x *GetPeerCipherSuiteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[169]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPeerCipherSuiteResponse.ProtoReflect.Descriptor instead.
+func (*GetPeerCipherSuiteResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{169}
+}
+
+func (x *GetPeerCipherSuiteResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPeerHandleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPeerHandleRequest) Reset() {
+	*x = GetPeerHandleRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[170]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPeerHandleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPeerHandleRequest) ProtoMessage() {}
+
+func (x *GetPeerHandleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[170]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPeerHandleRequest.ProtoReflect.Descriptor instead.
+func (*GetPeerHandleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{170}
+}
+
+type GetPeerHandleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPeerHandleResponse) Reset() {
+	*x = GetPeerHandleResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[171]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPeerHandleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPeerHandleResponse) ProtoMessage() {}
+
+func (x *GetPeerHandleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[171]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPeerHandleResponse.ProtoReflect.Descriptor instead.
+func (*GetPeerHandleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{171}
+}
+
+func (x *GetPeerHandleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetScidRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetScidRequest) Reset() {
+	*x = GetScidRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[172]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetScidRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetScidRequest) ProtoMessage() {}
+
+func (x *GetScidRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[172]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetScidRequest.ProtoReflect.Descriptor instead.
+func (*GetScidRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{172}
+}
+
+type GetScidResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetScidResponse) Reset() {
+	*x = GetScidResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[173]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetScidResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetScidResponse) ProtoMessage() {}
+
+func (x *GetScidResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[173]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetScidResponse.ProtoReflect.Descriptor instead.
+func (*GetScidResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{173}
+}
+
+func (x *GetScidResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetServiceSpecificInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServiceSpecificInfoRequest) Reset() {
+	*x = GetServiceSpecificInfoRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[174]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServiceSpecificInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServiceSpecificInfoRequest) ProtoMessage() {}
+
+func (x *GetServiceSpecificInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[174]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServiceSpecificInfoRequest.ProtoReflect.Descriptor instead.
+func (*GetServiceSpecificInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{174}
+}
+
+type GetServiceSpecificInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServiceSpecificInfoResponse) Reset() {
+	*x = GetServiceSpecificInfoResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[175]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServiceSpecificInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServiceSpecificInfoResponse) ProtoMessage() {}
+
+func (x *GetServiceSpecificInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[175]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServiceSpecificInfoResponse.ProtoReflect.Descriptor instead.
+func (*GetServiceSpecificInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{175}
+}
+
+func (x *GetServiceSpecificInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WifiAwareChannelInfoDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WifiAwareChannelInfoDescribeContentsRequest) Reset() {
+	*x = WifiAwareChannelInfoDescribeContentsRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[176]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WifiAwareChannelInfoDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WifiAwareChannelInfoDescribeContentsRequest) ProtoMessage() {}
+
+func (x *WifiAwareChannelInfoDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[176]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WifiAwareChannelInfoDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*WifiAwareChannelInfoDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{176}
+}
+
+type GetChannelBandwidthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelBandwidthRequest) Reset() {
+	*x = GetChannelBandwidthRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[177]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelBandwidthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelBandwidthRequest) ProtoMessage() {}
+
+func (x *GetChannelBandwidthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[177]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelBandwidthRequest.ProtoReflect.Descriptor instead.
+func (*GetChannelBandwidthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{177}
+}
+
+type GetChannelBandwidthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChannelBandwidthResponse) Reset() {
+	*x = GetChannelBandwidthResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[178]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChannelBandwidthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChannelBandwidthResponse) ProtoMessage() {}
+
+func (x *GetChannelBandwidthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[178]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChannelBandwidthResponse.ProtoReflect.Descriptor instead.
+func (*GetChannelBandwidthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{178}
+}
+
+func (x *GetChannelBandwidthResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSpatialStreamCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSpatialStreamCountRequest) Reset() {
+	*x = GetSpatialStreamCountRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[179]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSpatialStreamCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSpatialStreamCountRequest) ProtoMessage() {}
+
+func (x *GetSpatialStreamCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[179]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSpatialStreamCountRequest.ProtoReflect.Descriptor instead.
+func (*GetSpatialStreamCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{179}
+}
+
+type GetSpatialStreamCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSpatialStreamCountResponse) Reset() {
+	*x = GetSpatialStreamCountResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[180]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSpatialStreamCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSpatialStreamCountResponse) ProtoMessage() {}
+
+func (x *GetSpatialStreamCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[180]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSpatialStreamCountResponse.ProtoReflect.Descriptor instead.
+func (*GetSpatialStreamCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{180}
+}
+
+func (x *GetSpatialStreamCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WifiAwareChannelInfoWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WifiAwareChannelInfoWriteToParcelRequest) Reset() {
+	*x = WifiAwareChannelInfoWriteToParcelRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[181]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WifiAwareChannelInfoWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WifiAwareChannelInfoWriteToParcelRequest) ProtoMessage() {}
+
+func (x *WifiAwareChannelInfoWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[181]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WifiAwareChannelInfoWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WifiAwareChannelInfoWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{181}
+}
+
+func (x *WifiAwareChannelInfoWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WifiAwareChannelInfoWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type PairingConfigDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PairingConfigDescribeContentsRequest) Reset() {
+	*x = PairingConfigDescribeContentsRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[182]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PairingConfigDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PairingConfigDescribeContentsRequest) ProtoMessage() {}
+
+func (x *PairingConfigDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[182]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PairingConfigDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*PairingConfigDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{182}
+}
+
+type GetBootstrappingMethodsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBootstrappingMethodsRequest) Reset() {
+	*x = GetBootstrappingMethodsRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[183]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBootstrappingMethodsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBootstrappingMethodsRequest) ProtoMessage() {}
+
+func (x *GetBootstrappingMethodsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[183]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBootstrappingMethodsRequest.ProtoReflect.Descriptor instead.
+func (*GetBootstrappingMethodsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{183}
+}
+
+type GetBootstrappingMethodsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBootstrappingMethodsResponse) Reset() {
+	*x = GetBootstrappingMethodsResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[184]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBootstrappingMethodsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBootstrappingMethodsResponse) ProtoMessage() {}
+
+func (x *GetBootstrappingMethodsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[184]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBootstrappingMethodsResponse.ProtoReflect.Descriptor instead.
+func (*GetBootstrappingMethodsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{184}
+}
+
+func (x *GetBootstrappingMethodsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSupportedCipherSuitesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedCipherSuitesRequest) Reset() {
+	*x = GetSupportedCipherSuitesRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[185]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedCipherSuitesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedCipherSuitesRequest) ProtoMessage() {}
+
+func (x *GetSupportedCipherSuitesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[185]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedCipherSuitesRequest.ProtoReflect.Descriptor instead.
+func (*GetSupportedCipherSuitesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{185}
+}
+
+type GetSupportedCipherSuitesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedCipherSuitesResponse) Reset() {
+	*x = GetSupportedCipherSuitesResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[186]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedCipherSuitesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedCipherSuitesResponse) ProtoMessage() {}
+
+func (x *GetSupportedCipherSuitesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[186]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedCipherSuitesResponse.ProtoReflect.Descriptor instead.
+func (*GetSupportedCipherSuitesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{186}
+}
+
+func (x *GetSupportedCipherSuitesResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsPairingCacheEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPairingCacheEnabledRequest) Reset() {
+	*x = IsPairingCacheEnabledRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[187]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPairingCacheEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPairingCacheEnabledRequest) ProtoMessage() {}
+
+func (x *IsPairingCacheEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[187]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPairingCacheEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsPairingCacheEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{187}
+}
+
+type IsPairingCacheEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPairingCacheEnabledResponse) Reset() {
+	*x = IsPairingCacheEnabledResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[188]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPairingCacheEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPairingCacheEnabledResponse) ProtoMessage() {}
+
+func (x *IsPairingCacheEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[188]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPairingCacheEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsPairingCacheEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{188}
+}
+
+func (x *IsPairingCacheEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsPairingSetupEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPairingSetupEnabledRequest) Reset() {
+	*x = IsPairingSetupEnabledRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[189]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPairingSetupEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPairingSetupEnabledRequest) ProtoMessage() {}
+
+func (x *IsPairingSetupEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[189]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPairingSetupEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsPairingSetupEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{189}
+}
+
+type IsPairingSetupEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPairingSetupEnabledResponse) Reset() {
+	*x = IsPairingSetupEnabledResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[190]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPairingSetupEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPairingSetupEnabledResponse) ProtoMessage() {}
+
+func (x *IsPairingSetupEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[190]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPairingSetupEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsPairingSetupEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{190}
+}
+
+func (x *IsPairingSetupEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsPairingVerificationEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPairingVerificationEnabledRequest) Reset() {
+	*x = IsPairingVerificationEnabledRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[191]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPairingVerificationEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPairingVerificationEnabledRequest) ProtoMessage() {}
+
+func (x *IsPairingVerificationEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[191]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPairingVerificationEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsPairingVerificationEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{191}
+}
+
+type IsPairingVerificationEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPairingVerificationEnabledResponse) Reset() {
+	*x = IsPairingVerificationEnabledResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[192]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPairingVerificationEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPairingVerificationEnabledResponse) ProtoMessage() {}
+
+func (x *IsPairingVerificationEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[192]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPairingVerificationEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsPairingVerificationEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{192}
+}
+
+func (x *IsPairingVerificationEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type PairingConfigWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PairingConfigWriteToParcelRequest) Reset() {
+	*x = PairingConfigWriteToParcelRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[193]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PairingConfigWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PairingConfigWriteToParcelRequest) ProtoMessage() {}
+
+func (x *PairingConfigWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[193]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PairingConfigWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*PairingConfigWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{193}
+}
+
+func (x *PairingConfigWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *PairingConfigWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetBootstrappingMethodsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBootstrappingMethodsRequest) Reset() {
+	*x = SetBootstrappingMethodsRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[194]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBootstrappingMethodsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBootstrappingMethodsRequest) ProtoMessage() {}
+
+func (x *SetBootstrappingMethodsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[194]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBootstrappingMethodsRequest.ProtoReflect.Descriptor instead.
+func (*SetBootstrappingMethodsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{194}
+}
+
+func (x *SetBootstrappingMethodsRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetBootstrappingMethodsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBootstrappingMethodsResponse) Reset() {
+	*x = SetBootstrappingMethodsResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[195]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBootstrappingMethodsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBootstrappingMethodsResponse) ProtoMessage() {}
+
+func (x *SetBootstrappingMethodsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[195]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBootstrappingMethodsResponse.ProtoReflect.Descriptor instead.
+func (*SetBootstrappingMethodsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{195}
+}
+
+func (x *SetBootstrappingMethodsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPairingCacheEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPairingCacheEnabledRequest) Reset() {
+	*x = SetPairingCacheEnabledRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[196]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPairingCacheEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPairingCacheEnabledRequest) ProtoMessage() {}
+
+func (x *SetPairingCacheEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[196]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPairingCacheEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetPairingCacheEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{196}
+}
+
+func (x *SetPairingCacheEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetPairingCacheEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPairingCacheEnabledResponse) Reset() {
+	*x = SetPairingCacheEnabledResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[197]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPairingCacheEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPairingCacheEnabledResponse) ProtoMessage() {}
+
+func (x *SetPairingCacheEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[197]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPairingCacheEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetPairingCacheEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{197}
+}
+
+func (x *SetPairingCacheEnabledResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPairingSetupEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPairingSetupEnabledRequest) Reset() {
+	*x = SetPairingSetupEnabledRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[198]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPairingSetupEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPairingSetupEnabledRequest) ProtoMessage() {}
+
+func (x *SetPairingSetupEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[198]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPairingSetupEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetPairingSetupEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{198}
+}
+
+func (x *SetPairingSetupEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetPairingSetupEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPairingSetupEnabledResponse) Reset() {
+	*x = SetPairingSetupEnabledResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[199]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPairingSetupEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPairingSetupEnabledResponse) ProtoMessage() {}
+
+func (x *SetPairingSetupEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[199]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPairingSetupEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetPairingSetupEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{199}
+}
+
+func (x *SetPairingSetupEnabledResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPairingVerificationEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPairingVerificationEnabledRequest) Reset() {
+	*x = SetPairingVerificationEnabledRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[200]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPairingVerificationEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPairingVerificationEnabledRequest) ProtoMessage() {}
+
+func (x *SetPairingVerificationEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[200]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPairingVerificationEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetPairingVerificationEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{200}
+}
+
+func (x *SetPairingVerificationEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetPairingVerificationEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPairingVerificationEnabledResponse) Reset() {
+	*x = SetPairingVerificationEnabledResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[201]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPairingVerificationEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPairingVerificationEnabledResponse) ProtoMessage() {}
+
+func (x *SetPairingVerificationEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[201]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPairingVerificationEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetPairingVerificationEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{201}
+}
+
+func (x *SetPairingVerificationEnabledResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSupportedCipherSuitesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSupportedCipherSuitesRequest) Reset() {
+	*x = SetSupportedCipherSuitesRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[202]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSupportedCipherSuitesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSupportedCipherSuitesRequest) ProtoMessage() {}
+
+func (x *SetSupportedCipherSuitesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[202]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSupportedCipherSuitesRequest.ProtoReflect.Descriptor instead.
+func (*SetSupportedCipherSuitesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{202}
+}
+
+func (x *SetSupportedCipherSuitesRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetSupportedCipherSuitesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSupportedCipherSuitesResponse) Reset() {
+	*x = SetSupportedCipherSuitesResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[203]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSupportedCipherSuitesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSupportedCipherSuitesResponse) ProtoMessage() {}
+
+func (x *SetSupportedCipherSuitesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[203]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSupportedCipherSuitesResponse.ProtoReflect.Descriptor instead.
+func (*SetSupportedCipherSuitesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{203}
+}
+
+func (x *SetSupportedCipherSuitesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CharacteristicsDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CharacteristicsDescribeContentsRequest) Reset() {
+	*x = CharacteristicsDescribeContentsRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[204]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CharacteristicsDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CharacteristicsDescribeContentsRequest) ProtoMessage() {}
+
+func (x *CharacteristicsDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[204]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CharacteristicsDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*CharacteristicsDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{204}
+}
+
+type GetMaxMatchFilterLengthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxMatchFilterLengthRequest) Reset() {
+	*x = GetMaxMatchFilterLengthRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[205]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxMatchFilterLengthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxMatchFilterLengthRequest) ProtoMessage() {}
+
+func (x *GetMaxMatchFilterLengthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[205]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxMatchFilterLengthRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxMatchFilterLengthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{205}
+}
+
+type GetMaxMatchFilterLengthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxMatchFilterLengthResponse) Reset() {
+	*x = GetMaxMatchFilterLengthResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[206]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxMatchFilterLengthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxMatchFilterLengthResponse) ProtoMessage() {}
+
+func (x *GetMaxMatchFilterLengthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[206]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxMatchFilterLengthResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxMatchFilterLengthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{206}
+}
+
+func (x *GetMaxMatchFilterLengthResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaxServiceNameLengthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxServiceNameLengthRequest) Reset() {
+	*x = GetMaxServiceNameLengthRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[207]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxServiceNameLengthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxServiceNameLengthRequest) ProtoMessage() {}
+
+func (x *GetMaxServiceNameLengthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[207]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxServiceNameLengthRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxServiceNameLengthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{207}
+}
+
+type GetMaxServiceNameLengthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxServiceNameLengthResponse) Reset() {
+	*x = GetMaxServiceNameLengthResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[208]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxServiceNameLengthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxServiceNameLengthResponse) ProtoMessage() {}
+
+func (x *GetMaxServiceNameLengthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[208]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxServiceNameLengthResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxServiceNameLengthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{208}
+}
+
+func (x *GetMaxServiceNameLengthResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaxServiceSpecificInfoLengthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxServiceSpecificInfoLengthRequest) Reset() {
+	*x = GetMaxServiceSpecificInfoLengthRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[209]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxServiceSpecificInfoLengthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxServiceSpecificInfoLengthRequest) ProtoMessage() {}
+
+func (x *GetMaxServiceSpecificInfoLengthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[209]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxServiceSpecificInfoLengthRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxServiceSpecificInfoLengthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{209}
+}
+
+type GetMaxServiceSpecificInfoLengthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxServiceSpecificInfoLengthResponse) Reset() {
+	*x = GetMaxServiceSpecificInfoLengthResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[210]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxServiceSpecificInfoLengthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxServiceSpecificInfoLengthResponse) ProtoMessage() {}
+
+func (x *GetMaxServiceSpecificInfoLengthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[210]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxServiceSpecificInfoLengthResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxServiceSpecificInfoLengthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{210}
+}
+
+func (x *GetMaxServiceSpecificInfoLengthResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNumberOfSupportedDataInterfacesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNumberOfSupportedDataInterfacesRequest) Reset() {
+	*x = GetNumberOfSupportedDataInterfacesRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[211]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNumberOfSupportedDataInterfacesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNumberOfSupportedDataInterfacesRequest) ProtoMessage() {}
+
+func (x *GetNumberOfSupportedDataInterfacesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[211]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNumberOfSupportedDataInterfacesRequest.ProtoReflect.Descriptor instead.
+func (*GetNumberOfSupportedDataInterfacesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{211}
+}
+
+type GetNumberOfSupportedDataInterfacesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNumberOfSupportedDataInterfacesResponse) Reset() {
+	*x = GetNumberOfSupportedDataInterfacesResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[212]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNumberOfSupportedDataInterfacesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNumberOfSupportedDataInterfacesResponse) ProtoMessage() {}
+
+func (x *GetNumberOfSupportedDataInterfacesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[212]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNumberOfSupportedDataInterfacesResponse.ProtoReflect.Descriptor instead.
+func (*GetNumberOfSupportedDataInterfacesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{212}
+}
+
+func (x *GetNumberOfSupportedDataInterfacesResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNumberOfSupportedDataPathsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNumberOfSupportedDataPathsRequest) Reset() {
+	*x = GetNumberOfSupportedDataPathsRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[213]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNumberOfSupportedDataPathsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNumberOfSupportedDataPathsRequest) ProtoMessage() {}
+
+func (x *GetNumberOfSupportedDataPathsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[213]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNumberOfSupportedDataPathsRequest.ProtoReflect.Descriptor instead.
+func (*GetNumberOfSupportedDataPathsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{213}
+}
+
+type GetNumberOfSupportedDataPathsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNumberOfSupportedDataPathsResponse) Reset() {
+	*x = GetNumberOfSupportedDataPathsResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[214]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNumberOfSupportedDataPathsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNumberOfSupportedDataPathsResponse) ProtoMessage() {}
+
+func (x *GetNumberOfSupportedDataPathsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[214]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNumberOfSupportedDataPathsResponse.ProtoReflect.Descriptor instead.
+func (*GetNumberOfSupportedDataPathsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{214}
+}
+
+func (x *GetNumberOfSupportedDataPathsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNumberOfSupportedPublishSessionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNumberOfSupportedPublishSessionsRequest) Reset() {
+	*x = GetNumberOfSupportedPublishSessionsRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[215]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNumberOfSupportedPublishSessionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNumberOfSupportedPublishSessionsRequest) ProtoMessage() {}
+
+func (x *GetNumberOfSupportedPublishSessionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[215]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNumberOfSupportedPublishSessionsRequest.ProtoReflect.Descriptor instead.
+func (*GetNumberOfSupportedPublishSessionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{215}
+}
+
+type GetNumberOfSupportedPublishSessionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNumberOfSupportedPublishSessionsResponse) Reset() {
+	*x = GetNumberOfSupportedPublishSessionsResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[216]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNumberOfSupportedPublishSessionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNumberOfSupportedPublishSessionsResponse) ProtoMessage() {}
+
+func (x *GetNumberOfSupportedPublishSessionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[216]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNumberOfSupportedPublishSessionsResponse.ProtoReflect.Descriptor instead.
+func (*GetNumberOfSupportedPublishSessionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{216}
+}
+
+func (x *GetNumberOfSupportedPublishSessionsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNumberOfSupportedSubscribeSessionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNumberOfSupportedSubscribeSessionsRequest) Reset() {
+	*x = GetNumberOfSupportedSubscribeSessionsRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[217]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNumberOfSupportedSubscribeSessionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNumberOfSupportedSubscribeSessionsRequest) ProtoMessage() {}
+
+func (x *GetNumberOfSupportedSubscribeSessionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[217]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNumberOfSupportedSubscribeSessionsRequest.ProtoReflect.Descriptor instead.
+func (*GetNumberOfSupportedSubscribeSessionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{217}
+}
+
+type GetNumberOfSupportedSubscribeSessionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNumberOfSupportedSubscribeSessionsResponse) Reset() {
+	*x = GetNumberOfSupportedSubscribeSessionsResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[218]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNumberOfSupportedSubscribeSessionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNumberOfSupportedSubscribeSessionsResponse) ProtoMessage() {}
+
+func (x *GetNumberOfSupportedSubscribeSessionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[218]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNumberOfSupportedSubscribeSessionsResponse.ProtoReflect.Descriptor instead.
+func (*GetNumberOfSupportedSubscribeSessionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{218}
+}
+
+func (x *GetNumberOfSupportedSubscribeSessionsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSupportedPairingCipherSuitesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedPairingCipherSuitesRequest) Reset() {
+	*x = GetSupportedPairingCipherSuitesRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[219]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedPairingCipherSuitesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedPairingCipherSuitesRequest) ProtoMessage() {}
+
+func (x *GetSupportedPairingCipherSuitesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[219]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedPairingCipherSuitesRequest.ProtoReflect.Descriptor instead.
+func (*GetSupportedPairingCipherSuitesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{219}
+}
+
+type GetSupportedPairingCipherSuitesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedPairingCipherSuitesResponse) Reset() {
+	*x = GetSupportedPairingCipherSuitesResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[220]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedPairingCipherSuitesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedPairingCipherSuitesResponse) ProtoMessage() {}
+
+func (x *GetSupportedPairingCipherSuitesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[220]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedPairingCipherSuitesResponse.ProtoReflect.Descriptor instead.
+func (*GetSupportedPairingCipherSuitesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{220}
+}
+
+func (x *GetSupportedPairingCipherSuitesResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsAwarePairingSupportedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsAwarePairingSupportedRequest) Reset() {
+	*x = IsAwarePairingSupportedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[221]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsAwarePairingSupportedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsAwarePairingSupportedRequest) ProtoMessage() {}
+
+func (x *IsAwarePairingSupportedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[221]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsAwarePairingSupportedRequest.ProtoReflect.Descriptor instead.
+func (*IsAwarePairingSupportedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{221}
+}
+
+type IsAwarePairingSupportedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsAwarePairingSupportedResponse) Reset() {
+	*x = IsAwarePairingSupportedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[222]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsAwarePairingSupportedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsAwarePairingSupportedResponse) ProtoMessage() {}
+
+func (x *IsAwarePairingSupportedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[222]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsAwarePairingSupportedResponse.ProtoReflect.Descriptor instead.
+func (*IsAwarePairingSupportedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{222}
+}
+
+func (x *IsAwarePairingSupportedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsInstantCommunicationModeSupportedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsInstantCommunicationModeSupportedRequest) Reset() {
+	*x = IsInstantCommunicationModeSupportedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[223]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsInstantCommunicationModeSupportedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsInstantCommunicationModeSupportedRequest) ProtoMessage() {}
+
+func (x *IsInstantCommunicationModeSupportedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[223]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsInstantCommunicationModeSupportedRequest.ProtoReflect.Descriptor instead.
+func (*IsInstantCommunicationModeSupportedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{223}
+}
+
+type IsInstantCommunicationModeSupportedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsInstantCommunicationModeSupportedResponse) Reset() {
+	*x = IsInstantCommunicationModeSupportedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[224]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsInstantCommunicationModeSupportedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsInstantCommunicationModeSupportedResponse) ProtoMessage() {}
+
+func (x *IsInstantCommunicationModeSupportedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[224]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsInstantCommunicationModeSupportedResponse.ProtoReflect.Descriptor instead.
+func (*IsInstantCommunicationModeSupportedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{224}
+}
+
+func (x *IsInstantCommunicationModeSupportedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsSuspensionSupportedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSuspensionSupportedRequest) Reset() {
+	*x = IsSuspensionSupportedRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[225]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSuspensionSupportedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSuspensionSupportedRequest) ProtoMessage() {}
+
+func (x *IsSuspensionSupportedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[225]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSuspensionSupportedRequest.ProtoReflect.Descriptor instead.
+func (*IsSuspensionSupportedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{225}
+}
+
+type IsSuspensionSupportedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSuspensionSupportedResponse) Reset() {
+	*x = IsSuspensionSupportedResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[226]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSuspensionSupportedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSuspensionSupportedResponse) ProtoMessage() {}
+
+func (x *IsSuspensionSupportedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[226]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSuspensionSupportedResponse.ProtoReflect.Descriptor instead.
+func (*IsSuspensionSupportedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{226}
+}
+
+func (x *IsSuspensionSupportedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type CharacteristicsWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CharacteristicsWriteToParcelRequest) Reset() {
+	*x = CharacteristicsWriteToParcelRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[227]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CharacteristicsWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CharacteristicsWriteToParcelRequest) ProtoMessage() {}
+
+func (x *CharacteristicsWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[227]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CharacteristicsWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*CharacteristicsWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{227}
+}
+
+func (x *CharacteristicsWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CharacteristicsWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type UpdateSubscribeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateSubscribeRequest) Reset() {
+	*x = UpdateSubscribeRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[228]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateSubscribeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateSubscribeRequest) ProtoMessage() {}
+
+func (x *UpdateSubscribeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[228]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateSubscribeRequest.ProtoReflect.Descriptor instead.
+func (*UpdateSubscribeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{228}
+}
+
+func (x *UpdateSubscribeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type UpdateSubscribeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateSubscribeResponse) Reset() {
+	*x = UpdateSubscribeResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[229]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateSubscribeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateSubscribeResponse) ProtoMessage() {}
+
+func (x *UpdateSubscribeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[229]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateSubscribeResponse.ProtoReflect.Descriptor instead.
+func (*UpdateSubscribeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{229}
+}
+
+type AcceptPairingRequestRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          string                 `protobuf:"bytes,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AcceptPairingRequestRequest) Reset() {
+	*x = AcceptPairingRequestRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[230]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AcceptPairingRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AcceptPairingRequestRequest) ProtoMessage() {}
+
+func (x *AcceptPairingRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[230]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AcceptPairingRequestRequest.ProtoReflect.Descriptor instead.
+func (*AcceptPairingRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{230}
+}
+
+func (x *AcceptPairingRequestRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AcceptPairingRequestRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *AcceptPairingRequestRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *AcceptPairingRequestRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *AcceptPairingRequestRequest) GetArg4() string {
+	if x != nil {
+		return x.Arg4
+	}
+	return ""
+}
+
+type AcceptPairingRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AcceptPairingRequestResponse) Reset() {
+	*x = AcceptPairingRequestResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[231]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AcceptPairingRequestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AcceptPairingRequestResponse) ProtoMessage() {}
+
+func (x *AcceptPairingRequestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[231]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AcceptPairingRequestResponse.ProtoReflect.Descriptor instead.
+func (*AcceptPairingRequestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{231}
+}
+
+type DiscoverySessionCreateNetworkSpecifierOpenRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DiscoverySessionCreateNetworkSpecifierOpenRequest) Reset() {
+	*x = DiscoverySessionCreateNetworkSpecifierOpenRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[232]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DiscoverySessionCreateNetworkSpecifierOpenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DiscoverySessionCreateNetworkSpecifierOpenRequest) ProtoMessage() {}
+
+func (x *DiscoverySessionCreateNetworkSpecifierOpenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[232]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DiscoverySessionCreateNetworkSpecifierOpenRequest.ProtoReflect.Descriptor instead.
+func (*DiscoverySessionCreateNetworkSpecifierOpenRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{232}
+}
+
+func (x *DiscoverySessionCreateNetworkSpecifierOpenRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DiscoverySessionCreateNetworkSpecifierPassphraseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DiscoverySessionCreateNetworkSpecifierPassphraseRequest) Reset() {
+	*x = DiscoverySessionCreateNetworkSpecifierPassphraseRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[233]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DiscoverySessionCreateNetworkSpecifierPassphraseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DiscoverySessionCreateNetworkSpecifierPassphraseRequest) ProtoMessage() {}
+
+func (x *DiscoverySessionCreateNetworkSpecifierPassphraseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[233]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DiscoverySessionCreateNetworkSpecifierPassphraseRequest.ProtoReflect.Descriptor instead.
+func (*DiscoverySessionCreateNetworkSpecifierPassphraseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{233}
+}
+
+func (x *DiscoverySessionCreateNetworkSpecifierPassphraseRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DiscoverySessionCreateNetworkSpecifierPassphraseRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type InitiateBootstrappingRequestRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InitiateBootstrappingRequestRequest) Reset() {
+	*x = InitiateBootstrappingRequestRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[234]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InitiateBootstrappingRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InitiateBootstrappingRequestRequest) ProtoMessage() {}
+
+func (x *InitiateBootstrappingRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[234]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InitiateBootstrappingRequestRequest.ProtoReflect.Descriptor instead.
+func (*InitiateBootstrappingRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{234}
+}
+
+func (x *InitiateBootstrappingRequestRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *InitiateBootstrappingRequestRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type InitiateBootstrappingRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InitiateBootstrappingRequestResponse) Reset() {
+	*x = InitiateBootstrappingRequestResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[235]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InitiateBootstrappingRequestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InitiateBootstrappingRequestResponse) ProtoMessage() {}
+
+func (x *InitiateBootstrappingRequestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[235]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InitiateBootstrappingRequestResponse.ProtoReflect.Descriptor instead.
+func (*InitiateBootstrappingRequestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{235}
+}
+
+type InitiatePairingRequestRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InitiatePairingRequestRequest) Reset() {
+	*x = InitiatePairingRequestRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[236]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InitiatePairingRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InitiatePairingRequestRequest) ProtoMessage() {}
+
+func (x *InitiatePairingRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[236]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InitiatePairingRequestRequest.ProtoReflect.Descriptor instead.
+func (*InitiatePairingRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{236}
+}
+
+func (x *InitiatePairingRequestRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *InitiatePairingRequestRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *InitiatePairingRequestRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *InitiatePairingRequestRequest) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+type InitiatePairingRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InitiatePairingRequestResponse) Reset() {
+	*x = InitiatePairingRequestResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[237]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InitiatePairingRequestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InitiatePairingRequestResponse) ProtoMessage() {}
+
+func (x *InitiatePairingRequestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[237]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InitiatePairingRequestResponse.ProtoReflect.Descriptor instead.
+func (*InitiatePairingRequestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{237}
+}
+
+type RejectPairingRequestRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RejectPairingRequestRequest) Reset() {
+	*x = RejectPairingRequestRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[238]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RejectPairingRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RejectPairingRequestRequest) ProtoMessage() {}
+
+func (x *RejectPairingRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[238]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RejectPairingRequestRequest.ProtoReflect.Descriptor instead.
+func (*RejectPairingRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{238}
+}
+
+func (x *RejectPairingRequestRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *RejectPairingRequestRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type RejectPairingRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RejectPairingRequestResponse) Reset() {
+	*x = RejectPairingRequestResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[239]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RejectPairingRequestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RejectPairingRequestResponse) ProtoMessage() {}
+
+func (x *RejectPairingRequestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[239]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RejectPairingRequestResponse.ProtoReflect.Descriptor instead.
+func (*RejectPairingRequestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{239}
+}
+
+type SendMessageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendMessageRequest) Reset() {
+	*x = SendMessageRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[240]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendMessageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendMessageRequest) ProtoMessage() {}
+
+func (x *SendMessageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[240]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendMessageRequest.ProtoReflect.Descriptor instead.
+func (*SendMessageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{240}
+}
+
+func (x *SendMessageRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SendMessageRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SendMessageRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type SendMessageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendMessageResponse) Reset() {
+	*x = SendMessageResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[241]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendMessageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendMessageResponse) ProtoMessage() {}
+
+func (x *SendMessageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[241]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendMessageResponse.ProtoReflect.Descriptor instead.
+func (*SendMessageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{241}
+}
+
+type SubscribeConfigDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SubscribeConfigDescribeContentsRequest) Reset() {
+	*x = SubscribeConfigDescribeContentsRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[242]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SubscribeConfigDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SubscribeConfigDescribeContentsRequest) ProtoMessage() {}
+
+func (x *SubscribeConfigDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[242]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SubscribeConfigDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*SubscribeConfigDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{242}
+}
+
+type SubscribeConfigWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SubscribeConfigWriteToParcelRequest) Reset() {
+	*x = SubscribeConfigWriteToParcelRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[243]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SubscribeConfigWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SubscribeConfigWriteToParcelRequest) ProtoMessage() {}
+
+func (x *SubscribeConfigWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[243]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SubscribeConfigWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*SubscribeConfigWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{243}
+}
+
+func (x *SubscribeConfigWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SubscribeConfigWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetMaxDistanceMmRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMaxDistanceMmRequest) Reset() {
+	*x = SetMaxDistanceMmRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[244]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMaxDistanceMmRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMaxDistanceMmRequest) ProtoMessage() {}
+
+func (x *SetMaxDistanceMmRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[244]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMaxDistanceMmRequest.ProtoReflect.Descriptor instead.
+func (*SetMaxDistanceMmRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{244}
+}
+
+func (x *SetMaxDistanceMmRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMaxDistanceMmResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMaxDistanceMmResponse) Reset() {
+	*x = SetMaxDistanceMmResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[245]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMaxDistanceMmResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMaxDistanceMmResponse) ProtoMessage() {}
+
+func (x *SetMaxDistanceMmResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[245]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMaxDistanceMmResponse.ProtoReflect.Descriptor instead.
+func (*SetMaxDistanceMmResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{245}
+}
+
+func (x *SetMaxDistanceMmResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetMinDistanceMmRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMinDistanceMmRequest) Reset() {
+	*x = SetMinDistanceMmRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[246]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMinDistanceMmRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMinDistanceMmRequest) ProtoMessage() {}
+
+func (x *SetMinDistanceMmRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[246]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMinDistanceMmRequest.ProtoReflect.Descriptor instead.
+func (*SetMinDistanceMmRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{246}
+}
+
+func (x *SetMinDistanceMmRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMinDistanceMmResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMinDistanceMmResponse) Reset() {
+	*x = SetMinDistanceMmResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[247]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMinDistanceMmResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMinDistanceMmResponse) ProtoMessage() {}
+
+func (x *SetMinDistanceMmResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[247]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMinDistanceMmResponse.ProtoReflect.Descriptor instead.
+func (*SetMinDistanceMmResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{247}
+}
+
+func (x *SetMinDistanceMmResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSubscribeTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSubscribeTypeRequest) Reset() {
+	*x = SetSubscribeTypeRequest{}
+	mi := &file_proto_aware_aware_proto_msgTypes[248]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSubscribeTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSubscribeTypeRequest) ProtoMessage() {}
+
+func (x *SetSubscribeTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[248]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSubscribeTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetSubscribeTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{248}
+}
+
+func (x *SetSubscribeTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetSubscribeTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSubscribeTypeResponse) Reset() {
+	*x = SetSubscribeTypeResponse{}
+	mi := &file_proto_aware_aware_proto_msgTypes[249]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSubscribeTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSubscribeTypeResponse) ProtoMessage() {}
+
+func (x *SetSubscribeTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_aware_aware_proto_msgTypes[249]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSubscribeTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetSubscribeTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_aware_aware_proto_rawDescGZIP(), []int{249}
+}
+
+func (x *SetSubscribeTypeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 var File_proto_aware_aware_proto protoreflect.FileDescriptor
@@ -740,6 +10724,86 @@ var File_proto_aware_aware_proto protoreflect.FileDescriptor
 const file_proto_aware_aware_proto_rawDesc = "" +
 	"\n" +
 	"\x17proto/aware/aware.proto\x12\x05aware\"#\n" +
+	"!NewIdentityChangedListenerRequest\"<\n" +
+	"\"NewIdentityChangedListenerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"[\n" +
+	"\x19OnClusterIdChangedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x1c\n" +
+	"\x1aOnClusterIdChangedResponse\"F\n" +
+	"\x18OnIdentityChangedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1b\n" +
+	"\x19OnIdentityChangedResponse\"4\n" +
+	"\x1eNewParcelablePeerHandleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"9\n" +
+	"\x1fNewParcelablePeerHandleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17DescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"V\n" +
+	"\x14WriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"-\n" +
+	"\x17CanBeSatisfiedByRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"2\n" +
+	"\x18CanBeSatisfiedByResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"2\n" +
+	"0WifiAwareNetworkSpecifierDescribeContentsRequest\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1f\n" +
+	"\x1dGetChannelFrequencyMhzRequest\"8\n" +
+	"\x1eGetChannelFrequencyMhzResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
+	")GetWifiAwareDataPathSecurityConfigRequest\"D\n" +
+	"*GetWifiAwareDataPathSecurityConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1a\n" +
+	"\x18IsChannelRequiredRequest\"3\n" +
+	"\x19IsChannelRequiredResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"W\n" +
+	"-WifiAwareNetworkSpecifierWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"G\n" +
+	"\x1dSetChannelFrequencyMhzRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"8\n" +
+	"\x1eSetChannelFrequencyMhzResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
+	" SetDataPathSecurityConfigRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\";\n" +
+	"!SetDataPathSecurityConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"\rSetPmkRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eSetPmkResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\x0eSetPortRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\")\n" +
+	"\x0fSetPortResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x17SetPskPassphraseRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"2\n" +
+	"\x18SetPskPassphraseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x1bSetTransportProtocolRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"6\n" +
+	"\x1cSetTransportProtocolResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
 	"!GetAvailableAwareResourcesRequest\"<\n" +
 	"\"GetAvailableAwareResourcesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
@@ -765,7 +10829,389 @@ const file_proto_aware_aware_proto_rawDesc = "" +
 	"\x1aResetPairedDevicesResponse\"8\n" +
 	"\"SetOpportunisticModeEnabledRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"%\n" +
-	"#SetOpportunisticModeEnabledResponse2\xba\a\n" +
+	"#SetOpportunisticModeEnabledResponse\"-\n" +
+	"+WifiAwareNetworkInfoDescribeContentsRequest\"\x18\n" +
+	"\x16GetPeerIpv6AddrRequest\"1\n" +
+	"\x17GetPeerIpv6AddrResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x0eGetPortRequest\")\n" +
+	"\x0fGetPortResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1d\n" +
+	"\x1bGetTransportProtocolRequest\"6\n" +
+	"\x1cGetTransportProtocolResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"R\n" +
+	"(WifiAwareNetworkInfoWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x1a\n" +
+	"\x18NewAttachCallbackRequest\"3\n" +
+	"\x19NewAttachCallbackResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x15OnAttachFailedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x18\n" +
+	"\x16OnAttachFailedResponse\"?\n" +
+	"\x11OnAttachedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x14\n" +
+	"\x12OnAttachedResponse\"9\n" +
+	"\x1fOnAwareSessionTerminatedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\"\n" +
+	" OnAwareSessionTerminatedResponse\"$\n" +
+	"\"NewDiscoverySessionCallbackRequest\"=\n" +
+	"#NewDiscoverySessionCallbackResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"J\n" +
+	"\x1cOnBootstrappingFailedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1f\n" +
+	"\x1dOnBootstrappingFailedResponse\"a\n" +
+	"\x1fOnBootstrappingSucceededRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\"\n" +
+	" OnBootstrappingSucceededResponse\"Z\n" +
+	"\x18OnMessageReceivedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x1b\n" +
+	"\x19OnMessageReceivedResponse\"H\n" +
+	"\x1aOnMessageSendFailedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x1d\n" +
+	"\x1bOnMessageSendFailedResponse\"K\n" +
+	"\x1dOnMessageSendSucceededRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\" \n" +
+	"\x1eOnMessageSendSucceededResponse\"I\n" +
+	"\x1bOnPairingSetupFailedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1e\n" +
+	"\x1cOnPairingSetupFailedResponse\"f\n" +
+	"$OnPairingSetupRequestReceivedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"'\n" +
+	"%OnPairingSetupRequestReceivedResponse\"`\n" +
+	"\x1eOnPairingSetupSucceededRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\"!\n" +
+	"\x1fOnPairingSetupSucceededResponse\"P\n" +
+	"\"OnPairingVerificationFailedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"%\n" +
+	"#OnPairingVerificationFailedResponse\"e\n" +
+	"#OnPairingVerificationSucceedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\"&\n" +
+	"$OnPairingVerificationSucceedResponse\"E\n" +
+	"\x17OnPublishStartedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1a\n" +
+	"\x18OnPublishStartedResponse\"H\n" +
+	"\x1aOnServiceDiscoveredRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1d\n" +
+	"\x1bOnServiceDiscoveredResponse\"g\n" +
+	"%OnServiceDiscoveredWithinRangeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"(\n" +
+	"&OnServiceDiscoveredWithinRangeResponse\"V\n" +
+	"\x14OnServiceLostRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15OnServiceLostResponse\"6\n" +
+	"\x1cOnSessionConfigFailedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1f\n" +
+	"\x1dOnSessionConfigFailedResponse\"7\n" +
+	"\x1dOnSessionConfigUpdatedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\" \n" +
+	"\x1eOnSessionConfigUpdatedResponse\"4\n" +
+	"\x1aOnSessionTerminatedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1d\n" +
+	"\x1bOnSessionTerminatedResponse\"G\n" +
+	"\x19OnSubscribeStartedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1c\n" +
+	"\x1aOnSubscribeStartedResponse\"*\n" +
+	"\x14UpdatePublishRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x17\n" +
+	"\x15UpdatePublishResponse\"8\n" +
+	"6WifiAwareDataPathSecurityConfigDescribeContentsRequest\"\x17\n" +
+	"\x15GetCipherSuiteRequest\"0\n" +
+	"\x16GetCipherSuiteResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0f\n" +
+	"\rGetPmkRequest\"(\n" +
+	"\x0eGetPmkResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fGetPmkIdRequest\"*\n" +
+	"\x10GetPmkIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17GetPskPassphraseRequest\"2\n" +
+	"\x18GetPskPassphraseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"]\n" +
+	"3WifiAwareDataPathSecurityConfigWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"%\n" +
+	"\x0fSetPmkIdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"*\n" +
+	"\x10SetPmkIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
+	"\fCloseRequest\"\x0f\n" +
+	"\rCloseResponse\"K\n" +
+	"!CreateNetworkSpecifierOpenRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"<\n" +
+	"\"CreateNetworkSpecifierOpenResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"e\n" +
+	"'CreateNetworkSpecifierPassphraseRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"B\n" +
+	"(CreateNetworkSpecifierPassphraseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"Q\n" +
+	"\x13NewResourcesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\".\n" +
+	"\x14NewResourcesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"!GetAvailableDataPathsCountRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"<\n" +
+	"\"GetAvailableDataPathsCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"A\n" +
+	"'GetAvailablePublishSessionsCountRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"B\n" +
+	"(GetAvailablePublishSessionsCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"C\n" +
+	")GetAvailableSubscribeSessionsCountRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"D\n" +
+	"*GetAvailableSubscribeSessionsCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"&\n" +
+	"$PublishConfigDescribeContentsRequest\"$\n" +
+	"\"GetInstantCommunicationBandRequest\"=\n" +
+	"#GetInstantCommunicationBandResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x19\n" +
+	"\x17GetPairingConfigRequest\"2\n" +
+	"\x18GetPairingConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
+	"\x18GetSecurityConfigRequest\"3\n" +
+	"\x19GetSecurityConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"K\n" +
+	"!PublishConfigWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"S\n" +
+	")SetInstantCommunicationModeEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"D\n" +
+	"*SetInstantCommunicationModeEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x17SetPairingConfigRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"2\n" +
+	"\x18SetPairingConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15SetPublishTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"0\n" +
+	"\x16SetPublishTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18SetRangingEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"3\n" +
+	"\x19SetRangingEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15SetServiceNameRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"0\n" +
+	"\x16SetServiceNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
+	"\x1dSetServiceSpecificInfoRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"8\n" +
+	"\x1eSetServiceSpecificInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
+	"&SetTerminateNotificationEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"A\n" +
+	"'SetTerminateNotificationEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"\x10SetTtlSecRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"+\n" +
+	"\x11SetTtlSecResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
+	"\x15GetPairedAliasRequest\"0\n" +
+	"\x16GetPairedAliasResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1b\n" +
+	"\x19GetPeerCipherSuiteRequest\"4\n" +
+	"\x1aGetPeerCipherSuiteResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
+	"\x14GetPeerHandleRequest\"/\n" +
+	"\x15GetPeerHandleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x0eGetScidRequest\")\n" +
+	"\x0fGetScidResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
+	"\x1dGetServiceSpecificInfoRequest\"8\n" +
+	"\x1eGetServiceSpecificInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"+WifiAwareChannelInfoDescribeContentsRequest\"\x1c\n" +
+	"\x1aGetChannelBandwidthRequest\"5\n" +
+	"\x1bGetChannelBandwidthResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1e\n" +
+	"\x1cGetSpatialStreamCountRequest\"7\n" +
+	"\x1dGetSpatialStreamCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"R\n" +
+	"(WifiAwareChannelInfoWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"&\n" +
+	"$PairingConfigDescribeContentsRequest\" \n" +
+	"\x1eGetBootstrappingMethodsRequest\"9\n" +
+	"\x1fGetBootstrappingMethodsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"!\n" +
+	"\x1fGetSupportedCipherSuitesRequest\":\n" +
+	" GetSupportedCipherSuitesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1e\n" +
+	"\x1cIsPairingCacheEnabledRequest\"7\n" +
+	"\x1dIsPairingCacheEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1e\n" +
+	"\x1cIsPairingSetupEnabledRequest\"7\n" +
+	"\x1dIsPairingSetupEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"%\n" +
+	"#IsPairingVerificationEnabledRequest\">\n" +
+	"$IsPairingVerificationEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"K\n" +
+	"!PairingConfigWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"4\n" +
+	"\x1eSetBootstrappingMethodsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"9\n" +
+	"\x1fSetBootstrappingMethodsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
+	"\x1dSetPairingCacheEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"8\n" +
+	"\x1eSetPairingCacheEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
+	"\x1dSetPairingSetupEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"8\n" +
+	"\x1eSetPairingSetupEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\":\n" +
+	"$SetPairingVerificationEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"?\n" +
+	"%SetPairingVerificationEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1fSetSupportedCipherSuitesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\":\n" +
+	" SetSupportedCipherSuitesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"&CharacteristicsDescribeContentsRequest\" \n" +
+	"\x1eGetMaxMatchFilterLengthRequest\"9\n" +
+	"\x1fGetMaxMatchFilterLengthResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\" \n" +
+	"\x1eGetMaxServiceNameLengthRequest\"9\n" +
+	"\x1fGetMaxServiceNameLengthResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"(\n" +
+	"&GetMaxServiceSpecificInfoLengthRequest\"A\n" +
+	"'GetMaxServiceSpecificInfoLengthResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
+	")GetNumberOfSupportedDataInterfacesRequest\"D\n" +
+	"*GetNumberOfSupportedDataInterfacesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"&\n" +
+	"$GetNumberOfSupportedDataPathsRequest\"?\n" +
+	"%GetNumberOfSupportedDataPathsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\",\n" +
+	"*GetNumberOfSupportedPublishSessionsRequest\"E\n" +
+	"+GetNumberOfSupportedPublishSessionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\".\n" +
+	",GetNumberOfSupportedSubscribeSessionsRequest\"G\n" +
+	"-GetNumberOfSupportedSubscribeSessionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"(\n" +
+	"&GetSupportedPairingCipherSuitesRequest\"A\n" +
+	"'GetSupportedPairingCipherSuitesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\" \n" +
+	"\x1eIsAwarePairingSupportedRequest\"9\n" +
+	"\x1fIsAwarePairingSupportedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\",\n" +
+	"*IsInstantCommunicationModeSupportedRequest\"E\n" +
+	"+IsInstantCommunicationModeSupportedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1e\n" +
+	"\x1cIsSuspensionSupportedRequest\"7\n" +
+	"\x1dIsSuspensionSupportedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"M\n" +
+	"#CharacteristicsWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\",\n" +
+	"\x16UpdateSubscribeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x19\n" +
+	"\x17UpdateSubscribeResponse\"\x81\x01\n" +
+	"\x1bAcceptPairingRequestRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\tR\x04arg4\"\x1e\n" +
+	"\x1cAcceptPairingRequestResponse\"G\n" +
+	"1DiscoverySessionCreateNetworkSpecifierOpenRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"a\n" +
+	"7DiscoverySessionCreateNetworkSpecifierPassphraseRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"M\n" +
+	"#InitiateBootstrappingRequestRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"&\n" +
+	"$InitiateBootstrappingRequestResponse\"o\n" +
+	"\x1dInitiatePairingRequestRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\tR\x04arg3\" \n" +
+	"\x1eInitiatePairingRequestResponse\"E\n" +
+	"\x1bRejectPairingRequestRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1e\n" +
+	"\x1cRejectPairingRequestResponse\"P\n" +
+	"\x12SendMessageRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x15\n" +
+	"\x13SendMessageResponse\"(\n" +
+	"&SubscribeConfigDescribeContentsRequest\"M\n" +
+	"#SubscribeConfigWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"-\n" +
+	"\x17SetMaxDistanceMmRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"2\n" +
+	"\x18SetMaxDistanceMmResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x17SetMinDistanceMmRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"2\n" +
+	"\x18SetMinDistanceMmResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x17SetSubscribeTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"2\n" +
+	"\x18SetSubscribeTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xc6\x02\n" +
+	"\x1eIdentityChangedListenerService\x12q\n" +
+	"\x1aNewIdentityChangedListener\x12(.aware.NewIdentityChangedListenerRequest\x1a).aware.NewIdentityChangedListenerResponse\x12Y\n" +
+	"\x12OnClusterIdChanged\x12 .aware.OnClusterIdChangedRequest\x1a!.aware.OnClusterIdChangedResponse\x12V\n" +
+	"\x11OnIdentityChanged\x12\x1f.aware.OnIdentityChangedRequest\x1a .aware.OnIdentityChangedResponse2\xa8\x02\n" +
+	"\x1bParcelablePeerHandleService\x12h\n" +
+	"\x17NewParcelablePeerHandle\x12%.aware.NewParcelablePeerHandleRequest\x1a&.aware.NewParcelablePeerHandleResponse\x12S\n" +
+	"\x10DescribeContents\x12\x1e.aware.DescribeContentsRequest\x1a\x1f.aware.DescribeContentsResponse\x12J\n" +
+	"\rWriteToParcel\x12\x1b.aware.WriteToParcelRequest\x1a\x1c.aware.WriteToParcelResponse2\xc6\x06\n" +
+	" WifiAwareNetworkSpecifierService\x12S\n" +
+	"\x10CanBeSatisfiedBy\x12\x1e.aware.CanBeSatisfiedByRequest\x1a\x1f.aware.CanBeSatisfiedByResponse\x12l\n" +
+	"\x10DescribeContents\x127.aware.WifiAwareNetworkSpecifierDescribeContentsRequest\x1a\x1f.aware.DescribeContentsResponse\x125\n" +
+	"\x06Equals\x12\x14.aware.EqualsRequest\x1a\x15.aware.EqualsResponse\x12e\n" +
+	"\x16GetChannelFrequencyMhz\x12$.aware.GetChannelFrequencyMhzRequest\x1a%.aware.GetChannelFrequencyMhzResponse\x12\x89\x01\n" +
+	"\"GetWifiAwareDataPathSecurityConfig\x120.aware.GetWifiAwareDataPathSecurityConfigRequest\x1a1.aware.GetWifiAwareDataPathSecurityConfigResponse\x12;\n" +
+	"\bHashCode\x12\x16.aware.HashCodeRequest\x1a\x17.aware.HashCodeResponse\x12V\n" +
+	"\x11IsChannelRequired\x12\x1f.aware.IsChannelRequiredRequest\x1a .aware.IsChannelRequiredResponse\x12;\n" +
+	"\bToString\x12\x16.aware.ToStringRequest\x1a\x17.aware.ToStringResponse\x12c\n" +
+	"\rWriteToParcel\x124.aware.WifiAwareNetworkSpecifierWriteToParcelRequest\x1a\x1c.aware.WriteToParcelResponse2\xdb\x04\n" +
+	"'WifiAwareNetworkSpecifierBuilderService\x122\n" +
+	"\x05Build\x12\x13.aware.BuildRequest\x1a\x14.aware.BuildResponse\x12e\n" +
+	"\x16SetChannelFrequencyMhz\x12$.aware.SetChannelFrequencyMhzRequest\x1a%.aware.SetChannelFrequencyMhzResponse\x12n\n" +
+	"\x19SetDataPathSecurityConfig\x12'.aware.SetDataPathSecurityConfigRequest\x1a(.aware.SetDataPathSecurityConfigResponse\x125\n" +
+	"\x06SetPmk\x12\x14.aware.SetPmkRequest\x1a\x15.aware.SetPmkResponse\x128\n" +
+	"\aSetPort\x12\x15.aware.SetPortRequest\x1a\x16.aware.SetPortResponse\x12S\n" +
+	"\x10SetPskPassphrase\x12\x1e.aware.SetPskPassphraseRequest\x1a\x1f.aware.SetPskPassphraseResponse\x12_\n" +
+	"\x14SetTransportProtocol\x12\".aware.SetTransportProtocolRequest\x1a#.aware.SetTransportProtocolResponse2\xba\a\n" +
 	"\x17WifiAwareManagerService\x12q\n" +
 	"\x1aGetAvailableAwareResources\x12(.aware.GetAvailableAwareResourcesRequest\x1a).aware.GetAvailableAwareResourcesResponse\x12Y\n" +
 	"\x12GetCharacteristics\x12 .aware.GetCharacteristicsRequest\x1a!.aware.GetCharacteristicsResponse\x12D\n" +
@@ -775,7 +11221,173 @@ const file_proto_aware_aware_proto_rawDesc = "" +
 	"\x1fIsSetChannelOnDataPathSupported\x12-.aware.IsSetChannelOnDataPathSupportedRequest\x1a..aware.IsSetChannelOnDataPathSupportedResponse\x12Y\n" +
 	"\x12RemovePairedDevice\x12 .aware.RemovePairedDeviceRequest\x1a!.aware.RemovePairedDeviceResponse\x12Y\n" +
 	"\x12ResetPairedDevices\x12 .aware.ResetPairedDevicesRequest\x1a!.aware.ResetPairedDevicesResponse\x12t\n" +
-	"\x1bSetOpportunisticModeEnabled\x12).aware.SetOpportunisticModeEnabledRequest\x1a*.aware.SetOpportunisticModeEnabledResponseB/Z-github.com/AndroidGoLab/jni-proxy/proto/awareb\x06proto3"
+	"\x1bSetOpportunisticModeEnabled\x12).aware.SetOpportunisticModeEnabledRequest\x1a*.aware.SetOpportunisticModeEnabledResponse2\x84\x05\n" +
+	"\x1bWifiAwareNetworkInfoService\x12g\n" +
+	"\x10DescribeContents\x122.aware.WifiAwareNetworkInfoDescribeContentsRequest\x1a\x1f.aware.DescribeContentsResponse\x125\n" +
+	"\x06Equals\x12\x14.aware.EqualsRequest\x1a\x15.aware.EqualsResponse\x12P\n" +
+	"\x0fGetPeerIpv6Addr\x12\x1d.aware.GetPeerIpv6AddrRequest\x1a\x1e.aware.GetPeerIpv6AddrResponse\x128\n" +
+	"\aGetPort\x12\x15.aware.GetPortRequest\x1a\x16.aware.GetPortResponse\x12_\n" +
+	"\x14GetTransportProtocol\x12\".aware.GetTransportProtocolRequest\x1a#.aware.GetTransportProtocolResponse\x12;\n" +
+	"\bHashCode\x12\x16.aware.HashCodeRequest\x1a\x17.aware.HashCodeResponse\x12;\n" +
+	"\bToString\x12\x16.aware.ToStringRequest\x1a\x17.aware.ToStringResponse\x12^\n" +
+	"\rWriteToParcel\x12/.aware.WifiAwareNetworkInfoWriteToParcelRequest\x1a\x1c.aware.WriteToParcelResponse2\xee\x02\n" +
+	"\x15AttachCallbackService\x12V\n" +
+	"\x11NewAttachCallback\x12\x1f.aware.NewAttachCallbackRequest\x1a .aware.NewAttachCallbackResponse\x12M\n" +
+	"\x0eOnAttachFailed\x12\x1c.aware.OnAttachFailedRequest\x1a\x1d.aware.OnAttachFailedResponse\x12A\n" +
+	"\n" +
+	"OnAttached\x12\x18.aware.OnAttachedRequest\x1a\x19.aware.OnAttachedResponse\x12k\n" +
+	"\x18OnAwareSessionTerminated\x12&.aware.OnAwareSessionTerminatedRequest\x1a'.aware.OnAwareSessionTerminatedResponse2\xbd\x0f\n" +
+	"\x1fDiscoverySessionCallbackService\x12t\n" +
+	"\x1bNewDiscoverySessionCallback\x12).aware.NewDiscoverySessionCallbackRequest\x1a*.aware.NewDiscoverySessionCallbackResponse\x12b\n" +
+	"\x15OnBootstrappingFailed\x12#.aware.OnBootstrappingFailedRequest\x1a$.aware.OnBootstrappingFailedResponse\x12k\n" +
+	"\x18OnBootstrappingSucceeded\x12&.aware.OnBootstrappingSucceededRequest\x1a'.aware.OnBootstrappingSucceededResponse\x12V\n" +
+	"\x11OnMessageReceived\x12\x1f.aware.OnMessageReceivedRequest\x1a .aware.OnMessageReceivedResponse\x12\\\n" +
+	"\x13OnMessageSendFailed\x12!.aware.OnMessageSendFailedRequest\x1a\".aware.OnMessageSendFailedResponse\x12e\n" +
+	"\x16OnMessageSendSucceeded\x12$.aware.OnMessageSendSucceededRequest\x1a%.aware.OnMessageSendSucceededResponse\x12_\n" +
+	"\x14OnPairingSetupFailed\x12\".aware.OnPairingSetupFailedRequest\x1a#.aware.OnPairingSetupFailedResponse\x12z\n" +
+	"\x1dOnPairingSetupRequestReceived\x12+.aware.OnPairingSetupRequestReceivedRequest\x1a,.aware.OnPairingSetupRequestReceivedResponse\x12h\n" +
+	"\x17OnPairingSetupSucceeded\x12%.aware.OnPairingSetupSucceededRequest\x1a&.aware.OnPairingSetupSucceededResponse\x12t\n" +
+	"\x1bOnPairingVerificationFailed\x12).aware.OnPairingVerificationFailedRequest\x1a*.aware.OnPairingVerificationFailedResponse\x12w\n" +
+	"\x1cOnPairingVerificationSucceed\x12*.aware.OnPairingVerificationSucceedRequest\x1a+.aware.OnPairingVerificationSucceedResponse\x12S\n" +
+	"\x10OnPublishStarted\x12\x1e.aware.OnPublishStartedRequest\x1a\x1f.aware.OnPublishStartedResponse\x12\\\n" +
+	"\x13OnServiceDiscovered\x12!.aware.OnServiceDiscoveredRequest\x1a\".aware.OnServiceDiscoveredResponse\x12}\n" +
+	"\x1eOnServiceDiscoveredWithinRange\x12,.aware.OnServiceDiscoveredWithinRangeRequest\x1a-.aware.OnServiceDiscoveredWithinRangeResponse\x12J\n" +
+	"\rOnServiceLost\x12\x1b.aware.OnServiceLostRequest\x1a\x1c.aware.OnServiceLostResponse\x12b\n" +
+	"\x15OnSessionConfigFailed\x12#.aware.OnSessionConfigFailedRequest\x1a$.aware.OnSessionConfigFailedResponse\x12e\n" +
+	"\x16OnSessionConfigUpdated\x12$.aware.OnSessionConfigUpdatedRequest\x1a%.aware.OnSessionConfigUpdatedResponse\x12\\\n" +
+	"\x13OnSessionTerminated\x12!.aware.OnSessionTerminatedRequest\x1a\".aware.OnSessionTerminatedResponse\x12Y\n" +
+	"\x12OnSubscribeStarted\x12 .aware.OnSubscribeStartedRequest\x1a!.aware.OnSubscribeStartedResponse2l\n" +
+	"\x1ePublishDiscoverySessionService\x12J\n" +
+	"\rUpdatePublish\x12\x1b.aware.UpdatePublishRequest\x1a\x1c.aware.UpdatePublishResponse2\xd0\x05\n" +
+	"&WifiAwareDataPathSecurityConfigService\x12r\n" +
+	"\x10DescribeContents\x12=.aware.WifiAwareDataPathSecurityConfigDescribeContentsRequest\x1a\x1f.aware.DescribeContentsResponse\x125\n" +
+	"\x06Equals\x12\x14.aware.EqualsRequest\x1a\x15.aware.EqualsResponse\x12M\n" +
+	"\x0eGetCipherSuite\x12\x1c.aware.GetCipherSuiteRequest\x1a\x1d.aware.GetCipherSuiteResponse\x125\n" +
+	"\x06GetPmk\x12\x14.aware.GetPmkRequest\x1a\x15.aware.GetPmkResponse\x12;\n" +
+	"\bGetPmkId\x12\x16.aware.GetPmkIdRequest\x1a\x17.aware.GetPmkIdResponse\x12S\n" +
+	"\x10GetPskPassphrase\x12\x1e.aware.GetPskPassphraseRequest\x1a\x1f.aware.GetPskPassphraseResponse\x12;\n" +
+	"\bHashCode\x12\x16.aware.HashCodeRequest\x1a\x17.aware.HashCodeResponse\x12;\n" +
+	"\bToString\x12\x16.aware.ToStringRequest\x1a\x17.aware.ToStringResponse\x12i\n" +
+	"\rWriteToParcel\x12:.aware.WifiAwareDataPathSecurityConfigWriteToParcelRequest\x1a\x1c.aware.WriteToParcelResponse2\xac\x02\n" +
+	"-WifiAwareDataPathSecurityConfigBuilderService\x122\n" +
+	"\x05Build\x12\x13.aware.BuildRequest\x1a\x14.aware.BuildResponse\x125\n" +
+	"\x06SetPmk\x12\x14.aware.SetPmkRequest\x1a\x15.aware.SetPmkResponse\x12;\n" +
+	"\bSetPmkId\x12\x16.aware.SetPmkIdRequest\x1a\x17.aware.SetPmkIdResponse\x12S\n" +
+	"\x10SetPskPassphrase\x12\x1e.aware.SetPskPassphraseRequest\x1a\x1f.aware.SetPskPassphraseResponse2\xc6\x02\n" +
+	"\x17WifiAwareSessionService\x122\n" +
+	"\x05Close\x12\x13.aware.CloseRequest\x1a\x14.aware.CloseResponse\x12q\n" +
+	"\x1aCreateNetworkSpecifierOpen\x12(.aware.CreateNetworkSpecifierOpenRequest\x1a).aware.CreateNetworkSpecifierOpenResponse\x12\x83\x01\n" +
+	" CreateNetworkSpecifierPassphrase\x12..aware.CreateNetworkSpecifierPassphraseRequest\x1a/.aware.CreateNetworkSpecifierPassphraseResponse2\x81\x05\n" +
+	"\x10ResourcesService\x12G\n" +
+	"\fNewResources\x12\x1a.aware.NewResourcesRequest\x1a\x1b.aware.NewResourcesResponse\x12S\n" +
+	"\x10DescribeContents\x12\x1e.aware.DescribeContentsRequest\x1a\x1f.aware.DescribeContentsResponse\x12q\n" +
+	"\x1aGetAvailableDataPathsCount\x12(.aware.GetAvailableDataPathsCountRequest\x1a).aware.GetAvailableDataPathsCountResponse\x12\x83\x01\n" +
+	" GetAvailablePublishSessionsCount\x12..aware.GetAvailablePublishSessionsCountRequest\x1a/.aware.GetAvailablePublishSessionsCountResponse\x12\x89\x01\n" +
+	"\"GetAvailableSubscribeSessionsCount\x120.aware.GetAvailableSubscribeSessionsCountRequest\x1a1.aware.GetAvailableSubscribeSessionsCountResponse\x12J\n" +
+	"\rWriteToParcel\x12\x1b.aware.WriteToParcelRequest\x1a\x1c.aware.WriteToParcelResponse2\xae\x06\n" +
+	"\x14PublishConfigService\x12`\n" +
+	"\x10DescribeContents\x12+.aware.PublishConfigDescribeContentsRequest\x1a\x1f.aware.DescribeContentsResponse\x125\n" +
+	"\x06Equals\x12\x14.aware.EqualsRequest\x1a\x15.aware.EqualsResponse\x12t\n" +
+	"\x1bGetInstantCommunicationBand\x12).aware.GetInstantCommunicationBandRequest\x1a*.aware.GetInstantCommunicationBandResponse\x12S\n" +
+	"\x10GetPairingConfig\x12\x1e.aware.GetPairingConfigRequest\x1a\x1f.aware.GetPairingConfigResponse\x12V\n" +
+	"\x11GetSecurityConfig\x12\x1f.aware.GetSecurityConfigRequest\x1a .aware.GetSecurityConfigResponse\x12;\n" +
+	"\bHashCode\x12\x16.aware.HashCodeRequest\x1a\x17.aware.HashCodeResponse\x12\x86\x01\n" +
+	"!IsInstantCommunicationModeEnabled\x12/.aware.IsInstantCommunicationModeEnabledRequest\x1a0.aware.IsInstantCommunicationModeEnabledResponse\x12;\n" +
+	"\bToString\x12\x16.aware.ToStringRequest\x1a\x17.aware.ToStringResponse\x12W\n" +
+	"\rWriteToParcel\x12(.aware.PublishConfigWriteToParcelRequest\x1a\x1c.aware.WriteToParcelResponse2\xc2\a\n" +
+	"\x1bPublishConfigBuilderService\x122\n" +
+	"\x05Build\x12\x13.aware.BuildRequest\x1a\x14.aware.BuildResponse\x12n\n" +
+	"\x19SetDataPathSecurityConfig\x12'.aware.SetDataPathSecurityConfigRequest\x1a(.aware.SetDataPathSecurityConfigResponse\x12\x89\x01\n" +
+	"\"SetInstantCommunicationModeEnabled\x120.aware.SetInstantCommunicationModeEnabledRequest\x1a1.aware.SetInstantCommunicationModeEnabledResponse\x12S\n" +
+	"\x10SetPairingConfig\x12\x1e.aware.SetPairingConfigRequest\x1a\x1f.aware.SetPairingConfigResponse\x12M\n" +
+	"\x0eSetPublishType\x12\x1c.aware.SetPublishTypeRequest\x1a\x1d.aware.SetPublishTypeResponse\x12V\n" +
+	"\x11SetRangingEnabled\x12\x1f.aware.SetRangingEnabledRequest\x1a .aware.SetRangingEnabledResponse\x12M\n" +
+	"\x0eSetServiceName\x12\x1c.aware.SetServiceNameRequest\x1a\x1d.aware.SetServiceNameResponse\x12e\n" +
+	"\x16SetServiceSpecificInfo\x12$.aware.SetServiceSpecificInfoRequest\x1a%.aware.SetServiceSpecificInfoResponse\x12\x80\x01\n" +
+	"\x1fSetTerminateNotificationEnabled\x12-.aware.SetTerminateNotificationEnabledRequest\x1a..aware.SetTerminateNotificationEnabledResponse\x12>\n" +
+	"\tSetTtlSec\x12\x17.aware.SetTtlSecRequest\x1a\x18.aware.SetTtlSecResponse2\x87\x01\n" +
+	"\x11PeerHandleService\x125\n" +
+	"\x06Equals\x12\x14.aware.EqualsRequest\x1a\x15.aware.EqualsResponse\x12;\n" +
+	"\bHashCode\x12\x16.aware.HashCodeRequest\x1a\x17.aware.HashCodeResponse2\x89\x04\n" +
+	"\x1bServiceDiscoveryInfoService\x12M\n" +
+	"\x0eGetPairedAlias\x12\x1c.aware.GetPairedAliasRequest\x1a\x1d.aware.GetPairedAliasResponse\x12S\n" +
+	"\x10GetPairingConfig\x12\x1e.aware.GetPairingConfigRequest\x1a\x1f.aware.GetPairingConfigResponse\x12Y\n" +
+	"\x12GetPeerCipherSuite\x12 .aware.GetPeerCipherSuiteRequest\x1a!.aware.GetPeerCipherSuiteResponse\x12J\n" +
+	"\rGetPeerHandle\x12\x1b.aware.GetPeerHandleRequest\x1a\x1c.aware.GetPeerHandleResponse\x128\n" +
+	"\aGetScid\x12\x15.aware.GetScidRequest\x1a\x16.aware.GetScidResponse\x12e\n" +
+	"\x16GetServiceSpecificInfo\x12$.aware.GetServiceSpecificInfoRequest\x1a%.aware.GetServiceSpecificInfoResponse2\xc0\x05\n" +
+	"\x1bWifiAwareChannelInfoService\x12g\n" +
+	"\x10DescribeContents\x122.aware.WifiAwareChannelInfoDescribeContentsRequest\x1a\x1f.aware.DescribeContentsResponse\x125\n" +
+	"\x06Equals\x12\x14.aware.EqualsRequest\x1a\x15.aware.EqualsResponse\x12\\\n" +
+	"\x13GetChannelBandwidth\x12!.aware.GetChannelBandwidthRequest\x1a\".aware.GetChannelBandwidthResponse\x12e\n" +
+	"\x16GetChannelFrequencyMhz\x12$.aware.GetChannelFrequencyMhzRequest\x1a%.aware.GetChannelFrequencyMhzResponse\x12b\n" +
+	"\x15GetSpatialStreamCount\x12#.aware.GetSpatialStreamCountRequest\x1a$.aware.GetSpatialStreamCountResponse\x12;\n" +
+	"\bHashCode\x12\x16.aware.HashCodeRequest\x1a\x17.aware.HashCodeResponse\x12;\n" +
+	"\bToString\x12\x16.aware.ToStringRequest\x1a\x17.aware.ToStringResponse\x12^\n" +
+	"\rWriteToParcel\x12/.aware.WifiAwareChannelInfoWriteToParcelRequest\x1a\x1c.aware.WriteToParcelResponse2\xdd\x06\n" +
+	"\x14PairingConfigService\x12`\n" +
+	"\x10DescribeContents\x12+.aware.PairingConfigDescribeContentsRequest\x1a\x1f.aware.DescribeContentsResponse\x125\n" +
+	"\x06Equals\x12\x14.aware.EqualsRequest\x1a\x15.aware.EqualsResponse\x12h\n" +
+	"\x17GetBootstrappingMethods\x12%.aware.GetBootstrappingMethodsRequest\x1a&.aware.GetBootstrappingMethodsResponse\x12k\n" +
+	"\x18GetSupportedCipherSuites\x12&.aware.GetSupportedCipherSuitesRequest\x1a'.aware.GetSupportedCipherSuitesResponse\x12;\n" +
+	"\bHashCode\x12\x16.aware.HashCodeRequest\x1a\x17.aware.HashCodeResponse\x12b\n" +
+	"\x15IsPairingCacheEnabled\x12#.aware.IsPairingCacheEnabledRequest\x1a$.aware.IsPairingCacheEnabledResponse\x12b\n" +
+	"\x15IsPairingSetupEnabled\x12#.aware.IsPairingSetupEnabledRequest\x1a$.aware.IsPairingSetupEnabledResponse\x12w\n" +
+	"\x1cIsPairingVerificationEnabled\x12*.aware.IsPairingVerificationEnabledRequest\x1a+.aware.IsPairingVerificationEnabledResponse\x12W\n" +
+	"\rWriteToParcel\x12(.aware.PairingConfigWriteToParcelRequest\x1a\x1c.aware.WriteToParcelResponse2\xf2\x04\n" +
+	"\x1bPairingConfigBuilderService\x122\n" +
+	"\x05Build\x12\x13.aware.BuildRequest\x1a\x14.aware.BuildResponse\x12h\n" +
+	"\x17SetBootstrappingMethods\x12%.aware.SetBootstrappingMethodsRequest\x1a&.aware.SetBootstrappingMethodsResponse\x12e\n" +
+	"\x16SetPairingCacheEnabled\x12$.aware.SetPairingCacheEnabledRequest\x1a%.aware.SetPairingCacheEnabledResponse\x12e\n" +
+	"\x16SetPairingSetupEnabled\x12$.aware.SetPairingSetupEnabledRequest\x1a%.aware.SetPairingSetupEnabledResponse\x12z\n" +
+	"\x1dSetPairingVerificationEnabled\x12+.aware.SetPairingVerificationEnabledRequest\x1a,.aware.SetPairingVerificationEnabledResponse\x12k\n" +
+	"\x18SetSupportedCipherSuites\x12&.aware.SetSupportedCipherSuitesRequest\x1a'.aware.SetSupportedCipherSuitesResponse2\xa7\r\n" +
+	"\x16CharacteristicsService\x12b\n" +
+	"\x10DescribeContents\x12-.aware.CharacteristicsDescribeContentsRequest\x1a\x1f.aware.DescribeContentsResponse\x12h\n" +
+	"\x17GetMaxMatchFilterLength\x12%.aware.GetMaxMatchFilterLengthRequest\x1a&.aware.GetMaxMatchFilterLengthResponse\x12h\n" +
+	"\x17GetMaxServiceNameLength\x12%.aware.GetMaxServiceNameLengthRequest\x1a&.aware.GetMaxServiceNameLengthResponse\x12\x80\x01\n" +
+	"\x1fGetMaxServiceSpecificInfoLength\x12-.aware.GetMaxServiceSpecificInfoLengthRequest\x1a..aware.GetMaxServiceSpecificInfoLengthResponse\x12\x89\x01\n" +
+	"\"GetNumberOfSupportedDataInterfaces\x120.aware.GetNumberOfSupportedDataInterfacesRequest\x1a1.aware.GetNumberOfSupportedDataInterfacesResponse\x12z\n" +
+	"\x1dGetNumberOfSupportedDataPaths\x12+.aware.GetNumberOfSupportedDataPathsRequest\x1a,.aware.GetNumberOfSupportedDataPathsResponse\x12\x8c\x01\n" +
+	"#GetNumberOfSupportedPublishSessions\x121.aware.GetNumberOfSupportedPublishSessionsRequest\x1a2.aware.GetNumberOfSupportedPublishSessionsResponse\x12\x92\x01\n" +
+	"%GetNumberOfSupportedSubscribeSessions\x123.aware.GetNumberOfSupportedSubscribeSessionsRequest\x1a4.aware.GetNumberOfSupportedSubscribeSessionsResponse\x12k\n" +
+	"\x18GetSupportedCipherSuites\x12&.aware.GetSupportedCipherSuitesRequest\x1a'.aware.GetSupportedCipherSuitesResponse\x12\x80\x01\n" +
+	"\x1fGetSupportedPairingCipherSuites\x12-.aware.GetSupportedPairingCipherSuitesRequest\x1a..aware.GetSupportedPairingCipherSuitesResponse\x12h\n" +
+	"\x17IsAwarePairingSupported\x12%.aware.IsAwarePairingSupportedRequest\x1a&.aware.IsAwarePairingSupportedResponse\x12\x8c\x01\n" +
+	"#IsInstantCommunicationModeSupported\x121.aware.IsInstantCommunicationModeSupportedRequest\x1a2.aware.IsInstantCommunicationModeSupportedResponse\x12b\n" +
+	"\x15IsSuspensionSupported\x12#.aware.IsSuspensionSupportedRequest\x1a$.aware.IsSuspensionSupportedResponse\x12Y\n" +
+	"\rWriteToParcel\x12*.aware.CharacteristicsWriteToParcelRequest\x1a\x1c.aware.WriteToParcelResponse2t\n" +
+	" SubscribeDiscoverySessionService\x12P\n" +
+	"\x0fUpdateSubscribe\x12\x1d.aware.UpdateSubscribeRequest\x1a\x1e.aware.UpdateSubscribeResponse2\xcf\x06\n" +
+	"\x17DiscoverySessionService\x12_\n" +
+	"\x14AcceptPairingRequest\x12\".aware.AcceptPairingRequestRequest\x1a#.aware.AcceptPairingRequestResponse\x122\n" +
+	"\x05Close\x12\x13.aware.CloseRequest\x1a\x14.aware.CloseResponse\x12\x81\x01\n" +
+	"\x1aCreateNetworkSpecifierOpen\x128.aware.DiscoverySessionCreateNetworkSpecifierOpenRequest\x1a).aware.CreateNetworkSpecifierOpenResponse\x12\x93\x01\n" +
+	" CreateNetworkSpecifierPassphrase\x12>.aware.DiscoverySessionCreateNetworkSpecifierPassphraseRequest\x1a/.aware.CreateNetworkSpecifierPassphraseResponse\x12w\n" +
+	"\x1cInitiateBootstrappingRequest\x12*.aware.InitiateBootstrappingRequestRequest\x1a+.aware.InitiateBootstrappingRequestResponse\x12e\n" +
+	"\x16InitiatePairingRequest\x12$.aware.InitiatePairingRequestRequest\x1a%.aware.InitiatePairingRequestResponse\x12_\n" +
+	"\x14RejectPairingRequest\x12\".aware.RejectPairingRequestRequest\x1a#.aware.RejectPairingRequestResponse\x12D\n" +
+	"\vSendMessage\x12\x19.aware.SendMessageRequest\x1a\x1a.aware.SendMessageResponse2\xdc\x05\n" +
+	"\x16SubscribeConfigService\x12b\n" +
+	"\x10DescribeContents\x12-.aware.SubscribeConfigDescribeContentsRequest\x1a\x1f.aware.DescribeContentsResponse\x125\n" +
+	"\x06Equals\x12\x14.aware.EqualsRequest\x1a\x15.aware.EqualsResponse\x12t\n" +
+	"\x1bGetInstantCommunicationBand\x12).aware.GetInstantCommunicationBandRequest\x1a*.aware.GetInstantCommunicationBandResponse\x12S\n" +
+	"\x10GetPairingConfig\x12\x1e.aware.GetPairingConfigRequest\x1a\x1f.aware.GetPairingConfigResponse\x12;\n" +
+	"\bHashCode\x12\x16.aware.HashCodeRequest\x1a\x17.aware.HashCodeResponse\x12\x86\x01\n" +
+	"!IsInstantCommunicationModeEnabled\x12/.aware.IsInstantCommunicationModeEnabledRequest\x1a0.aware.IsInstantCommunicationModeEnabledResponse\x12;\n" +
+	"\bToString\x12\x16.aware.ToStringRequest\x1a\x17.aware.ToStringResponse\x12Y\n" +
+	"\rWriteToParcel\x12*.aware.SubscribeConfigWriteToParcelRequest\x1a\x1c.aware.WriteToParcelResponse2\xac\a\n" +
+	"\x1dSubscribeConfigBuilderService\x122\n" +
+	"\x05Build\x12\x13.aware.BuildRequest\x1a\x14.aware.BuildResponse\x12\x89\x01\n" +
+	"\"SetInstantCommunicationModeEnabled\x120.aware.SetInstantCommunicationModeEnabledRequest\x1a1.aware.SetInstantCommunicationModeEnabledResponse\x12S\n" +
+	"\x10SetMaxDistanceMm\x12\x1e.aware.SetMaxDistanceMmRequest\x1a\x1f.aware.SetMaxDistanceMmResponse\x12S\n" +
+	"\x10SetMinDistanceMm\x12\x1e.aware.SetMinDistanceMmRequest\x1a\x1f.aware.SetMinDistanceMmResponse\x12S\n" +
+	"\x10SetPairingConfig\x12\x1e.aware.SetPairingConfigRequest\x1a\x1f.aware.SetPairingConfigResponse\x12M\n" +
+	"\x0eSetServiceName\x12\x1c.aware.SetServiceNameRequest\x1a\x1d.aware.SetServiceNameResponse\x12e\n" +
+	"\x16SetServiceSpecificInfo\x12$.aware.SetServiceSpecificInfoRequest\x1a%.aware.SetServiceSpecificInfoResponse\x12S\n" +
+	"\x10SetSubscribeType\x12\x1e.aware.SetSubscribeTypeRequest\x1a\x1f.aware.SetSubscribeTypeResponse\x12\x80\x01\n" +
+	"\x1fSetTerminateNotificationEnabled\x12-.aware.SetTerminateNotificationEnabledRequest\x1a..aware.SetTerminateNotificationEnabledResponse\x12>\n" +
+	"\tSetTtlSec\x12\x17.aware.SetTtlSecRequest\x1a\x18.aware.SetTtlSecResponseB/Z-github.com/AndroidGoLab/jni-proxy/proto/awareb\x06proto3"
 
 var (
 	file_proto_aware_aware_proto_rawDescOnce sync.Once
@@ -789,51 +11401,617 @@ func file_proto_aware_aware_proto_rawDescGZIP() []byte {
 	return file_proto_aware_aware_proto_rawDescData
 }
 
-var file_proto_aware_aware_proto_msgTypes = make([]protoimpl.MessageInfo, 18)
+var file_proto_aware_aware_proto_msgTypes = make([]protoimpl.MessageInfo, 250)
 var file_proto_aware_aware_proto_goTypes = []any{
-	(*GetAvailableAwareResourcesRequest)(nil),         // 0: aware.GetAvailableAwareResourcesRequest
-	(*GetAvailableAwareResourcesResponse)(nil),        // 1: aware.GetAvailableAwareResourcesResponse
-	(*GetCharacteristicsRequest)(nil),                 // 2: aware.GetCharacteristicsRequest
-	(*GetCharacteristicsResponse)(nil),                // 3: aware.GetCharacteristicsResponse
-	(*IsAvailableRequest)(nil),                        // 4: aware.IsAvailableRequest
-	(*IsAvailableResponse)(nil),                       // 5: aware.IsAvailableResponse
-	(*IsDeviceAttachedRequest)(nil),                   // 6: aware.IsDeviceAttachedRequest
-	(*IsDeviceAttachedResponse)(nil),                  // 7: aware.IsDeviceAttachedResponse
-	(*IsInstantCommunicationModeEnabledRequest)(nil),  // 8: aware.IsInstantCommunicationModeEnabledRequest
-	(*IsInstantCommunicationModeEnabledResponse)(nil), // 9: aware.IsInstantCommunicationModeEnabledResponse
-	(*IsSetChannelOnDataPathSupportedRequest)(nil),    // 10: aware.IsSetChannelOnDataPathSupportedRequest
-	(*IsSetChannelOnDataPathSupportedResponse)(nil),   // 11: aware.IsSetChannelOnDataPathSupportedResponse
-	(*RemovePairedDeviceRequest)(nil),                 // 12: aware.RemovePairedDeviceRequest
-	(*RemovePairedDeviceResponse)(nil),                // 13: aware.RemovePairedDeviceResponse
-	(*ResetPairedDevicesRequest)(nil),                 // 14: aware.ResetPairedDevicesRequest
-	(*ResetPairedDevicesResponse)(nil),                // 15: aware.ResetPairedDevicesResponse
-	(*SetOpportunisticModeEnabledRequest)(nil),        // 16: aware.SetOpportunisticModeEnabledRequest
-	(*SetOpportunisticModeEnabledResponse)(nil),       // 17: aware.SetOpportunisticModeEnabledResponse
+	(*NewIdentityChangedListenerRequest)(nil),                       // 0: aware.NewIdentityChangedListenerRequest
+	(*NewIdentityChangedListenerResponse)(nil),                      // 1: aware.NewIdentityChangedListenerResponse
+	(*OnClusterIdChangedRequest)(nil),                               // 2: aware.OnClusterIdChangedRequest
+	(*OnClusterIdChangedResponse)(nil),                              // 3: aware.OnClusterIdChangedResponse
+	(*OnIdentityChangedRequest)(nil),                                // 4: aware.OnIdentityChangedRequest
+	(*OnIdentityChangedResponse)(nil),                               // 5: aware.OnIdentityChangedResponse
+	(*NewParcelablePeerHandleRequest)(nil),                          // 6: aware.NewParcelablePeerHandleRequest
+	(*NewParcelablePeerHandleResponse)(nil),                         // 7: aware.NewParcelablePeerHandleResponse
+	(*DescribeContentsRequest)(nil),                                 // 8: aware.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                                // 9: aware.DescribeContentsResponse
+	(*WriteToParcelRequest)(nil),                                    // 10: aware.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                                   // 11: aware.WriteToParcelResponse
+	(*CanBeSatisfiedByRequest)(nil),                                 // 12: aware.CanBeSatisfiedByRequest
+	(*CanBeSatisfiedByResponse)(nil),                                // 13: aware.CanBeSatisfiedByResponse
+	(*WifiAwareNetworkSpecifierDescribeContentsRequest)(nil),        // 14: aware.WifiAwareNetworkSpecifierDescribeContentsRequest
+	(*EqualsRequest)(nil),                                           // 15: aware.EqualsRequest
+	(*EqualsResponse)(nil),                                          // 16: aware.EqualsResponse
+	(*GetChannelFrequencyMhzRequest)(nil),                           // 17: aware.GetChannelFrequencyMhzRequest
+	(*GetChannelFrequencyMhzResponse)(nil),                          // 18: aware.GetChannelFrequencyMhzResponse
+	(*GetWifiAwareDataPathSecurityConfigRequest)(nil),               // 19: aware.GetWifiAwareDataPathSecurityConfigRequest
+	(*GetWifiAwareDataPathSecurityConfigResponse)(nil),              // 20: aware.GetWifiAwareDataPathSecurityConfigResponse
+	(*HashCodeRequest)(nil),                                         // 21: aware.HashCodeRequest
+	(*HashCodeResponse)(nil),                                        // 22: aware.HashCodeResponse
+	(*IsChannelRequiredRequest)(nil),                                // 23: aware.IsChannelRequiredRequest
+	(*IsChannelRequiredResponse)(nil),                               // 24: aware.IsChannelRequiredResponse
+	(*ToStringRequest)(nil),                                         // 25: aware.ToStringRequest
+	(*ToStringResponse)(nil),                                        // 26: aware.ToStringResponse
+	(*WifiAwareNetworkSpecifierWriteToParcelRequest)(nil),           // 27: aware.WifiAwareNetworkSpecifierWriteToParcelRequest
+	(*BuildRequest)(nil),                                            // 28: aware.BuildRequest
+	(*BuildResponse)(nil),                                           // 29: aware.BuildResponse
+	(*SetChannelFrequencyMhzRequest)(nil),                           // 30: aware.SetChannelFrequencyMhzRequest
+	(*SetChannelFrequencyMhzResponse)(nil),                          // 31: aware.SetChannelFrequencyMhzResponse
+	(*SetDataPathSecurityConfigRequest)(nil),                        // 32: aware.SetDataPathSecurityConfigRequest
+	(*SetDataPathSecurityConfigResponse)(nil),                       // 33: aware.SetDataPathSecurityConfigResponse
+	(*SetPmkRequest)(nil),                                           // 34: aware.SetPmkRequest
+	(*SetPmkResponse)(nil),                                          // 35: aware.SetPmkResponse
+	(*SetPortRequest)(nil),                                          // 36: aware.SetPortRequest
+	(*SetPortResponse)(nil),                                         // 37: aware.SetPortResponse
+	(*SetPskPassphraseRequest)(nil),                                 // 38: aware.SetPskPassphraseRequest
+	(*SetPskPassphraseResponse)(nil),                                // 39: aware.SetPskPassphraseResponse
+	(*SetTransportProtocolRequest)(nil),                             // 40: aware.SetTransportProtocolRequest
+	(*SetTransportProtocolResponse)(nil),                            // 41: aware.SetTransportProtocolResponse
+	(*GetAvailableAwareResourcesRequest)(nil),                       // 42: aware.GetAvailableAwareResourcesRequest
+	(*GetAvailableAwareResourcesResponse)(nil),                      // 43: aware.GetAvailableAwareResourcesResponse
+	(*GetCharacteristicsRequest)(nil),                               // 44: aware.GetCharacteristicsRequest
+	(*GetCharacteristicsResponse)(nil),                              // 45: aware.GetCharacteristicsResponse
+	(*IsAvailableRequest)(nil),                                      // 46: aware.IsAvailableRequest
+	(*IsAvailableResponse)(nil),                                     // 47: aware.IsAvailableResponse
+	(*IsDeviceAttachedRequest)(nil),                                 // 48: aware.IsDeviceAttachedRequest
+	(*IsDeviceAttachedResponse)(nil),                                // 49: aware.IsDeviceAttachedResponse
+	(*IsInstantCommunicationModeEnabledRequest)(nil),                // 50: aware.IsInstantCommunicationModeEnabledRequest
+	(*IsInstantCommunicationModeEnabledResponse)(nil),               // 51: aware.IsInstantCommunicationModeEnabledResponse
+	(*IsSetChannelOnDataPathSupportedRequest)(nil),                  // 52: aware.IsSetChannelOnDataPathSupportedRequest
+	(*IsSetChannelOnDataPathSupportedResponse)(nil),                 // 53: aware.IsSetChannelOnDataPathSupportedResponse
+	(*RemovePairedDeviceRequest)(nil),                               // 54: aware.RemovePairedDeviceRequest
+	(*RemovePairedDeviceResponse)(nil),                              // 55: aware.RemovePairedDeviceResponse
+	(*ResetPairedDevicesRequest)(nil),                               // 56: aware.ResetPairedDevicesRequest
+	(*ResetPairedDevicesResponse)(nil),                              // 57: aware.ResetPairedDevicesResponse
+	(*SetOpportunisticModeEnabledRequest)(nil),                      // 58: aware.SetOpportunisticModeEnabledRequest
+	(*SetOpportunisticModeEnabledResponse)(nil),                     // 59: aware.SetOpportunisticModeEnabledResponse
+	(*WifiAwareNetworkInfoDescribeContentsRequest)(nil),             // 60: aware.WifiAwareNetworkInfoDescribeContentsRequest
+	(*GetPeerIpv6AddrRequest)(nil),                                  // 61: aware.GetPeerIpv6AddrRequest
+	(*GetPeerIpv6AddrResponse)(nil),                                 // 62: aware.GetPeerIpv6AddrResponse
+	(*GetPortRequest)(nil),                                          // 63: aware.GetPortRequest
+	(*GetPortResponse)(nil),                                         // 64: aware.GetPortResponse
+	(*GetTransportProtocolRequest)(nil),                             // 65: aware.GetTransportProtocolRequest
+	(*GetTransportProtocolResponse)(nil),                            // 66: aware.GetTransportProtocolResponse
+	(*WifiAwareNetworkInfoWriteToParcelRequest)(nil),                // 67: aware.WifiAwareNetworkInfoWriteToParcelRequest
+	(*NewAttachCallbackRequest)(nil),                                // 68: aware.NewAttachCallbackRequest
+	(*NewAttachCallbackResponse)(nil),                               // 69: aware.NewAttachCallbackResponse
+	(*OnAttachFailedRequest)(nil),                                   // 70: aware.OnAttachFailedRequest
+	(*OnAttachFailedResponse)(nil),                                  // 71: aware.OnAttachFailedResponse
+	(*OnAttachedRequest)(nil),                                       // 72: aware.OnAttachedRequest
+	(*OnAttachedResponse)(nil),                                      // 73: aware.OnAttachedResponse
+	(*OnAwareSessionTerminatedRequest)(nil),                         // 74: aware.OnAwareSessionTerminatedRequest
+	(*OnAwareSessionTerminatedResponse)(nil),                        // 75: aware.OnAwareSessionTerminatedResponse
+	(*NewDiscoverySessionCallbackRequest)(nil),                      // 76: aware.NewDiscoverySessionCallbackRequest
+	(*NewDiscoverySessionCallbackResponse)(nil),                     // 77: aware.NewDiscoverySessionCallbackResponse
+	(*OnBootstrappingFailedRequest)(nil),                            // 78: aware.OnBootstrappingFailedRequest
+	(*OnBootstrappingFailedResponse)(nil),                           // 79: aware.OnBootstrappingFailedResponse
+	(*OnBootstrappingSucceededRequest)(nil),                         // 80: aware.OnBootstrappingSucceededRequest
+	(*OnBootstrappingSucceededResponse)(nil),                        // 81: aware.OnBootstrappingSucceededResponse
+	(*OnMessageReceivedRequest)(nil),                                // 82: aware.OnMessageReceivedRequest
+	(*OnMessageReceivedResponse)(nil),                               // 83: aware.OnMessageReceivedResponse
+	(*OnMessageSendFailedRequest)(nil),                              // 84: aware.OnMessageSendFailedRequest
+	(*OnMessageSendFailedResponse)(nil),                             // 85: aware.OnMessageSendFailedResponse
+	(*OnMessageSendSucceededRequest)(nil),                           // 86: aware.OnMessageSendSucceededRequest
+	(*OnMessageSendSucceededResponse)(nil),                          // 87: aware.OnMessageSendSucceededResponse
+	(*OnPairingSetupFailedRequest)(nil),                             // 88: aware.OnPairingSetupFailedRequest
+	(*OnPairingSetupFailedResponse)(nil),                            // 89: aware.OnPairingSetupFailedResponse
+	(*OnPairingSetupRequestReceivedRequest)(nil),                    // 90: aware.OnPairingSetupRequestReceivedRequest
+	(*OnPairingSetupRequestReceivedResponse)(nil),                   // 91: aware.OnPairingSetupRequestReceivedResponse
+	(*OnPairingSetupSucceededRequest)(nil),                          // 92: aware.OnPairingSetupSucceededRequest
+	(*OnPairingSetupSucceededResponse)(nil),                         // 93: aware.OnPairingSetupSucceededResponse
+	(*OnPairingVerificationFailedRequest)(nil),                      // 94: aware.OnPairingVerificationFailedRequest
+	(*OnPairingVerificationFailedResponse)(nil),                     // 95: aware.OnPairingVerificationFailedResponse
+	(*OnPairingVerificationSucceedRequest)(nil),                     // 96: aware.OnPairingVerificationSucceedRequest
+	(*OnPairingVerificationSucceedResponse)(nil),                    // 97: aware.OnPairingVerificationSucceedResponse
+	(*OnPublishStartedRequest)(nil),                                 // 98: aware.OnPublishStartedRequest
+	(*OnPublishStartedResponse)(nil),                                // 99: aware.OnPublishStartedResponse
+	(*OnServiceDiscoveredRequest)(nil),                              // 100: aware.OnServiceDiscoveredRequest
+	(*OnServiceDiscoveredResponse)(nil),                             // 101: aware.OnServiceDiscoveredResponse
+	(*OnServiceDiscoveredWithinRangeRequest)(nil),                   // 102: aware.OnServiceDiscoveredWithinRangeRequest
+	(*OnServiceDiscoveredWithinRangeResponse)(nil),                  // 103: aware.OnServiceDiscoveredWithinRangeResponse
+	(*OnServiceLostRequest)(nil),                                    // 104: aware.OnServiceLostRequest
+	(*OnServiceLostResponse)(nil),                                   // 105: aware.OnServiceLostResponse
+	(*OnSessionConfigFailedRequest)(nil),                            // 106: aware.OnSessionConfigFailedRequest
+	(*OnSessionConfigFailedResponse)(nil),                           // 107: aware.OnSessionConfigFailedResponse
+	(*OnSessionConfigUpdatedRequest)(nil),                           // 108: aware.OnSessionConfigUpdatedRequest
+	(*OnSessionConfigUpdatedResponse)(nil),                          // 109: aware.OnSessionConfigUpdatedResponse
+	(*OnSessionTerminatedRequest)(nil),                              // 110: aware.OnSessionTerminatedRequest
+	(*OnSessionTerminatedResponse)(nil),                             // 111: aware.OnSessionTerminatedResponse
+	(*OnSubscribeStartedRequest)(nil),                               // 112: aware.OnSubscribeStartedRequest
+	(*OnSubscribeStartedResponse)(nil),                              // 113: aware.OnSubscribeStartedResponse
+	(*UpdatePublishRequest)(nil),                                    // 114: aware.UpdatePublishRequest
+	(*UpdatePublishResponse)(nil),                                   // 115: aware.UpdatePublishResponse
+	(*WifiAwareDataPathSecurityConfigDescribeContentsRequest)(nil),  // 116: aware.WifiAwareDataPathSecurityConfigDescribeContentsRequest
+	(*GetCipherSuiteRequest)(nil),                                   // 117: aware.GetCipherSuiteRequest
+	(*GetCipherSuiteResponse)(nil),                                  // 118: aware.GetCipherSuiteResponse
+	(*GetPmkRequest)(nil),                                           // 119: aware.GetPmkRequest
+	(*GetPmkResponse)(nil),                                          // 120: aware.GetPmkResponse
+	(*GetPmkIdRequest)(nil),                                         // 121: aware.GetPmkIdRequest
+	(*GetPmkIdResponse)(nil),                                        // 122: aware.GetPmkIdResponse
+	(*GetPskPassphraseRequest)(nil),                                 // 123: aware.GetPskPassphraseRequest
+	(*GetPskPassphraseResponse)(nil),                                // 124: aware.GetPskPassphraseResponse
+	(*WifiAwareDataPathSecurityConfigWriteToParcelRequest)(nil),     // 125: aware.WifiAwareDataPathSecurityConfigWriteToParcelRequest
+	(*SetPmkIdRequest)(nil),                                         // 126: aware.SetPmkIdRequest
+	(*SetPmkIdResponse)(nil),                                        // 127: aware.SetPmkIdResponse
+	(*CloseRequest)(nil),                                            // 128: aware.CloseRequest
+	(*CloseResponse)(nil),                                           // 129: aware.CloseResponse
+	(*CreateNetworkSpecifierOpenRequest)(nil),                       // 130: aware.CreateNetworkSpecifierOpenRequest
+	(*CreateNetworkSpecifierOpenResponse)(nil),                      // 131: aware.CreateNetworkSpecifierOpenResponse
+	(*CreateNetworkSpecifierPassphraseRequest)(nil),                 // 132: aware.CreateNetworkSpecifierPassphraseRequest
+	(*CreateNetworkSpecifierPassphraseResponse)(nil),                // 133: aware.CreateNetworkSpecifierPassphraseResponse
+	(*NewResourcesRequest)(nil),                                     // 134: aware.NewResourcesRequest
+	(*NewResourcesResponse)(nil),                                    // 135: aware.NewResourcesResponse
+	(*GetAvailableDataPathsCountRequest)(nil),                       // 136: aware.GetAvailableDataPathsCountRequest
+	(*GetAvailableDataPathsCountResponse)(nil),                      // 137: aware.GetAvailableDataPathsCountResponse
+	(*GetAvailablePublishSessionsCountRequest)(nil),                 // 138: aware.GetAvailablePublishSessionsCountRequest
+	(*GetAvailablePublishSessionsCountResponse)(nil),                // 139: aware.GetAvailablePublishSessionsCountResponse
+	(*GetAvailableSubscribeSessionsCountRequest)(nil),               // 140: aware.GetAvailableSubscribeSessionsCountRequest
+	(*GetAvailableSubscribeSessionsCountResponse)(nil),              // 141: aware.GetAvailableSubscribeSessionsCountResponse
+	(*PublishConfigDescribeContentsRequest)(nil),                    // 142: aware.PublishConfigDescribeContentsRequest
+	(*GetInstantCommunicationBandRequest)(nil),                      // 143: aware.GetInstantCommunicationBandRequest
+	(*GetInstantCommunicationBandResponse)(nil),                     // 144: aware.GetInstantCommunicationBandResponse
+	(*GetPairingConfigRequest)(nil),                                 // 145: aware.GetPairingConfigRequest
+	(*GetPairingConfigResponse)(nil),                                // 146: aware.GetPairingConfigResponse
+	(*GetSecurityConfigRequest)(nil),                                // 147: aware.GetSecurityConfigRequest
+	(*GetSecurityConfigResponse)(nil),                               // 148: aware.GetSecurityConfigResponse
+	(*PublishConfigWriteToParcelRequest)(nil),                       // 149: aware.PublishConfigWriteToParcelRequest
+	(*SetInstantCommunicationModeEnabledRequest)(nil),               // 150: aware.SetInstantCommunicationModeEnabledRequest
+	(*SetInstantCommunicationModeEnabledResponse)(nil),              // 151: aware.SetInstantCommunicationModeEnabledResponse
+	(*SetPairingConfigRequest)(nil),                                 // 152: aware.SetPairingConfigRequest
+	(*SetPairingConfigResponse)(nil),                                // 153: aware.SetPairingConfigResponse
+	(*SetPublishTypeRequest)(nil),                                   // 154: aware.SetPublishTypeRequest
+	(*SetPublishTypeResponse)(nil),                                  // 155: aware.SetPublishTypeResponse
+	(*SetRangingEnabledRequest)(nil),                                // 156: aware.SetRangingEnabledRequest
+	(*SetRangingEnabledResponse)(nil),                               // 157: aware.SetRangingEnabledResponse
+	(*SetServiceNameRequest)(nil),                                   // 158: aware.SetServiceNameRequest
+	(*SetServiceNameResponse)(nil),                                  // 159: aware.SetServiceNameResponse
+	(*SetServiceSpecificInfoRequest)(nil),                           // 160: aware.SetServiceSpecificInfoRequest
+	(*SetServiceSpecificInfoResponse)(nil),                          // 161: aware.SetServiceSpecificInfoResponse
+	(*SetTerminateNotificationEnabledRequest)(nil),                  // 162: aware.SetTerminateNotificationEnabledRequest
+	(*SetTerminateNotificationEnabledResponse)(nil),                 // 163: aware.SetTerminateNotificationEnabledResponse
+	(*SetTtlSecRequest)(nil),                                        // 164: aware.SetTtlSecRequest
+	(*SetTtlSecResponse)(nil),                                       // 165: aware.SetTtlSecResponse
+	(*GetPairedAliasRequest)(nil),                                   // 166: aware.GetPairedAliasRequest
+	(*GetPairedAliasResponse)(nil),                                  // 167: aware.GetPairedAliasResponse
+	(*GetPeerCipherSuiteRequest)(nil),                               // 168: aware.GetPeerCipherSuiteRequest
+	(*GetPeerCipherSuiteResponse)(nil),                              // 169: aware.GetPeerCipherSuiteResponse
+	(*GetPeerHandleRequest)(nil),                                    // 170: aware.GetPeerHandleRequest
+	(*GetPeerHandleResponse)(nil),                                   // 171: aware.GetPeerHandleResponse
+	(*GetScidRequest)(nil),                                          // 172: aware.GetScidRequest
+	(*GetScidResponse)(nil),                                         // 173: aware.GetScidResponse
+	(*GetServiceSpecificInfoRequest)(nil),                           // 174: aware.GetServiceSpecificInfoRequest
+	(*GetServiceSpecificInfoResponse)(nil),                          // 175: aware.GetServiceSpecificInfoResponse
+	(*WifiAwareChannelInfoDescribeContentsRequest)(nil),             // 176: aware.WifiAwareChannelInfoDescribeContentsRequest
+	(*GetChannelBandwidthRequest)(nil),                              // 177: aware.GetChannelBandwidthRequest
+	(*GetChannelBandwidthResponse)(nil),                             // 178: aware.GetChannelBandwidthResponse
+	(*GetSpatialStreamCountRequest)(nil),                            // 179: aware.GetSpatialStreamCountRequest
+	(*GetSpatialStreamCountResponse)(nil),                           // 180: aware.GetSpatialStreamCountResponse
+	(*WifiAwareChannelInfoWriteToParcelRequest)(nil),                // 181: aware.WifiAwareChannelInfoWriteToParcelRequest
+	(*PairingConfigDescribeContentsRequest)(nil),                    // 182: aware.PairingConfigDescribeContentsRequest
+	(*GetBootstrappingMethodsRequest)(nil),                          // 183: aware.GetBootstrappingMethodsRequest
+	(*GetBootstrappingMethodsResponse)(nil),                         // 184: aware.GetBootstrappingMethodsResponse
+	(*GetSupportedCipherSuitesRequest)(nil),                         // 185: aware.GetSupportedCipherSuitesRequest
+	(*GetSupportedCipherSuitesResponse)(nil),                        // 186: aware.GetSupportedCipherSuitesResponse
+	(*IsPairingCacheEnabledRequest)(nil),                            // 187: aware.IsPairingCacheEnabledRequest
+	(*IsPairingCacheEnabledResponse)(nil),                           // 188: aware.IsPairingCacheEnabledResponse
+	(*IsPairingSetupEnabledRequest)(nil),                            // 189: aware.IsPairingSetupEnabledRequest
+	(*IsPairingSetupEnabledResponse)(nil),                           // 190: aware.IsPairingSetupEnabledResponse
+	(*IsPairingVerificationEnabledRequest)(nil),                     // 191: aware.IsPairingVerificationEnabledRequest
+	(*IsPairingVerificationEnabledResponse)(nil),                    // 192: aware.IsPairingVerificationEnabledResponse
+	(*PairingConfigWriteToParcelRequest)(nil),                       // 193: aware.PairingConfigWriteToParcelRequest
+	(*SetBootstrappingMethodsRequest)(nil),                          // 194: aware.SetBootstrappingMethodsRequest
+	(*SetBootstrappingMethodsResponse)(nil),                         // 195: aware.SetBootstrappingMethodsResponse
+	(*SetPairingCacheEnabledRequest)(nil),                           // 196: aware.SetPairingCacheEnabledRequest
+	(*SetPairingCacheEnabledResponse)(nil),                          // 197: aware.SetPairingCacheEnabledResponse
+	(*SetPairingSetupEnabledRequest)(nil),                           // 198: aware.SetPairingSetupEnabledRequest
+	(*SetPairingSetupEnabledResponse)(nil),                          // 199: aware.SetPairingSetupEnabledResponse
+	(*SetPairingVerificationEnabledRequest)(nil),                    // 200: aware.SetPairingVerificationEnabledRequest
+	(*SetPairingVerificationEnabledResponse)(nil),                   // 201: aware.SetPairingVerificationEnabledResponse
+	(*SetSupportedCipherSuitesRequest)(nil),                         // 202: aware.SetSupportedCipherSuitesRequest
+	(*SetSupportedCipherSuitesResponse)(nil),                        // 203: aware.SetSupportedCipherSuitesResponse
+	(*CharacteristicsDescribeContentsRequest)(nil),                  // 204: aware.CharacteristicsDescribeContentsRequest
+	(*GetMaxMatchFilterLengthRequest)(nil),                          // 205: aware.GetMaxMatchFilterLengthRequest
+	(*GetMaxMatchFilterLengthResponse)(nil),                         // 206: aware.GetMaxMatchFilterLengthResponse
+	(*GetMaxServiceNameLengthRequest)(nil),                          // 207: aware.GetMaxServiceNameLengthRequest
+	(*GetMaxServiceNameLengthResponse)(nil),                         // 208: aware.GetMaxServiceNameLengthResponse
+	(*GetMaxServiceSpecificInfoLengthRequest)(nil),                  // 209: aware.GetMaxServiceSpecificInfoLengthRequest
+	(*GetMaxServiceSpecificInfoLengthResponse)(nil),                 // 210: aware.GetMaxServiceSpecificInfoLengthResponse
+	(*GetNumberOfSupportedDataInterfacesRequest)(nil),               // 211: aware.GetNumberOfSupportedDataInterfacesRequest
+	(*GetNumberOfSupportedDataInterfacesResponse)(nil),              // 212: aware.GetNumberOfSupportedDataInterfacesResponse
+	(*GetNumberOfSupportedDataPathsRequest)(nil),                    // 213: aware.GetNumberOfSupportedDataPathsRequest
+	(*GetNumberOfSupportedDataPathsResponse)(nil),                   // 214: aware.GetNumberOfSupportedDataPathsResponse
+	(*GetNumberOfSupportedPublishSessionsRequest)(nil),              // 215: aware.GetNumberOfSupportedPublishSessionsRequest
+	(*GetNumberOfSupportedPublishSessionsResponse)(nil),             // 216: aware.GetNumberOfSupportedPublishSessionsResponse
+	(*GetNumberOfSupportedSubscribeSessionsRequest)(nil),            // 217: aware.GetNumberOfSupportedSubscribeSessionsRequest
+	(*GetNumberOfSupportedSubscribeSessionsResponse)(nil),           // 218: aware.GetNumberOfSupportedSubscribeSessionsResponse
+	(*GetSupportedPairingCipherSuitesRequest)(nil),                  // 219: aware.GetSupportedPairingCipherSuitesRequest
+	(*GetSupportedPairingCipherSuitesResponse)(nil),                 // 220: aware.GetSupportedPairingCipherSuitesResponse
+	(*IsAwarePairingSupportedRequest)(nil),                          // 221: aware.IsAwarePairingSupportedRequest
+	(*IsAwarePairingSupportedResponse)(nil),                         // 222: aware.IsAwarePairingSupportedResponse
+	(*IsInstantCommunicationModeSupportedRequest)(nil),              // 223: aware.IsInstantCommunicationModeSupportedRequest
+	(*IsInstantCommunicationModeSupportedResponse)(nil),             // 224: aware.IsInstantCommunicationModeSupportedResponse
+	(*IsSuspensionSupportedRequest)(nil),                            // 225: aware.IsSuspensionSupportedRequest
+	(*IsSuspensionSupportedResponse)(nil),                           // 226: aware.IsSuspensionSupportedResponse
+	(*CharacteristicsWriteToParcelRequest)(nil),                     // 227: aware.CharacteristicsWriteToParcelRequest
+	(*UpdateSubscribeRequest)(nil),                                  // 228: aware.UpdateSubscribeRequest
+	(*UpdateSubscribeResponse)(nil),                                 // 229: aware.UpdateSubscribeResponse
+	(*AcceptPairingRequestRequest)(nil),                             // 230: aware.AcceptPairingRequestRequest
+	(*AcceptPairingRequestResponse)(nil),                            // 231: aware.AcceptPairingRequestResponse
+	(*DiscoverySessionCreateNetworkSpecifierOpenRequest)(nil),       // 232: aware.DiscoverySessionCreateNetworkSpecifierOpenRequest
+	(*DiscoverySessionCreateNetworkSpecifierPassphraseRequest)(nil), // 233: aware.DiscoverySessionCreateNetworkSpecifierPassphraseRequest
+	(*InitiateBootstrappingRequestRequest)(nil),                     // 234: aware.InitiateBootstrappingRequestRequest
+	(*InitiateBootstrappingRequestResponse)(nil),                    // 235: aware.InitiateBootstrappingRequestResponse
+	(*InitiatePairingRequestRequest)(nil),                           // 236: aware.InitiatePairingRequestRequest
+	(*InitiatePairingRequestResponse)(nil),                          // 237: aware.InitiatePairingRequestResponse
+	(*RejectPairingRequestRequest)(nil),                             // 238: aware.RejectPairingRequestRequest
+	(*RejectPairingRequestResponse)(nil),                            // 239: aware.RejectPairingRequestResponse
+	(*SendMessageRequest)(nil),                                      // 240: aware.SendMessageRequest
+	(*SendMessageResponse)(nil),                                     // 241: aware.SendMessageResponse
+	(*SubscribeConfigDescribeContentsRequest)(nil),                  // 242: aware.SubscribeConfigDescribeContentsRequest
+	(*SubscribeConfigWriteToParcelRequest)(nil),                     // 243: aware.SubscribeConfigWriteToParcelRequest
+	(*SetMaxDistanceMmRequest)(nil),                                 // 244: aware.SetMaxDistanceMmRequest
+	(*SetMaxDistanceMmResponse)(nil),                                // 245: aware.SetMaxDistanceMmResponse
+	(*SetMinDistanceMmRequest)(nil),                                 // 246: aware.SetMinDistanceMmRequest
+	(*SetMinDistanceMmResponse)(nil),                                // 247: aware.SetMinDistanceMmResponse
+	(*SetSubscribeTypeRequest)(nil),                                 // 248: aware.SetSubscribeTypeRequest
+	(*SetSubscribeTypeResponse)(nil),                                // 249: aware.SetSubscribeTypeResponse
 }
 var file_proto_aware_aware_proto_depIdxs = []int32{
-	0,  // 0: aware.WifiAwareManagerService.GetAvailableAwareResources:input_type -> aware.GetAvailableAwareResourcesRequest
-	2,  // 1: aware.WifiAwareManagerService.GetCharacteristics:input_type -> aware.GetCharacteristicsRequest
-	4,  // 2: aware.WifiAwareManagerService.IsAvailable:input_type -> aware.IsAvailableRequest
-	6,  // 3: aware.WifiAwareManagerService.IsDeviceAttached:input_type -> aware.IsDeviceAttachedRequest
-	8,  // 4: aware.WifiAwareManagerService.IsInstantCommunicationModeEnabled:input_type -> aware.IsInstantCommunicationModeEnabledRequest
-	10, // 5: aware.WifiAwareManagerService.IsSetChannelOnDataPathSupported:input_type -> aware.IsSetChannelOnDataPathSupportedRequest
-	12, // 6: aware.WifiAwareManagerService.RemovePairedDevice:input_type -> aware.RemovePairedDeviceRequest
-	14, // 7: aware.WifiAwareManagerService.ResetPairedDevices:input_type -> aware.ResetPairedDevicesRequest
-	16, // 8: aware.WifiAwareManagerService.SetOpportunisticModeEnabled:input_type -> aware.SetOpportunisticModeEnabledRequest
-	1,  // 9: aware.WifiAwareManagerService.GetAvailableAwareResources:output_type -> aware.GetAvailableAwareResourcesResponse
-	3,  // 10: aware.WifiAwareManagerService.GetCharacteristics:output_type -> aware.GetCharacteristicsResponse
-	5,  // 11: aware.WifiAwareManagerService.IsAvailable:output_type -> aware.IsAvailableResponse
-	7,  // 12: aware.WifiAwareManagerService.IsDeviceAttached:output_type -> aware.IsDeviceAttachedResponse
-	9,  // 13: aware.WifiAwareManagerService.IsInstantCommunicationModeEnabled:output_type -> aware.IsInstantCommunicationModeEnabledResponse
-	11, // 14: aware.WifiAwareManagerService.IsSetChannelOnDataPathSupported:output_type -> aware.IsSetChannelOnDataPathSupportedResponse
-	13, // 15: aware.WifiAwareManagerService.RemovePairedDevice:output_type -> aware.RemovePairedDeviceResponse
-	15, // 16: aware.WifiAwareManagerService.ResetPairedDevices:output_type -> aware.ResetPairedDevicesResponse
-	17, // 17: aware.WifiAwareManagerService.SetOpportunisticModeEnabled:output_type -> aware.SetOpportunisticModeEnabledResponse
-	9,  // [9:18] is the sub-list for method output_type
-	0,  // [0:9] is the sub-list for method input_type
-	0,  // [0:0] is the sub-list for extension type_name
-	0,  // [0:0] is the sub-list for extension extendee
-	0,  // [0:0] is the sub-list for field type_name
+	0,   // 0: aware.IdentityChangedListenerService.NewIdentityChangedListener:input_type -> aware.NewIdentityChangedListenerRequest
+	2,   // 1: aware.IdentityChangedListenerService.OnClusterIdChanged:input_type -> aware.OnClusterIdChangedRequest
+	4,   // 2: aware.IdentityChangedListenerService.OnIdentityChanged:input_type -> aware.OnIdentityChangedRequest
+	6,   // 3: aware.ParcelablePeerHandleService.NewParcelablePeerHandle:input_type -> aware.NewParcelablePeerHandleRequest
+	8,   // 4: aware.ParcelablePeerHandleService.DescribeContents:input_type -> aware.DescribeContentsRequest
+	10,  // 5: aware.ParcelablePeerHandleService.WriteToParcel:input_type -> aware.WriteToParcelRequest
+	12,  // 6: aware.WifiAwareNetworkSpecifierService.CanBeSatisfiedBy:input_type -> aware.CanBeSatisfiedByRequest
+	14,  // 7: aware.WifiAwareNetworkSpecifierService.DescribeContents:input_type -> aware.WifiAwareNetworkSpecifierDescribeContentsRequest
+	15,  // 8: aware.WifiAwareNetworkSpecifierService.Equals:input_type -> aware.EqualsRequest
+	17,  // 9: aware.WifiAwareNetworkSpecifierService.GetChannelFrequencyMhz:input_type -> aware.GetChannelFrequencyMhzRequest
+	19,  // 10: aware.WifiAwareNetworkSpecifierService.GetWifiAwareDataPathSecurityConfig:input_type -> aware.GetWifiAwareDataPathSecurityConfigRequest
+	21,  // 11: aware.WifiAwareNetworkSpecifierService.HashCode:input_type -> aware.HashCodeRequest
+	23,  // 12: aware.WifiAwareNetworkSpecifierService.IsChannelRequired:input_type -> aware.IsChannelRequiredRequest
+	25,  // 13: aware.WifiAwareNetworkSpecifierService.ToString:input_type -> aware.ToStringRequest
+	27,  // 14: aware.WifiAwareNetworkSpecifierService.WriteToParcel:input_type -> aware.WifiAwareNetworkSpecifierWriteToParcelRequest
+	28,  // 15: aware.WifiAwareNetworkSpecifierBuilderService.Build:input_type -> aware.BuildRequest
+	30,  // 16: aware.WifiAwareNetworkSpecifierBuilderService.SetChannelFrequencyMhz:input_type -> aware.SetChannelFrequencyMhzRequest
+	32,  // 17: aware.WifiAwareNetworkSpecifierBuilderService.SetDataPathSecurityConfig:input_type -> aware.SetDataPathSecurityConfigRequest
+	34,  // 18: aware.WifiAwareNetworkSpecifierBuilderService.SetPmk:input_type -> aware.SetPmkRequest
+	36,  // 19: aware.WifiAwareNetworkSpecifierBuilderService.SetPort:input_type -> aware.SetPortRequest
+	38,  // 20: aware.WifiAwareNetworkSpecifierBuilderService.SetPskPassphrase:input_type -> aware.SetPskPassphraseRequest
+	40,  // 21: aware.WifiAwareNetworkSpecifierBuilderService.SetTransportProtocol:input_type -> aware.SetTransportProtocolRequest
+	42,  // 22: aware.WifiAwareManagerService.GetAvailableAwareResources:input_type -> aware.GetAvailableAwareResourcesRequest
+	44,  // 23: aware.WifiAwareManagerService.GetCharacteristics:input_type -> aware.GetCharacteristicsRequest
+	46,  // 24: aware.WifiAwareManagerService.IsAvailable:input_type -> aware.IsAvailableRequest
+	48,  // 25: aware.WifiAwareManagerService.IsDeviceAttached:input_type -> aware.IsDeviceAttachedRequest
+	50,  // 26: aware.WifiAwareManagerService.IsInstantCommunicationModeEnabled:input_type -> aware.IsInstantCommunicationModeEnabledRequest
+	52,  // 27: aware.WifiAwareManagerService.IsSetChannelOnDataPathSupported:input_type -> aware.IsSetChannelOnDataPathSupportedRequest
+	54,  // 28: aware.WifiAwareManagerService.RemovePairedDevice:input_type -> aware.RemovePairedDeviceRequest
+	56,  // 29: aware.WifiAwareManagerService.ResetPairedDevices:input_type -> aware.ResetPairedDevicesRequest
+	58,  // 30: aware.WifiAwareManagerService.SetOpportunisticModeEnabled:input_type -> aware.SetOpportunisticModeEnabledRequest
+	60,  // 31: aware.WifiAwareNetworkInfoService.DescribeContents:input_type -> aware.WifiAwareNetworkInfoDescribeContentsRequest
+	15,  // 32: aware.WifiAwareNetworkInfoService.Equals:input_type -> aware.EqualsRequest
+	61,  // 33: aware.WifiAwareNetworkInfoService.GetPeerIpv6Addr:input_type -> aware.GetPeerIpv6AddrRequest
+	63,  // 34: aware.WifiAwareNetworkInfoService.GetPort:input_type -> aware.GetPortRequest
+	65,  // 35: aware.WifiAwareNetworkInfoService.GetTransportProtocol:input_type -> aware.GetTransportProtocolRequest
+	21,  // 36: aware.WifiAwareNetworkInfoService.HashCode:input_type -> aware.HashCodeRequest
+	25,  // 37: aware.WifiAwareNetworkInfoService.ToString:input_type -> aware.ToStringRequest
+	67,  // 38: aware.WifiAwareNetworkInfoService.WriteToParcel:input_type -> aware.WifiAwareNetworkInfoWriteToParcelRequest
+	68,  // 39: aware.AttachCallbackService.NewAttachCallback:input_type -> aware.NewAttachCallbackRequest
+	70,  // 40: aware.AttachCallbackService.OnAttachFailed:input_type -> aware.OnAttachFailedRequest
+	72,  // 41: aware.AttachCallbackService.OnAttached:input_type -> aware.OnAttachedRequest
+	74,  // 42: aware.AttachCallbackService.OnAwareSessionTerminated:input_type -> aware.OnAwareSessionTerminatedRequest
+	76,  // 43: aware.DiscoverySessionCallbackService.NewDiscoverySessionCallback:input_type -> aware.NewDiscoverySessionCallbackRequest
+	78,  // 44: aware.DiscoverySessionCallbackService.OnBootstrappingFailed:input_type -> aware.OnBootstrappingFailedRequest
+	80,  // 45: aware.DiscoverySessionCallbackService.OnBootstrappingSucceeded:input_type -> aware.OnBootstrappingSucceededRequest
+	82,  // 46: aware.DiscoverySessionCallbackService.OnMessageReceived:input_type -> aware.OnMessageReceivedRequest
+	84,  // 47: aware.DiscoverySessionCallbackService.OnMessageSendFailed:input_type -> aware.OnMessageSendFailedRequest
+	86,  // 48: aware.DiscoverySessionCallbackService.OnMessageSendSucceeded:input_type -> aware.OnMessageSendSucceededRequest
+	88,  // 49: aware.DiscoverySessionCallbackService.OnPairingSetupFailed:input_type -> aware.OnPairingSetupFailedRequest
+	90,  // 50: aware.DiscoverySessionCallbackService.OnPairingSetupRequestReceived:input_type -> aware.OnPairingSetupRequestReceivedRequest
+	92,  // 51: aware.DiscoverySessionCallbackService.OnPairingSetupSucceeded:input_type -> aware.OnPairingSetupSucceededRequest
+	94,  // 52: aware.DiscoverySessionCallbackService.OnPairingVerificationFailed:input_type -> aware.OnPairingVerificationFailedRequest
+	96,  // 53: aware.DiscoverySessionCallbackService.OnPairingVerificationSucceed:input_type -> aware.OnPairingVerificationSucceedRequest
+	98,  // 54: aware.DiscoverySessionCallbackService.OnPublishStarted:input_type -> aware.OnPublishStartedRequest
+	100, // 55: aware.DiscoverySessionCallbackService.OnServiceDiscovered:input_type -> aware.OnServiceDiscoveredRequest
+	102, // 56: aware.DiscoverySessionCallbackService.OnServiceDiscoveredWithinRange:input_type -> aware.OnServiceDiscoveredWithinRangeRequest
+	104, // 57: aware.DiscoverySessionCallbackService.OnServiceLost:input_type -> aware.OnServiceLostRequest
+	106, // 58: aware.DiscoverySessionCallbackService.OnSessionConfigFailed:input_type -> aware.OnSessionConfigFailedRequest
+	108, // 59: aware.DiscoverySessionCallbackService.OnSessionConfigUpdated:input_type -> aware.OnSessionConfigUpdatedRequest
+	110, // 60: aware.DiscoverySessionCallbackService.OnSessionTerminated:input_type -> aware.OnSessionTerminatedRequest
+	112, // 61: aware.DiscoverySessionCallbackService.OnSubscribeStarted:input_type -> aware.OnSubscribeStartedRequest
+	114, // 62: aware.PublishDiscoverySessionService.UpdatePublish:input_type -> aware.UpdatePublishRequest
+	116, // 63: aware.WifiAwareDataPathSecurityConfigService.DescribeContents:input_type -> aware.WifiAwareDataPathSecurityConfigDescribeContentsRequest
+	15,  // 64: aware.WifiAwareDataPathSecurityConfigService.Equals:input_type -> aware.EqualsRequest
+	117, // 65: aware.WifiAwareDataPathSecurityConfigService.GetCipherSuite:input_type -> aware.GetCipherSuiteRequest
+	119, // 66: aware.WifiAwareDataPathSecurityConfigService.GetPmk:input_type -> aware.GetPmkRequest
+	121, // 67: aware.WifiAwareDataPathSecurityConfigService.GetPmkId:input_type -> aware.GetPmkIdRequest
+	123, // 68: aware.WifiAwareDataPathSecurityConfigService.GetPskPassphrase:input_type -> aware.GetPskPassphraseRequest
+	21,  // 69: aware.WifiAwareDataPathSecurityConfigService.HashCode:input_type -> aware.HashCodeRequest
+	25,  // 70: aware.WifiAwareDataPathSecurityConfigService.ToString:input_type -> aware.ToStringRequest
+	125, // 71: aware.WifiAwareDataPathSecurityConfigService.WriteToParcel:input_type -> aware.WifiAwareDataPathSecurityConfigWriteToParcelRequest
+	28,  // 72: aware.WifiAwareDataPathSecurityConfigBuilderService.Build:input_type -> aware.BuildRequest
+	34,  // 73: aware.WifiAwareDataPathSecurityConfigBuilderService.SetPmk:input_type -> aware.SetPmkRequest
+	126, // 74: aware.WifiAwareDataPathSecurityConfigBuilderService.SetPmkId:input_type -> aware.SetPmkIdRequest
+	38,  // 75: aware.WifiAwareDataPathSecurityConfigBuilderService.SetPskPassphrase:input_type -> aware.SetPskPassphraseRequest
+	128, // 76: aware.WifiAwareSessionService.Close:input_type -> aware.CloseRequest
+	130, // 77: aware.WifiAwareSessionService.CreateNetworkSpecifierOpen:input_type -> aware.CreateNetworkSpecifierOpenRequest
+	132, // 78: aware.WifiAwareSessionService.CreateNetworkSpecifierPassphrase:input_type -> aware.CreateNetworkSpecifierPassphraseRequest
+	134, // 79: aware.ResourcesService.NewResources:input_type -> aware.NewResourcesRequest
+	8,   // 80: aware.ResourcesService.DescribeContents:input_type -> aware.DescribeContentsRequest
+	136, // 81: aware.ResourcesService.GetAvailableDataPathsCount:input_type -> aware.GetAvailableDataPathsCountRequest
+	138, // 82: aware.ResourcesService.GetAvailablePublishSessionsCount:input_type -> aware.GetAvailablePublishSessionsCountRequest
+	140, // 83: aware.ResourcesService.GetAvailableSubscribeSessionsCount:input_type -> aware.GetAvailableSubscribeSessionsCountRequest
+	10,  // 84: aware.ResourcesService.WriteToParcel:input_type -> aware.WriteToParcelRequest
+	142, // 85: aware.PublishConfigService.DescribeContents:input_type -> aware.PublishConfigDescribeContentsRequest
+	15,  // 86: aware.PublishConfigService.Equals:input_type -> aware.EqualsRequest
+	143, // 87: aware.PublishConfigService.GetInstantCommunicationBand:input_type -> aware.GetInstantCommunicationBandRequest
+	145, // 88: aware.PublishConfigService.GetPairingConfig:input_type -> aware.GetPairingConfigRequest
+	147, // 89: aware.PublishConfigService.GetSecurityConfig:input_type -> aware.GetSecurityConfigRequest
+	21,  // 90: aware.PublishConfigService.HashCode:input_type -> aware.HashCodeRequest
+	50,  // 91: aware.PublishConfigService.IsInstantCommunicationModeEnabled:input_type -> aware.IsInstantCommunicationModeEnabledRequest
+	25,  // 92: aware.PublishConfigService.ToString:input_type -> aware.ToStringRequest
+	149, // 93: aware.PublishConfigService.WriteToParcel:input_type -> aware.PublishConfigWriteToParcelRequest
+	28,  // 94: aware.PublishConfigBuilderService.Build:input_type -> aware.BuildRequest
+	32,  // 95: aware.PublishConfigBuilderService.SetDataPathSecurityConfig:input_type -> aware.SetDataPathSecurityConfigRequest
+	150, // 96: aware.PublishConfigBuilderService.SetInstantCommunicationModeEnabled:input_type -> aware.SetInstantCommunicationModeEnabledRequest
+	152, // 97: aware.PublishConfigBuilderService.SetPairingConfig:input_type -> aware.SetPairingConfigRequest
+	154, // 98: aware.PublishConfigBuilderService.SetPublishType:input_type -> aware.SetPublishTypeRequest
+	156, // 99: aware.PublishConfigBuilderService.SetRangingEnabled:input_type -> aware.SetRangingEnabledRequest
+	158, // 100: aware.PublishConfigBuilderService.SetServiceName:input_type -> aware.SetServiceNameRequest
+	160, // 101: aware.PublishConfigBuilderService.SetServiceSpecificInfo:input_type -> aware.SetServiceSpecificInfoRequest
+	162, // 102: aware.PublishConfigBuilderService.SetTerminateNotificationEnabled:input_type -> aware.SetTerminateNotificationEnabledRequest
+	164, // 103: aware.PublishConfigBuilderService.SetTtlSec:input_type -> aware.SetTtlSecRequest
+	15,  // 104: aware.PeerHandleService.Equals:input_type -> aware.EqualsRequest
+	21,  // 105: aware.PeerHandleService.HashCode:input_type -> aware.HashCodeRequest
+	166, // 106: aware.ServiceDiscoveryInfoService.GetPairedAlias:input_type -> aware.GetPairedAliasRequest
+	145, // 107: aware.ServiceDiscoveryInfoService.GetPairingConfig:input_type -> aware.GetPairingConfigRequest
+	168, // 108: aware.ServiceDiscoveryInfoService.GetPeerCipherSuite:input_type -> aware.GetPeerCipherSuiteRequest
+	170, // 109: aware.ServiceDiscoveryInfoService.GetPeerHandle:input_type -> aware.GetPeerHandleRequest
+	172, // 110: aware.ServiceDiscoveryInfoService.GetScid:input_type -> aware.GetScidRequest
+	174, // 111: aware.ServiceDiscoveryInfoService.GetServiceSpecificInfo:input_type -> aware.GetServiceSpecificInfoRequest
+	176, // 112: aware.WifiAwareChannelInfoService.DescribeContents:input_type -> aware.WifiAwareChannelInfoDescribeContentsRequest
+	15,  // 113: aware.WifiAwareChannelInfoService.Equals:input_type -> aware.EqualsRequest
+	177, // 114: aware.WifiAwareChannelInfoService.GetChannelBandwidth:input_type -> aware.GetChannelBandwidthRequest
+	17,  // 115: aware.WifiAwareChannelInfoService.GetChannelFrequencyMhz:input_type -> aware.GetChannelFrequencyMhzRequest
+	179, // 116: aware.WifiAwareChannelInfoService.GetSpatialStreamCount:input_type -> aware.GetSpatialStreamCountRequest
+	21,  // 117: aware.WifiAwareChannelInfoService.HashCode:input_type -> aware.HashCodeRequest
+	25,  // 118: aware.WifiAwareChannelInfoService.ToString:input_type -> aware.ToStringRequest
+	181, // 119: aware.WifiAwareChannelInfoService.WriteToParcel:input_type -> aware.WifiAwareChannelInfoWriteToParcelRequest
+	182, // 120: aware.PairingConfigService.DescribeContents:input_type -> aware.PairingConfigDescribeContentsRequest
+	15,  // 121: aware.PairingConfigService.Equals:input_type -> aware.EqualsRequest
+	183, // 122: aware.PairingConfigService.GetBootstrappingMethods:input_type -> aware.GetBootstrappingMethodsRequest
+	185, // 123: aware.PairingConfigService.GetSupportedCipherSuites:input_type -> aware.GetSupportedCipherSuitesRequest
+	21,  // 124: aware.PairingConfigService.HashCode:input_type -> aware.HashCodeRequest
+	187, // 125: aware.PairingConfigService.IsPairingCacheEnabled:input_type -> aware.IsPairingCacheEnabledRequest
+	189, // 126: aware.PairingConfigService.IsPairingSetupEnabled:input_type -> aware.IsPairingSetupEnabledRequest
+	191, // 127: aware.PairingConfigService.IsPairingVerificationEnabled:input_type -> aware.IsPairingVerificationEnabledRequest
+	193, // 128: aware.PairingConfigService.WriteToParcel:input_type -> aware.PairingConfigWriteToParcelRequest
+	28,  // 129: aware.PairingConfigBuilderService.Build:input_type -> aware.BuildRequest
+	194, // 130: aware.PairingConfigBuilderService.SetBootstrappingMethods:input_type -> aware.SetBootstrappingMethodsRequest
+	196, // 131: aware.PairingConfigBuilderService.SetPairingCacheEnabled:input_type -> aware.SetPairingCacheEnabledRequest
+	198, // 132: aware.PairingConfigBuilderService.SetPairingSetupEnabled:input_type -> aware.SetPairingSetupEnabledRequest
+	200, // 133: aware.PairingConfigBuilderService.SetPairingVerificationEnabled:input_type -> aware.SetPairingVerificationEnabledRequest
+	202, // 134: aware.PairingConfigBuilderService.SetSupportedCipherSuites:input_type -> aware.SetSupportedCipherSuitesRequest
+	204, // 135: aware.CharacteristicsService.DescribeContents:input_type -> aware.CharacteristicsDescribeContentsRequest
+	205, // 136: aware.CharacteristicsService.GetMaxMatchFilterLength:input_type -> aware.GetMaxMatchFilterLengthRequest
+	207, // 137: aware.CharacteristicsService.GetMaxServiceNameLength:input_type -> aware.GetMaxServiceNameLengthRequest
+	209, // 138: aware.CharacteristicsService.GetMaxServiceSpecificInfoLength:input_type -> aware.GetMaxServiceSpecificInfoLengthRequest
+	211, // 139: aware.CharacteristicsService.GetNumberOfSupportedDataInterfaces:input_type -> aware.GetNumberOfSupportedDataInterfacesRequest
+	213, // 140: aware.CharacteristicsService.GetNumberOfSupportedDataPaths:input_type -> aware.GetNumberOfSupportedDataPathsRequest
+	215, // 141: aware.CharacteristicsService.GetNumberOfSupportedPublishSessions:input_type -> aware.GetNumberOfSupportedPublishSessionsRequest
+	217, // 142: aware.CharacteristicsService.GetNumberOfSupportedSubscribeSessions:input_type -> aware.GetNumberOfSupportedSubscribeSessionsRequest
+	185, // 143: aware.CharacteristicsService.GetSupportedCipherSuites:input_type -> aware.GetSupportedCipherSuitesRequest
+	219, // 144: aware.CharacteristicsService.GetSupportedPairingCipherSuites:input_type -> aware.GetSupportedPairingCipherSuitesRequest
+	221, // 145: aware.CharacteristicsService.IsAwarePairingSupported:input_type -> aware.IsAwarePairingSupportedRequest
+	223, // 146: aware.CharacteristicsService.IsInstantCommunicationModeSupported:input_type -> aware.IsInstantCommunicationModeSupportedRequest
+	225, // 147: aware.CharacteristicsService.IsSuspensionSupported:input_type -> aware.IsSuspensionSupportedRequest
+	227, // 148: aware.CharacteristicsService.WriteToParcel:input_type -> aware.CharacteristicsWriteToParcelRequest
+	228, // 149: aware.SubscribeDiscoverySessionService.UpdateSubscribe:input_type -> aware.UpdateSubscribeRequest
+	230, // 150: aware.DiscoverySessionService.AcceptPairingRequest:input_type -> aware.AcceptPairingRequestRequest
+	128, // 151: aware.DiscoverySessionService.Close:input_type -> aware.CloseRequest
+	232, // 152: aware.DiscoverySessionService.CreateNetworkSpecifierOpen:input_type -> aware.DiscoverySessionCreateNetworkSpecifierOpenRequest
+	233, // 153: aware.DiscoverySessionService.CreateNetworkSpecifierPassphrase:input_type -> aware.DiscoverySessionCreateNetworkSpecifierPassphraseRequest
+	234, // 154: aware.DiscoverySessionService.InitiateBootstrappingRequest:input_type -> aware.InitiateBootstrappingRequestRequest
+	236, // 155: aware.DiscoverySessionService.InitiatePairingRequest:input_type -> aware.InitiatePairingRequestRequest
+	238, // 156: aware.DiscoverySessionService.RejectPairingRequest:input_type -> aware.RejectPairingRequestRequest
+	240, // 157: aware.DiscoverySessionService.SendMessage:input_type -> aware.SendMessageRequest
+	242, // 158: aware.SubscribeConfigService.DescribeContents:input_type -> aware.SubscribeConfigDescribeContentsRequest
+	15,  // 159: aware.SubscribeConfigService.Equals:input_type -> aware.EqualsRequest
+	143, // 160: aware.SubscribeConfigService.GetInstantCommunicationBand:input_type -> aware.GetInstantCommunicationBandRequest
+	145, // 161: aware.SubscribeConfigService.GetPairingConfig:input_type -> aware.GetPairingConfigRequest
+	21,  // 162: aware.SubscribeConfigService.HashCode:input_type -> aware.HashCodeRequest
+	50,  // 163: aware.SubscribeConfigService.IsInstantCommunicationModeEnabled:input_type -> aware.IsInstantCommunicationModeEnabledRequest
+	25,  // 164: aware.SubscribeConfigService.ToString:input_type -> aware.ToStringRequest
+	243, // 165: aware.SubscribeConfigService.WriteToParcel:input_type -> aware.SubscribeConfigWriteToParcelRequest
+	28,  // 166: aware.SubscribeConfigBuilderService.Build:input_type -> aware.BuildRequest
+	150, // 167: aware.SubscribeConfigBuilderService.SetInstantCommunicationModeEnabled:input_type -> aware.SetInstantCommunicationModeEnabledRequest
+	244, // 168: aware.SubscribeConfigBuilderService.SetMaxDistanceMm:input_type -> aware.SetMaxDistanceMmRequest
+	246, // 169: aware.SubscribeConfigBuilderService.SetMinDistanceMm:input_type -> aware.SetMinDistanceMmRequest
+	152, // 170: aware.SubscribeConfigBuilderService.SetPairingConfig:input_type -> aware.SetPairingConfigRequest
+	158, // 171: aware.SubscribeConfigBuilderService.SetServiceName:input_type -> aware.SetServiceNameRequest
+	160, // 172: aware.SubscribeConfigBuilderService.SetServiceSpecificInfo:input_type -> aware.SetServiceSpecificInfoRequest
+	248, // 173: aware.SubscribeConfigBuilderService.SetSubscribeType:input_type -> aware.SetSubscribeTypeRequest
+	162, // 174: aware.SubscribeConfigBuilderService.SetTerminateNotificationEnabled:input_type -> aware.SetTerminateNotificationEnabledRequest
+	164, // 175: aware.SubscribeConfigBuilderService.SetTtlSec:input_type -> aware.SetTtlSecRequest
+	1,   // 176: aware.IdentityChangedListenerService.NewIdentityChangedListener:output_type -> aware.NewIdentityChangedListenerResponse
+	3,   // 177: aware.IdentityChangedListenerService.OnClusterIdChanged:output_type -> aware.OnClusterIdChangedResponse
+	5,   // 178: aware.IdentityChangedListenerService.OnIdentityChanged:output_type -> aware.OnIdentityChangedResponse
+	7,   // 179: aware.ParcelablePeerHandleService.NewParcelablePeerHandle:output_type -> aware.NewParcelablePeerHandleResponse
+	9,   // 180: aware.ParcelablePeerHandleService.DescribeContents:output_type -> aware.DescribeContentsResponse
+	11,  // 181: aware.ParcelablePeerHandleService.WriteToParcel:output_type -> aware.WriteToParcelResponse
+	13,  // 182: aware.WifiAwareNetworkSpecifierService.CanBeSatisfiedBy:output_type -> aware.CanBeSatisfiedByResponse
+	9,   // 183: aware.WifiAwareNetworkSpecifierService.DescribeContents:output_type -> aware.DescribeContentsResponse
+	16,  // 184: aware.WifiAwareNetworkSpecifierService.Equals:output_type -> aware.EqualsResponse
+	18,  // 185: aware.WifiAwareNetworkSpecifierService.GetChannelFrequencyMhz:output_type -> aware.GetChannelFrequencyMhzResponse
+	20,  // 186: aware.WifiAwareNetworkSpecifierService.GetWifiAwareDataPathSecurityConfig:output_type -> aware.GetWifiAwareDataPathSecurityConfigResponse
+	22,  // 187: aware.WifiAwareNetworkSpecifierService.HashCode:output_type -> aware.HashCodeResponse
+	24,  // 188: aware.WifiAwareNetworkSpecifierService.IsChannelRequired:output_type -> aware.IsChannelRequiredResponse
+	26,  // 189: aware.WifiAwareNetworkSpecifierService.ToString:output_type -> aware.ToStringResponse
+	11,  // 190: aware.WifiAwareNetworkSpecifierService.WriteToParcel:output_type -> aware.WriteToParcelResponse
+	29,  // 191: aware.WifiAwareNetworkSpecifierBuilderService.Build:output_type -> aware.BuildResponse
+	31,  // 192: aware.WifiAwareNetworkSpecifierBuilderService.SetChannelFrequencyMhz:output_type -> aware.SetChannelFrequencyMhzResponse
+	33,  // 193: aware.WifiAwareNetworkSpecifierBuilderService.SetDataPathSecurityConfig:output_type -> aware.SetDataPathSecurityConfigResponse
+	35,  // 194: aware.WifiAwareNetworkSpecifierBuilderService.SetPmk:output_type -> aware.SetPmkResponse
+	37,  // 195: aware.WifiAwareNetworkSpecifierBuilderService.SetPort:output_type -> aware.SetPortResponse
+	39,  // 196: aware.WifiAwareNetworkSpecifierBuilderService.SetPskPassphrase:output_type -> aware.SetPskPassphraseResponse
+	41,  // 197: aware.WifiAwareNetworkSpecifierBuilderService.SetTransportProtocol:output_type -> aware.SetTransportProtocolResponse
+	43,  // 198: aware.WifiAwareManagerService.GetAvailableAwareResources:output_type -> aware.GetAvailableAwareResourcesResponse
+	45,  // 199: aware.WifiAwareManagerService.GetCharacteristics:output_type -> aware.GetCharacteristicsResponse
+	47,  // 200: aware.WifiAwareManagerService.IsAvailable:output_type -> aware.IsAvailableResponse
+	49,  // 201: aware.WifiAwareManagerService.IsDeviceAttached:output_type -> aware.IsDeviceAttachedResponse
+	51,  // 202: aware.WifiAwareManagerService.IsInstantCommunicationModeEnabled:output_type -> aware.IsInstantCommunicationModeEnabledResponse
+	53,  // 203: aware.WifiAwareManagerService.IsSetChannelOnDataPathSupported:output_type -> aware.IsSetChannelOnDataPathSupportedResponse
+	55,  // 204: aware.WifiAwareManagerService.RemovePairedDevice:output_type -> aware.RemovePairedDeviceResponse
+	57,  // 205: aware.WifiAwareManagerService.ResetPairedDevices:output_type -> aware.ResetPairedDevicesResponse
+	59,  // 206: aware.WifiAwareManagerService.SetOpportunisticModeEnabled:output_type -> aware.SetOpportunisticModeEnabledResponse
+	9,   // 207: aware.WifiAwareNetworkInfoService.DescribeContents:output_type -> aware.DescribeContentsResponse
+	16,  // 208: aware.WifiAwareNetworkInfoService.Equals:output_type -> aware.EqualsResponse
+	62,  // 209: aware.WifiAwareNetworkInfoService.GetPeerIpv6Addr:output_type -> aware.GetPeerIpv6AddrResponse
+	64,  // 210: aware.WifiAwareNetworkInfoService.GetPort:output_type -> aware.GetPortResponse
+	66,  // 211: aware.WifiAwareNetworkInfoService.GetTransportProtocol:output_type -> aware.GetTransportProtocolResponse
+	22,  // 212: aware.WifiAwareNetworkInfoService.HashCode:output_type -> aware.HashCodeResponse
+	26,  // 213: aware.WifiAwareNetworkInfoService.ToString:output_type -> aware.ToStringResponse
+	11,  // 214: aware.WifiAwareNetworkInfoService.WriteToParcel:output_type -> aware.WriteToParcelResponse
+	69,  // 215: aware.AttachCallbackService.NewAttachCallback:output_type -> aware.NewAttachCallbackResponse
+	71,  // 216: aware.AttachCallbackService.OnAttachFailed:output_type -> aware.OnAttachFailedResponse
+	73,  // 217: aware.AttachCallbackService.OnAttached:output_type -> aware.OnAttachedResponse
+	75,  // 218: aware.AttachCallbackService.OnAwareSessionTerminated:output_type -> aware.OnAwareSessionTerminatedResponse
+	77,  // 219: aware.DiscoverySessionCallbackService.NewDiscoverySessionCallback:output_type -> aware.NewDiscoverySessionCallbackResponse
+	79,  // 220: aware.DiscoverySessionCallbackService.OnBootstrappingFailed:output_type -> aware.OnBootstrappingFailedResponse
+	81,  // 221: aware.DiscoverySessionCallbackService.OnBootstrappingSucceeded:output_type -> aware.OnBootstrappingSucceededResponse
+	83,  // 222: aware.DiscoverySessionCallbackService.OnMessageReceived:output_type -> aware.OnMessageReceivedResponse
+	85,  // 223: aware.DiscoverySessionCallbackService.OnMessageSendFailed:output_type -> aware.OnMessageSendFailedResponse
+	87,  // 224: aware.DiscoverySessionCallbackService.OnMessageSendSucceeded:output_type -> aware.OnMessageSendSucceededResponse
+	89,  // 225: aware.DiscoverySessionCallbackService.OnPairingSetupFailed:output_type -> aware.OnPairingSetupFailedResponse
+	91,  // 226: aware.DiscoverySessionCallbackService.OnPairingSetupRequestReceived:output_type -> aware.OnPairingSetupRequestReceivedResponse
+	93,  // 227: aware.DiscoverySessionCallbackService.OnPairingSetupSucceeded:output_type -> aware.OnPairingSetupSucceededResponse
+	95,  // 228: aware.DiscoverySessionCallbackService.OnPairingVerificationFailed:output_type -> aware.OnPairingVerificationFailedResponse
+	97,  // 229: aware.DiscoverySessionCallbackService.OnPairingVerificationSucceed:output_type -> aware.OnPairingVerificationSucceedResponse
+	99,  // 230: aware.DiscoverySessionCallbackService.OnPublishStarted:output_type -> aware.OnPublishStartedResponse
+	101, // 231: aware.DiscoverySessionCallbackService.OnServiceDiscovered:output_type -> aware.OnServiceDiscoveredResponse
+	103, // 232: aware.DiscoverySessionCallbackService.OnServiceDiscoveredWithinRange:output_type -> aware.OnServiceDiscoveredWithinRangeResponse
+	105, // 233: aware.DiscoverySessionCallbackService.OnServiceLost:output_type -> aware.OnServiceLostResponse
+	107, // 234: aware.DiscoverySessionCallbackService.OnSessionConfigFailed:output_type -> aware.OnSessionConfigFailedResponse
+	109, // 235: aware.DiscoverySessionCallbackService.OnSessionConfigUpdated:output_type -> aware.OnSessionConfigUpdatedResponse
+	111, // 236: aware.DiscoverySessionCallbackService.OnSessionTerminated:output_type -> aware.OnSessionTerminatedResponse
+	113, // 237: aware.DiscoverySessionCallbackService.OnSubscribeStarted:output_type -> aware.OnSubscribeStartedResponse
+	115, // 238: aware.PublishDiscoverySessionService.UpdatePublish:output_type -> aware.UpdatePublishResponse
+	9,   // 239: aware.WifiAwareDataPathSecurityConfigService.DescribeContents:output_type -> aware.DescribeContentsResponse
+	16,  // 240: aware.WifiAwareDataPathSecurityConfigService.Equals:output_type -> aware.EqualsResponse
+	118, // 241: aware.WifiAwareDataPathSecurityConfigService.GetCipherSuite:output_type -> aware.GetCipherSuiteResponse
+	120, // 242: aware.WifiAwareDataPathSecurityConfigService.GetPmk:output_type -> aware.GetPmkResponse
+	122, // 243: aware.WifiAwareDataPathSecurityConfigService.GetPmkId:output_type -> aware.GetPmkIdResponse
+	124, // 244: aware.WifiAwareDataPathSecurityConfigService.GetPskPassphrase:output_type -> aware.GetPskPassphraseResponse
+	22,  // 245: aware.WifiAwareDataPathSecurityConfigService.HashCode:output_type -> aware.HashCodeResponse
+	26,  // 246: aware.WifiAwareDataPathSecurityConfigService.ToString:output_type -> aware.ToStringResponse
+	11,  // 247: aware.WifiAwareDataPathSecurityConfigService.WriteToParcel:output_type -> aware.WriteToParcelResponse
+	29,  // 248: aware.WifiAwareDataPathSecurityConfigBuilderService.Build:output_type -> aware.BuildResponse
+	35,  // 249: aware.WifiAwareDataPathSecurityConfigBuilderService.SetPmk:output_type -> aware.SetPmkResponse
+	127, // 250: aware.WifiAwareDataPathSecurityConfigBuilderService.SetPmkId:output_type -> aware.SetPmkIdResponse
+	39,  // 251: aware.WifiAwareDataPathSecurityConfigBuilderService.SetPskPassphrase:output_type -> aware.SetPskPassphraseResponse
+	129, // 252: aware.WifiAwareSessionService.Close:output_type -> aware.CloseResponse
+	131, // 253: aware.WifiAwareSessionService.CreateNetworkSpecifierOpen:output_type -> aware.CreateNetworkSpecifierOpenResponse
+	133, // 254: aware.WifiAwareSessionService.CreateNetworkSpecifierPassphrase:output_type -> aware.CreateNetworkSpecifierPassphraseResponse
+	135, // 255: aware.ResourcesService.NewResources:output_type -> aware.NewResourcesResponse
+	9,   // 256: aware.ResourcesService.DescribeContents:output_type -> aware.DescribeContentsResponse
+	137, // 257: aware.ResourcesService.GetAvailableDataPathsCount:output_type -> aware.GetAvailableDataPathsCountResponse
+	139, // 258: aware.ResourcesService.GetAvailablePublishSessionsCount:output_type -> aware.GetAvailablePublishSessionsCountResponse
+	141, // 259: aware.ResourcesService.GetAvailableSubscribeSessionsCount:output_type -> aware.GetAvailableSubscribeSessionsCountResponse
+	11,  // 260: aware.ResourcesService.WriteToParcel:output_type -> aware.WriteToParcelResponse
+	9,   // 261: aware.PublishConfigService.DescribeContents:output_type -> aware.DescribeContentsResponse
+	16,  // 262: aware.PublishConfigService.Equals:output_type -> aware.EqualsResponse
+	144, // 263: aware.PublishConfigService.GetInstantCommunicationBand:output_type -> aware.GetInstantCommunicationBandResponse
+	146, // 264: aware.PublishConfigService.GetPairingConfig:output_type -> aware.GetPairingConfigResponse
+	148, // 265: aware.PublishConfigService.GetSecurityConfig:output_type -> aware.GetSecurityConfigResponse
+	22,  // 266: aware.PublishConfigService.HashCode:output_type -> aware.HashCodeResponse
+	51,  // 267: aware.PublishConfigService.IsInstantCommunicationModeEnabled:output_type -> aware.IsInstantCommunicationModeEnabledResponse
+	26,  // 268: aware.PublishConfigService.ToString:output_type -> aware.ToStringResponse
+	11,  // 269: aware.PublishConfigService.WriteToParcel:output_type -> aware.WriteToParcelResponse
+	29,  // 270: aware.PublishConfigBuilderService.Build:output_type -> aware.BuildResponse
+	33,  // 271: aware.PublishConfigBuilderService.SetDataPathSecurityConfig:output_type -> aware.SetDataPathSecurityConfigResponse
+	151, // 272: aware.PublishConfigBuilderService.SetInstantCommunicationModeEnabled:output_type -> aware.SetInstantCommunicationModeEnabledResponse
+	153, // 273: aware.PublishConfigBuilderService.SetPairingConfig:output_type -> aware.SetPairingConfigResponse
+	155, // 274: aware.PublishConfigBuilderService.SetPublishType:output_type -> aware.SetPublishTypeResponse
+	157, // 275: aware.PublishConfigBuilderService.SetRangingEnabled:output_type -> aware.SetRangingEnabledResponse
+	159, // 276: aware.PublishConfigBuilderService.SetServiceName:output_type -> aware.SetServiceNameResponse
+	161, // 277: aware.PublishConfigBuilderService.SetServiceSpecificInfo:output_type -> aware.SetServiceSpecificInfoResponse
+	163, // 278: aware.PublishConfigBuilderService.SetTerminateNotificationEnabled:output_type -> aware.SetTerminateNotificationEnabledResponse
+	165, // 279: aware.PublishConfigBuilderService.SetTtlSec:output_type -> aware.SetTtlSecResponse
+	16,  // 280: aware.PeerHandleService.Equals:output_type -> aware.EqualsResponse
+	22,  // 281: aware.PeerHandleService.HashCode:output_type -> aware.HashCodeResponse
+	167, // 282: aware.ServiceDiscoveryInfoService.GetPairedAlias:output_type -> aware.GetPairedAliasResponse
+	146, // 283: aware.ServiceDiscoveryInfoService.GetPairingConfig:output_type -> aware.GetPairingConfigResponse
+	169, // 284: aware.ServiceDiscoveryInfoService.GetPeerCipherSuite:output_type -> aware.GetPeerCipherSuiteResponse
+	171, // 285: aware.ServiceDiscoveryInfoService.GetPeerHandle:output_type -> aware.GetPeerHandleResponse
+	173, // 286: aware.ServiceDiscoveryInfoService.GetScid:output_type -> aware.GetScidResponse
+	175, // 287: aware.ServiceDiscoveryInfoService.GetServiceSpecificInfo:output_type -> aware.GetServiceSpecificInfoResponse
+	9,   // 288: aware.WifiAwareChannelInfoService.DescribeContents:output_type -> aware.DescribeContentsResponse
+	16,  // 289: aware.WifiAwareChannelInfoService.Equals:output_type -> aware.EqualsResponse
+	178, // 290: aware.WifiAwareChannelInfoService.GetChannelBandwidth:output_type -> aware.GetChannelBandwidthResponse
+	18,  // 291: aware.WifiAwareChannelInfoService.GetChannelFrequencyMhz:output_type -> aware.GetChannelFrequencyMhzResponse
+	180, // 292: aware.WifiAwareChannelInfoService.GetSpatialStreamCount:output_type -> aware.GetSpatialStreamCountResponse
+	22,  // 293: aware.WifiAwareChannelInfoService.HashCode:output_type -> aware.HashCodeResponse
+	26,  // 294: aware.WifiAwareChannelInfoService.ToString:output_type -> aware.ToStringResponse
+	11,  // 295: aware.WifiAwareChannelInfoService.WriteToParcel:output_type -> aware.WriteToParcelResponse
+	9,   // 296: aware.PairingConfigService.DescribeContents:output_type -> aware.DescribeContentsResponse
+	16,  // 297: aware.PairingConfigService.Equals:output_type -> aware.EqualsResponse
+	184, // 298: aware.PairingConfigService.GetBootstrappingMethods:output_type -> aware.GetBootstrappingMethodsResponse
+	186, // 299: aware.PairingConfigService.GetSupportedCipherSuites:output_type -> aware.GetSupportedCipherSuitesResponse
+	22,  // 300: aware.PairingConfigService.HashCode:output_type -> aware.HashCodeResponse
+	188, // 301: aware.PairingConfigService.IsPairingCacheEnabled:output_type -> aware.IsPairingCacheEnabledResponse
+	190, // 302: aware.PairingConfigService.IsPairingSetupEnabled:output_type -> aware.IsPairingSetupEnabledResponse
+	192, // 303: aware.PairingConfigService.IsPairingVerificationEnabled:output_type -> aware.IsPairingVerificationEnabledResponse
+	11,  // 304: aware.PairingConfigService.WriteToParcel:output_type -> aware.WriteToParcelResponse
+	29,  // 305: aware.PairingConfigBuilderService.Build:output_type -> aware.BuildResponse
+	195, // 306: aware.PairingConfigBuilderService.SetBootstrappingMethods:output_type -> aware.SetBootstrappingMethodsResponse
+	197, // 307: aware.PairingConfigBuilderService.SetPairingCacheEnabled:output_type -> aware.SetPairingCacheEnabledResponse
+	199, // 308: aware.PairingConfigBuilderService.SetPairingSetupEnabled:output_type -> aware.SetPairingSetupEnabledResponse
+	201, // 309: aware.PairingConfigBuilderService.SetPairingVerificationEnabled:output_type -> aware.SetPairingVerificationEnabledResponse
+	203, // 310: aware.PairingConfigBuilderService.SetSupportedCipherSuites:output_type -> aware.SetSupportedCipherSuitesResponse
+	9,   // 311: aware.CharacteristicsService.DescribeContents:output_type -> aware.DescribeContentsResponse
+	206, // 312: aware.CharacteristicsService.GetMaxMatchFilterLength:output_type -> aware.GetMaxMatchFilterLengthResponse
+	208, // 313: aware.CharacteristicsService.GetMaxServiceNameLength:output_type -> aware.GetMaxServiceNameLengthResponse
+	210, // 314: aware.CharacteristicsService.GetMaxServiceSpecificInfoLength:output_type -> aware.GetMaxServiceSpecificInfoLengthResponse
+	212, // 315: aware.CharacteristicsService.GetNumberOfSupportedDataInterfaces:output_type -> aware.GetNumberOfSupportedDataInterfacesResponse
+	214, // 316: aware.CharacteristicsService.GetNumberOfSupportedDataPaths:output_type -> aware.GetNumberOfSupportedDataPathsResponse
+	216, // 317: aware.CharacteristicsService.GetNumberOfSupportedPublishSessions:output_type -> aware.GetNumberOfSupportedPublishSessionsResponse
+	218, // 318: aware.CharacteristicsService.GetNumberOfSupportedSubscribeSessions:output_type -> aware.GetNumberOfSupportedSubscribeSessionsResponse
+	186, // 319: aware.CharacteristicsService.GetSupportedCipherSuites:output_type -> aware.GetSupportedCipherSuitesResponse
+	220, // 320: aware.CharacteristicsService.GetSupportedPairingCipherSuites:output_type -> aware.GetSupportedPairingCipherSuitesResponse
+	222, // 321: aware.CharacteristicsService.IsAwarePairingSupported:output_type -> aware.IsAwarePairingSupportedResponse
+	224, // 322: aware.CharacteristicsService.IsInstantCommunicationModeSupported:output_type -> aware.IsInstantCommunicationModeSupportedResponse
+	226, // 323: aware.CharacteristicsService.IsSuspensionSupported:output_type -> aware.IsSuspensionSupportedResponse
+	11,  // 324: aware.CharacteristicsService.WriteToParcel:output_type -> aware.WriteToParcelResponse
+	229, // 325: aware.SubscribeDiscoverySessionService.UpdateSubscribe:output_type -> aware.UpdateSubscribeResponse
+	231, // 326: aware.DiscoverySessionService.AcceptPairingRequest:output_type -> aware.AcceptPairingRequestResponse
+	129, // 327: aware.DiscoverySessionService.Close:output_type -> aware.CloseResponse
+	131, // 328: aware.DiscoverySessionService.CreateNetworkSpecifierOpen:output_type -> aware.CreateNetworkSpecifierOpenResponse
+	133, // 329: aware.DiscoverySessionService.CreateNetworkSpecifierPassphrase:output_type -> aware.CreateNetworkSpecifierPassphraseResponse
+	235, // 330: aware.DiscoverySessionService.InitiateBootstrappingRequest:output_type -> aware.InitiateBootstrappingRequestResponse
+	237, // 331: aware.DiscoverySessionService.InitiatePairingRequest:output_type -> aware.InitiatePairingRequestResponse
+	239, // 332: aware.DiscoverySessionService.RejectPairingRequest:output_type -> aware.RejectPairingRequestResponse
+	241, // 333: aware.DiscoverySessionService.SendMessage:output_type -> aware.SendMessageResponse
+	9,   // 334: aware.SubscribeConfigService.DescribeContents:output_type -> aware.DescribeContentsResponse
+	16,  // 335: aware.SubscribeConfigService.Equals:output_type -> aware.EqualsResponse
+	144, // 336: aware.SubscribeConfigService.GetInstantCommunicationBand:output_type -> aware.GetInstantCommunicationBandResponse
+	146, // 337: aware.SubscribeConfigService.GetPairingConfig:output_type -> aware.GetPairingConfigResponse
+	22,  // 338: aware.SubscribeConfigService.HashCode:output_type -> aware.HashCodeResponse
+	51,  // 339: aware.SubscribeConfigService.IsInstantCommunicationModeEnabled:output_type -> aware.IsInstantCommunicationModeEnabledResponse
+	26,  // 340: aware.SubscribeConfigService.ToString:output_type -> aware.ToStringResponse
+	11,  // 341: aware.SubscribeConfigService.WriteToParcel:output_type -> aware.WriteToParcelResponse
+	29,  // 342: aware.SubscribeConfigBuilderService.Build:output_type -> aware.BuildResponse
+	151, // 343: aware.SubscribeConfigBuilderService.SetInstantCommunicationModeEnabled:output_type -> aware.SetInstantCommunicationModeEnabledResponse
+	245, // 344: aware.SubscribeConfigBuilderService.SetMaxDistanceMm:output_type -> aware.SetMaxDistanceMmResponse
+	247, // 345: aware.SubscribeConfigBuilderService.SetMinDistanceMm:output_type -> aware.SetMinDistanceMmResponse
+	153, // 346: aware.SubscribeConfigBuilderService.SetPairingConfig:output_type -> aware.SetPairingConfigResponse
+	159, // 347: aware.SubscribeConfigBuilderService.SetServiceName:output_type -> aware.SetServiceNameResponse
+	161, // 348: aware.SubscribeConfigBuilderService.SetServiceSpecificInfo:output_type -> aware.SetServiceSpecificInfoResponse
+	249, // 349: aware.SubscribeConfigBuilderService.SetSubscribeType:output_type -> aware.SetSubscribeTypeResponse
+	163, // 350: aware.SubscribeConfigBuilderService.SetTerminateNotificationEnabled:output_type -> aware.SetTerminateNotificationEnabledResponse
+	165, // 351: aware.SubscribeConfigBuilderService.SetTtlSec:output_type -> aware.SetTtlSecResponse
+	176, // [176:352] is the sub-list for method output_type
+	0,   // [0:176] is the sub-list for method input_type
+	0,   // [0:0] is the sub-list for extension type_name
+	0,   // [0:0] is the sub-list for extension extendee
+	0,   // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_aware_aware_proto_init() }
@@ -847,9 +12025,9 @@ func file_proto_aware_aware_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_aware_aware_proto_rawDesc), len(file_proto_aware_aware_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   18,
+			NumMessages:   250,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   25,
 		},
 		GoTypes:           file_proto_aware_aware_proto_goTypes,
 		DependencyIndexes: file_proto_aware_aware_proto_depIdxs,

@@ -6,6 +6,573 @@ package content;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/content";
 
+message NewQueryMapRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  bool arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NewQueryMapResponse {
+  int64 result = 1;
+}
+
+message RequeryRequest {
+  int64 handle = 1;
+}
+
+message RequeryResponse {
+}
+
+message SetKeepUpdatedRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetKeepUpdatedResponse {
+}
+
+message OnStatusChangedRequest {
+  int32 arg0 = 1;
+}
+
+message OnStatusChangedResponse {
+}
+
+message CancelLoadInBackgroundRequest {
+}
+
+message CancelLoadInBackgroundResponse {
+}
+
+message DumpRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message DumpResponse {
+}
+
+message IsLoadInBackgroundCanceledRequest {
+}
+
+message IsLoadInBackgroundCanceledResponse {
+  bool result = 1;
+}
+
+message SetUpdateThrottleRequest {
+  int64 arg0 = 1;
+}
+
+message SetUpdateThrottleResponse {
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetCreatorPackageRequest {
+}
+
+message GetCreatorPackageResponse {
+  string result = 1;
+}
+
+message GetCreatorUidRequest {
+}
+
+message GetCreatorUidResponse {
+  int32 result = 1;
+}
+
+message GetCreatorUserHandleRequest {
+}
+
+message GetCreatorUserHandleResponse {
+  int64 result = 1;
+}
+
+message GetTargetPackageRequest {
+}
+
+message GetTargetPackageResponse {
+  string result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message SendIntentRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+  string arg3 = 4;
+  int64 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
+}
+
+message SendIntentResponse {
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message ReadIntentSenderOrNullFromParcelRequest {
+  int64 arg0 = 1;
+}
+
+message ReadIntentSenderOrNullFromParcelResponse {
+  int64 result = 1;
+}
+
+message WriteIntentSenderOrNullToParcelRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message WriteIntentSenderOrNullToParcelResponse {
+}
+
+message OnSendFinishedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  string arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message OnSendFinishedResponse {
+}
+
+message NewSyncStatsRequest {
+}
+
+message NewSyncStatsResponse {
+  int64 result = 1;
+}
+
+message ClearRequest {
+  int64 handle = 1;
+}
+
+message ClearResponse {
+}
+
+message SyncStatsDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message SyncStatsToStringRequest {
+  int64 handle = 1;
+}
+
+message SyncStatsWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message AbortBroadcastRequest {
+}
+
+message AbortBroadcastResponse {
+}
+
+message ClearAbortBroadcastRequest {
+}
+
+message ClearAbortBroadcastResponse {
+}
+
+message GetAbortBroadcastRequest {
+}
+
+message GetAbortBroadcastResponse {
+  bool result = 1;
+}
+
+message GetDebugUnregisterRequest {
+}
+
+message GetDebugUnregisterResponse {
+  bool result = 1;
+}
+
+message GetResultCodeRequest {
+}
+
+message GetResultCodeResponse {
+  int32 result = 1;
+}
+
+message GetResultDataRequest {
+}
+
+message GetResultDataResponse {
+  string result = 1;
+}
+
+message GetResultExtrasRequest {
+  bool arg0 = 1;
+}
+
+message GetResultExtrasResponse {
+  int64 result = 1;
+}
+
+message GetSentFromPackageRequest {
+}
+
+message GetSentFromPackageResponse {
+  string result = 1;
+}
+
+message GetSentFromUidRequest {
+}
+
+message GetSentFromUidResponse {
+  int32 result = 1;
+}
+
+message GoAsyncRequest {
+}
+
+message GoAsyncResponse {
+  int64 result = 1;
+}
+
+message IsInitialStickyBroadcastRequest {
+}
+
+message IsInitialStickyBroadcastResponse {
+  bool result = 1;
+}
+
+message IsOrderedBroadcastRequest {
+}
+
+message IsOrderedBroadcastResponse {
+  bool result = 1;
+}
+
+message OnReceiveRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnReceiveResponse {
+}
+
+message PeekServiceRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message PeekServiceResponse {
+  int64 result = 1;
+}
+
+message SetDebugUnregisterRequest {
+  bool arg0 = 1;
+}
+
+message SetDebugUnregisterResponse {
+}
+
+message SetOrderedHintRequest {
+  bool arg0 = 1;
+}
+
+message SetOrderedHintResponse {
+}
+
+message SetResultRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message SetResultResponse {
+}
+
+message SetResultCodeRequest {
+  int32 arg0 = 1;
+}
+
+message SetResultCodeResponse {
+}
+
+message SetResultDataRequest {
+  string arg0 = 1;
+}
+
+message SetResultDataResponse {
+}
+
+message SetResultExtrasRequest {
+  int64 arg0 = 1;
+}
+
+message SetResultExtrasResponse {
+}
+
+message FinishRequest {
+}
+
+message FinishResponse {
+}
+
+message GetPersistedTimeRequest {
+}
+
+message GetPersistedTimeResponse {
+  int64 result = 1;
+}
+
+message GetUriRequest {
+}
+
+message GetUriResponse {
+  int64 result = 1;
+}
+
+message IsReadPermissionRequest {
+}
+
+message IsReadPermissionResponse {
+  bool result = 1;
+}
+
+message IsWritePermissionRequest {
+}
+
+message IsWritePermissionResponse {
+  bool result = 1;
+}
+
+message CancelOperationRequest {
+  int32 arg0 = 1;
+}
+
+message CancelOperationResponse {
+}
+
+message HandleMessageRequest {
+  int64 arg0 = 1;
+}
+
+message HandleMessageResponse {
+}
+
+message StartDeleteRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  string arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message StartDeleteResponse {
+}
+
+message StartInsertRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message StartInsertResponse {
+}
+
+message StartQueryRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  string arg4 = 5;
+  int64 arg5 = 6;
+  string arg6 = 7;
+}
+
+message StartQueryResponse {
+}
+
+message StartUpdateRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  string arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message StartUpdateResponse {
+}
+
+message NewMutableContextWrapperRequest {
+  int64 arg0 = 1;
+}
+
+message NewMutableContextWrapperResponse {
+  int64 result = 1;
+}
+
+message SetBaseContextRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetBaseContextResponse {
+}
+
+message CheckCallingUidRequest {
+}
+
+message CheckCallingUidResponse {
+  bool result = 1;
+}
+
+message EnforceCallingUidRequest {
+}
+
+message EnforceCallingUidResponse {
+}
+
+message GetAttributionTagRequest {
+}
+
+message GetAttributionTagResponse {
+  string result = 1;
+}
+
+message GetDeviceIdRequest {
+}
+
+message GetDeviceIdResponse {
+  int32 result = 1;
+}
+
+message GetNextRequest {
+}
+
+message GetNextResponse {
+  int64 result = 1;
+}
+
+message GetPackageNameRequest {
+}
+
+message GetPackageNameResponse {
+  string result = 1;
+}
+
+message GetPidRequest {
+}
+
+message GetPidResponse {
+  int32 result = 1;
+}
+
+message GetUidRequest {
+}
+
+message GetUidResponse {
+  int32 result = 1;
+}
+
+message IsTrustedRequest {
+  int64 arg0 = 1;
+}
+
+message IsTrustedResponse {
+  bool result = 1;
+}
+
+message MyAttributionSourceRequest {
+}
+
+message MyAttributionSourceResponse {
+  int64 result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetAttributionTagRequest {
+  string arg0 = 1;
+}
+
+message SetAttributionTagResponse {
+  int64 result = 1;
+}
+
+message SetDeviceIdRequest {
+  int32 arg0 = 1;
+}
+
+message SetDeviceIdResponse {
+  int64 result = 1;
+}
+
+message SetNextRequest {
+  int64 arg0 = 1;
+}
+
+message SetNextResponse {
+  int64 result = 1;
+}
+
+message SetPackageNameRequest {
+  string arg0 = 1;
+}
+
+message SetPackageNameResponse {
+  int64 result = 1;
+}
+
+message SetPidRequest {
+  int32 arg0 = 1;
+}
+
+message SetPidResponse {
+  int64 result = 1;
+}
+
 message CreateLocalApprovalIntentRequest {
 }
 
@@ -44,10 +611,5739 @@ message RequestPermissionRequest {
 message RequestPermissionResponse {
 }
 
+message GetContextRequest {
+}
+
+message GetContextResponse {
+  int64 result = 1;
+}
+
+message GetSyncAdapterBinderRequest {
+}
+
+message GetSyncAdapterBinderResponse {
+  int64 result = 1;
+}
+
+message OnPerformSyncRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message OnPerformSyncResponse {
+}
+
+message OnSecurityExceptionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message OnSecurityExceptionResponse {
+}
+
+message OnSyncCanceled0Request {
+}
+
+message OnSyncCanceled0Response {
+}
+
+message OnSyncCanceled1_1Request {
+  int64 arg0 = 1;
+}
+
+message OnSyncCanceled1_1Response {
+}
+
+message OnUnsyncableAccountRequest {
+}
+
+message OnUnsyncableAccountResponse {
+  bool result = 1;
+}
+
+message NewSyncResultRequest {
+}
+
+message NewSyncResultResponse {
+  int64 result = 1;
+}
+
+message SyncResultDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message HasErrorRequest {
+  int64 handle = 1;
+}
+
+message HasErrorResponse {
+  bool result = 1;
+}
+
+message HasHardErrorRequest {
+  int64 handle = 1;
+}
+
+message HasHardErrorResponse {
+  bool result = 1;
+}
+
+message HasSoftErrorRequest {
+  int64 handle = 1;
+}
+
+message HasSoftErrorResponse {
+  bool result = 1;
+}
+
+message MadeSomeProgressRequest {
+  int64 handle = 1;
+}
+
+message MadeSomeProgressResponse {
+  bool result = 1;
+}
+
+message ToDebugStringRequest {
+  int64 handle = 1;
+}
+
+message ToDebugStringResponse {
+  string result = 1;
+}
+
+message SyncResultToStringRequest {
+  int64 handle = 1;
+}
+
+message SyncResultWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetDisallowMeteredRequest {
+  bool arg0 = 1;
+}
+
+message SetDisallowMeteredResponse {
+  int64 result = 1;
+}
+
+message SetExpeditedRequest {
+  bool arg0 = 1;
+}
+
+message SetExpeditedResponse {
+  int64 result = 1;
+}
+
+message SetExtrasRequest {
+  int64 arg0 = 1;
+}
+
+message SetExtrasResponse {
+  int64 result = 1;
+}
+
+message SetIgnoreBackoffRequest {
+  bool arg0 = 1;
+}
+
+message SetIgnoreBackoffResponse {
+  int64 result = 1;
+}
+
+message SetIgnoreSettingsRequest {
+  bool arg0 = 1;
+}
+
+message SetIgnoreSettingsResponse {
+  int64 result = 1;
+}
+
+message SetManualRequest {
+  bool arg0 = 1;
+}
+
+message SetManualResponse {
+  int64 result = 1;
+}
+
+message SetNoRetryRequest {
+  bool arg0 = 1;
+}
+
+message SetNoRetryResponse {
+  int64 result = 1;
+}
+
+message SetRequiresChargingRequest {
+  bool arg0 = 1;
+}
+
+message SetRequiresChargingResponse {
+  int64 result = 1;
+}
+
+message SetScheduleAsExpeditedJobRequest {
+  bool arg0 = 1;
+}
+
+message SetScheduleAsExpeditedJobResponse {
+  int64 result = 1;
+}
+
+message SetSyncAdapterRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message SetSyncAdapterResponse {
+  int64 result = 1;
+}
+
+message SyncOnceRequest {
+}
+
+message SyncOnceResponse {
+  int64 result = 1;
+}
+
+message SyncPeriodicRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SyncPeriodicResponse {
+  int64 result = 1;
+}
+
+message NewResourcesRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewResourcesResponse {
+  int64 result = 1;
+}
+
+message AddLoadersRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddLoadersResponse {
+}
+
+message FinishPreloadingRequest {
+  int64 handle = 1;
+}
+
+message FinishPreloadingResponse {
+}
+
+message FlushLayoutCacheRequest {
+  int64 handle = 1;
+}
+
+message FlushLayoutCacheResponse {
+}
+
+message GetAnimationRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetAnimationResponse {
+  int64 result = 1;
+}
+
+message GetAssetsRequest {
+  int64 handle = 1;
+}
+
+message GetAssetsResponse {
+  int64 result = 1;
+}
+
+message GetBooleanRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetBooleanResponse {
+  bool result = 1;
+}
+
+message GetColor1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetColor1Response {
+  int32 result = 1;
+}
+
+message GetColor2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message GetColor2_1Response {
+  int32 result = 1;
+}
+
+message GetColorStateList1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetColorStateList1Response {
+  int64 result = 1;
+}
+
+message GetColorStateList2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message GetColorStateList2_1Response {
+  int64 result = 1;
+}
+
+message GetConfigurationRequest {
+  int64 handle = 1;
+}
+
+message GetConfigurationResponse {
+  int64 result = 1;
+}
+
+message GetDimensionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetDimensionResponse {
+  float result = 1;
+}
+
+message GetDimensionPixelOffsetRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetDimensionPixelOffsetResponse {
+  int32 result = 1;
+}
+
+message GetDimensionPixelSizeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetDimensionPixelSizeResponse {
+  int32 result = 1;
+}
+
+message GetDisplayMetricsRequest {
+  int64 handle = 1;
+}
+
+message GetDisplayMetricsResponse {
+  int64 result = 1;
+}
+
+message GetDrawable1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetDrawable1Response {
+  int64 result = 1;
+}
+
+message GetDrawable2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message GetDrawable2_1Response {
+  int64 result = 1;
+}
+
+message GetDrawableForDensity2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetDrawableForDensity2Response {
+  int64 result = 1;
+}
+
+message GetDrawableForDensity3_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message GetDrawableForDensity3_1Response {
+  int64 result = 1;
+}
+
+message GetFloatRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetFloatResponse {
+  float result = 1;
+}
+
+message GetFontRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetFontResponse {
+  int64 result = 1;
+}
+
+message GetFractionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message GetFractionResponse {
+  float result = 1;
+}
+
+message GetIdentifierRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+  string arg2 = 4;
+}
+
+message GetIdentifierResponse {
+  int32 result = 1;
+}
+
+message GetIntArrayRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetIntArrayResponse {
+  int64 result = 1;
+}
+
+message GetIntegerRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetIntegerResponse {
+  int32 result = 1;
+}
+
+message GetLayoutRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetLayoutResponse {
+  int64 result = 1;
+}
+
+message GetMovieRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetMovieResponse {
+  int64 result = 1;
+}
+
+message GetQuantityString2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetQuantityString2Response {
+  string result = 1;
+}
+
+message GetQuantityString3_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message GetQuantityString3_1Response {
+  string result = 1;
+}
+
+message GetQuantityTextRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetQuantityTextResponse {
+  int64 result = 1;
+}
+
+message GetResourceEntryNameRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetResourceEntryNameResponse {
+  string result = 1;
+}
+
+message GetResourceNameRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetResourceNameResponse {
+  string result = 1;
+}
+
+message GetResourcePackageNameRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetResourcePackageNameResponse {
+  string result = 1;
+}
+
+message GetResourceTypeNameRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetResourceTypeNameResponse {
+  string result = 1;
+}
+
+message GetString1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetString1Response {
+  string result = 1;
+}
+
+message GetString2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message GetString2_1Response {
+  string result = 1;
+}
+
+message GetStringArrayRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetStringArrayResponse {
+  int64 result = 1;
+}
+
+message GetText1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetText1Response {
+  int64 result = 1;
+}
+
+message GetText2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  string arg1 = 3;
+}
+
+message GetText2_1Response {
+  int64 result = 1;
+}
+
+message GetTextArrayRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetTextArrayResponse {
+  int64 result = 1;
+}
+
+message GetValue3Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+  bool arg2 = 4;
+}
+
+message GetValue3Response {
+}
+
+message GetValue3_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+  bool arg2 = 4;
+}
+
+message GetValue3_1Response {
+}
+
+message GetValueForDensityRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+  bool arg3 = 5;
+}
+
+message GetValueForDensityResponse {
+}
+
+message GetXmlRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetXmlResponse {
+  int64 result = 1;
+}
+
+message NewThemeRequest {
+  int64 handle = 1;
+}
+
+message NewThemeResponse {
+  int64 result = 1;
+}
+
+message ObtainAttributesRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message ObtainAttributesResponse {
+  int64 result = 1;
+}
+
+message ObtainTypedArrayRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message ObtainTypedArrayResponse {
+  int64 result = 1;
+}
+
+message OpenRawResource1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message OpenRawResource1Response {
+  int64 result = 1;
+}
+
+message OpenRawResource2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OpenRawResource2_1Response {
+  int64 result = 1;
+}
+
+message OpenRawResourceFdRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message OpenRawResourceFdResponse {
+  int64 result = 1;
+}
+
+message ParseBundleExtraRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message ParseBundleExtraResponse {
+}
+
+message ParseBundleExtrasRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message ParseBundleExtrasResponse {
+}
+
+message RemoveLoadersRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveLoadersResponse {
+}
+
+message UpdateConfigurationRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message UpdateConfigurationResponse {
+}
+
+message GetAttributeSetSourceResIdRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetAttributeSetSourceResIdResponse {
+  int32 result = 1;
+}
+
+message GetSystemRequest {
+  int64 handle = 1;
+}
+
+message GetSystemResponse {
+  int64 result = 1;
+}
+
+message RegisterResourcePathsRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message RegisterResourcePathsResponse {
+}
+
+message ApplyStyleRequest {
+  int32 arg0 = 1;
+  bool arg1 = 2;
+}
+
+message ApplyStyleResponse {
+}
+
+message ResourcesThemeDumpRequest {
+  int32 arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+}
+
+message GetAttributeResolutionStackRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message GetAttributeResolutionStackResponse {
+  int64 result = 1;
+}
+
+message GetChangingConfigurationsRequest {
+}
+
+message GetChangingConfigurationsResponse {
+  int32 result = 1;
+}
+
+message GetDrawableRequest {
+  int32 arg0 = 1;
+}
+
+message GetDrawableResponse {
+  int64 result = 1;
+}
+
+message GetExplicitStyleRequest {
+  int64 arg0 = 1;
+}
+
+message GetExplicitStyleResponse {
+  int32 result = 1;
+}
+
+message GetResourcesRequest {
+}
+
+message GetResourcesResponse {
+  int64 result = 1;
+}
+
+message ObtainStyledAttributes4Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message ObtainStyledAttributes4Response {
+  int64 result = 1;
+}
+
+message ObtainStyledAttributes2_1Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ObtainStyledAttributes2_1Response {
+  int64 result = 1;
+}
+
+message ObtainStyledAttributes1_2Request {
+  int64 arg0 = 1;
+}
+
+message ObtainStyledAttributes1_2Response {
+  int64 result = 1;
+}
+
+message RebaseRequest {
+}
+
+message RebaseResponse {
+}
+
+message ResolveAttributeRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message ResolveAttributeResponse {
+  bool result = 1;
+}
+
+message SetToRequest {
+  int64 arg0 = 1;
+}
+
+message SetToResponse {
+}
+
+message OnTrimMemoryRequest {
+  int32 arg0 = 1;
+}
+
+message OnTrimMemoryResponse {
+}
+
+message OnConfigurationChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnConfigurationChangedResponse {
+}
+
+message OnLowMemoryRequest {
+}
+
+message OnLowMemoryResponse {
+}
+
+message NewLocusIdRequest {
+  string arg0 = 1;
+}
+
+message NewLocusIdResponse {
+  int64 result = 1;
+}
+
+message LocusIdDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message LocusIdEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetIdRequest {
+  int64 handle = 1;
+}
+
+message GetIdResponse {
+  string result = 1;
+}
+
+message LocusIdHashCodeRequest {
+  int64 handle = 1;
+}
+
+message LocusIdToStringRequest {
+  int64 handle = 1;
+}
+
+message LocusIdWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewIntentFilterRequest {
+}
+
+message NewIntentFilterResponse {
+  int64 result = 1;
+}
+
+message AddActionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message AddActionResponse {
+}
+
+message AddCategoryRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message AddCategoryResponse {
+}
+
+message AddDataAuthorityRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message AddDataAuthorityResponse {
+}
+
+message AddDataPathRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message AddDataPathResponse {
+}
+
+message AddDataSchemeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message AddDataSchemeResponse {
+}
+
+message AddDataSchemeSpecificPartRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message AddDataSchemeSpecificPartResponse {
+}
+
+message AddDataTypeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message AddDataTypeResponse {
+}
+
+message AddUriRelativeFilterGroupRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddUriRelativeFilterGroupResponse {
+}
+
+message ClearUriRelativeFilterGroupsRequest {
+  int64 handle = 1;
+}
+
+message ClearUriRelativeFilterGroupsResponse {
+}
+
+message CountActionsRequest {
+  int64 handle = 1;
+}
+
+message CountActionsResponse {
+  int32 result = 1;
+}
+
+message CountCategoriesRequest {
+  int64 handle = 1;
+}
+
+message CountCategoriesResponse {
+  int32 result = 1;
+}
+
+message CountDataAuthoritiesRequest {
+  int64 handle = 1;
+}
+
+message CountDataAuthoritiesResponse {
+  int32 result = 1;
+}
+
+message CountDataPathsRequest {
+  int64 handle = 1;
+}
+
+message CountDataPathsResponse {
+  int32 result = 1;
+}
+
+message CountDataSchemeSpecificPartsRequest {
+  int64 handle = 1;
+}
+
+message CountDataSchemeSpecificPartsResponse {
+  int32 result = 1;
+}
+
+message CountDataSchemesRequest {
+  int64 handle = 1;
+}
+
+message CountDataSchemesResponse {
+  int32 result = 1;
+}
+
+message CountDataTypesRequest {
+  int64 handle = 1;
+}
+
+message CountDataTypesResponse {
+  int32 result = 1;
+}
+
+message CountUriRelativeFilterGroupsRequest {
+  int64 handle = 1;
+}
+
+message CountUriRelativeFilterGroupsResponse {
+  int32 result = 1;
+}
+
+message IntentFilterDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message IntentFilterDumpRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message GetActionRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetActionResponse {
+  string result = 1;
+}
+
+message GetCategoryRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetCategoryResponse {
+  string result = 1;
+}
+
+message GetDataAuthorityRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetDataAuthorityResponse {
+  int64 result = 1;
+}
+
+message GetDataPathRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetDataPathResponse {
+  int64 result = 1;
+}
+
+message GetDataSchemeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetDataSchemeResponse {
+  string result = 1;
+}
+
+message GetDataSchemeSpecificPartRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetDataSchemeSpecificPartResponse {
+  int64 result = 1;
+}
+
+message GetDataTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetDataTypeResponse {
+  string result = 1;
+}
+
+message GetPriorityRequest {
+  int64 handle = 1;
+}
+
+message GetPriorityResponse {
+  int32 result = 1;
+}
+
+message GetUriRelativeFilterGroupRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetUriRelativeFilterGroupResponse {
+  int64 result = 1;
+}
+
+message HasActionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message HasActionResponse {
+  bool result = 1;
+}
+
+message HasCategoryRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message HasCategoryResponse {
+  bool result = 1;
+}
+
+message HasDataAuthorityRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message HasDataAuthorityResponse {
+  bool result = 1;
+}
+
+message HasDataPathRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message HasDataPathResponse {
+  bool result = 1;
+}
+
+message HasDataSchemeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message HasDataSchemeResponse {
+  bool result = 1;
+}
+
+message HasDataSchemeSpecificPartRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message HasDataSchemeSpecificPartResponse {
+  bool result = 1;
+}
+
+message HasDataTypeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message HasDataTypeResponse {
+  bool result = 1;
+}
+
+message MatchRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  bool arg2 = 4;
+  string arg3 = 5;
+}
+
+message MatchResponse {
+  int32 result = 1;
+}
+
+message MatchActionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message MatchActionResponse {
+  bool result = 1;
+}
+
+message MatchDataRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message MatchDataResponse {
+  int32 result = 1;
+}
+
+message MatchDataAuthorityRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message MatchDataAuthorityResponse {
+  int32 result = 1;
+}
+
+message ReadFromXmlRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ReadFromXmlResponse {
+}
+
+message SetPriorityRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetPriorityResponse {
+}
+
+message IntentFilterWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToXmlRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message WriteToXmlResponse {
+}
+
+message CreateRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message CreateResponse {
+  int64 result = 1;
+}
+
+message GetHostRequest {
+}
+
+message GetHostResponse {
+  string result = 1;
+}
+
+message GetPortRequest {
+}
+
+message GetPortResponse {
+  int32 result = 1;
+}
+
+message IntentFilterAuthorityEntryMatchRequest {
+  int64 arg0 = 1;
+}
+
+message NewOperationApplicationExceptionRequest {
+}
+
+message NewOperationApplicationExceptionResponse {
+  int64 result = 1;
+}
+
+message GetNumSuccessfulYieldPointsRequest {
+  int64 handle = 1;
+}
+
+message GetNumSuccessfulYieldPointsResponse {
+  int32 result = 1;
+}
+
+message NewEntityRequest {
+  int64 arg0 = 1;
+}
+
+message NewEntityResponse {
+  int64 result = 1;
+}
+
+message AddSubValueRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message AddSubValueResponse {
+}
+
+message GetEntityValuesRequest {
+  int64 handle = 1;
+}
+
+message GetEntityValuesResponse {
+  int64 result = 1;
+}
+
+message EntityToStringRequest {
+  int64 handle = 1;
+}
+
+message NewClipDescriptionRequest {
+  int64 arg0 = 1;
+}
+
+message NewClipDescriptionResponse {
+  int64 result = 1;
+}
+
+message ClipDescriptionDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message FilterMimeTypesRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message FilterMimeTypesResponse {
+  int64 result = 1;
+}
+
+message GetClassificationStatusRequest {
+  int64 handle = 1;
+}
+
+message GetClassificationStatusResponse {
+  int32 result = 1;
+}
+
+message GetConfidenceScoreRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetConfidenceScoreResponse {
+  float result = 1;
+}
+
+message GetExtrasRequest {
+  int64 handle = 1;
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
+}
+
+message GetLabelRequest {
+  int64 handle = 1;
+}
+
+message GetLabelResponse {
+  int64 result = 1;
+}
+
+message GetMimeTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetMimeTypeResponse {
+  string result = 1;
+}
+
+message GetMimeTypeCountRequest {
+  int64 handle = 1;
+}
+
+message GetMimeTypeCountResponse {
+  int32 result = 1;
+}
+
+message GetTimestampRequest {
+  int64 handle = 1;
+}
+
+message GetTimestampResponse {
+  int64 result = 1;
+}
+
+message HasMimeTypeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message HasMimeTypeResponse {
+  bool result = 1;
+}
+
+message IsStyledTextRequest {
+  int64 handle = 1;
+}
+
+message IsStyledTextResponse {
+  bool result = 1;
+}
+
+message ClipDescriptionSetExtrasRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ClipDescriptionSetExtrasResponse {
+}
+
+message ClipDescriptionToStringRequest {
+  int64 handle = 1;
+}
+
+message ClipDescriptionWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CompareMimeTypesRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message CompareMimeTypesResponse {
+  bool result = 1;
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message ResetRequest {
+}
+
+message ResetResponse {
+}
+
+message CancelRequest {
+}
+
+message CancelResponse {
+}
+
+message DismissRequest {
+}
+
+message DismissResponse {
+}
+
+message OnCancelRequest {
+  int64 arg0 = 1;
+}
+
+message OnCancelResponse {
+}
+
+message OnClickRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message OnClickResponse {
+}
+
+message OnDismissRequest {
+  int64 arg0 = 1;
+}
+
+message OnDismissResponse {
+}
+
+message OnKeyRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OnKeyResponse {
+  bool result = 1;
+}
+
+message DialogInterfaceOnMultiChoiceClickListenerOnClickRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message OnShowRequest {
+  int64 arg0 = 1;
+}
+
+message OnShowResponse {
+}
+
+message GetNextAttributionSourceRequest {
+}
+
+message GetNextAttributionSourceResponse {
+  int64 result = 1;
+}
+
+message ShouldRegisterAttributionSourceRequest {
+}
+
+message ShouldRegisterAttributionSourceResponse {
+  bool result = 1;
+}
+
+message SetNextAttributionSourceRequest {
+  int64 arg0 = 1;
+}
+
+message SetNextAttributionSourceResponse {
+  int64 result = 1;
+}
+
+message SetShouldRegisterAttributionSourceRequest {
+  bool arg0 = 1;
+}
+
+message SetShouldRegisterAttributionSourceResponse {
+  int64 result = 1;
+}
+
+message GetSyncContextBinderRequest {
+}
+
+message GetSyncContextBinderResponse {
+  int64 result = 1;
+}
+
+message OnFinishedRequest {
+  int64 arg0 = 1;
+}
+
+message OnFinishedResponse {
+}
+
+message NewLoaderRequest {
+  int64 arg0 = 1;
+}
+
+message NewLoaderResponse {
+  int64 result = 1;
+}
+
+message AbandonRequest {
+  int64 handle = 1;
+}
+
+message AbandonResponse {
+}
+
+message CancelLoadRequest {
+  int64 handle = 1;
+}
+
+message CancelLoadResponse {
+  bool result = 1;
+}
+
+message CommitContentChangedRequest {
+  int64 handle = 1;
+}
+
+message CommitContentChangedResponse {
+}
+
+message DeliverCancellationRequest {
+  int64 handle = 1;
+}
+
+message DeliverCancellationResponse {
+}
+
+message LoaderDumpRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message ForceLoadRequest {
+  int64 handle = 1;
+}
+
+message ForceLoadResponse {
+}
+
+message LoaderGetContextRequest {
+  int64 handle = 1;
+}
+
+message LoaderGetIdResponse {
+  int32 result = 1;
+}
+
+message IsAbandonedRequest {
+  int64 handle = 1;
+}
+
+message IsAbandonedResponse {
+  bool result = 1;
+}
+
+message IsResetRequest {
+  int64 handle = 1;
+}
+
+message IsResetResponse {
+  bool result = 1;
+}
+
+message IsStartedRequest {
+  int64 handle = 1;
+}
+
+message IsStartedResponse {
+  bool result = 1;
+}
+
+message OnContentChangedRequest {
+  int64 handle = 1;
+}
+
+message OnContentChangedResponse {
+}
+
+message LoaderResetRequest {
+  int64 handle = 1;
+}
+
+message RollbackContentChangedRequest {
+  int64 handle = 1;
+}
+
+message RollbackContentChangedResponse {
+}
+
+message StartLoadingRequest {
+  int64 handle = 1;
+}
+
+message StartLoadingResponse {
+}
+
+message StopLoadingRequest {
+  int64 handle = 1;
+}
+
+message StopLoadingResponse {
+}
+
+message TakeContentChangedRequest {
+  int64 handle = 1;
+}
+
+message TakeContentChangedResponse {
+  bool result = 1;
+}
+
+message LoaderToStringRequest {
+  int64 handle = 1;
+}
+
+message DeliverSelfNotificationsRequest {
+}
+
+message DeliverSelfNotificationsResponse {
+  bool result = 1;
+}
+
+message OnChangeRequest {
+  bool arg0 = 1;
+}
+
+message OnChangeResponse {
+}
+
+message NewUriRelativeFilterRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  string arg2 = 3;
+}
+
+message NewUriRelativeFilterResponse {
+  int64 result = 1;
+}
+
+message UriRelativeFilterEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetFilterRequest {
+  int64 handle = 1;
+}
+
+message GetFilterResponse {
+  string result = 1;
+}
+
+message GetPatternTypeRequest {
+  int64 handle = 1;
+}
+
+message GetPatternTypeResponse {
+  int32 result = 1;
+}
+
+message GetUriPartRequest {
+  int64 handle = 1;
+}
+
+message GetUriPartResponse {
+  int32 result = 1;
+}
+
+message UriRelativeFilterHashCodeRequest {
+  int64 handle = 1;
+}
+
+message UriRelativeFilterMatchDataRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UriRelativeFilterMatchDataResponse {
+  bool result = 1;
+}
+
+message UriRelativeFilterToStringRequest {
+  int64 handle = 1;
+}
+
+message BulkInsertRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message BulkInsertResponse {
+  int32 result = 1;
+}
+
+message Call3Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Call3Response {
+  int64 result = 1;
+}
+
+message Call4_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message Call4_1Response {
+  int64 result = 1;
+}
+
+message CanonicalizeRequest {
+  int64 arg0 = 1;
+}
+
+message CanonicalizeResponse {
+  int64 result = 1;
+}
+
+message Delete2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Delete2Response {
+  int32 result = 1;
+}
+
+message Delete3_1Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Delete3_1Response {
+  int32 result = 1;
+}
+
+message GetLocalContentProviderRequest {
+}
+
+message GetLocalContentProviderResponse {
+  int64 result = 1;
+}
+
+message GetStreamTypesRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetStreamTypesResponse {
+  int64 result = 1;
+}
+
+message GetTypeRequest {
+  int64 arg0 = 1;
+}
+
+message GetTypeResponse {
+  string result = 1;
+}
+
+message Insert2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Insert2Response {
+  int64 result = 1;
+}
+
+message Insert3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Insert3_1Response {
+  int64 result = 1;
+}
+
+message OpenAssetFile2Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message OpenAssetFile2Response {
+  int64 result = 1;
+}
+
+message OpenAssetFile3_1Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OpenAssetFile3_1Response {
+  int64 result = 1;
+}
+
+message OpenFile2Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message OpenFile2Response {
+  int64 result = 1;
+}
+
+message OpenFile3_1Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OpenFile3_1Response {
+  int64 result = 1;
+}
+
+message OpenTypedAssetFileRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message OpenTypedAssetFileResponse {
+  int64 result = 1;
+}
+
+message OpenTypedAssetFileDescriptor3Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OpenTypedAssetFileDescriptor3Response {
+  int64 result = 1;
+}
+
+message OpenTypedAssetFileDescriptor4_1Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message OpenTypedAssetFileDescriptor4_1Response {
+  int64 result = 1;
+}
+
+message Query4Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message Query4Response {
+  int64 result = 1;
+}
+
+message Query5_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+  string arg4 = 5;
+}
+
+message Query5_1Response {
+  int64 result = 1;
+}
+
+message Query6_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+  string arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message Query6_2Response {
+  int64 result = 1;
+}
+
+message RefreshRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message RefreshResponse {
+  bool result = 1;
+}
+
+message ReleaseRequest {
+}
+
+message ReleaseResponse {
+  bool result = 1;
+}
+
+message UncanonicalizeRequest {
+  int64 arg0 = 1;
+}
+
+message UncanonicalizeResponse {
+  int64 result = 1;
+}
+
+message Update3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Update3Response {
+  int32 result = 1;
+}
+
+message Update4_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message Update4_1Response {
+  int32 result = 1;
+}
+
+message NewSyncAdapterTypeRequest {
+  int64 arg0 = 1;
+}
+
+message NewSyncAdapterTypeResponse {
+  int64 result = 1;
+}
+
+message AllowParallelSyncsRequest {
+  int64 handle = 1;
+}
+
+message AllowParallelSyncsResponse {
+  bool result = 1;
+}
+
+message SyncAdapterTypeDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message SyncAdapterTypeEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetSettingsActivityRequest {
+  int64 handle = 1;
+}
+
+message GetSettingsActivityResponse {
+  string result = 1;
+}
+
+message SyncAdapterTypeHashCodeRequest {
+  int64 handle = 1;
+}
+
+message IsAlwaysSyncableRequest {
+  int64 handle = 1;
+}
+
+message IsAlwaysSyncableResponse {
+  bool result = 1;
+}
+
+message IsUserVisibleRequest {
+  int64 handle = 1;
+}
+
+message IsUserVisibleResponse {
+  bool result = 1;
+}
+
+message SupportsUploadingRequest {
+  int64 handle = 1;
+}
+
+message SupportsUploadingResponse {
+  bool result = 1;
+}
+
+message SyncAdapterTypeToStringRequest {
+  int64 handle = 1;
+}
+
+message SyncAdapterTypeWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewKeyRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message NewKeyResponse {
+  int64 result = 1;
+}
+
+message NewRestrictionEntryRequest {
+  int64 arg0 = 1;
+}
+
+message NewRestrictionEntryResponse {
+  int64 result = 1;
+}
+
+message RestrictionEntryDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message RestrictionEntryEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetAllSelectedStringsRequest {
+  int64 handle = 1;
+}
+
+message GetAllSelectedStringsResponse {
+  int64 result = 1;
+}
+
+message GetChoiceEntriesRequest {
+  int64 handle = 1;
+}
+
+message GetChoiceEntriesResponse {
+  int64 result = 1;
+}
+
+message GetChoiceValuesRequest {
+  int64 handle = 1;
+}
+
+message GetChoiceValuesResponse {
+  int64 result = 1;
+}
+
+message GetDescriptionRequest {
+  int64 handle = 1;
+}
+
+message GetDescriptionResponse {
+  string result = 1;
+}
+
+message GetIntValueRequest {
+  int64 handle = 1;
+}
+
+message GetIntValueResponse {
+  int32 result = 1;
+}
+
+message GetKeyRequest {
+  int64 handle = 1;
+}
+
+message GetKeyResponse {
+  string result = 1;
+}
+
+message GetRestrictionsRequest {
+  int64 handle = 1;
+}
+
+message GetRestrictionsResponse {
+  int64 result = 1;
+}
+
+message GetSelectedStateRequest {
+  int64 handle = 1;
+}
+
+message GetSelectedStateResponse {
+  bool result = 1;
+}
+
+message GetSelectedStringRequest {
+  int64 handle = 1;
+}
+
+message GetSelectedStringResponse {
+  string result = 1;
+}
+
+message GetTitleRequest {
+  int64 handle = 1;
+}
+
+message GetTitleResponse {
+  string result = 1;
+}
+
+message RestrictionEntryGetTypeRequest {
+  int64 handle = 1;
+}
+
+message RestrictionEntryGetTypeResponse {
+  int32 result = 1;
+}
+
+message RestrictionEntryHashCodeRequest {
+  int64 handle = 1;
+}
+
+message SetAllSelectedStringsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetAllSelectedStringsResponse {
+}
+
+message SetChoiceEntries2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetChoiceEntries2Response {
+}
+
+message SetChoiceEntries1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetChoiceEntries1_1Response {
+}
+
+message SetChoiceValues2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetChoiceValues2Response {
+}
+
+message SetChoiceValues1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetChoiceValues1_1Response {
+}
+
+message SetDescriptionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetDescriptionResponse {
+}
+
+message SetIntValueRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetIntValueResponse {
+}
+
+message SetRestrictionsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetRestrictionsResponse {
+}
+
+message SetSelectedStateRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetSelectedStateResponse {
+}
+
+message SetSelectedStringRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetSelectedStringResponse {
+}
+
+message SetTitleRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetTitleResponse {
+}
+
+message SetTypeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetTypeResponse {
+}
+
+message RestrictionEntryToStringRequest {
+  int64 handle = 1;
+}
+
+message RestrictionEntryWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CreateBundleArrayEntryRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message CreateBundleArrayEntryResponse {
+  int64 result = 1;
+}
+
+message CreateBundleEntryRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message CreateBundleEntryResponse {
+  int64 result = 1;
+}
+
+message NewContextWrapperRequest {
+  int64 arg0 = 1;
+}
+
+message NewContextWrapperResponse {
+  int64 result = 1;
+}
+
+message BindIsolatedServiceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  string arg2 = 4;
+  int64 arg3 = 5;
+  int64 arg4 = 6;
+}
+
+message BindIsolatedServiceResponse {
+  bool result = 1;
+}
+
+message BindService4Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message BindService4Response {
+  bool result = 1;
+}
+
+message BindService3_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message BindService3_1Response {
+  bool result = 1;
+}
+
+message BindService3_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message BindService3_2Response {
+  bool result = 1;
+}
+
+message BindService4_3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message BindService4_3Response {
+  bool result = 1;
+}
+
+message BindServiceAsUser4Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message BindServiceAsUser4Response {
+  bool result = 1;
+}
+
+message BindServiceAsUser4_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message BindServiceAsUser4_1Response {
+  bool result = 1;
+}
+
+message CheckCallingOrSelfPermissionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message CheckCallingOrSelfPermissionResponse {
+  int32 result = 1;
+}
+
+message CheckCallingOrSelfUriPermissionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CheckCallingOrSelfUriPermissionResponse {
+  int32 result = 1;
+}
+
+message CheckCallingPermissionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message CheckCallingPermissionResponse {
+  int32 result = 1;
+}
+
+message CheckCallingUriPermissionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CheckCallingUriPermissionResponse {
+  int32 result = 1;
+}
+
+message CheckContentUriPermissionFullRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message CheckContentUriPermissionFullResponse {
+  int32 result = 1;
+}
+
+message CheckPermissionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message CheckPermissionResponse {
+  int32 result = 1;
+}
+
+message CheckSelfPermissionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message CheckSelfPermissionResponse {
+  int32 result = 1;
+}
+
+message CheckUriPermission4Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+}
+
+message CheckUriPermission4Response {
+  int32 result = 1;
+}
+
+message CheckUriPermission6_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  string arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+  int32 arg5 = 7;
+}
+
+message CheckUriPermission6_1Response {
+  int32 result = 1;
+}
+
+message ClearWallpaperRequest {
+  int64 handle = 1;
+}
+
+message ClearWallpaperResponse {
+}
+
+message CreateAttributionContextRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message CreateAttributionContextResponse {
+  int64 result = 1;
+}
+
+message CreateConfigurationContextRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CreateConfigurationContextResponse {
+  int64 result = 1;
+}
+
+message CreateContextRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CreateContextResponse {
+  int64 result = 1;
+}
+
+message CreateContextForSplitRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message CreateContextForSplitResponse {
+  int64 result = 1;
+}
+
+message CreateDeviceContextRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message CreateDeviceContextResponse {
+  int64 result = 1;
+}
+
+message CreateDeviceProtectedStorageContextRequest {
+  int64 handle = 1;
+}
+
+message CreateDeviceProtectedStorageContextResponse {
+  int64 result = 1;
+}
+
+message CreateDisplayContextRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CreateDisplayContextResponse {
+  int64 result = 1;
+}
+
+message CreatePackageContextRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message CreatePackageContextResponse {
+  int64 result = 1;
+}
+
+message CreateWindowContext3Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message CreateWindowContext3Response {
+  int64 result = 1;
+}
+
+message CreateWindowContext2_1Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message CreateWindowContext2_1Response {
+  int64 result = 1;
+}
+
+message DatabaseListRequest {
+  int64 handle = 1;
+}
+
+message DatabaseListResponse {
+  int64 result = 1;
+}
+
+message DeleteDatabaseRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message DeleteDatabaseResponse {
+  bool result = 1;
+}
+
+message DeleteFileRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message DeleteFileResponse {
+  bool result = 1;
+}
+
+message DeleteSharedPreferencesRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message DeleteSharedPreferencesResponse {
+  bool result = 1;
+}
+
+message EnforceCallingOrSelfPermissionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message EnforceCallingOrSelfPermissionResponse {
+}
+
+message EnforceCallingOrSelfUriPermissionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  string arg2 = 4;
+}
+
+message EnforceCallingOrSelfUriPermissionResponse {
+}
+
+message EnforceCallingPermissionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message EnforceCallingPermissionResponse {
+}
+
+message EnforceCallingUriPermissionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  string arg2 = 4;
+}
+
+message EnforceCallingUriPermissionResponse {
+}
+
+message EnforcePermissionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  string arg3 = 5;
+}
+
+message EnforcePermissionResponse {
+}
+
+message EnforceUriPermission5Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  string arg4 = 6;
+}
+
+message EnforceUriPermission5Response {
+}
+
+message EnforceUriPermission7_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  string arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+  int32 arg5 = 7;
+  string arg6 = 8;
+}
+
+message EnforceUriPermission7_1Response {
+}
+
+message FileListRequest {
+  int64 handle = 1;
+}
+
+message FileListResponse {
+  int64 result = 1;
+}
+
+message GetApplicationContextRequest {
+  int64 handle = 1;
+}
+
+message GetApplicationContextResponse {
+  int64 result = 1;
+}
+
+message GetApplicationInfoRequest {
+  int64 handle = 1;
+}
+
+message GetApplicationInfoResponse {
+  int64 result = 1;
+}
+
+message GetAttributionSourceRequest {
+  int64 handle = 1;
+}
+
+message GetAttributionSourceResponse {
+  int64 result = 1;
+}
+
+message ContextWrapperGetAttributionTagRequest {
+  int64 handle = 1;
+}
+
+message GetBaseContextRequest {
+  int64 handle = 1;
+}
+
+message GetBaseContextResponse {
+  int64 result = 1;
+}
+
+message GetCacheDirRequest {
+  int64 handle = 1;
+}
+
+message GetCacheDirResponse {
+  int64 result = 1;
+}
+
+message GetClassLoaderRequest {
+  int64 handle = 1;
+}
+
+message GetClassLoaderResponse {
+  int64 result = 1;
+}
+
+message GetCodeCacheDirRequest {
+  int64 handle = 1;
+}
+
+message GetCodeCacheDirResponse {
+  int64 result = 1;
+}
+
+message GetContentResolverRequest {
+  int64 handle = 1;
+}
+
+message GetContentResolverResponse {
+  int64 result = 1;
+}
+
+message GetDataDirRequest {
+  int64 handle = 1;
+}
+
+message GetDataDirResponse {
+  int64 result = 1;
+}
+
+message GetDatabasePathRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetDatabasePathResponse {
+  int64 result = 1;
+}
+
+message ContextWrapperGetDeviceIdRequest {
+  int64 handle = 1;
+}
+
+message GetDirRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetDirResponse {
+  int64 result = 1;
+}
+
+message GetDisplayRequest {
+  int64 handle = 1;
+}
+
+message GetDisplayResponse {
+  int64 result = 1;
+}
+
+message GetExternalCacheDirRequest {
+  int64 handle = 1;
+}
+
+message GetExternalCacheDirResponse {
+  int64 result = 1;
+}
+
+message GetExternalCacheDirsRequest {
+  int64 handle = 1;
+}
+
+message GetExternalCacheDirsResponse {
+  int64 result = 1;
+}
+
+message GetExternalFilesDirRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetExternalFilesDirResponse {
+  int64 result = 1;
+}
+
+message GetExternalFilesDirsRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetExternalFilesDirsResponse {
+  int64 result = 1;
+}
+
+message GetExternalMediaDirsRequest {
+  int64 handle = 1;
+}
+
+message GetExternalMediaDirsResponse {
+  int64 result = 1;
+}
+
+message GetFileStreamPathRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetFileStreamPathResponse {
+  int64 result = 1;
+}
+
+message GetFilesDirRequest {
+  int64 handle = 1;
+}
+
+message GetFilesDirResponse {
+  int64 result = 1;
+}
+
+message GetMainExecutorRequest {
+  int64 handle = 1;
+}
+
+message GetMainExecutorResponse {
+  int64 result = 1;
+}
+
+message GetMainLooperRequest {
+  int64 handle = 1;
+}
+
+message GetMainLooperResponse {
+  int64 result = 1;
+}
+
+message GetNoBackupFilesDirRequest {
+  int64 handle = 1;
+}
+
+message GetNoBackupFilesDirResponse {
+  int64 result = 1;
+}
+
+message GetObbDirRequest {
+  int64 handle = 1;
+}
+
+message GetObbDirResponse {
+  int64 result = 1;
+}
+
+message GetObbDirsRequest {
+  int64 handle = 1;
+}
+
+message GetObbDirsResponse {
+  int64 result = 1;
+}
+
+message GetOpPackageNameRequest {
+  int64 handle = 1;
+}
+
+message GetOpPackageNameResponse {
+  string result = 1;
+}
+
+message GetPackageCodePathRequest {
+  int64 handle = 1;
+}
+
+message GetPackageCodePathResponse {
+  string result = 1;
+}
+
+message GetPackageManagerRequest {
+  int64 handle = 1;
+}
+
+message GetPackageManagerResponse {
+  int64 result = 1;
+}
+
+message ContextWrapperGetPackageNameRequest {
+  int64 handle = 1;
+}
+
+message GetPackageResourcePathRequest {
+  int64 handle = 1;
+}
+
+message GetPackageResourcePathResponse {
+  string result = 1;
+}
+
+message GetParamsRequest {
+  int64 handle = 1;
+}
+
+message GetParamsResponse {
+  int64 result = 1;
+}
+
+message ContextWrapperGetResourcesRequest {
+  int64 handle = 1;
+}
+
+message GetSharedPreferencesRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message GetSharedPreferencesResponse {
+  int64 result = 1;
+}
+
+message GetSystemServiceRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetSystemServiceResponse {
+  int64 result = 1;
+}
+
+message GetThemeRequest {
+  int64 handle = 1;
+}
+
+message GetThemeResponse {
+  int64 result = 1;
+}
+
+message GetWallpaperRequest {
+  int64 handle = 1;
+}
+
+message GetWallpaperResponse {
+  int64 result = 1;
+}
+
+message GetWallpaperDesiredMinimumHeightRequest {
+  int64 handle = 1;
+}
+
+message GetWallpaperDesiredMinimumHeightResponse {
+  int32 result = 1;
+}
+
+message GetWallpaperDesiredMinimumWidthRequest {
+  int64 handle = 1;
+}
+
+message GetWallpaperDesiredMinimumWidthResponse {
+  int32 result = 1;
+}
+
+message GrantUriPermissionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message GrantUriPermissionResponse {
+}
+
+message IsDeviceProtectedStorageRequest {
+  int64 handle = 1;
+}
+
+message IsDeviceProtectedStorageResponse {
+  bool result = 1;
+}
+
+message IsRestrictedRequest {
+  int64 handle = 1;
+}
+
+message IsRestrictedResponse {
+  bool result = 1;
+}
+
+message IsUiContextRequest {
+  int64 handle = 1;
+}
+
+message IsUiContextResponse {
+  bool result = 1;
+}
+
+message MoveDatabaseFromRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message MoveDatabaseFromResponse {
+  bool result = 1;
+}
+
+message MoveSharedPreferencesFromRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message MoveSharedPreferencesFromResponse {
+  bool result = 1;
+}
+
+message OpenFileInputRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message OpenFileInputResponse {
+  int64 result = 1;
+}
+
+message OpenFileOutputRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OpenFileOutputResponse {
+  int64 result = 1;
+}
+
+message OpenOrCreateDatabaseRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message OpenOrCreateDatabaseResponse {
+  int64 result = 1;
+}
+
+message PeekWallpaperRequest {
+  int64 handle = 1;
+}
+
+message PeekWallpaperResponse {
+  int64 result = 1;
+}
+
+message RegisterComponentCallbacksRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RegisterComponentCallbacksResponse {
+}
+
+message RegisterDeviceIdChangeListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message RegisterDeviceIdChangeListenerResponse {
+}
+
+message RegisterReceiver2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message RegisterReceiver2Response {
+  int64 result = 1;
+}
+
+message RegisterReceiver3_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message RegisterReceiver3_1Response {
+  int64 result = 1;
+}
+
+message RemoveStickyBroadcastRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveStickyBroadcastResponse {
+}
+
+message RemoveStickyBroadcastAsUserRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message RemoveStickyBroadcastAsUserResponse {
+}
+
+message RevokeUriPermission2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message RevokeUriPermission2Response {
+}
+
+message RevokeUriPermission3_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message RevokeUriPermission3_1Response {
+}
+
+message SendBroadcast1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SendBroadcast1Response {
+}
+
+message SendBroadcast2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message SendBroadcast2_1Response {
+}
+
+message SendBroadcast3_2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message SendBroadcast3_2Response {
+}
+
+message SendBroadcastAsUser2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SendBroadcastAsUser2Response {
+}
+
+message SendBroadcastAsUser3_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  string arg2 = 4;
+}
+
+message SendBroadcastAsUser3_1Response {
+}
+
+message SendOrderedBroadcast2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message SendOrderedBroadcast2Response {
+}
+
+message SendOrderedBroadcast3_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message SendOrderedBroadcast3_1Response {
+}
+
+message SendStickyBroadcast1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SendStickyBroadcast1Response {
+}
+
+message SendStickyBroadcast2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SendStickyBroadcast2_1Response {
+}
+
+message SendStickyBroadcastAsUserRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SendStickyBroadcastAsUserResponse {
+}
+
+message SetThemeRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetThemeResponse {
+}
+
+message SetWallpaper1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetWallpaper1Response {
+}
+
+message SetWallpaper1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetWallpaper1_1Response {
+}
+
+message StartActivities1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message StartActivities1Response {
+}
+
+message StartActivities2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message StartActivities2_1Response {
+}
+
+message StartActivity1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message StartActivity1Response {
+}
+
+message StartActivity2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message StartActivity2_1Response {
+}
+
+message StartForegroundServiceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message StartForegroundServiceResponse {
+  int64 result = 1;
+}
+
+message StartInstrumentationRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message StartInstrumentationResponse {
+  bool result = 1;
+}
+
+message StartIntentSender5Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+}
+
+message StartIntentSender5Response {
+}
+
+message StartIntentSender6_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+  int64 arg5 = 7;
+}
+
+message StartIntentSender6_1Response {
+}
+
+message StartServiceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message StartServiceResponse {
+  int64 result = 1;
+}
+
+message StopServiceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message StopServiceResponse {
+  bool result = 1;
+}
+
+message UnbindServiceRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UnbindServiceResponse {
+}
+
+message UnregisterComponentCallbacksRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UnregisterComponentCallbacksResponse {
+}
+
+message UnregisterDeviceIdChangeListenerRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UnregisterDeviceIdChangeListenerResponse {
+}
+
+message UnregisterReceiverRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UnregisterReceiverResponse {
+}
+
+message UpdateServiceGroupRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message UpdateServiceGroupResponse {
+}
+
+message NewValuesRequest {
+}
+
+message NewValuesResponse {
+  int64 result = 1;
+}
+
+message ContainsKeyRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message ContainsKeyResponse {
+  bool result = 1;
+}
+
+message ValuesDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message ValuesEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetResponse {
+  int64 result = 1;
+}
+
+message GetAsBooleanRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetAsBooleanResponse {
+  int64 result = 1;
+}
+
+message GetAsByteRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetAsByteResponse {
+  int64 result = 1;
+}
+
+message GetAsByteArrayRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetAsByteArrayResponse {
+  int64 result = 1;
+}
+
+message GetAsDoubleRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetAsDoubleResponse {
+  int64 result = 1;
+}
+
+message GetAsFloatRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetAsFloatResponse {
+  int64 result = 1;
+}
+
+message GetAsIntegerRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetAsIntegerResponse {
+  int64 result = 1;
+}
+
+message GetAsLongRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetAsLongResponse {
+  int64 result = 1;
+}
+
+message GetAsShortRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetAsShortResponse {
+  int64 result = 1;
+}
+
+message GetAsStringRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message GetAsStringResponse {
+  string result = 1;
+}
+
+message ValuesHashCodeRequest {
+  int64 handle = 1;
+}
+
+message IsEmptyRequest {
+  int64 handle = 1;
+}
+
+message IsEmptyResponse {
+  bool result = 1;
+}
+
+message Put2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Put2Response {
+}
+
+message Put2_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Put2_1Response {
+}
+
+message Put2_2Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Put2_2Response {
+}
+
+message Put2_3Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Put2_3Response {
+}
+
+message Put2_4Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Put2_4Response {
+}
+
+message Put2_5Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Put2_5Response {
+}
+
+message Put2_6Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Put2_6Response {
+}
+
+message Put2_7Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message Put2_7Response {
+}
+
+message Put2_8Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message Put2_8Response {
+}
+
+message PutAllRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message PutAllResponse {
+}
+
+message PutNullRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message PutNullResponse {
+}
+
+message RemoveRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message RemoveResponse {
+}
+
+message SizeRequest {
+  int64 handle = 1;
+}
+
+message SizeResponse {
+  int32 result = 1;
+}
+
+message ValuesToStringRequest {
+  int64 handle = 1;
+}
+
+message ValuesWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message ApplyRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message ApplyResponse {
+  int64 result = 1;
+}
+
+message IsAssertQueryRequest {
+}
+
+message IsAssertQueryResponse {
+  bool result = 1;
+}
+
+message IsCallRequest {
+}
+
+message IsCallResponse {
+  bool result = 1;
+}
+
+message IsDeleteRequest {
+}
+
+message IsDeleteResponse {
+  bool result = 1;
+}
+
+message IsExceptionAllowedRequest {
+}
+
+message IsExceptionAllowedResponse {
+  bool result = 1;
+}
+
+message IsInsertRequest {
+}
+
+message IsInsertResponse {
+  bool result = 1;
+}
+
+message IsReadOperationRequest {
+}
+
+message IsReadOperationResponse {
+  bool result = 1;
+}
+
+message IsUpdateRequest {
+}
+
+message IsUpdateResponse {
+  bool result = 1;
+}
+
+message IsWriteOperationRequest {
+}
+
+message IsWriteOperationResponse {
+  bool result = 1;
+}
+
+message IsYieldAllowedRequest {
+}
+
+message IsYieldAllowedResponse {
+  bool result = 1;
+}
+
+message ResolveExtrasBackReferencesRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ResolveExtrasBackReferencesResponse {
+  int64 result = 1;
+}
+
+message ResolveSelectionArgsBackReferencesRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ResolveSelectionArgsBackReferencesResponse {
+  int64 result = 1;
+}
+
+message ResolveValueBackReferencesRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message ResolveValueBackReferencesResponse {
+  int64 result = 1;
+}
+
+message NewAssertQueryRequest {
+  int64 arg0 = 1;
+}
+
+message NewAssertQueryResponse {
+  int64 result = 1;
+}
+
+message NewCallRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+}
+
+message NewCallResponse {
+  int64 result = 1;
+}
+
+message NewDeleteRequest {
+  int64 arg0 = 1;
+}
+
+message NewDeleteResponse {
+  int64 result = 1;
+}
+
+message NewInsertRequest {
+  int64 arg0 = 1;
+}
+
+message NewInsertResponse {
+  int64 result = 1;
+}
+
+message NewUpdateRequest {
+  int64 arg0 = 1;
+}
+
+message NewUpdateResponse {
+  int64 result = 1;
+}
+
+message WithExceptionAllowedRequest {
+  bool arg0 = 1;
+}
+
+message WithExceptionAllowedResponse {
+  int64 result = 1;
+}
+
+message WithExpectedCountRequest {
+  int32 arg0 = 1;
+}
+
+message WithExpectedCountResponse {
+  int64 result = 1;
+}
+
+message WithExtraRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message WithExtraResponse {
+  int64 result = 1;
+}
+
+message WithExtraBackReference2Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WithExtraBackReference2Response {
+  int64 result = 1;
+}
+
+message WithExtraBackReference3_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  string arg2 = 3;
+}
+
+message WithExtraBackReference3_1Response {
+  int64 result = 1;
+}
+
+message WithExtrasRequest {
+  int64 arg0 = 1;
+}
+
+message WithExtrasResponse {
+  int64 result = 1;
+}
+
+message WithSelectionRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message WithSelectionResponse {
+  int64 result = 1;
+}
+
+message WithSelectionBackReference2Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WithSelectionBackReference2Response {
+  int64 result = 1;
+}
+
+message WithSelectionBackReference3_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  string arg2 = 3;
+}
+
+message WithSelectionBackReference3_1Response {
+  int64 result = 1;
+}
+
+message WithValueRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message WithValueResponse {
+  int64 result = 1;
+}
+
+message WithValueBackReference2Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WithValueBackReference2Response {
+  int64 result = 1;
+}
+
+message WithValueBackReference3_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  string arg2 = 3;
+}
+
+message WithValueBackReference3_1Response {
+  int64 result = 1;
+}
+
+message WithValueBackReferencesRequest {
+  int64 arg0 = 1;
+}
+
+message WithValueBackReferencesResponse {
+  int64 result = 1;
+}
+
+message WithValuesRequest {
+  int64 arg0 = 1;
+}
+
+message WithValuesResponse {
+  int64 result = 1;
+}
+
+message WithYieldAllowedRequest {
+  bool arg0 = 1;
+}
+
+message WithYieldAllowedResponse {
+  int64 result = 1;
+}
+
+message NewUriMatcherRequest {
+  int32 arg0 = 1;
+}
+
+message NewUriMatcherResponse {
+  int64 result = 1;
+}
+
+message AddURIRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+  int32 arg2 = 4;
+}
+
+message AddURIResponse {
+}
+
+message UriMatcherMatchRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message NewPeriodicSyncRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NewPeriodicSyncResponse {
+  int64 result = 1;
+}
+
+message PeriodicSyncDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message PeriodicSyncEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message PeriodicSyncToStringRequest {
+  int64 handle = 1;
+}
+
+message PeriodicSyncWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewUriRelativeFilterGroupRequest {
+  int32 arg0 = 1;
+}
+
+message NewUriRelativeFilterGroupResponse {
+  int64 result = 1;
+}
+
+message AddUriRelativeFilterRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message AddUriRelativeFilterResponse {
+}
+
+message UriRelativeFilterGroupEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UriRelativeFilterGroupGetActionRequest {
+  int64 handle = 1;
+}
+
+message UriRelativeFilterGroupGetActionResponse {
+  int32 result = 1;
+}
+
+message UriRelativeFilterGroupHashCodeRequest {
+  int64 handle = 1;
+}
+
+message UriRelativeFilterGroupMatchDataRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message UriRelativeFilterGroupMatchDataResponse {
+  bool result = 1;
+}
+
+message UriRelativeFilterGroupToStringRequest {
+  int64 handle = 1;
+}
+
+message NewUrisRequest {
+}
+
+message NewUrisResponse {
+  int64 result = 1;
+}
+
+message AppendIdRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message AppendIdResponse {
+  int64 result = 1;
+}
+
+message ParseIdRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ParseIdResponse {
+  int64 result = 1;
+}
+
+message RemoveIdRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message RemoveIdResponse {
+  int64 result = 1;
+}
+
+message WithAppendedIdRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message WithAppendedIdResponse {
+  int64 result = 1;
+}
+
+message NewCursorLoaderRequest {
+  int64 arg0 = 1;
+}
+
+message NewCursorLoaderResponse {
+  int64 result = 1;
+}
+
+message CursorLoaderCancelLoadInBackgroundRequest {
+  int64 handle = 1;
+}
+
+message DeliverResult1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DeliverResult1Response {
+}
+
+message CursorLoaderDumpRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message GetProjectionRequest {
+  int64 handle = 1;
+}
+
+message GetProjectionResponse {
+  int64 result = 1;
+}
+
+message GetSelectionRequest {
+  int64 handle = 1;
+}
+
+message GetSelectionResponse {
+  string result = 1;
+}
+
+message GetSelectionArgsRequest {
+  int64 handle = 1;
+}
+
+message GetSelectionArgsResponse {
+  int64 result = 1;
+}
+
+message GetSortOrderRequest {
+  int64 handle = 1;
+}
+
+message GetSortOrderResponse {
+  string result = 1;
+}
+
+message CursorLoaderGetUriRequest {
+  int64 handle = 1;
+}
+
+message LoadInBackground0Request {
+  int64 handle = 1;
+}
+
+message LoadInBackground0Response {
+  int64 result = 1;
+}
+
+message OnCanceled1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnCanceled1Response {
+}
+
+message SetProjectionRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetProjectionResponse {
+}
+
+message SetSelectionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetSelectionResponse {
+}
+
+message SetSelectionArgsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetSelectionArgsResponse {
+}
+
+message SetSortOrderRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetSortOrderResponse {
+}
+
+message SetUriRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetUriResponse {
+}
+
+message OnCanceled1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnCanceled1_1Response {
+}
+
+message LoadInBackground0_1Request {
+  int64 handle = 1;
+}
+
+message LoadInBackground0_1Response {
+  int64 result = 1;
+}
+
+message DeliverResult1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DeliverResult1_1Response {
+}
+
+message OnServiceConnectedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnServiceConnectedResponse {
+}
+
+message OnServiceDisconnectedRequest {
+  int64 arg0 = 1;
+}
+
+message OnServiceDisconnectedResponse {
+}
+
+message NewSearchRecentSuggestionsProviderRequest {
+}
+
+message NewSearchRecentSuggestionsProviderResponse {
+  int64 result = 1;
+}
+
+message DeleteRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message DeleteResponse {
+  int32 result = 1;
+}
+
+message SearchRecentSuggestionsProviderGetTypeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message InsertRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message InsertResponse {
+  int64 result = 1;
+}
+
+message OnCreateRequest {
+  int64 handle = 1;
+}
+
+message OnCreateResponse {
+  bool result = 1;
+}
+
+message QueryRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  string arg2 = 4;
+  int64 arg3 = 5;
+  string arg4 = 6;
+}
+
+message QueryResponse {
+  int64 result = 1;
+}
+
+message UpdateRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+  string arg2 = 4;
+  int64 arg3 = 5;
+}
+
+message UpdateResponse {
+  int32 result = 1;
+}
+
+message NewComponentNameRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewComponentNameResponse {
+  int64 result = 1;
+}
+
+message Clone0Request {
+  int64 handle = 1;
+}
+
+message Clone0Response {
+  int64 result = 1;
+}
+
+message CompareTo1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CompareTo1Response {
+  int32 result = 1;
+}
+
+message ComponentNameDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message ComponentNameEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message FlattenToShortStringRequest {
+  int64 handle = 1;
+}
+
+message FlattenToShortStringResponse {
+  string result = 1;
+}
+
+message FlattenToStringRequest {
+  int64 handle = 1;
+}
+
+message FlattenToStringResponse {
+  string result = 1;
+}
+
+message GetClassNameRequest {
+  int64 handle = 1;
+}
+
+message GetClassNameResponse {
+  string result = 1;
+}
+
+message ComponentNameGetPackageNameRequest {
+  int64 handle = 1;
+}
+
+message GetShortClassNameRequest {
+  int64 handle = 1;
+}
+
+message GetShortClassNameResponse {
+  string result = 1;
+}
+
+message ComponentNameHashCodeRequest {
+  int64 handle = 1;
+}
+
+message ToShortStringRequest {
+  int64 handle = 1;
+}
+
+message ToShortStringResponse {
+  string result = 1;
+}
+
+message ComponentNameToStringRequest {
+  int64 handle = 1;
+}
+
+message WriteToParcel2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcel2_1Response {
+}
+
+message Clone0_1Request {
+  int64 handle = 1;
+}
+
+message Clone0_1Response {
+  int64 result = 1;
+}
+
+message CompareTo1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message CompareTo1_1Response {
+  int32 result = 1;
+}
+
+message CreateRelative2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  string arg1 = 3;
+}
+
+message CreateRelative2Response {
+  int64 result = 1;
+}
+
+message CreateRelative2_1Request {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message CreateRelative2_1Response {
+  int64 result = 1;
+}
+
+message ReadFromParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message ReadFromParcelResponse {
+  int64 result = 1;
+}
+
+message UnflattenFromStringRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message UnflattenFromStringResponse {
+  int64 result = 1;
+}
+
+message WriteToParcel2Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message WriteToParcel2Response {
+}
+
+message NewProviderResultRequest {
+  int64 arg0 = 1;
+}
+
+message NewProviderResultResponse {
+  int64 result = 1;
+}
+
+message ProviderResultDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message ProviderResultToStringRequest {
+  int64 handle = 1;
+}
+
+message ProviderResultWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message AttachInfoRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AttachInfoResponse {
+}
+
+message ClearCallingIdentityRequest {
+}
+
+message ClearCallingIdentityResponse {
+  int64 result = 1;
+}
+
+message ProviderDumpRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message GetCallingAttributionSourceRequest {
+}
+
+message GetCallingAttributionSourceResponse {
+  int64 result = 1;
+}
+
+message GetCallingAttributionTagRequest {
+}
+
+message GetCallingAttributionTagResponse {
+  string result = 1;
+}
+
+message GetCallingPackageRequest {
+}
+
+message GetCallingPackageResponse {
+  string result = 1;
+}
+
+message GetCallingPackageUncheckedRequest {
+}
+
+message GetCallingPackageUncheckedResponse {
+  string result = 1;
+}
+
+message GetPathPermissionsRequest {
+}
+
+message GetPathPermissionsResponse {
+  int64 result = 1;
+}
+
+message GetReadPermissionRequest {
+}
+
+message GetReadPermissionResponse {
+  string result = 1;
+}
+
+message GetTypeAnonymousRequest {
+  int64 arg0 = 1;
+}
+
+message GetTypeAnonymousResponse {
+  string result = 1;
+}
+
+message GetWritePermissionRequest {
+}
+
+message GetWritePermissionResponse {
+  string result = 1;
+}
+
+message OnCallingPackageChangedRequest {
+}
+
+message OnCallingPackageChangedResponse {
+}
+
+message ProviderOnCreateRequest {
+}
+
+message OpenTypedAssetFile3Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OpenTypedAssetFile3Response {
+  int64 result = 1;
+}
+
+message OpenTypedAssetFile4_1Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message OpenTypedAssetFile4_1Response {
+  int64 result = 1;
+}
+
+message RequireContextRequest {
+}
+
+message RequireContextResponse {
+  int64 result = 1;
+}
+
+message RestoreCallingIdentityRequest {
+  int64 arg0 = 1;
+}
+
+message RestoreCallingIdentityResponse {
+}
+
+message ShutdownRequest {
+}
+
+message ShutdownResponse {
+}
+
+message NewPdfPageImageContentRequest {
+  string arg0 = 1;
+}
+
+message NewPdfPageImageContentResponse {
+  int64 result = 1;
+}
+
+message PdfPageImageContentDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message GetAltTextRequest {
+  int64 handle = 1;
+}
+
+message GetAltTextResponse {
+  string result = 1;
+}
+
+message PdfPageImageContentWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewPdfPageLinkContentRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewPdfPageLinkContentResponse {
+  int64 result = 1;
+}
+
+message PdfPageLinkContentGetUriRequest {
+  int64 handle = 1;
+}
+
+message NewPdfPageGotoLinkContentRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewPdfPageGotoLinkContentResponse {
+  int64 result = 1;
+}
+
+message GetDestinationRequest {
+  int64 handle = 1;
+}
+
+message GetDestinationResponse {
+  int64 result = 1;
+}
+
+message PdfPageGotoLinkContentDestinationDescribeContentsRequest {
+}
+
+message GetPageNumberRequest {
+}
+
+message GetPageNumberResponse {
+  int32 result = 1;
+}
+
+message GetXCoordinateRequest {
+}
+
+message GetXCoordinateResponse {
+  float result = 1;
+}
+
+message GetYCoordinateRequest {
+}
+
+message GetYCoordinateResponse {
+  float result = 1;
+}
+
+message GetZoomRequest {
+}
+
+message GetZoomResponse {
+  float result = 1;
+}
+
+message PdfPageGotoLinkContentDestinationWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewPdfPageTextContentRequest {
+  string arg0 = 1;
+}
+
+message NewPdfPageTextContentResponse {
+  int64 result = 1;
+}
+
+message GetTextRequest {
+  int64 handle = 1;
+}
+
+message GetTextResponse {
+  string result = 1;
+}
+
+service QueryMapService {
+  rpc NewQueryMap (NewQueryMapRequest) returns (NewQueryMapResponse);
+  rpc Requery (RequeryRequest) returns (RequeryResponse);
+  rpc SetKeepUpdated (SetKeepUpdatedRequest) returns (SetKeepUpdatedResponse);
+}
+
+service SyncStatusObserverService {
+  rpc OnStatusChanged (OnStatusChangedRequest) returns (OnStatusChangedResponse);
+}
+
+service AsyncTaskLoaderService {
+  rpc CancelLoadInBackground (CancelLoadInBackgroundRequest) returns (CancelLoadInBackgroundResponse);
+  rpc Dump (DumpRequest) returns (DumpResponse);
+  rpc IsLoadInBackgroundCanceled (IsLoadInBackgroundCanceledRequest) returns (IsLoadInBackgroundCanceledResponse);
+  rpc SetUpdateThrottle (SetUpdateThrottleRequest) returns (SetUpdateThrottleResponse);
+}
+
+service IntentSenderService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetCreatorPackage (GetCreatorPackageRequest) returns (GetCreatorPackageResponse);
+  rpc GetCreatorUid (GetCreatorUidRequest) returns (GetCreatorUidResponse);
+  rpc GetCreatorUserHandle (GetCreatorUserHandleRequest) returns (GetCreatorUserHandleResponse);
+  rpc GetTargetPackage (GetTargetPackageRequest) returns (GetTargetPackageResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc SendIntent (SendIntentRequest) returns (SendIntentResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc ReadIntentSenderOrNullFromParcel (ReadIntentSenderOrNullFromParcelRequest) returns (ReadIntentSenderOrNullFromParcelResponse);
+  rpc WriteIntentSenderOrNullToParcel (WriteIntentSenderOrNullToParcelRequest) returns (WriteIntentSenderOrNullToParcelResponse);
+}
+
+service IntentSenderOnFinishedService {
+  rpc OnSendFinished (OnSendFinishedRequest) returns (OnSendFinishedResponse);
+}
+
+service SyncStatsService {
+  rpc NewSyncStats (NewSyncStatsRequest) returns (NewSyncStatsResponse);
+  rpc Clear (ClearRequest) returns (ClearResponse);
+  rpc DescribeContents (SyncStatsDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (SyncStatsToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (SyncStatsWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service BroadcastReceiverService {
+  rpc AbortBroadcast (AbortBroadcastRequest) returns (AbortBroadcastResponse);
+  rpc ClearAbortBroadcast (ClearAbortBroadcastRequest) returns (ClearAbortBroadcastResponse);
+  rpc GetAbortBroadcast (GetAbortBroadcastRequest) returns (GetAbortBroadcastResponse);
+  rpc GetDebugUnregister (GetDebugUnregisterRequest) returns (GetDebugUnregisterResponse);
+  rpc GetResultCode (GetResultCodeRequest) returns (GetResultCodeResponse);
+  rpc GetResultData (GetResultDataRequest) returns (GetResultDataResponse);
+  rpc GetResultExtras (GetResultExtrasRequest) returns (GetResultExtrasResponse);
+  rpc GetSentFromPackage (GetSentFromPackageRequest) returns (GetSentFromPackageResponse);
+  rpc GetSentFromUid (GetSentFromUidRequest) returns (GetSentFromUidResponse);
+  rpc GoAsync (GoAsyncRequest) returns (GoAsyncResponse);
+  rpc IsInitialStickyBroadcast (IsInitialStickyBroadcastRequest) returns (IsInitialStickyBroadcastResponse);
+  rpc IsOrderedBroadcast (IsOrderedBroadcastRequest) returns (IsOrderedBroadcastResponse);
+  rpc OnReceive (OnReceiveRequest) returns (OnReceiveResponse);
+  rpc PeekService (PeekServiceRequest) returns (PeekServiceResponse);
+  rpc SetDebugUnregister (SetDebugUnregisterRequest) returns (SetDebugUnregisterResponse);
+  rpc SetOrderedHint (SetOrderedHintRequest) returns (SetOrderedHintResponse);
+  rpc SetResult (SetResultRequest) returns (SetResultResponse);
+  rpc SetResultCode (SetResultCodeRequest) returns (SetResultCodeResponse);
+  rpc SetResultData (SetResultDataRequest) returns (SetResultDataResponse);
+  rpc SetResultExtras (SetResultExtrasRequest) returns (SetResultExtrasResponse);
+}
+
+service BroadcastReceiverPendingResultService {
+  rpc AbortBroadcast (AbortBroadcastRequest) returns (AbortBroadcastResponse);
+  rpc ClearAbortBroadcast (ClearAbortBroadcastRequest) returns (ClearAbortBroadcastResponse);
+  rpc Finish (FinishRequest) returns (FinishResponse);
+  rpc GetAbortBroadcast (GetAbortBroadcastRequest) returns (GetAbortBroadcastResponse);
+  rpc GetResultCode (GetResultCodeRequest) returns (GetResultCodeResponse);
+  rpc GetResultData (GetResultDataRequest) returns (GetResultDataResponse);
+  rpc GetResultExtras (GetResultExtrasRequest) returns (GetResultExtrasResponse);
+  rpc SetResult (SetResultRequest) returns (SetResultResponse);
+  rpc SetResultCode (SetResultCodeRequest) returns (SetResultCodeResponse);
+  rpc SetResultData (SetResultDataRequest) returns (SetResultDataResponse);
+  rpc SetResultExtras (SetResultExtrasRequest) returns (SetResultExtrasResponse);
+}
+
+service UriPermissionService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetPersistedTime (GetPersistedTimeRequest) returns (GetPersistedTimeResponse);
+  rpc GetUri (GetUriRequest) returns (GetUriResponse);
+  rpc IsReadPermission (IsReadPermissionRequest) returns (IsReadPermissionResponse);
+  rpc IsWritePermission (IsWritePermissionRequest) returns (IsWritePermissionResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AsyncQueryHandlerService {
+  rpc CancelOperation (CancelOperationRequest) returns (CancelOperationResponse);
+  rpc HandleMessage (HandleMessageRequest) returns (HandleMessageResponse);
+  rpc StartDelete (StartDeleteRequest) returns (StartDeleteResponse);
+  rpc StartInsert (StartInsertRequest) returns (StartInsertResponse);
+  rpc StartQuery (StartQueryRequest) returns (StartQueryResponse);
+  rpc StartUpdate (StartUpdateRequest) returns (StartUpdateResponse);
+}
+
+service AsyncQueryHandlerWorkerHandlerService {
+  rpc HandleMessage (HandleMessageRequest) returns (HandleMessageResponse);
+}
+
+service MutableContextWrapperService {
+  rpc NewMutableContextWrapper (NewMutableContextWrapperRequest) returns (NewMutableContextWrapperResponse);
+  rpc SetBaseContext (SetBaseContextRequest) returns (SetBaseContextResponse);
+}
+
+service AttributionSourceService {
+  rpc CheckCallingUid (CheckCallingUidRequest) returns (CheckCallingUidResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc EnforceCallingUid (EnforceCallingUidRequest) returns (EnforceCallingUidResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAttributionTag (GetAttributionTagRequest) returns (GetAttributionTagResponse);
+  rpc GetDeviceId (GetDeviceIdRequest) returns (GetDeviceIdResponse);
+  rpc GetNext (GetNextRequest) returns (GetNextResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetPid (GetPidRequest) returns (GetPidResponse);
+  rpc GetUid (GetUidRequest) returns (GetUidResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsTrusted (IsTrustedRequest) returns (IsTrustedResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc MyAttributionSource (MyAttributionSourceRequest) returns (MyAttributionSourceResponse);
+}
+
+service AttributionSourceBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAttributionTag (SetAttributionTagRequest) returns (SetAttributionTagResponse);
+  rpc SetDeviceId (SetDeviceIdRequest) returns (SetDeviceIdResponse);
+  rpc SetNext (SetNextRequest) returns (SetNextResponse);
+  rpc SetPackageName (SetPackageNameRequest) returns (SetPackageNameResponse);
+  rpc SetPid (SetPidRequest) returns (SetPidResponse);
+}
+
 service RestrictionsManagerService {
   rpc CreateLocalApprovalIntent (CreateLocalApprovalIntentRequest) returns (CreateLocalApprovalIntentResponse);
   rpc GetApplicationRestrictions (GetApplicationRestrictionsRequest) returns (GetApplicationRestrictionsResponse);
   rpc HasRestrictionsProvider (HasRestrictionsProviderRequest) returns (HasRestrictionsProviderResponse);
   rpc NotifyPermissionResponse (NotifyPermissionResponseRequest) returns (NotifyPermissionResponseResponse);
   rpc RequestPermission (RequestPermissionRequest) returns (RequestPermissionResponse);
+}
+
+service AbstractThreadedSyncAdapterService {
+  rpc GetContext (GetContextRequest) returns (GetContextResponse);
+  rpc GetSyncAdapterBinder (GetSyncAdapterBinderRequest) returns (GetSyncAdapterBinderResponse);
+  rpc OnPerformSync (OnPerformSyncRequest) returns (OnPerformSyncResponse);
+  rpc OnSecurityException (OnSecurityExceptionRequest) returns (OnSecurityExceptionResponse);
+  rpc OnSyncCanceled0 (OnSyncCanceled0Request) returns (OnSyncCanceled0Response);
+  rpc OnSyncCanceled1_1 (OnSyncCanceled1_1Request) returns (OnSyncCanceled1_1Response);
+  rpc OnUnsyncableAccount (OnUnsyncableAccountRequest) returns (OnUnsyncableAccountResponse);
+}
+
+service SyncResultService {
+  rpc NewSyncResult (NewSyncResultRequest) returns (NewSyncResultResponse);
+  rpc Clear (ClearRequest) returns (ClearResponse);
+  rpc DescribeContents (SyncResultDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc HasError (HasErrorRequest) returns (HasErrorResponse);
+  rpc HasHardError (HasHardErrorRequest) returns (HasHardErrorResponse);
+  rpc HasSoftError (HasSoftErrorRequest) returns (HasSoftErrorResponse);
+  rpc MadeSomeProgress (MadeSomeProgressRequest) returns (MadeSomeProgressResponse);
+  rpc ToDebugString (ToDebugStringRequest) returns (ToDebugStringResponse);
+  rpc ToString (SyncResultToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (SyncResultWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SyncRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SyncRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetDisallowMetered (SetDisallowMeteredRequest) returns (SetDisallowMeteredResponse);
+  rpc SetExpedited (SetExpeditedRequest) returns (SetExpeditedResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+  rpc SetIgnoreBackoff (SetIgnoreBackoffRequest) returns (SetIgnoreBackoffResponse);
+  rpc SetIgnoreSettings (SetIgnoreSettingsRequest) returns (SetIgnoreSettingsResponse);
+  rpc SetManual (SetManualRequest) returns (SetManualResponse);
+  rpc SetNoRetry (SetNoRetryRequest) returns (SetNoRetryResponse);
+  rpc SetRequiresCharging (SetRequiresChargingRequest) returns (SetRequiresChargingResponse);
+  rpc SetScheduleAsExpeditedJob (SetScheduleAsExpeditedJobRequest) returns (SetScheduleAsExpeditedJobResponse);
+  rpc SetSyncAdapter (SetSyncAdapterRequest) returns (SetSyncAdapterResponse);
+  rpc SyncOnce (SyncOnceRequest) returns (SyncOnceResponse);
+  rpc SyncPeriodic (SyncPeriodicRequest) returns (SyncPeriodicResponse);
+}
+
+service ResourcesService {
+  rpc NewResources (NewResourcesRequest) returns (NewResourcesResponse);
+  rpc AddLoaders (AddLoadersRequest) returns (AddLoadersResponse);
+  rpc FinishPreloading (FinishPreloadingRequest) returns (FinishPreloadingResponse);
+  rpc FlushLayoutCache (FlushLayoutCacheRequest) returns (FlushLayoutCacheResponse);
+  rpc GetAnimation (GetAnimationRequest) returns (GetAnimationResponse);
+  rpc GetAssets (GetAssetsRequest) returns (GetAssetsResponse);
+  rpc GetBoolean (GetBooleanRequest) returns (GetBooleanResponse);
+  rpc GetColor1 (GetColor1Request) returns (GetColor1Response);
+  rpc GetColor2_1 (GetColor2_1Request) returns (GetColor2_1Response);
+  rpc GetColorStateList1 (GetColorStateList1Request) returns (GetColorStateList1Response);
+  rpc GetColorStateList2_1 (GetColorStateList2_1Request) returns (GetColorStateList2_1Response);
+  rpc GetConfiguration (GetConfigurationRequest) returns (GetConfigurationResponse);
+  rpc GetDimension (GetDimensionRequest) returns (GetDimensionResponse);
+  rpc GetDimensionPixelOffset (GetDimensionPixelOffsetRequest) returns (GetDimensionPixelOffsetResponse);
+  rpc GetDimensionPixelSize (GetDimensionPixelSizeRequest) returns (GetDimensionPixelSizeResponse);
+  rpc GetDisplayMetrics (GetDisplayMetricsRequest) returns (GetDisplayMetricsResponse);
+  rpc GetDrawable1 (GetDrawable1Request) returns (GetDrawable1Response);
+  rpc GetDrawable2_1 (GetDrawable2_1Request) returns (GetDrawable2_1Response);
+  rpc GetDrawableForDensity2 (GetDrawableForDensity2Request) returns (GetDrawableForDensity2Response);
+  rpc GetDrawableForDensity3_1 (GetDrawableForDensity3_1Request) returns (GetDrawableForDensity3_1Response);
+  rpc GetFloat (GetFloatRequest) returns (GetFloatResponse);
+  rpc GetFont (GetFontRequest) returns (GetFontResponse);
+  rpc GetFraction (GetFractionRequest) returns (GetFractionResponse);
+  rpc GetIdentifier (GetIdentifierRequest) returns (GetIdentifierResponse);
+  rpc GetIntArray (GetIntArrayRequest) returns (GetIntArrayResponse);
+  rpc GetInteger (GetIntegerRequest) returns (GetIntegerResponse);
+  rpc GetLayout (GetLayoutRequest) returns (GetLayoutResponse);
+  rpc GetMovie (GetMovieRequest) returns (GetMovieResponse);
+  rpc GetQuantityString2 (GetQuantityString2Request) returns (GetQuantityString2Response);
+  rpc GetQuantityString3_1 (GetQuantityString3_1Request) returns (GetQuantityString3_1Response);
+  rpc GetQuantityText (GetQuantityTextRequest) returns (GetQuantityTextResponse);
+  rpc GetResourceEntryName (GetResourceEntryNameRequest) returns (GetResourceEntryNameResponse);
+  rpc GetResourceName (GetResourceNameRequest) returns (GetResourceNameResponse);
+  rpc GetResourcePackageName (GetResourcePackageNameRequest) returns (GetResourcePackageNameResponse);
+  rpc GetResourceTypeName (GetResourceTypeNameRequest) returns (GetResourceTypeNameResponse);
+  rpc GetString1 (GetString1Request) returns (GetString1Response);
+  rpc GetString2_1 (GetString2_1Request) returns (GetString2_1Response);
+  rpc GetStringArray (GetStringArrayRequest) returns (GetStringArrayResponse);
+  rpc GetText1 (GetText1Request) returns (GetText1Response);
+  rpc GetText2_1 (GetText2_1Request) returns (GetText2_1Response);
+  rpc GetTextArray (GetTextArrayRequest) returns (GetTextArrayResponse);
+  rpc GetValue3 (GetValue3Request) returns (GetValue3Response);
+  rpc GetValue3_1 (GetValue3_1Request) returns (GetValue3_1Response);
+  rpc GetValueForDensity (GetValueForDensityRequest) returns (GetValueForDensityResponse);
+  rpc GetXml (GetXmlRequest) returns (GetXmlResponse);
+  rpc NewTheme (NewThemeRequest) returns (NewThemeResponse);
+  rpc ObtainAttributes (ObtainAttributesRequest) returns (ObtainAttributesResponse);
+  rpc ObtainTypedArray (ObtainTypedArrayRequest) returns (ObtainTypedArrayResponse);
+  rpc OpenRawResource1 (OpenRawResource1Request) returns (OpenRawResource1Response);
+  rpc OpenRawResource2_1 (OpenRawResource2_1Request) returns (OpenRawResource2_1Response);
+  rpc OpenRawResourceFd (OpenRawResourceFdRequest) returns (OpenRawResourceFdResponse);
+  rpc ParseBundleExtra (ParseBundleExtraRequest) returns (ParseBundleExtraResponse);
+  rpc ParseBundleExtras (ParseBundleExtrasRequest) returns (ParseBundleExtrasResponse);
+  rpc RemoveLoaders (RemoveLoadersRequest) returns (RemoveLoadersResponse);
+  rpc UpdateConfiguration (UpdateConfigurationRequest) returns (UpdateConfigurationResponse);
+  rpc GetAttributeSetSourceResId (GetAttributeSetSourceResIdRequest) returns (GetAttributeSetSourceResIdResponse);
+  rpc GetSystem (GetSystemRequest) returns (GetSystemResponse);
+  rpc RegisterResourcePaths (RegisterResourcePathsRequest) returns (RegisterResourcePathsResponse);
+}
+
+service ResourcesThemeService {
+  rpc ApplyStyle (ApplyStyleRequest) returns (ApplyStyleResponse);
+  rpc Dump (ResourcesThemeDumpRequest) returns (DumpResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAttributeResolutionStack (GetAttributeResolutionStackRequest) returns (GetAttributeResolutionStackResponse);
+  rpc GetChangingConfigurations (GetChangingConfigurationsRequest) returns (GetChangingConfigurationsResponse);
+  rpc GetDrawable (GetDrawableRequest) returns (GetDrawableResponse);
+  rpc GetExplicitStyle (GetExplicitStyleRequest) returns (GetExplicitStyleResponse);
+  rpc GetResources (GetResourcesRequest) returns (GetResourcesResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ObtainStyledAttributes4 (ObtainStyledAttributes4Request) returns (ObtainStyledAttributes4Response);
+  rpc ObtainStyledAttributes2_1 (ObtainStyledAttributes2_1Request) returns (ObtainStyledAttributes2_1Response);
+  rpc ObtainStyledAttributes1_2 (ObtainStyledAttributes1_2Request) returns (ObtainStyledAttributes1_2Response);
+  rpc Rebase (RebaseRequest) returns (RebaseResponse);
+  rpc ResolveAttribute (ResolveAttributeRequest) returns (ResolveAttributeResponse);
+  rpc SetTo (SetToRequest) returns (SetToResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service ComponentCallbacks2Service {
+  rpc OnTrimMemory (OnTrimMemoryRequest) returns (OnTrimMemoryResponse);
+}
+
+service ComponentCallbacksService {
+  rpc OnConfigurationChanged (OnConfigurationChangedRequest) returns (OnConfigurationChangedResponse);
+  rpc OnLowMemory (OnLowMemoryRequest) returns (OnLowMemoryResponse);
+}
+
+service LocusIdService {
+  rpc NewLocusId (NewLocusIdRequest) returns (NewLocusIdResponse);
+  rpc DescribeContents (LocusIdDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (LocusIdEqualsRequest) returns (EqualsResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc HashCode (LocusIdHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (LocusIdToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (LocusIdWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service IntentFilterService {
+  rpc NewIntentFilter (NewIntentFilterRequest) returns (NewIntentFilterResponse);
+  rpc AddAction (AddActionRequest) returns (AddActionResponse);
+  rpc AddCategory (AddCategoryRequest) returns (AddCategoryResponse);
+  rpc AddDataAuthority (AddDataAuthorityRequest) returns (AddDataAuthorityResponse);
+  rpc AddDataPath (AddDataPathRequest) returns (AddDataPathResponse);
+  rpc AddDataScheme (AddDataSchemeRequest) returns (AddDataSchemeResponse);
+  rpc AddDataSchemeSpecificPart (AddDataSchemeSpecificPartRequest) returns (AddDataSchemeSpecificPartResponse);
+  rpc AddDataType (AddDataTypeRequest) returns (AddDataTypeResponse);
+  rpc AddUriRelativeFilterGroup (AddUriRelativeFilterGroupRequest) returns (AddUriRelativeFilterGroupResponse);
+  rpc ClearUriRelativeFilterGroups (ClearUriRelativeFilterGroupsRequest) returns (ClearUriRelativeFilterGroupsResponse);
+  rpc CountActions (CountActionsRequest) returns (CountActionsResponse);
+  rpc CountCategories (CountCategoriesRequest) returns (CountCategoriesResponse);
+  rpc CountDataAuthorities (CountDataAuthoritiesRequest) returns (CountDataAuthoritiesResponse);
+  rpc CountDataPaths (CountDataPathsRequest) returns (CountDataPathsResponse);
+  rpc CountDataSchemeSpecificParts (CountDataSchemeSpecificPartsRequest) returns (CountDataSchemeSpecificPartsResponse);
+  rpc CountDataSchemes (CountDataSchemesRequest) returns (CountDataSchemesResponse);
+  rpc CountDataTypes (CountDataTypesRequest) returns (CountDataTypesResponse);
+  rpc CountUriRelativeFilterGroups (CountUriRelativeFilterGroupsRequest) returns (CountUriRelativeFilterGroupsResponse);
+  rpc DescribeContents (IntentFilterDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Dump (IntentFilterDumpRequest) returns (DumpResponse);
+  rpc GetAction (GetActionRequest) returns (GetActionResponse);
+  rpc GetCategory (GetCategoryRequest) returns (GetCategoryResponse);
+  rpc GetDataAuthority (GetDataAuthorityRequest) returns (GetDataAuthorityResponse);
+  rpc GetDataPath (GetDataPathRequest) returns (GetDataPathResponse);
+  rpc GetDataScheme (GetDataSchemeRequest) returns (GetDataSchemeResponse);
+  rpc GetDataSchemeSpecificPart (GetDataSchemeSpecificPartRequest) returns (GetDataSchemeSpecificPartResponse);
+  rpc GetDataType (GetDataTypeRequest) returns (GetDataTypeResponse);
+  rpc GetPriority (GetPriorityRequest) returns (GetPriorityResponse);
+  rpc GetUriRelativeFilterGroup (GetUriRelativeFilterGroupRequest) returns (GetUriRelativeFilterGroupResponse);
+  rpc HasAction (HasActionRequest) returns (HasActionResponse);
+  rpc HasCategory (HasCategoryRequest) returns (HasCategoryResponse);
+  rpc HasDataAuthority (HasDataAuthorityRequest) returns (HasDataAuthorityResponse);
+  rpc HasDataPath (HasDataPathRequest) returns (HasDataPathResponse);
+  rpc HasDataScheme (HasDataSchemeRequest) returns (HasDataSchemeResponse);
+  rpc HasDataSchemeSpecificPart (HasDataSchemeSpecificPartRequest) returns (HasDataSchemeSpecificPartResponse);
+  rpc HasDataType (HasDataTypeRequest) returns (HasDataTypeResponse);
+  rpc Match (MatchRequest) returns (MatchResponse);
+  rpc MatchAction (MatchActionRequest) returns (MatchActionResponse);
+  rpc MatchData (MatchDataRequest) returns (MatchDataResponse);
+  rpc MatchDataAuthority (MatchDataAuthorityRequest) returns (MatchDataAuthorityResponse);
+  rpc ReadFromXml (ReadFromXmlRequest) returns (ReadFromXmlResponse);
+  rpc SetPriority (SetPriorityRequest) returns (SetPriorityResponse);
+  rpc WriteToParcel (IntentFilterWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc WriteToXml (WriteToXmlRequest) returns (WriteToXmlResponse);
+  rpc Create (CreateRequest) returns (CreateResponse);
+}
+
+service IntentFilterAuthorityEntryService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetHost (GetHostRequest) returns (GetHostResponse);
+  rpc GetPort (GetPortRequest) returns (GetPortResponse);
+  rpc Match (IntentFilterAuthorityEntryMatchRequest) returns (MatchResponse);
+}
+
+service OperationApplicationExceptionService {
+  rpc NewOperationApplicationException (NewOperationApplicationExceptionRequest) returns (NewOperationApplicationExceptionResponse);
+  rpc GetNumSuccessfulYieldPoints (GetNumSuccessfulYieldPointsRequest) returns (GetNumSuccessfulYieldPointsResponse);
+}
+
+service EntityService {
+  rpc NewEntity (NewEntityRequest) returns (NewEntityResponse);
+  rpc AddSubValue (AddSubValueRequest) returns (AddSubValueResponse);
+  rpc GetEntityValues (GetEntityValuesRequest) returns (GetEntityValuesResponse);
+  rpc ToString (EntityToStringRequest) returns (ToStringResponse);
+}
+
+service ClipDescriptionService {
+  rpc NewClipDescription (NewClipDescriptionRequest) returns (NewClipDescriptionResponse);
+  rpc DescribeContents (ClipDescriptionDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc FilterMimeTypes (FilterMimeTypesRequest) returns (FilterMimeTypesResponse);
+  rpc GetClassificationStatus (GetClassificationStatusRequest) returns (GetClassificationStatusResponse);
+  rpc GetConfidenceScore (GetConfidenceScoreRequest) returns (GetConfidenceScoreResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetLabel (GetLabelRequest) returns (GetLabelResponse);
+  rpc GetMimeType (GetMimeTypeRequest) returns (GetMimeTypeResponse);
+  rpc GetMimeTypeCount (GetMimeTypeCountRequest) returns (GetMimeTypeCountResponse);
+  rpc GetTimestamp (GetTimestampRequest) returns (GetTimestampResponse);
+  rpc HasMimeType (HasMimeTypeRequest) returns (HasMimeTypeResponse);
+  rpc IsStyledText (IsStyledTextRequest) returns (IsStyledTextResponse);
+  rpc SetExtras (ClipDescriptionSetExtrasRequest) returns (ClipDescriptionSetExtrasResponse);
+  rpc ToString (ClipDescriptionToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (ClipDescriptionWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc CompareMimeTypes (CompareMimeTypesRequest) returns (CompareMimeTypesResponse);
+}
+
+service EntityIteratorService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Reset (ResetRequest) returns (ResetResponse);
+}
+
+service DialogInterfaceService {
+  rpc Cancel (CancelRequest) returns (CancelResponse);
+  rpc Dismiss (DismissRequest) returns (DismissResponse);
+}
+
+service DialogInterfaceOnCancelListenerService {
+  rpc OnCancel (OnCancelRequest) returns (OnCancelResponse);
+}
+
+service DialogInterfaceOnClickListenerService {
+  rpc OnClick (OnClickRequest) returns (OnClickResponse);
+}
+
+service DialogInterfaceOnDismissListenerService {
+  rpc OnDismiss (OnDismissRequest) returns (OnDismissResponse);
+}
+
+service DialogInterfaceOnKeyListenerService {
+  rpc OnKey (OnKeyRequest) returns (OnKeyResponse);
+}
+
+service DialogInterfaceOnMultiChoiceClickListenerService {
+  rpc OnClick (DialogInterfaceOnMultiChoiceClickListenerOnClickRequest) returns (OnClickResponse);
+}
+
+service DialogInterfaceOnShowListenerService {
+  rpc OnShow (OnShowRequest) returns (OnShowResponse);
+}
+
+service ContextParamsService {
+  rpc GetAttributionTag (GetAttributionTagRequest) returns (GetAttributionTagResponse);
+  rpc GetNextAttributionSource (GetNextAttributionSourceRequest) returns (GetNextAttributionSourceResponse);
+  rpc ShouldRegisterAttributionSource (ShouldRegisterAttributionSourceRequest) returns (ShouldRegisterAttributionSourceResponse);
+}
+
+service ContextParamsBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAttributionTag (SetAttributionTagRequest) returns (SetAttributionTagResponse);
+  rpc SetNextAttributionSource (SetNextAttributionSourceRequest) returns (SetNextAttributionSourceResponse);
+  rpc SetShouldRegisterAttributionSource (SetShouldRegisterAttributionSourceRequest) returns (SetShouldRegisterAttributionSourceResponse);
+}
+
+service SyncContextService {
+  rpc GetSyncContextBinder (GetSyncContextBinderRequest) returns (GetSyncContextBinderResponse);
+  rpc OnFinished (OnFinishedRequest) returns (OnFinishedResponse);
+}
+
+service LoaderService {
+  rpc NewLoader (NewLoaderRequest) returns (NewLoaderResponse);
+  rpc Abandon (AbandonRequest) returns (AbandonResponse);
+  rpc CancelLoad (CancelLoadRequest) returns (CancelLoadResponse);
+  rpc CommitContentChanged (CommitContentChangedRequest) returns (CommitContentChangedResponse);
+  rpc DeliverCancellation (DeliverCancellationRequest) returns (DeliverCancellationResponse);
+  rpc Dump (LoaderDumpRequest) returns (DumpResponse);
+  rpc ForceLoad (ForceLoadRequest) returns (ForceLoadResponse);
+  rpc GetContext (LoaderGetContextRequest) returns (GetContextResponse);
+  rpc GetId (GetIdRequest) returns (LoaderGetIdResponse);
+  rpc IsAbandoned (IsAbandonedRequest) returns (IsAbandonedResponse);
+  rpc IsReset (IsResetRequest) returns (IsResetResponse);
+  rpc IsStarted (IsStartedRequest) returns (IsStartedResponse);
+  rpc OnContentChanged (OnContentChangedRequest) returns (OnContentChangedResponse);
+  rpc Reset (LoaderResetRequest) returns (ResetResponse);
+  rpc RollbackContentChanged (RollbackContentChangedRequest) returns (RollbackContentChangedResponse);
+  rpc StartLoading (StartLoadingRequest) returns (StartLoadingResponse);
+  rpc StopLoading (StopLoadingRequest) returns (StopLoadingResponse);
+  rpc TakeContentChanged (TakeContentChangedRequest) returns (TakeContentChangedResponse);
+  rpc ToString (LoaderToStringRequest) returns (ToStringResponse);
+}
+
+service LoaderForceLoadContentObserverService {
+  rpc DeliverSelfNotifications (DeliverSelfNotificationsRequest) returns (DeliverSelfNotificationsResponse);
+  rpc OnChange (OnChangeRequest) returns (OnChangeResponse);
+}
+
+service UriRelativeFilterService {
+  rpc NewUriRelativeFilter (NewUriRelativeFilterRequest) returns (NewUriRelativeFilterResponse);
+  rpc Equals (UriRelativeFilterEqualsRequest) returns (EqualsResponse);
+  rpc GetFilter (GetFilterRequest) returns (GetFilterResponse);
+  rpc GetPatternType (GetPatternTypeRequest) returns (GetPatternTypeResponse);
+  rpc GetUriPart (GetUriPartRequest) returns (GetUriPartResponse);
+  rpc HashCode (UriRelativeFilterHashCodeRequest) returns (HashCodeResponse);
+  rpc MatchData (UriRelativeFilterMatchDataRequest) returns (UriRelativeFilterMatchDataResponse);
+  rpc ToString (UriRelativeFilterToStringRequest) returns (ToStringResponse);
+}
+
+service ProviderClientService {
+  rpc BulkInsert (BulkInsertRequest) returns (BulkInsertResponse);
+  rpc Call3 (Call3Request) returns (Call3Response);
+  rpc Call4_1 (Call4_1Request) returns (Call4_1Response);
+  rpc Canonicalize (CanonicalizeRequest) returns (CanonicalizeResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc Delete2 (Delete2Request) returns (Delete2Response);
+  rpc Delete3_1 (Delete3_1Request) returns (Delete3_1Response);
+  rpc GetLocalContentProvider (GetLocalContentProviderRequest) returns (GetLocalContentProviderResponse);
+  rpc GetStreamTypes (GetStreamTypesRequest) returns (GetStreamTypesResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc Insert2 (Insert2Request) returns (Insert2Response);
+  rpc Insert3_1 (Insert3_1Request) returns (Insert3_1Response);
+  rpc OpenAssetFile2 (OpenAssetFile2Request) returns (OpenAssetFile2Response);
+  rpc OpenAssetFile3_1 (OpenAssetFile3_1Request) returns (OpenAssetFile3_1Response);
+  rpc OpenFile2 (OpenFile2Request) returns (OpenFile2Response);
+  rpc OpenFile3_1 (OpenFile3_1Request) returns (OpenFile3_1Response);
+  rpc OpenTypedAssetFile (OpenTypedAssetFileRequest) returns (OpenTypedAssetFileResponse);
+  rpc OpenTypedAssetFileDescriptor3 (OpenTypedAssetFileDescriptor3Request) returns (OpenTypedAssetFileDescriptor3Response);
+  rpc OpenTypedAssetFileDescriptor4_1 (OpenTypedAssetFileDescriptor4_1Request) returns (OpenTypedAssetFileDescriptor4_1Response);
+  rpc Query4 (Query4Request) returns (Query4Response);
+  rpc Query5_1 (Query5_1Request) returns (Query5_1Response);
+  rpc Query6_2 (Query6_2Request) returns (Query6_2Response);
+  rpc Refresh (RefreshRequest) returns (RefreshResponse);
+  rpc Release (ReleaseRequest) returns (ReleaseResponse);
+  rpc Uncanonicalize (UncanonicalizeRequest) returns (UncanonicalizeResponse);
+  rpc Update3 (Update3Request) returns (Update3Response);
+  rpc Update4_1 (Update4_1Request) returns (Update4_1Response);
+}
+
+service SyncAdapterTypeService {
+  rpc NewSyncAdapterType (NewSyncAdapterTypeRequest) returns (NewSyncAdapterTypeResponse);
+  rpc AllowParallelSyncs (AllowParallelSyncsRequest) returns (AllowParallelSyncsResponse);
+  rpc DescribeContents (SyncAdapterTypeDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (SyncAdapterTypeEqualsRequest) returns (EqualsResponse);
+  rpc GetSettingsActivity (GetSettingsActivityRequest) returns (GetSettingsActivityResponse);
+  rpc HashCode (SyncAdapterTypeHashCodeRequest) returns (HashCodeResponse);
+  rpc IsAlwaysSyncable (IsAlwaysSyncableRequest) returns (IsAlwaysSyncableResponse);
+  rpc IsUserVisible (IsUserVisibleRequest) returns (IsUserVisibleResponse);
+  rpc SupportsUploading (SupportsUploadingRequest) returns (SupportsUploadingResponse);
+  rpc ToString (SyncAdapterTypeToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (SyncAdapterTypeWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc NewKey (NewKeyRequest) returns (NewKeyResponse);
+}
+
+service RestrictionEntryService {
+  rpc NewRestrictionEntry (NewRestrictionEntryRequest) returns (NewRestrictionEntryResponse);
+  rpc DescribeContents (RestrictionEntryDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (RestrictionEntryEqualsRequest) returns (EqualsResponse);
+  rpc GetAllSelectedStrings (GetAllSelectedStringsRequest) returns (GetAllSelectedStringsResponse);
+  rpc GetChoiceEntries (GetChoiceEntriesRequest) returns (GetChoiceEntriesResponse);
+  rpc GetChoiceValues (GetChoiceValuesRequest) returns (GetChoiceValuesResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc GetIntValue (GetIntValueRequest) returns (GetIntValueResponse);
+  rpc GetKey (GetKeyRequest) returns (GetKeyResponse);
+  rpc GetRestrictions (GetRestrictionsRequest) returns (GetRestrictionsResponse);
+  rpc GetSelectedState (GetSelectedStateRequest) returns (GetSelectedStateResponse);
+  rpc GetSelectedString (GetSelectedStringRequest) returns (GetSelectedStringResponse);
+  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
+  rpc GetType (RestrictionEntryGetTypeRequest) returns (RestrictionEntryGetTypeResponse);
+  rpc HashCode (RestrictionEntryHashCodeRequest) returns (HashCodeResponse);
+  rpc SetAllSelectedStrings (SetAllSelectedStringsRequest) returns (SetAllSelectedStringsResponse);
+  rpc SetChoiceEntries2 (SetChoiceEntries2Request) returns (SetChoiceEntries2Response);
+  rpc SetChoiceEntries1_1 (SetChoiceEntries1_1Request) returns (SetChoiceEntries1_1Response);
+  rpc SetChoiceValues2 (SetChoiceValues2Request) returns (SetChoiceValues2Response);
+  rpc SetChoiceValues1_1 (SetChoiceValues1_1Request) returns (SetChoiceValues1_1Response);
+  rpc SetDescription (SetDescriptionRequest) returns (SetDescriptionResponse);
+  rpc SetIntValue (SetIntValueRequest) returns (SetIntValueResponse);
+  rpc SetRestrictions (SetRestrictionsRequest) returns (SetRestrictionsResponse);
+  rpc SetSelectedState (SetSelectedStateRequest) returns (SetSelectedStateResponse);
+  rpc SetSelectedString (SetSelectedStringRequest) returns (SetSelectedStringResponse);
+  rpc SetTitle (SetTitleRequest) returns (SetTitleResponse);
+  rpc SetType (SetTypeRequest) returns (SetTypeResponse);
+  rpc ToString (RestrictionEntryToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (RestrictionEntryWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc CreateBundleArrayEntry (CreateBundleArrayEntryRequest) returns (CreateBundleArrayEntryResponse);
+  rpc CreateBundleEntry (CreateBundleEntryRequest) returns (CreateBundleEntryResponse);
+}
+
+service ContextWrapperService {
+  rpc NewContextWrapper (NewContextWrapperRequest) returns (NewContextWrapperResponse);
+  rpc BindIsolatedService (BindIsolatedServiceRequest) returns (BindIsolatedServiceResponse);
+  rpc BindService4 (BindService4Request) returns (BindService4Response);
+  rpc BindService3_1 (BindService3_1Request) returns (BindService3_1Response);
+  rpc BindService3_2 (BindService3_2Request) returns (BindService3_2Response);
+  rpc BindService4_3 (BindService4_3Request) returns (BindService4_3Response);
+  rpc BindServiceAsUser4 (BindServiceAsUser4Request) returns (BindServiceAsUser4Response);
+  rpc BindServiceAsUser4_1 (BindServiceAsUser4_1Request) returns (BindServiceAsUser4_1Response);
+  rpc CheckCallingOrSelfPermission (CheckCallingOrSelfPermissionRequest) returns (CheckCallingOrSelfPermissionResponse);
+  rpc CheckCallingOrSelfUriPermission (CheckCallingOrSelfUriPermissionRequest) returns (CheckCallingOrSelfUriPermissionResponse);
+  rpc CheckCallingPermission (CheckCallingPermissionRequest) returns (CheckCallingPermissionResponse);
+  rpc CheckCallingUriPermission (CheckCallingUriPermissionRequest) returns (CheckCallingUriPermissionResponse);
+  rpc CheckContentUriPermissionFull (CheckContentUriPermissionFullRequest) returns (CheckContentUriPermissionFullResponse);
+  rpc CheckPermission (CheckPermissionRequest) returns (CheckPermissionResponse);
+  rpc CheckSelfPermission (CheckSelfPermissionRequest) returns (CheckSelfPermissionResponse);
+  rpc CheckUriPermission4 (CheckUriPermission4Request) returns (CheckUriPermission4Response);
+  rpc CheckUriPermission6_1 (CheckUriPermission6_1Request) returns (CheckUriPermission6_1Response);
+  rpc ClearWallpaper (ClearWallpaperRequest) returns (ClearWallpaperResponse);
+  rpc CreateAttributionContext (CreateAttributionContextRequest) returns (CreateAttributionContextResponse);
+  rpc CreateConfigurationContext (CreateConfigurationContextRequest) returns (CreateConfigurationContextResponse);
+  rpc CreateContext (CreateContextRequest) returns (CreateContextResponse);
+  rpc CreateContextForSplit (CreateContextForSplitRequest) returns (CreateContextForSplitResponse);
+  rpc CreateDeviceContext (CreateDeviceContextRequest) returns (CreateDeviceContextResponse);
+  rpc CreateDeviceProtectedStorageContext (CreateDeviceProtectedStorageContextRequest) returns (CreateDeviceProtectedStorageContextResponse);
+  rpc CreateDisplayContext (CreateDisplayContextRequest) returns (CreateDisplayContextResponse);
+  rpc CreatePackageContext (CreatePackageContextRequest) returns (CreatePackageContextResponse);
+  rpc CreateWindowContext3 (CreateWindowContext3Request) returns (CreateWindowContext3Response);
+  rpc CreateWindowContext2_1 (CreateWindowContext2_1Request) returns (CreateWindowContext2_1Response);
+  rpc DatabaseList (DatabaseListRequest) returns (DatabaseListResponse);
+  rpc DeleteDatabase (DeleteDatabaseRequest) returns (DeleteDatabaseResponse);
+  rpc DeleteFile (DeleteFileRequest) returns (DeleteFileResponse);
+  rpc DeleteSharedPreferences (DeleteSharedPreferencesRequest) returns (DeleteSharedPreferencesResponse);
+  rpc EnforceCallingOrSelfPermission (EnforceCallingOrSelfPermissionRequest) returns (EnforceCallingOrSelfPermissionResponse);
+  rpc EnforceCallingOrSelfUriPermission (EnforceCallingOrSelfUriPermissionRequest) returns (EnforceCallingOrSelfUriPermissionResponse);
+  rpc EnforceCallingPermission (EnforceCallingPermissionRequest) returns (EnforceCallingPermissionResponse);
+  rpc EnforceCallingUriPermission (EnforceCallingUriPermissionRequest) returns (EnforceCallingUriPermissionResponse);
+  rpc EnforcePermission (EnforcePermissionRequest) returns (EnforcePermissionResponse);
+  rpc EnforceUriPermission5 (EnforceUriPermission5Request) returns (EnforceUriPermission5Response);
+  rpc EnforceUriPermission7_1 (EnforceUriPermission7_1Request) returns (EnforceUriPermission7_1Response);
+  rpc FileList (FileListRequest) returns (FileListResponse);
+  rpc GetApplicationContext (GetApplicationContextRequest) returns (GetApplicationContextResponse);
+  rpc GetApplicationInfo (GetApplicationInfoRequest) returns (GetApplicationInfoResponse);
+  rpc GetAssets (GetAssetsRequest) returns (GetAssetsResponse);
+  rpc GetAttributionSource (GetAttributionSourceRequest) returns (GetAttributionSourceResponse);
+  rpc GetAttributionTag (ContextWrapperGetAttributionTagRequest) returns (GetAttributionTagResponse);
+  rpc GetBaseContext (GetBaseContextRequest) returns (GetBaseContextResponse);
+  rpc GetCacheDir (GetCacheDirRequest) returns (GetCacheDirResponse);
+  rpc GetClassLoader (GetClassLoaderRequest) returns (GetClassLoaderResponse);
+  rpc GetCodeCacheDir (GetCodeCacheDirRequest) returns (GetCodeCacheDirResponse);
+  rpc GetContentResolver (GetContentResolverRequest) returns (GetContentResolverResponse);
+  rpc GetDataDir (GetDataDirRequest) returns (GetDataDirResponse);
+  rpc GetDatabasePath (GetDatabasePathRequest) returns (GetDatabasePathResponse);
+  rpc GetDeviceId (ContextWrapperGetDeviceIdRequest) returns (GetDeviceIdResponse);
+  rpc GetDir (GetDirRequest) returns (GetDirResponse);
+  rpc GetDisplay (GetDisplayRequest) returns (GetDisplayResponse);
+  rpc GetExternalCacheDir (GetExternalCacheDirRequest) returns (GetExternalCacheDirResponse);
+  rpc GetExternalCacheDirs (GetExternalCacheDirsRequest) returns (GetExternalCacheDirsResponse);
+  rpc GetExternalFilesDir (GetExternalFilesDirRequest) returns (GetExternalFilesDirResponse);
+  rpc GetExternalFilesDirs (GetExternalFilesDirsRequest) returns (GetExternalFilesDirsResponse);
+  rpc GetExternalMediaDirs (GetExternalMediaDirsRequest) returns (GetExternalMediaDirsResponse);
+  rpc GetFileStreamPath (GetFileStreamPathRequest) returns (GetFileStreamPathResponse);
+  rpc GetFilesDir (GetFilesDirRequest) returns (GetFilesDirResponse);
+  rpc GetMainExecutor (GetMainExecutorRequest) returns (GetMainExecutorResponse);
+  rpc GetMainLooper (GetMainLooperRequest) returns (GetMainLooperResponse);
+  rpc GetNoBackupFilesDir (GetNoBackupFilesDirRequest) returns (GetNoBackupFilesDirResponse);
+  rpc GetObbDir (GetObbDirRequest) returns (GetObbDirResponse);
+  rpc GetObbDirs (GetObbDirsRequest) returns (GetObbDirsResponse);
+  rpc GetOpPackageName (GetOpPackageNameRequest) returns (GetOpPackageNameResponse);
+  rpc GetPackageCodePath (GetPackageCodePathRequest) returns (GetPackageCodePathResponse);
+  rpc GetPackageManager (GetPackageManagerRequest) returns (GetPackageManagerResponse);
+  rpc GetPackageName (ContextWrapperGetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetPackageResourcePath (GetPackageResourcePathRequest) returns (GetPackageResourcePathResponse);
+  rpc GetParams (GetParamsRequest) returns (GetParamsResponse);
+  rpc GetResources (ContextWrapperGetResourcesRequest) returns (GetResourcesResponse);
+  rpc GetSharedPreferences (GetSharedPreferencesRequest) returns (GetSharedPreferencesResponse);
+  rpc GetSystemService (GetSystemServiceRequest) returns (GetSystemServiceResponse);
+  rpc GetTheme (GetThemeRequest) returns (GetThemeResponse);
+  rpc GetWallpaper (GetWallpaperRequest) returns (GetWallpaperResponse);
+  rpc GetWallpaperDesiredMinimumHeight (GetWallpaperDesiredMinimumHeightRequest) returns (GetWallpaperDesiredMinimumHeightResponse);
+  rpc GetWallpaperDesiredMinimumWidth (GetWallpaperDesiredMinimumWidthRequest) returns (GetWallpaperDesiredMinimumWidthResponse);
+  rpc GrantUriPermission (GrantUriPermissionRequest) returns (GrantUriPermissionResponse);
+  rpc IsDeviceProtectedStorage (IsDeviceProtectedStorageRequest) returns (IsDeviceProtectedStorageResponse);
+  rpc IsRestricted (IsRestrictedRequest) returns (IsRestrictedResponse);
+  rpc IsUiContext (IsUiContextRequest) returns (IsUiContextResponse);
+  rpc MoveDatabaseFrom (MoveDatabaseFromRequest) returns (MoveDatabaseFromResponse);
+  rpc MoveSharedPreferencesFrom (MoveSharedPreferencesFromRequest) returns (MoveSharedPreferencesFromResponse);
+  rpc OpenFileInput (OpenFileInputRequest) returns (OpenFileInputResponse);
+  rpc OpenFileOutput (OpenFileOutputRequest) returns (OpenFileOutputResponse);
+  rpc OpenOrCreateDatabase (OpenOrCreateDatabaseRequest) returns (OpenOrCreateDatabaseResponse);
+  rpc PeekWallpaper (PeekWallpaperRequest) returns (PeekWallpaperResponse);
+  rpc RegisterComponentCallbacks (RegisterComponentCallbacksRequest) returns (RegisterComponentCallbacksResponse);
+  rpc RegisterDeviceIdChangeListener (RegisterDeviceIdChangeListenerRequest) returns (RegisterDeviceIdChangeListenerResponse);
+  rpc RegisterReceiver2 (RegisterReceiver2Request) returns (RegisterReceiver2Response);
+  rpc RegisterReceiver3_1 (RegisterReceiver3_1Request) returns (RegisterReceiver3_1Response);
+  rpc RemoveStickyBroadcast (RemoveStickyBroadcastRequest) returns (RemoveStickyBroadcastResponse);
+  rpc RemoveStickyBroadcastAsUser (RemoveStickyBroadcastAsUserRequest) returns (RemoveStickyBroadcastAsUserResponse);
+  rpc RevokeUriPermission2 (RevokeUriPermission2Request) returns (RevokeUriPermission2Response);
+  rpc RevokeUriPermission3_1 (RevokeUriPermission3_1Request) returns (RevokeUriPermission3_1Response);
+  rpc SendBroadcast1 (SendBroadcast1Request) returns (SendBroadcast1Response);
+  rpc SendBroadcast2_1 (SendBroadcast2_1Request) returns (SendBroadcast2_1Response);
+  rpc SendBroadcast3_2 (SendBroadcast3_2Request) returns (SendBroadcast3_2Response);
+  rpc SendBroadcastAsUser2 (SendBroadcastAsUser2Request) returns (SendBroadcastAsUser2Response);
+  rpc SendBroadcastAsUser3_1 (SendBroadcastAsUser3_1Request) returns (SendBroadcastAsUser3_1Response);
+  rpc SendOrderedBroadcast2 (SendOrderedBroadcast2Request) returns (SendOrderedBroadcast2Response);
+  rpc SendOrderedBroadcast3_1 (SendOrderedBroadcast3_1Request) returns (SendOrderedBroadcast3_1Response);
+  rpc SendStickyBroadcast1 (SendStickyBroadcast1Request) returns (SendStickyBroadcast1Response);
+  rpc SendStickyBroadcast2_1 (SendStickyBroadcast2_1Request) returns (SendStickyBroadcast2_1Response);
+  rpc SendStickyBroadcastAsUser (SendStickyBroadcastAsUserRequest) returns (SendStickyBroadcastAsUserResponse);
+  rpc SetTheme (SetThemeRequest) returns (SetThemeResponse);
+  rpc SetWallpaper1 (SetWallpaper1Request) returns (SetWallpaper1Response);
+  rpc SetWallpaper1_1 (SetWallpaper1_1Request) returns (SetWallpaper1_1Response);
+  rpc StartActivities1 (StartActivities1Request) returns (StartActivities1Response);
+  rpc StartActivities2_1 (StartActivities2_1Request) returns (StartActivities2_1Response);
+  rpc StartActivity1 (StartActivity1Request) returns (StartActivity1Response);
+  rpc StartActivity2_1 (StartActivity2_1Request) returns (StartActivity2_1Response);
+  rpc StartForegroundService (StartForegroundServiceRequest) returns (StartForegroundServiceResponse);
+  rpc StartInstrumentation (StartInstrumentationRequest) returns (StartInstrumentationResponse);
+  rpc StartIntentSender5 (StartIntentSender5Request) returns (StartIntentSender5Response);
+  rpc StartIntentSender6_1 (StartIntentSender6_1Request) returns (StartIntentSender6_1Response);
+  rpc StartService (StartServiceRequest) returns (StartServiceResponse);
+  rpc StopService (StopServiceRequest) returns (StopServiceResponse);
+  rpc UnbindService (UnbindServiceRequest) returns (UnbindServiceResponse);
+  rpc UnregisterComponentCallbacks (UnregisterComponentCallbacksRequest) returns (UnregisterComponentCallbacksResponse);
+  rpc UnregisterDeviceIdChangeListener (UnregisterDeviceIdChangeListenerRequest) returns (UnregisterDeviceIdChangeListenerResponse);
+  rpc UnregisterReceiver (UnregisterReceiverRequest) returns (UnregisterReceiverResponse);
+  rpc UpdateServiceGroup (UpdateServiceGroupRequest) returns (UpdateServiceGroupResponse);
+}
+
+service ValuesService {
+  rpc NewValues (NewValuesRequest) returns (NewValuesResponse);
+  rpc Clear (ClearRequest) returns (ClearResponse);
+  rpc ContainsKey (ContainsKeyRequest) returns (ContainsKeyResponse);
+  rpc DescribeContents (ValuesDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (ValuesEqualsRequest) returns (EqualsResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+  rpc GetAsBoolean (GetAsBooleanRequest) returns (GetAsBooleanResponse);
+  rpc GetAsByte (GetAsByteRequest) returns (GetAsByteResponse);
+  rpc GetAsByteArray (GetAsByteArrayRequest) returns (GetAsByteArrayResponse);
+  rpc GetAsDouble (GetAsDoubleRequest) returns (GetAsDoubleResponse);
+  rpc GetAsFloat (GetAsFloatRequest) returns (GetAsFloatResponse);
+  rpc GetAsInteger (GetAsIntegerRequest) returns (GetAsIntegerResponse);
+  rpc GetAsLong (GetAsLongRequest) returns (GetAsLongResponse);
+  rpc GetAsShort (GetAsShortRequest) returns (GetAsShortResponse);
+  rpc GetAsString (GetAsStringRequest) returns (GetAsStringResponse);
+  rpc HashCode (ValuesHashCodeRequest) returns (HashCodeResponse);
+  rpc IsEmpty (IsEmptyRequest) returns (IsEmptyResponse);
+  rpc Put2 (Put2Request) returns (Put2Response);
+  rpc Put2_1 (Put2_1Request) returns (Put2_1Response);
+  rpc Put2_2 (Put2_2Request) returns (Put2_2Response);
+  rpc Put2_3 (Put2_3Request) returns (Put2_3Response);
+  rpc Put2_4 (Put2_4Request) returns (Put2_4Response);
+  rpc Put2_5 (Put2_5Request) returns (Put2_5Response);
+  rpc Put2_6 (Put2_6Request) returns (Put2_6Response);
+  rpc Put2_7 (Put2_7Request) returns (Put2_7Response);
+  rpc Put2_8 (Put2_8Request) returns (Put2_8Response);
+  rpc PutAll (PutAllRequest) returns (PutAllResponse);
+  rpc PutNull (PutNullRequest) returns (PutNullResponse);
+  rpc Remove (RemoveRequest) returns (RemoveResponse);
+  rpc Size (SizeRequest) returns (SizeResponse);
+  rpc ToString (ValuesToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (ValuesWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ProviderOperationService {
+  rpc Apply (ApplyRequest) returns (ApplyResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetUri (GetUriRequest) returns (GetUriResponse);
+  rpc IsAssertQuery (IsAssertQueryRequest) returns (IsAssertQueryResponse);
+  rpc IsCall (IsCallRequest) returns (IsCallResponse);
+  rpc IsDelete (IsDeleteRequest) returns (IsDeleteResponse);
+  rpc IsExceptionAllowed (IsExceptionAllowedRequest) returns (IsExceptionAllowedResponse);
+  rpc IsInsert (IsInsertRequest) returns (IsInsertResponse);
+  rpc IsReadOperation (IsReadOperationRequest) returns (IsReadOperationResponse);
+  rpc IsUpdate (IsUpdateRequest) returns (IsUpdateResponse);
+  rpc IsWriteOperation (IsWriteOperationRequest) returns (IsWriteOperationResponse);
+  rpc IsYieldAllowed (IsYieldAllowedRequest) returns (IsYieldAllowedResponse);
+  rpc ResolveExtrasBackReferences (ResolveExtrasBackReferencesRequest) returns (ResolveExtrasBackReferencesResponse);
+  rpc ResolveSelectionArgsBackReferences (ResolveSelectionArgsBackReferencesRequest) returns (ResolveSelectionArgsBackReferencesResponse);
+  rpc ResolveValueBackReferences (ResolveValueBackReferencesRequest) returns (ResolveValueBackReferencesResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc NewAssertQuery (NewAssertQueryRequest) returns (NewAssertQueryResponse);
+  rpc NewCall (NewCallRequest) returns (NewCallResponse);
+  rpc NewDelete (NewDeleteRequest) returns (NewDeleteResponse);
+  rpc NewInsert (NewInsertRequest) returns (NewInsertResponse);
+  rpc NewUpdate (NewUpdateRequest) returns (NewUpdateResponse);
+}
+
+service ProviderOperationBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc WithExceptionAllowed (WithExceptionAllowedRequest) returns (WithExceptionAllowedResponse);
+  rpc WithExpectedCount (WithExpectedCountRequest) returns (WithExpectedCountResponse);
+  rpc WithExtra (WithExtraRequest) returns (WithExtraResponse);
+  rpc WithExtraBackReference2 (WithExtraBackReference2Request) returns (WithExtraBackReference2Response);
+  rpc WithExtraBackReference3_1 (WithExtraBackReference3_1Request) returns (WithExtraBackReference3_1Response);
+  rpc WithExtras (WithExtrasRequest) returns (WithExtrasResponse);
+  rpc WithSelection (WithSelectionRequest) returns (WithSelectionResponse);
+  rpc WithSelectionBackReference2 (WithSelectionBackReference2Request) returns (WithSelectionBackReference2Response);
+  rpc WithSelectionBackReference3_1 (WithSelectionBackReference3_1Request) returns (WithSelectionBackReference3_1Response);
+  rpc WithValue (WithValueRequest) returns (WithValueResponse);
+  rpc WithValueBackReference2 (WithValueBackReference2Request) returns (WithValueBackReference2Response);
+  rpc WithValueBackReference3_1 (WithValueBackReference3_1Request) returns (WithValueBackReference3_1Response);
+  rpc WithValueBackReferences (WithValueBackReferencesRequest) returns (WithValueBackReferencesResponse);
+  rpc WithValues (WithValuesRequest) returns (WithValuesResponse);
+  rpc WithYieldAllowed (WithYieldAllowedRequest) returns (WithYieldAllowedResponse);
+}
+
+service UriMatcherService {
+  rpc NewUriMatcher (NewUriMatcherRequest) returns (NewUriMatcherResponse);
+  rpc AddURI (AddURIRequest) returns (AddURIResponse);
+  rpc Match (UriMatcherMatchRequest) returns (MatchResponse);
+}
+
+service PeriodicSyncService {
+  rpc NewPeriodicSync (NewPeriodicSyncRequest) returns (NewPeriodicSyncResponse);
+  rpc DescribeContents (PeriodicSyncDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (PeriodicSyncEqualsRequest) returns (EqualsResponse);
+  rpc ToString (PeriodicSyncToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (PeriodicSyncWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service UriRelativeFilterGroupService {
+  rpc NewUriRelativeFilterGroup (NewUriRelativeFilterGroupRequest) returns (NewUriRelativeFilterGroupResponse);
+  rpc AddUriRelativeFilter (AddUriRelativeFilterRequest) returns (AddUriRelativeFilterResponse);
+  rpc Equals (UriRelativeFilterGroupEqualsRequest) returns (EqualsResponse);
+  rpc GetAction (UriRelativeFilterGroupGetActionRequest) returns (UriRelativeFilterGroupGetActionResponse);
+  rpc HashCode (UriRelativeFilterGroupHashCodeRequest) returns (HashCodeResponse);
+  rpc MatchData (UriRelativeFilterGroupMatchDataRequest) returns (UriRelativeFilterGroupMatchDataResponse);
+  rpc ToString (UriRelativeFilterGroupToStringRequest) returns (ToStringResponse);
+}
+
+service SyncInfoService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service UrisService {
+  rpc NewUris (NewUrisRequest) returns (NewUrisResponse);
+  rpc AppendId (AppendIdRequest) returns (AppendIdResponse);
+  rpc ParseId (ParseIdRequest) returns (ParseIdResponse);
+  rpc RemoveId (RemoveIdRequest) returns (RemoveIdResponse);
+  rpc WithAppendedId (WithAppendedIdRequest) returns (WithAppendedIdResponse);
+}
+
+service CursorLoaderService {
+  rpc NewCursorLoader (NewCursorLoaderRequest) returns (NewCursorLoaderResponse);
+  rpc CancelLoadInBackground (CursorLoaderCancelLoadInBackgroundRequest) returns (CancelLoadInBackgroundResponse);
+  rpc DeliverResult1 (DeliverResult1Request) returns (DeliverResult1Response);
+  rpc Dump (CursorLoaderDumpRequest) returns (DumpResponse);
+  rpc GetProjection (GetProjectionRequest) returns (GetProjectionResponse);
+  rpc GetSelection (GetSelectionRequest) returns (GetSelectionResponse);
+  rpc GetSelectionArgs (GetSelectionArgsRequest) returns (GetSelectionArgsResponse);
+  rpc GetSortOrder (GetSortOrderRequest) returns (GetSortOrderResponse);
+  rpc GetUri (CursorLoaderGetUriRequest) returns (GetUriResponse);
+  rpc LoadInBackground0 (LoadInBackground0Request) returns (LoadInBackground0Response);
+  rpc OnCanceled1 (OnCanceled1Request) returns (OnCanceled1Response);
+  rpc SetProjection (SetProjectionRequest) returns (SetProjectionResponse);
+  rpc SetSelection (SetSelectionRequest) returns (SetSelectionResponse);
+  rpc SetSelectionArgs (SetSelectionArgsRequest) returns (SetSelectionArgsResponse);
+  rpc SetSortOrder (SetSortOrderRequest) returns (SetSortOrderResponse);
+  rpc SetUri (SetUriRequest) returns (SetUriResponse);
+  rpc OnCanceled1_1 (OnCanceled1_1Request) returns (OnCanceled1_1Response);
+  rpc LoadInBackground0_1 (LoadInBackground0_1Request) returns (LoadInBackground0_1Response);
+  rpc DeliverResult1_1 (DeliverResult1_1Request) returns (DeliverResult1_1Response);
+}
+
+service ServiceConnectionService {
+  rpc OnServiceConnected (OnServiceConnectedRequest) returns (OnServiceConnectedResponse);
+  rpc OnServiceDisconnected (OnServiceDisconnectedRequest) returns (OnServiceDisconnectedResponse);
+}
+
+service SearchRecentSuggestionsProviderService {
+  rpc NewSearchRecentSuggestionsProvider (NewSearchRecentSuggestionsProviderRequest) returns (NewSearchRecentSuggestionsProviderResponse);
+  rpc Delete (DeleteRequest) returns (DeleteResponse);
+  rpc GetType (SearchRecentSuggestionsProviderGetTypeRequest) returns (GetTypeResponse);
+  rpc Insert (InsertRequest) returns (InsertResponse);
+  rpc OnCreate (OnCreateRequest) returns (OnCreateResponse);
+  rpc Query (QueryRequest) returns (QueryResponse);
+  rpc Update (UpdateRequest) returns (UpdateResponse);
+}
+
+service ComponentNameService {
+  rpc NewComponentName (NewComponentNameRequest) returns (NewComponentNameResponse);
+  rpc Clone0 (Clone0Request) returns (Clone0Response);
+  rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
+  rpc DescribeContents (ComponentNameDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (ComponentNameEqualsRequest) returns (EqualsResponse);
+  rpc FlattenToShortString (FlattenToShortStringRequest) returns (FlattenToShortStringResponse);
+  rpc FlattenToString (FlattenToStringRequest) returns (FlattenToStringResponse);
+  rpc GetClassName (GetClassNameRequest) returns (GetClassNameResponse);
+  rpc GetPackageName (ComponentNameGetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetShortClassName (GetShortClassNameRequest) returns (GetShortClassNameResponse);
+  rpc HashCode (ComponentNameHashCodeRequest) returns (HashCodeResponse);
+  rpc ToShortString (ToShortStringRequest) returns (ToShortStringResponse);
+  rpc ToString (ComponentNameToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel2_1 (WriteToParcel2_1Request) returns (WriteToParcel2_1Response);
+  rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
+  rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
+  rpc CreateRelative2 (CreateRelative2Request) returns (CreateRelative2Response);
+  rpc CreateRelative2_1 (CreateRelative2_1Request) returns (CreateRelative2_1Response);
+  rpc ReadFromParcel (ReadFromParcelRequest) returns (ReadFromParcelResponse);
+  rpc UnflattenFromString (UnflattenFromStringRequest) returns (UnflattenFromStringResponse);
+  rpc WriteToParcel2 (WriteToParcel2Request) returns (WriteToParcel2Response);
+}
+
+service ProviderResultService {
+  rpc NewProviderResult (NewProviderResultRequest) returns (NewProviderResultResponse);
+  rpc DescribeContents (ProviderResultDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc ToString (ProviderResultToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (ProviderResultWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ProviderService {
+  rpc AttachInfo (AttachInfoRequest) returns (AttachInfoResponse);
+  rpc BulkInsert (BulkInsertRequest) returns (BulkInsertResponse);
+  rpc Call3 (Call3Request) returns (Call3Response);
+  rpc Call4_1 (Call4_1Request) returns (Call4_1Response);
+  rpc Canonicalize (CanonicalizeRequest) returns (CanonicalizeResponse);
+  rpc ClearCallingIdentity (ClearCallingIdentityRequest) returns (ClearCallingIdentityResponse);
+  rpc Delete2 (Delete2Request) returns (Delete2Response);
+  rpc Delete3_1 (Delete3_1Request) returns (Delete3_1Response);
+  rpc Dump (ProviderDumpRequest) returns (DumpResponse);
+  rpc GetCallingAttributionSource (GetCallingAttributionSourceRequest) returns (GetCallingAttributionSourceResponse);
+  rpc GetCallingAttributionTag (GetCallingAttributionTagRequest) returns (GetCallingAttributionTagResponse);
+  rpc GetCallingPackage (GetCallingPackageRequest) returns (GetCallingPackageResponse);
+  rpc GetCallingPackageUnchecked (GetCallingPackageUncheckedRequest) returns (GetCallingPackageUncheckedResponse);
+  rpc GetContext (GetContextRequest) returns (GetContextResponse);
+  rpc GetPathPermissions (GetPathPermissionsRequest) returns (GetPathPermissionsResponse);
+  rpc GetReadPermission (GetReadPermissionRequest) returns (GetReadPermissionResponse);
+  rpc GetStreamTypes (GetStreamTypesRequest) returns (GetStreamTypesResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc GetTypeAnonymous (GetTypeAnonymousRequest) returns (GetTypeAnonymousResponse);
+  rpc GetWritePermission (GetWritePermissionRequest) returns (GetWritePermissionResponse);
+  rpc Insert2 (Insert2Request) returns (Insert2Response);
+  rpc Insert3_1 (Insert3_1Request) returns (Insert3_1Response);
+  rpc OnCallingPackageChanged (OnCallingPackageChangedRequest) returns (OnCallingPackageChangedResponse);
+  rpc OnConfigurationChanged (OnConfigurationChangedRequest) returns (OnConfigurationChangedResponse);
+  rpc OnCreate (ProviderOnCreateRequest) returns (OnCreateResponse);
+  rpc OnLowMemory (OnLowMemoryRequest) returns (OnLowMemoryResponse);
+  rpc OnTrimMemory (OnTrimMemoryRequest) returns (OnTrimMemoryResponse);
+  rpc OpenAssetFile2 (OpenAssetFile2Request) returns (OpenAssetFile2Response);
+  rpc OpenAssetFile3_1 (OpenAssetFile3_1Request) returns (OpenAssetFile3_1Response);
+  rpc OpenFile2 (OpenFile2Request) returns (OpenFile2Response);
+  rpc OpenFile3_1 (OpenFile3_1Request) returns (OpenFile3_1Response);
+  rpc OpenTypedAssetFile3 (OpenTypedAssetFile3Request) returns (OpenTypedAssetFile3Response);
+  rpc OpenTypedAssetFile4_1 (OpenTypedAssetFile4_1Request) returns (OpenTypedAssetFile4_1Response);
+  rpc Query4 (Query4Request) returns (Query4Response);
+  rpc Query5_1 (Query5_1Request) returns (Query5_1Response);
+  rpc Query6_2 (Query6_2Request) returns (Query6_2Response);
+  rpc Refresh (RefreshRequest) returns (RefreshResponse);
+  rpc RequireContext (RequireContextRequest) returns (RequireContextResponse);
+  rpc RestoreCallingIdentity (RestoreCallingIdentityRequest) returns (RestoreCallingIdentityResponse);
+  rpc Shutdown (ShutdownRequest) returns (ShutdownResponse);
+  rpc Uncanonicalize (UncanonicalizeRequest) returns (UncanonicalizeResponse);
+  rpc Update3 (Update3Request) returns (Update3Response);
+  rpc Update4_1 (Update4_1Request) returns (Update4_1Response);
+}
+
+service PdfPageImageContentService {
+  rpc NewPdfPageImageContent (NewPdfPageImageContentRequest) returns (NewPdfPageImageContentResponse);
+  rpc DescribeContents (PdfPageImageContentDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetAltText (GetAltTextRequest) returns (GetAltTextResponse);
+  rpc WriteToParcel (PdfPageImageContentWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PdfPageLinkContentService {
+  rpc NewPdfPageLinkContent (NewPdfPageLinkContentRequest) returns (NewPdfPageLinkContentResponse);
+  rpc DescribeContents (PdfPageImageContentDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetUri (PdfPageLinkContentGetUriRequest) returns (GetUriResponse);
+  rpc WriteToParcel (PdfPageImageContentWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PdfPageGotoLinkContentService {
+  rpc NewPdfPageGotoLinkContent (NewPdfPageGotoLinkContentRequest) returns (NewPdfPageGotoLinkContentResponse);
+  rpc DescribeContents (PdfPageImageContentDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDestination (GetDestinationRequest) returns (GetDestinationResponse);
+  rpc WriteToParcel (PdfPageImageContentWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PdfPageGotoLinkContentDestinationService {
+  rpc DescribeContents (PdfPageGotoLinkContentDestinationDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetPageNumber (GetPageNumberRequest) returns (GetPageNumberResponse);
+  rpc GetXCoordinate (GetXCoordinateRequest) returns (GetXCoordinateResponse);
+  rpc GetYCoordinate (GetYCoordinateRequest) returns (GetYCoordinateResponse);
+  rpc GetZoom (GetZoomRequest) returns (GetZoomResponse);
+  rpc WriteToParcel (PdfPageGotoLinkContentDestinationWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service PdfPageTextContentService {
+  rpc NewPdfPageTextContent (NewPdfPageTextContentRequest) returns (NewPdfPageTextContentResponse);
+  rpc DescribeContents (PdfPageImageContentDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetText (GetTextRequest) returns (GetTextResponse);
+  rpc WriteToParcel (PdfPageImageContentWriteToParcelRequest) returns (WriteToParcelResponse);
 }

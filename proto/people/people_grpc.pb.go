@@ -21,6 +21,820 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	ConversationStatusService_DescribeContents_FullMethodName   = "/people.ConversationStatusService/DescribeContents"
+	ConversationStatusService_Equals_FullMethodName             = "/people.ConversationStatusService/Equals"
+	ConversationStatusService_GetActivity_FullMethodName        = "/people.ConversationStatusService/GetActivity"
+	ConversationStatusService_GetAvailability_FullMethodName    = "/people.ConversationStatusService/GetAvailability"
+	ConversationStatusService_GetDescription_FullMethodName     = "/people.ConversationStatusService/GetDescription"
+	ConversationStatusService_GetEndTimeMillis_FullMethodName   = "/people.ConversationStatusService/GetEndTimeMillis"
+	ConversationStatusService_GetIcon_FullMethodName            = "/people.ConversationStatusService/GetIcon"
+	ConversationStatusService_GetId_FullMethodName              = "/people.ConversationStatusService/GetId"
+	ConversationStatusService_GetStartTimeMillis_FullMethodName = "/people.ConversationStatusService/GetStartTimeMillis"
+	ConversationStatusService_HashCode_FullMethodName           = "/people.ConversationStatusService/HashCode"
+	ConversationStatusService_ToString_FullMethodName           = "/people.ConversationStatusService/ToString"
+	ConversationStatusService_WriteToParcel_FullMethodName      = "/people.ConversationStatusService/WriteToParcel"
+)
+
+// ConversationStatusServiceClient is the client API for ConversationStatusService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ConversationStatusServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetActivity(ctx context.Context, in *GetActivityRequest, opts ...grpc.CallOption) (*GetActivityResponse, error)
+	GetAvailability(ctx context.Context, in *GetAvailabilityRequest, opts ...grpc.CallOption) (*GetAvailabilityResponse, error)
+	GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error)
+	GetEndTimeMillis(ctx context.Context, in *GetEndTimeMillisRequest, opts ...grpc.CallOption) (*GetEndTimeMillisResponse, error)
+	GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetStartTimeMillis(ctx context.Context, in *GetStartTimeMillisRequest, opts ...grpc.CallOption) (*GetStartTimeMillisResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type conversationStatusServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewConversationStatusServiceClient(cc grpc.ClientConnInterface) ConversationStatusServiceClient {
+	return &conversationStatusServiceClient{cc}
+}
+
+func (c *conversationStatusServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ConversationStatusService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationStatusServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, ConversationStatusService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationStatusServiceClient) GetActivity(ctx context.Context, in *GetActivityRequest, opts ...grpc.CallOption) (*GetActivityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActivityResponse)
+	err := c.cc.Invoke(ctx, ConversationStatusService_GetActivity_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationStatusServiceClient) GetAvailability(ctx context.Context, in *GetAvailabilityRequest, opts ...grpc.CallOption) (*GetAvailabilityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAvailabilityResponse)
+	err := c.cc.Invoke(ctx, ConversationStatusService_GetAvailability_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationStatusServiceClient) GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDescriptionResponse)
+	err := c.cc.Invoke(ctx, ConversationStatusService_GetDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationStatusServiceClient) GetEndTimeMillis(ctx context.Context, in *GetEndTimeMillisRequest, opts ...grpc.CallOption) (*GetEndTimeMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEndTimeMillisResponse)
+	err := c.cc.Invoke(ctx, ConversationStatusService_GetEndTimeMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationStatusServiceClient) GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIconResponse)
+	err := c.cc.Invoke(ctx, ConversationStatusService_GetIcon_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationStatusServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, ConversationStatusService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationStatusServiceClient) GetStartTimeMillis(ctx context.Context, in *GetStartTimeMillisRequest, opts ...grpc.CallOption) (*GetStartTimeMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStartTimeMillisResponse)
+	err := c.cc.Invoke(ctx, ConversationStatusService_GetStartTimeMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationStatusServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, ConversationStatusService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationStatusServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ConversationStatusService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationStatusServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ConversationStatusService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ConversationStatusServiceServer is the server API for ConversationStatusService service.
+// All implementations must embed UnimplementedConversationStatusServiceServer
+// for forward compatibility.
+type ConversationStatusServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetActivity(context.Context, *GetActivityRequest) (*GetActivityResponse, error)
+	GetAvailability(context.Context, *GetAvailabilityRequest) (*GetAvailabilityResponse, error)
+	GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error)
+	GetEndTimeMillis(context.Context, *GetEndTimeMillisRequest) (*GetEndTimeMillisResponse, error)
+	GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	GetStartTimeMillis(context.Context, *GetStartTimeMillisRequest) (*GetStartTimeMillisResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedConversationStatusServiceServer()
+}
+
+// UnimplementedConversationStatusServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedConversationStatusServiceServer struct{}
+
+func (UnimplementedConversationStatusServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedConversationStatusServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedConversationStatusServiceServer) GetActivity(context.Context, *GetActivityRequest) (*GetActivityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetActivity not implemented")
+}
+func (UnimplementedConversationStatusServiceServer) GetAvailability(context.Context, *GetAvailabilityRequest) (*GetAvailabilityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAvailability not implemented")
+}
+func (UnimplementedConversationStatusServiceServer) GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDescription not implemented")
+}
+func (UnimplementedConversationStatusServiceServer) GetEndTimeMillis(context.Context, *GetEndTimeMillisRequest) (*GetEndTimeMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEndTimeMillis not implemented")
+}
+func (UnimplementedConversationStatusServiceServer) GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIcon not implemented")
+}
+func (UnimplementedConversationStatusServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedConversationStatusServiceServer) GetStartTimeMillis(context.Context, *GetStartTimeMillisRequest) (*GetStartTimeMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStartTimeMillis not implemented")
+}
+func (UnimplementedConversationStatusServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedConversationStatusServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedConversationStatusServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedConversationStatusServiceServer) mustEmbedUnimplementedConversationStatusServiceServer() {
+}
+func (UnimplementedConversationStatusServiceServer) testEmbeddedByValue() {}
+
+// UnsafeConversationStatusServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ConversationStatusServiceServer will
+// result in compilation errors.
+type UnsafeConversationStatusServiceServer interface {
+	mustEmbedUnimplementedConversationStatusServiceServer()
+}
+
+func RegisterConversationStatusServiceServer(s grpc.ServiceRegistrar, srv ConversationStatusServiceServer) {
+	// If the following call panics, it indicates UnimplementedConversationStatusServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ConversationStatusService_ServiceDesc, srv)
+}
+
+func _ConversationStatusService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationStatusServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationStatusService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationStatusServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationStatusService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationStatusServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationStatusService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationStatusServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationStatusService_GetActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActivityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationStatusServiceServer).GetActivity(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationStatusService_GetActivity_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationStatusServiceServer).GetActivity(ctx, req.(*GetActivityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationStatusService_GetAvailability_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAvailabilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationStatusServiceServer).GetAvailability(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationStatusService_GetAvailability_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationStatusServiceServer).GetAvailability(ctx, req.(*GetAvailabilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationStatusService_GetDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationStatusServiceServer).GetDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationStatusService_GetDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationStatusServiceServer).GetDescription(ctx, req.(*GetDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationStatusService_GetEndTimeMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEndTimeMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationStatusServiceServer).GetEndTimeMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationStatusService_GetEndTimeMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationStatusServiceServer).GetEndTimeMillis(ctx, req.(*GetEndTimeMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationStatusService_GetIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIconRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationStatusServiceServer).GetIcon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationStatusService_GetIcon_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationStatusServiceServer).GetIcon(ctx, req.(*GetIconRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationStatusService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationStatusServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationStatusService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationStatusServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationStatusService_GetStartTimeMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStartTimeMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationStatusServiceServer).GetStartTimeMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationStatusService_GetStartTimeMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationStatusServiceServer).GetStartTimeMillis(ctx, req.(*GetStartTimeMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationStatusService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationStatusServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationStatusService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationStatusServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationStatusService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationStatusServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationStatusService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationStatusServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationStatusService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationStatusServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationStatusService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationStatusServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ConversationStatusService_ServiceDesc is the grpc.ServiceDesc for ConversationStatusService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ConversationStatusService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "people.ConversationStatusService",
+	HandlerType: (*ConversationStatusServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ConversationStatusService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _ConversationStatusService_Equals_Handler,
+		},
+		{
+			MethodName: "GetActivity",
+			Handler:    _ConversationStatusService_GetActivity_Handler,
+		},
+		{
+			MethodName: "GetAvailability",
+			Handler:    _ConversationStatusService_GetAvailability_Handler,
+		},
+		{
+			MethodName: "GetDescription",
+			Handler:    _ConversationStatusService_GetDescription_Handler,
+		},
+		{
+			MethodName: "GetEndTimeMillis",
+			Handler:    _ConversationStatusService_GetEndTimeMillis_Handler,
+		},
+		{
+			MethodName: "GetIcon",
+			Handler:    _ConversationStatusService_GetIcon_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _ConversationStatusService_GetId_Handler,
+		},
+		{
+			MethodName: "GetStartTimeMillis",
+			Handler:    _ConversationStatusService_GetStartTimeMillis_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _ConversationStatusService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ConversationStatusService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ConversationStatusService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/people/people.proto",
+}
+
+const (
+	ConversationStatusBuilderService_Build_FullMethodName              = "/people.ConversationStatusBuilderService/Build"
+	ConversationStatusBuilderService_SetAvailability_FullMethodName    = "/people.ConversationStatusBuilderService/SetAvailability"
+	ConversationStatusBuilderService_SetDescription_FullMethodName     = "/people.ConversationStatusBuilderService/SetDescription"
+	ConversationStatusBuilderService_SetEndTimeMillis_FullMethodName   = "/people.ConversationStatusBuilderService/SetEndTimeMillis"
+	ConversationStatusBuilderService_SetIcon_FullMethodName            = "/people.ConversationStatusBuilderService/SetIcon"
+	ConversationStatusBuilderService_SetStartTimeMillis_FullMethodName = "/people.ConversationStatusBuilderService/SetStartTimeMillis"
+)
+
+// ConversationStatusBuilderServiceClient is the client API for ConversationStatusBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ConversationStatusBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetAvailability(ctx context.Context, in *SetAvailabilityRequest, opts ...grpc.CallOption) (*SetAvailabilityResponse, error)
+	SetDescription(ctx context.Context, in *SetDescriptionRequest, opts ...grpc.CallOption) (*SetDescriptionResponse, error)
+	SetEndTimeMillis(ctx context.Context, in *SetEndTimeMillisRequest, opts ...grpc.CallOption) (*SetEndTimeMillisResponse, error)
+	SetIcon(ctx context.Context, in *SetIconRequest, opts ...grpc.CallOption) (*SetIconResponse, error)
+	SetStartTimeMillis(ctx context.Context, in *SetStartTimeMillisRequest, opts ...grpc.CallOption) (*SetStartTimeMillisResponse, error)
+}
+
+type conversationStatusBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewConversationStatusBuilderServiceClient(cc grpc.ClientConnInterface) ConversationStatusBuilderServiceClient {
+	return &conversationStatusBuilderServiceClient{cc}
+}
+
+func (c *conversationStatusBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, ConversationStatusBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationStatusBuilderServiceClient) SetAvailability(ctx context.Context, in *SetAvailabilityRequest, opts ...grpc.CallOption) (*SetAvailabilityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAvailabilityResponse)
+	err := c.cc.Invoke(ctx, ConversationStatusBuilderService_SetAvailability_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationStatusBuilderServiceClient) SetDescription(ctx context.Context, in *SetDescriptionRequest, opts ...grpc.CallOption) (*SetDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDescriptionResponse)
+	err := c.cc.Invoke(ctx, ConversationStatusBuilderService_SetDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationStatusBuilderServiceClient) SetEndTimeMillis(ctx context.Context, in *SetEndTimeMillisRequest, opts ...grpc.CallOption) (*SetEndTimeMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEndTimeMillisResponse)
+	err := c.cc.Invoke(ctx, ConversationStatusBuilderService_SetEndTimeMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationStatusBuilderServiceClient) SetIcon(ctx context.Context, in *SetIconRequest, opts ...grpc.CallOption) (*SetIconResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetIconResponse)
+	err := c.cc.Invoke(ctx, ConversationStatusBuilderService_SetIcon_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *conversationStatusBuilderServiceClient) SetStartTimeMillis(ctx context.Context, in *SetStartTimeMillisRequest, opts ...grpc.CallOption) (*SetStartTimeMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStartTimeMillisResponse)
+	err := c.cc.Invoke(ctx, ConversationStatusBuilderService_SetStartTimeMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ConversationStatusBuilderServiceServer is the server API for ConversationStatusBuilderService service.
+// All implementations must embed UnimplementedConversationStatusBuilderServiceServer
+// for forward compatibility.
+type ConversationStatusBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAvailability(context.Context, *SetAvailabilityRequest) (*SetAvailabilityResponse, error)
+	SetDescription(context.Context, *SetDescriptionRequest) (*SetDescriptionResponse, error)
+	SetEndTimeMillis(context.Context, *SetEndTimeMillisRequest) (*SetEndTimeMillisResponse, error)
+	SetIcon(context.Context, *SetIconRequest) (*SetIconResponse, error)
+	SetStartTimeMillis(context.Context, *SetStartTimeMillisRequest) (*SetStartTimeMillisResponse, error)
+	mustEmbedUnimplementedConversationStatusBuilderServiceServer()
+}
+
+// UnimplementedConversationStatusBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedConversationStatusBuilderServiceServer struct{}
+
+func (UnimplementedConversationStatusBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedConversationStatusBuilderServiceServer) SetAvailability(context.Context, *SetAvailabilityRequest) (*SetAvailabilityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAvailability not implemented")
+}
+func (UnimplementedConversationStatusBuilderServiceServer) SetDescription(context.Context, *SetDescriptionRequest) (*SetDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDescription not implemented")
+}
+func (UnimplementedConversationStatusBuilderServiceServer) SetEndTimeMillis(context.Context, *SetEndTimeMillisRequest) (*SetEndTimeMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEndTimeMillis not implemented")
+}
+func (UnimplementedConversationStatusBuilderServiceServer) SetIcon(context.Context, *SetIconRequest) (*SetIconResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetIcon not implemented")
+}
+func (UnimplementedConversationStatusBuilderServiceServer) SetStartTimeMillis(context.Context, *SetStartTimeMillisRequest) (*SetStartTimeMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStartTimeMillis not implemented")
+}
+func (UnimplementedConversationStatusBuilderServiceServer) mustEmbedUnimplementedConversationStatusBuilderServiceServer() {
+}
+func (UnimplementedConversationStatusBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeConversationStatusBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ConversationStatusBuilderServiceServer will
+// result in compilation errors.
+type UnsafeConversationStatusBuilderServiceServer interface {
+	mustEmbedUnimplementedConversationStatusBuilderServiceServer()
+}
+
+func RegisterConversationStatusBuilderServiceServer(s grpc.ServiceRegistrar, srv ConversationStatusBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedConversationStatusBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ConversationStatusBuilderService_ServiceDesc, srv)
+}
+
+func _ConversationStatusBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationStatusBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationStatusBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationStatusBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationStatusBuilderService_SetAvailability_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAvailabilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationStatusBuilderServiceServer).SetAvailability(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationStatusBuilderService_SetAvailability_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationStatusBuilderServiceServer).SetAvailability(ctx, req.(*SetAvailabilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationStatusBuilderService_SetDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationStatusBuilderServiceServer).SetDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationStatusBuilderService_SetDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationStatusBuilderServiceServer).SetDescription(ctx, req.(*SetDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationStatusBuilderService_SetEndTimeMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEndTimeMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationStatusBuilderServiceServer).SetEndTimeMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationStatusBuilderService_SetEndTimeMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationStatusBuilderServiceServer).SetEndTimeMillis(ctx, req.(*SetEndTimeMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationStatusBuilderService_SetIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetIconRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationStatusBuilderServiceServer).SetIcon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationStatusBuilderService_SetIcon_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationStatusBuilderServiceServer).SetIcon(ctx, req.(*SetIconRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConversationStatusBuilderService_SetStartTimeMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStartTimeMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConversationStatusBuilderServiceServer).SetStartTimeMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConversationStatusBuilderService_SetStartTimeMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConversationStatusBuilderServiceServer).SetStartTimeMillis(ctx, req.(*SetStartTimeMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ConversationStatusBuilderService_ServiceDesc is the grpc.ServiceDesc for ConversationStatusBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ConversationStatusBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "people.ConversationStatusBuilderService",
+	HandlerType: (*ConversationStatusBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _ConversationStatusBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetAvailability",
+			Handler:    _ConversationStatusBuilderService_SetAvailability_Handler,
+		},
+		{
+			MethodName: "SetDescription",
+			Handler:    _ConversationStatusBuilderService_SetDescription_Handler,
+		},
+		{
+			MethodName: "SetEndTimeMillis",
+			Handler:    _ConversationStatusBuilderService_SetEndTimeMillis_Handler,
+		},
+		{
+			MethodName: "SetIcon",
+			Handler:    _ConversationStatusBuilderService_SetIcon_Handler,
+		},
+		{
+			MethodName: "SetStartTimeMillis",
+			Handler:    _ConversationStatusBuilderService_SetStartTimeMillis_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/people/people.proto",
+}
+
+const (
 	ManagerService_AddOrUpdateStatus_FullMethodName = "/people.ManagerService/AddOrUpdateStatus"
 	ManagerService_ClearStatus_FullMethodName       = "/people.ManagerService/ClearStatus"
 	ManagerService_ClearStatuses_FullMethodName     = "/people.ManagerService/ClearStatuses"

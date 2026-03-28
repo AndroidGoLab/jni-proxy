@@ -8,6 +8,7 @@ import (
 
 	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/jni_raw"
+	recpb "github.com/AndroidGoLab/jni-proxy/proto/recorder"
 )
 
 // Android MediaRecorder constants for audio-only recording.
@@ -26,9 +27,9 @@ var microphoneCmd = &cobra.Command{
 
 var microphoneRecordCmd = &cobra.Command{
 	Use:   "record",
-	Short: "Record audio from the microphone via MediaRecorder (raw JNI)",
+	Short: "Record audio from the microphone via MediaRecorder (typed gRPC)",
 	Long: `Records audio using the Android MediaRecorder API,
-driven entirely through raw JNI calls over gRPC.
+driven through typed gRPC calls (with raw JNI only for the constructor).
 The resulting M4A is written to stdout or a file.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		duration, _ := cmd.Flags().GetDuration("duration")
@@ -43,8 +44,9 @@ The resulting M4A is written to stdout or a file.`,
 
 		client := pb.NewJNIServiceClient(grpcConn)
 		j := &jniCaller{client: client}
+		mrClient := recpb.NewMediaRecorderServiceClient(grpcConn)
 
-		data, err := recordAudio(ctx, j, duration)
+		data, err := recordAudio(ctx, j, mrClient, duration)
 		if err != nil {
 			return err
 		}
@@ -70,10 +72,13 @@ func init() {
 	rootCmd.AddCommand(microphoneCmd)
 }
 
-// recordAudio orchestrates audio-only recording via MediaRecorder over raw JNI.
+// recordAudio orchestrates audio-only recording via MediaRecorder using
+// the typed gRPC client for all MediaRecorder operations (except the
+// constructor, which still uses raw JNI).
 func recordAudio(
 	ctx context.Context,
 	j *jniCaller,
+	mrClient recpb.MediaRecorderServiceClient,
 	duration time.Duration,
 ) ([]byte, error) {
 	appCtx, err := j.getAppContext(ctx)
@@ -81,34 +86,38 @@ func recordAudio(
 		return nil, fmt.Errorf("getting app context: %w", err)
 	}
 
-	// Resolve output path on the device.
-	outputPath, err := getAudioOutputPath(ctx, j, appCtx)
-	if err != nil {
-		return nil, fmt.Errorf("getting output path: %w", err)
+	// Output path on the device.
+	// Prefer the app's cache directory (works inside APKs without
+	// WRITE_EXTERNAL_STORAGE); fall back to /sdcard/ for non-APK mode.
+	outputPath, cacheDirErr := getCacheDirPath(ctx, j, appCtx)
+	if cacheDirErr != nil {
+		outputPath = "/sdcard"
 	}
+	outputPath += "/recording.m4a"
 
-	// Create, configure, and prepare the MediaRecorder.
-	recorder, err := setupAudioRecorder(ctx, j, appCtx, outputPath)
+	// Create the MediaRecorder via raw JNI (no typed constructor RPC).
+	recorder, err := createMediaRecorder(ctx, j, appCtx)
 	if err != nil {
-		return nil, fmt.Errorf("setting up MediaRecorder: %w", err)
+		return nil, fmt.Errorf("creating MediaRecorder: %w", err)
 	}
 	defer func() {
-		if releaseErr := releaseMediaRecorder(ctx, j, recorder); releaseErr != nil {
+		if _, releaseErr := mrClient.Release(ctx, &recpb.ReleaseRequest{Handle: recorder}); releaseErr != nil {
 			fmt.Fprintf(os.Stderr, "warning: releasing MediaRecorder: %v\n", releaseErr)
 		}
 	}()
 
-	// Start recording.
-	mrCls, err := j.findClass(ctx, "android/media/MediaRecorder")
-	if err != nil {
-		return nil, fmt.Errorf("finding MediaRecorder class: %w", err)
+	// Configure the recorder via typed gRPC calls.
+	if err := configureAudioRecorder(ctx, mrClient, recorder, outputPath); err != nil {
+		return nil, fmt.Errorf("configuring MediaRecorder: %w", err)
 	}
 
-	startMid, err := j.getMethodID(ctx, mrCls, "start", "()V")
-	if err != nil {
-		return nil, fmt.Errorf("getting MediaRecorder.start method: %w", err)
+	// Prepare.
+	if _, err := mrClient.Prepare(ctx, &recpb.PrepareRequest{Handle: recorder}); err != nil {
+		return nil, fmt.Errorf("calling MediaRecorder.prepare: %w", err)
 	}
-	if err := j.callVoidMethod(ctx, recorder, startMid); err != nil {
+
+	// Start recording.
+	if _, err := mrClient.Start(ctx, &recpb.StartRequest{Handle: recorder}); err != nil {
 		return nil, fmt.Errorf("calling MediaRecorder.start: %w", err)
 	}
 
@@ -120,11 +129,7 @@ func recordAudio(
 	}
 
 	// Stop recording.
-	stopMid, err := j.getMethodID(ctx, mrCls, "stop", "()V")
-	if err != nil {
-		return nil, fmt.Errorf("getting MediaRecorder.stop method: %w", err)
-	}
-	if err := j.callVoidMethod(ctx, recorder, stopMid); err != nil {
+	if _, err := mrClient.Stop(ctx, &recpb.StopRequest{Handle: recorder}); err != nil {
 		return nil, fmt.Errorf("calling MediaRecorder.stop: %w", err)
 	}
 	fmt.Fprintf(os.Stderr, "Recording stopped.\n")
@@ -134,20 +139,88 @@ func recordAudio(
 	return readFileViaJNI(ctx, j, outputPath)
 }
 
-// audioRecordingFallbackDir is used when getCacheDir fails (e.g. when
-// running as the "android" package which has no data directory).
-const audioRecordingFallbackDir = "/data/local/tmp"
-
-// getAudioOutputPath returns a device-side path for the audio recording.
-// It tries the app's cache directory first and falls back to
-// audioRecordingFallbackDir when getCacheDir fails.
-func getAudioOutputPath(ctx context.Context, j *jniCaller, appCtx int64) (string, error) {
-	cachePath, err := getCacheDirPath(ctx, j, appCtx)
+// createMediaRecorder instantiates an android.media.MediaRecorder via raw
+// JNI. It tries the Context-accepting constructor (API 31+) first and
+// falls back to the no-arg constructor for older APIs.
+func createMediaRecorder(ctx context.Context, j *jniCaller, appCtx int64) (int64, error) {
+	mrCls, err := j.findClass(ctx, "android/media/MediaRecorder")
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "warning: getCacheDir failed (%v), falling back to %s\n", err, audioRecordingFallbackDir)
-		return audioRecordingFallbackDir + "/recording.m4a", nil
+		return 0, fmt.Errorf("finding MediaRecorder class: %w", err)
 	}
-	return cachePath + "/recording.m4a", nil
+
+	// MediaRecorder(Context) constructor (API 31+).
+	var recorder int64
+	ctor, ctorErr := j.getMethodID(ctx, mrCls, "<init>", "(Landroid/content/Context;)V")
+	if ctorErr == nil {
+		recorder, err = j.newObject(ctx, mrCls, ctor, objVal(appCtx))
+	}
+	if ctorErr != nil || err != nil {
+		// Fall back to no-arg constructor for older APIs.
+		ctor, err = j.getMethodID(ctx, mrCls, "<init>", "()V")
+		if err != nil {
+			return 0, fmt.Errorf("getting MediaRecorder constructor: %w", err)
+		}
+		recorder, err = j.newObject(ctx, mrCls, ctor)
+		if err != nil {
+			return 0, fmt.Errorf("creating MediaRecorder: %w", err)
+		}
+	}
+
+	return recorder, nil
+}
+
+// configureAudioRecorder sets up MediaRecorder parameters for audio-only
+// recording using the typed gRPC client.
+func configureAudioRecorder(
+	ctx context.Context,
+	mrClient recpb.MediaRecorderServiceClient,
+	recorder int64,
+	outputPath string,
+) error {
+	if _, err := mrClient.SetAudioSource(ctx, &recpb.SetAudioSourceRequest{
+		Handle: recorder,
+		Arg0:   micAudioSourceMIC,
+	}); err != nil {
+		return fmt.Errorf("SetAudioSource: %w", err)
+	}
+
+	if _, err := mrClient.SetOutputFormat(ctx, &recpb.SetOutputFormatRequest{
+		Handle: recorder,
+		Arg0:   micOutputFormatMPEG4,
+	}); err != nil {
+		return fmt.Errorf("SetOutputFormat: %w", err)
+	}
+
+	if _, err := mrClient.SetAudioEncoder(ctx, &recpb.SetAudioEncoderRequest{
+		Handle: recorder,
+		Arg0:   micAudioEncoderAAC,
+	}); err != nil {
+		return fmt.Errorf("SetAudioEncoder: %w", err)
+	}
+
+	if _, err := mrClient.SetAudioEncodingBitRate(ctx, &recpb.SetAudioEncodingBitRateRequest{
+		Handle: recorder,
+		Arg0:   micAudioEncodingBitRate,
+	}); err != nil {
+		return fmt.Errorf("SetAudioEncodingBitRate: %w", err)
+	}
+
+	if _, err := mrClient.SetAudioSamplingRate(ctx, &recpb.SetAudioSamplingRateRequest{
+		Handle: recorder,
+		Arg0:   micAudioSamplingRate,
+	}); err != nil {
+		return fmt.Errorf("SetAudioSamplingRate: %w", err)
+	}
+
+	// Use setOutputFile(String) with the output path.
+	if _, err := mrClient.SetOutputFile1_2(ctx, &recpb.SetOutputFile1_2Request{
+		Handle: recorder,
+		Arg0:   outputPath,
+	}); err != nil {
+		return fmt.Errorf("SetOutputFile: %w", err)
+	}
+
+	return nil
 }
 
 // getCacheDirPath resolves the app's cache directory via JNI.
@@ -188,68 +261,4 @@ func getCacheDirPath(ctx context.Context, j *jniCaller, appCtx int64) (string, e
 	}
 
 	return cachePath, nil
-}
-
-// setupAudioRecorder creates and configures a MediaRecorder for audio-only recording.
-func setupAudioRecorder(
-	ctx context.Context,
-	j *jniCaller,
-	appCtx int64,
-	outputPath string,
-) (int64, error) {
-	mrCls, err := j.findClass(ctx, "android/media/MediaRecorder")
-	if err != nil {
-		return 0, fmt.Errorf("finding MediaRecorder class: %w", err)
-	}
-
-	// MediaRecorder(Context) constructor (API 31+).
-	// Fall back to no-arg constructor for older APIs.
-	var recorder int64
-	ctor, ctorErr := j.getMethodID(ctx, mrCls, "<init>", "(Landroid/content/Context;)V")
-	if ctorErr == nil {
-		recorder, err = j.newObject(ctx, mrCls, ctor, objVal(appCtx))
-	}
-	if ctorErr != nil || err != nil {
-		ctor, err = j.getMethodID(ctx, mrCls, "<init>", "()V")
-		if err != nil {
-			return 0, fmt.Errorf("getting MediaRecorder constructor: %w", err)
-		}
-		recorder, err = j.newObject(ctx, mrCls, ctor)
-		if err != nil {
-			return 0, fmt.Errorf("creating MediaRecorder: %w", err)
-		}
-	}
-
-	outputPathStr, err := j.newString(ctx, outputPath)
-	if err != nil {
-		return 0, fmt.Errorf("creating output path string: %w", err)
-	}
-
-	type methodCall struct {
-		name string
-		sig  string
-		args []*pb.JValue
-	}
-
-	calls := []methodCall{
-		{"setAudioSource", "(I)V", []*pb.JValue{intVal(micAudioSourceMIC)}},
-		{"setOutputFormat", "(I)V", []*pb.JValue{intVal(micOutputFormatMPEG4)}},
-		{"setAudioEncoder", "(I)V", []*pb.JValue{intVal(micAudioEncoderAAC)}},
-		{"setAudioEncodingBitRate", "(I)V", []*pb.JValue{intVal(micAudioEncodingBitRate)}},
-		{"setAudioSamplingRate", "(I)V", []*pb.JValue{intVal(micAudioSamplingRate)}},
-		{"setOutputFile", "(Ljava/lang/String;)V", []*pb.JValue{objVal(outputPathStr)}},
-		{"prepare", "()V", nil},
-	}
-
-	for _, c := range calls {
-		mid, err := j.getMethodID(ctx, mrCls, c.name, c.sig)
-		if err != nil {
-			return 0, fmt.Errorf("getting MediaRecorder.%s method: %w", c.name, err)
-		}
-		if err := j.callVoidMethod(ctx, recorder, mid, c.args...); err != nil {
-			return 0, fmt.Errorf("calling MediaRecorder.%s: %w", c.name, err)
-		}
-	}
-
-	return recorder, nil
 }

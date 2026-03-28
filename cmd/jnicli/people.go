@@ -12,6 +12,328 @@ var peopleCmd = &cobra.Command{
 	Short: "people service operations",
 }
 
+var peopleConversationStatusCmd = &cobra.Command{
+	Use:   "conversation-status",
+	Short: "ConversationStatusService operations",
+}
+
+var peopleConversationStatusDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationStatusServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleConversationStatusEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationStatusServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleConversationStatusGetActivityCmd = &cobra.Command{
+	Use:   "get-activity",
+	Short: "GetActivity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationStatusServiceClient(grpcConn)
+		req := &pb.GetActivityRequest{}
+		resp, err := client.GetActivity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleConversationStatusGetAvailabilityCmd = &cobra.Command{
+	Use:   "get-availability",
+	Short: "GetAvailability RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationStatusServiceClient(grpcConn)
+		req := &pb.GetAvailabilityRequest{}
+		resp, err := client.GetAvailability(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleConversationStatusGetDescriptionCmd = &cobra.Command{
+	Use:   "get-description",
+	Short: "GetDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationStatusServiceClient(grpcConn)
+		req := &pb.GetDescriptionRequest{}
+		resp, err := client.GetDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleConversationStatusGetEndTimeMillisCmd = &cobra.Command{
+	Use:   "get-end-time-millis",
+	Short: "GetEndTimeMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationStatusServiceClient(grpcConn)
+		req := &pb.GetEndTimeMillisRequest{}
+		resp, err := client.GetEndTimeMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleConversationStatusGetIconCmd = &cobra.Command{
+	Use:   "get-icon",
+	Short: "GetIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationStatusServiceClient(grpcConn)
+		req := &pb.GetIconRequest{}
+		resp, err := client.GetIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleConversationStatusGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationStatusServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleConversationStatusGetStartTimeMillisCmd = &cobra.Command{
+	Use:   "get-start-time-millis",
+	Short: "GetStartTimeMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationStatusServiceClient(grpcConn)
+		req := &pb.GetStartTimeMillisRequest{}
+		resp, err := client.GetStartTimeMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleConversationStatusHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationStatusServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleConversationStatusToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationStatusServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleConversationStatusWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationStatusServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleConversationStatusBuilderCmd = &cobra.Command{
+	Use:   "conversation-status-builder",
+	Short: "ConversationStatusBuilderService operations",
+}
+
+var peopleConversationStatusBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationStatusBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleConversationStatusBuilderSetAvailabilityCmd = &cobra.Command{
+	Use:   "set-availability",
+	Short: "SetAvailability RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationStatusBuilderServiceClient(grpcConn)
+		req := &pb.SetAvailabilityRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAvailability(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleConversationStatusBuilderSetDescriptionCmd = &cobra.Command{
+	Use:   "set-description",
+	Short: "SetDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationStatusBuilderServiceClient(grpcConn)
+		req := &pb.SetDescriptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleConversationStatusBuilderSetEndTimeMillisCmd = &cobra.Command{
+	Use:   "set-end-time-millis",
+	Short: "SetEndTimeMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationStatusBuilderServiceClient(grpcConn)
+		req := &pb.SetEndTimeMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEndTimeMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleConversationStatusBuilderSetIconCmd = &cobra.Command{
+	Use:   "set-icon",
+	Short: "SetIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationStatusBuilderServiceClient(grpcConn)
+		req := &pb.SetIconRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleConversationStatusBuilderSetStartTimeMillisCmd = &cobra.Command{
+	Use:   "set-start-time-millis",
+	Short: "SetStartTimeMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConversationStatusBuilderServiceClient(grpcConn)
+		req := &pb.SetStartTimeMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartTimeMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var peopleManagerCmd = &cobra.Command{
 	Use:   "manager",
 	Short: "ManagerService operations",
@@ -81,6 +403,34 @@ var peopleManagerClearStatusesCmd = &cobra.Command{
 }
 
 func init() {
+	peopleConversationStatusCmd.AddCommand(peopleConversationStatusDescribeContentsCmd)
+	peopleConversationStatusEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	peopleConversationStatusCmd.AddCommand(peopleConversationStatusEqualsCmd)
+	peopleConversationStatusCmd.AddCommand(peopleConversationStatusGetActivityCmd)
+	peopleConversationStatusCmd.AddCommand(peopleConversationStatusGetAvailabilityCmd)
+	peopleConversationStatusCmd.AddCommand(peopleConversationStatusGetDescriptionCmd)
+	peopleConversationStatusCmd.AddCommand(peopleConversationStatusGetEndTimeMillisCmd)
+	peopleConversationStatusCmd.AddCommand(peopleConversationStatusGetIconCmd)
+	peopleConversationStatusCmd.AddCommand(peopleConversationStatusGetIdCmd)
+	peopleConversationStatusCmd.AddCommand(peopleConversationStatusGetStartTimeMillisCmd)
+	peopleConversationStatusCmd.AddCommand(peopleConversationStatusHashCodeCmd)
+	peopleConversationStatusCmd.AddCommand(peopleConversationStatusToStringCmd)
+	peopleConversationStatusWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	peopleConversationStatusWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	peopleConversationStatusCmd.AddCommand(peopleConversationStatusWriteToParcelCmd)
+	peopleCmd.AddCommand(peopleConversationStatusCmd)
+	peopleConversationStatusBuilderCmd.AddCommand(peopleConversationStatusBuilderBuildCmd)
+	peopleConversationStatusBuilderSetAvailabilityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	peopleConversationStatusBuilderCmd.AddCommand(peopleConversationStatusBuilderSetAvailabilityCmd)
+	peopleConversationStatusBuilderSetDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	peopleConversationStatusBuilderCmd.AddCommand(peopleConversationStatusBuilderSetDescriptionCmd)
+	peopleConversationStatusBuilderSetEndTimeMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	peopleConversationStatusBuilderCmd.AddCommand(peopleConversationStatusBuilderSetEndTimeMillisCmd)
+	peopleConversationStatusBuilderSetIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	peopleConversationStatusBuilderCmd.AddCommand(peopleConversationStatusBuilderSetIconCmd)
+	peopleConversationStatusBuilderSetStartTimeMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	peopleConversationStatusBuilderCmd.AddCommand(peopleConversationStatusBuilderSetStartTimeMillisCmd)
+	peopleCmd.AddCommand(peopleConversationStatusBuilderCmd)
 	peopleManagerAddOrUpdateStatusCmd.Flags().String("arg0", "", "arg0 (string)")
 	peopleManagerAddOrUpdateStatusCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	peopleManagerCmd.AddCommand(peopleManagerAddOrUpdateStatusCmd)

@@ -6,6 +6,70 @@ package virtual;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/virtual";
 
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetDeviceIdRequest {
+}
+
+message GetDeviceIdResponse {
+  int32 result = 1;
+}
+
+message GetDisplayIdsRequest {
+}
+
+message GetDisplayIdsResponse {
+  int64 result = 1;
+}
+
+message GetDisplayNameRequest {
+}
+
+message GetDisplayNameResponse {
+  int64 result = 1;
+}
+
+message GetNameRequest {
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message GetPersistentDeviceIdRequest {
+}
+
+message GetPersistentDeviceIdResponse {
+  string result = 1;
+}
+
+message HasCustomSensorSupportRequest {
+}
+
+message HasCustomSensorSupportResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
 message GetVirtualDeviceRequest {
   int32 arg0 = 1;
 }
@@ -27,6 +91,18 @@ message UnregisterVirtualDeviceListenerRequest {
 }
 
 message UnregisterVirtualDeviceListenerResponse {
+}
+
+service DeviceService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDeviceId (GetDeviceIdRequest) returns (GetDeviceIdResponse);
+  rpc GetDisplayIds (GetDisplayIdsRequest) returns (GetDisplayIdsResponse);
+  rpc GetDisplayName (GetDisplayNameRequest) returns (GetDisplayNameResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetPersistentDeviceId (GetPersistentDeviceIdRequest) returns (GetPersistentDeviceIdResponse);
+  rpc HasCustomSensorSupport (HasCustomSensorSupportRequest) returns (HasCustomSensorSupportResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service DeviceManagerService {

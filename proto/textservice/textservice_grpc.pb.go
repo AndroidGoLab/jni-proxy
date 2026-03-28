@@ -21,6 +21,961 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	SpellCheckerServiceService_CreateSession_FullMethodName = "/textservice.SpellCheckerServiceService/CreateSession"
+	SpellCheckerServiceService_OnBind_FullMethodName        = "/textservice.SpellCheckerServiceService/OnBind"
+)
+
+// SpellCheckerServiceServiceClient is the client API for SpellCheckerServiceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SpellCheckerServiceServiceClient interface {
+	CreateSession(ctx context.Context, in *CreateSessionRequest, opts ...grpc.CallOption) (*CreateSessionResponse, error)
+	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
+}
+
+type spellCheckerServiceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSpellCheckerServiceServiceClient(cc grpc.ClientConnInterface) SpellCheckerServiceServiceClient {
+	return &spellCheckerServiceServiceClient{cc}
+}
+
+func (c *spellCheckerServiceServiceClient) CreateSession(ctx context.Context, in *CreateSessionRequest, opts ...grpc.CallOption) (*CreateSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateSessionResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerServiceService_CreateSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnBindResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerServiceService_OnBind_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SpellCheckerServiceServiceServer is the server API for SpellCheckerServiceService service.
+// All implementations must embed UnimplementedSpellCheckerServiceServiceServer
+// for forward compatibility.
+type SpellCheckerServiceServiceServer interface {
+	CreateSession(context.Context, *CreateSessionRequest) (*CreateSessionResponse, error)
+	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
+	mustEmbedUnimplementedSpellCheckerServiceServiceServer()
+}
+
+// UnimplementedSpellCheckerServiceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSpellCheckerServiceServiceServer struct{}
+
+func (UnimplementedSpellCheckerServiceServiceServer) CreateSession(context.Context, *CreateSessionRequest) (*CreateSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateSession not implemented")
+}
+func (UnimplementedSpellCheckerServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
+}
+func (UnimplementedSpellCheckerServiceServiceServer) mustEmbedUnimplementedSpellCheckerServiceServiceServer() {
+}
+func (UnimplementedSpellCheckerServiceServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSpellCheckerServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SpellCheckerServiceServiceServer will
+// result in compilation errors.
+type UnsafeSpellCheckerServiceServiceServer interface {
+	mustEmbedUnimplementedSpellCheckerServiceServiceServer()
+}
+
+func RegisterSpellCheckerServiceServiceServer(s grpc.ServiceRegistrar, srv SpellCheckerServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedSpellCheckerServiceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SpellCheckerServiceService_ServiceDesc, srv)
+}
+
+func _SpellCheckerServiceService_CreateSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerServiceServiceServer).CreateSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerServiceService_CreateSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerServiceServiceServer).CreateSession(ctx, req.(*CreateSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnBindRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerServiceServiceServer).OnBind(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerServiceService_OnBind_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SpellCheckerServiceService_ServiceDesc is the grpc.ServiceDesc for SpellCheckerServiceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SpellCheckerServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textservice.SpellCheckerServiceService",
+	HandlerType: (*SpellCheckerServiceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateSession",
+			Handler:    _SpellCheckerServiceService_CreateSession_Handler,
+		},
+		{
+			MethodName: "OnBind",
+			Handler:    _SpellCheckerServiceService_OnBind_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textservice/textservice.proto",
+}
+
+const (
+	SpellCheckerServiceSessionService_GetBundle_FullMethodName                        = "/textservice.SpellCheckerServiceSessionService/GetBundle"
+	SpellCheckerServiceSessionService_GetLocale_FullMethodName                        = "/textservice.SpellCheckerServiceSessionService/GetLocale"
+	SpellCheckerServiceSessionService_GetSupportedAttributes_FullMethodName           = "/textservice.SpellCheckerServiceSessionService/GetSupportedAttributes"
+	SpellCheckerServiceSessionService_OnCancel_FullMethodName                         = "/textservice.SpellCheckerServiceSessionService/OnCancel"
+	SpellCheckerServiceSessionService_OnClose_FullMethodName                          = "/textservice.SpellCheckerServiceSessionService/OnClose"
+	SpellCheckerServiceSessionService_OnCreate_FullMethodName                         = "/textservice.SpellCheckerServiceSessionService/OnCreate"
+	SpellCheckerServiceSessionService_OnGetSentenceSuggestionsMultiple_FullMethodName = "/textservice.SpellCheckerServiceSessionService/OnGetSentenceSuggestionsMultiple"
+	SpellCheckerServiceSessionService_OnGetSuggestions_FullMethodName                 = "/textservice.SpellCheckerServiceSessionService/OnGetSuggestions"
+	SpellCheckerServiceSessionService_OnGetSuggestionsMultiple_FullMethodName         = "/textservice.SpellCheckerServiceSessionService/OnGetSuggestionsMultiple"
+)
+
+// SpellCheckerServiceSessionServiceClient is the client API for SpellCheckerServiceSessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SpellCheckerServiceSessionServiceClient interface {
+	GetBundle(ctx context.Context, in *GetBundleRequest, opts ...grpc.CallOption) (*GetBundleResponse, error)
+	GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error)
+	GetSupportedAttributes(ctx context.Context, in *GetSupportedAttributesRequest, opts ...grpc.CallOption) (*GetSupportedAttributesResponse, error)
+	OnCancel(ctx context.Context, in *OnCancelRequest, opts ...grpc.CallOption) (*OnCancelResponse, error)
+	OnClose(ctx context.Context, in *OnCloseRequest, opts ...grpc.CallOption) (*OnCloseResponse, error)
+	OnCreate(ctx context.Context, in *OnCreateRequest, opts ...grpc.CallOption) (*OnCreateResponse, error)
+	OnGetSentenceSuggestionsMultiple(ctx context.Context, in *OnGetSentenceSuggestionsMultipleRequest, opts ...grpc.CallOption) (*OnGetSentenceSuggestionsMultipleResponse, error)
+	OnGetSuggestions(ctx context.Context, in *OnGetSuggestionsRequest, opts ...grpc.CallOption) (*OnGetSuggestionsResponse, error)
+	OnGetSuggestionsMultiple(ctx context.Context, in *OnGetSuggestionsMultipleRequest, opts ...grpc.CallOption) (*OnGetSuggestionsMultipleResponse, error)
+}
+
+type spellCheckerServiceSessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSpellCheckerServiceSessionServiceClient(cc grpc.ClientConnInterface) SpellCheckerServiceSessionServiceClient {
+	return &spellCheckerServiceSessionServiceClient{cc}
+}
+
+func (c *spellCheckerServiceSessionServiceClient) GetBundle(ctx context.Context, in *GetBundleRequest, opts ...grpc.CallOption) (*GetBundleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBundleResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerServiceSessionService_GetBundle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerServiceSessionServiceClient) GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocaleResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerServiceSessionService_GetLocale_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerServiceSessionServiceClient) GetSupportedAttributes(ctx context.Context, in *GetSupportedAttributesRequest, opts ...grpc.CallOption) (*GetSupportedAttributesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedAttributesResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerServiceSessionService_GetSupportedAttributes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerServiceSessionServiceClient) OnCancel(ctx context.Context, in *OnCancelRequest, opts ...grpc.CallOption) (*OnCancelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCancelResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerServiceSessionService_OnCancel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerServiceSessionServiceClient) OnClose(ctx context.Context, in *OnCloseRequest, opts ...grpc.CallOption) (*OnCloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCloseResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerServiceSessionService_OnClose_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerServiceSessionServiceClient) OnCreate(ctx context.Context, in *OnCreateRequest, opts ...grpc.CallOption) (*OnCreateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCreateResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerServiceSessionService_OnCreate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerServiceSessionServiceClient) OnGetSentenceSuggestionsMultiple(ctx context.Context, in *OnGetSentenceSuggestionsMultipleRequest, opts ...grpc.CallOption) (*OnGetSentenceSuggestionsMultipleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnGetSentenceSuggestionsMultipleResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerServiceSessionService_OnGetSentenceSuggestionsMultiple_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerServiceSessionServiceClient) OnGetSuggestions(ctx context.Context, in *OnGetSuggestionsRequest, opts ...grpc.CallOption) (*OnGetSuggestionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnGetSuggestionsResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerServiceSessionService_OnGetSuggestions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerServiceSessionServiceClient) OnGetSuggestionsMultiple(ctx context.Context, in *OnGetSuggestionsMultipleRequest, opts ...grpc.CallOption) (*OnGetSuggestionsMultipleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnGetSuggestionsMultipleResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerServiceSessionService_OnGetSuggestionsMultiple_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SpellCheckerServiceSessionServiceServer is the server API for SpellCheckerServiceSessionService service.
+// All implementations must embed UnimplementedSpellCheckerServiceSessionServiceServer
+// for forward compatibility.
+type SpellCheckerServiceSessionServiceServer interface {
+	GetBundle(context.Context, *GetBundleRequest) (*GetBundleResponse, error)
+	GetLocale(context.Context, *GetLocaleRequest) (*GetLocaleResponse, error)
+	GetSupportedAttributes(context.Context, *GetSupportedAttributesRequest) (*GetSupportedAttributesResponse, error)
+	OnCancel(context.Context, *OnCancelRequest) (*OnCancelResponse, error)
+	OnClose(context.Context, *OnCloseRequest) (*OnCloseResponse, error)
+	OnCreate(context.Context, *OnCreateRequest) (*OnCreateResponse, error)
+	OnGetSentenceSuggestionsMultiple(context.Context, *OnGetSentenceSuggestionsMultipleRequest) (*OnGetSentenceSuggestionsMultipleResponse, error)
+	OnGetSuggestions(context.Context, *OnGetSuggestionsRequest) (*OnGetSuggestionsResponse, error)
+	OnGetSuggestionsMultiple(context.Context, *OnGetSuggestionsMultipleRequest) (*OnGetSuggestionsMultipleResponse, error)
+	mustEmbedUnimplementedSpellCheckerServiceSessionServiceServer()
+}
+
+// UnimplementedSpellCheckerServiceSessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSpellCheckerServiceSessionServiceServer struct{}
+
+func (UnimplementedSpellCheckerServiceSessionServiceServer) GetBundle(context.Context, *GetBundleRequest) (*GetBundleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBundle not implemented")
+}
+func (UnimplementedSpellCheckerServiceSessionServiceServer) GetLocale(context.Context, *GetLocaleRequest) (*GetLocaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocale not implemented")
+}
+func (UnimplementedSpellCheckerServiceSessionServiceServer) GetSupportedAttributes(context.Context, *GetSupportedAttributesRequest) (*GetSupportedAttributesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedAttributes not implemented")
+}
+func (UnimplementedSpellCheckerServiceSessionServiceServer) OnCancel(context.Context, *OnCancelRequest) (*OnCancelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCancel not implemented")
+}
+func (UnimplementedSpellCheckerServiceSessionServiceServer) OnClose(context.Context, *OnCloseRequest) (*OnCloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnClose not implemented")
+}
+func (UnimplementedSpellCheckerServiceSessionServiceServer) OnCreate(context.Context, *OnCreateRequest) (*OnCreateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCreate not implemented")
+}
+func (UnimplementedSpellCheckerServiceSessionServiceServer) OnGetSentenceSuggestionsMultiple(context.Context, *OnGetSentenceSuggestionsMultipleRequest) (*OnGetSentenceSuggestionsMultipleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnGetSentenceSuggestionsMultiple not implemented")
+}
+func (UnimplementedSpellCheckerServiceSessionServiceServer) OnGetSuggestions(context.Context, *OnGetSuggestionsRequest) (*OnGetSuggestionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnGetSuggestions not implemented")
+}
+func (UnimplementedSpellCheckerServiceSessionServiceServer) OnGetSuggestionsMultiple(context.Context, *OnGetSuggestionsMultipleRequest) (*OnGetSuggestionsMultipleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnGetSuggestionsMultiple not implemented")
+}
+func (UnimplementedSpellCheckerServiceSessionServiceServer) mustEmbedUnimplementedSpellCheckerServiceSessionServiceServer() {
+}
+func (UnimplementedSpellCheckerServiceSessionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSpellCheckerServiceSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SpellCheckerServiceSessionServiceServer will
+// result in compilation errors.
+type UnsafeSpellCheckerServiceSessionServiceServer interface {
+	mustEmbedUnimplementedSpellCheckerServiceSessionServiceServer()
+}
+
+func RegisterSpellCheckerServiceSessionServiceServer(s grpc.ServiceRegistrar, srv SpellCheckerServiceSessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedSpellCheckerServiceSessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SpellCheckerServiceSessionService_ServiceDesc, srv)
+}
+
+func _SpellCheckerServiceSessionService_GetBundle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBundleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerServiceSessionServiceServer).GetBundle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerServiceSessionService_GetBundle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerServiceSessionServiceServer).GetBundle(ctx, req.(*GetBundleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerServiceSessionService_GetLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLocaleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerServiceSessionServiceServer).GetLocale(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerServiceSessionService_GetLocale_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerServiceSessionServiceServer).GetLocale(ctx, req.(*GetLocaleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerServiceSessionService_GetSupportedAttributes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedAttributesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerServiceSessionServiceServer).GetSupportedAttributes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerServiceSessionService_GetSupportedAttributes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerServiceSessionServiceServer).GetSupportedAttributes(ctx, req.(*GetSupportedAttributesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerServiceSessionService_OnCancel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCancelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerServiceSessionServiceServer).OnCancel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerServiceSessionService_OnCancel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerServiceSessionServiceServer).OnCancel(ctx, req.(*OnCancelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerServiceSessionService_OnClose_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerServiceSessionServiceServer).OnClose(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerServiceSessionService_OnClose_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerServiceSessionServiceServer).OnClose(ctx, req.(*OnCloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerServiceSessionService_OnCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerServiceSessionServiceServer).OnCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerServiceSessionService_OnCreate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerServiceSessionServiceServer).OnCreate(ctx, req.(*OnCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerServiceSessionService_OnGetSentenceSuggestionsMultiple_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnGetSentenceSuggestionsMultipleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerServiceSessionServiceServer).OnGetSentenceSuggestionsMultiple(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerServiceSessionService_OnGetSentenceSuggestionsMultiple_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerServiceSessionServiceServer).OnGetSentenceSuggestionsMultiple(ctx, req.(*OnGetSentenceSuggestionsMultipleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerServiceSessionService_OnGetSuggestions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnGetSuggestionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerServiceSessionServiceServer).OnGetSuggestions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerServiceSessionService_OnGetSuggestions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerServiceSessionServiceServer).OnGetSuggestions(ctx, req.(*OnGetSuggestionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerServiceSessionService_OnGetSuggestionsMultiple_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnGetSuggestionsMultipleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerServiceSessionServiceServer).OnGetSuggestionsMultiple(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerServiceSessionService_OnGetSuggestionsMultiple_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerServiceSessionServiceServer).OnGetSuggestionsMultiple(ctx, req.(*OnGetSuggestionsMultipleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SpellCheckerServiceSessionService_ServiceDesc is the grpc.ServiceDesc for SpellCheckerServiceSessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SpellCheckerServiceSessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textservice.SpellCheckerServiceSessionService",
+	HandlerType: (*SpellCheckerServiceSessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetBundle",
+			Handler:    _SpellCheckerServiceSessionService_GetBundle_Handler,
+		},
+		{
+			MethodName: "GetLocale",
+			Handler:    _SpellCheckerServiceSessionService_GetLocale_Handler,
+		},
+		{
+			MethodName: "GetSupportedAttributes",
+			Handler:    _SpellCheckerServiceSessionService_GetSupportedAttributes_Handler,
+		},
+		{
+			MethodName: "OnCancel",
+			Handler:    _SpellCheckerServiceSessionService_OnCancel_Handler,
+		},
+		{
+			MethodName: "OnClose",
+			Handler:    _SpellCheckerServiceSessionService_OnClose_Handler,
+		},
+		{
+			MethodName: "OnCreate",
+			Handler:    _SpellCheckerServiceSessionService_OnCreate_Handler,
+		},
+		{
+			MethodName: "OnGetSentenceSuggestionsMultiple",
+			Handler:    _SpellCheckerServiceSessionService_OnGetSentenceSuggestionsMultiple_Handler,
+		},
+		{
+			MethodName: "OnGetSuggestions",
+			Handler:    _SpellCheckerServiceSessionService_OnGetSuggestions_Handler,
+		},
+		{
+			MethodName: "OnGetSuggestionsMultiple",
+			Handler:    _SpellCheckerServiceSessionService_OnGetSuggestionsMultiple_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textservice/textservice.proto",
+}
+
+const (
+	SuggestionsInfoService_NewSuggestionsInfo_FullMethodName       = "/textservice.SuggestionsInfoService/NewSuggestionsInfo"
+	SuggestionsInfoService_DescribeContents_FullMethodName         = "/textservice.SuggestionsInfoService/DescribeContents"
+	SuggestionsInfoService_GetCookie_FullMethodName                = "/textservice.SuggestionsInfoService/GetCookie"
+	SuggestionsInfoService_GetSequence_FullMethodName              = "/textservice.SuggestionsInfoService/GetSequence"
+	SuggestionsInfoService_GetSuggestionAt_FullMethodName          = "/textservice.SuggestionsInfoService/GetSuggestionAt"
+	SuggestionsInfoService_GetSuggestionsAttributes_FullMethodName = "/textservice.SuggestionsInfoService/GetSuggestionsAttributes"
+	SuggestionsInfoService_GetSuggestionsCount_FullMethodName      = "/textservice.SuggestionsInfoService/GetSuggestionsCount"
+	SuggestionsInfoService_SetCookieAndSequence_FullMethodName     = "/textservice.SuggestionsInfoService/SetCookieAndSequence"
+	SuggestionsInfoService_WriteToParcel_FullMethodName            = "/textservice.SuggestionsInfoService/WriteToParcel"
+)
+
+// SuggestionsInfoServiceClient is the client API for SuggestionsInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SuggestionsInfoServiceClient interface {
+	NewSuggestionsInfo(ctx context.Context, in *NewSuggestionsInfoRequest, opts ...grpc.CallOption) (*NewSuggestionsInfoResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCookie(ctx context.Context, in *GetCookieRequest, opts ...grpc.CallOption) (*GetCookieResponse, error)
+	GetSequence(ctx context.Context, in *GetSequenceRequest, opts ...grpc.CallOption) (*GetSequenceResponse, error)
+	GetSuggestionAt(ctx context.Context, in *GetSuggestionAtRequest, opts ...grpc.CallOption) (*GetSuggestionAtResponse, error)
+	GetSuggestionsAttributes(ctx context.Context, in *GetSuggestionsAttributesRequest, opts ...grpc.CallOption) (*GetSuggestionsAttributesResponse, error)
+	GetSuggestionsCount(ctx context.Context, in *GetSuggestionsCountRequest, opts ...grpc.CallOption) (*GetSuggestionsCountResponse, error)
+	SetCookieAndSequence(ctx context.Context, in *SetCookieAndSequenceRequest, opts ...grpc.CallOption) (*SetCookieAndSequenceResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type suggestionsInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSuggestionsInfoServiceClient(cc grpc.ClientConnInterface) SuggestionsInfoServiceClient {
+	return &suggestionsInfoServiceClient{cc}
+}
+
+func (c *suggestionsInfoServiceClient) NewSuggestionsInfo(ctx context.Context, in *NewSuggestionsInfoRequest, opts ...grpc.CallOption) (*NewSuggestionsInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSuggestionsInfoResponse)
+	err := c.cc.Invoke(ctx, SuggestionsInfoService_NewSuggestionsInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionsInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SuggestionsInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionsInfoServiceClient) GetCookie(ctx context.Context, in *GetCookieRequest, opts ...grpc.CallOption) (*GetCookieResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCookieResponse)
+	err := c.cc.Invoke(ctx, SuggestionsInfoService_GetCookie_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionsInfoServiceClient) GetSequence(ctx context.Context, in *GetSequenceRequest, opts ...grpc.CallOption) (*GetSequenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSequenceResponse)
+	err := c.cc.Invoke(ctx, SuggestionsInfoService_GetSequence_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionsInfoServiceClient) GetSuggestionAt(ctx context.Context, in *GetSuggestionAtRequest, opts ...grpc.CallOption) (*GetSuggestionAtResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSuggestionAtResponse)
+	err := c.cc.Invoke(ctx, SuggestionsInfoService_GetSuggestionAt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionsInfoServiceClient) GetSuggestionsAttributes(ctx context.Context, in *GetSuggestionsAttributesRequest, opts ...grpc.CallOption) (*GetSuggestionsAttributesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSuggestionsAttributesResponse)
+	err := c.cc.Invoke(ctx, SuggestionsInfoService_GetSuggestionsAttributes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionsInfoServiceClient) GetSuggestionsCount(ctx context.Context, in *GetSuggestionsCountRequest, opts ...grpc.CallOption) (*GetSuggestionsCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSuggestionsCountResponse)
+	err := c.cc.Invoke(ctx, SuggestionsInfoService_GetSuggestionsCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionsInfoServiceClient) SetCookieAndSequence(ctx context.Context, in *SetCookieAndSequenceRequest, opts ...grpc.CallOption) (*SetCookieAndSequenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCookieAndSequenceResponse)
+	err := c.cc.Invoke(ctx, SuggestionsInfoService_SetCookieAndSequence_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *suggestionsInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SuggestionsInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SuggestionsInfoServiceServer is the server API for SuggestionsInfoService service.
+// All implementations must embed UnimplementedSuggestionsInfoServiceServer
+// for forward compatibility.
+type SuggestionsInfoServiceServer interface {
+	NewSuggestionsInfo(context.Context, *NewSuggestionsInfoRequest) (*NewSuggestionsInfoResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCookie(context.Context, *GetCookieRequest) (*GetCookieResponse, error)
+	GetSequence(context.Context, *GetSequenceRequest) (*GetSequenceResponse, error)
+	GetSuggestionAt(context.Context, *GetSuggestionAtRequest) (*GetSuggestionAtResponse, error)
+	GetSuggestionsAttributes(context.Context, *GetSuggestionsAttributesRequest) (*GetSuggestionsAttributesResponse, error)
+	GetSuggestionsCount(context.Context, *GetSuggestionsCountRequest) (*GetSuggestionsCountResponse, error)
+	SetCookieAndSequence(context.Context, *SetCookieAndSequenceRequest) (*SetCookieAndSequenceResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSuggestionsInfoServiceServer()
+}
+
+// UnimplementedSuggestionsInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSuggestionsInfoServiceServer struct{}
+
+func (UnimplementedSuggestionsInfoServiceServer) NewSuggestionsInfo(context.Context, *NewSuggestionsInfoRequest) (*NewSuggestionsInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSuggestionsInfo not implemented")
+}
+func (UnimplementedSuggestionsInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSuggestionsInfoServiceServer) GetCookie(context.Context, *GetCookieRequest) (*GetCookieResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCookie not implemented")
+}
+func (UnimplementedSuggestionsInfoServiceServer) GetSequence(context.Context, *GetSequenceRequest) (*GetSequenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSequence not implemented")
+}
+func (UnimplementedSuggestionsInfoServiceServer) GetSuggestionAt(context.Context, *GetSuggestionAtRequest) (*GetSuggestionAtResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSuggestionAt not implemented")
+}
+func (UnimplementedSuggestionsInfoServiceServer) GetSuggestionsAttributes(context.Context, *GetSuggestionsAttributesRequest) (*GetSuggestionsAttributesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSuggestionsAttributes not implemented")
+}
+func (UnimplementedSuggestionsInfoServiceServer) GetSuggestionsCount(context.Context, *GetSuggestionsCountRequest) (*GetSuggestionsCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSuggestionsCount not implemented")
+}
+func (UnimplementedSuggestionsInfoServiceServer) SetCookieAndSequence(context.Context, *SetCookieAndSequenceRequest) (*SetCookieAndSequenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCookieAndSequence not implemented")
+}
+func (UnimplementedSuggestionsInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSuggestionsInfoServiceServer) mustEmbedUnimplementedSuggestionsInfoServiceServer() {
+}
+func (UnimplementedSuggestionsInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSuggestionsInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SuggestionsInfoServiceServer will
+// result in compilation errors.
+type UnsafeSuggestionsInfoServiceServer interface {
+	mustEmbedUnimplementedSuggestionsInfoServiceServer()
+}
+
+func RegisterSuggestionsInfoServiceServer(s grpc.ServiceRegistrar, srv SuggestionsInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedSuggestionsInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SuggestionsInfoService_ServiceDesc, srv)
+}
+
+func _SuggestionsInfoService_NewSuggestionsInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSuggestionsInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionsInfoServiceServer).NewSuggestionsInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionsInfoService_NewSuggestionsInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionsInfoServiceServer).NewSuggestionsInfo(ctx, req.(*NewSuggestionsInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionsInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionsInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionsInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionsInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionsInfoService_GetCookie_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCookieRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionsInfoServiceServer).GetCookie(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionsInfoService_GetCookie_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionsInfoServiceServer).GetCookie(ctx, req.(*GetCookieRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionsInfoService_GetSequence_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSequenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionsInfoServiceServer).GetSequence(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionsInfoService_GetSequence_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionsInfoServiceServer).GetSequence(ctx, req.(*GetSequenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionsInfoService_GetSuggestionAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSuggestionAtRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionsInfoServiceServer).GetSuggestionAt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionsInfoService_GetSuggestionAt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionsInfoServiceServer).GetSuggestionAt(ctx, req.(*GetSuggestionAtRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionsInfoService_GetSuggestionsAttributes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSuggestionsAttributesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionsInfoServiceServer).GetSuggestionsAttributes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionsInfoService_GetSuggestionsAttributes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionsInfoServiceServer).GetSuggestionsAttributes(ctx, req.(*GetSuggestionsAttributesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionsInfoService_GetSuggestionsCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSuggestionsCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionsInfoServiceServer).GetSuggestionsCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionsInfoService_GetSuggestionsCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionsInfoServiceServer).GetSuggestionsCount(ctx, req.(*GetSuggestionsCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionsInfoService_SetCookieAndSequence_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCookieAndSequenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionsInfoServiceServer).SetCookieAndSequence(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionsInfoService_SetCookieAndSequence_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionsInfoServiceServer).SetCookieAndSequence(ctx, req.(*SetCookieAndSequenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SuggestionsInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SuggestionsInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SuggestionsInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SuggestionsInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SuggestionsInfoService_ServiceDesc is the grpc.ServiceDesc for SuggestionsInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SuggestionsInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textservice.SuggestionsInfoService",
+	HandlerType: (*SuggestionsInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSuggestionsInfo",
+			Handler:    _SuggestionsInfoService_NewSuggestionsInfo_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SuggestionsInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetCookie",
+			Handler:    _SuggestionsInfoService_GetCookie_Handler,
+		},
+		{
+			MethodName: "GetSequence",
+			Handler:    _SuggestionsInfoService_GetSequence_Handler,
+		},
+		{
+			MethodName: "GetSuggestionAt",
+			Handler:    _SuggestionsInfoService_GetSuggestionAt_Handler,
+		},
+		{
+			MethodName: "GetSuggestionsAttributes",
+			Handler:    _SuggestionsInfoService_GetSuggestionsAttributes_Handler,
+		},
+		{
+			MethodName: "GetSuggestionsCount",
+			Handler:    _SuggestionsInfoService_GetSuggestionsCount_Handler,
+		},
+		{
+			MethodName: "SetCookieAndSequence",
+			Handler:    _SuggestionsInfoService_SetCookieAndSequence_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SuggestionsInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textservice/textservice.proto",
+}
+
+const (
 	TextServicesManagerService_GetCurrentSpellCheckerInfo_FullMethodName = "/textservice.TextServicesManagerService/GetCurrentSpellCheckerInfo"
 	TextServicesManagerService_IsSpellCheckerEnabled_FullMethodName      = "/textservice.TextServicesManagerService/IsSpellCheckerEnabled"
 	TextServicesManagerService_NewSpellCheckerSession4_FullMethodName    = "/textservice.TextServicesManagerService/NewSpellCheckerSession4"
@@ -231,6 +1186,2361 @@ var TextServicesManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "NewSpellCheckerSession3_1",
 			Handler:    _TextServicesManagerService_NewSpellCheckerSession3_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textservice/textservice.proto",
+}
+
+const (
+	SentenceSuggestionsInfoService_NewSentenceSuggestionsInfo_FullMethodName = "/textservice.SentenceSuggestionsInfoService/NewSentenceSuggestionsInfo"
+	SentenceSuggestionsInfoService_DescribeContents_FullMethodName           = "/textservice.SentenceSuggestionsInfoService/DescribeContents"
+	SentenceSuggestionsInfoService_GetLengthAt_FullMethodName                = "/textservice.SentenceSuggestionsInfoService/GetLengthAt"
+	SentenceSuggestionsInfoService_GetOffsetAt_FullMethodName                = "/textservice.SentenceSuggestionsInfoService/GetOffsetAt"
+	SentenceSuggestionsInfoService_GetSuggestionsCount_FullMethodName        = "/textservice.SentenceSuggestionsInfoService/GetSuggestionsCount"
+	SentenceSuggestionsInfoService_GetSuggestionsInfoAt_FullMethodName       = "/textservice.SentenceSuggestionsInfoService/GetSuggestionsInfoAt"
+	SentenceSuggestionsInfoService_WriteToParcel_FullMethodName              = "/textservice.SentenceSuggestionsInfoService/WriteToParcel"
+)
+
+// SentenceSuggestionsInfoServiceClient is the client API for SentenceSuggestionsInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SentenceSuggestionsInfoServiceClient interface {
+	NewSentenceSuggestionsInfo(ctx context.Context, in *NewSentenceSuggestionsInfoRequest, opts ...grpc.CallOption) (*NewSentenceSuggestionsInfoResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetLengthAt(ctx context.Context, in *GetLengthAtRequest, opts ...grpc.CallOption) (*GetLengthAtResponse, error)
+	GetOffsetAt(ctx context.Context, in *GetOffsetAtRequest, opts ...grpc.CallOption) (*GetOffsetAtResponse, error)
+	GetSuggestionsCount(ctx context.Context, in *GetSuggestionsCountRequest, opts ...grpc.CallOption) (*GetSuggestionsCountResponse, error)
+	GetSuggestionsInfoAt(ctx context.Context, in *GetSuggestionsInfoAtRequest, opts ...grpc.CallOption) (*GetSuggestionsInfoAtResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type sentenceSuggestionsInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSentenceSuggestionsInfoServiceClient(cc grpc.ClientConnInterface) SentenceSuggestionsInfoServiceClient {
+	return &sentenceSuggestionsInfoServiceClient{cc}
+}
+
+func (c *sentenceSuggestionsInfoServiceClient) NewSentenceSuggestionsInfo(ctx context.Context, in *NewSentenceSuggestionsInfoRequest, opts ...grpc.CallOption) (*NewSentenceSuggestionsInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSentenceSuggestionsInfoResponse)
+	err := c.cc.Invoke(ctx, SentenceSuggestionsInfoService_NewSentenceSuggestionsInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sentenceSuggestionsInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SentenceSuggestionsInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sentenceSuggestionsInfoServiceClient) GetLengthAt(ctx context.Context, in *GetLengthAtRequest, opts ...grpc.CallOption) (*GetLengthAtResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLengthAtResponse)
+	err := c.cc.Invoke(ctx, SentenceSuggestionsInfoService_GetLengthAt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sentenceSuggestionsInfoServiceClient) GetOffsetAt(ctx context.Context, in *GetOffsetAtRequest, opts ...grpc.CallOption) (*GetOffsetAtResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOffsetAtResponse)
+	err := c.cc.Invoke(ctx, SentenceSuggestionsInfoService_GetOffsetAt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sentenceSuggestionsInfoServiceClient) GetSuggestionsCount(ctx context.Context, in *GetSuggestionsCountRequest, opts ...grpc.CallOption) (*GetSuggestionsCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSuggestionsCountResponse)
+	err := c.cc.Invoke(ctx, SentenceSuggestionsInfoService_GetSuggestionsCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sentenceSuggestionsInfoServiceClient) GetSuggestionsInfoAt(ctx context.Context, in *GetSuggestionsInfoAtRequest, opts ...grpc.CallOption) (*GetSuggestionsInfoAtResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSuggestionsInfoAtResponse)
+	err := c.cc.Invoke(ctx, SentenceSuggestionsInfoService_GetSuggestionsInfoAt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sentenceSuggestionsInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SentenceSuggestionsInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SentenceSuggestionsInfoServiceServer is the server API for SentenceSuggestionsInfoService service.
+// All implementations must embed UnimplementedSentenceSuggestionsInfoServiceServer
+// for forward compatibility.
+type SentenceSuggestionsInfoServiceServer interface {
+	NewSentenceSuggestionsInfo(context.Context, *NewSentenceSuggestionsInfoRequest) (*NewSentenceSuggestionsInfoResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetLengthAt(context.Context, *GetLengthAtRequest) (*GetLengthAtResponse, error)
+	GetOffsetAt(context.Context, *GetOffsetAtRequest) (*GetOffsetAtResponse, error)
+	GetSuggestionsCount(context.Context, *GetSuggestionsCountRequest) (*GetSuggestionsCountResponse, error)
+	GetSuggestionsInfoAt(context.Context, *GetSuggestionsInfoAtRequest) (*GetSuggestionsInfoAtResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSentenceSuggestionsInfoServiceServer()
+}
+
+// UnimplementedSentenceSuggestionsInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSentenceSuggestionsInfoServiceServer struct{}
+
+func (UnimplementedSentenceSuggestionsInfoServiceServer) NewSentenceSuggestionsInfo(context.Context, *NewSentenceSuggestionsInfoRequest) (*NewSentenceSuggestionsInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSentenceSuggestionsInfo not implemented")
+}
+func (UnimplementedSentenceSuggestionsInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSentenceSuggestionsInfoServiceServer) GetLengthAt(context.Context, *GetLengthAtRequest) (*GetLengthAtResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLengthAt not implemented")
+}
+func (UnimplementedSentenceSuggestionsInfoServiceServer) GetOffsetAt(context.Context, *GetOffsetAtRequest) (*GetOffsetAtResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOffsetAt not implemented")
+}
+func (UnimplementedSentenceSuggestionsInfoServiceServer) GetSuggestionsCount(context.Context, *GetSuggestionsCountRequest) (*GetSuggestionsCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSuggestionsCount not implemented")
+}
+func (UnimplementedSentenceSuggestionsInfoServiceServer) GetSuggestionsInfoAt(context.Context, *GetSuggestionsInfoAtRequest) (*GetSuggestionsInfoAtResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSuggestionsInfoAt not implemented")
+}
+func (UnimplementedSentenceSuggestionsInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSentenceSuggestionsInfoServiceServer) mustEmbedUnimplementedSentenceSuggestionsInfoServiceServer() {
+}
+func (UnimplementedSentenceSuggestionsInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSentenceSuggestionsInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SentenceSuggestionsInfoServiceServer will
+// result in compilation errors.
+type UnsafeSentenceSuggestionsInfoServiceServer interface {
+	mustEmbedUnimplementedSentenceSuggestionsInfoServiceServer()
+}
+
+func RegisterSentenceSuggestionsInfoServiceServer(s grpc.ServiceRegistrar, srv SentenceSuggestionsInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedSentenceSuggestionsInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SentenceSuggestionsInfoService_ServiceDesc, srv)
+}
+
+func _SentenceSuggestionsInfoService_NewSentenceSuggestionsInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSentenceSuggestionsInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SentenceSuggestionsInfoServiceServer).NewSentenceSuggestionsInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SentenceSuggestionsInfoService_NewSentenceSuggestionsInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SentenceSuggestionsInfoServiceServer).NewSentenceSuggestionsInfo(ctx, req.(*NewSentenceSuggestionsInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SentenceSuggestionsInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SentenceSuggestionsInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SentenceSuggestionsInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SentenceSuggestionsInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SentenceSuggestionsInfoService_GetLengthAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLengthAtRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SentenceSuggestionsInfoServiceServer).GetLengthAt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SentenceSuggestionsInfoService_GetLengthAt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SentenceSuggestionsInfoServiceServer).GetLengthAt(ctx, req.(*GetLengthAtRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SentenceSuggestionsInfoService_GetOffsetAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOffsetAtRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SentenceSuggestionsInfoServiceServer).GetOffsetAt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SentenceSuggestionsInfoService_GetOffsetAt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SentenceSuggestionsInfoServiceServer).GetOffsetAt(ctx, req.(*GetOffsetAtRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SentenceSuggestionsInfoService_GetSuggestionsCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSuggestionsCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SentenceSuggestionsInfoServiceServer).GetSuggestionsCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SentenceSuggestionsInfoService_GetSuggestionsCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SentenceSuggestionsInfoServiceServer).GetSuggestionsCount(ctx, req.(*GetSuggestionsCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SentenceSuggestionsInfoService_GetSuggestionsInfoAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSuggestionsInfoAtRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SentenceSuggestionsInfoServiceServer).GetSuggestionsInfoAt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SentenceSuggestionsInfoService_GetSuggestionsInfoAt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SentenceSuggestionsInfoServiceServer).GetSuggestionsInfoAt(ctx, req.(*GetSuggestionsInfoAtRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SentenceSuggestionsInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SentenceSuggestionsInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SentenceSuggestionsInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SentenceSuggestionsInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SentenceSuggestionsInfoService_ServiceDesc is the grpc.ServiceDesc for SentenceSuggestionsInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SentenceSuggestionsInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textservice.SentenceSuggestionsInfoService",
+	HandlerType: (*SentenceSuggestionsInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSentenceSuggestionsInfo",
+			Handler:    _SentenceSuggestionsInfoService_NewSentenceSuggestionsInfo_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SentenceSuggestionsInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetLengthAt",
+			Handler:    _SentenceSuggestionsInfoService_GetLengthAt_Handler,
+		},
+		{
+			MethodName: "GetOffsetAt",
+			Handler:    _SentenceSuggestionsInfoService_GetOffsetAt_Handler,
+		},
+		{
+			MethodName: "GetSuggestionsCount",
+			Handler:    _SentenceSuggestionsInfoService_GetSuggestionsCount_Handler,
+		},
+		{
+			MethodName: "GetSuggestionsInfoAt",
+			Handler:    _SentenceSuggestionsInfoService_GetSuggestionsInfoAt_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SentenceSuggestionsInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textservice/textservice.proto",
+}
+
+const (
+	TextInfoService_NewTextInfo_FullMethodName      = "/textservice.TextInfoService/NewTextInfo"
+	TextInfoService_DescribeContents_FullMethodName = "/textservice.TextInfoService/DescribeContents"
+	TextInfoService_GetCharSequence_FullMethodName  = "/textservice.TextInfoService/GetCharSequence"
+	TextInfoService_GetCookie_FullMethodName        = "/textservice.TextInfoService/GetCookie"
+	TextInfoService_GetSequence_FullMethodName      = "/textservice.TextInfoService/GetSequence"
+	TextInfoService_GetText_FullMethodName          = "/textservice.TextInfoService/GetText"
+	TextInfoService_WriteToParcel_FullMethodName    = "/textservice.TextInfoService/WriteToParcel"
+)
+
+// TextInfoServiceClient is the client API for TextInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TextInfoServiceClient interface {
+	NewTextInfo(ctx context.Context, in *NewTextInfoRequest, opts ...grpc.CallOption) (*NewTextInfoResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCharSequence(ctx context.Context, in *GetCharSequenceRequest, opts ...grpc.CallOption) (*GetCharSequenceResponse, error)
+	GetCookie(ctx context.Context, in *GetCookieRequest, opts ...grpc.CallOption) (*GetCookieResponse, error)
+	GetSequence(ctx context.Context, in *GetSequenceRequest, opts ...grpc.CallOption) (*GetSequenceResponse, error)
+	GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type textInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTextInfoServiceClient(cc grpc.ClientConnInterface) TextInfoServiceClient {
+	return &textInfoServiceClient{cc}
+}
+
+func (c *textInfoServiceClient) NewTextInfo(ctx context.Context, in *NewTextInfoRequest, opts ...grpc.CallOption) (*NewTextInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewTextInfoResponse)
+	err := c.cc.Invoke(ctx, TextInfoService_NewTextInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, TextInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textInfoServiceClient) GetCharSequence(ctx context.Context, in *GetCharSequenceRequest, opts ...grpc.CallOption) (*GetCharSequenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCharSequenceResponse)
+	err := c.cc.Invoke(ctx, TextInfoService_GetCharSequence_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textInfoServiceClient) GetCookie(ctx context.Context, in *GetCookieRequest, opts ...grpc.CallOption) (*GetCookieResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCookieResponse)
+	err := c.cc.Invoke(ctx, TextInfoService_GetCookie_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textInfoServiceClient) GetSequence(ctx context.Context, in *GetSequenceRequest, opts ...grpc.CallOption) (*GetSequenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSequenceResponse)
+	err := c.cc.Invoke(ctx, TextInfoService_GetSequence_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textInfoServiceClient) GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextResponse)
+	err := c.cc.Invoke(ctx, TextInfoService_GetText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *textInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, TextInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TextInfoServiceServer is the server API for TextInfoService service.
+// All implementations must embed UnimplementedTextInfoServiceServer
+// for forward compatibility.
+type TextInfoServiceServer interface {
+	NewTextInfo(context.Context, *NewTextInfoRequest) (*NewTextInfoResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCharSequence(context.Context, *GetCharSequenceRequest) (*GetCharSequenceResponse, error)
+	GetCookie(context.Context, *GetCookieRequest) (*GetCookieResponse, error)
+	GetSequence(context.Context, *GetSequenceRequest) (*GetSequenceResponse, error)
+	GetText(context.Context, *GetTextRequest) (*GetTextResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedTextInfoServiceServer()
+}
+
+// UnimplementedTextInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTextInfoServiceServer struct{}
+
+func (UnimplementedTextInfoServiceServer) NewTextInfo(context.Context, *NewTextInfoRequest) (*NewTextInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewTextInfo not implemented")
+}
+func (UnimplementedTextInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTextInfoServiceServer) GetCharSequence(context.Context, *GetCharSequenceRequest) (*GetCharSequenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCharSequence not implemented")
+}
+func (UnimplementedTextInfoServiceServer) GetCookie(context.Context, *GetCookieRequest) (*GetCookieResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCookie not implemented")
+}
+func (UnimplementedTextInfoServiceServer) GetSequence(context.Context, *GetSequenceRequest) (*GetSequenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSequence not implemented")
+}
+func (UnimplementedTextInfoServiceServer) GetText(context.Context, *GetTextRequest) (*GetTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetText not implemented")
+}
+func (UnimplementedTextInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedTextInfoServiceServer) mustEmbedUnimplementedTextInfoServiceServer() {}
+func (UnimplementedTextInfoServiceServer) testEmbeddedByValue()                         {}
+
+// UnsafeTextInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TextInfoServiceServer will
+// result in compilation errors.
+type UnsafeTextInfoServiceServer interface {
+	mustEmbedUnimplementedTextInfoServiceServer()
+}
+
+func RegisterTextInfoServiceServer(s grpc.ServiceRegistrar, srv TextInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedTextInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TextInfoService_ServiceDesc, srv)
+}
+
+func _TextInfoService_NewTextInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewTextInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextInfoServiceServer).NewTextInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextInfoService_NewTextInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextInfoServiceServer).NewTextInfo(ctx, req.(*NewTextInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextInfoService_GetCharSequence_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCharSequenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextInfoServiceServer).GetCharSequence(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextInfoService_GetCharSequence_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextInfoServiceServer).GetCharSequence(ctx, req.(*GetCharSequenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextInfoService_GetCookie_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCookieRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextInfoServiceServer).GetCookie(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextInfoService_GetCookie_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextInfoServiceServer).GetCookie(ctx, req.(*GetCookieRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextInfoService_GetSequence_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSequenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextInfoServiceServer).GetSequence(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextInfoService_GetSequence_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextInfoServiceServer).GetSequence(ctx, req.(*GetSequenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextInfoService_GetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextInfoServiceServer).GetText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextInfoService_GetText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextInfoServiceServer).GetText(ctx, req.(*GetTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TextInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TextInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TextInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TextInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TextInfoService_ServiceDesc is the grpc.ServiceDesc for TextInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TextInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textservice.TextInfoService",
+	HandlerType: (*TextInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewTextInfo",
+			Handler:    _TextInfoService_NewTextInfo_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _TextInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetCharSequence",
+			Handler:    _TextInfoService_GetCharSequence_Handler,
+		},
+		{
+			MethodName: "GetCookie",
+			Handler:    _TextInfoService_GetCookie_Handler,
+		},
+		{
+			MethodName: "GetSequence",
+			Handler:    _TextInfoService_GetSequence_Handler,
+		},
+		{
+			MethodName: "GetText",
+			Handler:    _TextInfoService_GetText_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _TextInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textservice/textservice.proto",
+}
+
+const (
+	SpellCheckerSubtypeService_NewSpellCheckerSubtype_FullMethodName = "/textservice.SpellCheckerSubtypeService/NewSpellCheckerSubtype"
+	SpellCheckerSubtypeService_ContainsExtraValueKey_FullMethodName  = "/textservice.SpellCheckerSubtypeService/ContainsExtraValueKey"
+	SpellCheckerSubtypeService_DescribeContents_FullMethodName       = "/textservice.SpellCheckerSubtypeService/DescribeContents"
+	SpellCheckerSubtypeService_Equals_FullMethodName                 = "/textservice.SpellCheckerSubtypeService/Equals"
+	SpellCheckerSubtypeService_GetDisplayName_FullMethodName         = "/textservice.SpellCheckerSubtypeService/GetDisplayName"
+	SpellCheckerSubtypeService_GetExtraValue_FullMethodName          = "/textservice.SpellCheckerSubtypeService/GetExtraValue"
+	SpellCheckerSubtypeService_GetExtraValueOf_FullMethodName        = "/textservice.SpellCheckerSubtypeService/GetExtraValueOf"
+	SpellCheckerSubtypeService_GetLanguageTag_FullMethodName         = "/textservice.SpellCheckerSubtypeService/GetLanguageTag"
+	SpellCheckerSubtypeService_GetLocale_FullMethodName              = "/textservice.SpellCheckerSubtypeService/GetLocale"
+	SpellCheckerSubtypeService_GetNameResId_FullMethodName           = "/textservice.SpellCheckerSubtypeService/GetNameResId"
+	SpellCheckerSubtypeService_HashCode_FullMethodName               = "/textservice.SpellCheckerSubtypeService/HashCode"
+	SpellCheckerSubtypeService_WriteToParcel_FullMethodName          = "/textservice.SpellCheckerSubtypeService/WriteToParcel"
+)
+
+// SpellCheckerSubtypeServiceClient is the client API for SpellCheckerSubtypeService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SpellCheckerSubtypeServiceClient interface {
+	NewSpellCheckerSubtype(ctx context.Context, in *NewSpellCheckerSubtypeRequest, opts ...grpc.CallOption) (*NewSpellCheckerSubtypeResponse, error)
+	ContainsExtraValueKey(ctx context.Context, in *ContainsExtraValueKeyRequest, opts ...grpc.CallOption) (*ContainsExtraValueKeyResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetDisplayName(ctx context.Context, in *GetDisplayNameRequest, opts ...grpc.CallOption) (*GetDisplayNameResponse, error)
+	GetExtraValue(ctx context.Context, in *GetExtraValueRequest, opts ...grpc.CallOption) (*GetExtraValueResponse, error)
+	GetExtraValueOf(ctx context.Context, in *GetExtraValueOfRequest, opts ...grpc.CallOption) (*GetExtraValueOfResponse, error)
+	GetLanguageTag(ctx context.Context, in *GetLanguageTagRequest, opts ...grpc.CallOption) (*GetLanguageTagResponse, error)
+	GetLocale(ctx context.Context, in *SpellCheckerSubtypeGetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error)
+	GetNameResId(ctx context.Context, in *GetNameResIdRequest, opts ...grpc.CallOption) (*GetNameResIdResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type spellCheckerSubtypeServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSpellCheckerSubtypeServiceClient(cc grpc.ClientConnInterface) SpellCheckerSubtypeServiceClient {
+	return &spellCheckerSubtypeServiceClient{cc}
+}
+
+func (c *spellCheckerSubtypeServiceClient) NewSpellCheckerSubtype(ctx context.Context, in *NewSpellCheckerSubtypeRequest, opts ...grpc.CallOption) (*NewSpellCheckerSubtypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSpellCheckerSubtypeResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSubtypeService_NewSpellCheckerSubtype_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSubtypeServiceClient) ContainsExtraValueKey(ctx context.Context, in *ContainsExtraValueKeyRequest, opts ...grpc.CallOption) (*ContainsExtraValueKeyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ContainsExtraValueKeyResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSubtypeService_ContainsExtraValueKey_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSubtypeServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSubtypeService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSubtypeServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSubtypeService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSubtypeServiceClient) GetDisplayName(ctx context.Context, in *GetDisplayNameRequest, opts ...grpc.CallOption) (*GetDisplayNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDisplayNameResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSubtypeService_GetDisplayName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSubtypeServiceClient) GetExtraValue(ctx context.Context, in *GetExtraValueRequest, opts ...grpc.CallOption) (*GetExtraValueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtraValueResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSubtypeService_GetExtraValue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSubtypeServiceClient) GetExtraValueOf(ctx context.Context, in *GetExtraValueOfRequest, opts ...grpc.CallOption) (*GetExtraValueOfResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtraValueOfResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSubtypeService_GetExtraValueOf_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSubtypeServiceClient) GetLanguageTag(ctx context.Context, in *GetLanguageTagRequest, opts ...grpc.CallOption) (*GetLanguageTagResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLanguageTagResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSubtypeService_GetLanguageTag_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSubtypeServiceClient) GetLocale(ctx context.Context, in *SpellCheckerSubtypeGetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocaleResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSubtypeService_GetLocale_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSubtypeServiceClient) GetNameResId(ctx context.Context, in *GetNameResIdRequest, opts ...grpc.CallOption) (*GetNameResIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNameResIdResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSubtypeService_GetNameResId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSubtypeServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSubtypeService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSubtypeServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSubtypeService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SpellCheckerSubtypeServiceServer is the server API for SpellCheckerSubtypeService service.
+// All implementations must embed UnimplementedSpellCheckerSubtypeServiceServer
+// for forward compatibility.
+type SpellCheckerSubtypeServiceServer interface {
+	NewSpellCheckerSubtype(context.Context, *NewSpellCheckerSubtypeRequest) (*NewSpellCheckerSubtypeResponse, error)
+	ContainsExtraValueKey(context.Context, *ContainsExtraValueKeyRequest) (*ContainsExtraValueKeyResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetDisplayName(context.Context, *GetDisplayNameRequest) (*GetDisplayNameResponse, error)
+	GetExtraValue(context.Context, *GetExtraValueRequest) (*GetExtraValueResponse, error)
+	GetExtraValueOf(context.Context, *GetExtraValueOfRequest) (*GetExtraValueOfResponse, error)
+	GetLanguageTag(context.Context, *GetLanguageTagRequest) (*GetLanguageTagResponse, error)
+	GetLocale(context.Context, *SpellCheckerSubtypeGetLocaleRequest) (*GetLocaleResponse, error)
+	GetNameResId(context.Context, *GetNameResIdRequest) (*GetNameResIdResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSpellCheckerSubtypeServiceServer()
+}
+
+// UnimplementedSpellCheckerSubtypeServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSpellCheckerSubtypeServiceServer struct{}
+
+func (UnimplementedSpellCheckerSubtypeServiceServer) NewSpellCheckerSubtype(context.Context, *NewSpellCheckerSubtypeRequest) (*NewSpellCheckerSubtypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSpellCheckerSubtype not implemented")
+}
+func (UnimplementedSpellCheckerSubtypeServiceServer) ContainsExtraValueKey(context.Context, *ContainsExtraValueKeyRequest) (*ContainsExtraValueKeyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ContainsExtraValueKey not implemented")
+}
+func (UnimplementedSpellCheckerSubtypeServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSpellCheckerSubtypeServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedSpellCheckerSubtypeServiceServer) GetDisplayName(context.Context, *GetDisplayNameRequest) (*GetDisplayNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDisplayName not implemented")
+}
+func (UnimplementedSpellCheckerSubtypeServiceServer) GetExtraValue(context.Context, *GetExtraValueRequest) (*GetExtraValueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtraValue not implemented")
+}
+func (UnimplementedSpellCheckerSubtypeServiceServer) GetExtraValueOf(context.Context, *GetExtraValueOfRequest) (*GetExtraValueOfResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtraValueOf not implemented")
+}
+func (UnimplementedSpellCheckerSubtypeServiceServer) GetLanguageTag(context.Context, *GetLanguageTagRequest) (*GetLanguageTagResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLanguageTag not implemented")
+}
+func (UnimplementedSpellCheckerSubtypeServiceServer) GetLocale(context.Context, *SpellCheckerSubtypeGetLocaleRequest) (*GetLocaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocale not implemented")
+}
+func (UnimplementedSpellCheckerSubtypeServiceServer) GetNameResId(context.Context, *GetNameResIdRequest) (*GetNameResIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNameResId not implemented")
+}
+func (UnimplementedSpellCheckerSubtypeServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedSpellCheckerSubtypeServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSpellCheckerSubtypeServiceServer) mustEmbedUnimplementedSpellCheckerSubtypeServiceServer() {
+}
+func (UnimplementedSpellCheckerSubtypeServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSpellCheckerSubtypeServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SpellCheckerSubtypeServiceServer will
+// result in compilation errors.
+type UnsafeSpellCheckerSubtypeServiceServer interface {
+	mustEmbedUnimplementedSpellCheckerSubtypeServiceServer()
+}
+
+func RegisterSpellCheckerSubtypeServiceServer(s grpc.ServiceRegistrar, srv SpellCheckerSubtypeServiceServer) {
+	// If the following call panics, it indicates UnimplementedSpellCheckerSubtypeServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SpellCheckerSubtypeService_ServiceDesc, srv)
+}
+
+func _SpellCheckerSubtypeService_NewSpellCheckerSubtype_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSpellCheckerSubtypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSubtypeServiceServer).NewSpellCheckerSubtype(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSubtypeService_NewSpellCheckerSubtype_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSubtypeServiceServer).NewSpellCheckerSubtype(ctx, req.(*NewSpellCheckerSubtypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSubtypeService_ContainsExtraValueKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ContainsExtraValueKeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSubtypeServiceServer).ContainsExtraValueKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSubtypeService_ContainsExtraValueKey_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSubtypeServiceServer).ContainsExtraValueKey(ctx, req.(*ContainsExtraValueKeyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSubtypeService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSubtypeServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSubtypeService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSubtypeServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSubtypeService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSubtypeServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSubtypeService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSubtypeServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSubtypeService_GetDisplayName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDisplayNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSubtypeServiceServer).GetDisplayName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSubtypeService_GetDisplayName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSubtypeServiceServer).GetDisplayName(ctx, req.(*GetDisplayNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSubtypeService_GetExtraValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtraValueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSubtypeServiceServer).GetExtraValue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSubtypeService_GetExtraValue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSubtypeServiceServer).GetExtraValue(ctx, req.(*GetExtraValueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSubtypeService_GetExtraValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtraValueOfRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSubtypeServiceServer).GetExtraValueOf(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSubtypeService_GetExtraValueOf_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSubtypeServiceServer).GetExtraValueOf(ctx, req.(*GetExtraValueOfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSubtypeService_GetLanguageTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLanguageTagRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSubtypeServiceServer).GetLanguageTag(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSubtypeService_GetLanguageTag_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSubtypeServiceServer).GetLanguageTag(ctx, req.(*GetLanguageTagRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSubtypeService_GetLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SpellCheckerSubtypeGetLocaleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSubtypeServiceServer).GetLocale(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSubtypeService_GetLocale_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSubtypeServiceServer).GetLocale(ctx, req.(*SpellCheckerSubtypeGetLocaleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSubtypeService_GetNameResId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNameResIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSubtypeServiceServer).GetNameResId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSubtypeService_GetNameResId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSubtypeServiceServer).GetNameResId(ctx, req.(*GetNameResIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSubtypeService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSubtypeServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSubtypeService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSubtypeServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSubtypeService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSubtypeServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSubtypeService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSubtypeServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SpellCheckerSubtypeService_ServiceDesc is the grpc.ServiceDesc for SpellCheckerSubtypeService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SpellCheckerSubtypeService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textservice.SpellCheckerSubtypeService",
+	HandlerType: (*SpellCheckerSubtypeServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSpellCheckerSubtype",
+			Handler:    _SpellCheckerSubtypeService_NewSpellCheckerSubtype_Handler,
+		},
+		{
+			MethodName: "ContainsExtraValueKey",
+			Handler:    _SpellCheckerSubtypeService_ContainsExtraValueKey_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SpellCheckerSubtypeService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _SpellCheckerSubtypeService_Equals_Handler,
+		},
+		{
+			MethodName: "GetDisplayName",
+			Handler:    _SpellCheckerSubtypeService_GetDisplayName_Handler,
+		},
+		{
+			MethodName: "GetExtraValue",
+			Handler:    _SpellCheckerSubtypeService_GetExtraValue_Handler,
+		},
+		{
+			MethodName: "GetExtraValueOf",
+			Handler:    _SpellCheckerSubtypeService_GetExtraValueOf_Handler,
+		},
+		{
+			MethodName: "GetLanguageTag",
+			Handler:    _SpellCheckerSubtypeService_GetLanguageTag_Handler,
+		},
+		{
+			MethodName: "GetLocale",
+			Handler:    _SpellCheckerSubtypeService_GetLocale_Handler,
+		},
+		{
+			MethodName: "GetNameResId",
+			Handler:    _SpellCheckerSubtypeService_GetNameResId_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _SpellCheckerSubtypeService_HashCode_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SpellCheckerSubtypeService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textservice/textservice.proto",
+}
+
+const (
+	SpellCheckerInfoService_DescribeContents_FullMethodName    = "/textservice.SpellCheckerInfoService/DescribeContents"
+	SpellCheckerInfoService_GetComponent_FullMethodName        = "/textservice.SpellCheckerInfoService/GetComponent"
+	SpellCheckerInfoService_GetId_FullMethodName               = "/textservice.SpellCheckerInfoService/GetId"
+	SpellCheckerInfoService_GetPackageName_FullMethodName      = "/textservice.SpellCheckerInfoService/GetPackageName"
+	SpellCheckerInfoService_GetServiceInfo_FullMethodName      = "/textservice.SpellCheckerInfoService/GetServiceInfo"
+	SpellCheckerInfoService_GetSettingsActivity_FullMethodName = "/textservice.SpellCheckerInfoService/GetSettingsActivity"
+	SpellCheckerInfoService_GetSubtypeAt_FullMethodName        = "/textservice.SpellCheckerInfoService/GetSubtypeAt"
+	SpellCheckerInfoService_GetSubtypeCount_FullMethodName     = "/textservice.SpellCheckerInfoService/GetSubtypeCount"
+	SpellCheckerInfoService_LoadIcon_FullMethodName            = "/textservice.SpellCheckerInfoService/LoadIcon"
+	SpellCheckerInfoService_LoadLabel_FullMethodName           = "/textservice.SpellCheckerInfoService/LoadLabel"
+	SpellCheckerInfoService_WriteToParcel_FullMethodName       = "/textservice.SpellCheckerInfoService/WriteToParcel"
+)
+
+// SpellCheckerInfoServiceClient is the client API for SpellCheckerInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SpellCheckerInfoServiceClient interface {
+	DescribeContents(ctx context.Context, in *SpellCheckerInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetComponent(ctx context.Context, in *GetComponentRequest, opts ...grpc.CallOption) (*GetComponentResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
+	GetServiceInfo(ctx context.Context, in *GetServiceInfoRequest, opts ...grpc.CallOption) (*GetServiceInfoResponse, error)
+	GetSettingsActivity(ctx context.Context, in *GetSettingsActivityRequest, opts ...grpc.CallOption) (*GetSettingsActivityResponse, error)
+	GetSubtypeAt(ctx context.Context, in *GetSubtypeAtRequest, opts ...grpc.CallOption) (*GetSubtypeAtResponse, error)
+	GetSubtypeCount(ctx context.Context, in *GetSubtypeCountRequest, opts ...grpc.CallOption) (*GetSubtypeCountResponse, error)
+	LoadIcon(ctx context.Context, in *LoadIconRequest, opts ...grpc.CallOption) (*LoadIconResponse, error)
+	LoadLabel(ctx context.Context, in *LoadLabelRequest, opts ...grpc.CallOption) (*LoadLabelResponse, error)
+	WriteToParcel(ctx context.Context, in *SpellCheckerInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type spellCheckerInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSpellCheckerInfoServiceClient(cc grpc.ClientConnInterface) SpellCheckerInfoServiceClient {
+	return &spellCheckerInfoServiceClient{cc}
+}
+
+func (c *spellCheckerInfoServiceClient) DescribeContents(ctx context.Context, in *SpellCheckerInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerInfoServiceClient) GetComponent(ctx context.Context, in *GetComponentRequest, opts ...grpc.CallOption) (*GetComponentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetComponentResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerInfoService_GetComponent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerInfoServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerInfoService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerInfoServiceClient) GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPackageNameResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerInfoService_GetPackageName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerInfoServiceClient) GetServiceInfo(ctx context.Context, in *GetServiceInfoRequest, opts ...grpc.CallOption) (*GetServiceInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetServiceInfoResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerInfoService_GetServiceInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerInfoServiceClient) GetSettingsActivity(ctx context.Context, in *GetSettingsActivityRequest, opts ...grpc.CallOption) (*GetSettingsActivityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSettingsActivityResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerInfoService_GetSettingsActivity_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerInfoServiceClient) GetSubtypeAt(ctx context.Context, in *GetSubtypeAtRequest, opts ...grpc.CallOption) (*GetSubtypeAtResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSubtypeAtResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerInfoService_GetSubtypeAt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerInfoServiceClient) GetSubtypeCount(ctx context.Context, in *GetSubtypeCountRequest, opts ...grpc.CallOption) (*GetSubtypeCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSubtypeCountResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerInfoService_GetSubtypeCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerInfoServiceClient) LoadIcon(ctx context.Context, in *LoadIconRequest, opts ...grpc.CallOption) (*LoadIconResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LoadIconResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerInfoService_LoadIcon_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerInfoServiceClient) LoadLabel(ctx context.Context, in *LoadLabelRequest, opts ...grpc.CallOption) (*LoadLabelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LoadLabelResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerInfoService_LoadLabel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerInfoServiceClient) WriteToParcel(ctx context.Context, in *SpellCheckerInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SpellCheckerInfoServiceServer is the server API for SpellCheckerInfoService service.
+// All implementations must embed UnimplementedSpellCheckerInfoServiceServer
+// for forward compatibility.
+type SpellCheckerInfoServiceServer interface {
+	DescribeContents(context.Context, *SpellCheckerInfoDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetComponent(context.Context, *GetComponentRequest) (*GetComponentResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error)
+	GetServiceInfo(context.Context, *GetServiceInfoRequest) (*GetServiceInfoResponse, error)
+	GetSettingsActivity(context.Context, *GetSettingsActivityRequest) (*GetSettingsActivityResponse, error)
+	GetSubtypeAt(context.Context, *GetSubtypeAtRequest) (*GetSubtypeAtResponse, error)
+	GetSubtypeCount(context.Context, *GetSubtypeCountRequest) (*GetSubtypeCountResponse, error)
+	LoadIcon(context.Context, *LoadIconRequest) (*LoadIconResponse, error)
+	LoadLabel(context.Context, *LoadLabelRequest) (*LoadLabelResponse, error)
+	WriteToParcel(context.Context, *SpellCheckerInfoWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSpellCheckerInfoServiceServer()
+}
+
+// UnimplementedSpellCheckerInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSpellCheckerInfoServiceServer struct{}
+
+func (UnimplementedSpellCheckerInfoServiceServer) DescribeContents(context.Context, *SpellCheckerInfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSpellCheckerInfoServiceServer) GetComponent(context.Context, *GetComponentRequest) (*GetComponentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetComponent not implemented")
+}
+func (UnimplementedSpellCheckerInfoServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedSpellCheckerInfoServiceServer) GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPackageName not implemented")
+}
+func (UnimplementedSpellCheckerInfoServiceServer) GetServiceInfo(context.Context, *GetServiceInfoRequest) (*GetServiceInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetServiceInfo not implemented")
+}
+func (UnimplementedSpellCheckerInfoServiceServer) GetSettingsActivity(context.Context, *GetSettingsActivityRequest) (*GetSettingsActivityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSettingsActivity not implemented")
+}
+func (UnimplementedSpellCheckerInfoServiceServer) GetSubtypeAt(context.Context, *GetSubtypeAtRequest) (*GetSubtypeAtResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSubtypeAt not implemented")
+}
+func (UnimplementedSpellCheckerInfoServiceServer) GetSubtypeCount(context.Context, *GetSubtypeCountRequest) (*GetSubtypeCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSubtypeCount not implemented")
+}
+func (UnimplementedSpellCheckerInfoServiceServer) LoadIcon(context.Context, *LoadIconRequest) (*LoadIconResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LoadIcon not implemented")
+}
+func (UnimplementedSpellCheckerInfoServiceServer) LoadLabel(context.Context, *LoadLabelRequest) (*LoadLabelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method LoadLabel not implemented")
+}
+func (UnimplementedSpellCheckerInfoServiceServer) WriteToParcel(context.Context, *SpellCheckerInfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSpellCheckerInfoServiceServer) mustEmbedUnimplementedSpellCheckerInfoServiceServer() {
+}
+func (UnimplementedSpellCheckerInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSpellCheckerInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SpellCheckerInfoServiceServer will
+// result in compilation errors.
+type UnsafeSpellCheckerInfoServiceServer interface {
+	mustEmbedUnimplementedSpellCheckerInfoServiceServer()
+}
+
+func RegisterSpellCheckerInfoServiceServer(s grpc.ServiceRegistrar, srv SpellCheckerInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedSpellCheckerInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SpellCheckerInfoService_ServiceDesc, srv)
+}
+
+func _SpellCheckerInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SpellCheckerInfoDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerInfoServiceServer).DescribeContents(ctx, req.(*SpellCheckerInfoDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerInfoService_GetComponent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetComponentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerInfoServiceServer).GetComponent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerInfoService_GetComponent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerInfoServiceServer).GetComponent(ctx, req.(*GetComponentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerInfoService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerInfoServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerInfoService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerInfoServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerInfoService_GetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPackageNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerInfoServiceServer).GetPackageName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerInfoService_GetPackageName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerInfoServiceServer).GetPackageName(ctx, req.(*GetPackageNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerInfoService_GetServiceInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetServiceInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerInfoServiceServer).GetServiceInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerInfoService_GetServiceInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerInfoServiceServer).GetServiceInfo(ctx, req.(*GetServiceInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerInfoService_GetSettingsActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSettingsActivityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerInfoServiceServer).GetSettingsActivity(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerInfoService_GetSettingsActivity_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerInfoServiceServer).GetSettingsActivity(ctx, req.(*GetSettingsActivityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerInfoService_GetSubtypeAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSubtypeAtRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerInfoServiceServer).GetSubtypeAt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerInfoService_GetSubtypeAt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerInfoServiceServer).GetSubtypeAt(ctx, req.(*GetSubtypeAtRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerInfoService_GetSubtypeCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSubtypeCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerInfoServiceServer).GetSubtypeCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerInfoService_GetSubtypeCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerInfoServiceServer).GetSubtypeCount(ctx, req.(*GetSubtypeCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerInfoService_LoadIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoadIconRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerInfoServiceServer).LoadIcon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerInfoService_LoadIcon_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerInfoServiceServer).LoadIcon(ctx, req.(*LoadIconRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerInfoService_LoadLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoadLabelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerInfoServiceServer).LoadLabel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerInfoService_LoadLabel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerInfoServiceServer).LoadLabel(ctx, req.(*LoadLabelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SpellCheckerInfoWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerInfoServiceServer).WriteToParcel(ctx, req.(*SpellCheckerInfoWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SpellCheckerInfoService_ServiceDesc is the grpc.ServiceDesc for SpellCheckerInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SpellCheckerInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textservice.SpellCheckerInfoService",
+	HandlerType: (*SpellCheckerInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SpellCheckerInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetComponent",
+			Handler:    _SpellCheckerInfoService_GetComponent_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _SpellCheckerInfoService_GetId_Handler,
+		},
+		{
+			MethodName: "GetPackageName",
+			Handler:    _SpellCheckerInfoService_GetPackageName_Handler,
+		},
+		{
+			MethodName: "GetServiceInfo",
+			Handler:    _SpellCheckerInfoService_GetServiceInfo_Handler,
+		},
+		{
+			MethodName: "GetSettingsActivity",
+			Handler:    _SpellCheckerInfoService_GetSettingsActivity_Handler,
+		},
+		{
+			MethodName: "GetSubtypeAt",
+			Handler:    _SpellCheckerInfoService_GetSubtypeAt_Handler,
+		},
+		{
+			MethodName: "GetSubtypeCount",
+			Handler:    _SpellCheckerInfoService_GetSubtypeCount_Handler,
+		},
+		{
+			MethodName: "LoadIcon",
+			Handler:    _SpellCheckerInfoService_LoadIcon_Handler,
+		},
+		{
+			MethodName: "LoadLabel",
+			Handler:    _SpellCheckerInfoService_LoadLabel_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SpellCheckerInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textservice/textservice.proto",
+}
+
+const (
+	SpellCheckerSessionService_Cancel_FullMethodName                 = "/textservice.SpellCheckerSessionService/Cancel"
+	SpellCheckerSessionService_Close_FullMethodName                  = "/textservice.SpellCheckerSessionService/Close"
+	SpellCheckerSessionService_GetSentenceSuggestions_FullMethodName = "/textservice.SpellCheckerSessionService/GetSentenceSuggestions"
+	SpellCheckerSessionService_GetSpellChecker_FullMethodName        = "/textservice.SpellCheckerSessionService/GetSpellChecker"
+	SpellCheckerSessionService_GetSuggestions2_FullMethodName        = "/textservice.SpellCheckerSessionService/GetSuggestions2"
+	SpellCheckerSessionService_GetSuggestions3_1_FullMethodName      = "/textservice.SpellCheckerSessionService/GetSuggestions3_1"
+	SpellCheckerSessionService_IsSessionDisconnected_FullMethodName  = "/textservice.SpellCheckerSessionService/IsSessionDisconnected"
+)
+
+// SpellCheckerSessionServiceClient is the client API for SpellCheckerSessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SpellCheckerSessionServiceClient interface {
+	Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error)
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	GetSentenceSuggestions(ctx context.Context, in *GetSentenceSuggestionsRequest, opts ...grpc.CallOption) (*GetSentenceSuggestionsResponse, error)
+	GetSpellChecker(ctx context.Context, in *GetSpellCheckerRequest, opts ...grpc.CallOption) (*GetSpellCheckerResponse, error)
+	GetSuggestions2(ctx context.Context, in *GetSuggestions2Request, opts ...grpc.CallOption) (*GetSuggestions2Response, error)
+	GetSuggestions3_1(ctx context.Context, in *GetSuggestions3_1Request, opts ...grpc.CallOption) (*GetSuggestions3_1Response, error)
+	IsSessionDisconnected(ctx context.Context, in *IsSessionDisconnectedRequest, opts ...grpc.CallOption) (*IsSessionDisconnectedResponse, error)
+}
+
+type spellCheckerSessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSpellCheckerSessionServiceClient(cc grpc.ClientConnInterface) SpellCheckerSessionServiceClient {
+	return &spellCheckerSessionServiceClient{cc}
+}
+
+func (c *spellCheckerSessionServiceClient) Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CancelResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSessionService_Cancel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSessionService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSessionServiceClient) GetSentenceSuggestions(ctx context.Context, in *GetSentenceSuggestionsRequest, opts ...grpc.CallOption) (*GetSentenceSuggestionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSentenceSuggestionsResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSessionService_GetSentenceSuggestions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSessionServiceClient) GetSpellChecker(ctx context.Context, in *GetSpellCheckerRequest, opts ...grpc.CallOption) (*GetSpellCheckerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSpellCheckerResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSessionService_GetSpellChecker_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSessionServiceClient) GetSuggestions2(ctx context.Context, in *GetSuggestions2Request, opts ...grpc.CallOption) (*GetSuggestions2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSuggestions2Response)
+	err := c.cc.Invoke(ctx, SpellCheckerSessionService_GetSuggestions2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSessionServiceClient) GetSuggestions3_1(ctx context.Context, in *GetSuggestions3_1Request, opts ...grpc.CallOption) (*GetSuggestions3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSuggestions3_1Response)
+	err := c.cc.Invoke(ctx, SpellCheckerSessionService_GetSuggestions3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSessionServiceClient) IsSessionDisconnected(ctx context.Context, in *IsSessionDisconnectedRequest, opts ...grpc.CallOption) (*IsSessionDisconnectedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSessionDisconnectedResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSessionService_IsSessionDisconnected_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SpellCheckerSessionServiceServer is the server API for SpellCheckerSessionService service.
+// All implementations must embed UnimplementedSpellCheckerSessionServiceServer
+// for forward compatibility.
+type SpellCheckerSessionServiceServer interface {
+	Cancel(context.Context, *CancelRequest) (*CancelResponse, error)
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	GetSentenceSuggestions(context.Context, *GetSentenceSuggestionsRequest) (*GetSentenceSuggestionsResponse, error)
+	GetSpellChecker(context.Context, *GetSpellCheckerRequest) (*GetSpellCheckerResponse, error)
+	GetSuggestions2(context.Context, *GetSuggestions2Request) (*GetSuggestions2Response, error)
+	GetSuggestions3_1(context.Context, *GetSuggestions3_1Request) (*GetSuggestions3_1Response, error)
+	IsSessionDisconnected(context.Context, *IsSessionDisconnectedRequest) (*IsSessionDisconnectedResponse, error)
+	mustEmbedUnimplementedSpellCheckerSessionServiceServer()
+}
+
+// UnimplementedSpellCheckerSessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSpellCheckerSessionServiceServer struct{}
+
+func (UnimplementedSpellCheckerSessionServiceServer) Cancel(context.Context, *CancelRequest) (*CancelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Cancel not implemented")
+}
+func (UnimplementedSpellCheckerSessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedSpellCheckerSessionServiceServer) GetSentenceSuggestions(context.Context, *GetSentenceSuggestionsRequest) (*GetSentenceSuggestionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSentenceSuggestions not implemented")
+}
+func (UnimplementedSpellCheckerSessionServiceServer) GetSpellChecker(context.Context, *GetSpellCheckerRequest) (*GetSpellCheckerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSpellChecker not implemented")
+}
+func (UnimplementedSpellCheckerSessionServiceServer) GetSuggestions2(context.Context, *GetSuggestions2Request) (*GetSuggestions2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSuggestions2 not implemented")
+}
+func (UnimplementedSpellCheckerSessionServiceServer) GetSuggestions3_1(context.Context, *GetSuggestions3_1Request) (*GetSuggestions3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSuggestions3_1 not implemented")
+}
+func (UnimplementedSpellCheckerSessionServiceServer) IsSessionDisconnected(context.Context, *IsSessionDisconnectedRequest) (*IsSessionDisconnectedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSessionDisconnected not implemented")
+}
+func (UnimplementedSpellCheckerSessionServiceServer) mustEmbedUnimplementedSpellCheckerSessionServiceServer() {
+}
+func (UnimplementedSpellCheckerSessionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSpellCheckerSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SpellCheckerSessionServiceServer will
+// result in compilation errors.
+type UnsafeSpellCheckerSessionServiceServer interface {
+	mustEmbedUnimplementedSpellCheckerSessionServiceServer()
+}
+
+func RegisterSpellCheckerSessionServiceServer(s grpc.ServiceRegistrar, srv SpellCheckerSessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedSpellCheckerSessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SpellCheckerSessionService_ServiceDesc, srv)
+}
+
+func _SpellCheckerSessionService_Cancel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSessionServiceServer).Cancel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSessionService_Cancel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSessionServiceServer).Cancel(ctx, req.(*CancelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSessionServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSessionService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSessionServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSessionService_GetSentenceSuggestions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSentenceSuggestionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSessionServiceServer).GetSentenceSuggestions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSessionService_GetSentenceSuggestions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSessionServiceServer).GetSentenceSuggestions(ctx, req.(*GetSentenceSuggestionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSessionService_GetSpellChecker_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSpellCheckerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSessionServiceServer).GetSpellChecker(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSessionService_GetSpellChecker_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSessionServiceServer).GetSpellChecker(ctx, req.(*GetSpellCheckerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSessionService_GetSuggestions2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSuggestions2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSessionServiceServer).GetSuggestions2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSessionService_GetSuggestions2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSessionServiceServer).GetSuggestions2(ctx, req.(*GetSuggestions2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSessionService_GetSuggestions3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSuggestions3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSessionServiceServer).GetSuggestions3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSessionService_GetSuggestions3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSessionServiceServer).GetSuggestions3_1(ctx, req.(*GetSuggestions3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSessionService_IsSessionDisconnected_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSessionDisconnectedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSessionServiceServer).IsSessionDisconnected(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSessionService_IsSessionDisconnected_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSessionServiceServer).IsSessionDisconnected(ctx, req.(*IsSessionDisconnectedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SpellCheckerSessionService_ServiceDesc is the grpc.ServiceDesc for SpellCheckerSessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SpellCheckerSessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textservice.SpellCheckerSessionService",
+	HandlerType: (*SpellCheckerSessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Cancel",
+			Handler:    _SpellCheckerSessionService_Cancel_Handler,
+		},
+		{
+			MethodName: "Close",
+			Handler:    _SpellCheckerSessionService_Close_Handler,
+		},
+		{
+			MethodName: "GetSentenceSuggestions",
+			Handler:    _SpellCheckerSessionService_GetSentenceSuggestions_Handler,
+		},
+		{
+			MethodName: "GetSpellChecker",
+			Handler:    _SpellCheckerSessionService_GetSpellChecker_Handler,
+		},
+		{
+			MethodName: "GetSuggestions2",
+			Handler:    _SpellCheckerSessionService_GetSuggestions2_Handler,
+		},
+		{
+			MethodName: "GetSuggestions3_1",
+			Handler:    _SpellCheckerSessionService_GetSuggestions3_1_Handler,
+		},
+		{
+			MethodName: "IsSessionDisconnected",
+			Handler:    _SpellCheckerSessionService_IsSessionDisconnected_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textservice/textservice.proto",
+}
+
+const (
+	SpellCheckerSessionSpellCheckerSessionListenerService_OnGetSentenceSuggestions_FullMethodName = "/textservice.SpellCheckerSessionSpellCheckerSessionListenerService/OnGetSentenceSuggestions"
+	SpellCheckerSessionSpellCheckerSessionListenerService_OnGetSuggestions_FullMethodName         = "/textservice.SpellCheckerSessionSpellCheckerSessionListenerService/OnGetSuggestions"
+)
+
+// SpellCheckerSessionSpellCheckerSessionListenerServiceClient is the client API for SpellCheckerSessionSpellCheckerSessionListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SpellCheckerSessionSpellCheckerSessionListenerServiceClient interface {
+	OnGetSentenceSuggestions(ctx context.Context, in *OnGetSentenceSuggestionsRequest, opts ...grpc.CallOption) (*OnGetSentenceSuggestionsResponse, error)
+	OnGetSuggestions(ctx context.Context, in *SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest, opts ...grpc.CallOption) (*SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse, error)
+}
+
+type spellCheckerSessionSpellCheckerSessionListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSpellCheckerSessionSpellCheckerSessionListenerServiceClient(cc grpc.ClientConnInterface) SpellCheckerSessionSpellCheckerSessionListenerServiceClient {
+	return &spellCheckerSessionSpellCheckerSessionListenerServiceClient{cc}
+}
+
+func (c *spellCheckerSessionSpellCheckerSessionListenerServiceClient) OnGetSentenceSuggestions(ctx context.Context, in *OnGetSentenceSuggestionsRequest, opts ...grpc.CallOption) (*OnGetSentenceSuggestionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnGetSentenceSuggestionsResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSessionSpellCheckerSessionListenerService_OnGetSentenceSuggestions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSessionSpellCheckerSessionListenerServiceClient) OnGetSuggestions(ctx context.Context, in *SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest, opts ...grpc.CallOption) (*SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSessionSpellCheckerSessionListenerService_OnGetSuggestions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SpellCheckerSessionSpellCheckerSessionListenerServiceServer is the server API for SpellCheckerSessionSpellCheckerSessionListenerService service.
+// All implementations must embed UnimplementedSpellCheckerSessionSpellCheckerSessionListenerServiceServer
+// for forward compatibility.
+type SpellCheckerSessionSpellCheckerSessionListenerServiceServer interface {
+	OnGetSentenceSuggestions(context.Context, *OnGetSentenceSuggestionsRequest) (*OnGetSentenceSuggestionsResponse, error)
+	OnGetSuggestions(context.Context, *SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest) (*SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse, error)
+	mustEmbedUnimplementedSpellCheckerSessionSpellCheckerSessionListenerServiceServer()
+}
+
+// UnimplementedSpellCheckerSessionSpellCheckerSessionListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSpellCheckerSessionSpellCheckerSessionListenerServiceServer struct{}
+
+func (UnimplementedSpellCheckerSessionSpellCheckerSessionListenerServiceServer) OnGetSentenceSuggestions(context.Context, *OnGetSentenceSuggestionsRequest) (*OnGetSentenceSuggestionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnGetSentenceSuggestions not implemented")
+}
+func (UnimplementedSpellCheckerSessionSpellCheckerSessionListenerServiceServer) OnGetSuggestions(context.Context, *SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest) (*SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnGetSuggestions not implemented")
+}
+func (UnimplementedSpellCheckerSessionSpellCheckerSessionListenerServiceServer) mustEmbedUnimplementedSpellCheckerSessionSpellCheckerSessionListenerServiceServer() {
+}
+func (UnimplementedSpellCheckerSessionSpellCheckerSessionListenerServiceServer) testEmbeddedByValue() {
+}
+
+// UnsafeSpellCheckerSessionSpellCheckerSessionListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SpellCheckerSessionSpellCheckerSessionListenerServiceServer will
+// result in compilation errors.
+type UnsafeSpellCheckerSessionSpellCheckerSessionListenerServiceServer interface {
+	mustEmbedUnimplementedSpellCheckerSessionSpellCheckerSessionListenerServiceServer()
+}
+
+func RegisterSpellCheckerSessionSpellCheckerSessionListenerServiceServer(s grpc.ServiceRegistrar, srv SpellCheckerSessionSpellCheckerSessionListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedSpellCheckerSessionSpellCheckerSessionListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SpellCheckerSessionSpellCheckerSessionListenerService_ServiceDesc, srv)
+}
+
+func _SpellCheckerSessionSpellCheckerSessionListenerService_OnGetSentenceSuggestions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnGetSentenceSuggestionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSessionSpellCheckerSessionListenerServiceServer).OnGetSentenceSuggestions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSessionSpellCheckerSessionListenerService_OnGetSentenceSuggestions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSessionSpellCheckerSessionListenerServiceServer).OnGetSentenceSuggestions(ctx, req.(*OnGetSentenceSuggestionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSessionSpellCheckerSessionListenerService_OnGetSuggestions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSessionSpellCheckerSessionListenerServiceServer).OnGetSuggestions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSessionSpellCheckerSessionListenerService_OnGetSuggestions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSessionSpellCheckerSessionListenerServiceServer).OnGetSuggestions(ctx, req.(*SpellCheckerSessionSpellCheckerSessionListenerOnGetSuggestionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SpellCheckerSessionSpellCheckerSessionListenerService_ServiceDesc is the grpc.ServiceDesc for SpellCheckerSessionSpellCheckerSessionListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SpellCheckerSessionSpellCheckerSessionListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textservice.SpellCheckerSessionSpellCheckerSessionListenerService",
+	HandlerType: (*SpellCheckerSessionSpellCheckerSessionListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnGetSentenceSuggestions",
+			Handler:    _SpellCheckerSessionSpellCheckerSessionListenerService_OnGetSentenceSuggestions_Handler,
+		},
+		{
+			MethodName: "OnGetSuggestions",
+			Handler:    _SpellCheckerSessionSpellCheckerSessionListenerService_OnGetSuggestions_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/textservice/textservice.proto",
+}
+
+const (
+	SpellCheckerSessionSpellCheckerSessionParamsService_GetExtras_FullMethodName                                 = "/textservice.SpellCheckerSessionSpellCheckerSessionParamsService/GetExtras"
+	SpellCheckerSessionSpellCheckerSessionParamsService_GetLocale_FullMethodName                                 = "/textservice.SpellCheckerSessionSpellCheckerSessionParamsService/GetLocale"
+	SpellCheckerSessionSpellCheckerSessionParamsService_GetSupportedAttributes_FullMethodName                    = "/textservice.SpellCheckerSessionSpellCheckerSessionParamsService/GetSupportedAttributes"
+	SpellCheckerSessionSpellCheckerSessionParamsService_ShouldReferToSpellCheckerLanguageSettings_FullMethodName = "/textservice.SpellCheckerSessionSpellCheckerSessionParamsService/ShouldReferToSpellCheckerLanguageSettings"
+)
+
+// SpellCheckerSessionSpellCheckerSessionParamsServiceClient is the client API for SpellCheckerSessionSpellCheckerSessionParamsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SpellCheckerSessionSpellCheckerSessionParamsServiceClient interface {
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetLocale(ctx context.Context, in *SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest, opts ...grpc.CallOption) (*SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse, error)
+	GetSupportedAttributes(ctx context.Context, in *GetSupportedAttributesRequest, opts ...grpc.CallOption) (*GetSupportedAttributesResponse, error)
+	ShouldReferToSpellCheckerLanguageSettings(ctx context.Context, in *ShouldReferToSpellCheckerLanguageSettingsRequest, opts ...grpc.CallOption) (*ShouldReferToSpellCheckerLanguageSettingsResponse, error)
+}
+
+type spellCheckerSessionSpellCheckerSessionParamsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSpellCheckerSessionSpellCheckerSessionParamsServiceClient(cc grpc.ClientConnInterface) SpellCheckerSessionSpellCheckerSessionParamsServiceClient {
+	return &spellCheckerSessionSpellCheckerSessionParamsServiceClient{cc}
+}
+
+func (c *spellCheckerSessionSpellCheckerSessionParamsServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSessionSpellCheckerSessionParamsService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSessionSpellCheckerSessionParamsServiceClient) GetLocale(ctx context.Context, in *SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest, opts ...grpc.CallOption) (*SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSessionSpellCheckerSessionParamsService_GetLocale_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSessionSpellCheckerSessionParamsServiceClient) GetSupportedAttributes(ctx context.Context, in *GetSupportedAttributesRequest, opts ...grpc.CallOption) (*GetSupportedAttributesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedAttributesResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSessionSpellCheckerSessionParamsService_GetSupportedAttributes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *spellCheckerSessionSpellCheckerSessionParamsServiceClient) ShouldReferToSpellCheckerLanguageSettings(ctx context.Context, in *ShouldReferToSpellCheckerLanguageSettingsRequest, opts ...grpc.CallOption) (*ShouldReferToSpellCheckerLanguageSettingsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ShouldReferToSpellCheckerLanguageSettingsResponse)
+	err := c.cc.Invoke(ctx, SpellCheckerSessionSpellCheckerSessionParamsService_ShouldReferToSpellCheckerLanguageSettings_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SpellCheckerSessionSpellCheckerSessionParamsServiceServer is the server API for SpellCheckerSessionSpellCheckerSessionParamsService service.
+// All implementations must embed UnimplementedSpellCheckerSessionSpellCheckerSessionParamsServiceServer
+// for forward compatibility.
+type SpellCheckerSessionSpellCheckerSessionParamsServiceServer interface {
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetLocale(context.Context, *SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest) (*SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse, error)
+	GetSupportedAttributes(context.Context, *GetSupportedAttributesRequest) (*GetSupportedAttributesResponse, error)
+	ShouldReferToSpellCheckerLanguageSettings(context.Context, *ShouldReferToSpellCheckerLanguageSettingsRequest) (*ShouldReferToSpellCheckerLanguageSettingsResponse, error)
+	mustEmbedUnimplementedSpellCheckerSessionSpellCheckerSessionParamsServiceServer()
+}
+
+// UnimplementedSpellCheckerSessionSpellCheckerSessionParamsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSpellCheckerSessionSpellCheckerSessionParamsServiceServer struct{}
+
+func (UnimplementedSpellCheckerSessionSpellCheckerSessionParamsServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedSpellCheckerSessionSpellCheckerSessionParamsServiceServer) GetLocale(context.Context, *SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest) (*SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocale not implemented")
+}
+func (UnimplementedSpellCheckerSessionSpellCheckerSessionParamsServiceServer) GetSupportedAttributes(context.Context, *GetSupportedAttributesRequest) (*GetSupportedAttributesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedAttributes not implemented")
+}
+func (UnimplementedSpellCheckerSessionSpellCheckerSessionParamsServiceServer) ShouldReferToSpellCheckerLanguageSettings(context.Context, *ShouldReferToSpellCheckerLanguageSettingsRequest) (*ShouldReferToSpellCheckerLanguageSettingsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ShouldReferToSpellCheckerLanguageSettings not implemented")
+}
+func (UnimplementedSpellCheckerSessionSpellCheckerSessionParamsServiceServer) mustEmbedUnimplementedSpellCheckerSessionSpellCheckerSessionParamsServiceServer() {
+}
+func (UnimplementedSpellCheckerSessionSpellCheckerSessionParamsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSpellCheckerSessionSpellCheckerSessionParamsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SpellCheckerSessionSpellCheckerSessionParamsServiceServer will
+// result in compilation errors.
+type UnsafeSpellCheckerSessionSpellCheckerSessionParamsServiceServer interface {
+	mustEmbedUnimplementedSpellCheckerSessionSpellCheckerSessionParamsServiceServer()
+}
+
+func RegisterSpellCheckerSessionSpellCheckerSessionParamsServiceServer(s grpc.ServiceRegistrar, srv SpellCheckerSessionSpellCheckerSessionParamsServiceServer) {
+	// If the following call panics, it indicates UnimplementedSpellCheckerSessionSpellCheckerSessionParamsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SpellCheckerSessionSpellCheckerSessionParamsService_ServiceDesc, srv)
+}
+
+func _SpellCheckerSessionSpellCheckerSessionParamsService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSessionSpellCheckerSessionParamsServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSessionSpellCheckerSessionParamsService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSessionSpellCheckerSessionParamsServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSessionSpellCheckerSessionParamsService_GetLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSessionSpellCheckerSessionParamsServiceServer).GetLocale(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSessionSpellCheckerSessionParamsService_GetLocale_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSessionSpellCheckerSessionParamsServiceServer).GetLocale(ctx, req.(*SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSessionSpellCheckerSessionParamsService_GetSupportedAttributes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedAttributesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSessionSpellCheckerSessionParamsServiceServer).GetSupportedAttributes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSessionSpellCheckerSessionParamsService_GetSupportedAttributes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSessionSpellCheckerSessionParamsServiceServer).GetSupportedAttributes(ctx, req.(*GetSupportedAttributesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SpellCheckerSessionSpellCheckerSessionParamsService_ShouldReferToSpellCheckerLanguageSettings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ShouldReferToSpellCheckerLanguageSettingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SpellCheckerSessionSpellCheckerSessionParamsServiceServer).ShouldReferToSpellCheckerLanguageSettings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SpellCheckerSessionSpellCheckerSessionParamsService_ShouldReferToSpellCheckerLanguageSettings_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SpellCheckerSessionSpellCheckerSessionParamsServiceServer).ShouldReferToSpellCheckerLanguageSettings(ctx, req.(*ShouldReferToSpellCheckerLanguageSettingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SpellCheckerSessionSpellCheckerSessionParamsService_ServiceDesc is the grpc.ServiceDesc for SpellCheckerSessionSpellCheckerSessionParamsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SpellCheckerSessionSpellCheckerSessionParamsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "textservice.SpellCheckerSessionSpellCheckerSessionParamsService",
+	HandlerType: (*SpellCheckerSessionSpellCheckerSessionParamsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetExtras",
+			Handler:    _SpellCheckerSessionSpellCheckerSessionParamsService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetLocale",
+			Handler:    _SpellCheckerSessionSpellCheckerSessionParamsService_GetLocale_Handler,
+		},
+		{
+			MethodName: "GetSupportedAttributes",
+			Handler:    _SpellCheckerSessionSpellCheckerSessionParamsService_GetSupportedAttributes_Handler,
+		},
+		{
+			MethodName: "ShouldReferToSpellCheckerLanguageSettings",
+			Handler:    _SpellCheckerSessionSpellCheckerSessionParamsService_ShouldReferToSpellCheckerLanguageSettings_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

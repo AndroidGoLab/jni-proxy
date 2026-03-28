@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,4906 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetActivationTimeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActivationTimeRequest) Reset() {
+	*x = GetActivationTimeRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActivationTimeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActivationTimeRequest) ProtoMessage() {}
+
+func (x *GetActivationTimeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActivationTimeRequest.ProtoReflect.Descriptor instead.
+func (*GetActivationTimeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{2}
+}
+
+type GetActivationTimeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActivationTimeResponse) Reset() {
+	*x = GetActivationTimeResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActivationTimeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActivationTimeResponse) ProtoMessage() {}
+
+func (x *GetActivationTimeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActivationTimeResponse.ProtoReflect.Descriptor instead.
+func (*GetActivationTimeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetActivationTimeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetExpirationTimeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExpirationTimeRequest) Reset() {
+	*x = GetExpirationTimeRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExpirationTimeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExpirationTimeRequest) ProtoMessage() {}
+
+func (x *GetExpirationTimeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExpirationTimeRequest.ProtoReflect.Descriptor instead.
+func (*GetExpirationTimeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{4}
+}
+
+type GetExpirationTimeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExpirationTimeResponse) Reset() {
+	*x = GetExpirationTimeResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExpirationTimeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExpirationTimeResponse) ProtoMessage() {}
+
+func (x *GetExpirationTimeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExpirationTimeResponse.ProtoReflect.Descriptor instead.
+func (*GetExpirationTimeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetExpirationTimeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetFetchUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFetchUriRequest) Reset() {
+	*x = GetFetchUriRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFetchUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFetchUriRequest) ProtoMessage() {}
+
+func (x *GetFetchUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFetchUriRequest.ProtoReflect.Descriptor instead.
+func (*GetFetchUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{6}
+}
+
+type GetFetchUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFetchUriResponse) Reset() {
+	*x = GetFetchUriResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFetchUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFetchUriResponse) ProtoMessage() {}
+
+func (x *GetFetchUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFetchUriResponse.ProtoReflect.Descriptor instead.
+func (*GetFetchUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetFetchUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNameRequest) Reset() {
+	*x = GetNameRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNameRequest) ProtoMessage() {}
+
+func (x *GetNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNameRequest.ProtoReflect.Descriptor instead.
+func (*GetNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{8}
+}
+
+type GetNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNameResponse) Reset() {
+	*x = GetNameResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNameResponse) ProtoMessage() {}
+
+func (x *GetNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNameResponse.ProtoReflect.Descriptor instead.
+func (*GetNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetUserBiddingSignalsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserBiddingSignalsRequest) Reset() {
+	*x = GetUserBiddingSignalsRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserBiddingSignalsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserBiddingSignalsRequest) ProtoMessage() {}
+
+func (x *GetUserBiddingSignalsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserBiddingSignalsRequest.ProtoReflect.Descriptor instead.
+func (*GetUserBiddingSignalsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{10}
+}
+
+type GetUserBiddingSignalsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserBiddingSignalsResponse) Reset() {
+	*x = GetUserBiddingSignalsResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserBiddingSignalsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserBiddingSignalsResponse) ProtoMessage() {}
+
+func (x *GetUserBiddingSignalsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserBiddingSignalsResponse.ProtoReflect.Descriptor instead.
+func (*GetUserBiddingSignalsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetUserBiddingSignalsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{12}
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{14}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{16}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetActivationTimeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetActivationTimeRequest) Reset() {
+	*x = SetActivationTimeRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetActivationTimeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetActivationTimeRequest) ProtoMessage() {}
+
+func (x *SetActivationTimeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetActivationTimeRequest.ProtoReflect.Descriptor instead.
+func (*SetActivationTimeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *SetActivationTimeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetActivationTimeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetActivationTimeResponse) Reset() {
+	*x = SetActivationTimeResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetActivationTimeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetActivationTimeResponse) ProtoMessage() {}
+
+func (x *SetActivationTimeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetActivationTimeResponse.ProtoReflect.Descriptor instead.
+func (*SetActivationTimeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *SetActivationTimeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetExpirationTimeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetExpirationTimeRequest) Reset() {
+	*x = SetExpirationTimeRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetExpirationTimeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetExpirationTimeRequest) ProtoMessage() {}
+
+func (x *SetExpirationTimeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetExpirationTimeRequest.ProtoReflect.Descriptor instead.
+func (*SetExpirationTimeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *SetExpirationTimeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetExpirationTimeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetExpirationTimeResponse) Reset() {
+	*x = SetExpirationTimeResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetExpirationTimeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetExpirationTimeResponse) ProtoMessage() {}
+
+func (x *SetExpirationTimeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetExpirationTimeResponse.ProtoReflect.Descriptor instead.
+func (*SetExpirationTimeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *SetExpirationTimeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetFetchUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFetchUriRequest) Reset() {
+	*x = SetFetchUriRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFetchUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFetchUriRequest) ProtoMessage() {}
+
+func (x *SetFetchUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFetchUriRequest.ProtoReflect.Descriptor instead.
+func (*SetFetchUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *SetFetchUriRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetFetchUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFetchUriResponse) Reset() {
+	*x = SetFetchUriResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFetchUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFetchUriResponse) ProtoMessage() {}
+
+func (x *SetFetchUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFetchUriResponse.ProtoReflect.Descriptor instead.
+func (*SetFetchUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *SetFetchUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNameRequest) Reset() {
+	*x = SetNameRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNameRequest) ProtoMessage() {}
+
+func (x *SetNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNameRequest.ProtoReflect.Descriptor instead.
+func (*SetNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *SetNameRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNameResponse) Reset() {
+	*x = SetNameResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNameResponse) ProtoMessage() {}
+
+func (x *SetNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNameResponse.ProtoReflect.Descriptor instead.
+func (*SetNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *SetNameResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetUserBiddingSignalsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUserBiddingSignalsRequest) Reset() {
+	*x = SetUserBiddingSignalsRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUserBiddingSignalsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUserBiddingSignalsRequest) ProtoMessage() {}
+
+func (x *SetUserBiddingSignalsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUserBiddingSignalsRequest.ProtoReflect.Descriptor instead.
+func (*SetUserBiddingSignalsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *SetUserBiddingSignalsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetUserBiddingSignalsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUserBiddingSignalsResponse) Reset() {
+	*x = SetUserBiddingSignalsResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUserBiddingSignalsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUserBiddingSignalsResponse) ProtoMessage() {}
+
+func (x *SetUserBiddingSignalsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUserBiddingSignalsResponse.ProtoReflect.Descriptor instead.
+func (*SetUserBiddingSignalsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *SetUserBiddingSignalsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTestCustomAudienceManagerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTestCustomAudienceManagerRequest) Reset() {
+	*x = GetTestCustomAudienceManagerRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTestCustomAudienceManagerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTestCustomAudienceManagerRequest) ProtoMessage() {}
+
+func (x *GetTestCustomAudienceManagerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTestCustomAudienceManagerRequest.ProtoReflect.Descriptor instead.
+func (*GetTestCustomAudienceManagerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{28}
+}
+
+type GetTestCustomAudienceManagerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTestCustomAudienceManagerResponse) Reset() {
+	*x = GetTestCustomAudienceManagerResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTestCustomAudienceManagerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTestCustomAudienceManagerResponse) ProtoMessage() {}
+
+func (x *GetTestCustomAudienceManagerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTestCustomAudienceManagerResponse.ProtoReflect.Descriptor instead.
+func (*GetTestCustomAudienceManagerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetTestCustomAudienceManagerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRequest) Reset() {
+	*x = GetRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRequest) ProtoMessage() {}
+
+func (x *GetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
+func (*GetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *GetRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResponse) Reset() {
+	*x = GetResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResponse) ProtoMessage() {}
+
+func (x *GetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
+func (*GetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{32}
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAuctionServerRequestFlagsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAuctionServerRequestFlagsRequest) Reset() {
+	*x = GetAuctionServerRequestFlagsRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAuctionServerRequestFlagsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAuctionServerRequestFlagsRequest) ProtoMessage() {}
+
+func (x *GetAuctionServerRequestFlagsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAuctionServerRequestFlagsRequest.ProtoReflect.Descriptor instead.
+func (*GetAuctionServerRequestFlagsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{34}
+}
+
+type GetAuctionServerRequestFlagsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAuctionServerRequestFlagsResponse) Reset() {
+	*x = GetAuctionServerRequestFlagsResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAuctionServerRequestFlagsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAuctionServerRequestFlagsResponse) ProtoMessage() {}
+
+func (x *GetAuctionServerRequestFlagsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAuctionServerRequestFlagsResponse.ProtoReflect.Descriptor instead.
+func (*GetAuctionServerRequestFlagsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *GetAuctionServerRequestFlagsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBiddingLogicUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBiddingLogicUriRequest) Reset() {
+	*x = GetBiddingLogicUriRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBiddingLogicUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBiddingLogicUriRequest) ProtoMessage() {}
+
+func (x *GetBiddingLogicUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBiddingLogicUriRequest.ProtoReflect.Descriptor instead.
+func (*GetBiddingLogicUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{36}
+}
+
+type GetBiddingLogicUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBiddingLogicUriResponse) Reset() {
+	*x = GetBiddingLogicUriResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBiddingLogicUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBiddingLogicUriResponse) ProtoMessage() {}
+
+func (x *GetBiddingLogicUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBiddingLogicUriResponse.ProtoReflect.Descriptor instead.
+func (*GetBiddingLogicUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *GetBiddingLogicUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBuyerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBuyerRequest) Reset() {
+	*x = GetBuyerRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBuyerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBuyerRequest) ProtoMessage() {}
+
+func (x *GetBuyerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBuyerRequest.ProtoReflect.Descriptor instead.
+func (*GetBuyerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{38}
+}
+
+type GetBuyerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBuyerResponse) Reset() {
+	*x = GetBuyerResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBuyerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBuyerResponse) ProtoMessage() {}
+
+func (x *GetBuyerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBuyerResponse.ProtoReflect.Descriptor instead.
+func (*GetBuyerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetBuyerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDailyUpdateUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDailyUpdateUriRequest) Reset() {
+	*x = GetDailyUpdateUriRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDailyUpdateUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDailyUpdateUriRequest) ProtoMessage() {}
+
+func (x *GetDailyUpdateUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDailyUpdateUriRequest.ProtoReflect.Descriptor instead.
+func (*GetDailyUpdateUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{40}
+}
+
+type GetDailyUpdateUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDailyUpdateUriResponse) Reset() {
+	*x = GetDailyUpdateUriResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDailyUpdateUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDailyUpdateUriResponse) ProtoMessage() {}
+
+func (x *GetDailyUpdateUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDailyUpdateUriResponse.ProtoReflect.Descriptor instead.
+func (*GetDailyUpdateUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *GetDailyUpdateUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPriorityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPriorityRequest) Reset() {
+	*x = GetPriorityRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPriorityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPriorityRequest) ProtoMessage() {}
+
+func (x *GetPriorityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPriorityRequest.ProtoReflect.Descriptor instead.
+func (*GetPriorityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{42}
+}
+
+type GetPriorityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPriorityResponse) Reset() {
+	*x = GetPriorityResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPriorityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPriorityResponse) ProtoMessage() {}
+
+func (x *GetPriorityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPriorityResponse.ProtoReflect.Descriptor instead.
+func (*GetPriorityResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *GetPriorityResponse) GetResult() float64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTrustedBiddingDataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTrustedBiddingDataRequest) Reset() {
+	*x = GetTrustedBiddingDataRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTrustedBiddingDataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTrustedBiddingDataRequest) ProtoMessage() {}
+
+func (x *GetTrustedBiddingDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTrustedBiddingDataRequest.ProtoReflect.Descriptor instead.
+func (*GetTrustedBiddingDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{44}
+}
+
+type GetTrustedBiddingDataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTrustedBiddingDataResponse) Reset() {
+	*x = GetTrustedBiddingDataResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTrustedBiddingDataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTrustedBiddingDataResponse) ProtoMessage() {}
+
+func (x *GetTrustedBiddingDataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTrustedBiddingDataResponse.ProtoReflect.Descriptor instead.
+func (*GetTrustedBiddingDataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *GetTrustedBiddingDataResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{47}
+}
+
+type SetAuctionServerRequestFlagsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAuctionServerRequestFlagsRequest) Reset() {
+	*x = SetAuctionServerRequestFlagsRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAuctionServerRequestFlagsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAuctionServerRequestFlagsRequest) ProtoMessage() {}
+
+func (x *SetAuctionServerRequestFlagsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAuctionServerRequestFlagsRequest.ProtoReflect.Descriptor instead.
+func (*SetAuctionServerRequestFlagsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *SetAuctionServerRequestFlagsRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAuctionServerRequestFlagsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAuctionServerRequestFlagsResponse) Reset() {
+	*x = SetAuctionServerRequestFlagsResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAuctionServerRequestFlagsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAuctionServerRequestFlagsResponse) ProtoMessage() {}
+
+func (x *SetAuctionServerRequestFlagsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAuctionServerRequestFlagsResponse.ProtoReflect.Descriptor instead.
+func (*SetAuctionServerRequestFlagsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *SetAuctionServerRequestFlagsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetBiddingLogicUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBiddingLogicUriRequest) Reset() {
+	*x = SetBiddingLogicUriRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBiddingLogicUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBiddingLogicUriRequest) ProtoMessage() {}
+
+func (x *SetBiddingLogicUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBiddingLogicUriRequest.ProtoReflect.Descriptor instead.
+func (*SetBiddingLogicUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *SetBiddingLogicUriRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetBiddingLogicUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBiddingLogicUriResponse) Reset() {
+	*x = SetBiddingLogicUriResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBiddingLogicUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBiddingLogicUriResponse) ProtoMessage() {}
+
+func (x *SetBiddingLogicUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBiddingLogicUriResponse.ProtoReflect.Descriptor instead.
+func (*SetBiddingLogicUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *SetBiddingLogicUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetBuyerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBuyerRequest) Reset() {
+	*x = SetBuyerRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBuyerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBuyerRequest) ProtoMessage() {}
+
+func (x *SetBuyerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBuyerRequest.ProtoReflect.Descriptor instead.
+func (*SetBuyerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *SetBuyerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetBuyerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBuyerResponse) Reset() {
+	*x = SetBuyerResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBuyerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBuyerResponse) ProtoMessage() {}
+
+func (x *SetBuyerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBuyerResponse.ProtoReflect.Descriptor instead.
+func (*SetBuyerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *SetBuyerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetDailyUpdateUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDailyUpdateUriRequest) Reset() {
+	*x = SetDailyUpdateUriRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDailyUpdateUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDailyUpdateUriRequest) ProtoMessage() {}
+
+func (x *SetDailyUpdateUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDailyUpdateUriRequest.ProtoReflect.Descriptor instead.
+func (*SetDailyUpdateUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *SetDailyUpdateUriRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetDailyUpdateUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDailyUpdateUriResponse) Reset() {
+	*x = SetDailyUpdateUriResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDailyUpdateUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDailyUpdateUriResponse) ProtoMessage() {}
+
+func (x *SetDailyUpdateUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDailyUpdateUriResponse.ProtoReflect.Descriptor instead.
+func (*SetDailyUpdateUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *SetDailyUpdateUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPriorityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float64                `protobuf:"fixed64,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPriorityRequest) Reset() {
+	*x = SetPriorityRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPriorityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPriorityRequest) ProtoMessage() {}
+
+func (x *SetPriorityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPriorityRequest.ProtoReflect.Descriptor instead.
+func (*SetPriorityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *SetPriorityRequest) GetArg0() float64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPriorityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPriorityResponse) Reset() {
+	*x = SetPriorityResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPriorityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPriorityResponse) ProtoMessage() {}
+
+func (x *SetPriorityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPriorityResponse.ProtoReflect.Descriptor instead.
+func (*SetPriorityResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *SetPriorityResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetTrustedBiddingDataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTrustedBiddingDataRequest) Reset() {
+	*x = SetTrustedBiddingDataRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTrustedBiddingDataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTrustedBiddingDataRequest) ProtoMessage() {}
+
+func (x *SetTrustedBiddingDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTrustedBiddingDataRequest.ProtoReflect.Descriptor instead.
+func (*SetTrustedBiddingDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *SetTrustedBiddingDataRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetTrustedBiddingDataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTrustedBiddingDataResponse) Reset() {
+	*x = SetTrustedBiddingDataResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTrustedBiddingDataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTrustedBiddingDataResponse) ProtoMessage() {}
+
+func (x *SetTrustedBiddingDataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTrustedBiddingDataResponse.ProtoReflect.Descriptor instead.
+func (*SetTrustedBiddingDataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *SetTrustedBiddingDataResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewAddCustomAudienceOverrideRequestRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAddCustomAudienceOverrideRequestRequest) Reset() {
+	*x = NewAddCustomAudienceOverrideRequestRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAddCustomAudienceOverrideRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAddCustomAudienceOverrideRequestRequest) ProtoMessage() {}
+
+func (x *NewAddCustomAudienceOverrideRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAddCustomAudienceOverrideRequestRequest.ProtoReflect.Descriptor instead.
+func (*NewAddCustomAudienceOverrideRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *NewAddCustomAudienceOverrideRequestRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewAddCustomAudienceOverrideRequestRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *NewAddCustomAudienceOverrideRequestRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+func (x *NewAddCustomAudienceOverrideRequestRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type NewAddCustomAudienceOverrideRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAddCustomAudienceOverrideRequestResponse) Reset() {
+	*x = NewAddCustomAudienceOverrideRequestResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAddCustomAudienceOverrideRequestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAddCustomAudienceOverrideRequestResponse) ProtoMessage() {}
+
+func (x *NewAddCustomAudienceOverrideRequestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAddCustomAudienceOverrideRequestResponse.ProtoReflect.Descriptor instead.
+func (*NewAddCustomAudienceOverrideRequestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *NewAddCustomAudienceOverrideRequestResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBiddingLogicJsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBiddingLogicJsRequest) Reset() {
+	*x = GetBiddingLogicJsRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBiddingLogicJsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBiddingLogicJsRequest) ProtoMessage() {}
+
+func (x *GetBiddingLogicJsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBiddingLogicJsRequest.ProtoReflect.Descriptor instead.
+func (*GetBiddingLogicJsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *GetBiddingLogicJsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetBiddingLogicJsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBiddingLogicJsResponse) Reset() {
+	*x = GetBiddingLogicJsResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBiddingLogicJsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBiddingLogicJsResponse) ProtoMessage() {}
+
+func (x *GetBiddingLogicJsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBiddingLogicJsResponse.ProtoReflect.Descriptor instead.
+func (*GetBiddingLogicJsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *GetBiddingLogicJsResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetBiddingLogicJsVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBiddingLogicJsVersionRequest) Reset() {
+	*x = GetBiddingLogicJsVersionRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBiddingLogicJsVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBiddingLogicJsVersionRequest) ProtoMessage() {}
+
+func (x *GetBiddingLogicJsVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBiddingLogicJsVersionRequest.ProtoReflect.Descriptor instead.
+func (*GetBiddingLogicJsVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *GetBiddingLogicJsVersionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetBiddingLogicJsVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBiddingLogicJsVersionResponse) Reset() {
+	*x = GetBiddingLogicJsVersionResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBiddingLogicJsVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBiddingLogicJsVersionResponse) ProtoMessage() {}
+
+func (x *GetBiddingLogicJsVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBiddingLogicJsVersionResponse.ProtoReflect.Descriptor instead.
+func (*GetBiddingLogicJsVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *GetBiddingLogicJsVersionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddCustomAudienceOverrideRequestGetBuyerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddCustomAudienceOverrideRequestGetBuyerRequest) Reset() {
+	*x = AddCustomAudienceOverrideRequestGetBuyerRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddCustomAudienceOverrideRequestGetBuyerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddCustomAudienceOverrideRequestGetBuyerRequest) ProtoMessage() {}
+
+func (x *AddCustomAudienceOverrideRequestGetBuyerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddCustomAudienceOverrideRequestGetBuyerRequest.ProtoReflect.Descriptor instead.
+func (*AddCustomAudienceOverrideRequestGetBuyerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *AddCustomAudienceOverrideRequestGetBuyerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type AddCustomAudienceOverrideRequestGetNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddCustomAudienceOverrideRequestGetNameRequest) Reset() {
+	*x = AddCustomAudienceOverrideRequestGetNameRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddCustomAudienceOverrideRequestGetNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddCustomAudienceOverrideRequestGetNameRequest) ProtoMessage() {}
+
+func (x *AddCustomAudienceOverrideRequestGetNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddCustomAudienceOverrideRequestGetNameRequest.ProtoReflect.Descriptor instead.
+func (*AddCustomAudienceOverrideRequestGetNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *AddCustomAudienceOverrideRequestGetNameRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetTrustedBiddingSignalsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTrustedBiddingSignalsRequest) Reset() {
+	*x = GetTrustedBiddingSignalsRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTrustedBiddingSignalsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTrustedBiddingSignalsRequest) ProtoMessage() {}
+
+func (x *GetTrustedBiddingSignalsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTrustedBiddingSignalsRequest.ProtoReflect.Descriptor instead.
+func (*GetTrustedBiddingSignalsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *GetTrustedBiddingSignalsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetTrustedBiddingSignalsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTrustedBiddingSignalsResponse) Reset() {
+	*x = GetTrustedBiddingSignalsResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTrustedBiddingSignalsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTrustedBiddingSignalsResponse) ProtoMessage() {}
+
+func (x *GetTrustedBiddingSignalsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTrustedBiddingSignalsResponse.ProtoReflect.Descriptor instead.
+func (*GetTrustedBiddingSignalsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *GetTrustedBiddingSignalsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetBiddingLogicJsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBiddingLogicJsRequest) Reset() {
+	*x = SetBiddingLogicJsRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBiddingLogicJsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBiddingLogicJsRequest) ProtoMessage() {}
+
+func (x *SetBiddingLogicJsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBiddingLogicJsRequest.ProtoReflect.Descriptor instead.
+func (*SetBiddingLogicJsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *SetBiddingLogicJsRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetBiddingLogicJsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBiddingLogicJsResponse) Reset() {
+	*x = SetBiddingLogicJsResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBiddingLogicJsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBiddingLogicJsResponse) ProtoMessage() {}
+
+func (x *SetBiddingLogicJsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBiddingLogicJsResponse.ProtoReflect.Descriptor instead.
+func (*SetBiddingLogicJsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *SetBiddingLogicJsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetBiddingLogicJsVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBiddingLogicJsVersionRequest) Reset() {
+	*x = SetBiddingLogicJsVersionRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBiddingLogicJsVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBiddingLogicJsVersionRequest) ProtoMessage() {}
+
+func (x *SetBiddingLogicJsVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBiddingLogicJsVersionRequest.ProtoReflect.Descriptor instead.
+func (*SetBiddingLogicJsVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *SetBiddingLogicJsVersionRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetBiddingLogicJsVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBiddingLogicJsVersionResponse) Reset() {
+	*x = SetBiddingLogicJsVersionResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBiddingLogicJsVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBiddingLogicJsVersionResponse) ProtoMessage() {}
+
+func (x *SetBiddingLogicJsVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBiddingLogicJsVersionResponse.ProtoReflect.Descriptor instead.
+func (*SetBiddingLogicJsVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *SetBiddingLogicJsVersionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetTrustedBiddingSignalsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTrustedBiddingSignalsRequest) Reset() {
+	*x = SetTrustedBiddingSignalsRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTrustedBiddingSignalsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTrustedBiddingSignalsRequest) ProtoMessage() {}
+
+func (x *SetTrustedBiddingSignalsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTrustedBiddingSignalsRequest.ProtoReflect.Descriptor instead.
+func (*SetTrustedBiddingSignalsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *SetTrustedBiddingSignalsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetTrustedBiddingSignalsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTrustedBiddingSignalsResponse) Reset() {
+	*x = SetTrustedBiddingSignalsResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTrustedBiddingSignalsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTrustedBiddingSignalsResponse) ProtoMessage() {}
+
+func (x *SetTrustedBiddingSignalsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTrustedBiddingSignalsResponse.ProtoReflect.Descriptor instead.
+func (*SetTrustedBiddingSignalsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *SetTrustedBiddingSignalsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCustomAudienceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCustomAudienceRequest) Reset() {
+	*x = GetCustomAudienceRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCustomAudienceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCustomAudienceRequest) ProtoMessage() {}
+
+func (x *GetCustomAudienceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCustomAudienceRequest.ProtoReflect.Descriptor instead.
+func (*GetCustomAudienceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{76}
+}
+
+type GetCustomAudienceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCustomAudienceResponse) Reset() {
+	*x = GetCustomAudienceResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCustomAudienceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCustomAudienceResponse) ProtoMessage() {}
+
+func (x *GetCustomAudienceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCustomAudienceResponse.ProtoReflect.Descriptor instead.
+func (*GetCustomAudienceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *GetCustomAudienceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetCustomAudienceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCustomAudienceRequest) Reset() {
+	*x = SetCustomAudienceRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCustomAudienceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCustomAudienceRequest) ProtoMessage() {}
+
+func (x *SetCustomAudienceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCustomAudienceRequest.ProtoReflect.Descriptor instead.
+func (*SetCustomAudienceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *SetCustomAudienceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetCustomAudienceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCustomAudienceResponse) Reset() {
+	*x = SetCustomAudienceResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCustomAudienceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCustomAudienceResponse) ProtoMessage() {}
+
+func (x *SetCustomAudienceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCustomAudienceResponse.ProtoReflect.Descriptor instead.
+func (*SetCustomAudienceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *SetCustomAudienceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMinDelayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinDelayRequest) Reset() {
+	*x = GetMinDelayRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinDelayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinDelayRequest) ProtoMessage() {}
+
+func (x *GetMinDelayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinDelayRequest.ProtoReflect.Descriptor instead.
+func (*GetMinDelayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{80}
+}
+
+type GetMinDelayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMinDelayResponse) Reset() {
+	*x = GetMinDelayResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMinDelayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMinDelayResponse) ProtoMessage() {}
+
+func (x *GetMinDelayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMinDelayResponse.ProtoReflect.Descriptor instead.
+func (*GetMinDelayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *GetMinDelayResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetUpdateUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUpdateUriRequest) Reset() {
+	*x = GetUpdateUriRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUpdateUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUpdateUriRequest) ProtoMessage() {}
+
+func (x *GetUpdateUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUpdateUriRequest.ProtoReflect.Descriptor instead.
+func (*GetUpdateUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{82}
+}
+
+type GetUpdateUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUpdateUriResponse) Reset() {
+	*x = GetUpdateUriResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUpdateUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUpdateUriResponse) ProtoMessage() {}
+
+func (x *GetUpdateUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUpdateUriResponse.ProtoReflect.Descriptor instead.
+func (*GetUpdateUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{83}
+}
+
+func (x *GetUpdateUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ShouldReplacePendingUpdatesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShouldReplacePendingUpdatesRequest) Reset() {
+	*x = ShouldReplacePendingUpdatesRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShouldReplacePendingUpdatesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShouldReplacePendingUpdatesRequest) ProtoMessage() {}
+
+func (x *ShouldReplacePendingUpdatesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShouldReplacePendingUpdatesRequest.ProtoReflect.Descriptor instead.
+func (*ShouldReplacePendingUpdatesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{84}
+}
+
+type ShouldReplacePendingUpdatesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShouldReplacePendingUpdatesResponse) Reset() {
+	*x = ShouldReplacePendingUpdatesResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShouldReplacePendingUpdatesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShouldReplacePendingUpdatesResponse) ProtoMessage() {}
+
+func (x *ShouldReplacePendingUpdatesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShouldReplacePendingUpdatesResponse.ProtoReflect.Descriptor instead.
+func (*ShouldReplacePendingUpdatesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{85}
+}
+
+func (x *ShouldReplacePendingUpdatesResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetMinDelayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMinDelayRequest) Reset() {
+	*x = SetMinDelayRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMinDelayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMinDelayRequest) ProtoMessage() {}
+
+func (x *SetMinDelayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMinDelayRequest.ProtoReflect.Descriptor instead.
+func (*SetMinDelayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{86}
+}
+
+func (x *SetMinDelayRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMinDelayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMinDelayResponse) Reset() {
+	*x = SetMinDelayResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMinDelayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMinDelayResponse) ProtoMessage() {}
+
+func (x *SetMinDelayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMinDelayResponse.ProtoReflect.Descriptor instead.
+func (*SetMinDelayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{87}
+}
+
+func (x *SetMinDelayResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetShouldReplacePendingUpdatesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetShouldReplacePendingUpdatesRequest) Reset() {
+	*x = SetShouldReplacePendingUpdatesRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetShouldReplacePendingUpdatesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetShouldReplacePendingUpdatesRequest) ProtoMessage() {}
+
+func (x *SetShouldReplacePendingUpdatesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetShouldReplacePendingUpdatesRequest.ProtoReflect.Descriptor instead.
+func (*SetShouldReplacePendingUpdatesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *SetShouldReplacePendingUpdatesRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetShouldReplacePendingUpdatesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetShouldReplacePendingUpdatesResponse) Reset() {
+	*x = SetShouldReplacePendingUpdatesResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetShouldReplacePendingUpdatesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetShouldReplacePendingUpdatesResponse) ProtoMessage() {}
+
+func (x *SetShouldReplacePendingUpdatesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetShouldReplacePendingUpdatesResponse.ProtoReflect.Descriptor instead.
+func (*SetShouldReplacePendingUpdatesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{89}
+}
+
+func (x *SetShouldReplacePendingUpdatesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetUpdateUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUpdateUriRequest) Reset() {
+	*x = SetUpdateUriRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUpdateUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUpdateUriRequest) ProtoMessage() {}
+
+func (x *SetUpdateUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUpdateUriRequest.ProtoReflect.Descriptor instead.
+func (*SetUpdateUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *SetUpdateUriRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetUpdateUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUpdateUriResponse) Reset() {
+	*x = SetUpdateUriResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUpdateUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUpdateUriResponse) ProtoMessage() {}
+
+func (x *SetUpdateUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUpdateUriResponse.ProtoReflect.Descriptor instead.
+func (*SetUpdateUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{91}
+}
+
+func (x *SetUpdateUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewRemoveCustomAudienceOverrideRequestRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewRemoveCustomAudienceOverrideRequestRequest) Reset() {
+	*x = NewRemoveCustomAudienceOverrideRequestRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewRemoveCustomAudienceOverrideRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewRemoveCustomAudienceOverrideRequestRequest) ProtoMessage() {}
+
+func (x *NewRemoveCustomAudienceOverrideRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewRemoveCustomAudienceOverrideRequestRequest.ProtoReflect.Descriptor instead.
+func (*NewRemoveCustomAudienceOverrideRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *NewRemoveCustomAudienceOverrideRequestRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewRemoveCustomAudienceOverrideRequestRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type NewRemoveCustomAudienceOverrideRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewRemoveCustomAudienceOverrideRequestResponse) Reset() {
+	*x = NewRemoveCustomAudienceOverrideRequestResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewRemoveCustomAudienceOverrideRequestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewRemoveCustomAudienceOverrideRequestResponse) ProtoMessage() {}
+
+func (x *NewRemoveCustomAudienceOverrideRequestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewRemoveCustomAudienceOverrideRequestResponse.ProtoReflect.Descriptor instead.
+func (*NewRemoveCustomAudienceOverrideRequestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *NewRemoveCustomAudienceOverrideRequestResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RemoveCustomAudienceOverrideRequestGetBuyerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveCustomAudienceOverrideRequestGetBuyerRequest) Reset() {
+	*x = RemoveCustomAudienceOverrideRequestGetBuyerRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveCustomAudienceOverrideRequestGetBuyerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveCustomAudienceOverrideRequestGetBuyerRequest) ProtoMessage() {}
+
+func (x *RemoveCustomAudienceOverrideRequestGetBuyerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveCustomAudienceOverrideRequestGetBuyerRequest.ProtoReflect.Descriptor instead.
+func (*RemoveCustomAudienceOverrideRequestGetBuyerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *RemoveCustomAudienceOverrideRequestGetBuyerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type RemoveCustomAudienceOverrideRequestGetNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveCustomAudienceOverrideRequestGetNameRequest) Reset() {
+	*x = RemoveCustomAudienceOverrideRequestGetNameRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveCustomAudienceOverrideRequestGetNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveCustomAudienceOverrideRequestGetNameRequest) ProtoMessage() {}
+
+func (x *RemoveCustomAudienceOverrideRequestGetNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveCustomAudienceOverrideRequestGetNameRequest.ProtoReflect.Descriptor instead.
+func (*RemoveCustomAudienceOverrideRequestGetNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{95}
+}
+
+func (x *RemoveCustomAudienceOverrideRequestGetNameRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetTrustedBiddingUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTrustedBiddingUriRequest) Reset() {
+	*x = GetTrustedBiddingUriRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTrustedBiddingUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTrustedBiddingUriRequest) ProtoMessage() {}
+
+func (x *GetTrustedBiddingUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTrustedBiddingUriRequest.ProtoReflect.Descriptor instead.
+func (*GetTrustedBiddingUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{96}
+}
+
+type GetTrustedBiddingUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTrustedBiddingUriResponse) Reset() {
+	*x = GetTrustedBiddingUriResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTrustedBiddingUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTrustedBiddingUriResponse) ProtoMessage() {}
+
+func (x *GetTrustedBiddingUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTrustedBiddingUriResponse.ProtoReflect.Descriptor instead.
+func (*GetTrustedBiddingUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *GetTrustedBiddingUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetTrustedBiddingUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTrustedBiddingUriRequest) Reset() {
+	*x = SetTrustedBiddingUriRequest{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTrustedBiddingUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTrustedBiddingUriRequest) ProtoMessage() {}
+
+func (x *SetTrustedBiddingUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTrustedBiddingUriRequest.ProtoReflect.Descriptor instead.
+func (*SetTrustedBiddingUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *SetTrustedBiddingUriRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetTrustedBiddingUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTrustedBiddingUriResponse) Reset() {
+	*x = SetTrustedBiddingUriResponse{}
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTrustedBiddingUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTrustedBiddingUriResponse) ProtoMessage() {}
+
+func (x *SetTrustedBiddingUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_customaudience_customaudience_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTrustedBiddingUriResponse.ProtoReflect.Descriptor instead.
+func (*SetTrustedBiddingUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_customaudience_customaudience_proto_rawDescGZIP(), []int{99}
+}
+
+func (x *SetTrustedBiddingUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_customaudience_customaudience_proto protoreflect.FileDescriptor
 
 const file_proto_customaudience_customaudience_proto_rawDesc = "" +
 	"\n" +
-	")proto/customaudience/customaudience.proto\x12\x0ecustomaudienceB8Z6github.com/AndroidGoLab/jni-proxy/proto/customaudienceb\x06proto3"
+	")proto/customaudience/customaudience.proto\x12\x0ecustomaudience\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1a\n" +
+	"\x18GetActivationTimeRequest\"3\n" +
+	"\x19GetActivationTimeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
+	"\x18GetExpirationTimeRequest\"3\n" +
+	"\x19GetExpirationTimeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12GetFetchUriRequest\"-\n" +
+	"\x13GetFetchUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x0eGetNameRequest\")\n" +
+	"\x0fGetNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1e\n" +
+	"\x1cGetUserBiddingSignalsRequest\"7\n" +
+	"\x1dGetUserBiddingSignalsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18SetActivationTimeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
+	"\x19SetActivationTimeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18SetExpirationTimeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
+	"\x19SetExpirationTimeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x12SetFetchUriRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"-\n" +
+	"\x13SetFetchUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\x0eSetNameRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\")\n" +
+	"\x0fSetNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cSetUserBiddingSignalsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
+	"\x1dSetUserBiddingSignalsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
+	"#GetTestCustomAudienceManagerRequest\">\n" +
+	"$GetTestCustomAudienceManagerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
+	"\n" +
+	"GetRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
+	"\vGetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"%\n" +
+	"#GetAuctionServerRequestFlagsRequest\">\n" +
+	"$GetAuctionServerRequestFlagsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1b\n" +
+	"\x19GetBiddingLogicUriRequest\"4\n" +
+	"\x1aGetBiddingLogicUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fGetBuyerRequest\"*\n" +
+	"\x10GetBuyerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
+	"\x18GetDailyUpdateUriRequest\"3\n" +
+	"\x19GetDailyUpdateUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12GetPriorityRequest\"-\n" +
+	"\x13GetPriorityResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x01R\x06result\"\x1e\n" +
+	"\x1cGetTrustedBiddingDataRequest\"7\n" +
+	"\x1dGetTrustedBiddingDataResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"9\n" +
+	"#SetAuctionServerRequestFlagsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\">\n" +
+	"$SetAuctionServerRequestFlagsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19SetBiddingLogicUriRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aSetBiddingLogicUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
+	"\x0fSetBuyerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"*\n" +
+	"\x10SetBuyerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18SetDailyUpdateUriRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
+	"\x19SetDailyUpdateUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x12SetPriorityRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x01R\x04arg0\"-\n" +
+	"\x13SetPriorityResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cSetTrustedBiddingDataRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
+	"\x1dSetTrustedBiddingDataResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"|\n" +
+	"*NewAddCustomAudienceOverrideRequestRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"E\n" +
+	"+NewAddCustomAudienceOverrideRequestResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x18GetBiddingLogicJsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x19GetBiddingLogicJsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"9\n" +
+	"\x1fGetBiddingLogicJsVersionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\":\n" +
+	" GetBiddingLogicJsVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"I\n" +
+	"/AddCustomAudienceOverrideRequestGetBuyerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"H\n" +
+	".AddCustomAudienceOverrideRequestGetNameRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"9\n" +
+	"\x1fGetTrustedBiddingSignalsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\":\n" +
+	" GetTrustedBiddingSignalsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18SetBiddingLogicJsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"3\n" +
+	"\x19SetBiddingLogicJsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1fSetBiddingLogicJsVersionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\":\n" +
+	" SetBiddingLogicJsVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1fSetTrustedBiddingSignalsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\":\n" +
+	" SetTrustedBiddingSignalsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
+	"\x18GetCustomAudienceRequest\"3\n" +
+	"\x19GetCustomAudienceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18SetCustomAudienceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
+	"\x19SetCustomAudienceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12GetMinDelayRequest\"-\n" +
+	"\x13GetMinDelayResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13GetUpdateUriRequest\".\n" +
+	"\x14GetUpdateUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\"ShouldReplacePendingUpdatesRequest\"=\n" +
+	"#ShouldReplacePendingUpdatesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"(\n" +
+	"\x12SetMinDelayRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"-\n" +
+	"\x13SetMinDelayResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"%SetShouldReplacePendingUpdatesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"@\n" +
+	"&SetShouldReplacePendingUpdatesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13SetUpdateUriRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
+	"\x14SetUpdateUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"W\n" +
+	"-NewRemoveCustomAudienceOverrideRequestRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"H\n" +
+	".NewRemoveCustomAudienceOverrideRequestResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"L\n" +
+	"2RemoveCustomAudienceOverrideRequestGetBuyerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"K\n" +
+	"1RemoveCustomAudienceOverrideRequestGetNameRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1d\n" +
+	"\x1bGetTrustedBiddingUriRequest\"6\n" +
+	"\x1cGetTrustedBiddingUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x1bSetTrustedBiddingUriRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"6\n" +
+	"\x1cSetTrustedBiddingUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xff\x05\n" +
+	"(FetchAndJoinCustomAudienceRequestService\x12G\n" +
+	"\x06Equals\x12\x1d.customaudience.EqualsRequest\x1a\x1e.customaudience.EqualsResponse\x12h\n" +
+	"\x11GetActivationTime\x12(.customaudience.GetActivationTimeRequest\x1a).customaudience.GetActivationTimeResponse\x12h\n" +
+	"\x11GetExpirationTime\x12(.customaudience.GetExpirationTimeRequest\x1a).customaudience.GetExpirationTimeResponse\x12V\n" +
+	"\vGetFetchUri\x12\".customaudience.GetFetchUriRequest\x1a#.customaudience.GetFetchUriResponse\x12J\n" +
+	"\aGetName\x12\x1e.customaudience.GetNameRequest\x1a\x1f.customaudience.GetNameResponse\x12t\n" +
+	"\x15GetUserBiddingSignals\x12,.customaudience.GetUserBiddingSignalsRequest\x1a-.customaudience.GetUserBiddingSignalsResponse\x12M\n" +
+	"\bHashCode\x12\x1f.customaudience.HashCodeRequest\x1a .customaudience.HashCodeResponse\x12M\n" +
+	"\bToString\x12\x1f.customaudience.ToStringRequest\x1a .customaudience.ToStringResponse2\xe5\x04\n" +
+	"/FetchAndJoinCustomAudienceRequestBuilderService\x12D\n" +
+	"\x05Build\x12\x1c.customaudience.BuildRequest\x1a\x1d.customaudience.BuildResponse\x12h\n" +
+	"\x11SetActivationTime\x12(.customaudience.SetActivationTimeRequest\x1a).customaudience.SetActivationTimeResponse\x12h\n" +
+	"\x11SetExpirationTime\x12(.customaudience.SetExpirationTimeRequest\x1a).customaudience.SetExpirationTimeResponse\x12V\n" +
+	"\vSetFetchUri\x12\".customaudience.SetFetchUriRequest\x1a#.customaudience.SetFetchUriResponse\x12J\n" +
+	"\aSetName\x12\x1e.customaudience.SetNameRequest\x1a\x1f.customaudience.SetNameResponse\x12t\n" +
+	"\x15SetUserBiddingSignals\x12,.customaudience.SetUserBiddingSignalsRequest\x1a-.customaudience.SetUserBiddingSignalsResponse2\xea\x01\n" +
+	"\x1cCustomAudienceManagerService\x12\x89\x01\n" +
+	"\x1cGetTestCustomAudienceManager\x123.customaudience.GetTestCustomAudienceManagerRequest\x1a4.customaudience.GetTestCustomAudienceManagerResponse\x12>\n" +
+	"\x03Get\x12\x1a.customaudience.GetRequest\x1a\x1b.customaudience.GetResponse2\xd9\v\n" +
+	"\x15CustomAudienceService\x12e\n" +
+	"\x10DescribeContents\x12'.customaudience.DescribeContentsRequest\x1a(.customaudience.DescribeContentsResponse\x12G\n" +
+	"\x06Equals\x12\x1d.customaudience.EqualsRequest\x1a\x1e.customaudience.EqualsResponse\x12h\n" +
+	"\x11GetActivationTime\x12(.customaudience.GetActivationTimeRequest\x1a).customaudience.GetActivationTimeResponse\x12\x89\x01\n" +
+	"\x1cGetAuctionServerRequestFlags\x123.customaudience.GetAuctionServerRequestFlagsRequest\x1a4.customaudience.GetAuctionServerRequestFlagsResponse\x12k\n" +
+	"\x12GetBiddingLogicUri\x12).customaudience.GetBiddingLogicUriRequest\x1a*.customaudience.GetBiddingLogicUriResponse\x12M\n" +
+	"\bGetBuyer\x12\x1f.customaudience.GetBuyerRequest\x1a .customaudience.GetBuyerResponse\x12h\n" +
+	"\x11GetDailyUpdateUri\x12(.customaudience.GetDailyUpdateUriRequest\x1a).customaudience.GetDailyUpdateUriResponse\x12h\n" +
+	"\x11GetExpirationTime\x12(.customaudience.GetExpirationTimeRequest\x1a).customaudience.GetExpirationTimeResponse\x12J\n" +
+	"\aGetName\x12\x1e.customaudience.GetNameRequest\x1a\x1f.customaudience.GetNameResponse\x12V\n" +
+	"\vGetPriority\x12\".customaudience.GetPriorityRequest\x1a#.customaudience.GetPriorityResponse\x12t\n" +
+	"\x15GetTrustedBiddingData\x12,.customaudience.GetTrustedBiddingDataRequest\x1a-.customaudience.GetTrustedBiddingDataResponse\x12t\n" +
+	"\x15GetUserBiddingSignals\x12,.customaudience.GetUserBiddingSignalsRequest\x1a-.customaudience.GetUserBiddingSignalsResponse\x12M\n" +
+	"\bHashCode\x12\x1f.customaudience.HashCodeRequest\x1a .customaudience.HashCodeResponse\x12M\n" +
+	"\bToString\x12\x1f.customaudience.ToStringRequest\x1a .customaudience.ToStringResponse\x12\\\n" +
+	"\rWriteToParcel\x12$.customaudience.WriteToParcelRequest\x1a%.customaudience.WriteToParcelResponse2\xfa\b\n" +
+	"\x1cCustomAudienceBuilderService\x12D\n" +
+	"\x05Build\x12\x1c.customaudience.BuildRequest\x1a\x1d.customaudience.BuildResponse\x12h\n" +
+	"\x11SetActivationTime\x12(.customaudience.SetActivationTimeRequest\x1a).customaudience.SetActivationTimeResponse\x12\x89\x01\n" +
+	"\x1cSetAuctionServerRequestFlags\x123.customaudience.SetAuctionServerRequestFlagsRequest\x1a4.customaudience.SetAuctionServerRequestFlagsResponse\x12k\n" +
+	"\x12SetBiddingLogicUri\x12).customaudience.SetBiddingLogicUriRequest\x1a*.customaudience.SetBiddingLogicUriResponse\x12M\n" +
+	"\bSetBuyer\x12\x1f.customaudience.SetBuyerRequest\x1a .customaudience.SetBuyerResponse\x12h\n" +
+	"\x11SetDailyUpdateUri\x12(.customaudience.SetDailyUpdateUriRequest\x1a).customaudience.SetDailyUpdateUriResponse\x12h\n" +
+	"\x11SetExpirationTime\x12(.customaudience.SetExpirationTimeRequest\x1a).customaudience.SetExpirationTimeResponse\x12J\n" +
+	"\aSetName\x12\x1e.customaudience.SetNameRequest\x1a\x1f.customaudience.SetNameResponse\x12V\n" +
+	"\vSetPriority\x12\".customaudience.SetPriorityRequest\x1a#.customaudience.SetPriorityResponse\x12t\n" +
+	"\x15SetTrustedBiddingData\x12,.customaudience.SetTrustedBiddingDataRequest\x1a-.customaudience.SetTrustedBiddingDataResponse\x12t\n" +
+	"\x15SetUserBiddingSignals\x12,.customaudience.SetUserBiddingSignalsRequest\x1a-.customaudience.SetUserBiddingSignalsResponse2\x8d\x06\n" +
+	"'AddCustomAudienceOverrideRequestService\x12\x9e\x01\n" +
+	"#NewAddCustomAudienceOverrideRequest\x12:.customaudience.NewAddCustomAudienceOverrideRequestRequest\x1a;.customaudience.NewAddCustomAudienceOverrideRequestResponse\x12h\n" +
+	"\x11GetBiddingLogicJs\x12(.customaudience.GetBiddingLogicJsRequest\x1a).customaudience.GetBiddingLogicJsResponse\x12}\n" +
+	"\x18GetBiddingLogicJsVersion\x12/.customaudience.GetBiddingLogicJsVersionRequest\x1a0.customaudience.GetBiddingLogicJsVersionResponse\x12m\n" +
+	"\bGetBuyer\x12?.customaudience.AddCustomAudienceOverrideRequestGetBuyerRequest\x1a .customaudience.GetBuyerResponse\x12j\n" +
+	"\aGetName\x12>.customaudience.AddCustomAudienceOverrideRequestGetNameRequest\x1a\x1f.customaudience.GetNameResponse\x12}\n" +
+	"\x18GetTrustedBiddingSignals\x12/.customaudience.GetTrustedBiddingSignalsRequest\x1a0.customaudience.GetTrustedBiddingSignalsResponse2\xf9\x04\n" +
+	".AddCustomAudienceOverrideRequestBuilderService\x12D\n" +
+	"\x05Build\x12\x1c.customaudience.BuildRequest\x1a\x1d.customaudience.BuildResponse\x12h\n" +
+	"\x11SetBiddingLogicJs\x12(.customaudience.SetBiddingLogicJsRequest\x1a).customaudience.SetBiddingLogicJsResponse\x12}\n" +
+	"\x18SetBiddingLogicJsVersion\x12/.customaudience.SetBiddingLogicJsVersionRequest\x1a0.customaudience.SetBiddingLogicJsVersionResponse\x12M\n" +
+	"\bSetBuyer\x12\x1f.customaudience.SetBuyerRequest\x1a .customaudience.SetBuyerResponse\x12J\n" +
+	"\aSetName\x12\x1e.customaudience.SetNameRequest\x1a\x1f.customaudience.SetNameResponse\x12}\n" +
+	"\x18SetTrustedBiddingSignals\x12/.customaudience.SetTrustedBiddingSignalsRequest\x1a0.customaudience.SetTrustedBiddingSignalsResponse2\xa4\x02\n" +
+	" JoinCustomAudienceRequestService\x12G\n" +
+	"\x06Equals\x12\x1d.customaudience.EqualsRequest\x1a\x1e.customaudience.EqualsResponse\x12h\n" +
+	"\x11GetCustomAudience\x12(.customaudience.GetCustomAudienceRequest\x1a).customaudience.GetCustomAudienceResponse\x12M\n" +
+	"\bHashCode\x12\x1f.customaudience.HashCodeRequest\x1a .customaudience.HashCodeResponse2\xd9\x01\n" +
+	"'JoinCustomAudienceRequestBuilderService\x12D\n" +
+	"\x05Build\x12\x1c.customaudience.BuildRequest\x1a\x1d.customaudience.BuildResponse\x12h\n" +
+	"\x11SetCustomAudience\x12(.customaudience.SetCustomAudienceRequest\x1a).customaudience.SetCustomAudienceResponse2\xd6\x02\n" +
+	"!LeaveCustomAudienceRequestService\x12G\n" +
+	"\x06Equals\x12\x1d.customaudience.EqualsRequest\x1a\x1e.customaudience.EqualsResponse\x12M\n" +
+	"\bGetBuyer\x12\x1f.customaudience.GetBuyerRequest\x1a .customaudience.GetBuyerResponse\x12J\n" +
+	"\aGetName\x12\x1e.customaudience.GetNameRequest\x1a\x1f.customaudience.GetNameResponse\x12M\n" +
+	"\bHashCode\x12\x1f.customaudience.HashCodeRequest\x1a .customaudience.HashCodeResponse2\x8b\x02\n" +
+	"(LeaveCustomAudienceRequestBuilderService\x12D\n" +
+	"\x05Build\x12\x1c.customaudience.BuildRequest\x1a\x1d.customaudience.BuildResponse\x12M\n" +
+	"\bSetBuyer\x12\x1f.customaudience.SetBuyerRequest\x1a .customaudience.SetBuyerResponse\x12J\n" +
+	"\aSetName\x12\x1e.customaudience.SetNameRequest\x1a\x1f.customaudience.SetNameResponse2\xcf\x04\n" +
+	"*ScheduleCustomAudienceUpdateRequestService\x12G\n" +
+	"\x06Equals\x12\x1d.customaudience.EqualsRequest\x1a\x1e.customaudience.EqualsResponse\x12V\n" +
+	"\vGetMinDelay\x12\".customaudience.GetMinDelayRequest\x1a#.customaudience.GetMinDelayResponse\x12Y\n" +
+	"\fGetUpdateUri\x12#.customaudience.GetUpdateUriRequest\x1a$.customaudience.GetUpdateUriResponse\x12M\n" +
+	"\bHashCode\x12\x1f.customaudience.HashCodeRequest\x1a .customaudience.HashCodeResponse\x12\x86\x01\n" +
+	"\x1bShouldReplacePendingUpdates\x122.customaudience.ShouldReplacePendingUpdatesRequest\x1a3.customaudience.ShouldReplacePendingUpdatesResponse\x12M\n" +
+	"\bToString\x12\x1f.customaudience.ToStringRequest\x1a .customaudience.ToStringResponse2\xbe\x03\n" +
+	"1ScheduleCustomAudienceUpdateRequestBuilderService\x12D\n" +
+	"\x05Build\x12\x1c.customaudience.BuildRequest\x1a\x1d.customaudience.BuildResponse\x12V\n" +
+	"\vSetMinDelay\x12\".customaudience.SetMinDelayRequest\x1a#.customaudience.SetMinDelayResponse\x12\x8f\x01\n" +
+	"\x1eSetShouldReplacePendingUpdates\x125.customaudience.SetShouldReplacePendingUpdatesRequest\x1a6.customaudience.SetShouldReplacePendingUpdatesResponse\x12Y\n" +
+	"\fSetUpdateUri\x12#.customaudience.SetUpdateUriRequest\x1a$.customaudience.SetUpdateUriResponse2\xe0\x06\n" +
+	"\x1cPartialCustomAudienceService\x12e\n" +
+	"\x10DescribeContents\x12'.customaudience.DescribeContentsRequest\x1a(.customaudience.DescribeContentsResponse\x12G\n" +
+	"\x06Equals\x12\x1d.customaudience.EqualsRequest\x1a\x1e.customaudience.EqualsResponse\x12h\n" +
+	"\x11GetActivationTime\x12(.customaudience.GetActivationTimeRequest\x1a).customaudience.GetActivationTimeResponse\x12h\n" +
+	"\x11GetExpirationTime\x12(.customaudience.GetExpirationTimeRequest\x1a).customaudience.GetExpirationTimeResponse\x12J\n" +
+	"\aGetName\x12\x1e.customaudience.GetNameRequest\x1a\x1f.customaudience.GetNameResponse\x12t\n" +
+	"\x15GetUserBiddingSignals\x12,.customaudience.GetUserBiddingSignalsRequest\x1a-.customaudience.GetUserBiddingSignalsResponse\x12M\n" +
+	"\bHashCode\x12\x1f.customaudience.HashCodeRequest\x1a .customaudience.HashCodeResponse\x12M\n" +
+	"\bToString\x12\x1f.customaudience.ToStringRequest\x1a .customaudience.ToStringResponse\x12\\\n" +
+	"\rWriteToParcel\x12$.customaudience.WriteToParcelRequest\x1a%.customaudience.WriteToParcelResponse2\xb5\x03\n" +
+	"#PartialCustomAudienceBuilderService\x12D\n" +
+	"\x05Build\x12\x1c.customaudience.BuildRequest\x1a\x1d.customaudience.BuildResponse\x12h\n" +
+	"\x11SetActivationTime\x12(.customaudience.SetActivationTimeRequest\x1a).customaudience.SetActivationTimeResponse\x12h\n" +
+	"\x11SetExpirationTime\x12(.customaudience.SetExpirationTimeRequest\x1a).customaudience.SetExpirationTimeResponse\x12t\n" +
+	"\x15SetUserBiddingSignals\x12,.customaudience.SetUserBiddingSignalsRequest\x1a-.customaudience.SetUserBiddingSignalsResponse2\xb7\x03\n" +
+	"*RemoveCustomAudienceOverrideRequestService\x12\xa7\x01\n" +
+	"&NewRemoveCustomAudienceOverrideRequest\x12=.customaudience.NewRemoveCustomAudienceOverrideRequestRequest\x1a>.customaudience.NewRemoveCustomAudienceOverrideRequestResponse\x12p\n" +
+	"\bGetBuyer\x12B.customaudience.RemoveCustomAudienceOverrideRequestGetBuyerRequest\x1a .customaudience.GetBuyerResponse\x12m\n" +
+	"\aGetName\x12A.customaudience.RemoveCustomAudienceOverrideRequestGetNameRequest\x1a\x1f.customaudience.GetNameResponse2\x94\x02\n" +
+	"1RemoveCustomAudienceOverrideRequestBuilderService\x12D\n" +
+	"\x05Build\x12\x1c.customaudience.BuildRequest\x1a\x1d.customaudience.BuildResponse\x12M\n" +
+	"\bSetBuyer\x12\x1f.customaudience.SetBuyerRequest\x1a .customaudience.SetBuyerResponse\x12J\n" +
+	"\aSetName\x12\x1e.customaudience.SetNameRequest\x1a\x1f.customaudience.SetNameResponse2\xeb\x03\n" +
+	"\x19TrustedBiddingDataService\x12e\n" +
+	"\x10DescribeContents\x12'.customaudience.DescribeContentsRequest\x1a(.customaudience.DescribeContentsResponse\x12G\n" +
+	"\x06Equals\x12\x1d.customaudience.EqualsRequest\x1a\x1e.customaudience.EqualsResponse\x12q\n" +
+	"\x14GetTrustedBiddingUri\x12+.customaudience.GetTrustedBiddingUriRequest\x1a,.customaudience.GetTrustedBiddingUriResponse\x12M\n" +
+	"\bHashCode\x12\x1f.customaudience.HashCodeRequest\x1a .customaudience.HashCodeResponse\x12\\\n" +
+	"\rWriteToParcel\x12$.customaudience.WriteToParcelRequest\x1a%.customaudience.WriteToParcelResponse2\xdb\x01\n" +
+	" TrustedBiddingDataBuilderService\x12D\n" +
+	"\x05Build\x12\x1c.customaudience.BuildRequest\x1a\x1d.customaudience.BuildResponse\x12q\n" +
+	"\x14SetTrustedBiddingUri\x12+.customaudience.SetTrustedBiddingUriRequest\x1a,.customaudience.SetTrustedBiddingUriResponseB8Z6github.com/AndroidGoLab/jni-proxy/proto/customaudienceb\x06proto3"
 
-var file_proto_customaudience_customaudience_proto_goTypes = []any{}
+var (
+	file_proto_customaudience_customaudience_proto_rawDescOnce sync.Once
+	file_proto_customaudience_customaudience_proto_rawDescData []byte
+)
+
+func file_proto_customaudience_customaudience_proto_rawDescGZIP() []byte {
+	file_proto_customaudience_customaudience_proto_rawDescOnce.Do(func() {
+		file_proto_customaudience_customaudience_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_customaudience_customaudience_proto_rawDesc), len(file_proto_customaudience_customaudience_proto_rawDesc)))
+	})
+	return file_proto_customaudience_customaudience_proto_rawDescData
+}
+
+var file_proto_customaudience_customaudience_proto_msgTypes = make([]protoimpl.MessageInfo, 100)
+var file_proto_customaudience_customaudience_proto_goTypes = []any{
+	(*EqualsRequest)(nil),                                      // 0: customaudience.EqualsRequest
+	(*EqualsResponse)(nil),                                     // 1: customaudience.EqualsResponse
+	(*GetActivationTimeRequest)(nil),                           // 2: customaudience.GetActivationTimeRequest
+	(*GetActivationTimeResponse)(nil),                          // 3: customaudience.GetActivationTimeResponse
+	(*GetExpirationTimeRequest)(nil),                           // 4: customaudience.GetExpirationTimeRequest
+	(*GetExpirationTimeResponse)(nil),                          // 5: customaudience.GetExpirationTimeResponse
+	(*GetFetchUriRequest)(nil),                                 // 6: customaudience.GetFetchUriRequest
+	(*GetFetchUriResponse)(nil),                                // 7: customaudience.GetFetchUriResponse
+	(*GetNameRequest)(nil),                                     // 8: customaudience.GetNameRequest
+	(*GetNameResponse)(nil),                                    // 9: customaudience.GetNameResponse
+	(*GetUserBiddingSignalsRequest)(nil),                       // 10: customaudience.GetUserBiddingSignalsRequest
+	(*GetUserBiddingSignalsResponse)(nil),                      // 11: customaudience.GetUserBiddingSignalsResponse
+	(*HashCodeRequest)(nil),                                    // 12: customaudience.HashCodeRequest
+	(*HashCodeResponse)(nil),                                   // 13: customaudience.HashCodeResponse
+	(*ToStringRequest)(nil),                                    // 14: customaudience.ToStringRequest
+	(*ToStringResponse)(nil),                                   // 15: customaudience.ToStringResponse
+	(*BuildRequest)(nil),                                       // 16: customaudience.BuildRequest
+	(*BuildResponse)(nil),                                      // 17: customaudience.BuildResponse
+	(*SetActivationTimeRequest)(nil),                           // 18: customaudience.SetActivationTimeRequest
+	(*SetActivationTimeResponse)(nil),                          // 19: customaudience.SetActivationTimeResponse
+	(*SetExpirationTimeRequest)(nil),                           // 20: customaudience.SetExpirationTimeRequest
+	(*SetExpirationTimeResponse)(nil),                          // 21: customaudience.SetExpirationTimeResponse
+	(*SetFetchUriRequest)(nil),                                 // 22: customaudience.SetFetchUriRequest
+	(*SetFetchUriResponse)(nil),                                // 23: customaudience.SetFetchUriResponse
+	(*SetNameRequest)(nil),                                     // 24: customaudience.SetNameRequest
+	(*SetNameResponse)(nil),                                    // 25: customaudience.SetNameResponse
+	(*SetUserBiddingSignalsRequest)(nil),                       // 26: customaudience.SetUserBiddingSignalsRequest
+	(*SetUserBiddingSignalsResponse)(nil),                      // 27: customaudience.SetUserBiddingSignalsResponse
+	(*GetTestCustomAudienceManagerRequest)(nil),                // 28: customaudience.GetTestCustomAudienceManagerRequest
+	(*GetTestCustomAudienceManagerResponse)(nil),               // 29: customaudience.GetTestCustomAudienceManagerResponse
+	(*GetRequest)(nil),                                         // 30: customaudience.GetRequest
+	(*GetResponse)(nil),                                        // 31: customaudience.GetResponse
+	(*DescribeContentsRequest)(nil),                            // 32: customaudience.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                           // 33: customaudience.DescribeContentsResponse
+	(*GetAuctionServerRequestFlagsRequest)(nil),                // 34: customaudience.GetAuctionServerRequestFlagsRequest
+	(*GetAuctionServerRequestFlagsResponse)(nil),               // 35: customaudience.GetAuctionServerRequestFlagsResponse
+	(*GetBiddingLogicUriRequest)(nil),                          // 36: customaudience.GetBiddingLogicUriRequest
+	(*GetBiddingLogicUriResponse)(nil),                         // 37: customaudience.GetBiddingLogicUriResponse
+	(*GetBuyerRequest)(nil),                                    // 38: customaudience.GetBuyerRequest
+	(*GetBuyerResponse)(nil),                                   // 39: customaudience.GetBuyerResponse
+	(*GetDailyUpdateUriRequest)(nil),                           // 40: customaudience.GetDailyUpdateUriRequest
+	(*GetDailyUpdateUriResponse)(nil),                          // 41: customaudience.GetDailyUpdateUriResponse
+	(*GetPriorityRequest)(nil),                                 // 42: customaudience.GetPriorityRequest
+	(*GetPriorityResponse)(nil),                                // 43: customaudience.GetPriorityResponse
+	(*GetTrustedBiddingDataRequest)(nil),                       // 44: customaudience.GetTrustedBiddingDataRequest
+	(*GetTrustedBiddingDataResponse)(nil),                      // 45: customaudience.GetTrustedBiddingDataResponse
+	(*WriteToParcelRequest)(nil),                               // 46: customaudience.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                              // 47: customaudience.WriteToParcelResponse
+	(*SetAuctionServerRequestFlagsRequest)(nil),                // 48: customaudience.SetAuctionServerRequestFlagsRequest
+	(*SetAuctionServerRequestFlagsResponse)(nil),               // 49: customaudience.SetAuctionServerRequestFlagsResponse
+	(*SetBiddingLogicUriRequest)(nil),                          // 50: customaudience.SetBiddingLogicUriRequest
+	(*SetBiddingLogicUriResponse)(nil),                         // 51: customaudience.SetBiddingLogicUriResponse
+	(*SetBuyerRequest)(nil),                                    // 52: customaudience.SetBuyerRequest
+	(*SetBuyerResponse)(nil),                                   // 53: customaudience.SetBuyerResponse
+	(*SetDailyUpdateUriRequest)(nil),                           // 54: customaudience.SetDailyUpdateUriRequest
+	(*SetDailyUpdateUriResponse)(nil),                          // 55: customaudience.SetDailyUpdateUriResponse
+	(*SetPriorityRequest)(nil),                                 // 56: customaudience.SetPriorityRequest
+	(*SetPriorityResponse)(nil),                                // 57: customaudience.SetPriorityResponse
+	(*SetTrustedBiddingDataRequest)(nil),                       // 58: customaudience.SetTrustedBiddingDataRequest
+	(*SetTrustedBiddingDataResponse)(nil),                      // 59: customaudience.SetTrustedBiddingDataResponse
+	(*NewAddCustomAudienceOverrideRequestRequest)(nil),         // 60: customaudience.NewAddCustomAudienceOverrideRequestRequest
+	(*NewAddCustomAudienceOverrideRequestResponse)(nil),        // 61: customaudience.NewAddCustomAudienceOverrideRequestResponse
+	(*GetBiddingLogicJsRequest)(nil),                           // 62: customaudience.GetBiddingLogicJsRequest
+	(*GetBiddingLogicJsResponse)(nil),                          // 63: customaudience.GetBiddingLogicJsResponse
+	(*GetBiddingLogicJsVersionRequest)(nil),                    // 64: customaudience.GetBiddingLogicJsVersionRequest
+	(*GetBiddingLogicJsVersionResponse)(nil),                   // 65: customaudience.GetBiddingLogicJsVersionResponse
+	(*AddCustomAudienceOverrideRequestGetBuyerRequest)(nil),    // 66: customaudience.AddCustomAudienceOverrideRequestGetBuyerRequest
+	(*AddCustomAudienceOverrideRequestGetNameRequest)(nil),     // 67: customaudience.AddCustomAudienceOverrideRequestGetNameRequest
+	(*GetTrustedBiddingSignalsRequest)(nil),                    // 68: customaudience.GetTrustedBiddingSignalsRequest
+	(*GetTrustedBiddingSignalsResponse)(nil),                   // 69: customaudience.GetTrustedBiddingSignalsResponse
+	(*SetBiddingLogicJsRequest)(nil),                           // 70: customaudience.SetBiddingLogicJsRequest
+	(*SetBiddingLogicJsResponse)(nil),                          // 71: customaudience.SetBiddingLogicJsResponse
+	(*SetBiddingLogicJsVersionRequest)(nil),                    // 72: customaudience.SetBiddingLogicJsVersionRequest
+	(*SetBiddingLogicJsVersionResponse)(nil),                   // 73: customaudience.SetBiddingLogicJsVersionResponse
+	(*SetTrustedBiddingSignalsRequest)(nil),                    // 74: customaudience.SetTrustedBiddingSignalsRequest
+	(*SetTrustedBiddingSignalsResponse)(nil),                   // 75: customaudience.SetTrustedBiddingSignalsResponse
+	(*GetCustomAudienceRequest)(nil),                           // 76: customaudience.GetCustomAudienceRequest
+	(*GetCustomAudienceResponse)(nil),                          // 77: customaudience.GetCustomAudienceResponse
+	(*SetCustomAudienceRequest)(nil),                           // 78: customaudience.SetCustomAudienceRequest
+	(*SetCustomAudienceResponse)(nil),                          // 79: customaudience.SetCustomAudienceResponse
+	(*GetMinDelayRequest)(nil),                                 // 80: customaudience.GetMinDelayRequest
+	(*GetMinDelayResponse)(nil),                                // 81: customaudience.GetMinDelayResponse
+	(*GetUpdateUriRequest)(nil),                                // 82: customaudience.GetUpdateUriRequest
+	(*GetUpdateUriResponse)(nil),                               // 83: customaudience.GetUpdateUriResponse
+	(*ShouldReplacePendingUpdatesRequest)(nil),                 // 84: customaudience.ShouldReplacePendingUpdatesRequest
+	(*ShouldReplacePendingUpdatesResponse)(nil),                // 85: customaudience.ShouldReplacePendingUpdatesResponse
+	(*SetMinDelayRequest)(nil),                                 // 86: customaudience.SetMinDelayRequest
+	(*SetMinDelayResponse)(nil),                                // 87: customaudience.SetMinDelayResponse
+	(*SetShouldReplacePendingUpdatesRequest)(nil),              // 88: customaudience.SetShouldReplacePendingUpdatesRequest
+	(*SetShouldReplacePendingUpdatesResponse)(nil),             // 89: customaudience.SetShouldReplacePendingUpdatesResponse
+	(*SetUpdateUriRequest)(nil),                                // 90: customaudience.SetUpdateUriRequest
+	(*SetUpdateUriResponse)(nil),                               // 91: customaudience.SetUpdateUriResponse
+	(*NewRemoveCustomAudienceOverrideRequestRequest)(nil),      // 92: customaudience.NewRemoveCustomAudienceOverrideRequestRequest
+	(*NewRemoveCustomAudienceOverrideRequestResponse)(nil),     // 93: customaudience.NewRemoveCustomAudienceOverrideRequestResponse
+	(*RemoveCustomAudienceOverrideRequestGetBuyerRequest)(nil), // 94: customaudience.RemoveCustomAudienceOverrideRequestGetBuyerRequest
+	(*RemoveCustomAudienceOverrideRequestGetNameRequest)(nil),  // 95: customaudience.RemoveCustomAudienceOverrideRequestGetNameRequest
+	(*GetTrustedBiddingUriRequest)(nil),                        // 96: customaudience.GetTrustedBiddingUriRequest
+	(*GetTrustedBiddingUriResponse)(nil),                       // 97: customaudience.GetTrustedBiddingUriResponse
+	(*SetTrustedBiddingUriRequest)(nil),                        // 98: customaudience.SetTrustedBiddingUriRequest
+	(*SetTrustedBiddingUriResponse)(nil),                       // 99: customaudience.SetTrustedBiddingUriResponse
+}
 var file_proto_customaudience_customaudience_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,   // 0: customaudience.FetchAndJoinCustomAudienceRequestService.Equals:input_type -> customaudience.EqualsRequest
+	2,   // 1: customaudience.FetchAndJoinCustomAudienceRequestService.GetActivationTime:input_type -> customaudience.GetActivationTimeRequest
+	4,   // 2: customaudience.FetchAndJoinCustomAudienceRequestService.GetExpirationTime:input_type -> customaudience.GetExpirationTimeRequest
+	6,   // 3: customaudience.FetchAndJoinCustomAudienceRequestService.GetFetchUri:input_type -> customaudience.GetFetchUriRequest
+	8,   // 4: customaudience.FetchAndJoinCustomAudienceRequestService.GetName:input_type -> customaudience.GetNameRequest
+	10,  // 5: customaudience.FetchAndJoinCustomAudienceRequestService.GetUserBiddingSignals:input_type -> customaudience.GetUserBiddingSignalsRequest
+	12,  // 6: customaudience.FetchAndJoinCustomAudienceRequestService.HashCode:input_type -> customaudience.HashCodeRequest
+	14,  // 7: customaudience.FetchAndJoinCustomAudienceRequestService.ToString:input_type -> customaudience.ToStringRequest
+	16,  // 8: customaudience.FetchAndJoinCustomAudienceRequestBuilderService.Build:input_type -> customaudience.BuildRequest
+	18,  // 9: customaudience.FetchAndJoinCustomAudienceRequestBuilderService.SetActivationTime:input_type -> customaudience.SetActivationTimeRequest
+	20,  // 10: customaudience.FetchAndJoinCustomAudienceRequestBuilderService.SetExpirationTime:input_type -> customaudience.SetExpirationTimeRequest
+	22,  // 11: customaudience.FetchAndJoinCustomAudienceRequestBuilderService.SetFetchUri:input_type -> customaudience.SetFetchUriRequest
+	24,  // 12: customaudience.FetchAndJoinCustomAudienceRequestBuilderService.SetName:input_type -> customaudience.SetNameRequest
+	26,  // 13: customaudience.FetchAndJoinCustomAudienceRequestBuilderService.SetUserBiddingSignals:input_type -> customaudience.SetUserBiddingSignalsRequest
+	28,  // 14: customaudience.CustomAudienceManagerService.GetTestCustomAudienceManager:input_type -> customaudience.GetTestCustomAudienceManagerRequest
+	30,  // 15: customaudience.CustomAudienceManagerService.Get:input_type -> customaudience.GetRequest
+	32,  // 16: customaudience.CustomAudienceService.DescribeContents:input_type -> customaudience.DescribeContentsRequest
+	0,   // 17: customaudience.CustomAudienceService.Equals:input_type -> customaudience.EqualsRequest
+	2,   // 18: customaudience.CustomAudienceService.GetActivationTime:input_type -> customaudience.GetActivationTimeRequest
+	34,  // 19: customaudience.CustomAudienceService.GetAuctionServerRequestFlags:input_type -> customaudience.GetAuctionServerRequestFlagsRequest
+	36,  // 20: customaudience.CustomAudienceService.GetBiddingLogicUri:input_type -> customaudience.GetBiddingLogicUriRequest
+	38,  // 21: customaudience.CustomAudienceService.GetBuyer:input_type -> customaudience.GetBuyerRequest
+	40,  // 22: customaudience.CustomAudienceService.GetDailyUpdateUri:input_type -> customaudience.GetDailyUpdateUriRequest
+	4,   // 23: customaudience.CustomAudienceService.GetExpirationTime:input_type -> customaudience.GetExpirationTimeRequest
+	8,   // 24: customaudience.CustomAudienceService.GetName:input_type -> customaudience.GetNameRequest
+	42,  // 25: customaudience.CustomAudienceService.GetPriority:input_type -> customaudience.GetPriorityRequest
+	44,  // 26: customaudience.CustomAudienceService.GetTrustedBiddingData:input_type -> customaudience.GetTrustedBiddingDataRequest
+	10,  // 27: customaudience.CustomAudienceService.GetUserBiddingSignals:input_type -> customaudience.GetUserBiddingSignalsRequest
+	12,  // 28: customaudience.CustomAudienceService.HashCode:input_type -> customaudience.HashCodeRequest
+	14,  // 29: customaudience.CustomAudienceService.ToString:input_type -> customaudience.ToStringRequest
+	46,  // 30: customaudience.CustomAudienceService.WriteToParcel:input_type -> customaudience.WriteToParcelRequest
+	16,  // 31: customaudience.CustomAudienceBuilderService.Build:input_type -> customaudience.BuildRequest
+	18,  // 32: customaudience.CustomAudienceBuilderService.SetActivationTime:input_type -> customaudience.SetActivationTimeRequest
+	48,  // 33: customaudience.CustomAudienceBuilderService.SetAuctionServerRequestFlags:input_type -> customaudience.SetAuctionServerRequestFlagsRequest
+	50,  // 34: customaudience.CustomAudienceBuilderService.SetBiddingLogicUri:input_type -> customaudience.SetBiddingLogicUriRequest
+	52,  // 35: customaudience.CustomAudienceBuilderService.SetBuyer:input_type -> customaudience.SetBuyerRequest
+	54,  // 36: customaudience.CustomAudienceBuilderService.SetDailyUpdateUri:input_type -> customaudience.SetDailyUpdateUriRequest
+	20,  // 37: customaudience.CustomAudienceBuilderService.SetExpirationTime:input_type -> customaudience.SetExpirationTimeRequest
+	24,  // 38: customaudience.CustomAudienceBuilderService.SetName:input_type -> customaudience.SetNameRequest
+	56,  // 39: customaudience.CustomAudienceBuilderService.SetPriority:input_type -> customaudience.SetPriorityRequest
+	58,  // 40: customaudience.CustomAudienceBuilderService.SetTrustedBiddingData:input_type -> customaudience.SetTrustedBiddingDataRequest
+	26,  // 41: customaudience.CustomAudienceBuilderService.SetUserBiddingSignals:input_type -> customaudience.SetUserBiddingSignalsRequest
+	60,  // 42: customaudience.AddCustomAudienceOverrideRequestService.NewAddCustomAudienceOverrideRequest:input_type -> customaudience.NewAddCustomAudienceOverrideRequestRequest
+	62,  // 43: customaudience.AddCustomAudienceOverrideRequestService.GetBiddingLogicJs:input_type -> customaudience.GetBiddingLogicJsRequest
+	64,  // 44: customaudience.AddCustomAudienceOverrideRequestService.GetBiddingLogicJsVersion:input_type -> customaudience.GetBiddingLogicJsVersionRequest
+	66,  // 45: customaudience.AddCustomAudienceOverrideRequestService.GetBuyer:input_type -> customaudience.AddCustomAudienceOverrideRequestGetBuyerRequest
+	67,  // 46: customaudience.AddCustomAudienceOverrideRequestService.GetName:input_type -> customaudience.AddCustomAudienceOverrideRequestGetNameRequest
+	68,  // 47: customaudience.AddCustomAudienceOverrideRequestService.GetTrustedBiddingSignals:input_type -> customaudience.GetTrustedBiddingSignalsRequest
+	16,  // 48: customaudience.AddCustomAudienceOverrideRequestBuilderService.Build:input_type -> customaudience.BuildRequest
+	70,  // 49: customaudience.AddCustomAudienceOverrideRequestBuilderService.SetBiddingLogicJs:input_type -> customaudience.SetBiddingLogicJsRequest
+	72,  // 50: customaudience.AddCustomAudienceOverrideRequestBuilderService.SetBiddingLogicJsVersion:input_type -> customaudience.SetBiddingLogicJsVersionRequest
+	52,  // 51: customaudience.AddCustomAudienceOverrideRequestBuilderService.SetBuyer:input_type -> customaudience.SetBuyerRequest
+	24,  // 52: customaudience.AddCustomAudienceOverrideRequestBuilderService.SetName:input_type -> customaudience.SetNameRequest
+	74,  // 53: customaudience.AddCustomAudienceOverrideRequestBuilderService.SetTrustedBiddingSignals:input_type -> customaudience.SetTrustedBiddingSignalsRequest
+	0,   // 54: customaudience.JoinCustomAudienceRequestService.Equals:input_type -> customaudience.EqualsRequest
+	76,  // 55: customaudience.JoinCustomAudienceRequestService.GetCustomAudience:input_type -> customaudience.GetCustomAudienceRequest
+	12,  // 56: customaudience.JoinCustomAudienceRequestService.HashCode:input_type -> customaudience.HashCodeRequest
+	16,  // 57: customaudience.JoinCustomAudienceRequestBuilderService.Build:input_type -> customaudience.BuildRequest
+	78,  // 58: customaudience.JoinCustomAudienceRequestBuilderService.SetCustomAudience:input_type -> customaudience.SetCustomAudienceRequest
+	0,   // 59: customaudience.LeaveCustomAudienceRequestService.Equals:input_type -> customaudience.EqualsRequest
+	38,  // 60: customaudience.LeaveCustomAudienceRequestService.GetBuyer:input_type -> customaudience.GetBuyerRequest
+	8,   // 61: customaudience.LeaveCustomAudienceRequestService.GetName:input_type -> customaudience.GetNameRequest
+	12,  // 62: customaudience.LeaveCustomAudienceRequestService.HashCode:input_type -> customaudience.HashCodeRequest
+	16,  // 63: customaudience.LeaveCustomAudienceRequestBuilderService.Build:input_type -> customaudience.BuildRequest
+	52,  // 64: customaudience.LeaveCustomAudienceRequestBuilderService.SetBuyer:input_type -> customaudience.SetBuyerRequest
+	24,  // 65: customaudience.LeaveCustomAudienceRequestBuilderService.SetName:input_type -> customaudience.SetNameRequest
+	0,   // 66: customaudience.ScheduleCustomAudienceUpdateRequestService.Equals:input_type -> customaudience.EqualsRequest
+	80,  // 67: customaudience.ScheduleCustomAudienceUpdateRequestService.GetMinDelay:input_type -> customaudience.GetMinDelayRequest
+	82,  // 68: customaudience.ScheduleCustomAudienceUpdateRequestService.GetUpdateUri:input_type -> customaudience.GetUpdateUriRequest
+	12,  // 69: customaudience.ScheduleCustomAudienceUpdateRequestService.HashCode:input_type -> customaudience.HashCodeRequest
+	84,  // 70: customaudience.ScheduleCustomAudienceUpdateRequestService.ShouldReplacePendingUpdates:input_type -> customaudience.ShouldReplacePendingUpdatesRequest
+	14,  // 71: customaudience.ScheduleCustomAudienceUpdateRequestService.ToString:input_type -> customaudience.ToStringRequest
+	16,  // 72: customaudience.ScheduleCustomAudienceUpdateRequestBuilderService.Build:input_type -> customaudience.BuildRequest
+	86,  // 73: customaudience.ScheduleCustomAudienceUpdateRequestBuilderService.SetMinDelay:input_type -> customaudience.SetMinDelayRequest
+	88,  // 74: customaudience.ScheduleCustomAudienceUpdateRequestBuilderService.SetShouldReplacePendingUpdates:input_type -> customaudience.SetShouldReplacePendingUpdatesRequest
+	90,  // 75: customaudience.ScheduleCustomAudienceUpdateRequestBuilderService.SetUpdateUri:input_type -> customaudience.SetUpdateUriRequest
+	32,  // 76: customaudience.PartialCustomAudienceService.DescribeContents:input_type -> customaudience.DescribeContentsRequest
+	0,   // 77: customaudience.PartialCustomAudienceService.Equals:input_type -> customaudience.EqualsRequest
+	2,   // 78: customaudience.PartialCustomAudienceService.GetActivationTime:input_type -> customaudience.GetActivationTimeRequest
+	4,   // 79: customaudience.PartialCustomAudienceService.GetExpirationTime:input_type -> customaudience.GetExpirationTimeRequest
+	8,   // 80: customaudience.PartialCustomAudienceService.GetName:input_type -> customaudience.GetNameRequest
+	10,  // 81: customaudience.PartialCustomAudienceService.GetUserBiddingSignals:input_type -> customaudience.GetUserBiddingSignalsRequest
+	12,  // 82: customaudience.PartialCustomAudienceService.HashCode:input_type -> customaudience.HashCodeRequest
+	14,  // 83: customaudience.PartialCustomAudienceService.ToString:input_type -> customaudience.ToStringRequest
+	46,  // 84: customaudience.PartialCustomAudienceService.WriteToParcel:input_type -> customaudience.WriteToParcelRequest
+	16,  // 85: customaudience.PartialCustomAudienceBuilderService.Build:input_type -> customaudience.BuildRequest
+	18,  // 86: customaudience.PartialCustomAudienceBuilderService.SetActivationTime:input_type -> customaudience.SetActivationTimeRequest
+	20,  // 87: customaudience.PartialCustomAudienceBuilderService.SetExpirationTime:input_type -> customaudience.SetExpirationTimeRequest
+	26,  // 88: customaudience.PartialCustomAudienceBuilderService.SetUserBiddingSignals:input_type -> customaudience.SetUserBiddingSignalsRequest
+	92,  // 89: customaudience.RemoveCustomAudienceOverrideRequestService.NewRemoveCustomAudienceOverrideRequest:input_type -> customaudience.NewRemoveCustomAudienceOverrideRequestRequest
+	94,  // 90: customaudience.RemoveCustomAudienceOverrideRequestService.GetBuyer:input_type -> customaudience.RemoveCustomAudienceOverrideRequestGetBuyerRequest
+	95,  // 91: customaudience.RemoveCustomAudienceOverrideRequestService.GetName:input_type -> customaudience.RemoveCustomAudienceOverrideRequestGetNameRequest
+	16,  // 92: customaudience.RemoveCustomAudienceOverrideRequestBuilderService.Build:input_type -> customaudience.BuildRequest
+	52,  // 93: customaudience.RemoveCustomAudienceOverrideRequestBuilderService.SetBuyer:input_type -> customaudience.SetBuyerRequest
+	24,  // 94: customaudience.RemoveCustomAudienceOverrideRequestBuilderService.SetName:input_type -> customaudience.SetNameRequest
+	32,  // 95: customaudience.TrustedBiddingDataService.DescribeContents:input_type -> customaudience.DescribeContentsRequest
+	0,   // 96: customaudience.TrustedBiddingDataService.Equals:input_type -> customaudience.EqualsRequest
+	96,  // 97: customaudience.TrustedBiddingDataService.GetTrustedBiddingUri:input_type -> customaudience.GetTrustedBiddingUriRequest
+	12,  // 98: customaudience.TrustedBiddingDataService.HashCode:input_type -> customaudience.HashCodeRequest
+	46,  // 99: customaudience.TrustedBiddingDataService.WriteToParcel:input_type -> customaudience.WriteToParcelRequest
+	16,  // 100: customaudience.TrustedBiddingDataBuilderService.Build:input_type -> customaudience.BuildRequest
+	98,  // 101: customaudience.TrustedBiddingDataBuilderService.SetTrustedBiddingUri:input_type -> customaudience.SetTrustedBiddingUriRequest
+	1,   // 102: customaudience.FetchAndJoinCustomAudienceRequestService.Equals:output_type -> customaudience.EqualsResponse
+	3,   // 103: customaudience.FetchAndJoinCustomAudienceRequestService.GetActivationTime:output_type -> customaudience.GetActivationTimeResponse
+	5,   // 104: customaudience.FetchAndJoinCustomAudienceRequestService.GetExpirationTime:output_type -> customaudience.GetExpirationTimeResponse
+	7,   // 105: customaudience.FetchAndJoinCustomAudienceRequestService.GetFetchUri:output_type -> customaudience.GetFetchUriResponse
+	9,   // 106: customaudience.FetchAndJoinCustomAudienceRequestService.GetName:output_type -> customaudience.GetNameResponse
+	11,  // 107: customaudience.FetchAndJoinCustomAudienceRequestService.GetUserBiddingSignals:output_type -> customaudience.GetUserBiddingSignalsResponse
+	13,  // 108: customaudience.FetchAndJoinCustomAudienceRequestService.HashCode:output_type -> customaudience.HashCodeResponse
+	15,  // 109: customaudience.FetchAndJoinCustomAudienceRequestService.ToString:output_type -> customaudience.ToStringResponse
+	17,  // 110: customaudience.FetchAndJoinCustomAudienceRequestBuilderService.Build:output_type -> customaudience.BuildResponse
+	19,  // 111: customaudience.FetchAndJoinCustomAudienceRequestBuilderService.SetActivationTime:output_type -> customaudience.SetActivationTimeResponse
+	21,  // 112: customaudience.FetchAndJoinCustomAudienceRequestBuilderService.SetExpirationTime:output_type -> customaudience.SetExpirationTimeResponse
+	23,  // 113: customaudience.FetchAndJoinCustomAudienceRequestBuilderService.SetFetchUri:output_type -> customaudience.SetFetchUriResponse
+	25,  // 114: customaudience.FetchAndJoinCustomAudienceRequestBuilderService.SetName:output_type -> customaudience.SetNameResponse
+	27,  // 115: customaudience.FetchAndJoinCustomAudienceRequestBuilderService.SetUserBiddingSignals:output_type -> customaudience.SetUserBiddingSignalsResponse
+	29,  // 116: customaudience.CustomAudienceManagerService.GetTestCustomAudienceManager:output_type -> customaudience.GetTestCustomAudienceManagerResponse
+	31,  // 117: customaudience.CustomAudienceManagerService.Get:output_type -> customaudience.GetResponse
+	33,  // 118: customaudience.CustomAudienceService.DescribeContents:output_type -> customaudience.DescribeContentsResponse
+	1,   // 119: customaudience.CustomAudienceService.Equals:output_type -> customaudience.EqualsResponse
+	3,   // 120: customaudience.CustomAudienceService.GetActivationTime:output_type -> customaudience.GetActivationTimeResponse
+	35,  // 121: customaudience.CustomAudienceService.GetAuctionServerRequestFlags:output_type -> customaudience.GetAuctionServerRequestFlagsResponse
+	37,  // 122: customaudience.CustomAudienceService.GetBiddingLogicUri:output_type -> customaudience.GetBiddingLogicUriResponse
+	39,  // 123: customaudience.CustomAudienceService.GetBuyer:output_type -> customaudience.GetBuyerResponse
+	41,  // 124: customaudience.CustomAudienceService.GetDailyUpdateUri:output_type -> customaudience.GetDailyUpdateUriResponse
+	5,   // 125: customaudience.CustomAudienceService.GetExpirationTime:output_type -> customaudience.GetExpirationTimeResponse
+	9,   // 126: customaudience.CustomAudienceService.GetName:output_type -> customaudience.GetNameResponse
+	43,  // 127: customaudience.CustomAudienceService.GetPriority:output_type -> customaudience.GetPriorityResponse
+	45,  // 128: customaudience.CustomAudienceService.GetTrustedBiddingData:output_type -> customaudience.GetTrustedBiddingDataResponse
+	11,  // 129: customaudience.CustomAudienceService.GetUserBiddingSignals:output_type -> customaudience.GetUserBiddingSignalsResponse
+	13,  // 130: customaudience.CustomAudienceService.HashCode:output_type -> customaudience.HashCodeResponse
+	15,  // 131: customaudience.CustomAudienceService.ToString:output_type -> customaudience.ToStringResponse
+	47,  // 132: customaudience.CustomAudienceService.WriteToParcel:output_type -> customaudience.WriteToParcelResponse
+	17,  // 133: customaudience.CustomAudienceBuilderService.Build:output_type -> customaudience.BuildResponse
+	19,  // 134: customaudience.CustomAudienceBuilderService.SetActivationTime:output_type -> customaudience.SetActivationTimeResponse
+	49,  // 135: customaudience.CustomAudienceBuilderService.SetAuctionServerRequestFlags:output_type -> customaudience.SetAuctionServerRequestFlagsResponse
+	51,  // 136: customaudience.CustomAudienceBuilderService.SetBiddingLogicUri:output_type -> customaudience.SetBiddingLogicUriResponse
+	53,  // 137: customaudience.CustomAudienceBuilderService.SetBuyer:output_type -> customaudience.SetBuyerResponse
+	55,  // 138: customaudience.CustomAudienceBuilderService.SetDailyUpdateUri:output_type -> customaudience.SetDailyUpdateUriResponse
+	21,  // 139: customaudience.CustomAudienceBuilderService.SetExpirationTime:output_type -> customaudience.SetExpirationTimeResponse
+	25,  // 140: customaudience.CustomAudienceBuilderService.SetName:output_type -> customaudience.SetNameResponse
+	57,  // 141: customaudience.CustomAudienceBuilderService.SetPriority:output_type -> customaudience.SetPriorityResponse
+	59,  // 142: customaudience.CustomAudienceBuilderService.SetTrustedBiddingData:output_type -> customaudience.SetTrustedBiddingDataResponse
+	27,  // 143: customaudience.CustomAudienceBuilderService.SetUserBiddingSignals:output_type -> customaudience.SetUserBiddingSignalsResponse
+	61,  // 144: customaudience.AddCustomAudienceOverrideRequestService.NewAddCustomAudienceOverrideRequest:output_type -> customaudience.NewAddCustomAudienceOverrideRequestResponse
+	63,  // 145: customaudience.AddCustomAudienceOverrideRequestService.GetBiddingLogicJs:output_type -> customaudience.GetBiddingLogicJsResponse
+	65,  // 146: customaudience.AddCustomAudienceOverrideRequestService.GetBiddingLogicJsVersion:output_type -> customaudience.GetBiddingLogicJsVersionResponse
+	39,  // 147: customaudience.AddCustomAudienceOverrideRequestService.GetBuyer:output_type -> customaudience.GetBuyerResponse
+	9,   // 148: customaudience.AddCustomAudienceOverrideRequestService.GetName:output_type -> customaudience.GetNameResponse
+	69,  // 149: customaudience.AddCustomAudienceOverrideRequestService.GetTrustedBiddingSignals:output_type -> customaudience.GetTrustedBiddingSignalsResponse
+	17,  // 150: customaudience.AddCustomAudienceOverrideRequestBuilderService.Build:output_type -> customaudience.BuildResponse
+	71,  // 151: customaudience.AddCustomAudienceOverrideRequestBuilderService.SetBiddingLogicJs:output_type -> customaudience.SetBiddingLogicJsResponse
+	73,  // 152: customaudience.AddCustomAudienceOverrideRequestBuilderService.SetBiddingLogicJsVersion:output_type -> customaudience.SetBiddingLogicJsVersionResponse
+	53,  // 153: customaudience.AddCustomAudienceOverrideRequestBuilderService.SetBuyer:output_type -> customaudience.SetBuyerResponse
+	25,  // 154: customaudience.AddCustomAudienceOverrideRequestBuilderService.SetName:output_type -> customaudience.SetNameResponse
+	75,  // 155: customaudience.AddCustomAudienceOverrideRequestBuilderService.SetTrustedBiddingSignals:output_type -> customaudience.SetTrustedBiddingSignalsResponse
+	1,   // 156: customaudience.JoinCustomAudienceRequestService.Equals:output_type -> customaudience.EqualsResponse
+	77,  // 157: customaudience.JoinCustomAudienceRequestService.GetCustomAudience:output_type -> customaudience.GetCustomAudienceResponse
+	13,  // 158: customaudience.JoinCustomAudienceRequestService.HashCode:output_type -> customaudience.HashCodeResponse
+	17,  // 159: customaudience.JoinCustomAudienceRequestBuilderService.Build:output_type -> customaudience.BuildResponse
+	79,  // 160: customaudience.JoinCustomAudienceRequestBuilderService.SetCustomAudience:output_type -> customaudience.SetCustomAudienceResponse
+	1,   // 161: customaudience.LeaveCustomAudienceRequestService.Equals:output_type -> customaudience.EqualsResponse
+	39,  // 162: customaudience.LeaveCustomAudienceRequestService.GetBuyer:output_type -> customaudience.GetBuyerResponse
+	9,   // 163: customaudience.LeaveCustomAudienceRequestService.GetName:output_type -> customaudience.GetNameResponse
+	13,  // 164: customaudience.LeaveCustomAudienceRequestService.HashCode:output_type -> customaudience.HashCodeResponse
+	17,  // 165: customaudience.LeaveCustomAudienceRequestBuilderService.Build:output_type -> customaudience.BuildResponse
+	53,  // 166: customaudience.LeaveCustomAudienceRequestBuilderService.SetBuyer:output_type -> customaudience.SetBuyerResponse
+	25,  // 167: customaudience.LeaveCustomAudienceRequestBuilderService.SetName:output_type -> customaudience.SetNameResponse
+	1,   // 168: customaudience.ScheduleCustomAudienceUpdateRequestService.Equals:output_type -> customaudience.EqualsResponse
+	81,  // 169: customaudience.ScheduleCustomAudienceUpdateRequestService.GetMinDelay:output_type -> customaudience.GetMinDelayResponse
+	83,  // 170: customaudience.ScheduleCustomAudienceUpdateRequestService.GetUpdateUri:output_type -> customaudience.GetUpdateUriResponse
+	13,  // 171: customaudience.ScheduleCustomAudienceUpdateRequestService.HashCode:output_type -> customaudience.HashCodeResponse
+	85,  // 172: customaudience.ScheduleCustomAudienceUpdateRequestService.ShouldReplacePendingUpdates:output_type -> customaudience.ShouldReplacePendingUpdatesResponse
+	15,  // 173: customaudience.ScheduleCustomAudienceUpdateRequestService.ToString:output_type -> customaudience.ToStringResponse
+	17,  // 174: customaudience.ScheduleCustomAudienceUpdateRequestBuilderService.Build:output_type -> customaudience.BuildResponse
+	87,  // 175: customaudience.ScheduleCustomAudienceUpdateRequestBuilderService.SetMinDelay:output_type -> customaudience.SetMinDelayResponse
+	89,  // 176: customaudience.ScheduleCustomAudienceUpdateRequestBuilderService.SetShouldReplacePendingUpdates:output_type -> customaudience.SetShouldReplacePendingUpdatesResponse
+	91,  // 177: customaudience.ScheduleCustomAudienceUpdateRequestBuilderService.SetUpdateUri:output_type -> customaudience.SetUpdateUriResponse
+	33,  // 178: customaudience.PartialCustomAudienceService.DescribeContents:output_type -> customaudience.DescribeContentsResponse
+	1,   // 179: customaudience.PartialCustomAudienceService.Equals:output_type -> customaudience.EqualsResponse
+	3,   // 180: customaudience.PartialCustomAudienceService.GetActivationTime:output_type -> customaudience.GetActivationTimeResponse
+	5,   // 181: customaudience.PartialCustomAudienceService.GetExpirationTime:output_type -> customaudience.GetExpirationTimeResponse
+	9,   // 182: customaudience.PartialCustomAudienceService.GetName:output_type -> customaudience.GetNameResponse
+	11,  // 183: customaudience.PartialCustomAudienceService.GetUserBiddingSignals:output_type -> customaudience.GetUserBiddingSignalsResponse
+	13,  // 184: customaudience.PartialCustomAudienceService.HashCode:output_type -> customaudience.HashCodeResponse
+	15,  // 185: customaudience.PartialCustomAudienceService.ToString:output_type -> customaudience.ToStringResponse
+	47,  // 186: customaudience.PartialCustomAudienceService.WriteToParcel:output_type -> customaudience.WriteToParcelResponse
+	17,  // 187: customaudience.PartialCustomAudienceBuilderService.Build:output_type -> customaudience.BuildResponse
+	19,  // 188: customaudience.PartialCustomAudienceBuilderService.SetActivationTime:output_type -> customaudience.SetActivationTimeResponse
+	21,  // 189: customaudience.PartialCustomAudienceBuilderService.SetExpirationTime:output_type -> customaudience.SetExpirationTimeResponse
+	27,  // 190: customaudience.PartialCustomAudienceBuilderService.SetUserBiddingSignals:output_type -> customaudience.SetUserBiddingSignalsResponse
+	93,  // 191: customaudience.RemoveCustomAudienceOverrideRequestService.NewRemoveCustomAudienceOverrideRequest:output_type -> customaudience.NewRemoveCustomAudienceOverrideRequestResponse
+	39,  // 192: customaudience.RemoveCustomAudienceOverrideRequestService.GetBuyer:output_type -> customaudience.GetBuyerResponse
+	9,   // 193: customaudience.RemoveCustomAudienceOverrideRequestService.GetName:output_type -> customaudience.GetNameResponse
+	17,  // 194: customaudience.RemoveCustomAudienceOverrideRequestBuilderService.Build:output_type -> customaudience.BuildResponse
+	53,  // 195: customaudience.RemoveCustomAudienceOverrideRequestBuilderService.SetBuyer:output_type -> customaudience.SetBuyerResponse
+	25,  // 196: customaudience.RemoveCustomAudienceOverrideRequestBuilderService.SetName:output_type -> customaudience.SetNameResponse
+	33,  // 197: customaudience.TrustedBiddingDataService.DescribeContents:output_type -> customaudience.DescribeContentsResponse
+	1,   // 198: customaudience.TrustedBiddingDataService.Equals:output_type -> customaudience.EqualsResponse
+	97,  // 199: customaudience.TrustedBiddingDataService.GetTrustedBiddingUri:output_type -> customaudience.GetTrustedBiddingUriResponse
+	13,  // 200: customaudience.TrustedBiddingDataService.HashCode:output_type -> customaudience.HashCodeResponse
+	47,  // 201: customaudience.TrustedBiddingDataService.WriteToParcel:output_type -> customaudience.WriteToParcelResponse
+	17,  // 202: customaudience.TrustedBiddingDataBuilderService.Build:output_type -> customaudience.BuildResponse
+	99,  // 203: customaudience.TrustedBiddingDataBuilderService.SetTrustedBiddingUri:output_type -> customaudience.SetTrustedBiddingUriResponse
+	102, // [102:204] is the sub-list for method output_type
+	0,   // [0:102] is the sub-list for method input_type
+	0,   // [0:0] is the sub-list for extension type_name
+	0,   // [0:0] is the sub-list for extension extendee
+	0,   // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_customaudience_customaudience_proto_init() }
@@ -48,12 +4936,13 @@ func file_proto_customaudience_customaudience_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_customaudience_customaudience_proto_rawDesc), len(file_proto_customaudience_customaudience_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   100,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   19,
 		},
 		GoTypes:           file_proto_customaudience_customaudience_proto_goTypes,
 		DependencyIndexes: file_proto_customaudience_customaudience_proto_depIdxs,
+		MessageInfos:      file_proto_customaudience_customaudience_proto_msgTypes,
 	}.Build()
 	File_proto_customaudience_customaudience_proto = out.File
 	file_proto_customaudience_customaudience_proto_goTypes = nil

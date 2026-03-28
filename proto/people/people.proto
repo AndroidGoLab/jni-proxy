@@ -6,6 +6,139 @@ package people;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/people";
 
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetActivityRequest {
+}
+
+message GetActivityResponse {
+  int32 result = 1;
+}
+
+message GetAvailabilityRequest {
+}
+
+message GetAvailabilityResponse {
+  int32 result = 1;
+}
+
+message GetDescriptionRequest {
+}
+
+message GetDescriptionResponse {
+  int64 result = 1;
+}
+
+message GetEndTimeMillisRequest {
+}
+
+message GetEndTimeMillisResponse {
+  int64 result = 1;
+}
+
+message GetIconRequest {
+}
+
+message GetIconResponse {
+  int64 result = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  string result = 1;
+}
+
+message GetStartTimeMillisRequest {
+}
+
+message GetStartTimeMillisResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message SetAvailabilityRequest {
+  int32 arg0 = 1;
+}
+
+message SetAvailabilityResponse {
+  int64 result = 1;
+}
+
+message SetDescriptionRequest {
+  string arg0 = 1;
+}
+
+message SetDescriptionResponse {
+  int64 result = 1;
+}
+
+message SetEndTimeMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetEndTimeMillisResponse {
+  int64 result = 1;
+}
+
+message SetIconRequest {
+  int64 arg0 = 1;
+}
+
+message SetIconResponse {
+  int64 result = 1;
+}
+
+message SetStartTimeMillisRequest {
+  int64 arg0 = 1;
+}
+
+message SetStartTimeMillisResponse {
+  int64 result = 1;
+}
+
 message AddOrUpdateStatusRequest {
   string arg0 = 1;
   int64 arg1 = 2;
@@ -27,6 +160,30 @@ message ClearStatusesRequest {
 }
 
 message ClearStatusesResponse {
+}
+
+service ConversationStatusService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetActivity (GetActivityRequest) returns (GetActivityResponse);
+  rpc GetAvailability (GetAvailabilityRequest) returns (GetAvailabilityResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc GetEndTimeMillis (GetEndTimeMillisRequest) returns (GetEndTimeMillisResponse);
+  rpc GetIcon (GetIconRequest) returns (GetIconResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetStartTimeMillis (GetStartTimeMillisRequest) returns (GetStartTimeMillisResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ConversationStatusBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAvailability (SetAvailabilityRequest) returns (SetAvailabilityResponse);
+  rpc SetDescription (SetDescriptionRequest) returns (SetDescriptionResponse);
+  rpc SetEndTimeMillis (SetEndTimeMillisRequest) returns (SetEndTimeMillisResponse);
+  rpc SetIcon (SetIconRequest) returns (SetIconResponse);
+  rpc SetStartTimeMillis (SetStartTimeMillisRequest) returns (SetStartTimeMillisResponse);
 }
 
 service ManagerService {

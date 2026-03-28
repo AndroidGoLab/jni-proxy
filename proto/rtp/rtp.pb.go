@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -22,19 +23,2203 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewAudioStreamRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAudioStreamRequest) Reset() {
+	*x = NewAudioStreamRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAudioStreamRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAudioStreamRequest) ProtoMessage() {}
+
+func (x *NewAudioStreamRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAudioStreamRequest.ProtoReflect.Descriptor instead.
+func (*NewAudioStreamRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *NewAudioStreamRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewAudioStreamResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAudioStreamResponse) Reset() {
+	*x = NewAudioStreamResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAudioStreamResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAudioStreamResponse) ProtoMessage() {}
+
+func (x *NewAudioStreamResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAudioStreamResponse.ProtoReflect.Descriptor instead.
+func (*NewAudioStreamResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewAudioStreamResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCodecRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCodecRequest) Reset() {
+	*x = GetCodecRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCodecRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCodecRequest) ProtoMessage() {}
+
+func (x *GetCodecRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCodecRequest.ProtoReflect.Descriptor instead.
+func (*GetCodecRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetCodecRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCodecResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCodecResponse) Reset() {
+	*x = GetCodecResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCodecResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCodecResponse) ProtoMessage() {}
+
+func (x *GetCodecResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCodecResponse.ProtoReflect.Descriptor instead.
+func (*GetCodecResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetCodecResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDtmfTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDtmfTypeRequest) Reset() {
+	*x = GetDtmfTypeRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDtmfTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDtmfTypeRequest) ProtoMessage() {}
+
+func (x *GetDtmfTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDtmfTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetDtmfTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetDtmfTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetDtmfTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDtmfTypeResponse) Reset() {
+	*x = GetDtmfTypeResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDtmfTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDtmfTypeResponse) ProtoMessage() {}
+
+func (x *GetDtmfTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDtmfTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetDtmfTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetDtmfTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetGroupRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGroupRequest) Reset() {
+	*x = GetGroupRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGroupRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGroupRequest) ProtoMessage() {}
+
+func (x *GetGroupRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGroupRequest.ProtoReflect.Descriptor instead.
+func (*GetGroupRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetGroupRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetGroupResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGroupResponse) Reset() {
+	*x = GetGroupResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGroupResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGroupResponse) ProtoMessage() {}
+
+func (x *GetGroupResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGroupResponse.ProtoReflect.Descriptor instead.
+func (*GetGroupResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetGroupResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsBusyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsBusyRequest) Reset() {
+	*x = IsBusyRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsBusyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsBusyRequest) ProtoMessage() {}
+
+func (x *IsBusyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsBusyRequest.ProtoReflect.Descriptor instead.
+func (*IsBusyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *IsBusyRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsBusyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsBusyResponse) Reset() {
+	*x = IsBusyResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsBusyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsBusyResponse) ProtoMessage() {}
+
+func (x *IsBusyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsBusyResponse.ProtoReflect.Descriptor instead.
+func (*IsBusyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *IsBusyResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type JoinRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *JoinRequest) Reset() {
+	*x = JoinRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *JoinRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*JoinRequest) ProtoMessage() {}
+
+func (x *JoinRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use JoinRequest.ProtoReflect.Descriptor instead.
+func (*JoinRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *JoinRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *JoinRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type JoinResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *JoinResponse) Reset() {
+	*x = JoinResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *JoinResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*JoinResponse) ProtoMessage() {}
+
+func (x *JoinResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use JoinResponse.ProtoReflect.Descriptor instead.
+func (*JoinResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{11}
+}
+
+type SetCodecRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCodecRequest) Reset() {
+	*x = SetCodecRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCodecRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCodecRequest) ProtoMessage() {}
+
+func (x *SetCodecRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCodecRequest.ProtoReflect.Descriptor instead.
+func (*SetCodecRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *SetCodecRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetCodecRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetCodecResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCodecResponse) Reset() {
+	*x = SetCodecResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCodecResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCodecResponse) ProtoMessage() {}
+
+func (x *SetCodecResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCodecResponse.ProtoReflect.Descriptor instead.
+func (*SetCodecResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{13}
+}
+
+type SetDtmfTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDtmfTypeRequest) Reset() {
+	*x = SetDtmfTypeRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDtmfTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDtmfTypeRequest) ProtoMessage() {}
+
+func (x *SetDtmfTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDtmfTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetDtmfTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *SetDtmfTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetDtmfTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetDtmfTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDtmfTypeResponse) Reset() {
+	*x = SetDtmfTypeResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDtmfTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDtmfTypeResponse) ProtoMessage() {}
+
+func (x *SetDtmfTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDtmfTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetDtmfTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{15}
+}
+
+type AssociateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AssociateRequest) Reset() {
+	*x = AssociateRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AssociateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AssociateRequest) ProtoMessage() {}
+
+func (x *AssociateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AssociateRequest.ProtoReflect.Descriptor instead.
+func (*AssociateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *AssociateRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AssociateRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AssociateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AssociateResponse) Reset() {
+	*x = AssociateResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AssociateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AssociateResponse) ProtoMessage() {}
+
+func (x *AssociateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AssociateResponse.ProtoReflect.Descriptor instead.
+func (*AssociateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{17}
+}
+
+type GetLocalAddressRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocalAddressRequest) Reset() {
+	*x = GetLocalAddressRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocalAddressRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocalAddressRequest) ProtoMessage() {}
+
+func (x *GetLocalAddressRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocalAddressRequest.ProtoReflect.Descriptor instead.
+func (*GetLocalAddressRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{18}
+}
+
+type GetLocalAddressResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocalAddressResponse) Reset() {
+	*x = GetLocalAddressResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocalAddressResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocalAddressResponse) ProtoMessage() {}
+
+func (x *GetLocalAddressResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocalAddressResponse.ProtoReflect.Descriptor instead.
+func (*GetLocalAddressResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetLocalAddressResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLocalPortRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocalPortRequest) Reset() {
+	*x = GetLocalPortRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocalPortRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocalPortRequest) ProtoMessage() {}
+
+func (x *GetLocalPortRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocalPortRequest.ProtoReflect.Descriptor instead.
+func (*GetLocalPortRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{20}
+}
+
+type GetLocalPortResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocalPortResponse) Reset() {
+	*x = GetLocalPortResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocalPortResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocalPortResponse) ProtoMessage() {}
+
+func (x *GetLocalPortResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocalPortResponse.ProtoReflect.Descriptor instead.
+func (*GetLocalPortResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetLocalPortResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetModeRequest) Reset() {
+	*x = GetModeRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetModeRequest) ProtoMessage() {}
+
+func (x *GetModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetModeRequest.ProtoReflect.Descriptor instead.
+func (*GetModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{22}
+}
+
+type GetModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetModeResponse) Reset() {
+	*x = GetModeResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetModeResponse) ProtoMessage() {}
+
+func (x *GetModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetModeResponse.ProtoReflect.Descriptor instead.
+func (*GetModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetModeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRemoteAddressRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemoteAddressRequest) Reset() {
+	*x = GetRemoteAddressRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemoteAddressRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemoteAddressRequest) ProtoMessage() {}
+
+func (x *GetRemoteAddressRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemoteAddressRequest.ProtoReflect.Descriptor instead.
+func (*GetRemoteAddressRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{24}
+}
+
+type GetRemoteAddressResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemoteAddressResponse) Reset() {
+	*x = GetRemoteAddressResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemoteAddressResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemoteAddressResponse) ProtoMessage() {}
+
+func (x *GetRemoteAddressResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemoteAddressResponse.ProtoReflect.Descriptor instead.
+func (*GetRemoteAddressResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetRemoteAddressResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRemotePortRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemotePortRequest) Reset() {
+	*x = GetRemotePortRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemotePortRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemotePortRequest) ProtoMessage() {}
+
+func (x *GetRemotePortRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemotePortRequest.ProtoReflect.Descriptor instead.
+func (*GetRemotePortRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{26}
+}
+
+type GetRemotePortResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemotePortResponse) Reset() {
+	*x = GetRemotePortResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemotePortResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemotePortResponse) ProtoMessage() {}
+
+func (x *GetRemotePortResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemotePortResponse.ProtoReflect.Descriptor instead.
+func (*GetRemotePortResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetRemotePortResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type StreamIsBusyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StreamIsBusyRequest) Reset() {
+	*x = StreamIsBusyRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StreamIsBusyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StreamIsBusyRequest) ProtoMessage() {}
+
+func (x *StreamIsBusyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StreamIsBusyRequest.ProtoReflect.Descriptor instead.
+func (*StreamIsBusyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{28}
+}
+
+type ReleaseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReleaseRequest) Reset() {
+	*x = ReleaseRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReleaseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReleaseRequest) ProtoMessage() {}
+
+func (x *ReleaseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReleaseRequest.ProtoReflect.Descriptor instead.
+func (*ReleaseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{29}
+}
+
+type ReleaseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReleaseResponse) Reset() {
+	*x = ReleaseResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReleaseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReleaseResponse) ProtoMessage() {}
+
+func (x *ReleaseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReleaseResponse.ProtoReflect.Descriptor instead.
+func (*ReleaseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{30}
+}
+
+type SetModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetModeRequest) Reset() {
+	*x = SetModeRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetModeRequest) ProtoMessage() {}
+
+func (x *SetModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetModeRequest.ProtoReflect.Descriptor instead.
+func (*SetModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *SetModeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetModeResponse) Reset() {
+	*x = SetModeResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetModeResponse) ProtoMessage() {}
+
+func (x *SetModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetModeResponse.ProtoReflect.Descriptor instead.
+func (*SetModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{32}
+}
+
+type NewAudioGroupRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAudioGroupRequest) Reset() {
+	*x = NewAudioGroupRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAudioGroupRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAudioGroupRequest) ProtoMessage() {}
+
+func (x *NewAudioGroupRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAudioGroupRequest.ProtoReflect.Descriptor instead.
+func (*NewAudioGroupRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *NewAudioGroupRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewAudioGroupResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAudioGroupResponse) Reset() {
+	*x = NewAudioGroupResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAudioGroupResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAudioGroupResponse) ProtoMessage() {}
+
+func (x *NewAudioGroupResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAudioGroupResponse.ProtoReflect.Descriptor instead.
+func (*NewAudioGroupResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *NewAudioGroupResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearRequest) Reset() {
+	*x = ClearRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearRequest) ProtoMessage() {}
+
+func (x *ClearRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearRequest.ProtoReflect.Descriptor instead.
+func (*ClearRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *ClearRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ClearResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearResponse) Reset() {
+	*x = ClearResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearResponse) ProtoMessage() {}
+
+func (x *ClearResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearResponse.ProtoReflect.Descriptor instead.
+func (*ClearResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{36}
+}
+
+type AudioGroupGetModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AudioGroupGetModeRequest) Reset() {
+	*x = AudioGroupGetModeRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AudioGroupGetModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AudioGroupGetModeRequest) ProtoMessage() {}
+
+func (x *AudioGroupGetModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AudioGroupGetModeRequest.ProtoReflect.Descriptor instead.
+func (*AudioGroupGetModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *AudioGroupGetModeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetStreamsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStreamsRequest) Reset() {
+	*x = GetStreamsRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStreamsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStreamsRequest) ProtoMessage() {}
+
+func (x *GetStreamsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStreamsRequest.ProtoReflect.Descriptor instead.
+func (*GetStreamsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *GetStreamsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetStreamsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStreamsResponse) Reset() {
+	*x = GetStreamsResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStreamsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStreamsResponse) ProtoMessage() {}
+
+func (x *GetStreamsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStreamsResponse.ProtoReflect.Descriptor instead.
+func (*GetStreamsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetStreamsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SendDtmfRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendDtmfRequest) Reset() {
+	*x = SendDtmfRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendDtmfRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendDtmfRequest) ProtoMessage() {}
+
+func (x *SendDtmfRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendDtmfRequest.ProtoReflect.Descriptor instead.
+func (*SendDtmfRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *SendDtmfRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SendDtmfRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SendDtmfResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendDtmfResponse) Reset() {
+	*x = SendDtmfResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendDtmfResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendDtmfResponse) ProtoMessage() {}
+
+func (x *SendDtmfResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendDtmfResponse.ProtoReflect.Descriptor instead.
+func (*SendDtmfResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{41}
+}
+
+type AudioGroupSetModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AudioGroupSetModeRequest) Reset() {
+	*x = AudioGroupSetModeRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AudioGroupSetModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AudioGroupSetModeRequest) ProtoMessage() {}
+
+func (x *AudioGroupSetModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AudioGroupSetModeRequest.ProtoReflect.Descriptor instead.
+func (*AudioGroupSetModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *AudioGroupSetModeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AudioGroupSetModeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AudioCodecGetCodecRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AudioCodecGetCodecRequest) Reset() {
+	*x = AudioCodecGetCodecRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AudioCodecGetCodecRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AudioCodecGetCodecRequest) ProtoMessage() {}
+
+func (x *AudioCodecGetCodecRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AudioCodecGetCodecRequest.ProtoReflect.Descriptor instead.
+func (*AudioCodecGetCodecRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *AudioCodecGetCodecRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AudioCodecGetCodecRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *AudioCodecGetCodecRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type GetCodecsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCodecsRequest) Reset() {
+	*x = GetCodecsRequest{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCodecsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCodecsRequest) ProtoMessage() {}
+
+func (x *GetCodecsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCodecsRequest.ProtoReflect.Descriptor instead.
+func (*GetCodecsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{44}
+}
+
+type GetCodecsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCodecsResponse) Reset() {
+	*x = GetCodecsResponse{}
+	mi := &file_proto_rtp_rtp_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCodecsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCodecsResponse) ProtoMessage() {}
+
+func (x *GetCodecsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_rtp_rtp_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCodecsResponse.ProtoReflect.Descriptor instead.
+func (*GetCodecsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_rtp_rtp_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *GetCodecsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_rtp_rtp_proto protoreflect.FileDescriptor
 
 const file_proto_rtp_rtp_proto_rawDesc = "" +
 	"\n" +
-	"\x13proto/rtp/rtp.proto\x12\x03rtpB-Z+github.com/AndroidGoLab/jni-proxy/proto/rtpb\x06proto3"
+	"\x13proto/rtp/rtp.proto\x12\x03rtp\"+\n" +
+	"\x15NewAudioStreamRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16NewAudioStreamResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x0fGetCodecRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10GetCodecResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x12GetDtmfTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetDtmfTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
+	"\x0fGetGroupRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10GetGroupResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"\rIsBusyRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"(\n" +
+	"\x0eIsBusyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"9\n" +
+	"\vJoinRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x0e\n" +
+	"\fJoinResponse\"=\n" +
+	"\x0fSetCodecRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x12\n" +
+	"\x10SetCodecResponse\"@\n" +
+	"\x12SetDtmfTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x15\n" +
+	"\x13SetDtmfTypeResponse\":\n" +
+	"\x10AssociateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x13\n" +
+	"\x11AssociateResponse\"\x18\n" +
+	"\x16GetLocalAddressRequest\"1\n" +
+	"\x17GetLocalAddressResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13GetLocalPortRequest\".\n" +
+	"\x14GetLocalPortResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x10\n" +
+	"\x0eGetModeRequest\")\n" +
+	"\x0fGetModeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x19\n" +
+	"\x17GetRemoteAddressRequest\"2\n" +
+	"\x18GetRemoteAddressResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14GetRemotePortRequest\"/\n" +
+	"\x15GetRemotePortResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x15\n" +
+	"\x13StreamIsBusyRequest\"\x10\n" +
+	"\x0eReleaseRequest\"\x11\n" +
+	"\x0fReleaseResponse\"$\n" +
+	"\x0eSetModeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x11\n" +
+	"\x0fSetModeResponse\"*\n" +
+	"\x14NewAudioGroupRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
+	"\x15NewAudioGroupResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"\fClearRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x0f\n" +
+	"\rClearResponse\"2\n" +
+	"\x18AudioGroupGetModeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetStreamsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetStreamsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"=\n" +
+	"\x0fSendDtmfRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x12\n" +
+	"\x10SendDtmfResponse\"F\n" +
+	"\x18AudioGroupSetModeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"W\n" +
+	"\x19AudioCodecGetCodecRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"\x12\n" +
+	"\x10GetCodecsRequest\"+\n" +
+	"\x11GetCodecsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xee\x03\n" +
+	"\x12AudioStreamService\x12I\n" +
+	"\x0eNewAudioStream\x12\x1a.rtp.NewAudioStreamRequest\x1a\x1b.rtp.NewAudioStreamResponse\x127\n" +
+	"\bGetCodec\x12\x14.rtp.GetCodecRequest\x1a\x15.rtp.GetCodecResponse\x12@\n" +
+	"\vGetDtmfType\x12\x17.rtp.GetDtmfTypeRequest\x1a\x18.rtp.GetDtmfTypeResponse\x127\n" +
+	"\bGetGroup\x12\x14.rtp.GetGroupRequest\x1a\x15.rtp.GetGroupResponse\x121\n" +
+	"\x06IsBusy\x12\x12.rtp.IsBusyRequest\x1a\x13.rtp.IsBusyResponse\x12+\n" +
+	"\x04Join\x12\x10.rtp.JoinRequest\x1a\x11.rtp.JoinResponse\x127\n" +
+	"\bSetCodec\x12\x14.rtp.SetCodecRequest\x1a\x15.rtp.SetCodecResponse\x12@\n" +
+	"\vSetDtmfType\x12\x17.rtp.SetDtmfTypeRequest\x1a\x18.rtp.SetDtmfTypeResponse2\xd2\x04\n" +
+	"\rStreamService\x12:\n" +
+	"\tAssociate\x12\x15.rtp.AssociateRequest\x1a\x16.rtp.AssociateResponse\x12L\n" +
+	"\x0fGetLocalAddress\x12\x1b.rtp.GetLocalAddressRequest\x1a\x1c.rtp.GetLocalAddressResponse\x12C\n" +
+	"\fGetLocalPort\x12\x18.rtp.GetLocalPortRequest\x1a\x19.rtp.GetLocalPortResponse\x124\n" +
+	"\aGetMode\x12\x13.rtp.GetModeRequest\x1a\x14.rtp.GetModeResponse\x12O\n" +
+	"\x10GetRemoteAddress\x12\x1c.rtp.GetRemoteAddressRequest\x1a\x1d.rtp.GetRemoteAddressResponse\x12F\n" +
+	"\rGetRemotePort\x12\x19.rtp.GetRemotePortRequest\x1a\x1a.rtp.GetRemotePortResponse\x127\n" +
+	"\x06IsBusy\x12\x18.rtp.StreamIsBusyRequest\x1a\x13.rtp.IsBusyResponse\x124\n" +
+	"\aRelease\x12\x13.rtp.ReleaseRequest\x1a\x14.rtp.ReleaseResponse\x124\n" +
+	"\aSetMode\x12\x13.rtp.SetModeRequest\x1a\x14.rtp.SetModeResponse2\x83\x03\n" +
+	"\x11AudioGroupService\x12F\n" +
+	"\rNewAudioGroup\x12\x19.rtp.NewAudioGroupRequest\x1a\x1a.rtp.NewAudioGroupResponse\x12.\n" +
+	"\x05Clear\x12\x11.rtp.ClearRequest\x1a\x12.rtp.ClearResponse\x12>\n" +
+	"\aGetMode\x12\x1d.rtp.AudioGroupGetModeRequest\x1a\x14.rtp.GetModeResponse\x12=\n" +
+	"\n" +
+	"GetStreams\x12\x16.rtp.GetStreamsRequest\x1a\x17.rtp.GetStreamsResponse\x127\n" +
+	"\bSendDtmf\x12\x14.rtp.SendDtmfRequest\x1a\x15.rtp.SendDtmfResponse\x12>\n" +
+	"\aSetMode\x12\x1d.rtp.AudioGroupSetModeRequest\x1a\x14.rtp.SetModeResponse2\x92\x01\n" +
+	"\x11AudioCodecService\x12A\n" +
+	"\bGetCodec\x12\x1e.rtp.AudioCodecGetCodecRequest\x1a\x15.rtp.GetCodecResponse\x12:\n" +
+	"\tGetCodecs\x12\x15.rtp.GetCodecsRequest\x1a\x16.rtp.GetCodecsResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/rtpb\x06proto3"
 
-var file_proto_rtp_rtp_proto_goTypes = []any{}
+var (
+	file_proto_rtp_rtp_proto_rawDescOnce sync.Once
+	file_proto_rtp_rtp_proto_rawDescData []byte
+)
+
+func file_proto_rtp_rtp_proto_rawDescGZIP() []byte {
+	file_proto_rtp_rtp_proto_rawDescOnce.Do(func() {
+		file_proto_rtp_rtp_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_rtp_rtp_proto_rawDesc), len(file_proto_rtp_rtp_proto_rawDesc)))
+	})
+	return file_proto_rtp_rtp_proto_rawDescData
+}
+
+var file_proto_rtp_rtp_proto_msgTypes = make([]protoimpl.MessageInfo, 46)
+var file_proto_rtp_rtp_proto_goTypes = []any{
+	(*NewAudioStreamRequest)(nil),     // 0: rtp.NewAudioStreamRequest
+	(*NewAudioStreamResponse)(nil),    // 1: rtp.NewAudioStreamResponse
+	(*GetCodecRequest)(nil),           // 2: rtp.GetCodecRequest
+	(*GetCodecResponse)(nil),          // 3: rtp.GetCodecResponse
+	(*GetDtmfTypeRequest)(nil),        // 4: rtp.GetDtmfTypeRequest
+	(*GetDtmfTypeResponse)(nil),       // 5: rtp.GetDtmfTypeResponse
+	(*GetGroupRequest)(nil),           // 6: rtp.GetGroupRequest
+	(*GetGroupResponse)(nil),          // 7: rtp.GetGroupResponse
+	(*IsBusyRequest)(nil),             // 8: rtp.IsBusyRequest
+	(*IsBusyResponse)(nil),            // 9: rtp.IsBusyResponse
+	(*JoinRequest)(nil),               // 10: rtp.JoinRequest
+	(*JoinResponse)(nil),              // 11: rtp.JoinResponse
+	(*SetCodecRequest)(nil),           // 12: rtp.SetCodecRequest
+	(*SetCodecResponse)(nil),          // 13: rtp.SetCodecResponse
+	(*SetDtmfTypeRequest)(nil),        // 14: rtp.SetDtmfTypeRequest
+	(*SetDtmfTypeResponse)(nil),       // 15: rtp.SetDtmfTypeResponse
+	(*AssociateRequest)(nil),          // 16: rtp.AssociateRequest
+	(*AssociateResponse)(nil),         // 17: rtp.AssociateResponse
+	(*GetLocalAddressRequest)(nil),    // 18: rtp.GetLocalAddressRequest
+	(*GetLocalAddressResponse)(nil),   // 19: rtp.GetLocalAddressResponse
+	(*GetLocalPortRequest)(nil),       // 20: rtp.GetLocalPortRequest
+	(*GetLocalPortResponse)(nil),      // 21: rtp.GetLocalPortResponse
+	(*GetModeRequest)(nil),            // 22: rtp.GetModeRequest
+	(*GetModeResponse)(nil),           // 23: rtp.GetModeResponse
+	(*GetRemoteAddressRequest)(nil),   // 24: rtp.GetRemoteAddressRequest
+	(*GetRemoteAddressResponse)(nil),  // 25: rtp.GetRemoteAddressResponse
+	(*GetRemotePortRequest)(nil),      // 26: rtp.GetRemotePortRequest
+	(*GetRemotePortResponse)(nil),     // 27: rtp.GetRemotePortResponse
+	(*StreamIsBusyRequest)(nil),       // 28: rtp.StreamIsBusyRequest
+	(*ReleaseRequest)(nil),            // 29: rtp.ReleaseRequest
+	(*ReleaseResponse)(nil),           // 30: rtp.ReleaseResponse
+	(*SetModeRequest)(nil),            // 31: rtp.SetModeRequest
+	(*SetModeResponse)(nil),           // 32: rtp.SetModeResponse
+	(*NewAudioGroupRequest)(nil),      // 33: rtp.NewAudioGroupRequest
+	(*NewAudioGroupResponse)(nil),     // 34: rtp.NewAudioGroupResponse
+	(*ClearRequest)(nil),              // 35: rtp.ClearRequest
+	(*ClearResponse)(nil),             // 36: rtp.ClearResponse
+	(*AudioGroupGetModeRequest)(nil),  // 37: rtp.AudioGroupGetModeRequest
+	(*GetStreamsRequest)(nil),         // 38: rtp.GetStreamsRequest
+	(*GetStreamsResponse)(nil),        // 39: rtp.GetStreamsResponse
+	(*SendDtmfRequest)(nil),           // 40: rtp.SendDtmfRequest
+	(*SendDtmfResponse)(nil),          // 41: rtp.SendDtmfResponse
+	(*AudioGroupSetModeRequest)(nil),  // 42: rtp.AudioGroupSetModeRequest
+	(*AudioCodecGetCodecRequest)(nil), // 43: rtp.AudioCodecGetCodecRequest
+	(*GetCodecsRequest)(nil),          // 44: rtp.GetCodecsRequest
+	(*GetCodecsResponse)(nil),         // 45: rtp.GetCodecsResponse
+}
 var file_proto_rtp_rtp_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: rtp.AudioStreamService.NewAudioStream:input_type -> rtp.NewAudioStreamRequest
+	2,  // 1: rtp.AudioStreamService.GetCodec:input_type -> rtp.GetCodecRequest
+	4,  // 2: rtp.AudioStreamService.GetDtmfType:input_type -> rtp.GetDtmfTypeRequest
+	6,  // 3: rtp.AudioStreamService.GetGroup:input_type -> rtp.GetGroupRequest
+	8,  // 4: rtp.AudioStreamService.IsBusy:input_type -> rtp.IsBusyRequest
+	10, // 5: rtp.AudioStreamService.Join:input_type -> rtp.JoinRequest
+	12, // 6: rtp.AudioStreamService.SetCodec:input_type -> rtp.SetCodecRequest
+	14, // 7: rtp.AudioStreamService.SetDtmfType:input_type -> rtp.SetDtmfTypeRequest
+	16, // 8: rtp.StreamService.Associate:input_type -> rtp.AssociateRequest
+	18, // 9: rtp.StreamService.GetLocalAddress:input_type -> rtp.GetLocalAddressRequest
+	20, // 10: rtp.StreamService.GetLocalPort:input_type -> rtp.GetLocalPortRequest
+	22, // 11: rtp.StreamService.GetMode:input_type -> rtp.GetModeRequest
+	24, // 12: rtp.StreamService.GetRemoteAddress:input_type -> rtp.GetRemoteAddressRequest
+	26, // 13: rtp.StreamService.GetRemotePort:input_type -> rtp.GetRemotePortRequest
+	28, // 14: rtp.StreamService.IsBusy:input_type -> rtp.StreamIsBusyRequest
+	29, // 15: rtp.StreamService.Release:input_type -> rtp.ReleaseRequest
+	31, // 16: rtp.StreamService.SetMode:input_type -> rtp.SetModeRequest
+	33, // 17: rtp.AudioGroupService.NewAudioGroup:input_type -> rtp.NewAudioGroupRequest
+	35, // 18: rtp.AudioGroupService.Clear:input_type -> rtp.ClearRequest
+	37, // 19: rtp.AudioGroupService.GetMode:input_type -> rtp.AudioGroupGetModeRequest
+	38, // 20: rtp.AudioGroupService.GetStreams:input_type -> rtp.GetStreamsRequest
+	40, // 21: rtp.AudioGroupService.SendDtmf:input_type -> rtp.SendDtmfRequest
+	42, // 22: rtp.AudioGroupService.SetMode:input_type -> rtp.AudioGroupSetModeRequest
+	43, // 23: rtp.AudioCodecService.GetCodec:input_type -> rtp.AudioCodecGetCodecRequest
+	44, // 24: rtp.AudioCodecService.GetCodecs:input_type -> rtp.GetCodecsRequest
+	1,  // 25: rtp.AudioStreamService.NewAudioStream:output_type -> rtp.NewAudioStreamResponse
+	3,  // 26: rtp.AudioStreamService.GetCodec:output_type -> rtp.GetCodecResponse
+	5,  // 27: rtp.AudioStreamService.GetDtmfType:output_type -> rtp.GetDtmfTypeResponse
+	7,  // 28: rtp.AudioStreamService.GetGroup:output_type -> rtp.GetGroupResponse
+	9,  // 29: rtp.AudioStreamService.IsBusy:output_type -> rtp.IsBusyResponse
+	11, // 30: rtp.AudioStreamService.Join:output_type -> rtp.JoinResponse
+	13, // 31: rtp.AudioStreamService.SetCodec:output_type -> rtp.SetCodecResponse
+	15, // 32: rtp.AudioStreamService.SetDtmfType:output_type -> rtp.SetDtmfTypeResponse
+	17, // 33: rtp.StreamService.Associate:output_type -> rtp.AssociateResponse
+	19, // 34: rtp.StreamService.GetLocalAddress:output_type -> rtp.GetLocalAddressResponse
+	21, // 35: rtp.StreamService.GetLocalPort:output_type -> rtp.GetLocalPortResponse
+	23, // 36: rtp.StreamService.GetMode:output_type -> rtp.GetModeResponse
+	25, // 37: rtp.StreamService.GetRemoteAddress:output_type -> rtp.GetRemoteAddressResponse
+	27, // 38: rtp.StreamService.GetRemotePort:output_type -> rtp.GetRemotePortResponse
+	9,  // 39: rtp.StreamService.IsBusy:output_type -> rtp.IsBusyResponse
+	30, // 40: rtp.StreamService.Release:output_type -> rtp.ReleaseResponse
+	32, // 41: rtp.StreamService.SetMode:output_type -> rtp.SetModeResponse
+	34, // 42: rtp.AudioGroupService.NewAudioGroup:output_type -> rtp.NewAudioGroupResponse
+	36, // 43: rtp.AudioGroupService.Clear:output_type -> rtp.ClearResponse
+	23, // 44: rtp.AudioGroupService.GetMode:output_type -> rtp.GetModeResponse
+	39, // 45: rtp.AudioGroupService.GetStreams:output_type -> rtp.GetStreamsResponse
+	41, // 46: rtp.AudioGroupService.SendDtmf:output_type -> rtp.SendDtmfResponse
+	32, // 47: rtp.AudioGroupService.SetMode:output_type -> rtp.SetModeResponse
+	3,  // 48: rtp.AudioCodecService.GetCodec:output_type -> rtp.GetCodecResponse
+	45, // 49: rtp.AudioCodecService.GetCodecs:output_type -> rtp.GetCodecsResponse
+	25, // [25:50] is the sub-list for method output_type
+	0,  // [0:25] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_rtp_rtp_proto_init() }
@@ -48,12 +2233,13 @@ func file_proto_rtp_rtp_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_rtp_rtp_proto_rawDesc), len(file_proto_rtp_rtp_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   46,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   4,
 		},
 		GoTypes:           file_proto_rtp_rtp_proto_goTypes,
 		DependencyIndexes: file_proto_rtp_rtp_proto_depIdxs,
+		MessageInfos:      file_proto_rtp_rtp_proto_msgTypes,
 	}.Build()
 	File_proto_rtp_rtp_proto = out.File
 	file_proto_rtp_rtp_proto_goTypes = nil

@@ -274,3 +274,5434 @@ var KeyStoreManagerService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "proto/keystore/keystore.proto",
 }
+
+const (
+	KeyInfoService_GetBlockModes_FullMethodName                                           = "/keystore.KeyInfoService/GetBlockModes"
+	KeyInfoService_GetDigests_FullMethodName                                              = "/keystore.KeyInfoService/GetDigests"
+	KeyInfoService_GetEncryptionPaddings_FullMethodName                                   = "/keystore.KeyInfoService/GetEncryptionPaddings"
+	KeyInfoService_GetKeySize_FullMethodName                                              = "/keystore.KeyInfoService/GetKeySize"
+	KeyInfoService_GetKeyValidityForConsumptionEnd_FullMethodName                         = "/keystore.KeyInfoService/GetKeyValidityForConsumptionEnd"
+	KeyInfoService_GetKeyValidityForOriginationEnd_FullMethodName                         = "/keystore.KeyInfoService/GetKeyValidityForOriginationEnd"
+	KeyInfoService_GetKeyValidityStart_FullMethodName                                     = "/keystore.KeyInfoService/GetKeyValidityStart"
+	KeyInfoService_GetKeystoreAlias_FullMethodName                                        = "/keystore.KeyInfoService/GetKeystoreAlias"
+	KeyInfoService_GetOrigin_FullMethodName                                               = "/keystore.KeyInfoService/GetOrigin"
+	KeyInfoService_GetPurposes_FullMethodName                                             = "/keystore.KeyInfoService/GetPurposes"
+	KeyInfoService_GetRemainingUsageCount_FullMethodName                                  = "/keystore.KeyInfoService/GetRemainingUsageCount"
+	KeyInfoService_GetSecurityLevel_FullMethodName                                        = "/keystore.KeyInfoService/GetSecurityLevel"
+	KeyInfoService_GetSignaturePaddings_FullMethodName                                    = "/keystore.KeyInfoService/GetSignaturePaddings"
+	KeyInfoService_GetUserAuthenticationType_FullMethodName                               = "/keystore.KeyInfoService/GetUserAuthenticationType"
+	KeyInfoService_GetUserAuthenticationValidityDurationSeconds_FullMethodName            = "/keystore.KeyInfoService/GetUserAuthenticationValidityDurationSeconds"
+	KeyInfoService_IsInsideSecureHardware_FullMethodName                                  = "/keystore.KeyInfoService/IsInsideSecureHardware"
+	KeyInfoService_IsInvalidatedByBiometricEnrollment_FullMethodName                      = "/keystore.KeyInfoService/IsInvalidatedByBiometricEnrollment"
+	KeyInfoService_IsTrustedUserPresenceRequired_FullMethodName                           = "/keystore.KeyInfoService/IsTrustedUserPresenceRequired"
+	KeyInfoService_IsUserAuthenticationRequired_FullMethodName                            = "/keystore.KeyInfoService/IsUserAuthenticationRequired"
+	KeyInfoService_IsUserAuthenticationRequirementEnforcedBySecureHardware_FullMethodName = "/keystore.KeyInfoService/IsUserAuthenticationRequirementEnforcedBySecureHardware"
+	KeyInfoService_IsUserAuthenticationValidWhileOnBody_FullMethodName                    = "/keystore.KeyInfoService/IsUserAuthenticationValidWhileOnBody"
+	KeyInfoService_IsUserConfirmationRequired_FullMethodName                              = "/keystore.KeyInfoService/IsUserConfirmationRequired"
+)
+
+// KeyInfoServiceClient is the client API for KeyInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type KeyInfoServiceClient interface {
+	GetBlockModes(ctx context.Context, in *GetBlockModesRequest, opts ...grpc.CallOption) (*GetBlockModesResponse, error)
+	GetDigests(ctx context.Context, in *GetDigestsRequest, opts ...grpc.CallOption) (*GetDigestsResponse, error)
+	GetEncryptionPaddings(ctx context.Context, in *GetEncryptionPaddingsRequest, opts ...grpc.CallOption) (*GetEncryptionPaddingsResponse, error)
+	GetKeySize(ctx context.Context, in *GetKeySizeRequest, opts ...grpc.CallOption) (*GetKeySizeResponse, error)
+	GetKeyValidityForConsumptionEnd(ctx context.Context, in *GetKeyValidityForConsumptionEndRequest, opts ...grpc.CallOption) (*GetKeyValidityForConsumptionEndResponse, error)
+	GetKeyValidityForOriginationEnd(ctx context.Context, in *GetKeyValidityForOriginationEndRequest, opts ...grpc.CallOption) (*GetKeyValidityForOriginationEndResponse, error)
+	GetKeyValidityStart(ctx context.Context, in *GetKeyValidityStartRequest, opts ...grpc.CallOption) (*GetKeyValidityStartResponse, error)
+	GetKeystoreAlias(ctx context.Context, in *GetKeystoreAliasRequest, opts ...grpc.CallOption) (*GetKeystoreAliasResponse, error)
+	GetOrigin(ctx context.Context, in *GetOriginRequest, opts ...grpc.CallOption) (*GetOriginResponse, error)
+	GetPurposes(ctx context.Context, in *GetPurposesRequest, opts ...grpc.CallOption) (*GetPurposesResponse, error)
+	GetRemainingUsageCount(ctx context.Context, in *GetRemainingUsageCountRequest, opts ...grpc.CallOption) (*GetRemainingUsageCountResponse, error)
+	GetSecurityLevel(ctx context.Context, in *GetSecurityLevelRequest, opts ...grpc.CallOption) (*GetSecurityLevelResponse, error)
+	GetSignaturePaddings(ctx context.Context, in *GetSignaturePaddingsRequest, opts ...grpc.CallOption) (*GetSignaturePaddingsResponse, error)
+	GetUserAuthenticationType(ctx context.Context, in *GetUserAuthenticationTypeRequest, opts ...grpc.CallOption) (*GetUserAuthenticationTypeResponse, error)
+	GetUserAuthenticationValidityDurationSeconds(ctx context.Context, in *GetUserAuthenticationValidityDurationSecondsRequest, opts ...grpc.CallOption) (*GetUserAuthenticationValidityDurationSecondsResponse, error)
+	IsInsideSecureHardware(ctx context.Context, in *IsInsideSecureHardwareRequest, opts ...grpc.CallOption) (*IsInsideSecureHardwareResponse, error)
+	IsInvalidatedByBiometricEnrollment(ctx context.Context, in *IsInvalidatedByBiometricEnrollmentRequest, opts ...grpc.CallOption) (*IsInvalidatedByBiometricEnrollmentResponse, error)
+	IsTrustedUserPresenceRequired(ctx context.Context, in *IsTrustedUserPresenceRequiredRequest, opts ...grpc.CallOption) (*IsTrustedUserPresenceRequiredResponse, error)
+	IsUserAuthenticationRequired(ctx context.Context, in *IsUserAuthenticationRequiredRequest, opts ...grpc.CallOption) (*IsUserAuthenticationRequiredResponse, error)
+	IsUserAuthenticationRequirementEnforcedBySecureHardware(ctx context.Context, in *IsUserAuthenticationRequirementEnforcedBySecureHardwareRequest, opts ...grpc.CallOption) (*IsUserAuthenticationRequirementEnforcedBySecureHardwareResponse, error)
+	IsUserAuthenticationValidWhileOnBody(ctx context.Context, in *IsUserAuthenticationValidWhileOnBodyRequest, opts ...grpc.CallOption) (*IsUserAuthenticationValidWhileOnBodyResponse, error)
+	IsUserConfirmationRequired(ctx context.Context, in *IsUserConfirmationRequiredRequest, opts ...grpc.CallOption) (*IsUserConfirmationRequiredResponse, error)
+}
+
+type keyInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewKeyInfoServiceClient(cc grpc.ClientConnInterface) KeyInfoServiceClient {
+	return &keyInfoServiceClient{cc}
+}
+
+func (c *keyInfoServiceClient) GetBlockModes(ctx context.Context, in *GetBlockModesRequest, opts ...grpc.CallOption) (*GetBlockModesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBlockModesResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_GetBlockModes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) GetDigests(ctx context.Context, in *GetDigestsRequest, opts ...grpc.CallOption) (*GetDigestsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDigestsResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_GetDigests_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) GetEncryptionPaddings(ctx context.Context, in *GetEncryptionPaddingsRequest, opts ...grpc.CallOption) (*GetEncryptionPaddingsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEncryptionPaddingsResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_GetEncryptionPaddings_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) GetKeySize(ctx context.Context, in *GetKeySizeRequest, opts ...grpc.CallOption) (*GetKeySizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeySizeResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_GetKeySize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) GetKeyValidityForConsumptionEnd(ctx context.Context, in *GetKeyValidityForConsumptionEndRequest, opts ...grpc.CallOption) (*GetKeyValidityForConsumptionEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeyValidityForConsumptionEndResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_GetKeyValidityForConsumptionEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) GetKeyValidityForOriginationEnd(ctx context.Context, in *GetKeyValidityForOriginationEndRequest, opts ...grpc.CallOption) (*GetKeyValidityForOriginationEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeyValidityForOriginationEndResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_GetKeyValidityForOriginationEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) GetKeyValidityStart(ctx context.Context, in *GetKeyValidityStartRequest, opts ...grpc.CallOption) (*GetKeyValidityStartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeyValidityStartResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_GetKeyValidityStart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) GetKeystoreAlias(ctx context.Context, in *GetKeystoreAliasRequest, opts ...grpc.CallOption) (*GetKeystoreAliasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeystoreAliasResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_GetKeystoreAlias_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) GetOrigin(ctx context.Context, in *GetOriginRequest, opts ...grpc.CallOption) (*GetOriginResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOriginResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_GetOrigin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) GetPurposes(ctx context.Context, in *GetPurposesRequest, opts ...grpc.CallOption) (*GetPurposesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPurposesResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_GetPurposes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) GetRemainingUsageCount(ctx context.Context, in *GetRemainingUsageCountRequest, opts ...grpc.CallOption) (*GetRemainingUsageCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRemainingUsageCountResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_GetRemainingUsageCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) GetSecurityLevel(ctx context.Context, in *GetSecurityLevelRequest, opts ...grpc.CallOption) (*GetSecurityLevelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSecurityLevelResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_GetSecurityLevel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) GetSignaturePaddings(ctx context.Context, in *GetSignaturePaddingsRequest, opts ...grpc.CallOption) (*GetSignaturePaddingsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSignaturePaddingsResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_GetSignaturePaddings_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) GetUserAuthenticationType(ctx context.Context, in *GetUserAuthenticationTypeRequest, opts ...grpc.CallOption) (*GetUserAuthenticationTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserAuthenticationTypeResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_GetUserAuthenticationType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) GetUserAuthenticationValidityDurationSeconds(ctx context.Context, in *GetUserAuthenticationValidityDurationSecondsRequest, opts ...grpc.CallOption) (*GetUserAuthenticationValidityDurationSecondsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserAuthenticationValidityDurationSecondsResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_GetUserAuthenticationValidityDurationSeconds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) IsInsideSecureHardware(ctx context.Context, in *IsInsideSecureHardwareRequest, opts ...grpc.CallOption) (*IsInsideSecureHardwareResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsInsideSecureHardwareResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_IsInsideSecureHardware_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) IsInvalidatedByBiometricEnrollment(ctx context.Context, in *IsInvalidatedByBiometricEnrollmentRequest, opts ...grpc.CallOption) (*IsInvalidatedByBiometricEnrollmentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsInvalidatedByBiometricEnrollmentResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_IsInvalidatedByBiometricEnrollment_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) IsTrustedUserPresenceRequired(ctx context.Context, in *IsTrustedUserPresenceRequiredRequest, opts ...grpc.CallOption) (*IsTrustedUserPresenceRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsTrustedUserPresenceRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_IsTrustedUserPresenceRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) IsUserAuthenticationRequired(ctx context.Context, in *IsUserAuthenticationRequiredRequest, opts ...grpc.CallOption) (*IsUserAuthenticationRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsUserAuthenticationRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_IsUserAuthenticationRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) IsUserAuthenticationRequirementEnforcedBySecureHardware(ctx context.Context, in *IsUserAuthenticationRequirementEnforcedBySecureHardwareRequest, opts ...grpc.CallOption) (*IsUserAuthenticationRequirementEnforcedBySecureHardwareResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsUserAuthenticationRequirementEnforcedBySecureHardwareResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_IsUserAuthenticationRequirementEnforcedBySecureHardware_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) IsUserAuthenticationValidWhileOnBody(ctx context.Context, in *IsUserAuthenticationValidWhileOnBodyRequest, opts ...grpc.CallOption) (*IsUserAuthenticationValidWhileOnBodyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsUserAuthenticationValidWhileOnBodyResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_IsUserAuthenticationValidWhileOnBody_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyInfoServiceClient) IsUserConfirmationRequired(ctx context.Context, in *IsUserConfirmationRequiredRequest, opts ...grpc.CallOption) (*IsUserConfirmationRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsUserConfirmationRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyInfoService_IsUserConfirmationRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// KeyInfoServiceServer is the server API for KeyInfoService service.
+// All implementations must embed UnimplementedKeyInfoServiceServer
+// for forward compatibility.
+type KeyInfoServiceServer interface {
+	GetBlockModes(context.Context, *GetBlockModesRequest) (*GetBlockModesResponse, error)
+	GetDigests(context.Context, *GetDigestsRequest) (*GetDigestsResponse, error)
+	GetEncryptionPaddings(context.Context, *GetEncryptionPaddingsRequest) (*GetEncryptionPaddingsResponse, error)
+	GetKeySize(context.Context, *GetKeySizeRequest) (*GetKeySizeResponse, error)
+	GetKeyValidityForConsumptionEnd(context.Context, *GetKeyValidityForConsumptionEndRequest) (*GetKeyValidityForConsumptionEndResponse, error)
+	GetKeyValidityForOriginationEnd(context.Context, *GetKeyValidityForOriginationEndRequest) (*GetKeyValidityForOriginationEndResponse, error)
+	GetKeyValidityStart(context.Context, *GetKeyValidityStartRequest) (*GetKeyValidityStartResponse, error)
+	GetKeystoreAlias(context.Context, *GetKeystoreAliasRequest) (*GetKeystoreAliasResponse, error)
+	GetOrigin(context.Context, *GetOriginRequest) (*GetOriginResponse, error)
+	GetPurposes(context.Context, *GetPurposesRequest) (*GetPurposesResponse, error)
+	GetRemainingUsageCount(context.Context, *GetRemainingUsageCountRequest) (*GetRemainingUsageCountResponse, error)
+	GetSecurityLevel(context.Context, *GetSecurityLevelRequest) (*GetSecurityLevelResponse, error)
+	GetSignaturePaddings(context.Context, *GetSignaturePaddingsRequest) (*GetSignaturePaddingsResponse, error)
+	GetUserAuthenticationType(context.Context, *GetUserAuthenticationTypeRequest) (*GetUserAuthenticationTypeResponse, error)
+	GetUserAuthenticationValidityDurationSeconds(context.Context, *GetUserAuthenticationValidityDurationSecondsRequest) (*GetUserAuthenticationValidityDurationSecondsResponse, error)
+	IsInsideSecureHardware(context.Context, *IsInsideSecureHardwareRequest) (*IsInsideSecureHardwareResponse, error)
+	IsInvalidatedByBiometricEnrollment(context.Context, *IsInvalidatedByBiometricEnrollmentRequest) (*IsInvalidatedByBiometricEnrollmentResponse, error)
+	IsTrustedUserPresenceRequired(context.Context, *IsTrustedUserPresenceRequiredRequest) (*IsTrustedUserPresenceRequiredResponse, error)
+	IsUserAuthenticationRequired(context.Context, *IsUserAuthenticationRequiredRequest) (*IsUserAuthenticationRequiredResponse, error)
+	IsUserAuthenticationRequirementEnforcedBySecureHardware(context.Context, *IsUserAuthenticationRequirementEnforcedBySecureHardwareRequest) (*IsUserAuthenticationRequirementEnforcedBySecureHardwareResponse, error)
+	IsUserAuthenticationValidWhileOnBody(context.Context, *IsUserAuthenticationValidWhileOnBodyRequest) (*IsUserAuthenticationValidWhileOnBodyResponse, error)
+	IsUserConfirmationRequired(context.Context, *IsUserConfirmationRequiredRequest) (*IsUserConfirmationRequiredResponse, error)
+	mustEmbedUnimplementedKeyInfoServiceServer()
+}
+
+// UnimplementedKeyInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedKeyInfoServiceServer struct{}
+
+func (UnimplementedKeyInfoServiceServer) GetBlockModes(context.Context, *GetBlockModesRequest) (*GetBlockModesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBlockModes not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) GetDigests(context.Context, *GetDigestsRequest) (*GetDigestsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDigests not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) GetEncryptionPaddings(context.Context, *GetEncryptionPaddingsRequest) (*GetEncryptionPaddingsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEncryptionPaddings not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) GetKeySize(context.Context, *GetKeySizeRequest) (*GetKeySizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeySize not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) GetKeyValidityForConsumptionEnd(context.Context, *GetKeyValidityForConsumptionEndRequest) (*GetKeyValidityForConsumptionEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeyValidityForConsumptionEnd not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) GetKeyValidityForOriginationEnd(context.Context, *GetKeyValidityForOriginationEndRequest) (*GetKeyValidityForOriginationEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeyValidityForOriginationEnd not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) GetKeyValidityStart(context.Context, *GetKeyValidityStartRequest) (*GetKeyValidityStartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeyValidityStart not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) GetKeystoreAlias(context.Context, *GetKeystoreAliasRequest) (*GetKeystoreAliasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeystoreAlias not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) GetOrigin(context.Context, *GetOriginRequest) (*GetOriginResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOrigin not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) GetPurposes(context.Context, *GetPurposesRequest) (*GetPurposesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPurposes not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) GetRemainingUsageCount(context.Context, *GetRemainingUsageCountRequest) (*GetRemainingUsageCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRemainingUsageCount not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) GetSecurityLevel(context.Context, *GetSecurityLevelRequest) (*GetSecurityLevelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSecurityLevel not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) GetSignaturePaddings(context.Context, *GetSignaturePaddingsRequest) (*GetSignaturePaddingsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSignaturePaddings not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) GetUserAuthenticationType(context.Context, *GetUserAuthenticationTypeRequest) (*GetUserAuthenticationTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUserAuthenticationType not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) GetUserAuthenticationValidityDurationSeconds(context.Context, *GetUserAuthenticationValidityDurationSecondsRequest) (*GetUserAuthenticationValidityDurationSecondsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUserAuthenticationValidityDurationSeconds not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) IsInsideSecureHardware(context.Context, *IsInsideSecureHardwareRequest) (*IsInsideSecureHardwareResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsInsideSecureHardware not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) IsInvalidatedByBiometricEnrollment(context.Context, *IsInvalidatedByBiometricEnrollmentRequest) (*IsInvalidatedByBiometricEnrollmentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsInvalidatedByBiometricEnrollment not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) IsTrustedUserPresenceRequired(context.Context, *IsTrustedUserPresenceRequiredRequest) (*IsTrustedUserPresenceRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsTrustedUserPresenceRequired not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) IsUserAuthenticationRequired(context.Context, *IsUserAuthenticationRequiredRequest) (*IsUserAuthenticationRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUserAuthenticationRequired not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) IsUserAuthenticationRequirementEnforcedBySecureHardware(context.Context, *IsUserAuthenticationRequirementEnforcedBySecureHardwareRequest) (*IsUserAuthenticationRequirementEnforcedBySecureHardwareResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUserAuthenticationRequirementEnforcedBySecureHardware not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) IsUserAuthenticationValidWhileOnBody(context.Context, *IsUserAuthenticationValidWhileOnBodyRequest) (*IsUserAuthenticationValidWhileOnBodyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUserAuthenticationValidWhileOnBody not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) IsUserConfirmationRequired(context.Context, *IsUserConfirmationRequiredRequest) (*IsUserConfirmationRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUserConfirmationRequired not implemented")
+}
+func (UnimplementedKeyInfoServiceServer) mustEmbedUnimplementedKeyInfoServiceServer() {}
+func (UnimplementedKeyInfoServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeKeyInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to KeyInfoServiceServer will
+// result in compilation errors.
+type UnsafeKeyInfoServiceServer interface {
+	mustEmbedUnimplementedKeyInfoServiceServer()
+}
+
+func RegisterKeyInfoServiceServer(s grpc.ServiceRegistrar, srv KeyInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedKeyInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&KeyInfoService_ServiceDesc, srv)
+}
+
+func _KeyInfoService_GetBlockModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBlockModesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).GetBlockModes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_GetBlockModes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).GetBlockModes(ctx, req.(*GetBlockModesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_GetDigests_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDigestsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).GetDigests(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_GetDigests_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).GetDigests(ctx, req.(*GetDigestsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_GetEncryptionPaddings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEncryptionPaddingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).GetEncryptionPaddings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_GetEncryptionPaddings_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).GetEncryptionPaddings(ctx, req.(*GetEncryptionPaddingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_GetKeySize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeySizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).GetKeySize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_GetKeySize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).GetKeySize(ctx, req.(*GetKeySizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_GetKeyValidityForConsumptionEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeyValidityForConsumptionEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).GetKeyValidityForConsumptionEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_GetKeyValidityForConsumptionEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).GetKeyValidityForConsumptionEnd(ctx, req.(*GetKeyValidityForConsumptionEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_GetKeyValidityForOriginationEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeyValidityForOriginationEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).GetKeyValidityForOriginationEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_GetKeyValidityForOriginationEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).GetKeyValidityForOriginationEnd(ctx, req.(*GetKeyValidityForOriginationEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_GetKeyValidityStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeyValidityStartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).GetKeyValidityStart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_GetKeyValidityStart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).GetKeyValidityStart(ctx, req.(*GetKeyValidityStartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_GetKeystoreAlias_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeystoreAliasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).GetKeystoreAlias(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_GetKeystoreAlias_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).GetKeystoreAlias(ctx, req.(*GetKeystoreAliasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_GetOrigin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOriginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).GetOrigin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_GetOrigin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).GetOrigin(ctx, req.(*GetOriginRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_GetPurposes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPurposesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).GetPurposes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_GetPurposes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).GetPurposes(ctx, req.(*GetPurposesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_GetRemainingUsageCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRemainingUsageCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).GetRemainingUsageCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_GetRemainingUsageCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).GetRemainingUsageCount(ctx, req.(*GetRemainingUsageCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_GetSecurityLevel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSecurityLevelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).GetSecurityLevel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_GetSecurityLevel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).GetSecurityLevel(ctx, req.(*GetSecurityLevelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_GetSignaturePaddings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSignaturePaddingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).GetSignaturePaddings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_GetSignaturePaddings_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).GetSignaturePaddings(ctx, req.(*GetSignaturePaddingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_GetUserAuthenticationType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserAuthenticationTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).GetUserAuthenticationType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_GetUserAuthenticationType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).GetUserAuthenticationType(ctx, req.(*GetUserAuthenticationTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_GetUserAuthenticationValidityDurationSeconds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserAuthenticationValidityDurationSecondsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).GetUserAuthenticationValidityDurationSeconds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_GetUserAuthenticationValidityDurationSeconds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).GetUserAuthenticationValidityDurationSeconds(ctx, req.(*GetUserAuthenticationValidityDurationSecondsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_IsInsideSecureHardware_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsInsideSecureHardwareRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).IsInsideSecureHardware(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_IsInsideSecureHardware_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).IsInsideSecureHardware(ctx, req.(*IsInsideSecureHardwareRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_IsInvalidatedByBiometricEnrollment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsInvalidatedByBiometricEnrollmentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).IsInvalidatedByBiometricEnrollment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_IsInvalidatedByBiometricEnrollment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).IsInvalidatedByBiometricEnrollment(ctx, req.(*IsInvalidatedByBiometricEnrollmentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_IsTrustedUserPresenceRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsTrustedUserPresenceRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).IsTrustedUserPresenceRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_IsTrustedUserPresenceRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).IsTrustedUserPresenceRequired(ctx, req.(*IsTrustedUserPresenceRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_IsUserAuthenticationRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUserAuthenticationRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).IsUserAuthenticationRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_IsUserAuthenticationRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).IsUserAuthenticationRequired(ctx, req.(*IsUserAuthenticationRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_IsUserAuthenticationRequirementEnforcedBySecureHardware_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUserAuthenticationRequirementEnforcedBySecureHardwareRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).IsUserAuthenticationRequirementEnforcedBySecureHardware(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_IsUserAuthenticationRequirementEnforcedBySecureHardware_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).IsUserAuthenticationRequirementEnforcedBySecureHardware(ctx, req.(*IsUserAuthenticationRequirementEnforcedBySecureHardwareRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_IsUserAuthenticationValidWhileOnBody_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUserAuthenticationValidWhileOnBodyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).IsUserAuthenticationValidWhileOnBody(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_IsUserAuthenticationValidWhileOnBody_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).IsUserAuthenticationValidWhileOnBody(ctx, req.(*IsUserAuthenticationValidWhileOnBodyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyInfoService_IsUserConfirmationRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUserConfirmationRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyInfoServiceServer).IsUserConfirmationRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyInfoService_IsUserConfirmationRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyInfoServiceServer).IsUserConfirmationRequired(ctx, req.(*IsUserConfirmationRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// KeyInfoService_ServiceDesc is the grpc.ServiceDesc for KeyInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var KeyInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "keystore.KeyInfoService",
+	HandlerType: (*KeyInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetBlockModes",
+			Handler:    _KeyInfoService_GetBlockModes_Handler,
+		},
+		{
+			MethodName: "GetDigests",
+			Handler:    _KeyInfoService_GetDigests_Handler,
+		},
+		{
+			MethodName: "GetEncryptionPaddings",
+			Handler:    _KeyInfoService_GetEncryptionPaddings_Handler,
+		},
+		{
+			MethodName: "GetKeySize",
+			Handler:    _KeyInfoService_GetKeySize_Handler,
+		},
+		{
+			MethodName: "GetKeyValidityForConsumptionEnd",
+			Handler:    _KeyInfoService_GetKeyValidityForConsumptionEnd_Handler,
+		},
+		{
+			MethodName: "GetKeyValidityForOriginationEnd",
+			Handler:    _KeyInfoService_GetKeyValidityForOriginationEnd_Handler,
+		},
+		{
+			MethodName: "GetKeyValidityStart",
+			Handler:    _KeyInfoService_GetKeyValidityStart_Handler,
+		},
+		{
+			MethodName: "GetKeystoreAlias",
+			Handler:    _KeyInfoService_GetKeystoreAlias_Handler,
+		},
+		{
+			MethodName: "GetOrigin",
+			Handler:    _KeyInfoService_GetOrigin_Handler,
+		},
+		{
+			MethodName: "GetPurposes",
+			Handler:    _KeyInfoService_GetPurposes_Handler,
+		},
+		{
+			MethodName: "GetRemainingUsageCount",
+			Handler:    _KeyInfoService_GetRemainingUsageCount_Handler,
+		},
+		{
+			MethodName: "GetSecurityLevel",
+			Handler:    _KeyInfoService_GetSecurityLevel_Handler,
+		},
+		{
+			MethodName: "GetSignaturePaddings",
+			Handler:    _KeyInfoService_GetSignaturePaddings_Handler,
+		},
+		{
+			MethodName: "GetUserAuthenticationType",
+			Handler:    _KeyInfoService_GetUserAuthenticationType_Handler,
+		},
+		{
+			MethodName: "GetUserAuthenticationValidityDurationSeconds",
+			Handler:    _KeyInfoService_GetUserAuthenticationValidityDurationSeconds_Handler,
+		},
+		{
+			MethodName: "IsInsideSecureHardware",
+			Handler:    _KeyInfoService_IsInsideSecureHardware_Handler,
+		},
+		{
+			MethodName: "IsInvalidatedByBiometricEnrollment",
+			Handler:    _KeyInfoService_IsInvalidatedByBiometricEnrollment_Handler,
+		},
+		{
+			MethodName: "IsTrustedUserPresenceRequired",
+			Handler:    _KeyInfoService_IsTrustedUserPresenceRequired_Handler,
+		},
+		{
+			MethodName: "IsUserAuthenticationRequired",
+			Handler:    _KeyInfoService_IsUserAuthenticationRequired_Handler,
+		},
+		{
+			MethodName: "IsUserAuthenticationRequirementEnforcedBySecureHardware",
+			Handler:    _KeyInfoService_IsUserAuthenticationRequirementEnforcedBySecureHardware_Handler,
+		},
+		{
+			MethodName: "IsUserAuthenticationValidWhileOnBody",
+			Handler:    _KeyInfoService_IsUserAuthenticationValidWhileOnBody_Handler,
+		},
+		{
+			MethodName: "IsUserConfirmationRequired",
+			Handler:    _KeyInfoService_IsUserConfirmationRequired_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/keystore/keystore.proto",
+}
+
+const (
+	BackendBusyExceptionService_NewBackendBusyException_FullMethodName = "/keystore.BackendBusyExceptionService/NewBackendBusyException"
+	BackendBusyExceptionService_GetBackOffHintMillis_FullMethodName    = "/keystore.BackendBusyExceptionService/GetBackOffHintMillis"
+)
+
+// BackendBusyExceptionServiceClient is the client API for BackendBusyExceptionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type BackendBusyExceptionServiceClient interface {
+	NewBackendBusyException(ctx context.Context, in *NewBackendBusyExceptionRequest, opts ...grpc.CallOption) (*NewBackendBusyExceptionResponse, error)
+	GetBackOffHintMillis(ctx context.Context, in *GetBackOffHintMillisRequest, opts ...grpc.CallOption) (*GetBackOffHintMillisResponse, error)
+}
+
+type backendBusyExceptionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewBackendBusyExceptionServiceClient(cc grpc.ClientConnInterface) BackendBusyExceptionServiceClient {
+	return &backendBusyExceptionServiceClient{cc}
+}
+
+func (c *backendBusyExceptionServiceClient) NewBackendBusyException(ctx context.Context, in *NewBackendBusyExceptionRequest, opts ...grpc.CallOption) (*NewBackendBusyExceptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewBackendBusyExceptionResponse)
+	err := c.cc.Invoke(ctx, BackendBusyExceptionService_NewBackendBusyException_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *backendBusyExceptionServiceClient) GetBackOffHintMillis(ctx context.Context, in *GetBackOffHintMillisRequest, opts ...grpc.CallOption) (*GetBackOffHintMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBackOffHintMillisResponse)
+	err := c.cc.Invoke(ctx, BackendBusyExceptionService_GetBackOffHintMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BackendBusyExceptionServiceServer is the server API for BackendBusyExceptionService service.
+// All implementations must embed UnimplementedBackendBusyExceptionServiceServer
+// for forward compatibility.
+type BackendBusyExceptionServiceServer interface {
+	NewBackendBusyException(context.Context, *NewBackendBusyExceptionRequest) (*NewBackendBusyExceptionResponse, error)
+	GetBackOffHintMillis(context.Context, *GetBackOffHintMillisRequest) (*GetBackOffHintMillisResponse, error)
+	mustEmbedUnimplementedBackendBusyExceptionServiceServer()
+}
+
+// UnimplementedBackendBusyExceptionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedBackendBusyExceptionServiceServer struct{}
+
+func (UnimplementedBackendBusyExceptionServiceServer) NewBackendBusyException(context.Context, *NewBackendBusyExceptionRequest) (*NewBackendBusyExceptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewBackendBusyException not implemented")
+}
+func (UnimplementedBackendBusyExceptionServiceServer) GetBackOffHintMillis(context.Context, *GetBackOffHintMillisRequest) (*GetBackOffHintMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBackOffHintMillis not implemented")
+}
+func (UnimplementedBackendBusyExceptionServiceServer) mustEmbedUnimplementedBackendBusyExceptionServiceServer() {
+}
+func (UnimplementedBackendBusyExceptionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeBackendBusyExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BackendBusyExceptionServiceServer will
+// result in compilation errors.
+type UnsafeBackendBusyExceptionServiceServer interface {
+	mustEmbedUnimplementedBackendBusyExceptionServiceServer()
+}
+
+func RegisterBackendBusyExceptionServiceServer(s grpc.ServiceRegistrar, srv BackendBusyExceptionServiceServer) {
+	// If the following call panics, it indicates UnimplementedBackendBusyExceptionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&BackendBusyExceptionService_ServiceDesc, srv)
+}
+
+func _BackendBusyExceptionService_NewBackendBusyException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewBackendBusyExceptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BackendBusyExceptionServiceServer).NewBackendBusyException(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BackendBusyExceptionService_NewBackendBusyException_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BackendBusyExceptionServiceServer).NewBackendBusyException(ctx, req.(*NewBackendBusyExceptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BackendBusyExceptionService_GetBackOffHintMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBackOffHintMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BackendBusyExceptionServiceServer).GetBackOffHintMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BackendBusyExceptionService_GetBackOffHintMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BackendBusyExceptionServiceServer).GetBackOffHintMillis(ctx, req.(*GetBackOffHintMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BackendBusyExceptionService_ServiceDesc is the grpc.ServiceDesc for BackendBusyExceptionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var BackendBusyExceptionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "keystore.BackendBusyExceptionService",
+	HandlerType: (*BackendBusyExceptionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewBackendBusyException",
+			Handler:    _BackendBusyExceptionService_NewBackendBusyException_Handler,
+		},
+		{
+			MethodName: "GetBackOffHintMillis",
+			Handler:    _BackendBusyExceptionService_GetBackOffHintMillis_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/keystore/keystore.proto",
+}
+
+const (
+	KeyProtectionService_GetBlockModes_FullMethodName                                = "/keystore.KeyProtectionService/GetBlockModes"
+	KeyProtectionService_GetDigests_FullMethodName                                   = "/keystore.KeyProtectionService/GetDigests"
+	KeyProtectionService_GetEncryptionPaddings_FullMethodName                        = "/keystore.KeyProtectionService/GetEncryptionPaddings"
+	KeyProtectionService_GetKeyValidityForConsumptionEnd_FullMethodName              = "/keystore.KeyProtectionService/GetKeyValidityForConsumptionEnd"
+	KeyProtectionService_GetKeyValidityForOriginationEnd_FullMethodName              = "/keystore.KeyProtectionService/GetKeyValidityForOriginationEnd"
+	KeyProtectionService_GetKeyValidityStart_FullMethodName                          = "/keystore.KeyProtectionService/GetKeyValidityStart"
+	KeyProtectionService_GetMaxUsageCount_FullMethodName                             = "/keystore.KeyProtectionService/GetMaxUsageCount"
+	KeyProtectionService_GetPurposes_FullMethodName                                  = "/keystore.KeyProtectionService/GetPurposes"
+	KeyProtectionService_GetSignaturePaddings_FullMethodName                         = "/keystore.KeyProtectionService/GetSignaturePaddings"
+	KeyProtectionService_GetUserAuthenticationType_FullMethodName                    = "/keystore.KeyProtectionService/GetUserAuthenticationType"
+	KeyProtectionService_GetUserAuthenticationValidityDurationSeconds_FullMethodName = "/keystore.KeyProtectionService/GetUserAuthenticationValidityDurationSeconds"
+	KeyProtectionService_IsDigestsSpecified_FullMethodName                           = "/keystore.KeyProtectionService/IsDigestsSpecified"
+	KeyProtectionService_IsInvalidatedByBiometricEnrollment_FullMethodName           = "/keystore.KeyProtectionService/IsInvalidatedByBiometricEnrollment"
+	KeyProtectionService_IsMgf1DigestsSpecified_FullMethodName                       = "/keystore.KeyProtectionService/IsMgf1DigestsSpecified"
+	KeyProtectionService_IsRandomizedEncryptionRequired_FullMethodName               = "/keystore.KeyProtectionService/IsRandomizedEncryptionRequired"
+	KeyProtectionService_IsUnlockedDeviceRequired_FullMethodName                     = "/keystore.KeyProtectionService/IsUnlockedDeviceRequired"
+	KeyProtectionService_IsUserAuthenticationRequired_FullMethodName                 = "/keystore.KeyProtectionService/IsUserAuthenticationRequired"
+	KeyProtectionService_IsUserAuthenticationValidWhileOnBody_FullMethodName         = "/keystore.KeyProtectionService/IsUserAuthenticationValidWhileOnBody"
+	KeyProtectionService_IsUserConfirmationRequired_FullMethodName                   = "/keystore.KeyProtectionService/IsUserConfirmationRequired"
+	KeyProtectionService_IsUserPresenceRequired_FullMethodName                       = "/keystore.KeyProtectionService/IsUserPresenceRequired"
+)
+
+// KeyProtectionServiceClient is the client API for KeyProtectionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type KeyProtectionServiceClient interface {
+	GetBlockModes(ctx context.Context, in *GetBlockModesRequest, opts ...grpc.CallOption) (*GetBlockModesResponse, error)
+	GetDigests(ctx context.Context, in *GetDigestsRequest, opts ...grpc.CallOption) (*GetDigestsResponse, error)
+	GetEncryptionPaddings(ctx context.Context, in *GetEncryptionPaddingsRequest, opts ...grpc.CallOption) (*GetEncryptionPaddingsResponse, error)
+	GetKeyValidityForConsumptionEnd(ctx context.Context, in *GetKeyValidityForConsumptionEndRequest, opts ...grpc.CallOption) (*GetKeyValidityForConsumptionEndResponse, error)
+	GetKeyValidityForOriginationEnd(ctx context.Context, in *GetKeyValidityForOriginationEndRequest, opts ...grpc.CallOption) (*GetKeyValidityForOriginationEndResponse, error)
+	GetKeyValidityStart(ctx context.Context, in *GetKeyValidityStartRequest, opts ...grpc.CallOption) (*GetKeyValidityStartResponse, error)
+	GetMaxUsageCount(ctx context.Context, in *GetMaxUsageCountRequest, opts ...grpc.CallOption) (*GetMaxUsageCountResponse, error)
+	GetPurposes(ctx context.Context, in *GetPurposesRequest, opts ...grpc.CallOption) (*GetPurposesResponse, error)
+	GetSignaturePaddings(ctx context.Context, in *GetSignaturePaddingsRequest, opts ...grpc.CallOption) (*GetSignaturePaddingsResponse, error)
+	GetUserAuthenticationType(ctx context.Context, in *GetUserAuthenticationTypeRequest, opts ...grpc.CallOption) (*GetUserAuthenticationTypeResponse, error)
+	GetUserAuthenticationValidityDurationSeconds(ctx context.Context, in *GetUserAuthenticationValidityDurationSecondsRequest, opts ...grpc.CallOption) (*GetUserAuthenticationValidityDurationSecondsResponse, error)
+	IsDigestsSpecified(ctx context.Context, in *IsDigestsSpecifiedRequest, opts ...grpc.CallOption) (*IsDigestsSpecifiedResponse, error)
+	IsInvalidatedByBiometricEnrollment(ctx context.Context, in *IsInvalidatedByBiometricEnrollmentRequest, opts ...grpc.CallOption) (*IsInvalidatedByBiometricEnrollmentResponse, error)
+	IsMgf1DigestsSpecified(ctx context.Context, in *IsMgf1DigestsSpecifiedRequest, opts ...grpc.CallOption) (*IsMgf1DigestsSpecifiedResponse, error)
+	IsRandomizedEncryptionRequired(ctx context.Context, in *IsRandomizedEncryptionRequiredRequest, opts ...grpc.CallOption) (*IsRandomizedEncryptionRequiredResponse, error)
+	IsUnlockedDeviceRequired(ctx context.Context, in *IsUnlockedDeviceRequiredRequest, opts ...grpc.CallOption) (*IsUnlockedDeviceRequiredResponse, error)
+	IsUserAuthenticationRequired(ctx context.Context, in *IsUserAuthenticationRequiredRequest, opts ...grpc.CallOption) (*IsUserAuthenticationRequiredResponse, error)
+	IsUserAuthenticationValidWhileOnBody(ctx context.Context, in *IsUserAuthenticationValidWhileOnBodyRequest, opts ...grpc.CallOption) (*IsUserAuthenticationValidWhileOnBodyResponse, error)
+	IsUserConfirmationRequired(ctx context.Context, in *IsUserConfirmationRequiredRequest, opts ...grpc.CallOption) (*IsUserConfirmationRequiredResponse, error)
+	IsUserPresenceRequired(ctx context.Context, in *IsUserPresenceRequiredRequest, opts ...grpc.CallOption) (*IsUserPresenceRequiredResponse, error)
+}
+
+type keyProtectionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewKeyProtectionServiceClient(cc grpc.ClientConnInterface) KeyProtectionServiceClient {
+	return &keyProtectionServiceClient{cc}
+}
+
+func (c *keyProtectionServiceClient) GetBlockModes(ctx context.Context, in *GetBlockModesRequest, opts ...grpc.CallOption) (*GetBlockModesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBlockModesResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_GetBlockModes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionServiceClient) GetDigests(ctx context.Context, in *GetDigestsRequest, opts ...grpc.CallOption) (*GetDigestsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDigestsResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_GetDigests_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionServiceClient) GetEncryptionPaddings(ctx context.Context, in *GetEncryptionPaddingsRequest, opts ...grpc.CallOption) (*GetEncryptionPaddingsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEncryptionPaddingsResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_GetEncryptionPaddings_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionServiceClient) GetKeyValidityForConsumptionEnd(ctx context.Context, in *GetKeyValidityForConsumptionEndRequest, opts ...grpc.CallOption) (*GetKeyValidityForConsumptionEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeyValidityForConsumptionEndResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_GetKeyValidityForConsumptionEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionServiceClient) GetKeyValidityForOriginationEnd(ctx context.Context, in *GetKeyValidityForOriginationEndRequest, opts ...grpc.CallOption) (*GetKeyValidityForOriginationEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeyValidityForOriginationEndResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_GetKeyValidityForOriginationEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionServiceClient) GetKeyValidityStart(ctx context.Context, in *GetKeyValidityStartRequest, opts ...grpc.CallOption) (*GetKeyValidityStartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeyValidityStartResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_GetKeyValidityStart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionServiceClient) GetMaxUsageCount(ctx context.Context, in *GetMaxUsageCountRequest, opts ...grpc.CallOption) (*GetMaxUsageCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxUsageCountResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_GetMaxUsageCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionServiceClient) GetPurposes(ctx context.Context, in *GetPurposesRequest, opts ...grpc.CallOption) (*GetPurposesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPurposesResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_GetPurposes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionServiceClient) GetSignaturePaddings(ctx context.Context, in *GetSignaturePaddingsRequest, opts ...grpc.CallOption) (*GetSignaturePaddingsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSignaturePaddingsResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_GetSignaturePaddings_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionServiceClient) GetUserAuthenticationType(ctx context.Context, in *GetUserAuthenticationTypeRequest, opts ...grpc.CallOption) (*GetUserAuthenticationTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserAuthenticationTypeResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_GetUserAuthenticationType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionServiceClient) GetUserAuthenticationValidityDurationSeconds(ctx context.Context, in *GetUserAuthenticationValidityDurationSecondsRequest, opts ...grpc.CallOption) (*GetUserAuthenticationValidityDurationSecondsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserAuthenticationValidityDurationSecondsResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_GetUserAuthenticationValidityDurationSeconds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionServiceClient) IsDigestsSpecified(ctx context.Context, in *IsDigestsSpecifiedRequest, opts ...grpc.CallOption) (*IsDigestsSpecifiedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsDigestsSpecifiedResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_IsDigestsSpecified_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionServiceClient) IsInvalidatedByBiometricEnrollment(ctx context.Context, in *IsInvalidatedByBiometricEnrollmentRequest, opts ...grpc.CallOption) (*IsInvalidatedByBiometricEnrollmentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsInvalidatedByBiometricEnrollmentResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_IsInvalidatedByBiometricEnrollment_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionServiceClient) IsMgf1DigestsSpecified(ctx context.Context, in *IsMgf1DigestsSpecifiedRequest, opts ...grpc.CallOption) (*IsMgf1DigestsSpecifiedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsMgf1DigestsSpecifiedResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_IsMgf1DigestsSpecified_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionServiceClient) IsRandomizedEncryptionRequired(ctx context.Context, in *IsRandomizedEncryptionRequiredRequest, opts ...grpc.CallOption) (*IsRandomizedEncryptionRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsRandomizedEncryptionRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_IsRandomizedEncryptionRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionServiceClient) IsUnlockedDeviceRequired(ctx context.Context, in *IsUnlockedDeviceRequiredRequest, opts ...grpc.CallOption) (*IsUnlockedDeviceRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsUnlockedDeviceRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_IsUnlockedDeviceRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionServiceClient) IsUserAuthenticationRequired(ctx context.Context, in *IsUserAuthenticationRequiredRequest, opts ...grpc.CallOption) (*IsUserAuthenticationRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsUserAuthenticationRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_IsUserAuthenticationRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionServiceClient) IsUserAuthenticationValidWhileOnBody(ctx context.Context, in *IsUserAuthenticationValidWhileOnBodyRequest, opts ...grpc.CallOption) (*IsUserAuthenticationValidWhileOnBodyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsUserAuthenticationValidWhileOnBodyResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_IsUserAuthenticationValidWhileOnBody_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionServiceClient) IsUserConfirmationRequired(ctx context.Context, in *IsUserConfirmationRequiredRequest, opts ...grpc.CallOption) (*IsUserConfirmationRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsUserConfirmationRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_IsUserConfirmationRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionServiceClient) IsUserPresenceRequired(ctx context.Context, in *IsUserPresenceRequiredRequest, opts ...grpc.CallOption) (*IsUserPresenceRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsUserPresenceRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionService_IsUserPresenceRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// KeyProtectionServiceServer is the server API for KeyProtectionService service.
+// All implementations must embed UnimplementedKeyProtectionServiceServer
+// for forward compatibility.
+type KeyProtectionServiceServer interface {
+	GetBlockModes(context.Context, *GetBlockModesRequest) (*GetBlockModesResponse, error)
+	GetDigests(context.Context, *GetDigestsRequest) (*GetDigestsResponse, error)
+	GetEncryptionPaddings(context.Context, *GetEncryptionPaddingsRequest) (*GetEncryptionPaddingsResponse, error)
+	GetKeyValidityForConsumptionEnd(context.Context, *GetKeyValidityForConsumptionEndRequest) (*GetKeyValidityForConsumptionEndResponse, error)
+	GetKeyValidityForOriginationEnd(context.Context, *GetKeyValidityForOriginationEndRequest) (*GetKeyValidityForOriginationEndResponse, error)
+	GetKeyValidityStart(context.Context, *GetKeyValidityStartRequest) (*GetKeyValidityStartResponse, error)
+	GetMaxUsageCount(context.Context, *GetMaxUsageCountRequest) (*GetMaxUsageCountResponse, error)
+	GetPurposes(context.Context, *GetPurposesRequest) (*GetPurposesResponse, error)
+	GetSignaturePaddings(context.Context, *GetSignaturePaddingsRequest) (*GetSignaturePaddingsResponse, error)
+	GetUserAuthenticationType(context.Context, *GetUserAuthenticationTypeRequest) (*GetUserAuthenticationTypeResponse, error)
+	GetUserAuthenticationValidityDurationSeconds(context.Context, *GetUserAuthenticationValidityDurationSecondsRequest) (*GetUserAuthenticationValidityDurationSecondsResponse, error)
+	IsDigestsSpecified(context.Context, *IsDigestsSpecifiedRequest) (*IsDigestsSpecifiedResponse, error)
+	IsInvalidatedByBiometricEnrollment(context.Context, *IsInvalidatedByBiometricEnrollmentRequest) (*IsInvalidatedByBiometricEnrollmentResponse, error)
+	IsMgf1DigestsSpecified(context.Context, *IsMgf1DigestsSpecifiedRequest) (*IsMgf1DigestsSpecifiedResponse, error)
+	IsRandomizedEncryptionRequired(context.Context, *IsRandomizedEncryptionRequiredRequest) (*IsRandomizedEncryptionRequiredResponse, error)
+	IsUnlockedDeviceRequired(context.Context, *IsUnlockedDeviceRequiredRequest) (*IsUnlockedDeviceRequiredResponse, error)
+	IsUserAuthenticationRequired(context.Context, *IsUserAuthenticationRequiredRequest) (*IsUserAuthenticationRequiredResponse, error)
+	IsUserAuthenticationValidWhileOnBody(context.Context, *IsUserAuthenticationValidWhileOnBodyRequest) (*IsUserAuthenticationValidWhileOnBodyResponse, error)
+	IsUserConfirmationRequired(context.Context, *IsUserConfirmationRequiredRequest) (*IsUserConfirmationRequiredResponse, error)
+	IsUserPresenceRequired(context.Context, *IsUserPresenceRequiredRequest) (*IsUserPresenceRequiredResponse, error)
+	mustEmbedUnimplementedKeyProtectionServiceServer()
+}
+
+// UnimplementedKeyProtectionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedKeyProtectionServiceServer struct{}
+
+func (UnimplementedKeyProtectionServiceServer) GetBlockModes(context.Context, *GetBlockModesRequest) (*GetBlockModesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBlockModes not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) GetDigests(context.Context, *GetDigestsRequest) (*GetDigestsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDigests not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) GetEncryptionPaddings(context.Context, *GetEncryptionPaddingsRequest) (*GetEncryptionPaddingsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEncryptionPaddings not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) GetKeyValidityForConsumptionEnd(context.Context, *GetKeyValidityForConsumptionEndRequest) (*GetKeyValidityForConsumptionEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeyValidityForConsumptionEnd not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) GetKeyValidityForOriginationEnd(context.Context, *GetKeyValidityForOriginationEndRequest) (*GetKeyValidityForOriginationEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeyValidityForOriginationEnd not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) GetKeyValidityStart(context.Context, *GetKeyValidityStartRequest) (*GetKeyValidityStartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeyValidityStart not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) GetMaxUsageCount(context.Context, *GetMaxUsageCountRequest) (*GetMaxUsageCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxUsageCount not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) GetPurposes(context.Context, *GetPurposesRequest) (*GetPurposesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPurposes not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) GetSignaturePaddings(context.Context, *GetSignaturePaddingsRequest) (*GetSignaturePaddingsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSignaturePaddings not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) GetUserAuthenticationType(context.Context, *GetUserAuthenticationTypeRequest) (*GetUserAuthenticationTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUserAuthenticationType not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) GetUserAuthenticationValidityDurationSeconds(context.Context, *GetUserAuthenticationValidityDurationSecondsRequest) (*GetUserAuthenticationValidityDurationSecondsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUserAuthenticationValidityDurationSeconds not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) IsDigestsSpecified(context.Context, *IsDigestsSpecifiedRequest) (*IsDigestsSpecifiedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsDigestsSpecified not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) IsInvalidatedByBiometricEnrollment(context.Context, *IsInvalidatedByBiometricEnrollmentRequest) (*IsInvalidatedByBiometricEnrollmentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsInvalidatedByBiometricEnrollment not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) IsMgf1DigestsSpecified(context.Context, *IsMgf1DigestsSpecifiedRequest) (*IsMgf1DigestsSpecifiedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsMgf1DigestsSpecified not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) IsRandomizedEncryptionRequired(context.Context, *IsRandomizedEncryptionRequiredRequest) (*IsRandomizedEncryptionRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsRandomizedEncryptionRequired not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) IsUnlockedDeviceRequired(context.Context, *IsUnlockedDeviceRequiredRequest) (*IsUnlockedDeviceRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUnlockedDeviceRequired not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) IsUserAuthenticationRequired(context.Context, *IsUserAuthenticationRequiredRequest) (*IsUserAuthenticationRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUserAuthenticationRequired not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) IsUserAuthenticationValidWhileOnBody(context.Context, *IsUserAuthenticationValidWhileOnBodyRequest) (*IsUserAuthenticationValidWhileOnBodyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUserAuthenticationValidWhileOnBody not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) IsUserConfirmationRequired(context.Context, *IsUserConfirmationRequiredRequest) (*IsUserConfirmationRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUserConfirmationRequired not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) IsUserPresenceRequired(context.Context, *IsUserPresenceRequiredRequest) (*IsUserPresenceRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUserPresenceRequired not implemented")
+}
+func (UnimplementedKeyProtectionServiceServer) mustEmbedUnimplementedKeyProtectionServiceServer() {}
+func (UnimplementedKeyProtectionServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeKeyProtectionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to KeyProtectionServiceServer will
+// result in compilation errors.
+type UnsafeKeyProtectionServiceServer interface {
+	mustEmbedUnimplementedKeyProtectionServiceServer()
+}
+
+func RegisterKeyProtectionServiceServer(s grpc.ServiceRegistrar, srv KeyProtectionServiceServer) {
+	// If the following call panics, it indicates UnimplementedKeyProtectionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&KeyProtectionService_ServiceDesc, srv)
+}
+
+func _KeyProtectionService_GetBlockModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBlockModesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).GetBlockModes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_GetBlockModes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).GetBlockModes(ctx, req.(*GetBlockModesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionService_GetDigests_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDigestsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).GetDigests(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_GetDigests_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).GetDigests(ctx, req.(*GetDigestsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionService_GetEncryptionPaddings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEncryptionPaddingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).GetEncryptionPaddings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_GetEncryptionPaddings_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).GetEncryptionPaddings(ctx, req.(*GetEncryptionPaddingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionService_GetKeyValidityForConsumptionEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeyValidityForConsumptionEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).GetKeyValidityForConsumptionEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_GetKeyValidityForConsumptionEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).GetKeyValidityForConsumptionEnd(ctx, req.(*GetKeyValidityForConsumptionEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionService_GetKeyValidityForOriginationEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeyValidityForOriginationEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).GetKeyValidityForOriginationEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_GetKeyValidityForOriginationEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).GetKeyValidityForOriginationEnd(ctx, req.(*GetKeyValidityForOriginationEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionService_GetKeyValidityStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeyValidityStartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).GetKeyValidityStart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_GetKeyValidityStart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).GetKeyValidityStart(ctx, req.(*GetKeyValidityStartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionService_GetMaxUsageCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxUsageCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).GetMaxUsageCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_GetMaxUsageCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).GetMaxUsageCount(ctx, req.(*GetMaxUsageCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionService_GetPurposes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPurposesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).GetPurposes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_GetPurposes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).GetPurposes(ctx, req.(*GetPurposesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionService_GetSignaturePaddings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSignaturePaddingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).GetSignaturePaddings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_GetSignaturePaddings_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).GetSignaturePaddings(ctx, req.(*GetSignaturePaddingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionService_GetUserAuthenticationType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserAuthenticationTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).GetUserAuthenticationType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_GetUserAuthenticationType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).GetUserAuthenticationType(ctx, req.(*GetUserAuthenticationTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionService_GetUserAuthenticationValidityDurationSeconds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserAuthenticationValidityDurationSecondsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).GetUserAuthenticationValidityDurationSeconds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_GetUserAuthenticationValidityDurationSeconds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).GetUserAuthenticationValidityDurationSeconds(ctx, req.(*GetUserAuthenticationValidityDurationSecondsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionService_IsDigestsSpecified_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsDigestsSpecifiedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).IsDigestsSpecified(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_IsDigestsSpecified_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).IsDigestsSpecified(ctx, req.(*IsDigestsSpecifiedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionService_IsInvalidatedByBiometricEnrollment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsInvalidatedByBiometricEnrollmentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).IsInvalidatedByBiometricEnrollment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_IsInvalidatedByBiometricEnrollment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).IsInvalidatedByBiometricEnrollment(ctx, req.(*IsInvalidatedByBiometricEnrollmentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionService_IsMgf1DigestsSpecified_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsMgf1DigestsSpecifiedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).IsMgf1DigestsSpecified(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_IsMgf1DigestsSpecified_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).IsMgf1DigestsSpecified(ctx, req.(*IsMgf1DigestsSpecifiedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionService_IsRandomizedEncryptionRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsRandomizedEncryptionRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).IsRandomizedEncryptionRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_IsRandomizedEncryptionRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).IsRandomizedEncryptionRequired(ctx, req.(*IsRandomizedEncryptionRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionService_IsUnlockedDeviceRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUnlockedDeviceRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).IsUnlockedDeviceRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_IsUnlockedDeviceRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).IsUnlockedDeviceRequired(ctx, req.(*IsUnlockedDeviceRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionService_IsUserAuthenticationRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUserAuthenticationRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).IsUserAuthenticationRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_IsUserAuthenticationRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).IsUserAuthenticationRequired(ctx, req.(*IsUserAuthenticationRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionService_IsUserAuthenticationValidWhileOnBody_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUserAuthenticationValidWhileOnBodyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).IsUserAuthenticationValidWhileOnBody(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_IsUserAuthenticationValidWhileOnBody_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).IsUserAuthenticationValidWhileOnBody(ctx, req.(*IsUserAuthenticationValidWhileOnBodyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionService_IsUserConfirmationRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUserConfirmationRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).IsUserConfirmationRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_IsUserConfirmationRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).IsUserConfirmationRequired(ctx, req.(*IsUserConfirmationRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionService_IsUserPresenceRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUserPresenceRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionServiceServer).IsUserPresenceRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionService_IsUserPresenceRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionServiceServer).IsUserPresenceRequired(ctx, req.(*IsUserPresenceRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// KeyProtectionService_ServiceDesc is the grpc.ServiceDesc for KeyProtectionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var KeyProtectionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "keystore.KeyProtectionService",
+	HandlerType: (*KeyProtectionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetBlockModes",
+			Handler:    _KeyProtectionService_GetBlockModes_Handler,
+		},
+		{
+			MethodName: "GetDigests",
+			Handler:    _KeyProtectionService_GetDigests_Handler,
+		},
+		{
+			MethodName: "GetEncryptionPaddings",
+			Handler:    _KeyProtectionService_GetEncryptionPaddings_Handler,
+		},
+		{
+			MethodName: "GetKeyValidityForConsumptionEnd",
+			Handler:    _KeyProtectionService_GetKeyValidityForConsumptionEnd_Handler,
+		},
+		{
+			MethodName: "GetKeyValidityForOriginationEnd",
+			Handler:    _KeyProtectionService_GetKeyValidityForOriginationEnd_Handler,
+		},
+		{
+			MethodName: "GetKeyValidityStart",
+			Handler:    _KeyProtectionService_GetKeyValidityStart_Handler,
+		},
+		{
+			MethodName: "GetMaxUsageCount",
+			Handler:    _KeyProtectionService_GetMaxUsageCount_Handler,
+		},
+		{
+			MethodName: "GetPurposes",
+			Handler:    _KeyProtectionService_GetPurposes_Handler,
+		},
+		{
+			MethodName: "GetSignaturePaddings",
+			Handler:    _KeyProtectionService_GetSignaturePaddings_Handler,
+		},
+		{
+			MethodName: "GetUserAuthenticationType",
+			Handler:    _KeyProtectionService_GetUserAuthenticationType_Handler,
+		},
+		{
+			MethodName: "GetUserAuthenticationValidityDurationSeconds",
+			Handler:    _KeyProtectionService_GetUserAuthenticationValidityDurationSeconds_Handler,
+		},
+		{
+			MethodName: "IsDigestsSpecified",
+			Handler:    _KeyProtectionService_IsDigestsSpecified_Handler,
+		},
+		{
+			MethodName: "IsInvalidatedByBiometricEnrollment",
+			Handler:    _KeyProtectionService_IsInvalidatedByBiometricEnrollment_Handler,
+		},
+		{
+			MethodName: "IsMgf1DigestsSpecified",
+			Handler:    _KeyProtectionService_IsMgf1DigestsSpecified_Handler,
+		},
+		{
+			MethodName: "IsRandomizedEncryptionRequired",
+			Handler:    _KeyProtectionService_IsRandomizedEncryptionRequired_Handler,
+		},
+		{
+			MethodName: "IsUnlockedDeviceRequired",
+			Handler:    _KeyProtectionService_IsUnlockedDeviceRequired_Handler,
+		},
+		{
+			MethodName: "IsUserAuthenticationRequired",
+			Handler:    _KeyProtectionService_IsUserAuthenticationRequired_Handler,
+		},
+		{
+			MethodName: "IsUserAuthenticationValidWhileOnBody",
+			Handler:    _KeyProtectionService_IsUserAuthenticationValidWhileOnBody_Handler,
+		},
+		{
+			MethodName: "IsUserConfirmationRequired",
+			Handler:    _KeyProtectionService_IsUserConfirmationRequired_Handler,
+		},
+		{
+			MethodName: "IsUserPresenceRequired",
+			Handler:    _KeyProtectionService_IsUserPresenceRequired_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/keystore/keystore.proto",
+}
+
+const (
+	KeyProtectionBuilderService_Build_FullMethodName                                        = "/keystore.KeyProtectionBuilderService/Build"
+	KeyProtectionBuilderService_SetBlockModes_FullMethodName                                = "/keystore.KeyProtectionBuilderService/SetBlockModes"
+	KeyProtectionBuilderService_SetDigests_FullMethodName                                   = "/keystore.KeyProtectionBuilderService/SetDigests"
+	KeyProtectionBuilderService_SetEncryptionPaddings_FullMethodName                        = "/keystore.KeyProtectionBuilderService/SetEncryptionPaddings"
+	KeyProtectionBuilderService_SetInvalidatedByBiometricEnrollment_FullMethodName          = "/keystore.KeyProtectionBuilderService/SetInvalidatedByBiometricEnrollment"
+	KeyProtectionBuilderService_SetIsStrongBoxBacked_FullMethodName                         = "/keystore.KeyProtectionBuilderService/SetIsStrongBoxBacked"
+	KeyProtectionBuilderService_SetKeyValidityEnd_FullMethodName                            = "/keystore.KeyProtectionBuilderService/SetKeyValidityEnd"
+	KeyProtectionBuilderService_SetKeyValidityForConsumptionEnd_FullMethodName              = "/keystore.KeyProtectionBuilderService/SetKeyValidityForConsumptionEnd"
+	KeyProtectionBuilderService_SetKeyValidityForOriginationEnd_FullMethodName              = "/keystore.KeyProtectionBuilderService/SetKeyValidityForOriginationEnd"
+	KeyProtectionBuilderService_SetKeyValidityStart_FullMethodName                          = "/keystore.KeyProtectionBuilderService/SetKeyValidityStart"
+	KeyProtectionBuilderService_SetMaxUsageCount_FullMethodName                             = "/keystore.KeyProtectionBuilderService/SetMaxUsageCount"
+	KeyProtectionBuilderService_SetMgf1Digests_FullMethodName                               = "/keystore.KeyProtectionBuilderService/SetMgf1Digests"
+	KeyProtectionBuilderService_SetRandomizedEncryptionRequired_FullMethodName              = "/keystore.KeyProtectionBuilderService/SetRandomizedEncryptionRequired"
+	KeyProtectionBuilderService_SetSignaturePaddings_FullMethodName                         = "/keystore.KeyProtectionBuilderService/SetSignaturePaddings"
+	KeyProtectionBuilderService_SetUnlockedDeviceRequired_FullMethodName                    = "/keystore.KeyProtectionBuilderService/SetUnlockedDeviceRequired"
+	KeyProtectionBuilderService_SetUserAuthenticationParameters_FullMethodName              = "/keystore.KeyProtectionBuilderService/SetUserAuthenticationParameters"
+	KeyProtectionBuilderService_SetUserAuthenticationRequired_FullMethodName                = "/keystore.KeyProtectionBuilderService/SetUserAuthenticationRequired"
+	KeyProtectionBuilderService_SetUserAuthenticationValidWhileOnBody_FullMethodName        = "/keystore.KeyProtectionBuilderService/SetUserAuthenticationValidWhileOnBody"
+	KeyProtectionBuilderService_SetUserAuthenticationValidityDurationSeconds_FullMethodName = "/keystore.KeyProtectionBuilderService/SetUserAuthenticationValidityDurationSeconds"
+	KeyProtectionBuilderService_SetUserConfirmationRequired_FullMethodName                  = "/keystore.KeyProtectionBuilderService/SetUserConfirmationRequired"
+	KeyProtectionBuilderService_SetUserPresenceRequired_FullMethodName                      = "/keystore.KeyProtectionBuilderService/SetUserPresenceRequired"
+)
+
+// KeyProtectionBuilderServiceClient is the client API for KeyProtectionBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type KeyProtectionBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetBlockModes(ctx context.Context, in *SetBlockModesRequest, opts ...grpc.CallOption) (*SetBlockModesResponse, error)
+	SetDigests(ctx context.Context, in *SetDigestsRequest, opts ...grpc.CallOption) (*SetDigestsResponse, error)
+	SetEncryptionPaddings(ctx context.Context, in *SetEncryptionPaddingsRequest, opts ...grpc.CallOption) (*SetEncryptionPaddingsResponse, error)
+	SetInvalidatedByBiometricEnrollment(ctx context.Context, in *SetInvalidatedByBiometricEnrollmentRequest, opts ...grpc.CallOption) (*SetInvalidatedByBiometricEnrollmentResponse, error)
+	SetIsStrongBoxBacked(ctx context.Context, in *SetIsStrongBoxBackedRequest, opts ...grpc.CallOption) (*SetIsStrongBoxBackedResponse, error)
+	SetKeyValidityEnd(ctx context.Context, in *SetKeyValidityEndRequest, opts ...grpc.CallOption) (*SetKeyValidityEndResponse, error)
+	SetKeyValidityForConsumptionEnd(ctx context.Context, in *SetKeyValidityForConsumptionEndRequest, opts ...grpc.CallOption) (*SetKeyValidityForConsumptionEndResponse, error)
+	SetKeyValidityForOriginationEnd(ctx context.Context, in *SetKeyValidityForOriginationEndRequest, opts ...grpc.CallOption) (*SetKeyValidityForOriginationEndResponse, error)
+	SetKeyValidityStart(ctx context.Context, in *SetKeyValidityStartRequest, opts ...grpc.CallOption) (*SetKeyValidityStartResponse, error)
+	SetMaxUsageCount(ctx context.Context, in *SetMaxUsageCountRequest, opts ...grpc.CallOption) (*SetMaxUsageCountResponse, error)
+	SetMgf1Digests(ctx context.Context, in *SetMgf1DigestsRequest, opts ...grpc.CallOption) (*SetMgf1DigestsResponse, error)
+	SetRandomizedEncryptionRequired(ctx context.Context, in *SetRandomizedEncryptionRequiredRequest, opts ...grpc.CallOption) (*SetRandomizedEncryptionRequiredResponse, error)
+	SetSignaturePaddings(ctx context.Context, in *SetSignaturePaddingsRequest, opts ...grpc.CallOption) (*SetSignaturePaddingsResponse, error)
+	SetUnlockedDeviceRequired(ctx context.Context, in *SetUnlockedDeviceRequiredRequest, opts ...grpc.CallOption) (*SetUnlockedDeviceRequiredResponse, error)
+	SetUserAuthenticationParameters(ctx context.Context, in *SetUserAuthenticationParametersRequest, opts ...grpc.CallOption) (*SetUserAuthenticationParametersResponse, error)
+	SetUserAuthenticationRequired(ctx context.Context, in *SetUserAuthenticationRequiredRequest, opts ...grpc.CallOption) (*SetUserAuthenticationRequiredResponse, error)
+	SetUserAuthenticationValidWhileOnBody(ctx context.Context, in *SetUserAuthenticationValidWhileOnBodyRequest, opts ...grpc.CallOption) (*SetUserAuthenticationValidWhileOnBodyResponse, error)
+	SetUserAuthenticationValidityDurationSeconds(ctx context.Context, in *SetUserAuthenticationValidityDurationSecondsRequest, opts ...grpc.CallOption) (*SetUserAuthenticationValidityDurationSecondsResponse, error)
+	SetUserConfirmationRequired(ctx context.Context, in *SetUserConfirmationRequiredRequest, opts ...grpc.CallOption) (*SetUserConfirmationRequiredResponse, error)
+	SetUserPresenceRequired(ctx context.Context, in *SetUserPresenceRequiredRequest, opts ...grpc.CallOption) (*SetUserPresenceRequiredResponse, error)
+}
+
+type keyProtectionBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewKeyProtectionBuilderServiceClient(cc grpc.ClientConnInterface) KeyProtectionBuilderServiceClient {
+	return &keyProtectionBuilderServiceClient{cc}
+}
+
+func (c *keyProtectionBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetBlockModes(ctx context.Context, in *SetBlockModesRequest, opts ...grpc.CallOption) (*SetBlockModesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetBlockModesResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetBlockModes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetDigests(ctx context.Context, in *SetDigestsRequest, opts ...grpc.CallOption) (*SetDigestsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDigestsResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetDigests_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetEncryptionPaddings(ctx context.Context, in *SetEncryptionPaddingsRequest, opts ...grpc.CallOption) (*SetEncryptionPaddingsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEncryptionPaddingsResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetEncryptionPaddings_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetInvalidatedByBiometricEnrollment(ctx context.Context, in *SetInvalidatedByBiometricEnrollmentRequest, opts ...grpc.CallOption) (*SetInvalidatedByBiometricEnrollmentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetInvalidatedByBiometricEnrollmentResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetInvalidatedByBiometricEnrollment_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetIsStrongBoxBacked(ctx context.Context, in *SetIsStrongBoxBackedRequest, opts ...grpc.CallOption) (*SetIsStrongBoxBackedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetIsStrongBoxBackedResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetIsStrongBoxBacked_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetKeyValidityEnd(ctx context.Context, in *SetKeyValidityEndRequest, opts ...grpc.CallOption) (*SetKeyValidityEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetKeyValidityEndResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetKeyValidityEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetKeyValidityForConsumptionEnd(ctx context.Context, in *SetKeyValidityForConsumptionEndRequest, opts ...grpc.CallOption) (*SetKeyValidityForConsumptionEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetKeyValidityForConsumptionEndResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetKeyValidityForConsumptionEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetKeyValidityForOriginationEnd(ctx context.Context, in *SetKeyValidityForOriginationEndRequest, opts ...grpc.CallOption) (*SetKeyValidityForOriginationEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetKeyValidityForOriginationEndResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetKeyValidityForOriginationEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetKeyValidityStart(ctx context.Context, in *SetKeyValidityStartRequest, opts ...grpc.CallOption) (*SetKeyValidityStartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetKeyValidityStartResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetKeyValidityStart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetMaxUsageCount(ctx context.Context, in *SetMaxUsageCountRequest, opts ...grpc.CallOption) (*SetMaxUsageCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMaxUsageCountResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetMaxUsageCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetMgf1Digests(ctx context.Context, in *SetMgf1DigestsRequest, opts ...grpc.CallOption) (*SetMgf1DigestsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMgf1DigestsResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetMgf1Digests_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetRandomizedEncryptionRequired(ctx context.Context, in *SetRandomizedEncryptionRequiredRequest, opts ...grpc.CallOption) (*SetRandomizedEncryptionRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRandomizedEncryptionRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetRandomizedEncryptionRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetSignaturePaddings(ctx context.Context, in *SetSignaturePaddingsRequest, opts ...grpc.CallOption) (*SetSignaturePaddingsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSignaturePaddingsResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetSignaturePaddings_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetUnlockedDeviceRequired(ctx context.Context, in *SetUnlockedDeviceRequiredRequest, opts ...grpc.CallOption) (*SetUnlockedDeviceRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUnlockedDeviceRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetUnlockedDeviceRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetUserAuthenticationParameters(ctx context.Context, in *SetUserAuthenticationParametersRequest, opts ...grpc.CallOption) (*SetUserAuthenticationParametersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserAuthenticationParametersResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetUserAuthenticationParameters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetUserAuthenticationRequired(ctx context.Context, in *SetUserAuthenticationRequiredRequest, opts ...grpc.CallOption) (*SetUserAuthenticationRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserAuthenticationRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetUserAuthenticationRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetUserAuthenticationValidWhileOnBody(ctx context.Context, in *SetUserAuthenticationValidWhileOnBodyRequest, opts ...grpc.CallOption) (*SetUserAuthenticationValidWhileOnBodyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserAuthenticationValidWhileOnBodyResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetUserAuthenticationValidWhileOnBody_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetUserAuthenticationValidityDurationSeconds(ctx context.Context, in *SetUserAuthenticationValidityDurationSecondsRequest, opts ...grpc.CallOption) (*SetUserAuthenticationValidityDurationSecondsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserAuthenticationValidityDurationSecondsResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetUserAuthenticationValidityDurationSeconds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetUserConfirmationRequired(ctx context.Context, in *SetUserConfirmationRequiredRequest, opts ...grpc.CallOption) (*SetUserConfirmationRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserConfirmationRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetUserConfirmationRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyProtectionBuilderServiceClient) SetUserPresenceRequired(ctx context.Context, in *SetUserPresenceRequiredRequest, opts ...grpc.CallOption) (*SetUserPresenceRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserPresenceRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyProtectionBuilderService_SetUserPresenceRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// KeyProtectionBuilderServiceServer is the server API for KeyProtectionBuilderService service.
+// All implementations must embed UnimplementedKeyProtectionBuilderServiceServer
+// for forward compatibility.
+type KeyProtectionBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetBlockModes(context.Context, *SetBlockModesRequest) (*SetBlockModesResponse, error)
+	SetDigests(context.Context, *SetDigestsRequest) (*SetDigestsResponse, error)
+	SetEncryptionPaddings(context.Context, *SetEncryptionPaddingsRequest) (*SetEncryptionPaddingsResponse, error)
+	SetInvalidatedByBiometricEnrollment(context.Context, *SetInvalidatedByBiometricEnrollmentRequest) (*SetInvalidatedByBiometricEnrollmentResponse, error)
+	SetIsStrongBoxBacked(context.Context, *SetIsStrongBoxBackedRequest) (*SetIsStrongBoxBackedResponse, error)
+	SetKeyValidityEnd(context.Context, *SetKeyValidityEndRequest) (*SetKeyValidityEndResponse, error)
+	SetKeyValidityForConsumptionEnd(context.Context, *SetKeyValidityForConsumptionEndRequest) (*SetKeyValidityForConsumptionEndResponse, error)
+	SetKeyValidityForOriginationEnd(context.Context, *SetKeyValidityForOriginationEndRequest) (*SetKeyValidityForOriginationEndResponse, error)
+	SetKeyValidityStart(context.Context, *SetKeyValidityStartRequest) (*SetKeyValidityStartResponse, error)
+	SetMaxUsageCount(context.Context, *SetMaxUsageCountRequest) (*SetMaxUsageCountResponse, error)
+	SetMgf1Digests(context.Context, *SetMgf1DigestsRequest) (*SetMgf1DigestsResponse, error)
+	SetRandomizedEncryptionRequired(context.Context, *SetRandomizedEncryptionRequiredRequest) (*SetRandomizedEncryptionRequiredResponse, error)
+	SetSignaturePaddings(context.Context, *SetSignaturePaddingsRequest) (*SetSignaturePaddingsResponse, error)
+	SetUnlockedDeviceRequired(context.Context, *SetUnlockedDeviceRequiredRequest) (*SetUnlockedDeviceRequiredResponse, error)
+	SetUserAuthenticationParameters(context.Context, *SetUserAuthenticationParametersRequest) (*SetUserAuthenticationParametersResponse, error)
+	SetUserAuthenticationRequired(context.Context, *SetUserAuthenticationRequiredRequest) (*SetUserAuthenticationRequiredResponse, error)
+	SetUserAuthenticationValidWhileOnBody(context.Context, *SetUserAuthenticationValidWhileOnBodyRequest) (*SetUserAuthenticationValidWhileOnBodyResponse, error)
+	SetUserAuthenticationValidityDurationSeconds(context.Context, *SetUserAuthenticationValidityDurationSecondsRequest) (*SetUserAuthenticationValidityDurationSecondsResponse, error)
+	SetUserConfirmationRequired(context.Context, *SetUserConfirmationRequiredRequest) (*SetUserConfirmationRequiredResponse, error)
+	SetUserPresenceRequired(context.Context, *SetUserPresenceRequiredRequest) (*SetUserPresenceRequiredResponse, error)
+	mustEmbedUnimplementedKeyProtectionBuilderServiceServer()
+}
+
+// UnimplementedKeyProtectionBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedKeyProtectionBuilderServiceServer struct{}
+
+func (UnimplementedKeyProtectionBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetBlockModes(context.Context, *SetBlockModesRequest) (*SetBlockModesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetBlockModes not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetDigests(context.Context, *SetDigestsRequest) (*SetDigestsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDigests not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetEncryptionPaddings(context.Context, *SetEncryptionPaddingsRequest) (*SetEncryptionPaddingsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEncryptionPaddings not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetInvalidatedByBiometricEnrollment(context.Context, *SetInvalidatedByBiometricEnrollmentRequest) (*SetInvalidatedByBiometricEnrollmentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetInvalidatedByBiometricEnrollment not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetIsStrongBoxBacked(context.Context, *SetIsStrongBoxBackedRequest) (*SetIsStrongBoxBackedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetIsStrongBoxBacked not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetKeyValidityEnd(context.Context, *SetKeyValidityEndRequest) (*SetKeyValidityEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetKeyValidityEnd not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetKeyValidityForConsumptionEnd(context.Context, *SetKeyValidityForConsumptionEndRequest) (*SetKeyValidityForConsumptionEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetKeyValidityForConsumptionEnd not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetKeyValidityForOriginationEnd(context.Context, *SetKeyValidityForOriginationEndRequest) (*SetKeyValidityForOriginationEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetKeyValidityForOriginationEnd not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetKeyValidityStart(context.Context, *SetKeyValidityStartRequest) (*SetKeyValidityStartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetKeyValidityStart not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetMaxUsageCount(context.Context, *SetMaxUsageCountRequest) (*SetMaxUsageCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMaxUsageCount not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetMgf1Digests(context.Context, *SetMgf1DigestsRequest) (*SetMgf1DigestsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMgf1Digests not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetRandomizedEncryptionRequired(context.Context, *SetRandomizedEncryptionRequiredRequest) (*SetRandomizedEncryptionRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRandomizedEncryptionRequired not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetSignaturePaddings(context.Context, *SetSignaturePaddingsRequest) (*SetSignaturePaddingsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSignaturePaddings not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetUnlockedDeviceRequired(context.Context, *SetUnlockedDeviceRequiredRequest) (*SetUnlockedDeviceRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUnlockedDeviceRequired not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetUserAuthenticationParameters(context.Context, *SetUserAuthenticationParametersRequest) (*SetUserAuthenticationParametersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUserAuthenticationParameters not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetUserAuthenticationRequired(context.Context, *SetUserAuthenticationRequiredRequest) (*SetUserAuthenticationRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUserAuthenticationRequired not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetUserAuthenticationValidWhileOnBody(context.Context, *SetUserAuthenticationValidWhileOnBodyRequest) (*SetUserAuthenticationValidWhileOnBodyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUserAuthenticationValidWhileOnBody not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetUserAuthenticationValidityDurationSeconds(context.Context, *SetUserAuthenticationValidityDurationSecondsRequest) (*SetUserAuthenticationValidityDurationSecondsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUserAuthenticationValidityDurationSeconds not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetUserConfirmationRequired(context.Context, *SetUserConfirmationRequiredRequest) (*SetUserConfirmationRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUserConfirmationRequired not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) SetUserPresenceRequired(context.Context, *SetUserPresenceRequiredRequest) (*SetUserPresenceRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUserPresenceRequired not implemented")
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) mustEmbedUnimplementedKeyProtectionBuilderServiceServer() {
+}
+func (UnimplementedKeyProtectionBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeKeyProtectionBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to KeyProtectionBuilderServiceServer will
+// result in compilation errors.
+type UnsafeKeyProtectionBuilderServiceServer interface {
+	mustEmbedUnimplementedKeyProtectionBuilderServiceServer()
+}
+
+func RegisterKeyProtectionBuilderServiceServer(s grpc.ServiceRegistrar, srv KeyProtectionBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedKeyProtectionBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&KeyProtectionBuilderService_ServiceDesc, srv)
+}
+
+func _KeyProtectionBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetBlockModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetBlockModesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetBlockModes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetBlockModes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetBlockModes(ctx, req.(*SetBlockModesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetDigests_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDigestsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetDigests(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetDigests_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetDigests(ctx, req.(*SetDigestsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetEncryptionPaddings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEncryptionPaddingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetEncryptionPaddings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetEncryptionPaddings_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetEncryptionPaddings(ctx, req.(*SetEncryptionPaddingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetInvalidatedByBiometricEnrollment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetInvalidatedByBiometricEnrollmentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetInvalidatedByBiometricEnrollment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetInvalidatedByBiometricEnrollment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetInvalidatedByBiometricEnrollment(ctx, req.(*SetInvalidatedByBiometricEnrollmentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetIsStrongBoxBacked_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetIsStrongBoxBackedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetIsStrongBoxBacked(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetIsStrongBoxBacked_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetIsStrongBoxBacked(ctx, req.(*SetIsStrongBoxBackedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetKeyValidityEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetKeyValidityEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetKeyValidityEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetKeyValidityEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetKeyValidityEnd(ctx, req.(*SetKeyValidityEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetKeyValidityForConsumptionEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetKeyValidityForConsumptionEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetKeyValidityForConsumptionEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetKeyValidityForConsumptionEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetKeyValidityForConsumptionEnd(ctx, req.(*SetKeyValidityForConsumptionEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetKeyValidityForOriginationEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetKeyValidityForOriginationEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetKeyValidityForOriginationEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetKeyValidityForOriginationEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetKeyValidityForOriginationEnd(ctx, req.(*SetKeyValidityForOriginationEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetKeyValidityStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetKeyValidityStartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetKeyValidityStart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetKeyValidityStart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetKeyValidityStart(ctx, req.(*SetKeyValidityStartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetMaxUsageCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMaxUsageCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetMaxUsageCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetMaxUsageCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetMaxUsageCount(ctx, req.(*SetMaxUsageCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetMgf1Digests_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMgf1DigestsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetMgf1Digests(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetMgf1Digests_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetMgf1Digests(ctx, req.(*SetMgf1DigestsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetRandomizedEncryptionRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRandomizedEncryptionRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetRandomizedEncryptionRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetRandomizedEncryptionRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetRandomizedEncryptionRequired(ctx, req.(*SetRandomizedEncryptionRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetSignaturePaddings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSignaturePaddingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetSignaturePaddings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetSignaturePaddings_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetSignaturePaddings(ctx, req.(*SetSignaturePaddingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetUnlockedDeviceRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUnlockedDeviceRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetUnlockedDeviceRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetUnlockedDeviceRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetUnlockedDeviceRequired(ctx, req.(*SetUnlockedDeviceRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetUserAuthenticationParameters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserAuthenticationParametersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetUserAuthenticationParameters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetUserAuthenticationParameters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetUserAuthenticationParameters(ctx, req.(*SetUserAuthenticationParametersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetUserAuthenticationRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserAuthenticationRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetUserAuthenticationRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetUserAuthenticationRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetUserAuthenticationRequired(ctx, req.(*SetUserAuthenticationRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetUserAuthenticationValidWhileOnBody_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserAuthenticationValidWhileOnBodyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetUserAuthenticationValidWhileOnBody(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetUserAuthenticationValidWhileOnBody_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetUserAuthenticationValidWhileOnBody(ctx, req.(*SetUserAuthenticationValidWhileOnBodyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetUserAuthenticationValidityDurationSeconds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserAuthenticationValidityDurationSecondsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetUserAuthenticationValidityDurationSeconds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetUserAuthenticationValidityDurationSeconds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetUserAuthenticationValidityDurationSeconds(ctx, req.(*SetUserAuthenticationValidityDurationSecondsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetUserConfirmationRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserConfirmationRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetUserConfirmationRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetUserConfirmationRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetUserConfirmationRequired(ctx, req.(*SetUserConfirmationRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyProtectionBuilderService_SetUserPresenceRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserPresenceRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyProtectionBuilderServiceServer).SetUserPresenceRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyProtectionBuilderService_SetUserPresenceRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyProtectionBuilderServiceServer).SetUserPresenceRequired(ctx, req.(*SetUserPresenceRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// KeyProtectionBuilderService_ServiceDesc is the grpc.ServiceDesc for KeyProtectionBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var KeyProtectionBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "keystore.KeyProtectionBuilderService",
+	HandlerType: (*KeyProtectionBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _KeyProtectionBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetBlockModes",
+			Handler:    _KeyProtectionBuilderService_SetBlockModes_Handler,
+		},
+		{
+			MethodName: "SetDigests",
+			Handler:    _KeyProtectionBuilderService_SetDigests_Handler,
+		},
+		{
+			MethodName: "SetEncryptionPaddings",
+			Handler:    _KeyProtectionBuilderService_SetEncryptionPaddings_Handler,
+		},
+		{
+			MethodName: "SetInvalidatedByBiometricEnrollment",
+			Handler:    _KeyProtectionBuilderService_SetInvalidatedByBiometricEnrollment_Handler,
+		},
+		{
+			MethodName: "SetIsStrongBoxBacked",
+			Handler:    _KeyProtectionBuilderService_SetIsStrongBoxBacked_Handler,
+		},
+		{
+			MethodName: "SetKeyValidityEnd",
+			Handler:    _KeyProtectionBuilderService_SetKeyValidityEnd_Handler,
+		},
+		{
+			MethodName: "SetKeyValidityForConsumptionEnd",
+			Handler:    _KeyProtectionBuilderService_SetKeyValidityForConsumptionEnd_Handler,
+		},
+		{
+			MethodName: "SetKeyValidityForOriginationEnd",
+			Handler:    _KeyProtectionBuilderService_SetKeyValidityForOriginationEnd_Handler,
+		},
+		{
+			MethodName: "SetKeyValidityStart",
+			Handler:    _KeyProtectionBuilderService_SetKeyValidityStart_Handler,
+		},
+		{
+			MethodName: "SetMaxUsageCount",
+			Handler:    _KeyProtectionBuilderService_SetMaxUsageCount_Handler,
+		},
+		{
+			MethodName: "SetMgf1Digests",
+			Handler:    _KeyProtectionBuilderService_SetMgf1Digests_Handler,
+		},
+		{
+			MethodName: "SetRandomizedEncryptionRequired",
+			Handler:    _KeyProtectionBuilderService_SetRandomizedEncryptionRequired_Handler,
+		},
+		{
+			MethodName: "SetSignaturePaddings",
+			Handler:    _KeyProtectionBuilderService_SetSignaturePaddings_Handler,
+		},
+		{
+			MethodName: "SetUnlockedDeviceRequired",
+			Handler:    _KeyProtectionBuilderService_SetUnlockedDeviceRequired_Handler,
+		},
+		{
+			MethodName: "SetUserAuthenticationParameters",
+			Handler:    _KeyProtectionBuilderService_SetUserAuthenticationParameters_Handler,
+		},
+		{
+			MethodName: "SetUserAuthenticationRequired",
+			Handler:    _KeyProtectionBuilderService_SetUserAuthenticationRequired_Handler,
+		},
+		{
+			MethodName: "SetUserAuthenticationValidWhileOnBody",
+			Handler:    _KeyProtectionBuilderService_SetUserAuthenticationValidWhileOnBody_Handler,
+		},
+		{
+			MethodName: "SetUserAuthenticationValidityDurationSeconds",
+			Handler:    _KeyProtectionBuilderService_SetUserAuthenticationValidityDurationSeconds_Handler,
+		},
+		{
+			MethodName: "SetUserConfirmationRequired",
+			Handler:    _KeyProtectionBuilderService_SetUserConfirmationRequired_Handler,
+		},
+		{
+			MethodName: "SetUserPresenceRequired",
+			Handler:    _KeyProtectionBuilderService_SetUserPresenceRequired_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/keystore/keystore.proto",
+}
+
+const (
+	WrappedKeyEntryService_NewWrappedKeyEntry_FullMethodName        = "/keystore.WrappedKeyEntryService/NewWrappedKeyEntry"
+	WrappedKeyEntryService_GetAlgorithmParameterSpec_FullMethodName = "/keystore.WrappedKeyEntryService/GetAlgorithmParameterSpec"
+	WrappedKeyEntryService_GetTransformation_FullMethodName         = "/keystore.WrappedKeyEntryService/GetTransformation"
+	WrappedKeyEntryService_GetWrappedKeyBytes_FullMethodName        = "/keystore.WrappedKeyEntryService/GetWrappedKeyBytes"
+	WrappedKeyEntryService_GetWrappingKeyAlias_FullMethodName       = "/keystore.WrappedKeyEntryService/GetWrappingKeyAlias"
+)
+
+// WrappedKeyEntryServiceClient is the client API for WrappedKeyEntryService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type WrappedKeyEntryServiceClient interface {
+	NewWrappedKeyEntry(ctx context.Context, in *NewWrappedKeyEntryRequest, opts ...grpc.CallOption) (*NewWrappedKeyEntryResponse, error)
+	GetAlgorithmParameterSpec(ctx context.Context, in *GetAlgorithmParameterSpecRequest, opts ...grpc.CallOption) (*GetAlgorithmParameterSpecResponse, error)
+	GetTransformation(ctx context.Context, in *GetTransformationRequest, opts ...grpc.CallOption) (*GetTransformationResponse, error)
+	GetWrappedKeyBytes(ctx context.Context, in *GetWrappedKeyBytesRequest, opts ...grpc.CallOption) (*GetWrappedKeyBytesResponse, error)
+	GetWrappingKeyAlias(ctx context.Context, in *GetWrappingKeyAliasRequest, opts ...grpc.CallOption) (*GetWrappingKeyAliasResponse, error)
+}
+
+type wrappedKeyEntryServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewWrappedKeyEntryServiceClient(cc grpc.ClientConnInterface) WrappedKeyEntryServiceClient {
+	return &wrappedKeyEntryServiceClient{cc}
+}
+
+func (c *wrappedKeyEntryServiceClient) NewWrappedKeyEntry(ctx context.Context, in *NewWrappedKeyEntryRequest, opts ...grpc.CallOption) (*NewWrappedKeyEntryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewWrappedKeyEntryResponse)
+	err := c.cc.Invoke(ctx, WrappedKeyEntryService_NewWrappedKeyEntry_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wrappedKeyEntryServiceClient) GetAlgorithmParameterSpec(ctx context.Context, in *GetAlgorithmParameterSpecRequest, opts ...grpc.CallOption) (*GetAlgorithmParameterSpecResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAlgorithmParameterSpecResponse)
+	err := c.cc.Invoke(ctx, WrappedKeyEntryService_GetAlgorithmParameterSpec_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wrappedKeyEntryServiceClient) GetTransformation(ctx context.Context, in *GetTransformationRequest, opts ...grpc.CallOption) (*GetTransformationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTransformationResponse)
+	err := c.cc.Invoke(ctx, WrappedKeyEntryService_GetTransformation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wrappedKeyEntryServiceClient) GetWrappedKeyBytes(ctx context.Context, in *GetWrappedKeyBytesRequest, opts ...grpc.CallOption) (*GetWrappedKeyBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWrappedKeyBytesResponse)
+	err := c.cc.Invoke(ctx, WrappedKeyEntryService_GetWrappedKeyBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wrappedKeyEntryServiceClient) GetWrappingKeyAlias(ctx context.Context, in *GetWrappingKeyAliasRequest, opts ...grpc.CallOption) (*GetWrappingKeyAliasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWrappingKeyAliasResponse)
+	err := c.cc.Invoke(ctx, WrappedKeyEntryService_GetWrappingKeyAlias_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// WrappedKeyEntryServiceServer is the server API for WrappedKeyEntryService service.
+// All implementations must embed UnimplementedWrappedKeyEntryServiceServer
+// for forward compatibility.
+type WrappedKeyEntryServiceServer interface {
+	NewWrappedKeyEntry(context.Context, *NewWrappedKeyEntryRequest) (*NewWrappedKeyEntryResponse, error)
+	GetAlgorithmParameterSpec(context.Context, *GetAlgorithmParameterSpecRequest) (*GetAlgorithmParameterSpecResponse, error)
+	GetTransformation(context.Context, *GetTransformationRequest) (*GetTransformationResponse, error)
+	GetWrappedKeyBytes(context.Context, *GetWrappedKeyBytesRequest) (*GetWrappedKeyBytesResponse, error)
+	GetWrappingKeyAlias(context.Context, *GetWrappingKeyAliasRequest) (*GetWrappingKeyAliasResponse, error)
+	mustEmbedUnimplementedWrappedKeyEntryServiceServer()
+}
+
+// UnimplementedWrappedKeyEntryServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedWrappedKeyEntryServiceServer struct{}
+
+func (UnimplementedWrappedKeyEntryServiceServer) NewWrappedKeyEntry(context.Context, *NewWrappedKeyEntryRequest) (*NewWrappedKeyEntryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewWrappedKeyEntry not implemented")
+}
+func (UnimplementedWrappedKeyEntryServiceServer) GetAlgorithmParameterSpec(context.Context, *GetAlgorithmParameterSpecRequest) (*GetAlgorithmParameterSpecResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAlgorithmParameterSpec not implemented")
+}
+func (UnimplementedWrappedKeyEntryServiceServer) GetTransformation(context.Context, *GetTransformationRequest) (*GetTransformationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTransformation not implemented")
+}
+func (UnimplementedWrappedKeyEntryServiceServer) GetWrappedKeyBytes(context.Context, *GetWrappedKeyBytesRequest) (*GetWrappedKeyBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWrappedKeyBytes not implemented")
+}
+func (UnimplementedWrappedKeyEntryServiceServer) GetWrappingKeyAlias(context.Context, *GetWrappingKeyAliasRequest) (*GetWrappingKeyAliasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWrappingKeyAlias not implemented")
+}
+func (UnimplementedWrappedKeyEntryServiceServer) mustEmbedUnimplementedWrappedKeyEntryServiceServer() {
+}
+func (UnimplementedWrappedKeyEntryServiceServer) testEmbeddedByValue() {}
+
+// UnsafeWrappedKeyEntryServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WrappedKeyEntryServiceServer will
+// result in compilation errors.
+type UnsafeWrappedKeyEntryServiceServer interface {
+	mustEmbedUnimplementedWrappedKeyEntryServiceServer()
+}
+
+func RegisterWrappedKeyEntryServiceServer(s grpc.ServiceRegistrar, srv WrappedKeyEntryServiceServer) {
+	// If the following call panics, it indicates UnimplementedWrappedKeyEntryServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&WrappedKeyEntryService_ServiceDesc, srv)
+}
+
+func _WrappedKeyEntryService_NewWrappedKeyEntry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewWrappedKeyEntryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WrappedKeyEntryServiceServer).NewWrappedKeyEntry(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WrappedKeyEntryService_NewWrappedKeyEntry_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WrappedKeyEntryServiceServer).NewWrappedKeyEntry(ctx, req.(*NewWrappedKeyEntryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WrappedKeyEntryService_GetAlgorithmParameterSpec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAlgorithmParameterSpecRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WrappedKeyEntryServiceServer).GetAlgorithmParameterSpec(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WrappedKeyEntryService_GetAlgorithmParameterSpec_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WrappedKeyEntryServiceServer).GetAlgorithmParameterSpec(ctx, req.(*GetAlgorithmParameterSpecRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WrappedKeyEntryService_GetTransformation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTransformationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WrappedKeyEntryServiceServer).GetTransformation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WrappedKeyEntryService_GetTransformation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WrappedKeyEntryServiceServer).GetTransformation(ctx, req.(*GetTransformationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WrappedKeyEntryService_GetWrappedKeyBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWrappedKeyBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WrappedKeyEntryServiceServer).GetWrappedKeyBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WrappedKeyEntryService_GetWrappedKeyBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WrappedKeyEntryServiceServer).GetWrappedKeyBytes(ctx, req.(*GetWrappedKeyBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WrappedKeyEntryService_GetWrappingKeyAlias_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWrappingKeyAliasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WrappedKeyEntryServiceServer).GetWrappingKeyAlias(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WrappedKeyEntryService_GetWrappingKeyAlias_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WrappedKeyEntryServiceServer).GetWrappingKeyAlias(ctx, req.(*GetWrappingKeyAliasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// WrappedKeyEntryService_ServiceDesc is the grpc.ServiceDesc for WrappedKeyEntryService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var WrappedKeyEntryService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "keystore.WrappedKeyEntryService",
+	HandlerType: (*WrappedKeyEntryServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewWrappedKeyEntry",
+			Handler:    _WrappedKeyEntryService_NewWrappedKeyEntry_Handler,
+		},
+		{
+			MethodName: "GetAlgorithmParameterSpec",
+			Handler:    _WrappedKeyEntryService_GetAlgorithmParameterSpec_Handler,
+		},
+		{
+			MethodName: "GetTransformation",
+			Handler:    _WrappedKeyEntryService_GetTransformation_Handler,
+		},
+		{
+			MethodName: "GetWrappedKeyBytes",
+			Handler:    _WrappedKeyEntryService_GetWrappedKeyBytes_Handler,
+		},
+		{
+			MethodName: "GetWrappingKeyAlias",
+			Handler:    _WrappedKeyEntryService_GetWrappingKeyAlias_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/keystore/keystore.proto",
+}
+
+const (
+	KeyGenParameterSpecService_GetAlgorithmParameterSpec_FullMethodName                    = "/keystore.KeyGenParameterSpecService/GetAlgorithmParameterSpec"
+	KeyGenParameterSpecService_GetAttestKeyAlias_FullMethodName                            = "/keystore.KeyGenParameterSpecService/GetAttestKeyAlias"
+	KeyGenParameterSpecService_GetAttestationChallenge_FullMethodName                      = "/keystore.KeyGenParameterSpecService/GetAttestationChallenge"
+	KeyGenParameterSpecService_GetBlockModes_FullMethodName                                = "/keystore.KeyGenParameterSpecService/GetBlockModes"
+	KeyGenParameterSpecService_GetCertificateNotAfter_FullMethodName                       = "/keystore.KeyGenParameterSpecService/GetCertificateNotAfter"
+	KeyGenParameterSpecService_GetCertificateNotBefore_FullMethodName                      = "/keystore.KeyGenParameterSpecService/GetCertificateNotBefore"
+	KeyGenParameterSpecService_GetCertificateSerialNumber_FullMethodName                   = "/keystore.KeyGenParameterSpecService/GetCertificateSerialNumber"
+	KeyGenParameterSpecService_GetCertificateSubject_FullMethodName                        = "/keystore.KeyGenParameterSpecService/GetCertificateSubject"
+	KeyGenParameterSpecService_GetDigests_FullMethodName                                   = "/keystore.KeyGenParameterSpecService/GetDigests"
+	KeyGenParameterSpecService_GetEncryptionPaddings_FullMethodName                        = "/keystore.KeyGenParameterSpecService/GetEncryptionPaddings"
+	KeyGenParameterSpecService_GetKeySize_FullMethodName                                   = "/keystore.KeyGenParameterSpecService/GetKeySize"
+	KeyGenParameterSpecService_GetKeyValidityForConsumptionEnd_FullMethodName              = "/keystore.KeyGenParameterSpecService/GetKeyValidityForConsumptionEnd"
+	KeyGenParameterSpecService_GetKeyValidityForOriginationEnd_FullMethodName              = "/keystore.KeyGenParameterSpecService/GetKeyValidityForOriginationEnd"
+	KeyGenParameterSpecService_GetKeyValidityStart_FullMethodName                          = "/keystore.KeyGenParameterSpecService/GetKeyValidityStart"
+	KeyGenParameterSpecService_GetKeystoreAlias_FullMethodName                             = "/keystore.KeyGenParameterSpecService/GetKeystoreAlias"
+	KeyGenParameterSpecService_GetMaxUsageCount_FullMethodName                             = "/keystore.KeyGenParameterSpecService/GetMaxUsageCount"
+	KeyGenParameterSpecService_GetPurposes_FullMethodName                                  = "/keystore.KeyGenParameterSpecService/GetPurposes"
+	KeyGenParameterSpecService_GetSignaturePaddings_FullMethodName                         = "/keystore.KeyGenParameterSpecService/GetSignaturePaddings"
+	KeyGenParameterSpecService_GetUserAuthenticationType_FullMethodName                    = "/keystore.KeyGenParameterSpecService/GetUserAuthenticationType"
+	KeyGenParameterSpecService_GetUserAuthenticationValidityDurationSeconds_FullMethodName = "/keystore.KeyGenParameterSpecService/GetUserAuthenticationValidityDurationSeconds"
+	KeyGenParameterSpecService_IsDevicePropertiesAttestationIncluded_FullMethodName        = "/keystore.KeyGenParameterSpecService/IsDevicePropertiesAttestationIncluded"
+	KeyGenParameterSpecService_IsDigestsSpecified_FullMethodName                           = "/keystore.KeyGenParameterSpecService/IsDigestsSpecified"
+	KeyGenParameterSpecService_IsInvalidatedByBiometricEnrollment_FullMethodName           = "/keystore.KeyGenParameterSpecService/IsInvalidatedByBiometricEnrollment"
+	KeyGenParameterSpecService_IsMgf1DigestsSpecified_FullMethodName                       = "/keystore.KeyGenParameterSpecService/IsMgf1DigestsSpecified"
+	KeyGenParameterSpecService_IsRandomizedEncryptionRequired_FullMethodName               = "/keystore.KeyGenParameterSpecService/IsRandomizedEncryptionRequired"
+	KeyGenParameterSpecService_IsStrongBoxBacked_FullMethodName                            = "/keystore.KeyGenParameterSpecService/IsStrongBoxBacked"
+	KeyGenParameterSpecService_IsUnlockedDeviceRequired_FullMethodName                     = "/keystore.KeyGenParameterSpecService/IsUnlockedDeviceRequired"
+	KeyGenParameterSpecService_IsUserAuthenticationRequired_FullMethodName                 = "/keystore.KeyGenParameterSpecService/IsUserAuthenticationRequired"
+	KeyGenParameterSpecService_IsUserAuthenticationValidWhileOnBody_FullMethodName         = "/keystore.KeyGenParameterSpecService/IsUserAuthenticationValidWhileOnBody"
+	KeyGenParameterSpecService_IsUserConfirmationRequired_FullMethodName                   = "/keystore.KeyGenParameterSpecService/IsUserConfirmationRequired"
+	KeyGenParameterSpecService_IsUserPresenceRequired_FullMethodName                       = "/keystore.KeyGenParameterSpecService/IsUserPresenceRequired"
+)
+
+// KeyGenParameterSpecServiceClient is the client API for KeyGenParameterSpecService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type KeyGenParameterSpecServiceClient interface {
+	GetAlgorithmParameterSpec(ctx context.Context, in *KeyGenParameterSpecGetAlgorithmParameterSpecRequest, opts ...grpc.CallOption) (*GetAlgorithmParameterSpecResponse, error)
+	GetAttestKeyAlias(ctx context.Context, in *GetAttestKeyAliasRequest, opts ...grpc.CallOption) (*GetAttestKeyAliasResponse, error)
+	GetAttestationChallenge(ctx context.Context, in *GetAttestationChallengeRequest, opts ...grpc.CallOption) (*GetAttestationChallengeResponse, error)
+	GetBlockModes(ctx context.Context, in *GetBlockModesRequest, opts ...grpc.CallOption) (*GetBlockModesResponse, error)
+	GetCertificateNotAfter(ctx context.Context, in *GetCertificateNotAfterRequest, opts ...grpc.CallOption) (*GetCertificateNotAfterResponse, error)
+	GetCertificateNotBefore(ctx context.Context, in *GetCertificateNotBeforeRequest, opts ...grpc.CallOption) (*GetCertificateNotBeforeResponse, error)
+	GetCertificateSerialNumber(ctx context.Context, in *GetCertificateSerialNumberRequest, opts ...grpc.CallOption) (*GetCertificateSerialNumberResponse, error)
+	GetCertificateSubject(ctx context.Context, in *GetCertificateSubjectRequest, opts ...grpc.CallOption) (*GetCertificateSubjectResponse, error)
+	GetDigests(ctx context.Context, in *GetDigestsRequest, opts ...grpc.CallOption) (*GetDigestsResponse, error)
+	GetEncryptionPaddings(ctx context.Context, in *GetEncryptionPaddingsRequest, opts ...grpc.CallOption) (*GetEncryptionPaddingsResponse, error)
+	GetKeySize(ctx context.Context, in *GetKeySizeRequest, opts ...grpc.CallOption) (*GetKeySizeResponse, error)
+	GetKeyValidityForConsumptionEnd(ctx context.Context, in *GetKeyValidityForConsumptionEndRequest, opts ...grpc.CallOption) (*GetKeyValidityForConsumptionEndResponse, error)
+	GetKeyValidityForOriginationEnd(ctx context.Context, in *GetKeyValidityForOriginationEndRequest, opts ...grpc.CallOption) (*GetKeyValidityForOriginationEndResponse, error)
+	GetKeyValidityStart(ctx context.Context, in *GetKeyValidityStartRequest, opts ...grpc.CallOption) (*GetKeyValidityStartResponse, error)
+	GetKeystoreAlias(ctx context.Context, in *GetKeystoreAliasRequest, opts ...grpc.CallOption) (*GetKeystoreAliasResponse, error)
+	GetMaxUsageCount(ctx context.Context, in *GetMaxUsageCountRequest, opts ...grpc.CallOption) (*GetMaxUsageCountResponse, error)
+	GetPurposes(ctx context.Context, in *GetPurposesRequest, opts ...grpc.CallOption) (*GetPurposesResponse, error)
+	GetSignaturePaddings(ctx context.Context, in *GetSignaturePaddingsRequest, opts ...grpc.CallOption) (*GetSignaturePaddingsResponse, error)
+	GetUserAuthenticationType(ctx context.Context, in *GetUserAuthenticationTypeRequest, opts ...grpc.CallOption) (*GetUserAuthenticationTypeResponse, error)
+	GetUserAuthenticationValidityDurationSeconds(ctx context.Context, in *GetUserAuthenticationValidityDurationSecondsRequest, opts ...grpc.CallOption) (*GetUserAuthenticationValidityDurationSecondsResponse, error)
+	IsDevicePropertiesAttestationIncluded(ctx context.Context, in *IsDevicePropertiesAttestationIncludedRequest, opts ...grpc.CallOption) (*IsDevicePropertiesAttestationIncludedResponse, error)
+	IsDigestsSpecified(ctx context.Context, in *IsDigestsSpecifiedRequest, opts ...grpc.CallOption) (*IsDigestsSpecifiedResponse, error)
+	IsInvalidatedByBiometricEnrollment(ctx context.Context, in *IsInvalidatedByBiometricEnrollmentRequest, opts ...grpc.CallOption) (*IsInvalidatedByBiometricEnrollmentResponse, error)
+	IsMgf1DigestsSpecified(ctx context.Context, in *IsMgf1DigestsSpecifiedRequest, opts ...grpc.CallOption) (*IsMgf1DigestsSpecifiedResponse, error)
+	IsRandomizedEncryptionRequired(ctx context.Context, in *IsRandomizedEncryptionRequiredRequest, opts ...grpc.CallOption) (*IsRandomizedEncryptionRequiredResponse, error)
+	IsStrongBoxBacked(ctx context.Context, in *IsStrongBoxBackedRequest, opts ...grpc.CallOption) (*IsStrongBoxBackedResponse, error)
+	IsUnlockedDeviceRequired(ctx context.Context, in *IsUnlockedDeviceRequiredRequest, opts ...grpc.CallOption) (*IsUnlockedDeviceRequiredResponse, error)
+	IsUserAuthenticationRequired(ctx context.Context, in *IsUserAuthenticationRequiredRequest, opts ...grpc.CallOption) (*IsUserAuthenticationRequiredResponse, error)
+	IsUserAuthenticationValidWhileOnBody(ctx context.Context, in *IsUserAuthenticationValidWhileOnBodyRequest, opts ...grpc.CallOption) (*IsUserAuthenticationValidWhileOnBodyResponse, error)
+	IsUserConfirmationRequired(ctx context.Context, in *IsUserConfirmationRequiredRequest, opts ...grpc.CallOption) (*IsUserConfirmationRequiredResponse, error)
+	IsUserPresenceRequired(ctx context.Context, in *IsUserPresenceRequiredRequest, opts ...grpc.CallOption) (*IsUserPresenceRequiredResponse, error)
+}
+
+type keyGenParameterSpecServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewKeyGenParameterSpecServiceClient(cc grpc.ClientConnInterface) KeyGenParameterSpecServiceClient {
+	return &keyGenParameterSpecServiceClient{cc}
+}
+
+func (c *keyGenParameterSpecServiceClient) GetAlgorithmParameterSpec(ctx context.Context, in *KeyGenParameterSpecGetAlgorithmParameterSpecRequest, opts ...grpc.CallOption) (*GetAlgorithmParameterSpecResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAlgorithmParameterSpecResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetAlgorithmParameterSpec_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) GetAttestKeyAlias(ctx context.Context, in *GetAttestKeyAliasRequest, opts ...grpc.CallOption) (*GetAttestKeyAliasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAttestKeyAliasResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetAttestKeyAlias_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) GetAttestationChallenge(ctx context.Context, in *GetAttestationChallengeRequest, opts ...grpc.CallOption) (*GetAttestationChallengeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAttestationChallengeResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetAttestationChallenge_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) GetBlockModes(ctx context.Context, in *GetBlockModesRequest, opts ...grpc.CallOption) (*GetBlockModesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBlockModesResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetBlockModes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) GetCertificateNotAfter(ctx context.Context, in *GetCertificateNotAfterRequest, opts ...grpc.CallOption) (*GetCertificateNotAfterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCertificateNotAfterResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetCertificateNotAfter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) GetCertificateNotBefore(ctx context.Context, in *GetCertificateNotBeforeRequest, opts ...grpc.CallOption) (*GetCertificateNotBeforeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCertificateNotBeforeResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetCertificateNotBefore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) GetCertificateSerialNumber(ctx context.Context, in *GetCertificateSerialNumberRequest, opts ...grpc.CallOption) (*GetCertificateSerialNumberResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCertificateSerialNumberResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetCertificateSerialNumber_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) GetCertificateSubject(ctx context.Context, in *GetCertificateSubjectRequest, opts ...grpc.CallOption) (*GetCertificateSubjectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCertificateSubjectResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetCertificateSubject_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) GetDigests(ctx context.Context, in *GetDigestsRequest, opts ...grpc.CallOption) (*GetDigestsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDigestsResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetDigests_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) GetEncryptionPaddings(ctx context.Context, in *GetEncryptionPaddingsRequest, opts ...grpc.CallOption) (*GetEncryptionPaddingsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEncryptionPaddingsResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetEncryptionPaddings_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) GetKeySize(ctx context.Context, in *GetKeySizeRequest, opts ...grpc.CallOption) (*GetKeySizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeySizeResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetKeySize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) GetKeyValidityForConsumptionEnd(ctx context.Context, in *GetKeyValidityForConsumptionEndRequest, opts ...grpc.CallOption) (*GetKeyValidityForConsumptionEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeyValidityForConsumptionEndResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetKeyValidityForConsumptionEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) GetKeyValidityForOriginationEnd(ctx context.Context, in *GetKeyValidityForOriginationEndRequest, opts ...grpc.CallOption) (*GetKeyValidityForOriginationEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeyValidityForOriginationEndResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetKeyValidityForOriginationEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) GetKeyValidityStart(ctx context.Context, in *GetKeyValidityStartRequest, opts ...grpc.CallOption) (*GetKeyValidityStartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeyValidityStartResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetKeyValidityStart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) GetKeystoreAlias(ctx context.Context, in *GetKeystoreAliasRequest, opts ...grpc.CallOption) (*GetKeystoreAliasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeystoreAliasResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetKeystoreAlias_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) GetMaxUsageCount(ctx context.Context, in *GetMaxUsageCountRequest, opts ...grpc.CallOption) (*GetMaxUsageCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxUsageCountResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetMaxUsageCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) GetPurposes(ctx context.Context, in *GetPurposesRequest, opts ...grpc.CallOption) (*GetPurposesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPurposesResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetPurposes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) GetSignaturePaddings(ctx context.Context, in *GetSignaturePaddingsRequest, opts ...grpc.CallOption) (*GetSignaturePaddingsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSignaturePaddingsResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetSignaturePaddings_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) GetUserAuthenticationType(ctx context.Context, in *GetUserAuthenticationTypeRequest, opts ...grpc.CallOption) (*GetUserAuthenticationTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserAuthenticationTypeResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetUserAuthenticationType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) GetUserAuthenticationValidityDurationSeconds(ctx context.Context, in *GetUserAuthenticationValidityDurationSecondsRequest, opts ...grpc.CallOption) (*GetUserAuthenticationValidityDurationSecondsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserAuthenticationValidityDurationSecondsResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_GetUserAuthenticationValidityDurationSeconds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) IsDevicePropertiesAttestationIncluded(ctx context.Context, in *IsDevicePropertiesAttestationIncludedRequest, opts ...grpc.CallOption) (*IsDevicePropertiesAttestationIncludedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsDevicePropertiesAttestationIncludedResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_IsDevicePropertiesAttestationIncluded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) IsDigestsSpecified(ctx context.Context, in *IsDigestsSpecifiedRequest, opts ...grpc.CallOption) (*IsDigestsSpecifiedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsDigestsSpecifiedResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_IsDigestsSpecified_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) IsInvalidatedByBiometricEnrollment(ctx context.Context, in *IsInvalidatedByBiometricEnrollmentRequest, opts ...grpc.CallOption) (*IsInvalidatedByBiometricEnrollmentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsInvalidatedByBiometricEnrollmentResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_IsInvalidatedByBiometricEnrollment_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) IsMgf1DigestsSpecified(ctx context.Context, in *IsMgf1DigestsSpecifiedRequest, opts ...grpc.CallOption) (*IsMgf1DigestsSpecifiedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsMgf1DigestsSpecifiedResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_IsMgf1DigestsSpecified_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) IsRandomizedEncryptionRequired(ctx context.Context, in *IsRandomizedEncryptionRequiredRequest, opts ...grpc.CallOption) (*IsRandomizedEncryptionRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsRandomizedEncryptionRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_IsRandomizedEncryptionRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) IsStrongBoxBacked(ctx context.Context, in *IsStrongBoxBackedRequest, opts ...grpc.CallOption) (*IsStrongBoxBackedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsStrongBoxBackedResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_IsStrongBoxBacked_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) IsUnlockedDeviceRequired(ctx context.Context, in *IsUnlockedDeviceRequiredRequest, opts ...grpc.CallOption) (*IsUnlockedDeviceRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsUnlockedDeviceRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_IsUnlockedDeviceRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) IsUserAuthenticationRequired(ctx context.Context, in *IsUserAuthenticationRequiredRequest, opts ...grpc.CallOption) (*IsUserAuthenticationRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsUserAuthenticationRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_IsUserAuthenticationRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) IsUserAuthenticationValidWhileOnBody(ctx context.Context, in *IsUserAuthenticationValidWhileOnBodyRequest, opts ...grpc.CallOption) (*IsUserAuthenticationValidWhileOnBodyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsUserAuthenticationValidWhileOnBodyResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_IsUserAuthenticationValidWhileOnBody_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) IsUserConfirmationRequired(ctx context.Context, in *IsUserConfirmationRequiredRequest, opts ...grpc.CallOption) (*IsUserConfirmationRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsUserConfirmationRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_IsUserConfirmationRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecServiceClient) IsUserPresenceRequired(ctx context.Context, in *IsUserPresenceRequiredRequest, opts ...grpc.CallOption) (*IsUserPresenceRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsUserPresenceRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecService_IsUserPresenceRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// KeyGenParameterSpecServiceServer is the server API for KeyGenParameterSpecService service.
+// All implementations must embed UnimplementedKeyGenParameterSpecServiceServer
+// for forward compatibility.
+type KeyGenParameterSpecServiceServer interface {
+	GetAlgorithmParameterSpec(context.Context, *KeyGenParameterSpecGetAlgorithmParameterSpecRequest) (*GetAlgorithmParameterSpecResponse, error)
+	GetAttestKeyAlias(context.Context, *GetAttestKeyAliasRequest) (*GetAttestKeyAliasResponse, error)
+	GetAttestationChallenge(context.Context, *GetAttestationChallengeRequest) (*GetAttestationChallengeResponse, error)
+	GetBlockModes(context.Context, *GetBlockModesRequest) (*GetBlockModesResponse, error)
+	GetCertificateNotAfter(context.Context, *GetCertificateNotAfterRequest) (*GetCertificateNotAfterResponse, error)
+	GetCertificateNotBefore(context.Context, *GetCertificateNotBeforeRequest) (*GetCertificateNotBeforeResponse, error)
+	GetCertificateSerialNumber(context.Context, *GetCertificateSerialNumberRequest) (*GetCertificateSerialNumberResponse, error)
+	GetCertificateSubject(context.Context, *GetCertificateSubjectRequest) (*GetCertificateSubjectResponse, error)
+	GetDigests(context.Context, *GetDigestsRequest) (*GetDigestsResponse, error)
+	GetEncryptionPaddings(context.Context, *GetEncryptionPaddingsRequest) (*GetEncryptionPaddingsResponse, error)
+	GetKeySize(context.Context, *GetKeySizeRequest) (*GetKeySizeResponse, error)
+	GetKeyValidityForConsumptionEnd(context.Context, *GetKeyValidityForConsumptionEndRequest) (*GetKeyValidityForConsumptionEndResponse, error)
+	GetKeyValidityForOriginationEnd(context.Context, *GetKeyValidityForOriginationEndRequest) (*GetKeyValidityForOriginationEndResponse, error)
+	GetKeyValidityStart(context.Context, *GetKeyValidityStartRequest) (*GetKeyValidityStartResponse, error)
+	GetKeystoreAlias(context.Context, *GetKeystoreAliasRequest) (*GetKeystoreAliasResponse, error)
+	GetMaxUsageCount(context.Context, *GetMaxUsageCountRequest) (*GetMaxUsageCountResponse, error)
+	GetPurposes(context.Context, *GetPurposesRequest) (*GetPurposesResponse, error)
+	GetSignaturePaddings(context.Context, *GetSignaturePaddingsRequest) (*GetSignaturePaddingsResponse, error)
+	GetUserAuthenticationType(context.Context, *GetUserAuthenticationTypeRequest) (*GetUserAuthenticationTypeResponse, error)
+	GetUserAuthenticationValidityDurationSeconds(context.Context, *GetUserAuthenticationValidityDurationSecondsRequest) (*GetUserAuthenticationValidityDurationSecondsResponse, error)
+	IsDevicePropertiesAttestationIncluded(context.Context, *IsDevicePropertiesAttestationIncludedRequest) (*IsDevicePropertiesAttestationIncludedResponse, error)
+	IsDigestsSpecified(context.Context, *IsDigestsSpecifiedRequest) (*IsDigestsSpecifiedResponse, error)
+	IsInvalidatedByBiometricEnrollment(context.Context, *IsInvalidatedByBiometricEnrollmentRequest) (*IsInvalidatedByBiometricEnrollmentResponse, error)
+	IsMgf1DigestsSpecified(context.Context, *IsMgf1DigestsSpecifiedRequest) (*IsMgf1DigestsSpecifiedResponse, error)
+	IsRandomizedEncryptionRequired(context.Context, *IsRandomizedEncryptionRequiredRequest) (*IsRandomizedEncryptionRequiredResponse, error)
+	IsStrongBoxBacked(context.Context, *IsStrongBoxBackedRequest) (*IsStrongBoxBackedResponse, error)
+	IsUnlockedDeviceRequired(context.Context, *IsUnlockedDeviceRequiredRequest) (*IsUnlockedDeviceRequiredResponse, error)
+	IsUserAuthenticationRequired(context.Context, *IsUserAuthenticationRequiredRequest) (*IsUserAuthenticationRequiredResponse, error)
+	IsUserAuthenticationValidWhileOnBody(context.Context, *IsUserAuthenticationValidWhileOnBodyRequest) (*IsUserAuthenticationValidWhileOnBodyResponse, error)
+	IsUserConfirmationRequired(context.Context, *IsUserConfirmationRequiredRequest) (*IsUserConfirmationRequiredResponse, error)
+	IsUserPresenceRequired(context.Context, *IsUserPresenceRequiredRequest) (*IsUserPresenceRequiredResponse, error)
+	mustEmbedUnimplementedKeyGenParameterSpecServiceServer()
+}
+
+// UnimplementedKeyGenParameterSpecServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedKeyGenParameterSpecServiceServer struct{}
+
+func (UnimplementedKeyGenParameterSpecServiceServer) GetAlgorithmParameterSpec(context.Context, *KeyGenParameterSpecGetAlgorithmParameterSpecRequest) (*GetAlgorithmParameterSpecResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAlgorithmParameterSpec not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) GetAttestKeyAlias(context.Context, *GetAttestKeyAliasRequest) (*GetAttestKeyAliasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAttestKeyAlias not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) GetAttestationChallenge(context.Context, *GetAttestationChallengeRequest) (*GetAttestationChallengeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAttestationChallenge not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) GetBlockModes(context.Context, *GetBlockModesRequest) (*GetBlockModesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBlockModes not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) GetCertificateNotAfter(context.Context, *GetCertificateNotAfterRequest) (*GetCertificateNotAfterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCertificateNotAfter not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) GetCertificateNotBefore(context.Context, *GetCertificateNotBeforeRequest) (*GetCertificateNotBeforeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCertificateNotBefore not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) GetCertificateSerialNumber(context.Context, *GetCertificateSerialNumberRequest) (*GetCertificateSerialNumberResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCertificateSerialNumber not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) GetCertificateSubject(context.Context, *GetCertificateSubjectRequest) (*GetCertificateSubjectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCertificateSubject not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) GetDigests(context.Context, *GetDigestsRequest) (*GetDigestsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDigests not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) GetEncryptionPaddings(context.Context, *GetEncryptionPaddingsRequest) (*GetEncryptionPaddingsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEncryptionPaddings not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) GetKeySize(context.Context, *GetKeySizeRequest) (*GetKeySizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeySize not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) GetKeyValidityForConsumptionEnd(context.Context, *GetKeyValidityForConsumptionEndRequest) (*GetKeyValidityForConsumptionEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeyValidityForConsumptionEnd not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) GetKeyValidityForOriginationEnd(context.Context, *GetKeyValidityForOriginationEndRequest) (*GetKeyValidityForOriginationEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeyValidityForOriginationEnd not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) GetKeyValidityStart(context.Context, *GetKeyValidityStartRequest) (*GetKeyValidityStartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeyValidityStart not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) GetKeystoreAlias(context.Context, *GetKeystoreAliasRequest) (*GetKeystoreAliasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeystoreAlias not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) GetMaxUsageCount(context.Context, *GetMaxUsageCountRequest) (*GetMaxUsageCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxUsageCount not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) GetPurposes(context.Context, *GetPurposesRequest) (*GetPurposesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPurposes not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) GetSignaturePaddings(context.Context, *GetSignaturePaddingsRequest) (*GetSignaturePaddingsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSignaturePaddings not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) GetUserAuthenticationType(context.Context, *GetUserAuthenticationTypeRequest) (*GetUserAuthenticationTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUserAuthenticationType not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) GetUserAuthenticationValidityDurationSeconds(context.Context, *GetUserAuthenticationValidityDurationSecondsRequest) (*GetUserAuthenticationValidityDurationSecondsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUserAuthenticationValidityDurationSeconds not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) IsDevicePropertiesAttestationIncluded(context.Context, *IsDevicePropertiesAttestationIncludedRequest) (*IsDevicePropertiesAttestationIncludedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsDevicePropertiesAttestationIncluded not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) IsDigestsSpecified(context.Context, *IsDigestsSpecifiedRequest) (*IsDigestsSpecifiedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsDigestsSpecified not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) IsInvalidatedByBiometricEnrollment(context.Context, *IsInvalidatedByBiometricEnrollmentRequest) (*IsInvalidatedByBiometricEnrollmentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsInvalidatedByBiometricEnrollment not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) IsMgf1DigestsSpecified(context.Context, *IsMgf1DigestsSpecifiedRequest) (*IsMgf1DigestsSpecifiedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsMgf1DigestsSpecified not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) IsRandomizedEncryptionRequired(context.Context, *IsRandomizedEncryptionRequiredRequest) (*IsRandomizedEncryptionRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsRandomizedEncryptionRequired not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) IsStrongBoxBacked(context.Context, *IsStrongBoxBackedRequest) (*IsStrongBoxBackedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsStrongBoxBacked not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) IsUnlockedDeviceRequired(context.Context, *IsUnlockedDeviceRequiredRequest) (*IsUnlockedDeviceRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUnlockedDeviceRequired not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) IsUserAuthenticationRequired(context.Context, *IsUserAuthenticationRequiredRequest) (*IsUserAuthenticationRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUserAuthenticationRequired not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) IsUserAuthenticationValidWhileOnBody(context.Context, *IsUserAuthenticationValidWhileOnBodyRequest) (*IsUserAuthenticationValidWhileOnBodyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUserAuthenticationValidWhileOnBody not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) IsUserConfirmationRequired(context.Context, *IsUserConfirmationRequiredRequest) (*IsUserConfirmationRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUserConfirmationRequired not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) IsUserPresenceRequired(context.Context, *IsUserPresenceRequiredRequest) (*IsUserPresenceRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUserPresenceRequired not implemented")
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) mustEmbedUnimplementedKeyGenParameterSpecServiceServer() {
+}
+func (UnimplementedKeyGenParameterSpecServiceServer) testEmbeddedByValue() {}
+
+// UnsafeKeyGenParameterSpecServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to KeyGenParameterSpecServiceServer will
+// result in compilation errors.
+type UnsafeKeyGenParameterSpecServiceServer interface {
+	mustEmbedUnimplementedKeyGenParameterSpecServiceServer()
+}
+
+func RegisterKeyGenParameterSpecServiceServer(s grpc.ServiceRegistrar, srv KeyGenParameterSpecServiceServer) {
+	// If the following call panics, it indicates UnimplementedKeyGenParameterSpecServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&KeyGenParameterSpecService_ServiceDesc, srv)
+}
+
+func _KeyGenParameterSpecService_GetAlgorithmParameterSpec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyGenParameterSpecGetAlgorithmParameterSpecRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetAlgorithmParameterSpec(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetAlgorithmParameterSpec_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetAlgorithmParameterSpec(ctx, req.(*KeyGenParameterSpecGetAlgorithmParameterSpecRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_GetAttestKeyAlias_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAttestKeyAliasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetAttestKeyAlias(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetAttestKeyAlias_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetAttestKeyAlias(ctx, req.(*GetAttestKeyAliasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_GetAttestationChallenge_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAttestationChallengeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetAttestationChallenge(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetAttestationChallenge_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetAttestationChallenge(ctx, req.(*GetAttestationChallengeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_GetBlockModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBlockModesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetBlockModes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetBlockModes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetBlockModes(ctx, req.(*GetBlockModesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_GetCertificateNotAfter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCertificateNotAfterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetCertificateNotAfter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetCertificateNotAfter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetCertificateNotAfter(ctx, req.(*GetCertificateNotAfterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_GetCertificateNotBefore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCertificateNotBeforeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetCertificateNotBefore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetCertificateNotBefore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetCertificateNotBefore(ctx, req.(*GetCertificateNotBeforeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_GetCertificateSerialNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCertificateSerialNumberRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetCertificateSerialNumber(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetCertificateSerialNumber_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetCertificateSerialNumber(ctx, req.(*GetCertificateSerialNumberRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_GetCertificateSubject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCertificateSubjectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetCertificateSubject(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetCertificateSubject_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetCertificateSubject(ctx, req.(*GetCertificateSubjectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_GetDigests_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDigestsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetDigests(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetDigests_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetDigests(ctx, req.(*GetDigestsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_GetEncryptionPaddings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEncryptionPaddingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetEncryptionPaddings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetEncryptionPaddings_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetEncryptionPaddings(ctx, req.(*GetEncryptionPaddingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_GetKeySize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeySizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetKeySize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetKeySize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetKeySize(ctx, req.(*GetKeySizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_GetKeyValidityForConsumptionEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeyValidityForConsumptionEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetKeyValidityForConsumptionEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetKeyValidityForConsumptionEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetKeyValidityForConsumptionEnd(ctx, req.(*GetKeyValidityForConsumptionEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_GetKeyValidityForOriginationEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeyValidityForOriginationEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetKeyValidityForOriginationEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetKeyValidityForOriginationEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetKeyValidityForOriginationEnd(ctx, req.(*GetKeyValidityForOriginationEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_GetKeyValidityStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeyValidityStartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetKeyValidityStart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetKeyValidityStart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetKeyValidityStart(ctx, req.(*GetKeyValidityStartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_GetKeystoreAlias_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeystoreAliasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetKeystoreAlias(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetKeystoreAlias_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetKeystoreAlias(ctx, req.(*GetKeystoreAliasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_GetMaxUsageCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxUsageCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetMaxUsageCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetMaxUsageCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetMaxUsageCount(ctx, req.(*GetMaxUsageCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_GetPurposes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPurposesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetPurposes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetPurposes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetPurposes(ctx, req.(*GetPurposesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_GetSignaturePaddings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSignaturePaddingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetSignaturePaddings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetSignaturePaddings_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetSignaturePaddings(ctx, req.(*GetSignaturePaddingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_GetUserAuthenticationType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserAuthenticationTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetUserAuthenticationType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetUserAuthenticationType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetUserAuthenticationType(ctx, req.(*GetUserAuthenticationTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_GetUserAuthenticationValidityDurationSeconds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserAuthenticationValidityDurationSecondsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).GetUserAuthenticationValidityDurationSeconds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_GetUserAuthenticationValidityDurationSeconds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).GetUserAuthenticationValidityDurationSeconds(ctx, req.(*GetUserAuthenticationValidityDurationSecondsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_IsDevicePropertiesAttestationIncluded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsDevicePropertiesAttestationIncludedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).IsDevicePropertiesAttestationIncluded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_IsDevicePropertiesAttestationIncluded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).IsDevicePropertiesAttestationIncluded(ctx, req.(*IsDevicePropertiesAttestationIncludedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_IsDigestsSpecified_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsDigestsSpecifiedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).IsDigestsSpecified(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_IsDigestsSpecified_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).IsDigestsSpecified(ctx, req.(*IsDigestsSpecifiedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_IsInvalidatedByBiometricEnrollment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsInvalidatedByBiometricEnrollmentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).IsInvalidatedByBiometricEnrollment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_IsInvalidatedByBiometricEnrollment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).IsInvalidatedByBiometricEnrollment(ctx, req.(*IsInvalidatedByBiometricEnrollmentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_IsMgf1DigestsSpecified_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsMgf1DigestsSpecifiedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).IsMgf1DigestsSpecified(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_IsMgf1DigestsSpecified_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).IsMgf1DigestsSpecified(ctx, req.(*IsMgf1DigestsSpecifiedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_IsRandomizedEncryptionRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsRandomizedEncryptionRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).IsRandomizedEncryptionRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_IsRandomizedEncryptionRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).IsRandomizedEncryptionRequired(ctx, req.(*IsRandomizedEncryptionRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_IsStrongBoxBacked_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsStrongBoxBackedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).IsStrongBoxBacked(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_IsStrongBoxBacked_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).IsStrongBoxBacked(ctx, req.(*IsStrongBoxBackedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_IsUnlockedDeviceRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUnlockedDeviceRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).IsUnlockedDeviceRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_IsUnlockedDeviceRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).IsUnlockedDeviceRequired(ctx, req.(*IsUnlockedDeviceRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_IsUserAuthenticationRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUserAuthenticationRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).IsUserAuthenticationRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_IsUserAuthenticationRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).IsUserAuthenticationRequired(ctx, req.(*IsUserAuthenticationRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_IsUserAuthenticationValidWhileOnBody_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUserAuthenticationValidWhileOnBodyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).IsUserAuthenticationValidWhileOnBody(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_IsUserAuthenticationValidWhileOnBody_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).IsUserAuthenticationValidWhileOnBody(ctx, req.(*IsUserAuthenticationValidWhileOnBodyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_IsUserConfirmationRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUserConfirmationRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).IsUserConfirmationRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_IsUserConfirmationRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).IsUserConfirmationRequired(ctx, req.(*IsUserConfirmationRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecService_IsUserPresenceRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUserPresenceRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecServiceServer).IsUserPresenceRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecService_IsUserPresenceRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecServiceServer).IsUserPresenceRequired(ctx, req.(*IsUserPresenceRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// KeyGenParameterSpecService_ServiceDesc is the grpc.ServiceDesc for KeyGenParameterSpecService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var KeyGenParameterSpecService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "keystore.KeyGenParameterSpecService",
+	HandlerType: (*KeyGenParameterSpecServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetAlgorithmParameterSpec",
+			Handler:    _KeyGenParameterSpecService_GetAlgorithmParameterSpec_Handler,
+		},
+		{
+			MethodName: "GetAttestKeyAlias",
+			Handler:    _KeyGenParameterSpecService_GetAttestKeyAlias_Handler,
+		},
+		{
+			MethodName: "GetAttestationChallenge",
+			Handler:    _KeyGenParameterSpecService_GetAttestationChallenge_Handler,
+		},
+		{
+			MethodName: "GetBlockModes",
+			Handler:    _KeyGenParameterSpecService_GetBlockModes_Handler,
+		},
+		{
+			MethodName: "GetCertificateNotAfter",
+			Handler:    _KeyGenParameterSpecService_GetCertificateNotAfter_Handler,
+		},
+		{
+			MethodName: "GetCertificateNotBefore",
+			Handler:    _KeyGenParameterSpecService_GetCertificateNotBefore_Handler,
+		},
+		{
+			MethodName: "GetCertificateSerialNumber",
+			Handler:    _KeyGenParameterSpecService_GetCertificateSerialNumber_Handler,
+		},
+		{
+			MethodName: "GetCertificateSubject",
+			Handler:    _KeyGenParameterSpecService_GetCertificateSubject_Handler,
+		},
+		{
+			MethodName: "GetDigests",
+			Handler:    _KeyGenParameterSpecService_GetDigests_Handler,
+		},
+		{
+			MethodName: "GetEncryptionPaddings",
+			Handler:    _KeyGenParameterSpecService_GetEncryptionPaddings_Handler,
+		},
+		{
+			MethodName: "GetKeySize",
+			Handler:    _KeyGenParameterSpecService_GetKeySize_Handler,
+		},
+		{
+			MethodName: "GetKeyValidityForConsumptionEnd",
+			Handler:    _KeyGenParameterSpecService_GetKeyValidityForConsumptionEnd_Handler,
+		},
+		{
+			MethodName: "GetKeyValidityForOriginationEnd",
+			Handler:    _KeyGenParameterSpecService_GetKeyValidityForOriginationEnd_Handler,
+		},
+		{
+			MethodName: "GetKeyValidityStart",
+			Handler:    _KeyGenParameterSpecService_GetKeyValidityStart_Handler,
+		},
+		{
+			MethodName: "GetKeystoreAlias",
+			Handler:    _KeyGenParameterSpecService_GetKeystoreAlias_Handler,
+		},
+		{
+			MethodName: "GetMaxUsageCount",
+			Handler:    _KeyGenParameterSpecService_GetMaxUsageCount_Handler,
+		},
+		{
+			MethodName: "GetPurposes",
+			Handler:    _KeyGenParameterSpecService_GetPurposes_Handler,
+		},
+		{
+			MethodName: "GetSignaturePaddings",
+			Handler:    _KeyGenParameterSpecService_GetSignaturePaddings_Handler,
+		},
+		{
+			MethodName: "GetUserAuthenticationType",
+			Handler:    _KeyGenParameterSpecService_GetUserAuthenticationType_Handler,
+		},
+		{
+			MethodName: "GetUserAuthenticationValidityDurationSeconds",
+			Handler:    _KeyGenParameterSpecService_GetUserAuthenticationValidityDurationSeconds_Handler,
+		},
+		{
+			MethodName: "IsDevicePropertiesAttestationIncluded",
+			Handler:    _KeyGenParameterSpecService_IsDevicePropertiesAttestationIncluded_Handler,
+		},
+		{
+			MethodName: "IsDigestsSpecified",
+			Handler:    _KeyGenParameterSpecService_IsDigestsSpecified_Handler,
+		},
+		{
+			MethodName: "IsInvalidatedByBiometricEnrollment",
+			Handler:    _KeyGenParameterSpecService_IsInvalidatedByBiometricEnrollment_Handler,
+		},
+		{
+			MethodName: "IsMgf1DigestsSpecified",
+			Handler:    _KeyGenParameterSpecService_IsMgf1DigestsSpecified_Handler,
+		},
+		{
+			MethodName: "IsRandomizedEncryptionRequired",
+			Handler:    _KeyGenParameterSpecService_IsRandomizedEncryptionRequired_Handler,
+		},
+		{
+			MethodName: "IsStrongBoxBacked",
+			Handler:    _KeyGenParameterSpecService_IsStrongBoxBacked_Handler,
+		},
+		{
+			MethodName: "IsUnlockedDeviceRequired",
+			Handler:    _KeyGenParameterSpecService_IsUnlockedDeviceRequired_Handler,
+		},
+		{
+			MethodName: "IsUserAuthenticationRequired",
+			Handler:    _KeyGenParameterSpecService_IsUserAuthenticationRequired_Handler,
+		},
+		{
+			MethodName: "IsUserAuthenticationValidWhileOnBody",
+			Handler:    _KeyGenParameterSpecService_IsUserAuthenticationValidWhileOnBody_Handler,
+		},
+		{
+			MethodName: "IsUserConfirmationRequired",
+			Handler:    _KeyGenParameterSpecService_IsUserConfirmationRequired_Handler,
+		},
+		{
+			MethodName: "IsUserPresenceRequired",
+			Handler:    _KeyGenParameterSpecService_IsUserPresenceRequired_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/keystore/keystore.proto",
+}
+
+const (
+	KeyGenParameterSpecBuilderService_Build_FullMethodName                                        = "/keystore.KeyGenParameterSpecBuilderService/Build"
+	KeyGenParameterSpecBuilderService_SetAlgorithmParameterSpec_FullMethodName                    = "/keystore.KeyGenParameterSpecBuilderService/SetAlgorithmParameterSpec"
+	KeyGenParameterSpecBuilderService_SetAttestKeyAlias_FullMethodName                            = "/keystore.KeyGenParameterSpecBuilderService/SetAttestKeyAlias"
+	KeyGenParameterSpecBuilderService_SetAttestationChallenge_FullMethodName                      = "/keystore.KeyGenParameterSpecBuilderService/SetAttestationChallenge"
+	KeyGenParameterSpecBuilderService_SetBlockModes_FullMethodName                                = "/keystore.KeyGenParameterSpecBuilderService/SetBlockModes"
+	KeyGenParameterSpecBuilderService_SetCertificateNotAfter_FullMethodName                       = "/keystore.KeyGenParameterSpecBuilderService/SetCertificateNotAfter"
+	KeyGenParameterSpecBuilderService_SetCertificateNotBefore_FullMethodName                      = "/keystore.KeyGenParameterSpecBuilderService/SetCertificateNotBefore"
+	KeyGenParameterSpecBuilderService_SetCertificateSerialNumber_FullMethodName                   = "/keystore.KeyGenParameterSpecBuilderService/SetCertificateSerialNumber"
+	KeyGenParameterSpecBuilderService_SetCertificateSubject_FullMethodName                        = "/keystore.KeyGenParameterSpecBuilderService/SetCertificateSubject"
+	KeyGenParameterSpecBuilderService_SetDevicePropertiesAttestationIncluded_FullMethodName       = "/keystore.KeyGenParameterSpecBuilderService/SetDevicePropertiesAttestationIncluded"
+	KeyGenParameterSpecBuilderService_SetDigests_FullMethodName                                   = "/keystore.KeyGenParameterSpecBuilderService/SetDigests"
+	KeyGenParameterSpecBuilderService_SetEncryptionPaddings_FullMethodName                        = "/keystore.KeyGenParameterSpecBuilderService/SetEncryptionPaddings"
+	KeyGenParameterSpecBuilderService_SetInvalidatedByBiometricEnrollment_FullMethodName          = "/keystore.KeyGenParameterSpecBuilderService/SetInvalidatedByBiometricEnrollment"
+	KeyGenParameterSpecBuilderService_SetIsStrongBoxBacked_FullMethodName                         = "/keystore.KeyGenParameterSpecBuilderService/SetIsStrongBoxBacked"
+	KeyGenParameterSpecBuilderService_SetKeySize_FullMethodName                                   = "/keystore.KeyGenParameterSpecBuilderService/SetKeySize"
+	KeyGenParameterSpecBuilderService_SetKeyValidityEnd_FullMethodName                            = "/keystore.KeyGenParameterSpecBuilderService/SetKeyValidityEnd"
+	KeyGenParameterSpecBuilderService_SetKeyValidityForConsumptionEnd_FullMethodName              = "/keystore.KeyGenParameterSpecBuilderService/SetKeyValidityForConsumptionEnd"
+	KeyGenParameterSpecBuilderService_SetKeyValidityForOriginationEnd_FullMethodName              = "/keystore.KeyGenParameterSpecBuilderService/SetKeyValidityForOriginationEnd"
+	KeyGenParameterSpecBuilderService_SetKeyValidityStart_FullMethodName                          = "/keystore.KeyGenParameterSpecBuilderService/SetKeyValidityStart"
+	KeyGenParameterSpecBuilderService_SetMaxUsageCount_FullMethodName                             = "/keystore.KeyGenParameterSpecBuilderService/SetMaxUsageCount"
+	KeyGenParameterSpecBuilderService_SetMgf1Digests_FullMethodName                               = "/keystore.KeyGenParameterSpecBuilderService/SetMgf1Digests"
+	KeyGenParameterSpecBuilderService_SetRandomizedEncryptionRequired_FullMethodName              = "/keystore.KeyGenParameterSpecBuilderService/SetRandomizedEncryptionRequired"
+	KeyGenParameterSpecBuilderService_SetSignaturePaddings_FullMethodName                         = "/keystore.KeyGenParameterSpecBuilderService/SetSignaturePaddings"
+	KeyGenParameterSpecBuilderService_SetUnlockedDeviceRequired_FullMethodName                    = "/keystore.KeyGenParameterSpecBuilderService/SetUnlockedDeviceRequired"
+	KeyGenParameterSpecBuilderService_SetUserAuthenticationParameters_FullMethodName              = "/keystore.KeyGenParameterSpecBuilderService/SetUserAuthenticationParameters"
+	KeyGenParameterSpecBuilderService_SetUserAuthenticationRequired_FullMethodName                = "/keystore.KeyGenParameterSpecBuilderService/SetUserAuthenticationRequired"
+	KeyGenParameterSpecBuilderService_SetUserAuthenticationValidWhileOnBody_FullMethodName        = "/keystore.KeyGenParameterSpecBuilderService/SetUserAuthenticationValidWhileOnBody"
+	KeyGenParameterSpecBuilderService_SetUserAuthenticationValidityDurationSeconds_FullMethodName = "/keystore.KeyGenParameterSpecBuilderService/SetUserAuthenticationValidityDurationSeconds"
+	KeyGenParameterSpecBuilderService_SetUserConfirmationRequired_FullMethodName                  = "/keystore.KeyGenParameterSpecBuilderService/SetUserConfirmationRequired"
+	KeyGenParameterSpecBuilderService_SetUserPresenceRequired_FullMethodName                      = "/keystore.KeyGenParameterSpecBuilderService/SetUserPresenceRequired"
+)
+
+// KeyGenParameterSpecBuilderServiceClient is the client API for KeyGenParameterSpecBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type KeyGenParameterSpecBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetAlgorithmParameterSpec(ctx context.Context, in *SetAlgorithmParameterSpecRequest, opts ...grpc.CallOption) (*SetAlgorithmParameterSpecResponse, error)
+	SetAttestKeyAlias(ctx context.Context, in *SetAttestKeyAliasRequest, opts ...grpc.CallOption) (*SetAttestKeyAliasResponse, error)
+	SetAttestationChallenge(ctx context.Context, in *SetAttestationChallengeRequest, opts ...grpc.CallOption) (*SetAttestationChallengeResponse, error)
+	SetBlockModes(ctx context.Context, in *SetBlockModesRequest, opts ...grpc.CallOption) (*SetBlockModesResponse, error)
+	SetCertificateNotAfter(ctx context.Context, in *SetCertificateNotAfterRequest, opts ...grpc.CallOption) (*SetCertificateNotAfterResponse, error)
+	SetCertificateNotBefore(ctx context.Context, in *SetCertificateNotBeforeRequest, opts ...grpc.CallOption) (*SetCertificateNotBeforeResponse, error)
+	SetCertificateSerialNumber(ctx context.Context, in *SetCertificateSerialNumberRequest, opts ...grpc.CallOption) (*SetCertificateSerialNumberResponse, error)
+	SetCertificateSubject(ctx context.Context, in *SetCertificateSubjectRequest, opts ...grpc.CallOption) (*SetCertificateSubjectResponse, error)
+	SetDevicePropertiesAttestationIncluded(ctx context.Context, in *SetDevicePropertiesAttestationIncludedRequest, opts ...grpc.CallOption) (*SetDevicePropertiesAttestationIncludedResponse, error)
+	SetDigests(ctx context.Context, in *SetDigestsRequest, opts ...grpc.CallOption) (*SetDigestsResponse, error)
+	SetEncryptionPaddings(ctx context.Context, in *SetEncryptionPaddingsRequest, opts ...grpc.CallOption) (*SetEncryptionPaddingsResponse, error)
+	SetInvalidatedByBiometricEnrollment(ctx context.Context, in *SetInvalidatedByBiometricEnrollmentRequest, opts ...grpc.CallOption) (*SetInvalidatedByBiometricEnrollmentResponse, error)
+	SetIsStrongBoxBacked(ctx context.Context, in *SetIsStrongBoxBackedRequest, opts ...grpc.CallOption) (*SetIsStrongBoxBackedResponse, error)
+	SetKeySize(ctx context.Context, in *SetKeySizeRequest, opts ...grpc.CallOption) (*SetKeySizeResponse, error)
+	SetKeyValidityEnd(ctx context.Context, in *SetKeyValidityEndRequest, opts ...grpc.CallOption) (*SetKeyValidityEndResponse, error)
+	SetKeyValidityForConsumptionEnd(ctx context.Context, in *SetKeyValidityForConsumptionEndRequest, opts ...grpc.CallOption) (*SetKeyValidityForConsumptionEndResponse, error)
+	SetKeyValidityForOriginationEnd(ctx context.Context, in *SetKeyValidityForOriginationEndRequest, opts ...grpc.CallOption) (*SetKeyValidityForOriginationEndResponse, error)
+	SetKeyValidityStart(ctx context.Context, in *SetKeyValidityStartRequest, opts ...grpc.CallOption) (*SetKeyValidityStartResponse, error)
+	SetMaxUsageCount(ctx context.Context, in *SetMaxUsageCountRequest, opts ...grpc.CallOption) (*SetMaxUsageCountResponse, error)
+	SetMgf1Digests(ctx context.Context, in *SetMgf1DigestsRequest, opts ...grpc.CallOption) (*SetMgf1DigestsResponse, error)
+	SetRandomizedEncryptionRequired(ctx context.Context, in *SetRandomizedEncryptionRequiredRequest, opts ...grpc.CallOption) (*SetRandomizedEncryptionRequiredResponse, error)
+	SetSignaturePaddings(ctx context.Context, in *SetSignaturePaddingsRequest, opts ...grpc.CallOption) (*SetSignaturePaddingsResponse, error)
+	SetUnlockedDeviceRequired(ctx context.Context, in *SetUnlockedDeviceRequiredRequest, opts ...grpc.CallOption) (*SetUnlockedDeviceRequiredResponse, error)
+	SetUserAuthenticationParameters(ctx context.Context, in *SetUserAuthenticationParametersRequest, opts ...grpc.CallOption) (*SetUserAuthenticationParametersResponse, error)
+	SetUserAuthenticationRequired(ctx context.Context, in *SetUserAuthenticationRequiredRequest, opts ...grpc.CallOption) (*SetUserAuthenticationRequiredResponse, error)
+	SetUserAuthenticationValidWhileOnBody(ctx context.Context, in *SetUserAuthenticationValidWhileOnBodyRequest, opts ...grpc.CallOption) (*SetUserAuthenticationValidWhileOnBodyResponse, error)
+	SetUserAuthenticationValidityDurationSeconds(ctx context.Context, in *SetUserAuthenticationValidityDurationSecondsRequest, opts ...grpc.CallOption) (*SetUserAuthenticationValidityDurationSecondsResponse, error)
+	SetUserConfirmationRequired(ctx context.Context, in *SetUserConfirmationRequiredRequest, opts ...grpc.CallOption) (*SetUserConfirmationRequiredResponse, error)
+	SetUserPresenceRequired(ctx context.Context, in *SetUserPresenceRequiredRequest, opts ...grpc.CallOption) (*SetUserPresenceRequiredResponse, error)
+}
+
+type keyGenParameterSpecBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewKeyGenParameterSpecBuilderServiceClient(cc grpc.ClientConnInterface) KeyGenParameterSpecBuilderServiceClient {
+	return &keyGenParameterSpecBuilderServiceClient{cc}
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetAlgorithmParameterSpec(ctx context.Context, in *SetAlgorithmParameterSpecRequest, opts ...grpc.CallOption) (*SetAlgorithmParameterSpecResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAlgorithmParameterSpecResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetAlgorithmParameterSpec_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetAttestKeyAlias(ctx context.Context, in *SetAttestKeyAliasRequest, opts ...grpc.CallOption) (*SetAttestKeyAliasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAttestKeyAliasResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetAttestKeyAlias_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetAttestationChallenge(ctx context.Context, in *SetAttestationChallengeRequest, opts ...grpc.CallOption) (*SetAttestationChallengeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAttestationChallengeResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetAttestationChallenge_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetBlockModes(ctx context.Context, in *SetBlockModesRequest, opts ...grpc.CallOption) (*SetBlockModesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetBlockModesResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetBlockModes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetCertificateNotAfter(ctx context.Context, in *SetCertificateNotAfterRequest, opts ...grpc.CallOption) (*SetCertificateNotAfterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCertificateNotAfterResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetCertificateNotAfter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetCertificateNotBefore(ctx context.Context, in *SetCertificateNotBeforeRequest, opts ...grpc.CallOption) (*SetCertificateNotBeforeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCertificateNotBeforeResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetCertificateNotBefore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetCertificateSerialNumber(ctx context.Context, in *SetCertificateSerialNumberRequest, opts ...grpc.CallOption) (*SetCertificateSerialNumberResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCertificateSerialNumberResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetCertificateSerialNumber_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetCertificateSubject(ctx context.Context, in *SetCertificateSubjectRequest, opts ...grpc.CallOption) (*SetCertificateSubjectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCertificateSubjectResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetCertificateSubject_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetDevicePropertiesAttestationIncluded(ctx context.Context, in *SetDevicePropertiesAttestationIncludedRequest, opts ...grpc.CallOption) (*SetDevicePropertiesAttestationIncludedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDevicePropertiesAttestationIncludedResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetDevicePropertiesAttestationIncluded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetDigests(ctx context.Context, in *SetDigestsRequest, opts ...grpc.CallOption) (*SetDigestsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDigestsResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetDigests_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetEncryptionPaddings(ctx context.Context, in *SetEncryptionPaddingsRequest, opts ...grpc.CallOption) (*SetEncryptionPaddingsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEncryptionPaddingsResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetEncryptionPaddings_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetInvalidatedByBiometricEnrollment(ctx context.Context, in *SetInvalidatedByBiometricEnrollmentRequest, opts ...grpc.CallOption) (*SetInvalidatedByBiometricEnrollmentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetInvalidatedByBiometricEnrollmentResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetInvalidatedByBiometricEnrollment_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetIsStrongBoxBacked(ctx context.Context, in *SetIsStrongBoxBackedRequest, opts ...grpc.CallOption) (*SetIsStrongBoxBackedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetIsStrongBoxBackedResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetIsStrongBoxBacked_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetKeySize(ctx context.Context, in *SetKeySizeRequest, opts ...grpc.CallOption) (*SetKeySizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetKeySizeResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetKeySize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetKeyValidityEnd(ctx context.Context, in *SetKeyValidityEndRequest, opts ...grpc.CallOption) (*SetKeyValidityEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetKeyValidityEndResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetKeyValidityEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetKeyValidityForConsumptionEnd(ctx context.Context, in *SetKeyValidityForConsumptionEndRequest, opts ...grpc.CallOption) (*SetKeyValidityForConsumptionEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetKeyValidityForConsumptionEndResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetKeyValidityForConsumptionEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetKeyValidityForOriginationEnd(ctx context.Context, in *SetKeyValidityForOriginationEndRequest, opts ...grpc.CallOption) (*SetKeyValidityForOriginationEndResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetKeyValidityForOriginationEndResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetKeyValidityForOriginationEnd_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetKeyValidityStart(ctx context.Context, in *SetKeyValidityStartRequest, opts ...grpc.CallOption) (*SetKeyValidityStartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetKeyValidityStartResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetKeyValidityStart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetMaxUsageCount(ctx context.Context, in *SetMaxUsageCountRequest, opts ...grpc.CallOption) (*SetMaxUsageCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMaxUsageCountResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetMaxUsageCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetMgf1Digests(ctx context.Context, in *SetMgf1DigestsRequest, opts ...grpc.CallOption) (*SetMgf1DigestsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMgf1DigestsResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetMgf1Digests_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetRandomizedEncryptionRequired(ctx context.Context, in *SetRandomizedEncryptionRequiredRequest, opts ...grpc.CallOption) (*SetRandomizedEncryptionRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRandomizedEncryptionRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetRandomizedEncryptionRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetSignaturePaddings(ctx context.Context, in *SetSignaturePaddingsRequest, opts ...grpc.CallOption) (*SetSignaturePaddingsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSignaturePaddingsResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetSignaturePaddings_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetUnlockedDeviceRequired(ctx context.Context, in *SetUnlockedDeviceRequiredRequest, opts ...grpc.CallOption) (*SetUnlockedDeviceRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUnlockedDeviceRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetUnlockedDeviceRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetUserAuthenticationParameters(ctx context.Context, in *SetUserAuthenticationParametersRequest, opts ...grpc.CallOption) (*SetUserAuthenticationParametersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserAuthenticationParametersResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetUserAuthenticationParameters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetUserAuthenticationRequired(ctx context.Context, in *SetUserAuthenticationRequiredRequest, opts ...grpc.CallOption) (*SetUserAuthenticationRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserAuthenticationRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetUserAuthenticationRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetUserAuthenticationValidWhileOnBody(ctx context.Context, in *SetUserAuthenticationValidWhileOnBodyRequest, opts ...grpc.CallOption) (*SetUserAuthenticationValidWhileOnBodyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserAuthenticationValidWhileOnBodyResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetUserAuthenticationValidWhileOnBody_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetUserAuthenticationValidityDurationSeconds(ctx context.Context, in *SetUserAuthenticationValidityDurationSecondsRequest, opts ...grpc.CallOption) (*SetUserAuthenticationValidityDurationSecondsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserAuthenticationValidityDurationSecondsResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetUserAuthenticationValidityDurationSeconds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetUserConfirmationRequired(ctx context.Context, in *SetUserConfirmationRequiredRequest, opts ...grpc.CallOption) (*SetUserConfirmationRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserConfirmationRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetUserConfirmationRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyGenParameterSpecBuilderServiceClient) SetUserPresenceRequired(ctx context.Context, in *SetUserPresenceRequiredRequest, opts ...grpc.CallOption) (*SetUserPresenceRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserPresenceRequiredResponse)
+	err := c.cc.Invoke(ctx, KeyGenParameterSpecBuilderService_SetUserPresenceRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// KeyGenParameterSpecBuilderServiceServer is the server API for KeyGenParameterSpecBuilderService service.
+// All implementations must embed UnimplementedKeyGenParameterSpecBuilderServiceServer
+// for forward compatibility.
+type KeyGenParameterSpecBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAlgorithmParameterSpec(context.Context, *SetAlgorithmParameterSpecRequest) (*SetAlgorithmParameterSpecResponse, error)
+	SetAttestKeyAlias(context.Context, *SetAttestKeyAliasRequest) (*SetAttestKeyAliasResponse, error)
+	SetAttestationChallenge(context.Context, *SetAttestationChallengeRequest) (*SetAttestationChallengeResponse, error)
+	SetBlockModes(context.Context, *SetBlockModesRequest) (*SetBlockModesResponse, error)
+	SetCertificateNotAfter(context.Context, *SetCertificateNotAfterRequest) (*SetCertificateNotAfterResponse, error)
+	SetCertificateNotBefore(context.Context, *SetCertificateNotBeforeRequest) (*SetCertificateNotBeforeResponse, error)
+	SetCertificateSerialNumber(context.Context, *SetCertificateSerialNumberRequest) (*SetCertificateSerialNumberResponse, error)
+	SetCertificateSubject(context.Context, *SetCertificateSubjectRequest) (*SetCertificateSubjectResponse, error)
+	SetDevicePropertiesAttestationIncluded(context.Context, *SetDevicePropertiesAttestationIncludedRequest) (*SetDevicePropertiesAttestationIncludedResponse, error)
+	SetDigests(context.Context, *SetDigestsRequest) (*SetDigestsResponse, error)
+	SetEncryptionPaddings(context.Context, *SetEncryptionPaddingsRequest) (*SetEncryptionPaddingsResponse, error)
+	SetInvalidatedByBiometricEnrollment(context.Context, *SetInvalidatedByBiometricEnrollmentRequest) (*SetInvalidatedByBiometricEnrollmentResponse, error)
+	SetIsStrongBoxBacked(context.Context, *SetIsStrongBoxBackedRequest) (*SetIsStrongBoxBackedResponse, error)
+	SetKeySize(context.Context, *SetKeySizeRequest) (*SetKeySizeResponse, error)
+	SetKeyValidityEnd(context.Context, *SetKeyValidityEndRequest) (*SetKeyValidityEndResponse, error)
+	SetKeyValidityForConsumptionEnd(context.Context, *SetKeyValidityForConsumptionEndRequest) (*SetKeyValidityForConsumptionEndResponse, error)
+	SetKeyValidityForOriginationEnd(context.Context, *SetKeyValidityForOriginationEndRequest) (*SetKeyValidityForOriginationEndResponse, error)
+	SetKeyValidityStart(context.Context, *SetKeyValidityStartRequest) (*SetKeyValidityStartResponse, error)
+	SetMaxUsageCount(context.Context, *SetMaxUsageCountRequest) (*SetMaxUsageCountResponse, error)
+	SetMgf1Digests(context.Context, *SetMgf1DigestsRequest) (*SetMgf1DigestsResponse, error)
+	SetRandomizedEncryptionRequired(context.Context, *SetRandomizedEncryptionRequiredRequest) (*SetRandomizedEncryptionRequiredResponse, error)
+	SetSignaturePaddings(context.Context, *SetSignaturePaddingsRequest) (*SetSignaturePaddingsResponse, error)
+	SetUnlockedDeviceRequired(context.Context, *SetUnlockedDeviceRequiredRequest) (*SetUnlockedDeviceRequiredResponse, error)
+	SetUserAuthenticationParameters(context.Context, *SetUserAuthenticationParametersRequest) (*SetUserAuthenticationParametersResponse, error)
+	SetUserAuthenticationRequired(context.Context, *SetUserAuthenticationRequiredRequest) (*SetUserAuthenticationRequiredResponse, error)
+	SetUserAuthenticationValidWhileOnBody(context.Context, *SetUserAuthenticationValidWhileOnBodyRequest) (*SetUserAuthenticationValidWhileOnBodyResponse, error)
+	SetUserAuthenticationValidityDurationSeconds(context.Context, *SetUserAuthenticationValidityDurationSecondsRequest) (*SetUserAuthenticationValidityDurationSecondsResponse, error)
+	SetUserConfirmationRequired(context.Context, *SetUserConfirmationRequiredRequest) (*SetUserConfirmationRequiredResponse, error)
+	SetUserPresenceRequired(context.Context, *SetUserPresenceRequiredRequest) (*SetUserPresenceRequiredResponse, error)
+	mustEmbedUnimplementedKeyGenParameterSpecBuilderServiceServer()
+}
+
+// UnimplementedKeyGenParameterSpecBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedKeyGenParameterSpecBuilderServiceServer struct{}
+
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetAlgorithmParameterSpec(context.Context, *SetAlgorithmParameterSpecRequest) (*SetAlgorithmParameterSpecResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAlgorithmParameterSpec not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetAttestKeyAlias(context.Context, *SetAttestKeyAliasRequest) (*SetAttestKeyAliasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAttestKeyAlias not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetAttestationChallenge(context.Context, *SetAttestationChallengeRequest) (*SetAttestationChallengeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAttestationChallenge not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetBlockModes(context.Context, *SetBlockModesRequest) (*SetBlockModesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetBlockModes not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetCertificateNotAfter(context.Context, *SetCertificateNotAfterRequest) (*SetCertificateNotAfterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCertificateNotAfter not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetCertificateNotBefore(context.Context, *SetCertificateNotBeforeRequest) (*SetCertificateNotBeforeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCertificateNotBefore not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetCertificateSerialNumber(context.Context, *SetCertificateSerialNumberRequest) (*SetCertificateSerialNumberResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCertificateSerialNumber not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetCertificateSubject(context.Context, *SetCertificateSubjectRequest) (*SetCertificateSubjectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCertificateSubject not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetDevicePropertiesAttestationIncluded(context.Context, *SetDevicePropertiesAttestationIncludedRequest) (*SetDevicePropertiesAttestationIncludedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDevicePropertiesAttestationIncluded not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetDigests(context.Context, *SetDigestsRequest) (*SetDigestsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDigests not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetEncryptionPaddings(context.Context, *SetEncryptionPaddingsRequest) (*SetEncryptionPaddingsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEncryptionPaddings not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetInvalidatedByBiometricEnrollment(context.Context, *SetInvalidatedByBiometricEnrollmentRequest) (*SetInvalidatedByBiometricEnrollmentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetInvalidatedByBiometricEnrollment not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetIsStrongBoxBacked(context.Context, *SetIsStrongBoxBackedRequest) (*SetIsStrongBoxBackedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetIsStrongBoxBacked not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetKeySize(context.Context, *SetKeySizeRequest) (*SetKeySizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetKeySize not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetKeyValidityEnd(context.Context, *SetKeyValidityEndRequest) (*SetKeyValidityEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetKeyValidityEnd not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetKeyValidityForConsumptionEnd(context.Context, *SetKeyValidityForConsumptionEndRequest) (*SetKeyValidityForConsumptionEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetKeyValidityForConsumptionEnd not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetKeyValidityForOriginationEnd(context.Context, *SetKeyValidityForOriginationEndRequest) (*SetKeyValidityForOriginationEndResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetKeyValidityForOriginationEnd not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetKeyValidityStart(context.Context, *SetKeyValidityStartRequest) (*SetKeyValidityStartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetKeyValidityStart not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetMaxUsageCount(context.Context, *SetMaxUsageCountRequest) (*SetMaxUsageCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMaxUsageCount not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetMgf1Digests(context.Context, *SetMgf1DigestsRequest) (*SetMgf1DigestsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMgf1Digests not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetRandomizedEncryptionRequired(context.Context, *SetRandomizedEncryptionRequiredRequest) (*SetRandomizedEncryptionRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRandomizedEncryptionRequired not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetSignaturePaddings(context.Context, *SetSignaturePaddingsRequest) (*SetSignaturePaddingsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSignaturePaddings not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetUnlockedDeviceRequired(context.Context, *SetUnlockedDeviceRequiredRequest) (*SetUnlockedDeviceRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUnlockedDeviceRequired not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetUserAuthenticationParameters(context.Context, *SetUserAuthenticationParametersRequest) (*SetUserAuthenticationParametersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUserAuthenticationParameters not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetUserAuthenticationRequired(context.Context, *SetUserAuthenticationRequiredRequest) (*SetUserAuthenticationRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUserAuthenticationRequired not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetUserAuthenticationValidWhileOnBody(context.Context, *SetUserAuthenticationValidWhileOnBodyRequest) (*SetUserAuthenticationValidWhileOnBodyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUserAuthenticationValidWhileOnBody not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetUserAuthenticationValidityDurationSeconds(context.Context, *SetUserAuthenticationValidityDurationSecondsRequest) (*SetUserAuthenticationValidityDurationSecondsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUserAuthenticationValidityDurationSeconds not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetUserConfirmationRequired(context.Context, *SetUserConfirmationRequiredRequest) (*SetUserConfirmationRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUserConfirmationRequired not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) SetUserPresenceRequired(context.Context, *SetUserPresenceRequiredRequest) (*SetUserPresenceRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUserPresenceRequired not implemented")
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) mustEmbedUnimplementedKeyGenParameterSpecBuilderServiceServer() {
+}
+func (UnimplementedKeyGenParameterSpecBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeKeyGenParameterSpecBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to KeyGenParameterSpecBuilderServiceServer will
+// result in compilation errors.
+type UnsafeKeyGenParameterSpecBuilderServiceServer interface {
+	mustEmbedUnimplementedKeyGenParameterSpecBuilderServiceServer()
+}
+
+func RegisterKeyGenParameterSpecBuilderServiceServer(s grpc.ServiceRegistrar, srv KeyGenParameterSpecBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedKeyGenParameterSpecBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&KeyGenParameterSpecBuilderService_ServiceDesc, srv)
+}
+
+func _KeyGenParameterSpecBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetAlgorithmParameterSpec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAlgorithmParameterSpecRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetAlgorithmParameterSpec(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetAlgorithmParameterSpec_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetAlgorithmParameterSpec(ctx, req.(*SetAlgorithmParameterSpecRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetAttestKeyAlias_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAttestKeyAliasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetAttestKeyAlias(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetAttestKeyAlias_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetAttestKeyAlias(ctx, req.(*SetAttestKeyAliasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetAttestationChallenge_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAttestationChallengeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetAttestationChallenge(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetAttestationChallenge_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetAttestationChallenge(ctx, req.(*SetAttestationChallengeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetBlockModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetBlockModesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetBlockModes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetBlockModes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetBlockModes(ctx, req.(*SetBlockModesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetCertificateNotAfter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCertificateNotAfterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetCertificateNotAfter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetCertificateNotAfter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetCertificateNotAfter(ctx, req.(*SetCertificateNotAfterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetCertificateNotBefore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCertificateNotBeforeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetCertificateNotBefore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetCertificateNotBefore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetCertificateNotBefore(ctx, req.(*SetCertificateNotBeforeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetCertificateSerialNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCertificateSerialNumberRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetCertificateSerialNumber(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetCertificateSerialNumber_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetCertificateSerialNumber(ctx, req.(*SetCertificateSerialNumberRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetCertificateSubject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCertificateSubjectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetCertificateSubject(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetCertificateSubject_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetCertificateSubject(ctx, req.(*SetCertificateSubjectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetDevicePropertiesAttestationIncluded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDevicePropertiesAttestationIncludedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetDevicePropertiesAttestationIncluded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetDevicePropertiesAttestationIncluded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetDevicePropertiesAttestationIncluded(ctx, req.(*SetDevicePropertiesAttestationIncludedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetDigests_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDigestsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetDigests(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetDigests_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetDigests(ctx, req.(*SetDigestsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetEncryptionPaddings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEncryptionPaddingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetEncryptionPaddings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetEncryptionPaddings_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetEncryptionPaddings(ctx, req.(*SetEncryptionPaddingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetInvalidatedByBiometricEnrollment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetInvalidatedByBiometricEnrollmentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetInvalidatedByBiometricEnrollment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetInvalidatedByBiometricEnrollment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetInvalidatedByBiometricEnrollment(ctx, req.(*SetInvalidatedByBiometricEnrollmentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetIsStrongBoxBacked_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetIsStrongBoxBackedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetIsStrongBoxBacked(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetIsStrongBoxBacked_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetIsStrongBoxBacked(ctx, req.(*SetIsStrongBoxBackedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetKeySize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetKeySizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetKeySize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetKeySize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetKeySize(ctx, req.(*SetKeySizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetKeyValidityEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetKeyValidityEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetKeyValidityEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetKeyValidityEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetKeyValidityEnd(ctx, req.(*SetKeyValidityEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetKeyValidityForConsumptionEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetKeyValidityForConsumptionEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetKeyValidityForConsumptionEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetKeyValidityForConsumptionEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetKeyValidityForConsumptionEnd(ctx, req.(*SetKeyValidityForConsumptionEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetKeyValidityForOriginationEnd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetKeyValidityForOriginationEndRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetKeyValidityForOriginationEnd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetKeyValidityForOriginationEnd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetKeyValidityForOriginationEnd(ctx, req.(*SetKeyValidityForOriginationEndRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetKeyValidityStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetKeyValidityStartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetKeyValidityStart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetKeyValidityStart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetKeyValidityStart(ctx, req.(*SetKeyValidityStartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetMaxUsageCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMaxUsageCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetMaxUsageCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetMaxUsageCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetMaxUsageCount(ctx, req.(*SetMaxUsageCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetMgf1Digests_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMgf1DigestsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetMgf1Digests(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetMgf1Digests_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetMgf1Digests(ctx, req.(*SetMgf1DigestsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetRandomizedEncryptionRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRandomizedEncryptionRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetRandomizedEncryptionRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetRandomizedEncryptionRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetRandomizedEncryptionRequired(ctx, req.(*SetRandomizedEncryptionRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetSignaturePaddings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSignaturePaddingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetSignaturePaddings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetSignaturePaddings_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetSignaturePaddings(ctx, req.(*SetSignaturePaddingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetUnlockedDeviceRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUnlockedDeviceRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetUnlockedDeviceRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetUnlockedDeviceRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetUnlockedDeviceRequired(ctx, req.(*SetUnlockedDeviceRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetUserAuthenticationParameters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserAuthenticationParametersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetUserAuthenticationParameters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetUserAuthenticationParameters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetUserAuthenticationParameters(ctx, req.(*SetUserAuthenticationParametersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetUserAuthenticationRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserAuthenticationRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetUserAuthenticationRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetUserAuthenticationRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetUserAuthenticationRequired(ctx, req.(*SetUserAuthenticationRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetUserAuthenticationValidWhileOnBody_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserAuthenticationValidWhileOnBodyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetUserAuthenticationValidWhileOnBody(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetUserAuthenticationValidWhileOnBody_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetUserAuthenticationValidWhileOnBody(ctx, req.(*SetUserAuthenticationValidWhileOnBodyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetUserAuthenticationValidityDurationSeconds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserAuthenticationValidityDurationSecondsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetUserAuthenticationValidityDurationSeconds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetUserAuthenticationValidityDurationSeconds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetUserAuthenticationValidityDurationSeconds(ctx, req.(*SetUserAuthenticationValidityDurationSecondsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetUserConfirmationRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserConfirmationRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetUserConfirmationRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetUserConfirmationRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetUserConfirmationRequired(ctx, req.(*SetUserConfirmationRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyGenParameterSpecBuilderService_SetUserPresenceRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserPresenceRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetUserPresenceRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyGenParameterSpecBuilderService_SetUserPresenceRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyGenParameterSpecBuilderServiceServer).SetUserPresenceRequired(ctx, req.(*SetUserPresenceRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// KeyGenParameterSpecBuilderService_ServiceDesc is the grpc.ServiceDesc for KeyGenParameterSpecBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var KeyGenParameterSpecBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "keystore.KeyGenParameterSpecBuilderService",
+	HandlerType: (*KeyGenParameterSpecBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _KeyGenParameterSpecBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetAlgorithmParameterSpec",
+			Handler:    _KeyGenParameterSpecBuilderService_SetAlgorithmParameterSpec_Handler,
+		},
+		{
+			MethodName: "SetAttestKeyAlias",
+			Handler:    _KeyGenParameterSpecBuilderService_SetAttestKeyAlias_Handler,
+		},
+		{
+			MethodName: "SetAttestationChallenge",
+			Handler:    _KeyGenParameterSpecBuilderService_SetAttestationChallenge_Handler,
+		},
+		{
+			MethodName: "SetBlockModes",
+			Handler:    _KeyGenParameterSpecBuilderService_SetBlockModes_Handler,
+		},
+		{
+			MethodName: "SetCertificateNotAfter",
+			Handler:    _KeyGenParameterSpecBuilderService_SetCertificateNotAfter_Handler,
+		},
+		{
+			MethodName: "SetCertificateNotBefore",
+			Handler:    _KeyGenParameterSpecBuilderService_SetCertificateNotBefore_Handler,
+		},
+		{
+			MethodName: "SetCertificateSerialNumber",
+			Handler:    _KeyGenParameterSpecBuilderService_SetCertificateSerialNumber_Handler,
+		},
+		{
+			MethodName: "SetCertificateSubject",
+			Handler:    _KeyGenParameterSpecBuilderService_SetCertificateSubject_Handler,
+		},
+		{
+			MethodName: "SetDevicePropertiesAttestationIncluded",
+			Handler:    _KeyGenParameterSpecBuilderService_SetDevicePropertiesAttestationIncluded_Handler,
+		},
+		{
+			MethodName: "SetDigests",
+			Handler:    _KeyGenParameterSpecBuilderService_SetDigests_Handler,
+		},
+		{
+			MethodName: "SetEncryptionPaddings",
+			Handler:    _KeyGenParameterSpecBuilderService_SetEncryptionPaddings_Handler,
+		},
+		{
+			MethodName: "SetInvalidatedByBiometricEnrollment",
+			Handler:    _KeyGenParameterSpecBuilderService_SetInvalidatedByBiometricEnrollment_Handler,
+		},
+		{
+			MethodName: "SetIsStrongBoxBacked",
+			Handler:    _KeyGenParameterSpecBuilderService_SetIsStrongBoxBacked_Handler,
+		},
+		{
+			MethodName: "SetKeySize",
+			Handler:    _KeyGenParameterSpecBuilderService_SetKeySize_Handler,
+		},
+		{
+			MethodName: "SetKeyValidityEnd",
+			Handler:    _KeyGenParameterSpecBuilderService_SetKeyValidityEnd_Handler,
+		},
+		{
+			MethodName: "SetKeyValidityForConsumptionEnd",
+			Handler:    _KeyGenParameterSpecBuilderService_SetKeyValidityForConsumptionEnd_Handler,
+		},
+		{
+			MethodName: "SetKeyValidityForOriginationEnd",
+			Handler:    _KeyGenParameterSpecBuilderService_SetKeyValidityForOriginationEnd_Handler,
+		},
+		{
+			MethodName: "SetKeyValidityStart",
+			Handler:    _KeyGenParameterSpecBuilderService_SetKeyValidityStart_Handler,
+		},
+		{
+			MethodName: "SetMaxUsageCount",
+			Handler:    _KeyGenParameterSpecBuilderService_SetMaxUsageCount_Handler,
+		},
+		{
+			MethodName: "SetMgf1Digests",
+			Handler:    _KeyGenParameterSpecBuilderService_SetMgf1Digests_Handler,
+		},
+		{
+			MethodName: "SetRandomizedEncryptionRequired",
+			Handler:    _KeyGenParameterSpecBuilderService_SetRandomizedEncryptionRequired_Handler,
+		},
+		{
+			MethodName: "SetSignaturePaddings",
+			Handler:    _KeyGenParameterSpecBuilderService_SetSignaturePaddings_Handler,
+		},
+		{
+			MethodName: "SetUnlockedDeviceRequired",
+			Handler:    _KeyGenParameterSpecBuilderService_SetUnlockedDeviceRequired_Handler,
+		},
+		{
+			MethodName: "SetUserAuthenticationParameters",
+			Handler:    _KeyGenParameterSpecBuilderService_SetUserAuthenticationParameters_Handler,
+		},
+		{
+			MethodName: "SetUserAuthenticationRequired",
+			Handler:    _KeyGenParameterSpecBuilderService_SetUserAuthenticationRequired_Handler,
+		},
+		{
+			MethodName: "SetUserAuthenticationValidWhileOnBody",
+			Handler:    _KeyGenParameterSpecBuilderService_SetUserAuthenticationValidWhileOnBody_Handler,
+		},
+		{
+			MethodName: "SetUserAuthenticationValidityDurationSeconds",
+			Handler:    _KeyGenParameterSpecBuilderService_SetUserAuthenticationValidityDurationSeconds_Handler,
+		},
+		{
+			MethodName: "SetUserConfirmationRequired",
+			Handler:    _KeyGenParameterSpecBuilderService_SetUserConfirmationRequired_Handler,
+		},
+		{
+			MethodName: "SetUserPresenceRequired",
+			Handler:    _KeyGenParameterSpecBuilderService_SetUserPresenceRequired_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/keystore/keystore.proto",
+}

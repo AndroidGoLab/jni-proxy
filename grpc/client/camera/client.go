@@ -146,3 +146,93 @@ func (c *ManagerClient) UnregisterTorchCallback(ctx context.Context, arg0 int64)
 	})
 	return err
 }
+
+// ManagerAvailabilityCallbackClient wraps the gRPC ManagerAvailabilityCallbackService client.
+type ManagerAvailabilityCallbackClient struct {
+	svc pb.ManagerAvailabilityCallbackServiceClient
+}
+
+// NewManagerAvailabilityCallbackClient creates a new ManagerAvailabilityCallback client.
+func NewManagerAvailabilityCallbackClient(cc grpc.ClientConnInterface) *ManagerAvailabilityCallbackClient {
+	return &ManagerAvailabilityCallbackClient{
+		svc: pb.NewManagerAvailabilityCallbackServiceClient(cc),
+	}
+}
+
+// OnCameraAccessPrioritiesChanged calls the OnCameraAccessPrioritiesChanged RPC.
+func (c *ManagerAvailabilityCallbackClient) OnCameraAccessPrioritiesChanged(ctx context.Context) error {
+	_, err := c.svc.OnCameraAccessPrioritiesChanged(ctx, &pb.OnCameraAccessPrioritiesChangedRequest{})
+	return err
+}
+
+// OnCameraAvailable calls the OnCameraAvailable RPC.
+func (c *ManagerAvailabilityCallbackClient) OnCameraAvailable(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnCameraAvailable(ctx, &pb.OnCameraAvailableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnCameraUnavailable calls the OnCameraUnavailable RPC.
+func (c *ManagerAvailabilityCallbackClient) OnCameraUnavailable(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnCameraUnavailable(ctx, &pb.OnCameraUnavailableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnPhysicalCameraAvailable calls the OnPhysicalCameraAvailable RPC.
+func (c *ManagerAvailabilityCallbackClient) OnPhysicalCameraAvailable(ctx context.Context, arg0 string, arg1 string) error {
+	_, err := c.svc.OnPhysicalCameraAvailable(ctx, &pb.OnPhysicalCameraAvailableRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPhysicalCameraUnavailable calls the OnPhysicalCameraUnavailable RPC.
+func (c *ManagerAvailabilityCallbackClient) OnPhysicalCameraUnavailable(ctx context.Context, arg0 string, arg1 string) error {
+	_, err := c.svc.OnPhysicalCameraUnavailable(ctx, &pb.OnPhysicalCameraUnavailableRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ManagerTorchCallbackClient wraps the gRPC ManagerTorchCallbackService client.
+type ManagerTorchCallbackClient struct {
+	svc pb.ManagerTorchCallbackServiceClient
+}
+
+// NewManagerTorchCallbackClient creates a new ManagerTorchCallback client.
+func NewManagerTorchCallbackClient(cc grpc.ClientConnInterface) *ManagerTorchCallbackClient {
+	return &ManagerTorchCallbackClient{
+		svc: pb.NewManagerTorchCallbackServiceClient(cc),
+	}
+}
+
+// OnTorchModeChanged calls the OnTorchModeChanged RPC.
+func (c *ManagerTorchCallbackClient) OnTorchModeChanged(ctx context.Context, arg0 string, arg1 bool) error {
+	_, err := c.svc.OnTorchModeChanged(ctx, &pb.OnTorchModeChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnTorchModeUnavailable calls the OnTorchModeUnavailable RPC.
+func (c *ManagerTorchCallbackClient) OnTorchModeUnavailable(ctx context.Context, arg0 string) error {
+	_, err := c.svc.OnTorchModeUnavailable(ctx, &pb.OnTorchModeUnavailableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnTorchStrengthLevelChanged calls the OnTorchStrengthLevelChanged RPC.
+func (c *ManagerTorchCallbackClient) OnTorchStrengthLevelChanged(ctx context.Context, arg0 string, arg1 int32) error {
+	_, err := c.svc.OnTorchStrengthLevelChanged(ctx, &pb.OnTorchStrengthLevelChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}

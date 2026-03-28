@@ -5,3 +5,425 @@ syntax = "proto3";
 package dreams;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/dreams";
+
+message NewDreamServiceRequest {
+}
+
+message NewDreamServiceResponse {
+  int64 result = 1;
+}
+
+message AddContentViewRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message AddContentViewResponse {
+}
+
+message DispatchGenericMotionEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DispatchGenericMotionEventResponse {
+  bool result = 1;
+}
+
+message DispatchKeyEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DispatchKeyEventResponse {
+  bool result = 1;
+}
+
+message DispatchKeyShortcutEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DispatchKeyShortcutEventResponse {
+  bool result = 1;
+}
+
+message DispatchPopulateAccessibilityEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DispatchPopulateAccessibilityEventResponse {
+  bool result = 1;
+}
+
+message DispatchTouchEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DispatchTouchEventResponse {
+  bool result = 1;
+}
+
+message DispatchTrackballEventRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message DispatchTrackballEventResponse {
+  bool result = 1;
+}
+
+message FinishRequest {
+  int64 handle = 1;
+}
+
+message FinishResponse {
+}
+
+message GetWindowRequest {
+  int64 handle = 1;
+}
+
+message GetWindowResponse {
+  int64 result = 1;
+}
+
+message GetWindowManagerRequest {
+  int64 handle = 1;
+}
+
+message GetWindowManagerResponse {
+  int64 result = 1;
+}
+
+message IsFullscreenRequest {
+  int64 handle = 1;
+}
+
+message IsFullscreenResponse {
+  bool result = 1;
+}
+
+message IsInteractiveRequest {
+  int64 handle = 1;
+}
+
+message IsInteractiveResponse {
+  bool result = 1;
+}
+
+message IsScreenBrightRequest {
+  int64 handle = 1;
+}
+
+message IsScreenBrightResponse {
+  bool result = 1;
+}
+
+message OnActionModeFinishedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnActionModeFinishedResponse {
+}
+
+message OnActionModeStartedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnActionModeStartedResponse {
+}
+
+message OnAttachedToWindowRequest {
+  int64 handle = 1;
+}
+
+message OnAttachedToWindowResponse {
+}
+
+message OnBindRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnContentChangedRequest {
+  int64 handle = 1;
+}
+
+message OnContentChangedResponse {
+}
+
+message OnCreateRequest {
+  int64 handle = 1;
+}
+
+message OnCreateResponse {
+}
+
+message OnCreatePanelMenuRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnCreatePanelMenuResponse {
+  bool result = 1;
+}
+
+message OnCreatePanelViewRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message OnCreatePanelViewResponse {
+  int64 result = 1;
+}
+
+message OnDestroyRequest {
+  int64 handle = 1;
+}
+
+message OnDestroyResponse {
+}
+
+message OnDetachedFromWindowRequest {
+  int64 handle = 1;
+}
+
+message OnDetachedFromWindowResponse {
+}
+
+message OnDreamingStartedRequest {
+  int64 handle = 1;
+}
+
+message OnDreamingStartedResponse {
+}
+
+message OnDreamingStoppedRequest {
+  int64 handle = 1;
+}
+
+message OnDreamingStoppedResponse {
+}
+
+message OnMenuItemSelectedRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnMenuItemSelectedResponse {
+  bool result = 1;
+}
+
+message OnMenuOpenedRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnMenuOpenedResponse {
+  bool result = 1;
+}
+
+message OnPanelClosedRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message OnPanelClosedResponse {
+}
+
+message OnPreparePanelRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int64 arg1 = 3;
+  int64 arg2 = 4;
+}
+
+message OnPreparePanelResponse {
+  bool result = 1;
+}
+
+message OnSearchRequested0Request {
+  int64 handle = 1;
+}
+
+message OnSearchRequested0Response {
+  bool result = 1;
+}
+
+message OnSearchRequested1_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnSearchRequested1_1Response {
+  bool result = 1;
+}
+
+message OnUnbindRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnUnbindResponse {
+  bool result = 1;
+}
+
+message OnWakeUpRequest {
+  int64 handle = 1;
+}
+
+message OnWakeUpResponse {
+}
+
+message OnWindowAttributesChangedRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnWindowAttributesChangedResponse {
+}
+
+message OnWindowFocusChangedRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message OnWindowFocusChangedResponse {
+}
+
+message OnWindowStartingActionMode1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnWindowStartingActionMode1Response {
+  int64 result = 1;
+}
+
+message OnWindowStartingActionMode2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message OnWindowStartingActionMode2_1Response {
+  int64 result = 1;
+}
+
+message SetContentView1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetContentView1Response {
+}
+
+message SetContentView2_1Request {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetContentView2_1Response {
+}
+
+message SetContentView1_2Request {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetContentView1_2Response {
+}
+
+message SetFullscreenRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetFullscreenResponse {
+}
+
+message SetInteractiveRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetInteractiveResponse {
+}
+
+message SetScreenBrightRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetScreenBrightResponse {
+}
+
+message WakeUpRequest {
+  int64 handle = 1;
+}
+
+message WakeUpResponse {
+}
+
+service DreamServiceService {
+  rpc NewDreamService (NewDreamServiceRequest) returns (NewDreamServiceResponse);
+  rpc AddContentView (AddContentViewRequest) returns (AddContentViewResponse);
+  rpc DispatchGenericMotionEvent (DispatchGenericMotionEventRequest) returns (DispatchGenericMotionEventResponse);
+  rpc DispatchKeyEvent (DispatchKeyEventRequest) returns (DispatchKeyEventResponse);
+  rpc DispatchKeyShortcutEvent (DispatchKeyShortcutEventRequest) returns (DispatchKeyShortcutEventResponse);
+  rpc DispatchPopulateAccessibilityEvent (DispatchPopulateAccessibilityEventRequest) returns (DispatchPopulateAccessibilityEventResponse);
+  rpc DispatchTouchEvent (DispatchTouchEventRequest) returns (DispatchTouchEventResponse);
+  rpc DispatchTrackballEvent (DispatchTrackballEventRequest) returns (DispatchTrackballEventResponse);
+  rpc Finish (FinishRequest) returns (FinishResponse);
+  rpc GetWindow (GetWindowRequest) returns (GetWindowResponse);
+  rpc GetWindowManager (GetWindowManagerRequest) returns (GetWindowManagerResponse);
+  rpc IsFullscreen (IsFullscreenRequest) returns (IsFullscreenResponse);
+  rpc IsInteractive (IsInteractiveRequest) returns (IsInteractiveResponse);
+  rpc IsScreenBright (IsScreenBrightRequest) returns (IsScreenBrightResponse);
+  rpc OnActionModeFinished (OnActionModeFinishedRequest) returns (OnActionModeFinishedResponse);
+  rpc OnActionModeStarted (OnActionModeStartedRequest) returns (OnActionModeStartedResponse);
+  rpc OnAttachedToWindow (OnAttachedToWindowRequest) returns (OnAttachedToWindowResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnContentChanged (OnContentChangedRequest) returns (OnContentChangedResponse);
+  rpc OnCreate (OnCreateRequest) returns (OnCreateResponse);
+  rpc OnCreatePanelMenu (OnCreatePanelMenuRequest) returns (OnCreatePanelMenuResponse);
+  rpc OnCreatePanelView (OnCreatePanelViewRequest) returns (OnCreatePanelViewResponse);
+  rpc OnDestroy (OnDestroyRequest) returns (OnDestroyResponse);
+  rpc OnDetachedFromWindow (OnDetachedFromWindowRequest) returns (OnDetachedFromWindowResponse);
+  rpc OnDreamingStarted (OnDreamingStartedRequest) returns (OnDreamingStartedResponse);
+  rpc OnDreamingStopped (OnDreamingStoppedRequest) returns (OnDreamingStoppedResponse);
+  rpc OnMenuItemSelected (OnMenuItemSelectedRequest) returns (OnMenuItemSelectedResponse);
+  rpc OnMenuOpened (OnMenuOpenedRequest) returns (OnMenuOpenedResponse);
+  rpc OnPanelClosed (OnPanelClosedRequest) returns (OnPanelClosedResponse);
+  rpc OnPreparePanel (OnPreparePanelRequest) returns (OnPreparePanelResponse);
+  rpc OnSearchRequested0 (OnSearchRequested0Request) returns (OnSearchRequested0Response);
+  rpc OnSearchRequested1_1 (OnSearchRequested1_1Request) returns (OnSearchRequested1_1Response);
+  rpc OnUnbind (OnUnbindRequest) returns (OnUnbindResponse);
+  rpc OnWakeUp (OnWakeUpRequest) returns (OnWakeUpResponse);
+  rpc OnWindowAttributesChanged (OnWindowAttributesChangedRequest) returns (OnWindowAttributesChangedResponse);
+  rpc OnWindowFocusChanged (OnWindowFocusChangedRequest) returns (OnWindowFocusChangedResponse);
+  rpc OnWindowStartingActionMode1 (OnWindowStartingActionMode1Request) returns (OnWindowStartingActionMode1Response);
+  rpc OnWindowStartingActionMode2_1 (OnWindowStartingActionMode2_1Request) returns (OnWindowStartingActionMode2_1Response);
+  rpc SetContentView1 (SetContentView1Request) returns (SetContentView1Response);
+  rpc SetContentView2_1 (SetContentView2_1Request) returns (SetContentView2_1Response);
+  rpc SetContentView1_2 (SetContentView1_2Request) returns (SetContentView1_2Response);
+  rpc SetFullscreen (SetFullscreenRequest) returns (SetFullscreenResponse);
+  rpc SetInteractive (SetInteractiveRequest) returns (SetInteractiveResponse);
+  rpc SetScreenBright (SetScreenBrightRequest) returns (SetScreenBrightResponse);
+  rpc WakeUp (WakeUpRequest) returns (WakeUpResponse);
+}
