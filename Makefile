@@ -199,12 +199,18 @@ dist-jniservice:
 			-o build/libjniservice-$(DIST_ANDROID_ABI).so ./cmd/jniservice/
 
 dist-dex:
-	@mkdir -p build
-	javac --release 17 -d build cmd/jniservice/JNIService.java
+	@mkdir -p build/dex-staging
+	javac --release 17 \
+		-cp $$(ls -d $(ANDROID_SDK)/platforms/android-* | sort -V | tail -1)/android.jar \
+		-d build/dex-staging \
+		cmd/jniservice/JNIService.java \
+		cmd/jniservice/apk/src/center/dx/jni/internal/GoAbstractDispatch.java \
+		cmd/jniservice/apk/src/center/dx/jni/generated/*.java \
+		internal/testjvm/testdata/center/dx/jni/internal/GoInvocationHandler.java
 	$(ANDROID_SDK)/build-tools/$$(ls $(ANDROID_SDK)/build-tools | sort -V | tail -1)/d8 \
 		--lib $$(ls -d $(ANDROID_SDK)/platforms/android-* | sort -V | tail -1)/android.jar \
-		--output build build/JNIService.class
-	rm -f build/JNIService.class
+		--output build $$(find build/dex-staging -name '*.class')
+	rm -rf build/dex-staging
 
 # ---- Magisk module ----
 magisk: dist-jniservice dist-dex apk
